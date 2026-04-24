@@ -24,6 +24,7 @@ theme:
   features:
   - content.code.copy
   - navigation.tabs
+  - navigation.indexes
   - navigation.sections
   - navigation.top
 
@@ -50,8 +51,13 @@ markdown_extensions:
 - pymdownx.snippets:
     auto_append:
     - docs/includes/abbreviations.md
-- pymdownx.superfences
-- pymdownx.tabbed
+- pymdownx.superfences:
+    custom_fences:
+    - name: mermaid
+      class: mermaid
+      format: !!python/name:pymdownx.superfences.fence_code_format
+- pymdownx.tabbed:
+    alternate_style: true
 
 plugins:
 - search

@@ -1,8 +1,11 @@
 *[BOM]: Bill of Materials
+*[CA]: Certificate Authority
 *[CEL]: Common Expression Language
 *[CPE]: Common Platform Enumeration, a structured naming scheme for software products
 *[CVSS]: Common Vulnerability Scoring System
+*[DEK]: Data Encryption Key
 *[GHSA]: GitHub Security Advisory
+*[KEK]: Key Encryption Key
 *[NVD]: National Vulnerability Database
 *[OSV]: Open Source Vulnerabilities
 *[PURL]: Package URL, a standardized format for identifying software packages

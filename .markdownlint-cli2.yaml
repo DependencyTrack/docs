@@ -22,6 +22,8 @@ config:
   no-inline-html: false
   no-duplicate-heading:
     siblings_only: true
+  code-block-style: false
+  no-space-in-code: false
 
 globs:
 - "docs/**/*.md"
