@@ -21,12 +21,22 @@ copyright: "Copyright &copy; OWASP Foundation. All Rights Reserved."
 
 theme:
   name: material
+  logo: assets/images/logo.svg
+  favicon: assets/images/logo.svg
+  palette:
+    scheme: slate
+    primary: indigo
+    accent: pink
   features:
   - content.code.copy
   - navigation.tabs
   - navigation.indexes
   - navigation.sections
   - navigation.top
+  - navigation.instant
+  - navigation.tracking
+  - navigation.tabs.sticky
+  - search.highlight
 
 extra:
   version:
@@ -39,6 +49,9 @@ extra:
     link: https://github.com/DependencyTrack
   - icon: fontawesome/brands/docker
     link: https://hub.docker.com/u/dependencytrack
+
+extra_css:
+- stylesheets/extra.css
 
 markdown_extensions:
 - abbr
