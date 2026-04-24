@@ -13,6 +13,14 @@
          <lastmod>2026-04-24</lastmod>
     </url>
     <url>
+         <loc>https://dependencytrack.github.io/docs/next/concepts/access-control/</loc>
+         <lastmod>2026-04-24</lastmod>
+    </url>
+    <url>
+         <loc>https://dependencytrack.github.io/docs/next/concepts/vulnerability-policies/</loc>
+         <lastmod>2026-04-24</lastmod>
+    </url>
+    <url>
          <loc>https://dependencytrack.github.io/docs/next/concepts/architecture/design/durable-execution/</loc>
          <lastmod>2026-04-24</lastmod>
     </url>
@@ -34,6 +42,10 @@
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/guides/administration/</loc>
+         <lastmod>2026-04-24</lastmod>
+    </url>
+    <url>
+         <loc>https://dependencytrack.github.io/docs/next/guides/administration/configuring-database/</loc>
          <lastmod>2026-04-24</lastmod>
     </url>
     <url>
@@ -81,7 +93,15 @@
          <lastmod>2026-04-24</lastmod>
     </url>
     <url>
+         <loc>https://dependencytrack.github.io/docs/next/guides/user/managing-private-vulnerabilities/</loc>
+         <lastmod>2026-04-24</lastmod>
+    </url>
+    <url>
          <loc>https://dependencytrack.github.io/docs/next/guides/user/managing-secrets/</loc>
+         <lastmod>2026-04-24</lastmod>
+    </url>
+    <url>
+         <loc>https://dependencytrack.github.io/docs/next/guides/user/managing-vulnerability-policies/</loc>
          <lastmod>2026-04-24</lastmod>
     </url>
     <url>
@@ -93,7 +113,39 @@
          <lastmod>2026-04-24</lastmod>
     </url>
     <url>
+         <loc>https://dependencytrack.github.io/docs/next/reference/analyzers/</loc>
+         <lastmod>2026-04-24</lastmod>
+    </url>
+    <url>
+         <loc>https://dependencytrack.github.io/docs/next/reference/badges/</loc>
+         <lastmod>2026-04-24</lastmod>
+    </url>
+    <url>
+         <loc>https://dependencytrack.github.io/docs/next/reference/cel-expressions/</loc>
+         <lastmod>2026-04-24</lastmod>
+    </url>
+    <url>
+         <loc>https://dependencytrack.github.io/docs/next/reference/community-integrations/</loc>
+         <lastmod>2026-04-24</lastmod>
+    </url>
+    <url>
+         <loc>https://dependencytrack.github.io/docs/next/reference/file-formats/</loc>
+         <lastmod>2026-04-24</lastmod>
+    </url>
+    <url>
          <loc>https://dependencytrack.github.io/docs/next/reference/permissions/</loc>
+         <lastmod>2026-04-24</lastmod>
+    </url>
+    <url>
+         <loc>https://dependencytrack.github.io/docs/next/reference/vulnerability-policies/</loc>
+         <lastmod>2026-04-24</lastmod>
+    </url>
+    <url>
+         <loc>https://dependencytrack.github.io/docs/next/reference/api/v1/</loc>
+         <lastmod>2026-04-24</lastmod>
+    </url>
+    <url>
+         <loc>https://dependencytrack.github.io/docs/next/reference/api/v2/</loc>
          <lastmod>2026-04-24</lastmod>
     </url>
     <url>
@@ -109,6 +161,10 @@
          <lastmod>2026-04-24</lastmod>
     </url>
     <url>
+         <loc>https://dependencytrack.github.io/docs/next/reference/configuration/dex-engine/</loc>
+         <lastmod>2026-04-24</lastmod>
+    </url>
+    <url>
          <loc>https://dependencytrack.github.io/docs/next/reference/configuration/file-storage/</loc>
          <lastmod>2026-04-24</lastmod>
     </url>
@@ -117,7 +173,47 @@
          <lastmod>2026-04-24</lastmod>
     </url>
     <url>
+         <loc>https://dependencytrack.github.io/docs/next/reference/datasources/</loc>
+         <lastmod>2026-04-24</lastmod>
+    </url>
+    <url>
+         <loc>https://dependencytrack.github.io/docs/next/reference/datasources/github-advisories/</loc>
+         <lastmod>2026-04-24</lastmod>
+    </url>
+    <url>
+         <loc>https://dependencytrack.github.io/docs/next/reference/datasources/internal-components/</loc>
+         <lastmod>2026-04-24</lastmod>
+    </url>
+    <url>
+         <loc>https://dependencytrack.github.io/docs/next/reference/datasources/nvd/</loc>
+         <lastmod>2026-04-24</lastmod>
+    </url>
+    <url>
+         <loc>https://dependencytrack.github.io/docs/next/reference/datasources/osv/</loc>
+         <lastmod>2026-04-24</lastmod>
+    </url>
+    <url>
+         <loc>https://dependencytrack.github.io/docs/next/reference/datasources/private-vulnerability-repository/</loc>
+         <lastmod>2026-04-24</lastmod>
+    </url>
+    <url>
+         <loc>https://dependencytrack.github.io/docs/next/reference/datasources/repositories/</loc>
+         <lastmod>2026-04-24</lastmod>
+    </url>
+    <url>
+         <loc>https://dependencytrack.github.io/docs/next/reference/notifications/filter-expressions/</loc>
+         <lastmod>2026-04-24</lastmod>
+    </url>
+    <url>
          <loc>https://dependencytrack.github.io/docs/next/reference/notifications/publishers/</loc>
+         <lastmod>2026-04-24</lastmod>
+    </url>
+    <url>
+         <loc>https://dependencytrack.github.io/docs/next/reference/schemas/notification/</loc>
+         <lastmod>2026-04-24</lastmod>
+    </url>
+    <url>
+         <loc>https://dependencytrack.github.io/docs/next/reference/schemas/policy/</loc>
          <lastmod>2026-04-24</lastmod>
     </url>
     <url>

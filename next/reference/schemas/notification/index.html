@@ -1,0 +1,5505 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://dependencytrack.github.io/docs/next/reference/schemas/notification/">
+      
+      
+        <link rel="prev" href="../../community-integrations/">
+      
+      
+        <link rel="next" href="../policy/">
+      
+      
+        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../../feed_rss_created.xml">
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of updated content" href="../../../feed_rss_updated.xml">
+      
+      <link rel="icon" href="../../../assets/images/logo.svg">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Notification Schema - Dependency-Track</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Notification Schema - Dependency-Track" >
+      
+        <meta  property="og:description"  content="None" >
+      
+        <meta  property="og:image"  content="https://dependencytrack.github.io/docs/next/assets/images/social/reference/schemas/notification.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dependencytrack.github.io/docs/next/reference/schemas/notification/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Notification Schema - Dependency-Track" >
+      
+        <meta  name="twitter:description"  content="None" >
+      
+        <meta  name="twitter:image"  content="https://dependencytrack.github.io/docs/next/assets/images/social/reference/schemas/notification.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="pink">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#notification" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Dependency-Track" class="md-header__button md-logo" aria-label="Dependency-Track" data-md-component="logo">
+      
+  <img src="../../../assets/images/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Dependency-Track
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Notification Schema
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../tutorials/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Tutorials
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../guides/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Guides
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../concepts/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Concepts
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../blog/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Blog
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Dependency-Track" class="md-nav__button md-logo" aria-label="Dependency-Track" data-md-component="logo">
+      
+  <img src="../../../assets/images/logo.svg" alt="logo">
+
+    </a>
+    Dependency-Track
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../tutorials/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../guides/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Guides
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Guides
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../guides/user/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    User Guides
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            User Guides
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guides/user/managing-secrets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Managing secrets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guides/user/managing-vulnerability-policies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Managing vulnerability policies
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guides/user/managing-private-vulnerabilities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Managing private vulnerabilities
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../guides/administration/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Administration Guides
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Administration Guides
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guides/administration/configuring-database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configuring the database
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guides/administration/configuring-observability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configuring observability
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guides/administration/configuring-ldap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configuring LDAP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guides/administration/configuring-oidc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configuring OpenID Connect
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guides/administration/configuring-internal-ca/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configuring internal CA trust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guides/administration/configuring-secret-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configuring secret management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guides/administration/scaling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Scaling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guides/administration/migrating-from-v4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Migrating from v4
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../guides/upgrading/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Upgrade Guides
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Upgrade Guides
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guides/upgrading/v0.7.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Upgrading to v0.7.0
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guides/upgrading/v0.6.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Upgrading to v0.6.0
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../concepts/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Concepts
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Concepts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/access-control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Access control
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/vulnerability-policies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vulnerability policies
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Architecture
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            Architecture
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4_1" id="__nav_4_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Design
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Design
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/architecture/design/durable-execution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Durable execution
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/architecture/design/notifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Notifications
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/architecture/design/package-metadata-resolution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Package metadata resolution
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/architecture/design/vulnerability-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vulnerability analysis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Reference
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/v1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    REST API v1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/v2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    REST API v2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Configuration
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            Configuration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/application/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Application
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/datasources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data Sources
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/file-storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    File Storage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Database
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/dex-engine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Durable Execution Engine
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/properties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    All Properties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../datasources/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Datasources
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_4" id="__nav_5_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            Datasources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../datasources/nvd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    NVD
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../datasources/github-advisories/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GitHub Advisories
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../datasources/osv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OSV
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../datasources/private-vulnerability-repository/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Private Vulnerability Repository
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../datasources/repositories/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Repositories
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../datasources/internal-components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Internal Components
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Notifications
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            Notifications
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notifications/publishers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Publishers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notifications/filter-expressions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Filter Expressions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_6" id="__nav_5_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Vulnerability Analysis
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_6">
+            <span class="md-nav__icon md-icon"></span>
+            Vulnerability Analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analyzers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vulnerability Analyzers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vulnerability-policies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vulnerability Policies
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cel-expressions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CEL Expressions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_8" id="__nav_5_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Access Control
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_8">
+            <span class="md-nav__icon md-icon"></span>
+            Access Control
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../permissions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Permissions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_9" id="__nav_5_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Integrations
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_9">
+            <span class="md-nav__icon md-icon"></span>
+            Integrations
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../badges/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Badges
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../file-formats/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    File Formats
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community-integrations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Community Integrations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_10" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_10" id="__nav_5_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Schemas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_10">
+            <span class="md-nav__icon md-icon"></span>
+            Schemas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Notification Schema
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Notification Schema
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#notification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notification
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subjects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subjects
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Subjects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bomconsumedorprocessedsubject" class="md-nav__link">
+    <span class="md-ellipsis">
+      BomConsumedOrProcessedSubject
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bomprocessingfailedsubject" class="md-nav__link">
+    <span class="md-ellipsis">
+      BomProcessingFailedSubject
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bomvalidationfailedsubject" class="md-nav__link">
+    <span class="md-ellipsis">
+      BomValidationFailedSubject
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#componentvulnanalysiscompletesubject" class="md-nav__link">
+    <span class="md-ellipsis">
+      ComponentVulnAnalysisCompleteSubject
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newpolicyviolationssummarysubject" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewPolicyViolationsSummarySubject
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newvulnerabilitiessummarysubject" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewVulnerabilitiesSummarySubject
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newvulnerabilitysubject" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewVulnerabilitySubject
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newvulnerabledependencysubject" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewVulnerableDependencySubject
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policyviolationanalysisdecisionchangesubject" class="md-nav__link">
+    <span class="md-ellipsis">
+      PolicyViolationAnalysisDecisionChangeSubject
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policyviolationsubject" class="md-nav__link">
+    <span class="md-ellipsis">
+      PolicyViolationSubject
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#projectvulnanalysiscompletesubject" class="md-nav__link">
+    <span class="md-ellipsis">
+      ProjectVulnAnalysisCompleteSubject
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usersubject" class="md-nav__link">
+    <span class="md-ellipsis">
+      UserSubject
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vexconsumedorprocessedsubject" class="md-nav__link">
+    <span class="md-ellipsis">
+      VexConsumedOrProcessedSubject
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vulnerabilityanalysisdecisionchangesubject" class="md-nav__link">
+    <span class="md-ellipsis">
+      VulnerabilityAnalysisDecisionChangeSubject
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vulnerabilityretractedsubject" class="md-nav__link">
+    <span class="md-ellipsis">
+      VulnerabilityRetractedSubject
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Messages
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Messages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backreference" class="md-nav__link">
+    <span class="md-ellipsis">
+      BackReference
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bom" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bom
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#component" class="md-nav__link">
+    <span class="md-ellipsis">
+      Component
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newpolicyviolationssummarysubjectoverview" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewPolicyViolationsSummarySubject.Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newpolicyviolationssummarysubjectoverviewnewviolationscountbytypeentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewPolicyViolationsSummarySubject.Overview.NewViolationsCountByTypeEntry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newpolicyviolationssummarysubjectprojectsummaryentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewPolicyViolationsSummarySubject.ProjectSummaryEntry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newpolicyviolationssummarysubjectprojectsummaryentrynewviolationscountbytypeentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewPolicyViolationsSummarySubject.ProjectSummaryEntry.NewViolationsCountByTypeEntry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newpolicyviolationssummarysubjectprojectsummaryentrysuppressednewviolationscountbytypeentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewPolicyViolationsSummarySubject.ProjectSummaryEntry.SuppressedNewViolationsCountByTypeEntry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newpolicyviolationssummarysubjectprojectsummaryentrytotalnewviolationscountbytypeentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewPolicyViolationsSummarySubject.ProjectSummaryEntry.TotalNewViolationsCountByTypeEntry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newpolicyviolationssummarysubjectprojectviolationsentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewPolicyViolationsSummarySubject.ProjectViolationsEntry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newpolicyviolationssummarysubjectviolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewPolicyViolationsSummarySubject.Violation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newvulnerabilitiessummarysubjectfinding" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewVulnerabilitiesSummarySubject.Finding
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newvulnerabilitiessummarysubjectoverview" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewVulnerabilitiesSummarySubject.Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newvulnerabilitiessummarysubjectoverviewnewvulnerabilitiescountbyseverityentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewVulnerabilitiesSummarySubject.Overview.NewVulnerabilitiesCountBySeverityEntry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newvulnerabilitiessummarysubjectprojectfindingsentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewVulnerabilitiesSummarySubject.ProjectFindingsEntry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newvulnerabilitiessummarysubjectprojectsummaryentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewVulnerabilitiesSummarySubject.ProjectSummaryEntry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newvulnerabilitiessummarysubjectprojectsummaryentrynewvulnerabilitiescountbyseverityentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewVulnerabilitiesSummarySubject.ProjectSummaryEntry.NewVulnerabilitiesCountBySeverityEntry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newvulnerabilitiessummarysubjectprojectsummaryentrysuppressednewvulnerabilitiescountbyseverityentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewVulnerabilitiesSummarySubject.ProjectSummaryEntry.SuppressedNewVulnerabilitiesCountBySeverityEntry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newvulnerabilitiessummarysubjectprojectsummaryentrytotalnewvulnerabilitiescountbyseverityentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewVulnerabilitiesSummarySubject.ProjectSummaryEntry.TotalNewVulnerabilitiesCountBySeverityEntry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Policy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policycondition" class="md-nav__link">
+    <span class="md-ellipsis">
+      PolicyCondition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policyviolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      PolicyViolation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policyviolationanalysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      PolicyViolationAnalysis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vulnerability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vulnerability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vulnerabilityalias" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vulnerability.Alias
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vulnerabilitycwe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vulnerability.Cwe
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vulnerabilityanalysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      VulnerabilityAnalysis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enums" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enums
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Enums">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analysistrigger" class="md-nav__link">
+    <span class="md-ellipsis">
+      AnalysisTrigger
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#group" class="md-nav__link">
+    <span class="md-ellipsis">
+      Group
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level" class="md-nav__link">
+    <span class="md-ellipsis">
+      Level
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#projectvulnanalysisstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      ProjectVulnAnalysisStatus
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scope
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Policy Schema
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../blog/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Blog
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Blog
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Archive
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#notification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notification
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subjects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subjects
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Subjects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bomconsumedorprocessedsubject" class="md-nav__link">
+    <span class="md-ellipsis">
+      BomConsumedOrProcessedSubject
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bomprocessingfailedsubject" class="md-nav__link">
+    <span class="md-ellipsis">
+      BomProcessingFailedSubject
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bomvalidationfailedsubject" class="md-nav__link">
+    <span class="md-ellipsis">
+      BomValidationFailedSubject
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#componentvulnanalysiscompletesubject" class="md-nav__link">
+    <span class="md-ellipsis">
+      ComponentVulnAnalysisCompleteSubject
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newpolicyviolationssummarysubject" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewPolicyViolationsSummarySubject
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newvulnerabilitiessummarysubject" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewVulnerabilitiesSummarySubject
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newvulnerabilitysubject" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewVulnerabilitySubject
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newvulnerabledependencysubject" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewVulnerableDependencySubject
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policyviolationanalysisdecisionchangesubject" class="md-nav__link">
+    <span class="md-ellipsis">
+      PolicyViolationAnalysisDecisionChangeSubject
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policyviolationsubject" class="md-nav__link">
+    <span class="md-ellipsis">
+      PolicyViolationSubject
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#projectvulnanalysiscompletesubject" class="md-nav__link">
+    <span class="md-ellipsis">
+      ProjectVulnAnalysisCompleteSubject
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usersubject" class="md-nav__link">
+    <span class="md-ellipsis">
+      UserSubject
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vexconsumedorprocessedsubject" class="md-nav__link">
+    <span class="md-ellipsis">
+      VexConsumedOrProcessedSubject
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vulnerabilityanalysisdecisionchangesubject" class="md-nav__link">
+    <span class="md-ellipsis">
+      VulnerabilityAnalysisDecisionChangeSubject
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vulnerabilityretractedsubject" class="md-nav__link">
+    <span class="md-ellipsis">
+      VulnerabilityRetractedSubject
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Messages
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Messages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backreference" class="md-nav__link">
+    <span class="md-ellipsis">
+      BackReference
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bom" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bom
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#component" class="md-nav__link">
+    <span class="md-ellipsis">
+      Component
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newpolicyviolationssummarysubjectoverview" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewPolicyViolationsSummarySubject.Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newpolicyviolationssummarysubjectoverviewnewviolationscountbytypeentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewPolicyViolationsSummarySubject.Overview.NewViolationsCountByTypeEntry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newpolicyviolationssummarysubjectprojectsummaryentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewPolicyViolationsSummarySubject.ProjectSummaryEntry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newpolicyviolationssummarysubjectprojectsummaryentrynewviolationscountbytypeentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewPolicyViolationsSummarySubject.ProjectSummaryEntry.NewViolationsCountByTypeEntry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newpolicyviolationssummarysubjectprojectsummaryentrysuppressednewviolationscountbytypeentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewPolicyViolationsSummarySubject.ProjectSummaryEntry.SuppressedNewViolationsCountByTypeEntry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newpolicyviolationssummarysubjectprojectsummaryentrytotalnewviolationscountbytypeentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewPolicyViolationsSummarySubject.ProjectSummaryEntry.TotalNewViolationsCountByTypeEntry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newpolicyviolationssummarysubjectprojectviolationsentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewPolicyViolationsSummarySubject.ProjectViolationsEntry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newpolicyviolationssummarysubjectviolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewPolicyViolationsSummarySubject.Violation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newvulnerabilitiessummarysubjectfinding" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewVulnerabilitiesSummarySubject.Finding
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newvulnerabilitiessummarysubjectoverview" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewVulnerabilitiesSummarySubject.Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newvulnerabilitiessummarysubjectoverviewnewvulnerabilitiescountbyseverityentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewVulnerabilitiesSummarySubject.Overview.NewVulnerabilitiesCountBySeverityEntry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newvulnerabilitiessummarysubjectprojectfindingsentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewVulnerabilitiesSummarySubject.ProjectFindingsEntry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newvulnerabilitiessummarysubjectprojectsummaryentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewVulnerabilitiesSummarySubject.ProjectSummaryEntry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newvulnerabilitiessummarysubjectprojectsummaryentrynewvulnerabilitiescountbyseverityentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewVulnerabilitiesSummarySubject.ProjectSummaryEntry.NewVulnerabilitiesCountBySeverityEntry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newvulnerabilitiessummarysubjectprojectsummaryentrysuppressednewvulnerabilitiescountbyseverityentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewVulnerabilitiesSummarySubject.ProjectSummaryEntry.SuppressedNewVulnerabilitiesCountBySeverityEntry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newvulnerabilitiessummarysubjectprojectsummaryentrytotalnewvulnerabilitiescountbyseverityentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      NewVulnerabilitiesSummarySubject.ProjectSummaryEntry.TotalNewVulnerabilitiesCountBySeverityEntry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Policy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policycondition" class="md-nav__link">
+    <span class="md-ellipsis">
+      PolicyCondition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policyviolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      PolicyViolation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policyviolationanalysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      PolicyViolationAnalysis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vulnerability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vulnerability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vulnerabilityalias" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vulnerability.Alias
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vulnerabilitycwe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vulnerability.Cwe
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vulnerabilityanalysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      VulnerabilityAnalysis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enums" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enums
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Enums">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analysistrigger" class="md-nav__link">
+    <span class="md-ellipsis">
+      AnalysisTrigger
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#group" class="md-nav__link">
+    <span class="md-ellipsis">
+      Group
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level" class="md-nav__link">
+    <span class="md-ellipsis">
+      Level
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#projectvulnanalysisstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      ProjectVulnAnalysisStatus
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scope
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Notification Schema</h1>
+
+<p><a name="org-dependencytrack-notification-v1-Notification"></a></p>
+<h2 id="notification">Notification<a class="headerlink" href="#notification" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>level</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Level"><code>Level</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>scope</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Scope"><code>Scope</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>group</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Group"><code>Group</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>title</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>content</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>timestamp</code></td>
+<td style="text-align: left;"><code>google.protobuf.Timestamp</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>subject</code></td>
+<td style="text-align: left;"><code>google.protobuf.Any</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>id</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;">Unique identifier of the notification in UUIDv7 format.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="subjects">Subjects<a class="headerlink" href="#subjects" title="Permanent link">&para;</a></h2>
+<p><a name="org-dependencytrack-notification-v1-BomConsumedOrProcessedSubject"></a></p>
+<h3 id="bomconsumedorprocessedsubject">BomConsumedOrProcessedSubject<a class="headerlink" href="#bomconsumedorprocessedsubject" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>project</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Project"><code>Project</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>bom</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Bom"><code>Bom</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>token</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><a name="org-dependencytrack-notification-v1-BomProcessingFailedSubject"></a></p>
+<h3 id="bomprocessingfailedsubject">BomProcessingFailedSubject<a class="headerlink" href="#bomprocessingfailedsubject" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>project</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Project"><code>Project</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>bom</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Bom"><code>Bom</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>cause</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>token</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><a name="org-dependencytrack-notification-v1-BomValidationFailedSubject"></a></p>
+<h3 id="bomvalidationfailedsubject">BomValidationFailedSubject<a class="headerlink" href="#bomvalidationfailedsubject" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>project</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Project"><code>Project</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>bom</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Bom"><code>Bom</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>errors</code></td>
+<td style="text-align: left;"><code>string[]</code></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><a name="org-dependencytrack-notification-v1-ComponentVulnAnalysisCompleteSubject"></a></p>
+<h3 id="componentvulnanalysiscompletesubject">ComponentVulnAnalysisCompleteSubject<a class="headerlink" href="#componentvulnanalysiscompletesubject" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>component</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Component"><code>Component</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>vulnerabilities</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Vulnerability"><code>Vulnerability[]</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><a name="org-dependencytrack-notification-v1-NewPolicyViolationsSummarySubject"></a></p>
+<h3 id="newpolicyviolationssummarysubject">NewPolicyViolationsSummarySubject<a class="headerlink" href="#newpolicyviolationssummarysubject" title="Permanent link">&para;</a></h3>
+<p>Subject for GROUP_NEW_POLICY_VIOLATIONS_SUMMARY notifications.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>overview</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-NewPolicyViolationsSummarySubject-Overview"><code>NewPolicyViolationsSummarySubject.Overview</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>project_summaries</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-NewPolicyViolationsSummarySubject-ProjectSummaryEntry"><code>NewPolicyViolationsSummarySubject.ProjectSummaryEntry[]</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>violations_by_project</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-NewPolicyViolationsSummarySubject-ProjectViolationsEntry"><code>NewPolicyViolationsSummarySubject.ProjectViolationsEntry[]</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>since</code></td>
+<td style="text-align: left;"><code>google.protobuf.Timestamp</code></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><a name="org-dependencytrack-notification-v1-NewVulnerabilitiesSummarySubject"></a></p>
+<h3 id="newvulnerabilitiessummarysubject">NewVulnerabilitiesSummarySubject<a class="headerlink" href="#newvulnerabilitiessummarysubject" title="Permanent link">&para;</a></h3>
+<p>Subject for GROUP_NEW_VULNERABILITIES_SUMMARY notifications.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>overview</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-NewVulnerabilitiesSummarySubject-Overview"><code>NewVulnerabilitiesSummarySubject.Overview</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>project_summaries</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-NewVulnerabilitiesSummarySubject-ProjectSummaryEntry"><code>NewVulnerabilitiesSummarySubject.ProjectSummaryEntry[]</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>findings_by_project</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-NewVulnerabilitiesSummarySubject-ProjectFindingsEntry"><code>NewVulnerabilitiesSummarySubject.ProjectFindingsEntry[]</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>since</code></td>
+<td style="text-align: left;"><code>google.protobuf.Timestamp</code></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><a name="org-dependencytrack-notification-v1-NewVulnerabilitySubject"></a></p>
+<h3 id="newvulnerabilitysubject">NewVulnerabilitySubject<a class="headerlink" href="#newvulnerabilitysubject" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>component</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Component"><code>Component</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>project</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Project"><code>Project</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>vulnerability</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Vulnerability"><code>Vulnerability</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>affected_projects_reference</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-BackReference"><code>BackReference</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>vulnerability_analysis_level</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>affected_projects</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Project"><code>Project[]</code></a></td>
+<td style="text-align: left;">List of projects affected by the vulnerability. DEPRECATED: This list only holds one item, and it is identical to the one in the project field. The field is kept for backward compatibility of JSON notifications, but consumers should not expect multiple projects here. Transmitting all affected projects in one notification is not feasible for large portfolios, see https://github.com/DependencyTrack/hyades/issues/467 for details.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>analysis_trigger</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-AnalysisTrigger"><code>AnalysisTrigger</code></a></td>
+<td style="text-align: left;">The trigger of the analysis that identified the vulnerability.</td>
+</tr>
+</tbody>
+</table>
+<p><a name="org-dependencytrack-notification-v1-NewVulnerableDependencySubject"></a></p>
+<h3 id="newvulnerabledependencysubject">NewVulnerableDependencySubject<a class="headerlink" href="#newvulnerabledependencysubject" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>component</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Component"><code>Component</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>project</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Project"><code>Project</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>vulnerabilities</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Vulnerability"><code>Vulnerability[]</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><a name="org-dependencytrack-notification-v1-PolicyViolationAnalysisDecisionChangeSubject"></a></p>
+<h3 id="policyviolationanalysisdecisionchangesubject">PolicyViolationAnalysisDecisionChangeSubject<a class="headerlink" href="#policyviolationanalysisdecisionchangesubject" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>component</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Component"><code>Component</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>project</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Project"><code>Project</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>policy_violation</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-PolicyViolation"><code>PolicyViolation</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>analysis</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-PolicyViolationAnalysis"><code>PolicyViolationAnalysis</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><a name="org-dependencytrack-notification-v1-PolicyViolationSubject"></a></p>
+<h3 id="policyviolationsubject">PolicyViolationSubject<a class="headerlink" href="#policyviolationsubject" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>component</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Component"><code>Component</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>project</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Project"><code>Project</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>policy_violation</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-PolicyViolation"><code>PolicyViolation</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><a name="org-dependencytrack-notification-v1-ProjectVulnAnalysisCompleteSubject"></a></p>
+<h3 id="projectvulnanalysiscompletesubject">ProjectVulnAnalysisCompleteSubject<a class="headerlink" href="#projectvulnanalysiscompletesubject" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>project</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Project"><code>Project</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>findings</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-ComponentVulnAnalysisCompleteSubject"><code>ComponentVulnAnalysisCompleteSubject[]</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>status</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-ProjectVulnAnalysisStatus"><code>ProjectVulnAnalysisStatus</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>token</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><a name="org-dependencytrack-notification-v1-UserSubject"></a></p>
+<h3 id="usersubject">UserSubject<a class="headerlink" href="#usersubject" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>username</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>email</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><a name="org-dependencytrack-notification-v1-VexConsumedOrProcessedSubject"></a></p>
+<h3 id="vexconsumedorprocessedsubject">VexConsumedOrProcessedSubject<a class="headerlink" href="#vexconsumedorprocessedsubject" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>project</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Project"><code>Project</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>vex</code></td>
+<td style="text-align: left;"><code>bytes</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>format</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>spec_version</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><a name="org-dependencytrack-notification-v1-VulnerabilityAnalysisDecisionChangeSubject"></a></p>
+<h3 id="vulnerabilityanalysisdecisionchangesubject">VulnerabilityAnalysisDecisionChangeSubject<a class="headerlink" href="#vulnerabilityanalysisdecisionchangesubject" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>component</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Component"><code>Component</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>project</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Project"><code>Project</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>vulnerability</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Vulnerability"><code>Vulnerability</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>analysis</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-VulnerabilityAnalysis"><code>VulnerabilityAnalysis</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><a name="org-dependencytrack-notification-v1-VulnerabilityRetractedSubject"></a></p>
+<h3 id="vulnerabilityretractedsubject">VulnerabilityRetractedSubject<a class="headerlink" href="#vulnerabilityretractedsubject" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>component</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Component"><code>Component</code></a></td>
+<td style="text-align: left;">The component for which the vulnerability was previously reported.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>project</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Project"><code>Project</code></a></td>
+<td style="text-align: left;">The project for which the vulnerability was previously reported.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>vulnerability</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Vulnerability"><code>Vulnerability</code></a></td>
+<td style="text-align: left;">The previously reported vulnerability.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="messages">Messages<a class="headerlink" href="#messages" title="Permanent link">&para;</a></h2>
+<p><a name="org-dependencytrack-notification-v1-BackReference"></a></p>
+<h3 id="backreference">BackReference<a class="headerlink" href="#backreference" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>api_uri</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;">URI to the API endpoint from which additional information can be fetched.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>frontend_uri</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;">URI to the frontend where additional information can be seen.</td>
+</tr>
+</tbody>
+</table>
+<p><a name="org-dependencytrack-notification-v1-Bom"></a></p>
+<h3 id="bom">Bom<a class="headerlink" href="#bom" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>content</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>format</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>spec_version</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><a name="org-dependencytrack-notification-v1-Component"></a></p>
+<h3 id="component">Component<a class="headerlink" href="#component" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>uuid</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>group</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>name</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>version</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>purl</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>md5</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>sha1</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>sha256</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>sha512</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><a name="org-dependencytrack-notification-v1-NewPolicyViolationsSummarySubject-Overview"></a></p>
+<h3 id="newpolicyviolationssummarysubjectoverview">NewPolicyViolationsSummarySubject.Overview<a class="headerlink" href="#newpolicyviolationssummarysubjectoverview" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>affected_projects_count</code></td>
+<td style="text-align: left;"><code>int32</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>affected_components_count</code></td>
+<td style="text-align: left;"><code>int32</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>new_violations_count</code></td>
+<td style="text-align: left;"><code>int32</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>new_violations_count_by_type</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-NewPolicyViolationsSummarySubject-Overview-NewViolationsCountByTypeEntry"><code>NewPolicyViolationsSummarySubject.Overview.NewViolationsCountByTypeEntry[]</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>suppressed_new_violations_count</code></td>
+<td style="text-align: left;"><code>int32</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>total_new_violations_count</code></td>
+<td style="text-align: left;"><code>int32</code></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><a name="org-dependencytrack-notification-v1-NewPolicyViolationsSummarySubject-Overview-NewViolationsCountByTypeEntry"></a></p>
+<h3 id="newpolicyviolationssummarysubjectoverviewnewviolationscountbytypeentry">NewPolicyViolationsSummarySubject.Overview.NewViolationsCountByTypeEntry<a class="headerlink" href="#newpolicyviolationssummarysubjectoverviewnewviolationscountbytypeentry" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>key</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>value</code></td>
+<td style="text-align: left;"><code>int32</code></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><a name="org-dependencytrack-notification-v1-NewPolicyViolationsSummarySubject-ProjectSummaryEntry"></a></p>
+<h3 id="newpolicyviolationssummarysubjectprojectsummaryentry">NewPolicyViolationsSummarySubject.ProjectSummaryEntry<a class="headerlink" href="#newpolicyviolationssummarysubjectprojectsummaryentry" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>project</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Project"><code>Project</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>new_violations_count_by_type</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-NewPolicyViolationsSummarySubject-ProjectSummaryEntry-NewViolationsCountByTypeEntry"><code>NewPolicyViolationsSummarySubject.ProjectSummaryEntry.NewViolationsCountByTypeEntry[]</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>suppressed_new_violations_count_by_type</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-NewPolicyViolationsSummarySubject-ProjectSummaryEntry-SuppressedNewViolationsCountByTypeEntry"><code>NewPolicyViolationsSummarySubject.ProjectSummaryEntry.SuppressedNewViolationsCountByTypeEntry[]</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>total_new_violations_count_by_type</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-NewPolicyViolationsSummarySubject-ProjectSummaryEntry-TotalNewViolationsCountByTypeEntry"><code>NewPolicyViolationsSummarySubject.ProjectSummaryEntry.TotalNewViolationsCountByTypeEntry[]</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><a name="org-dependencytrack-notification-v1-NewPolicyViolationsSummarySubject-ProjectSummaryEntry-NewViolationsCountByTypeEntry"></a></p>
+<h3 id="newpolicyviolationssummarysubjectprojectsummaryentrynewviolationscountbytypeentry">NewPolicyViolationsSummarySubject.ProjectSummaryEntry.NewViolationsCountByTypeEntry<a class="headerlink" href="#newpolicyviolationssummarysubjectprojectsummaryentrynewviolationscountbytypeentry" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>key</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>value</code></td>
+<td style="text-align: left;"><code>int32</code></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><a name="org-dependencytrack-notification-v1-NewPolicyViolationsSummarySubject-ProjectSummaryEntry-SuppressedNewViolationsCountByTypeEntry"></a></p>
+<h3 id="newpolicyviolationssummarysubjectprojectsummaryentrysuppressednewviolationscountbytypeentry">NewPolicyViolationsSummarySubject.ProjectSummaryEntry.SuppressedNewViolationsCountByTypeEntry<a class="headerlink" href="#newpolicyviolationssummarysubjectprojectsummaryentrysuppressednewviolationscountbytypeentry" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>key</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>value</code></td>
+<td style="text-align: left;"><code>int32</code></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><a name="org-dependencytrack-notification-v1-NewPolicyViolationsSummarySubject-ProjectSummaryEntry-TotalNewViolationsCountByTypeEntry"></a></p>
+<h3 id="newpolicyviolationssummarysubjectprojectsummaryentrytotalnewviolationscountbytypeentry">NewPolicyViolationsSummarySubject.ProjectSummaryEntry.TotalNewViolationsCountByTypeEntry<a class="headerlink" href="#newpolicyviolationssummarysubjectprojectsummaryentrytotalnewviolationscountbytypeentry" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>key</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>value</code></td>
+<td style="text-align: left;"><code>int32</code></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><a name="org-dependencytrack-notification-v1-NewPolicyViolationsSummarySubject-ProjectViolationsEntry"></a></p>
+<h3 id="newpolicyviolationssummarysubjectprojectviolationsentry">NewPolicyViolationsSummarySubject.ProjectViolationsEntry<a class="headerlink" href="#newpolicyviolationssummarysubjectprojectviolationsentry" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>project</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Project"><code>Project</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>violations</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-NewPolicyViolationsSummarySubject-Violation"><code>NewPolicyViolationsSummarySubject.Violation[]</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><a name="org-dependencytrack-notification-v1-NewPolicyViolationsSummarySubject-Violation"></a></p>
+<h3 id="newpolicyviolationssummarysubjectviolation">NewPolicyViolationsSummarySubject.Violation<a class="headerlink" href="#newpolicyviolationssummarysubjectviolation" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>uuid</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>component</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Component"><code>Component</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>policy_condition</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-PolicyCondition"><code>PolicyCondition</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>type</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>timestamp</code></td>
+<td style="text-align: left;"><code>google.protobuf.Timestamp</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>analysis_state</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>suppressed</code></td>
+<td style="text-align: left;"><code>bool</code></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><a name="org-dependencytrack-notification-v1-NewVulnerabilitiesSummarySubject-Finding"></a></p>
+<h3 id="newvulnerabilitiessummarysubjectfinding">NewVulnerabilitiesSummarySubject.Finding<a class="headerlink" href="#newvulnerabilitiessummarysubjectfinding" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>component</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Component"><code>Component</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>vulnerability</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Vulnerability"><code>Vulnerability</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>analyzer_identity</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>attributed_on</code></td>
+<td style="text-align: left;"><code>google.protobuf.Timestamp</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>reference_url</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>analysis_state</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>suppressed</code></td>
+<td style="text-align: left;"><code>bool</code></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><a name="org-dependencytrack-notification-v1-NewVulnerabilitiesSummarySubject-Overview"></a></p>
+<h3 id="newvulnerabilitiessummarysubjectoverview">NewVulnerabilitiesSummarySubject.Overview<a class="headerlink" href="#newvulnerabilitiessummarysubjectoverview" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>affected_projects_count</code></td>
+<td style="text-align: left;"><code>int32</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>affected_components_count</code></td>
+<td style="text-align: left;"><code>int32</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>new_vulnerabilities_count</code></td>
+<td style="text-align: left;"><code>int32</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>new_vulnerabilities_count_by_severity</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-NewVulnerabilitiesSummarySubject-Overview-NewVulnerabilitiesCountBySeverityEntry"><code>NewVulnerabilitiesSummarySubject.Overview.NewVulnerabilitiesCountBySeverityEntry[]</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>suppressed_new_vulnerabilities_count</code></td>
+<td style="text-align: left;"><code>int32</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>total_new_vulnerabilities_count</code></td>
+<td style="text-align: left;"><code>int32</code></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><a name="org-dependencytrack-notification-v1-NewVulnerabilitiesSummarySubject-Overview-NewVulnerabilitiesCountBySeverityEntry"></a></p>
+<h3 id="newvulnerabilitiessummarysubjectoverviewnewvulnerabilitiescountbyseverityentry">NewVulnerabilitiesSummarySubject.Overview.NewVulnerabilitiesCountBySeverityEntry<a class="headerlink" href="#newvulnerabilitiessummarysubjectoverviewnewvulnerabilitiescountbyseverityentry" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>key</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>value</code></td>
+<td style="text-align: left;"><code>int32</code></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><a name="org-dependencytrack-notification-v1-NewVulnerabilitiesSummarySubject-ProjectFindingsEntry"></a></p>
+<h3 id="newvulnerabilitiessummarysubjectprojectfindingsentry">NewVulnerabilitiesSummarySubject.ProjectFindingsEntry<a class="headerlink" href="#newvulnerabilitiessummarysubjectprojectfindingsentry" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>project</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Project"><code>Project</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>findings</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-NewVulnerabilitiesSummarySubject-Finding"><code>NewVulnerabilitiesSummarySubject.Finding[]</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><a name="org-dependencytrack-notification-v1-NewVulnerabilitiesSummarySubject-ProjectSummaryEntry"></a></p>
+<h3 id="newvulnerabilitiessummarysubjectprojectsummaryentry">NewVulnerabilitiesSummarySubject.ProjectSummaryEntry<a class="headerlink" href="#newvulnerabilitiessummarysubjectprojectsummaryentry" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>project</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Project"><code>Project</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>new_vulnerabilities_count_by_severity</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-NewVulnerabilitiesSummarySubject-ProjectSummaryEntry-NewVulnerabilitiesCountBySeverityEntry"><code>NewVulnerabilitiesSummarySubject.ProjectSummaryEntry.NewVulnerabilitiesCountBySeverityEntry[]</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>suppressed_new_vulnerabilities_count_by_severity</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-NewVulnerabilitiesSummarySubject-ProjectSummaryEntry-SuppressedNewVulnerabilitiesCountBySeverityEntry"><code>NewVulnerabilitiesSummarySubject.ProjectSummaryEntry.SuppressedNewVulnerabilitiesCountBySeverityEntry[]</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>total_new_vulnerabilities_count_by_severity</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-NewVulnerabilitiesSummarySubject-ProjectSummaryEntry-TotalNewVulnerabilitiesCountBySeverityEntry"><code>NewVulnerabilitiesSummarySubject.ProjectSummaryEntry.TotalNewVulnerabilitiesCountBySeverityEntry[]</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><a name="org-dependencytrack-notification-v1-NewVulnerabilitiesSummarySubject-ProjectSummaryEntry-NewVulnerabilitiesCountBySeverityEntry"></a></p>
+<h3 id="newvulnerabilitiessummarysubjectprojectsummaryentrynewvulnerabilitiescountbyseverityentry">NewVulnerabilitiesSummarySubject.ProjectSummaryEntry.NewVulnerabilitiesCountBySeverityEntry<a class="headerlink" href="#newvulnerabilitiessummarysubjectprojectsummaryentrynewvulnerabilitiescountbyseverityentry" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>key</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>value</code></td>
+<td style="text-align: left;"><code>int32</code></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><a name="org-dependencytrack-notification-v1-NewVulnerabilitiesSummarySubject-ProjectSummaryEntry-SuppressedNewVulnerabilitiesCountBySeverityEntry"></a></p>
+<h3 id="newvulnerabilitiessummarysubjectprojectsummaryentrysuppressednewvulnerabilitiescountbyseverityentry">NewVulnerabilitiesSummarySubject.ProjectSummaryEntry.SuppressedNewVulnerabilitiesCountBySeverityEntry<a class="headerlink" href="#newvulnerabilitiessummarysubjectprojectsummaryentrysuppressednewvulnerabilitiescountbyseverityentry" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>key</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>value</code></td>
+<td style="text-align: left;"><code>int32</code></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><a name="org-dependencytrack-notification-v1-NewVulnerabilitiesSummarySubject-ProjectSummaryEntry-TotalNewVulnerabilitiesCountBySeverityEntry"></a></p>
+<h3 id="newvulnerabilitiessummarysubjectprojectsummaryentrytotalnewvulnerabilitiescountbyseverityentry">NewVulnerabilitiesSummarySubject.ProjectSummaryEntry.TotalNewVulnerabilitiesCountBySeverityEntry<a class="headerlink" href="#newvulnerabilitiessummarysubjectprojectsummaryentrytotalnewvulnerabilitiescountbyseverityentry" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>key</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>value</code></td>
+<td style="text-align: left;"><code>int32</code></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><a name="org-dependencytrack-notification-v1-Policy"></a></p>
+<h3 id="policy">Policy<a class="headerlink" href="#policy" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>uuid</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>name</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>violation_state</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><a name="org-dependencytrack-notification-v1-PolicyCondition"></a></p>
+<h3 id="policycondition">PolicyCondition<a class="headerlink" href="#policycondition" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>uuid</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>subject</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>operator</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>value</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>policy</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Policy"><code>Policy</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><a name="org-dependencytrack-notification-v1-PolicyViolation"></a></p>
+<h3 id="policyviolation">PolicyViolation<a class="headerlink" href="#policyviolation" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>uuid</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>type</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>timestamp</code></td>
+<td style="text-align: left;"><code>google.protobuf.Timestamp</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>condition</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-PolicyCondition"><code>PolicyCondition</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><a name="org-dependencytrack-notification-v1-PolicyViolationAnalysis"></a></p>
+<h3 id="policyviolationanalysis">PolicyViolationAnalysis<a class="headerlink" href="#policyviolationanalysis" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>component</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Component"><code>Component</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>project</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Project"><code>Project</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>policy_violation</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-PolicyViolation"><code>PolicyViolation</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>state</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>suppressed</code></td>
+<td style="text-align: left;"><code>bool</code></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><a name="org-dependencytrack-notification-v1-Project"></a></p>
+<h3 id="project">Project<a class="headerlink" href="#project" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>uuid</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>name</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>version</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>description</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>purl</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>tags</code></td>
+<td style="text-align: left;"><code>string[]</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>is_active</code></td>
+<td style="text-align: left;"><code>bool</code></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><a name="org-dependencytrack-notification-v1-Vulnerability"></a></p>
+<h3 id="vulnerability">Vulnerability<a class="headerlink" href="#vulnerability" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>uuid</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>vuln_id</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>source</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>aliases</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Vulnerability-Alias"><code>Vulnerability.Alias[]</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>title</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>sub_title</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>description</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>recommendation</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>cvss_v2</code></td>
+<td style="text-align: left;"><code>double</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>cvss_v3</code></td>
+<td style="text-align: left;"><code>double</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>owasp_rr_likelihood</code></td>
+<td style="text-align: left;"><code>double</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>owasp_rr_technical_impact</code></td>
+<td style="text-align: left;"><code>double</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>owasp_rr_business_impact</code></td>
+<td style="text-align: left;"><code>double</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>severity</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>cwes</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Vulnerability-Cwe"><code>Vulnerability.Cwe[]</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>cvss_v2_vector</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>cvss_v3_vector</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>owasp_rr_vector</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>cvss_v4</code></td>
+<td style="text-align: left;"><code>double</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>cvss_v4_vector</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><a name="org-dependencytrack-notification-v1-Vulnerability-Alias"></a></p>
+<h3 id="vulnerabilityalias">Vulnerability.Alias<a class="headerlink" href="#vulnerabilityalias" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>id</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>source</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><a name="org-dependencytrack-notification-v1-Vulnerability-Cwe"></a></p>
+<h3 id="vulnerabilitycwe">Vulnerability.Cwe<a class="headerlink" href="#vulnerabilitycwe" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>cwe_id</code></td>
+<td style="text-align: left;"><code>int32</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>name</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><a name="org-dependencytrack-notification-v1-VulnerabilityAnalysis"></a></p>
+<h3 id="vulnerabilityanalysis">VulnerabilityAnalysis<a class="headerlink" href="#vulnerabilityanalysis" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>component</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Component"><code>Component</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>project</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Project"><code>Project</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>vulnerability</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Vulnerability"><code>Vulnerability</code></a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>state</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>suppressed</code></td>
+<td style="text-align: left;"><code>bool</code></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="enums">Enums<a class="headerlink" href="#enums" title="Permanent link">&para;</a></h2>
+<p><a name="org-dependencytrack-notification-v1-AnalysisTrigger"></a></p>
+<h3 id="analysistrigger">AnalysisTrigger<a class="headerlink" href="#analysistrigger" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>ANALYSIS_TRIGGER_UNSPECIFIED</code></td>
+<td style="text-align: left;">No trigger specified.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ANALYSIS_TRIGGER_BOM_UPLOAD</code></td>
+<td style="text-align: left;">The analysis was triggered by a <abbr title="Bill of Materials">BOM</abbr> upload.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ANALYSIS_TRIGGER_SCHEDULE</code></td>
+<td style="text-align: left;">The analysis was triggered by a schedule.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ANALYSIS_TRIGGER_MANUAL</code></td>
+<td style="text-align: left;">The analysis was triggered manually.</td>
+</tr>
+</tbody>
+</table>
+<p><a name="org-dependencytrack-notification-v1-Group"></a></p>
+<h3 id="group">Group<a class="headerlink" href="#group" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>GROUP_UNSPECIFIED</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>GROUP_CONFIGURATION</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>GROUP_DATASOURCE_MIRRORING</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>GROUP_REPOSITORY</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>GROUP_INTEGRATION</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>GROUP_FILE_SYSTEM</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>GROUP_ANALYZER</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>GROUP_NEW_VULNERABILITY</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>GROUP_NEW_VULNERABLE_DEPENDENCY</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>GROUP_PROJECT_AUDIT_CHANGE</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>GROUP_BOM_CONSUMED</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>GROUP_BOM_PROCESSED</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>GROUP_VEX_CONSUMED</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>GROUP_VEX_PROCESSED</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>GROUP_POLICY_VIOLATION</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>GROUP_PROJECT_CREATED</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>GROUP_BOM_PROCESSING_FAILED</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>GROUP_PROJECT_VULN_ANALYSIS_COMPLETE</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>GROUP_USER_CREATED</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>GROUP_USER_DELETED</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>GROUP_BOM_VALIDATION_FAILED</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>GROUP_VULNERABILITY_RETRACTED</code></td>
+<td style="text-align: left;">A previously identified vulnerability is no longer applicable,</td>
+</tr>
+<tr>
+<td style="text-align: left;">e.g. due to upstream sources correcting their data.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>GROUP_NEW_VULNERABILITIES_SUMMARY</code></td>
+<td style="text-align: left;">Scheduled summary of new vulnerabilities across projects.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>GROUP_NEW_POLICY_VIOLATIONS_SUMMARY</code></td>
+<td style="text-align: left;">Scheduled summary of new policy violations across projects.</td>
+</tr>
+</tbody>
+</table>
+<p><a name="org-dependencytrack-notification-v1-Level"></a></p>
+<h3 id="level">Level<a class="headerlink" href="#level" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>LEVEL_UNSPECIFIED</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>LEVEL_INFORMATIONAL</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>LEVEL_WARNING</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>LEVEL_ERROR</code></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><a name="org-dependencytrack-notification-v1-ProjectVulnAnalysisStatus"></a></p>
+<h3 id="projectvulnanalysisstatus">ProjectVulnAnalysisStatus<a class="headerlink" href="#projectvulnanalysisstatus" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>PROJECT_VULN_ANALYSIS_STATUS_UNSPECIFIED</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>PROJECT_VULN_ANALYSIS_STATUS_FAILED</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>PROJECT_VULN_ANALYSIS_STATUS_COMPLETED</code></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><a name="org-dependencytrack-notification-v1-Scope"></a></p>
+<h3 id="scope">Scope<a class="headerlink" href="#scope" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>SCOPE_UNSPECIFIED</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>SCOPE_PORTFOLIO</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>SCOPE_SYSTEM</code></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; OWASP Foundation. All Rights Reserved.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://dependencytrack.org/slack" target="_blank" rel="noopener" title="dependencytrack.org" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M94.12 315.1c0 25.9-21.16 47.06-47.06 47.06S0 341 0 315.1s21.16-47.06 47.06-47.06h47.06zm23.72 0c0-25.9 21.16-47.06 47.06-47.06s47.06 21.16 47.06 47.06v117.84c0 25.9-21.16 47.06-47.06 47.06s-47.06-21.16-47.06-47.06zm47.06-188.98c-25.9 0-47.06-21.16-47.06-47.06S139 32 164.9 32s47.06 21.16 47.06 47.06v47.06zm0 23.72c25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06H47.06C21.16 243.96 0 222.8 0 196.9s21.16-47.06 47.06-47.06zm188.98 47.06c0-25.9 21.16-47.06 47.06-47.06S448 171 448 196.9s-21.16 47.06-47.06 47.06h-47.06zm-23.72 0c0 25.9-21.16 47.06-47.06 47.06s-47.06-21.16-47.06-47.06V79.06c0-25.9 21.16-47.06 47.06-47.06s47.06 21.16 47.06 47.06zM283.1 385.88c25.9 0 47.06 21.16 47.06 47.06S309 480 283.1 480s-47.06-21.16-47.06-47.06v-47.06zm0-23.72c-25.9 0-47.06-21.16-47.06-47.06s21.16-47.06 47.06-47.06h117.84c25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/DependencyTrack" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://hub.docker.com/u/dependencytrack" target="_blank" rel="noopener" title="hub.docker.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M349.9 236.3h-66.1v-59.4h66.1zm0-204.3h-66.1v60.7h66.1zm78.2 144.8H362v59.4h66.1zm-156.3-72.1h-66.1v60.1h66.1zm78.1 0h-66.1v60.1h66.1zm276.8 100c-14.4-9.7-47.6-13.2-73.1-8.4-3.3-24-16.7-44.9-41.1-63.7l-14-9.3-9.3 14c-18.4 27.8-23.4 73.6-3.7 103.8-8.7 4.7-25.8 11.1-48.4 10.7H2.4c-8.7 50.8 5.8 116.8 44 162.1 37.1 43.9 92.7 66.2 165.4 66.2 157.4 0 273.9-72.5 328.4-204.2 21.4.4 67.6.1 91.3-45.2 1.5-2.5 6.6-13.2 8.5-17.1zm-511.1-27.9h-66v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1zm78.1 0h-66.1v59.4h66.1zm-78.1-72.1h-66.1v60.1h66.1z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.tabs", "navigation.indexes", "navigation.sections", "navigation.top", "navigation.instant", "navigation.tracking", "navigation.tabs.sticky", "search.highlight"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>
