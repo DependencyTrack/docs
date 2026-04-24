@@ -23,7 +23,7 @@ clean:
 	rm -rf site/
 .PHONY: clean
 
-lint: lint-markdown lint-yaml lint-prose
+lint: lint-markdown lint-yaml lint-prose lint-python
 .PHONY: lint
 
 lint-markdown:
@@ -41,6 +41,11 @@ lint-yaml:
 	  yamllint .
 .PHONY: lint-yaml
 
+lint-python:
+	uvx ruff check scripts/
+	uvx ruff format --check scripts/
+.PHONY: lint-python
+
 lint-prose:
 	docker run --rm \
 	  -v "$(shell pwd)":/workdir \
@@ -53,6 +58,24 @@ lint-prose:
 	  jdkato/vale:v3.14.1 \
 	  docs/
 .PHONY: lint-prose
+
+generate-config-docs:
+	uv run scripts/generate_config_docs.py \
+	  --template scripts/templates/config-docs.md.j2 \
+	  --output docs/reference/configuration/properties.md \
+	  $(APISERVER_PROPERTIES)
+.PHONY: generate-config-docs
+
+generate-proto-docs:
+	docker run -i --rm -u "$$(id -u):$$(id -g)" \
+	  -v "$$(pwd)/docs/reference/schemas:/out" \
+	  -v "$(APISERVER_DIR)/notification/api/src/main/proto/org/dependencytrack/notification/v1:/protos" \
+	  pseudomuto/protoc-gen-doc:1.5 --doc_opt=/out/notification.md.tmpl,notification.md
+	docker run -i --rm -u "$$(id -u):$$(id -g)" \
+	  -v "$$(pwd)/docs/reference/schemas:/out" \
+	  -v "$(APISERVER_DIR)/proto/src/main/proto/org/dependencytrack/policy/v1:/protos" \
+	  pseudomuto/protoc-gen-doc:1.5 --doc_opt=/out/policy.md.tmpl,policy.md
+.PHONY: generate-proto-docs
 
 serve:
 	uv run mkdocs serve --livereload

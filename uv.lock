@@ -224,6 +224,7 @@ name = "dependency-track-docs"
 version = "0.0.0"
 source = { virtual = "." }
 dependencies = [
+    { name = "jinja2" },
     { name = "mike" },
     { name = "mkdocs-awesome-pages-plugin" },
     { name = "mkdocs-material", extra = ["imaging"] },
@@ -233,6 +234,7 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
+    { name = "jinja2", specifier = ">=3.1.0" },
     { name = "mike", specifier = "==2.2.0" },
     { name = "mkdocs-awesome-pages-plugin", specifier = "==2.10.1" },
     { name = "mkdocs-material", extras = ["imaging"], specifier = "==9.6.14" },

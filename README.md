@@ -38,6 +38,17 @@ make lint              # Run all linters
 make lint-markdown     # Markdown (markdownlint)
 make lint-prose        # Prose quality (Vale)
 make lint-yaml         # YAML (yamllint)
+make lint-python       # Python (Ruff)
 ```
 
-Linters run in Docker. Fix all errors before submitting changes.
+Linters run in Docker, except for Python which uses [Ruff](https://docs.astral.sh/ruff/) via `uvx`. Fix all errors before submitting changes.
+
+## Generated documentation
+
+Some reference pages are generated from upstream source repositories and should not be edited directly. GitHub Actions workflows are provided to automate regeneration.
+
+| Content | Source | Workflow | Local command |
+|:--------|:-------|:---------|:--------------|
+| Configuration properties | `application.properties` in [hyades-apiserver](https://github.com/DependencyTrack/hyades-apiserver) | `update-config-docs` | `make generate-config-docs APISERVER_PROPERTIES=<path>` |
+| Protobuf schemas | `.proto` files in [hyades-apiserver](https://github.com/DependencyTrack/hyades-apiserver) | `update-proto-docs` | `make generate-proto-docs APISERVER_DIR=<path>` |
+| OpenAPI specs | CI artifacts from [hyades-apiserver](https://github.com/DependencyTrack/hyades-apiserver) | `update-openapi-docs` | n/a |
