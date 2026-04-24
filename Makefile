@@ -69,11 +69,11 @@ generate-config-docs:
 generate-proto-docs:
 	docker run -i --rm -u "$$(id -u):$$(id -g)" \
 	  -v "$$(pwd)/docs/reference/schemas:/out" \
-	  -v "$(APISERVER_DIR)/notification/api/src/main/proto/org/dependencytrack/notification/v1:/protos" \
+	  -v "$$(pwd)/$(APISERVER_DIR)/notification/api/src/main/proto/org/dependencytrack/notification/v1:/protos" \
 	  pseudomuto/protoc-gen-doc:1.5 --doc_opt=/out/notification.md.tmpl,notification.md
 	docker run -i --rm -u "$$(id -u):$$(id -g)" \
 	  -v "$$(pwd)/docs/reference/schemas:/out" \
-	  -v "$(APISERVER_DIR)/proto/src/main/proto/org/dependencytrack/policy/v1:/protos" \
+	  -v "$$(pwd)/$(APISERVER_DIR)/proto/src/main/proto/org/dependencytrack/policy/v1:/protos" \
 	  pseudomuto/protoc-gen-doc:1.5 --doc_opt=/out/policy.md.tmpl,policy.md
 .PHONY: generate-proto-docs
 
