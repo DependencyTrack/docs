@@ -2609,6 +2609,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#componentproperty" class="md-nav__link">
+    <span class="md-ellipsis">
+      Component.Property
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#license" class="md-nav__link">
     <span class="md-ellipsis">
       License
@@ -2852,6 +2861,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#componentproperty" class="md-nav__link">
+    <span class="md-ellipsis">
+      Component.Property
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#license" class="md-nav__link">
     <span class="md-ellipsis">
       License
@@ -3013,6 +3031,11 @@
 <td style="text-align: left;">Whether the component is internal to the organization.</td>
 </tr>
 <tr>
+<td style="text-align: left;"><code>properties</code></td>
+<td style="text-align: left;"><a href="#org-dependencytrack-policy-v1-Component-Property"><code>Component.Property[]</code></a></td>
+<td style="text-align: left;">Properties of the component.</td>
+</tr>
+<tr>
 <td style="text-align: left;"><code>md5</code></td>
 <td style="text-align: left;"><code>string</code></td>
 <td style="text-align: left;"></td>
@@ -3094,6 +3117,39 @@
 </tr>
 <tr>
 <td style="text-align: left;"><code>latest_version</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><a name="org-dependencytrack-policy-v1-Component-Property"></a></p>
+<h3 id="componentproperty">Component.Property<a class="headerlink" href="#componentproperty" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>group</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>name</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>value</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>type</code></td>
 <td style="text-align: left;"><code>string</code></td>
 <td style="text-align: left;"></td>
 </tr>
@@ -3487,13 +3543,13 @@
 <td style="text-align: left;"></td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>cvssv4_score</code></td>
-<td style="text-align: left;"><code>double</code></td>
+<td style="text-align: left;"><code>cvssv4_vector</code></td>
+<td style="text-align: left;"><code>string</code></td>
 <td style="text-align: left;"></td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>cvssv4_vector</code></td>
-<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"><code>cvssv4_score</code></td>
+<td style="text-align: left;"><code>double</code></td>
 <td style="text-align: left;"></td>
 </tr>
 </tbody>
