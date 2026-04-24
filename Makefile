@@ -60,7 +60,7 @@ lint-prose:
 .PHONY: lint-prose
 
 generate-config-docs:
-	uv run scripts/generate_config_docs.py \
+	uv run --only-group generate scripts/generate_config_docs.py \
 	  --template scripts/templates/config-docs.md.j2 \
 	  --output docs/reference/configuration/properties.md \
 	  $(APISERVER_PROPERTIES)
