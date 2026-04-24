@@ -2,3 +2,5 @@ title: User Guides
 nav:
   - index.md
   - managing-secrets.md
+  - managing-vulnerability-policies.md
+  - managing-private-vulnerabilities.md

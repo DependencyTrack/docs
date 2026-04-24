@@ -1,4 +1,6 @@
 title: Concepts
 nav:
   - index.md
+  - access-control.md
+  - vulnerability-policies.md
   - ...

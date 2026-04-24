@@ -1,65 +1,93 @@
 # Configuring observability
 
-Dependency-Track exposes health check and metrics endpoints via a dedicated management server.
-It runs on a separate port, and potentially different bind address, independently of the main app server.
-
-The management server's bind address and port are configurable:
-
-- [`dt.management.host`](../../reference/configuration/properties.md#dtmanagementhost) (default: `0.0.0.0`)
-- [`dt.management.port`](../../reference/configuration/properties.md#dtmanagementport) (default: `9000`)
+Dependency-Track exposes health check and metrics endpoints via a dedicated management server,
+running on a separate port independently of the main app server.
 
 !!! tip
     All observability-related configuration properties are documented in the
     [configuration reference](../../reference/configuration/properties.md),
     under the *Observability* category.
 
-## Health checks
+## Configuring Kubernetes health probes
 
-Health check endpoints follow the [MicroProfile Health] specification.
-They return JSON responses with an overall `status` (`UP` or `DOWN`)
-and individual check results. The HTTP status code is `200` when healthy, `503` otherwise.
+The management server exposes health check endpoints that follow the [MicroProfile Health]
+specification and map directly to Kubernetes [probe types].
 
-The following endpoints are available on the management server:
+Add the following probes to your Deployment manifest, adjusting the port if you changed
+[`dt.management.port`](../../reference/configuration/properties.md#dtmanagementport)
+(default: `9000`):
 
-| Endpoint          | Description                           |
-|:------------------|:--------------------------------------|
-| `/health`         | Aggregate status of all health checks |
-| `/health/live`    | Liveness checks                       |
-| `/health/ready`   | Readiness checks                      |
-| `/health/started` | Startup checks                        |
+```yaml linenums="1"
+containers:
+  - name: apiserver
+    livenessProbe:
+      httpGet:
+        path: /health/live
+        port: 9000
+      initialDelaySeconds: 15
+      periodSeconds: 10
+    readinessProbe:
+      httpGet:
+        path: /health/ready
+        port: 9000
+      initialDelaySeconds: 15
+      periodSeconds: 10
+    startupProbe:
+      httpGet:
+        path: /health/started
+        port: 9000
+      initialDelaySeconds: 10
+      failureThreshold: 30
+      periodSeconds: 5
+```
 
-These endpoints map directly to Kubernetes [probe types] and can be used as-is
-in `livenessProbe`, `readinessProbe`, and `startupProbe` configurations.
+The aggregate endpoint `/health` returns the combined status of all checks.
 
-## Metrics
+## Enabling Prometheus metrics scraping
 
-When enabled, Prometheus metrics are served at the `/metrics` endpoint of the management server,
-using the [Prometheus text exposition format].
+Metrics are disabled by default. Enable them via
+[`dt.metrics.enabled`](../../reference/configuration/properties.md#dtmetricsenabled):
 
-Metrics are off by default. Enable them via
-[`dt.metrics.enabled`](../../reference/configuration/properties.md#dtmetricsenabled).
+```ini
+dt.metrics.enabled=true
+```
 
-Access to the metrics endpoint can optionally be protected with HTTP Basic authentication:
+Once enabled, metrics are served at `/metrics` on the management port in the
+[Prometheus text exposition format].
 
-- [`dt.metrics.auth.username`](../../reference/configuration/properties.md#dtmetricsauthusername)
-- [`dt.metrics.auth.password`](../../reference/configuration/properties.md#dtmetricsauthpassword)
+If you want to protect the endpoint with HTTP Basic authentication, set both
+[`dt.metrics.auth.username`](../../reference/configuration/properties.md#dtmetricsauthusername) and
+[`dt.metrics.auth.password`](../../reference/configuration/properties.md#dtmetricsauthpassword).
 
-Both must be set for authentication to take effect.
+Add a scrape target to your Prometheus configuration:
 
-## Logging
+```yaml linenums="1"
+scrape_configs:
+  - job_name: dependency-track
+    metrics_path: /metrics
+    static_configs:
+      - targets:
+          - "apiserver:9000"
+    # Uncomment if you enabled authentication:
+    # basic_auth:
+    #   username: "metrics"
+    #   password: "changeme"
+```
 
-By default, Dependency-Track logs at `INFO` level for app loggers (`alpine`, `org.dependencytrack`,
-`org.eclipse.jetty`) and `WARN` for all others.
+## Adjusting log levels
 
-Log levels can be configured per logger as follows:
+By default, Dependency-Track logs at `INFO` level for application loggers and `WARN` for all others.
+To troubleshoot a specific area, raise the log level for the relevant logger:
 
 ```properties
 dt.logging.level."org.dependencytrack"=DEBUG
-dt.logging.level."org.eclipse.jetty"=WARN
-dt.logging.level."ROOT"=ERROR
 ```
 
-The special logger name `ROOT` applies to all loggers that are not explicitly configured.
+The special logger name `ROOT` applies to all loggers that are not explicitly configured:
+
+```properties
+dt.logging.level."ROOT"=ERROR
+```
 
 Refer to the [environment variable mapping](../../reference/configuration/application.md#environment-variable-mapping) documentation
 for how to express these properties as environment variables.

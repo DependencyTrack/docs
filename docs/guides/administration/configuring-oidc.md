@@ -9,17 +9,6 @@ locally managed password.
     The API server validates tokens; the frontend initiates the OIDC flow. Both
     must be configured with the same issuer and client ID.
 
-## How OIDC authentication works
-
-1. The user clicks the **Login with SSO** button on the Dependency-Track frontend.
-2. The frontend redirects to the IdP's authorization endpoint.
-3. The user authenticates with the IdP and is redirected back with an ID token.
-4. The frontend passes the ID token to the API server for validation.
-5. The API server verifies the token against the IdP's discovery endpoint and extracts
-   the username from the configured claim.
-6. If [user provisioning](#user-provisioning) is enabled, the account is created on
-   first login. Otherwise the account must exist in advance.
-
 ## Prerequisites
 
 - An OIDC-compatible identity provider with a configured client (app).
