@@ -1,7 +1,7 @@
 <!--
   GENERATED. DO NOT EDIT.
 
-  Generated with: --template scripts/templates/config-docs.md.j2 --output docs/reference/configuration/properties.md source/apiserver/apiserver/src/main/resources/application.properties
+  Generated with: --template scripts/templates/config-docs.md.j2 --output docs/reference/configuration/properties.md hyades-apiserver/apiserver/src/main/resources/application.properties
 -->
 
 # Configuration Properties
