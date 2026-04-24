@@ -1,0 +1,22 @@
+site/
+.cache/
+__pycache__/
+*.pyc
+.DS_Store
+
+# Vale downloaded styles (synced via `vale sync`)
+.vale/styles/*
+!.vale/styles/config/
+!.vale/styles/DependencyTrack/
+
+# Source repos (for reference, not committed)
+source/*
+!source/.gitkeep
+!source/README.md
+existing-docs/*
+!existing-docs/.gitkeep
+!existing-docs/README.md
+
+# IntelliJ
+.idea/*
+!.idea/icon.svg
