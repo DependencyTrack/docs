@@ -1,0 +1,12 @@
+Dependency-Track
+OWASP
+SBOM
+CycloneDX
+BOM
+VEX
+MkDocs
+Diataxis
+walkthroughs
+SBOMs
+APIs
+Exploitability
