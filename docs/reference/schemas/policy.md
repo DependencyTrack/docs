@@ -21,6 +21,7 @@
 | `purl` | `string` | Package URL of the component. https://github.com/package-url/purl-spec | - |
 | `swid_tag_id` | `string` | SWID tag ID of the component. https://csrc.nist.gov/projects/Software-Identification-SWID | - |
 | `is_internal` | `bool` | Whether the component is internal to the organization. | - |
+| `properties` | [`Component.Property[]`](#org-dependencytrack-policy-v1-Component-Property) | Properties of the component. | - |
 | `md5` | `string` |  | - |
 | `sha1` | `string` |  | - |
 | `sha256` | `string` |  | - |
@@ -38,6 +39,24 @@
 | `resolved_license` | [`License`](#org-dependencytrack-policy-v1-License) |  | - |
 | `published_at` | `google.protobuf.Timestamp` | When the component current version last modified. | - |
 | `latest_version` | `string` |  | - |
+
+
+
+
+
+<a name="org-dependencytrack-policy-v1-Component-Property"></a>
+
+### Component.Property
+
+
+
+
+| Field | Type | Description |
+| :---- | :--- | :---------- |
+| `group` | `string` |  | - |
+| `name` | `string` |  | - |
+| `value` | `string` |  | - |
+| `type` | `string` |  | - |
 
 
 
@@ -207,8 +226,8 @@
 | `owasp_rr_vector` | `string` |  | - |
 | `epss_score` | `double` |  | - |
 | `epss_percentile` | `double` |  | - |
-| `cvssv4_score` | `double` |  | - |
 | `cvssv4_vector` | `string` |  | - |
+| `cvssv4_score` | `double` |  | - |
 
 
 
