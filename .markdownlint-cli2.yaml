@@ -31,6 +31,8 @@ globs:
 
 ignores:
 - "docs/includes/**"
+- "docs/reference/configuration/properties.md"
+- "docs/reference/schemas/**"
 - "existing-docs/**"
 - "site/**"
 - "node_modules/**"

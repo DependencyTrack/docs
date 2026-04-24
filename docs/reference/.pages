@@ -1,4 +1,18 @@
 title: Reference
 nav:
   - index.md
-  - ...
+  - API: api
+  - Configuration: configuration
+  - Datasources: datasources
+  - Notifications: notifications
+  - Vulnerability Analysis:
+    - Vulnerability Analyzers: analyzers.md
+    - Vulnerability Policies: vulnerability-policies.md
+  - CEL Expressions: cel-expressions.md
+  - Access Control:
+    - Permissions: permissions.md
+  - Integrations:
+    - Badges: badges.md
+    - File Formats: file-formats.md
+    - Community Integrations: community-integrations.md
+  - Schemas: schemas

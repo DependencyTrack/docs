@@ -40,41 +40,15 @@ The provider may be configured using the following properties:
 
 #### Key management
 
-Encryption of secrets involves two types of keys:
+Secrets are encrypted using [envelope encryption]: each secret gets its own
+data encryption key (DEK), which is itself encrypted by a key encryption key (KEK).
+The KEK is stored in a [keyset][keysets] file managed by [Google Tink].
 
-* The key encryption key (KEK)
-* Data encryption keys (DEKs)
-
-When creating a secret, Dependency-Track generates a new DEK,
-and encrypts the secret value with it. It then encrypts the DEK
-with the KEK. Both the encrypted DEK and the encrypted secret value
-are then stored in the database.
-
-!!! info
-    The encrypted DEK is [tagged](https://developers.google.com/tink/design/keysets#keyids)
-    with the ID of the KEK that encrypted it.
-
-When reading a secret, the encrypted DEK and encrypted secret value
-are read from the database. The DEK is then decrypted with the KEK,
-which then allows the secret value to be decrypted using the DEK.
-
-Dependency-Track uses [Google Tink]'s concept of [keysets]
-to enable rotation of KEKs. A KEK keyset is created automatically
-on startup. Or, a [manually created keyset](#creating-kek-keysets)
-may be provided.
-
-The KEK keyset uses [Google Tink]'s JSON serialization,
-and is not encrypted itself. For production deployments,
-**mount the KEK keyset at runtime** using
+A KEK keyset is created automatically on startup, or a
+[manually created keyset](#creating-kek-keysets) may be provided.
+For production deployments, **mount the KEK keyset at runtime** using
 [Kubernetes secrets] or similar mechanisms, and ensure that
 the keyset file is only readable by the app user.
-Refer to [Creating KEK keysets](#creating-kek-keysets) for an example.
-
-!!! note
-    [Google Tink] [supports](https://developers.google.com/tink/key-management-overview#create_kek)
-    a small selection of key management systems (KMS), which may be used to manage the KEK keyset.
-    Dependency-Track does not yet use this capability. If this is important to you,
-    please raise an enhancement request.
 
 #### Config-based KEK
 

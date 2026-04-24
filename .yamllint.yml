@@ -22,6 +22,7 @@ ignore:
 - node_modules/
 - .vale/styles/Google/
 - .vale/styles/write-good/
+- docs/reference/api/*.yaml
 
 rules:
   document-start: disable
