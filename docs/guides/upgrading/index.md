@@ -1,3 +1,3 @@
-# Upgrading
+# Upgrade guides
 
-Per-release upgrading guides for versions with breaking changes.
+Per-release upgrade procedures for versions with breaking changes.

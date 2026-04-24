@@ -1,0 +1,10 @@
+title: Administration Guides
+nav:
+  - index.md
+  - scaling.md
+  - configuring-observability.md
+  - configuring-ldap.md
+  - configuring-oidc.md
+  - configuring-internal-ca.md
+  - configuring-secret-management.md
+  - migrating-from-v4.md

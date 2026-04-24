@@ -1,4 +1,6 @@
 title: Guides
 nav:
   - index.md
-  - ...
+  - user
+  - administration
+  - upgrading
