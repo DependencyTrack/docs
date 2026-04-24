@@ -232,6 +232,11 @@ dependencies = [
     { name = "mkdocs-swagger-ui-tag" },
 ]
 
+[package.dev-dependencies]
+generate = [
+    { name = "jinja2" },
+]
+
 [package.metadata]
 requires-dist = [
     { name = "jinja2", specifier = ">=3.1.0" },
@@ -241,6 +246,9 @@ requires-dist = [
     { name = "mkdocs-rss-plugin", specifier = "==1.19.0" },
     { name = "mkdocs-swagger-ui-tag", specifier = "==0.8.0" },
 ]
+
+[package.metadata.requires-dev]
+generate = [{ name = "jinja2", specifier = ">=3.1.0" }]
 
 [[package]]
 name = "filelock"
