@@ -4,8 +4,9 @@ Documentation for [OWASP Dependency-Track](https://dependencytrack.org), built w
 
 ## Prerequisites
 
-- Docker or Podman
+- [uv](https://docs.astral.sh/uv/)
 - Make
+- Docker or Podman (linters only)
 
 ## Getting started
 
@@ -39,4 +40,4 @@ make lint-prose        # Prose quality (Vale)
 make lint-yaml         # YAML (yamllint)
 ```
 
-All linters run in Docker. Fix all errors before submitting changes.
+Linters run in Docker. Fix all errors before submitting changes.

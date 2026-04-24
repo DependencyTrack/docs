@@ -17,6 +17,7 @@
 extends: default
 
 ignore:
+- .venv/
 - site/
 - node_modules/
 - .vale/styles/Google/

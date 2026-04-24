@@ -15,11 +15,8 @@
 # SPDX-License-Identifier: Apache-2.0
 # Copyright (c) OWASP Foundation. All Rights Reserved.
 
-build: dev-image
-	docker run --rm \
-	  -v "$(shell pwd)":/docs \
-	  "dependency-track-docs-dev" \
-	  build --strict
+build:
+	uv run mkdocs build --strict
 .PHONY: build
 
 clean:
@@ -57,22 +54,6 @@ lint-prose:
 	  docs/
 .PHONY: lint-prose
 
-serve: dev-image
-	docker run --rm -it \
-	  -p 8000:8000 \
-	  -v "$(shell pwd)":/docs \
-	  "dependency-track-docs-dev" \
-	  serve --livereload -a '0.0.0.0:8000'
+serve:
+	uv run mkdocs serve --livereload
 .PHONY: serve
-
-dev-image:
-	docker build -t "dependency-track-docs-dev" .
-.PHONY: dev-image
-
-lock:
-	docker run --rm \
-	  -v "$(shell pwd)":/work \
-	  -w /work \
-	  python:3.14-slim \
-	  sh -c "pip install -q pip-tools && pip-compile --generate-hashes --strip-extras --output-file=requirements.txt requirements.in"
-.PHONY: lock
