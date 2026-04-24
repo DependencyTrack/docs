@@ -47,6 +47,8 @@ jobs:
       run: make lint-yaml
     - name: Lint prose
       run: make lint-prose
+    - name: Lint Python
+      run: make lint-python
     - name: Build
       run: make build
 
