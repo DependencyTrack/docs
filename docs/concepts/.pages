@@ -3,5 +3,6 @@ nav:
   - index.md
   - About access control: access-control.md
   - About notifications: notifications.md
+  - About time series metrics: time-series-metrics.md
   - About vulnerability policies: vulnerability-policies.md
   - ...
