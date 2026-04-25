@@ -36,6 +36,20 @@ dt.datasource.bar.url=${dt.datasource.foo.url}
 
 This is useful to avoid redundant definition of identical values.
 
+## Loading Values From Files
+
+Configuration values may be loaded from files using the `${file::/path/to/file}` expression. This is
+useful when secrets are mounted into the container as files, for example via Docker or Kubernetes
+secrets:
+
+```ini linenums="1"
+dt.datasource.password=${file::/var/run/secrets/database-password}
+dt.ldap.bind.password=${file::/var/run/secrets/ldap-bind-password}
+```
+
+The file is read once at startup, decoded as UTF-8, and trailing whitespace is stripped. Files
+larger than 64 KiB are rejected.
+
 ## Environment Variable Mapping
 
 The canonical representation of properties uses alphanumeric characters,
