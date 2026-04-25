@@ -1,5 +1,7 @@
 # Dependency-Track Documentation
 
+[![Built with Material for MkDocs](https://img.shields.io/badge/Material_for_MkDocs-526CFE?style=for-the-badge&logo=MaterialForMkDocs&logoColor=white)](https://squidfunk.github.io/mkdocs-material/)
+
 Documentation for [OWASP Dependency-Track](https://dependencytrack.org), built with [MkDocs Material](https://squidfunk.github.io/mkdocs-material/) and organized per the [Diataxis](https://diataxis.fr/) framework.
 
 ## Prerequisites

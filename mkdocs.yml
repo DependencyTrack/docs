@@ -15,7 +15,9 @@
 # SPDX-License-Identifier: Apache-2.0
 # Copyright (c) OWASP Foundation. All Rights Reserved.
 site_name: "Dependency-Track"
-site_url: "https://dependencytrack.github.io/docs/"
+site_url: https://dependencytrack.github.io/docs/
+repo_url: https://github.com/DependencyTrack/dependency-track
+repo_name: DependencyTrack/dependency-track
 docs_dir: docs
 copyright: "Copyright &copy; OWASP Foundation. All Rights Reserved."
 
@@ -38,14 +40,18 @@ theme:
       name: Switch to dark mode
   features:
   - content.code.copy
-  - navigation.tabs
+  - navigation.footer
   - navigation.indexes
-  - navigation.sections
-  - navigation.top
   - navigation.instant
-  - navigation.tracking
+  - navigation.path
+  - navigation.prune
+  - navigation.sections
+  - navigation.tabs
   - navigation.tabs.sticky
+  - navigation.top
+  - navigation.tracking
   - search.highlight
+  - toc.follow
 
 extra:
   version:
@@ -58,6 +64,10 @@ extra:
     link: https://github.com/DependencyTrack
   - icon: fontawesome/brands/docker
     link: https://hub.docker.com/u/dependencytrack
+  - icon: fontawesome/brands/linkedin
+    link: https://www.linkedin.com/company/owasp-dependency-track
+  - icon: fontawesome/brands/mastodon
+    link: https://infosec.exchange/@DependencyTrack
 
 extra_css:
 - stylesheets/extra.css
