@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://dependencytrack.github.io/docs/next/reference/cel-expressions/">
       
       
-        <link rel="prev" href="../vulnerability-policies/">
+        <link rel="prev" href="../policies/condition-expressions/">
       
       
         <link rel="next" href="../permissions/">
@@ -2606,9 +2606,34 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../vulnerability-policies/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../policies/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -2622,7 +2647,59 @@
   
   
 
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_6_2" id="__nav_5_6_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Vulnerability policies
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../policies/condition-expressions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Condition expressions
+  
+
+    
+  </span>
+  
+  
+
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -2714,10 +2791,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#evaluation-context" class="md-nav__link">
+  <a href="#standard-library" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Evaluation Context
+        Standard library
       
     </span>
   </a>
@@ -2725,106 +2802,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Examples">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#component-age" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Component age
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#component-blacklist" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Component blacklist
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dependency-graph-traversal" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Dependency graph traversal
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#license-expression-allowlist" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        License expression allowlist
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#license-blacklist" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        License blacklist
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vulnerability-blacklist" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vulnerability blacklist
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vulnerabilities-with-high-severity-in-public-facing-projects" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vulnerabilities with high severity in public facing projects
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#version-distance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Version distance
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#optional-field-checking" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2832,177 +2809,6 @@
       
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#spdx-license-expressions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        SPDX License Expressions
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="SPDX License Expressions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#version-equivalence" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Version equivalence
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#version-ranges" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Version ranges
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#deprecated-with-compounds" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Deprecated WITH-compounds
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#with-composites" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        WITH composites
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#function-reference" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Function Reference
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Function Reference">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#depends_on" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        depends_on
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#is_dependency_of" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        is_dependency_of
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#is_direct_dependency_of" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        is_direct_dependency_of
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#is_exclusive_dependency_of" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        is_exclusive_dependency_of
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#matches_range" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        matches_range
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#spdx_expr_allows" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        spdx_expr_allows
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#spdx_expr_requires_any" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        spdx_expr_requires_any
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#version_distance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        version_distance
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -3539,10 +3345,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#evaluation-context" class="md-nav__link">
+  <a href="#standard-library" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Evaluation Context
+        Standard library
       
     </span>
   </a>
@@ -3550,106 +3356,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Examples">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#component-age" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Component age
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#component-blacklist" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Component blacklist
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dependency-graph-traversal" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Dependency graph traversal
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#license-expression-allowlist" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        License expression allowlist
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#license-blacklist" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        License blacklist
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vulnerability-blacklist" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vulnerability blacklist
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vulnerabilities-with-high-severity-in-public-facing-projects" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vulnerabilities with high severity in public facing projects
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#version-distance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Version distance
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#optional-field-checking" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3657,177 +3363,6 @@
       
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#spdx-license-expressions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        SPDX License Expressions
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="SPDX License Expressions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#version-equivalence" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Version equivalence
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#version-ranges" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Version ranges
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#deprecated-with-compounds" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Deprecated WITH-compounds
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#with-composites" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        WITH composites
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#function-reference" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Function Reference
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Function Reference">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#depends_on" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        depends_on
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#is_dependency_of" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        is_dependency_of
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#is_direct_dependency_of" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        is_direct_dependency_of
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#is_exclusive_dependency_of" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        is_exclusive_dependency_of
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#matches_range" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        matches_range
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#spdx_expr_allows" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        spdx_expr_allows
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#spdx_expr_requires_any" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        spdx_expr_requires_any
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#version_distance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        version_distance
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -3849,659 +3384,42 @@
 
 
 <h1 id="cel-expressions"><abbr title="Common Expression Language">CEL</abbr> Expressions<a class="headerlink" href="#cel-expressions" title="Permanent link">&para;</a></h1>
-<p>Dependency-Track uses the <a href="https://cel.dev/">Common Expression Language</a> (<abbr title="Common Expression Language">CEL</abbr>) for policy conditions and
-<a href="../notifications/filter-expressions/">notification filter expressions</a>. This page describes
-the available variables, functions, and expression patterns.</p>
-<p>For instructions on creating <abbr title="Common Expression Language">CEL</abbr>-based policy conditions, see
-<a href="../../guides/user/managing-vulnerability-policies/">Managing vulnerability policies</a>.</p>
+<p>Dependency-Track uses the <a href="https://cel.dev/">Common Expression Language</a> (<abbr title="Common Expression Language">CEL</abbr>) in two places:</p>
+<ul>
+<li><strong>Policy conditions</strong>, evaluated against components or vulnerabilities to drive
+  policy violations and analyses. See
+  <a href="../policies/condition-expressions/">Condition expressions</a>.</li>
+<li><strong>Notification filters</strong>, evaluated against notification subjects to control
+  which notifications are dispatched. See
+  <a href="../notifications/filter-expressions/">Filter expressions</a>.</li>
+</ul>
+<p>The two contexts share the syntax described on this page, but expose <strong>different
+variables, types, and custom functions</strong>. The custom functions documented for
+policies (for example <code>depends_on</code>, <code>spdx_expr_allows</code>) are not available to
+notification filters, and the variables differ entirely. Refer to the
+context-specific page for the available inputs and functions.</p>
 <h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link">&para;</a></h2>
 <p>The <abbr title="Common Expression Language">CEL</abbr> syntax is similar to other <a href="https://en.wikipedia.org/wiki/List_of_C-family_programming_languages">C-style languages</a> like Java and JavaScript.
 However, <abbr title="Common Expression Language">CEL</abbr> is not <a href="https://en.wikipedia.org/wiki/Turing_completeness">Turing-complete</a>. As such, it does <em>not</em> support constructs like <code>if</code> statements or loops (that is, <code>for</code>, <code>while</code>).</p>
 <p>As a compensation for missing loops, <abbr title="Common Expression Language">CEL</abbr> offers <a href="https://github.com/google/cel-spec/blob/v0.13.0/doc/langdef.md#macros">macros</a> like <code>all</code>, <code>exists</code>, <code>exists_one</code>, <code>map</code>, and <code>filter</code>.
-Refer to the <a href="https://github.com/google/cel-spec/blob/v0.13.0/doc/langdef.md#macros">macros</a> documentation for more details, or have a look at the <a href="#examples">examples</a> to see how they may
-be utilized in practice.</p>
+Refer to the <a href="https://github.com/google/cel-spec/blob/v0.13.0/doc/langdef.md#macros">macros</a> documentation for more details.</p>
 <p><abbr title="Common Expression Language">CEL</abbr> syntax is described thoroughly in the official <a href="https://github.com/google/cel-spec/blob/v0.13.0/doc/langdef.md#language-definition">language definition</a>.</p>
-<h2 id="evaluation-context">Evaluation Context<a class="headerlink" href="#evaluation-context" title="Permanent link">&para;</a></h2>
-<p>Conditions are scoped to individual components.
-Each condition is evaluated for every single component in a project.</p>
-<p>The context in which expressions are evaluated in contains the following variables:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Variable</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>component</code></td>
-<td style="text-align: left;"><a href="../schemas/policy/#component">Component</a></td>
-<td style="text-align: left;">The component being evaluated</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>project</code></td>
-<td style="text-align: left;"><a href="../schemas/policy/#project">Project</a></td>
-<td style="text-align: left;">The project the component is part of</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>vulns</code></td>
-<td style="text-align: left;">list(<a href="../schemas/policy/#vulnerability">Vulnerability</a>)</td>
-<td style="text-align: left;">Vulnerabilities the component is affected by</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>now</code></td>
-<td style="text-align: left;"><a href="https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp"><code>google.protobuf.Timestamp</code></a></td>
-<td style="text-align: left;">The current time at the start of evaluation</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Many fields on <a href="../schemas/policy/#component">Component</a>, <a href="../schemas/policy/#project">Project</a>, and <a href="../schemas/policy/#vulnerability">Vulnerability</a> are optional.
-Use the <code>has()</code> macro to <a href="#optional-field-checking">check for presence of optional fields</a>
-before accessing them.</p>
-</div>
-<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
-<h3 id="component-age">Component age<a class="headerlink" href="#component-age" title="Permanent link">&para;</a></h3>
-<p>Besides out-of-date versions, component age is another indicator of potential risk. Components may be on the latest
-available version, but still be 20 years old.</p>
-<p>The following expression matches <a href="../schemas/policy/#component">Component</a>s that are two years old, or even older, using the <code>now</code>
-variable and timestamp arithmetic:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">has</span><span class="p">(</span><span class="nx">component</span><span class="p">.</span><span class="nx">published_at</span><span class="p">)</span>
-<span class="w">  </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">component</span><span class="p">.</span><span class="nx">published_at</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">now</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">duration</span><span class="p">(</span><span class="s2">&quot;17520h&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// ~2 years</span>
-</code></pre></div></td></tr></table></div>
-<h3 id="component-blacklist">Component blacklist<a class="headerlink" href="#component-blacklist" title="Permanent link">&para;</a></h3>
-<p>The following expression matches on the <a href="../schemas/policy/#component">Component</a>'s <a href="https://github.com/package-url/purl-spec/blob/master/PURL-SPECIFICATION.rst">Package URL</a>, using a regular expression in <a href="https://github.com/google/re2/wiki/Syntax">RE2</a> syntax.
-Additionally, it checks whether the <a href="../schemas/policy/#component">Component</a>'s version falls into a given <a href="https://github.com/package-url/vers-spec">vers</a> range using
-<a href="#matches_range"><code>matches_range</code></a>, consisting of multiple constraints.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">component</span><span class="p">.</span><span class="nx">purl</span><span class="p">.</span><span class="nx">matches</span><span class="p">(</span><span class="s2">&quot;^pkg:maven/com.acme/acme-lib\\b.*&quot;</span><span class="p">)</span>
-<span class="w">  </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">component</span><span class="p">.</span><span class="nx">matches_range</span><span class="p">(</span><span class="s2">&quot;vers:maven/&gt;0|&lt;1|!=0.2.4&quot;</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-<p>The expression will match:</p>
-<ul>
-<li><code>pkg:maven/com.acme/acme-lib@0.1.0</code></li>
-<li><code>pkg:maven/com.acme/acme-lib@0.9.9</code></li>
-</ul>
-<p>but not:</p>
-<ul>
-<li><code>pkg:maven/com.acme/acme-library@0.1.0</code></li>
-<li><code>pkg:maven/com.acme/acme-lib@0.2.4</code></li>
-</ul>
-<h3 id="dependency-graph-traversal">Dependency graph traversal<a class="headerlink" href="#dependency-graph-traversal" title="Permanent link">&para;</a></h3>
-<p>The following expression matches <a href="../schemas/policy/#component">Component</a>s that are a (possibly transitive) dependency of a <a href="../schemas/policy/#component">Component</a>
-with name <code>foo</code>, <em>but only if</em> a <a href="../schemas/policy/#component">Component</a> with name <code>bar</code> is also present in the <a href="../schemas/policy/#project">Project</a>.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">component</span><span class="p">.</span><span class="nx">is_dependency_of</span><span class="p">(</span><span class="nx">v1</span><span class="p">.</span><span class="nx">Component</span><span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;foo&quot;</span><span class="p">})</span>
-<span class="w">  </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">project</span><span class="p">.</span><span class="nx">depends_on</span><span class="p">(</span><span class="nx">v1</span><span class="p">.</span><span class="nx">Component</span><span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;bar&quot;</span><span class="p">})</span>
-</code></pre></div></td></tr></table></div>
-<p>To check whether a component is a <em>direct</em> (that is, non-transitive) dependency:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">component</span><span class="p">.</span><span class="nx">is_direct_dependency_of</span><span class="p">(</span><span class="nx">v1</span><span class="p">.</span><span class="nx">Component</span><span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;foo&quot;</span><span class="p">})</span>
-</code></pre></div></td></tr></table></div>
-<p>To check whether a component is <em>exclusively</em> introduced through another component
-(that is, no other path in the dependency graph leads to it):</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">component</span><span class="p">.</span><span class="nx">is_exclusive_dependency_of</span><span class="p">(</span><span class="nx">v1</span><span class="p">.</span><span class="nx">Component</span><span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;foo&quot;</span><span class="p">})</span>
-</code></pre></div></td></tr></table></div>
-<p>Dependency graph functions support the following <a href="../schemas/policy/#component">Component</a> fields for matching:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field</th>
-<th style="text-align: center;"><code>re:</code> prefix</th>
-<th style="text-align: center;"><code>vers:</code> prefix</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>uuid</code></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>group</code></td>
-<td style="text-align: center;">✅</td>
-<td style="text-align: center;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>name</code></td>
-<td style="text-align: center;">✅</td>
-<td style="text-align: center;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>version</code></td>
-<td style="text-align: center;">✅</td>
-<td style="text-align: center;">✅</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>classifier</code></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>cpe</code></td>
-<td style="text-align: center;">✅</td>
-<td style="text-align: center;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>purl</code></td>
-<td style="text-align: center;">✅</td>
-<td style="text-align: center;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>swid_tag_id</code></td>
-<td style="text-align: center;">✅</td>
-<td style="text-align: center;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>is_internal</code></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-</tbody>
-</table>
-<p>The <code>re:</code> prefix enables <a href="https://github.com/google/re2/wiki/Syntax">RE2</a> regex matching on the field value:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">project</span><span class="p">.</span><span class="nx">depends_on</span><span class="p">(</span><span class="nx">v1</span><span class="p">.</span><span class="nx">Component</span><span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;re:^acme-.*&quot;</span><span class="p">})</span>
-</code></pre></div></td></tr></table></div>
-<p>The <code>vers:</code> prefix enables <a href="https://github.com/package-url/vers-spec">vers</a> range matching on the <code>version</code> field:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">project</span><span class="p">.</span><span class="nx">depends_on</span><span class="p">(</span><span class="nx">v1</span><span class="p">.</span><span class="nx">Component</span><span class="p">{</span>
-<span class="w">  </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;acme-lib&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nx">version</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;vers:maven/&gt;1.0.0|&lt;2.0.0&quot;</span>
-<span class="p">})</span>
-</code></pre></div></td></tr></table></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>When constructing objects like <a href="../schemas/policy/#component">Component</a> on-the-fly, it is necessary to use their version namespace,
-that is, <code>v1</code>. This is required in order to perform type checking, as well as ensuring backward compatibility.</p>
-</div>
-<h3 id="license-expression-allowlist">License expression allowlist<a class="headerlink" href="#license-expression-allowlist" title="Permanent link">&para;</a></h3>
-<p>The following expression matches non-internal <a href="../schemas/policy/#component">Component</a>s whose <a href="https://spdx.github.io/spdx-spec/v2.3/SPDX-license-expressions/">SPDX license expression</a>
-cannot be satisfied using only the approved set of licenses.
-License-with-exception combinations are listed as a single compound entry.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">!</span><span class="nx">spdx_expr_allows</span><span class="p">(</span><span class="nx">component</span><span class="p">.</span><span class="nx">license_expression</span><span class="p">,</span><span class="w"> </span><span class="p">[</span>
-<span class="w">  </span><span class="s2">&quot;MIT&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Apache-2.0&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;BSD-3-Clause&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="s2">&quot;GPL-2.0-only WITH Classpath-exception-2.0&quot;</span>
-<span class="p">])</span>
-</code></pre></div></td></tr></table></div>
-<p>When components don't have a license expression, <code>component.resolved_license.id</code> can be used as a fallback.
-A single license ID is a valid SPDX expression, so it gets the same version-aware treatment:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">!</span><span class="nx">spdx_expr_allows</span><span class="p">(</span>
-<span class="w">  </span><span class="nx">has</span><span class="p">(</span><span class="nx">component</span><span class="p">.</span><span class="nx">license_expression</span><span class="p">)</span>
-<span class="w">    </span><span class="o">?</span><span class="w"> </span><span class="nx">component</span><span class="p">.</span><span class="nx">license_expression</span>
-<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="nx">component</span><span class="p">.</span><span class="nx">resolved_license</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span>
-<span class="w">  </span><span class="p">[</span><span class="s2">&quot;MIT&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Apache-2.0&quot;</span><span class="p">]</span>
-<span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-<h3 id="license-blacklist">License blacklist<a class="headerlink" href="#license-blacklist" title="Permanent link">&para;</a></h3>
-<p>The following expression matches <a href="../schemas/policy/#component">Component</a>s that are <strong>not</strong> internal to the organization,
-and have either:</p>
-<ul>
-<li>No resolved <a href="../schemas/policy/#license">License</a> at all</li>
-<li>A resolved <a href="../schemas/policy/#license">License</a> that is not part of the <code>Permissive</code> license group</li>
-</ul>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">!</span><span class="nx">component</span><span class="p">.</span><span class="nx">is_internal</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span>
-<span class="w">  </span><span class="o">!</span><span class="nx">has</span><span class="p">(</span><span class="nx">component</span><span class="p">.</span><span class="nx">resolved_license</span><span class="p">)</span>
-<span class="w">    </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="nx">component</span><span class="p">.</span><span class="nx">resolved_license</span><span class="p">.</span><span class="nx">groups</span><span class="p">.</span><span class="nx">exists</span><span class="p">(</span><span class="nx">licenseGroup</span><span class="p">,</span>
-<span class="w">         </span><span class="nx">licenseGroup</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;Permissive&quot;</span><span class="p">)</span>
-<span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-<h3 id="vulnerability-blacklist">Vulnerability blacklist<a class="headerlink" href="#vulnerability-blacklist" title="Permanent link">&para;</a></h3>
-<p>The following expression matches <a href="../schemas/policy/#component">Component</a>s in <a href="../schemas/policy/#project">Project</a>s tagged as <code>3rd-party</code>, with at least one <a href="../schemas/policy/#vulnerability">Vulnerability</a>
-being any of the given blacklisted IDs.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="s2">&quot;3rd-party&quot;</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">project</span><span class="p">.</span><span class="nx">tags</span>
-<span class="w">  </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">vulns</span><span class="p">.</span><span class="nx">exists</span><span class="p">(</span><span class="nx">vuln</span><span class="p">,</span><span class="w"> </span><span class="nx">vuln</span><span class="p">.</span><span class="nx">id</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="p">[</span>
-<span class="w">       </span><span class="s2">&quot;CVE-2017-5638&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">// struts RCE</span>
-<span class="w">       </span><span class="s2">&quot;CVE-2021-44228&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// log4shell</span>
-<span class="w">       </span><span class="s2">&quot;CVE-2022-22965&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// spring4shell</span>
-<span class="w">     </span><span class="p">])</span>
-</code></pre></div></td></tr></table></div>
-<h3 id="vulnerabilities-with-high-severity-in-public-facing-projects">Vulnerabilities with high severity in public facing projects<a class="headerlink" href="#vulnerabilities-with-high-severity-in-public-facing-projects" title="Permanent link">&para;</a></h3>
-<p>The following expression matches <a href="../schemas/policy/#component">Component</a>s in <a href="../schemas/policy/#project">Project</a>s tagged as <code>public-facing</code>, with at least one <code>HIGH</code>
-or <code>CRITICAL</code>
-<a href="../schemas/policy/#vulnerability">Vulnerability</a>, where the <a href="https://www.first.org/cvss/v3.0/specification-document">CVSSv3</a> attack vector is <code>Network</code>.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="s2">&quot;public-facing&quot;</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">project</span><span class="p">.</span><span class="nx">tags</span>
-<span class="w">  </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">vulns</span><span class="p">.</span><span class="nx">exists</span><span class="p">(</span><span class="nx">vuln</span><span class="p">,</span>
-<span class="w">    </span><span class="nx">vuln</span><span class="p">.</span><span class="nx">severity</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;HIGH&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;CRITICAL&quot;</span><span class="p">]</span>
-<span class="w">      </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">vuln</span><span class="p">.</span><span class="nx">cvssv3_vector</span><span class="p">.</span><span class="nx">matches</span><span class="p">(</span><span class="s2">&quot;.*/AV:N/.*&quot;</span><span class="p">)</span>
-<span class="w">  </span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-<h3 id="version-distance">Version distance<a class="headerlink" href="#version-distance" title="Permanent link">&para;</a></h3>
-<p>The <a href="#version_distance"><code>version_distance</code></a> function allows matching based on how far behind a component's version
-is from the latest known version. The distance is specified using a <a href="../schemas/policy/#versiondistance">VersionDistance</a> object with <code>epoch</code>, <code>major</code>,
-<code>minor</code>, and <code>patch</code> fields.</p>
-<p>The following expression matches components that are more than one major version behind:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">component</span><span class="p">.</span><span class="nx">version_distance</span><span class="p">(</span><span class="s2">&quot;&gt;=&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">v1</span><span class="p">.</span><span class="nx">VersionDistance</span><span class="p">{</span><span class="nx">major</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">})</span>
-</code></pre></div></td></tr></table></div>
-<h3 id="optional-field-checking">Optional field checking<a class="headerlink" href="#optional-field-checking" title="Permanent link">&para;</a></h3>
+<h2 id="standard-library">Standard library<a class="headerlink" href="#standard-library" title="Permanent link">&para;</a></h2>
+<p>Both contexts have access to the <a href="https://github.com/google/cel-spec/blob/v0.13.0/doc/langdef.md#list-of-standard-definitions">standard definitions</a> of the <abbr title="Common Expression Language">CEL</abbr> specification and the
+<a href="https://github.com/google/cel-spec/blob/master/doc/extensions/strings.md"><abbr title="Common Expression Language">CEL</abbr> strings extension</a>, which adds functions like <code>charAt</code>, <code>indexOf</code>, <code>join</code>, <code>lowerAscii</code>,
+<code>replace</code>, <code>split</code>, <code>substring</code>, <code>trim</code>, and <code>upperAscii</code>.</p>
+<p>The policy context registers additional custom functions (<code>depends_on</code>, <code>spdx_expr_allows</code>,
+and so on); see <a href="../policies/condition-expressions/#function-reference">Condition expressions</a>.
+Notification filters do not register any custom functions.</p>
+<h2 id="optional-field-checking">Optional field checking<a class="headerlink" href="#optional-field-checking" title="Permanent link">&para;</a></h2>
 <p><abbr title="Common Expression Language">CEL</abbr> does not have a concept of <code>null</code>. Accessing a field that is not set
-returns its default value (for example, <code>""</code> for strings, <code>0</code> for numbers, <code>false</code> for booleans), which can
-lead to misleading matches. Use the <code>has()</code> macro to check for field presence before accessing it:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">has</span><span class="p">(</span><span class="nx">component</span><span class="p">.</span><span class="nx">published_at</span><span class="p">)</span>
-<span class="w">  </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">component</span><span class="p">.</span><span class="nx">published_at</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">now</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">duration</span><span class="p">(</span><span class="s2">&quot;8760h&quot;</span><span class="p">)</span>
+returns its default value (for example, <code>""</code> for strings, <code>0</code> for numbers, <code>false</code> for booleans),
+which can lead to misleading matches. Use the <code>has()</code> macro to check for field presence
+before accessing it:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">has</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">field</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">obj</span><span class="p">.</span><span class="nx">field</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;value&quot;</span>
 </code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">has</span><span class="p">(</span><span class="nx">project</span><span class="p">.</span><span class="nx">metadata</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">has</span><span class="p">(</span><span class="nx">project</span><span class="p">.</span><span class="nx">metadata</span><span class="p">.</span><span class="nx">tools</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-<h2 id="spdx-license-expressions">SPDX License Expressions<a class="headerlink" href="#spdx-license-expressions" title="Permanent link">&para;</a></h2>
-<p>The <code>spdx_expr_*</code> functions evaluate <a href="https://spdx.github.io/spdx-spec/v2.3/SPDX-license-expressions/">SPDX license expressions</a>. They operate on expression strings
-(typically <code>component.license_expression</code>) and can also be used with <code>component.resolved_license.id</code>
-as a fallback for components without a license expression.</p>
-<p>All license ID comparisons are <strong>case-insensitive</strong> per the SPDX specification.</p>
-<h3 id="version-equivalence">Version equivalence<a class="headerlink" href="#version-equivalence" title="Permanent link">&para;</a></h3>
-<p>Deprecated license IDs are treated as equivalent to their modern counterparts.
-For example, <code>GPL-2.0</code> and <code>GPL-2.0-only</code> are considered the same license.</p>
-<h3 id="version-ranges">Version ranges<a class="headerlink" href="#version-ranges" title="Permanent link">&para;</a></h3>
-<p>The <code>+</code> operator and <code>-or-later</code> suffix are understood as "this version or any later
-version in the same license family." For example, <code>GPL-3.0-only</code> satisfies an allow-list containing
-<code>GPL-2.0-or-later</code>, and <code>Apache-1.0+</code> satisfies an allow-list containing <code>Apache-2.0</code>.</p>
-<h3 id="deprecated-with-compounds">Deprecated <code>WITH</code>-compounds<a class="headerlink" href="#deprecated-with-compounds" title="Permanent link">&para;</a></h3>
-<p>Legacy compound IDs like <code>GPL-2.0-with-classpath-exception</code> are automatically
-resolved to their modern <code>WITH</code> expression form (<code>GPL-2.0-only WITH Classpath-exception-2.0</code>).</p>
-<h3 id="with-composites"><code>WITH</code> composites<a class="headerlink" href="#with-composites" title="Permanent link">&para;</a></h3>
-<p>License-with-exception combinations are treated as atomic composites. The full
-compound (for example, <code>"GPL-2.0-only WITH Classpath-exception-2.0"</code>) must appear as a single entry in
-allow-lists, not as separate license and exception IDs. The license part uses version-aware matching
-(for example, <code>GPL-2.0 WITH ...</code> matches <code>GPL-2.0-only WITH ...</code>), while the exception part requires an exact match.</p>
-<h2 id="function-reference">Function Reference<a class="headerlink" href="#function-reference" title="Permanent link">&para;</a></h2>
-<p>For type definitions, refer to the <a href="../schemas/policy/">schema reference</a>.</p>
-<p>In addition to the <a href="https://github.com/google/cel-spec/blob/v0.13.0/doc/langdef.md#list-of-standard-definitions">standard definitions</a> of the <abbr title="Common Expression Language">CEL</abbr> specification, Dependency-Track offers the following functions.</p>
-<h3 id="depends_on"><code>depends_on</code><a class="headerlink" href="#depends_on" title="Permanent link">&para;</a></h3>
-<p>Checks whether a <a href="../schemas/policy/#project">Project</a> contains a <a href="../schemas/policy/#component">Component</a> matching the given criteria.
-Useful for enforcing policies only when specific components are present in a project.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Name</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><em>receiver</em></td>
-<td style="text-align: left;"><a href="../schemas/policy/#project">Project</a></td>
-<td style="text-align: left;">The project to check</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>component</code></td>
-<td style="text-align: left;"><a href="../schemas/policy/#component">Component</a></td>
-<td style="text-align: left;">Criteria to match against. Supports <code>re:</code> and <code>vers:</code> prefixes.</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns:</strong> <code>true</code> if a matching component exists in the project.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">project</span><span class="p">.</span><span class="nx">depends_on</span><span class="p">(</span><span class="nx">v1</span><span class="p">.</span><span class="nx">Component</span><span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;baz&quot;</span><span class="p">})</span>
-</code></pre></div></td></tr></table></div>
-<pre class="mermaid"><code>graph TD
-  P["Project"]:::match --&gt; A["foo"]
-  P --&gt; B["bar"]
-  A --&gt; C["baz"]:::criteria
-  A --&gt; D["qux"]
-  B --&gt; D
-  classDef match stroke:#22c55e,stroke-width:3
-  classDef criteria fill:#22c55e,color:#fff</code></pre>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p><code>project</code> matches because <code>baz</code> exists in its dependency graph.</p>
-</div>
-<h3 id="is_dependency_of"><code>is_dependency_of</code><a class="headerlink" href="#is_dependency_of" title="Permanent link">&para;</a></h3>
-<p>Checks whether a <a href="../schemas/policy/#component">Component</a> is a (possibly transitive) dependency of another <a href="../schemas/policy/#component">Component</a>.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Name</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><em>receiver</em></td>
-<td style="text-align: left;"><a href="../schemas/policy/#component">Component</a></td>
-<td style="text-align: left;">The component being evaluated</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>component</code></td>
-<td style="text-align: left;"><a href="../schemas/policy/#component">Component</a></td>
-<td style="text-align: left;">Criteria to match the parent against. Supports <code>re:</code> and <code>vers:</code> prefixes.</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns:</strong> <code>true</code> if the receiver is a dependency (direct or transitive) of a matching component.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">component</span><span class="p">.</span><span class="nx">is_dependency_of</span><span class="p">(</span><span class="nx">v1</span><span class="p">.</span><span class="nx">Component</span><span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;foo&quot;</span><span class="p">})</span>
-</code></pre></div></td></tr></table></div>
-<pre class="mermaid"><code>graph TD
-  P["Project"] --&gt; A["foo"]:::criteria
-  P --&gt; B["bar"]
-  A --&gt; C["baz"]:::match
-  A --&gt; D["qux"]:::match
-  B --&gt; D
-  classDef match stroke:#22c55e,stroke-width:3
-  classDef criteria fill:#22c55e,color:#fff</code></pre>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p><code>baz</code> and <code>qux</code> match since both are dependencies of <code>foo</code>.
-<code>qux</code> matches even though it's also reachable through <code>bar</code>.</p>
-</div>
-<h3 id="is_direct_dependency_of"><code>is_direct_dependency_of</code><a class="headerlink" href="#is_direct_dependency_of" title="Permanent link">&para;</a></h3>
-<p>Checks whether a <a href="../schemas/policy/#component">Component</a> is a <em>direct</em> (non-transitive) dependency of another <a href="../schemas/policy/#component">Component</a>.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Name</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><em>receiver</em></td>
-<td style="text-align: left;"><a href="../schemas/policy/#component">Component</a></td>
-<td style="text-align: left;">The component being evaluated</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>component</code></td>
-<td style="text-align: left;"><a href="../schemas/policy/#component">Component</a></td>
-<td style="text-align: left;">Criteria to match the parent against. Supports <code>re:</code> and <code>vers:</code> prefixes.</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns:</strong> <code>true</code> if the receiver is a direct dependency of a matching component.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">component</span><span class="p">.</span><span class="nx">is_direct_dependency_of</span><span class="p">(</span><span class="nx">v1</span><span class="p">.</span><span class="nx">Component</span><span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;foo&quot;</span><span class="p">})</span>
-</code></pre></div></td></tr></table></div>
-<pre class="mermaid"><code>graph TD
-  P["Project"] --&gt; A["foo"]:::criteria
-  P --&gt; B["bar"]
-  A --&gt; C["baz"]:::match
-  A --&gt; D["qux"]:::match
-  B --&gt; D
-  classDef match stroke:#22c55e,stroke-width:3
-  classDef criteria fill:#22c55e,color:#fff</code></pre>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p><code>baz</code> and <code>qux</code> match since both are direct children of <code>foo</code>.</p>
-</div>
-<p>With a deeper graph, transitive dependencies do <strong>not</strong> match:</p>
-<pre class="mermaid"><code>graph TD
-  A["foo"]:::criteria --&gt; C["baz"]:::match
-  C --&gt; E["deep"]:::nomatch
-  classDef match stroke:#22c55e,stroke-width:3
-  classDef criteria fill:#22c55e,color:#fff
-  classDef nomatch stroke:#ef4444,stroke-width:3,stroke-dasharray:5</code></pre>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p><code>baz</code> matches since it's a direct child of <code>foo</code>.<br />
-<code>deep</code> does <strong>not</strong> match, as it's a transitive dependency.</p>
-</div>
-<h3 id="is_exclusive_dependency_of"><code>is_exclusive_dependency_of</code><a class="headerlink" href="#is_exclusive_dependency_of" title="Permanent link">&para;</a></h3>
-<p>Checks whether a <a href="../schemas/policy/#component">Component</a> is <em>exclusively</em> introduced through another <a href="../schemas/policy/#component">Component</a>.
-Returns <code>true</code> only if every path from the project root to the receiver passes through a matching component.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Name</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><em>receiver</em></td>
-<td style="text-align: left;"><a href="../schemas/policy/#component">Component</a></td>
-<td style="text-align: left;">The component being evaluated</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>component</code></td>
-<td style="text-align: left;"><a href="../schemas/policy/#component">Component</a></td>
-<td style="text-align: left;">Criteria to match the parent against. Supports <code>re:</code> and <code>vers:</code> prefixes.</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns:</strong> <code>true</code> if the receiver is exclusively introduced through a matching component.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">component</span><span class="p">.</span><span class="nx">is_exclusive_dependency_of</span><span class="p">(</span><span class="nx">v1</span><span class="p">.</span><span class="nx">Component</span><span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;foo&quot;</span><span class="p">})</span>
-</code></pre></div></td></tr></table></div>
-<pre class="mermaid"><code>graph TD
-  P["Project"] --&gt; A["foo"]:::criteria
-  P --&gt; B["bar"]
-  A --&gt; C["baz"]:::match
-  A --&gt; D["qux"]:::nomatch
-  B --&gt; D
-  classDef match stroke:#22c55e,stroke-width:3
-  classDef criteria fill:#22c55e,color:#fff
-  classDef nomatch stroke:#ef4444,stroke-width:3,stroke-dasharray:5</code></pre>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p><code>baz</code> matches since it's only reachable through <code>foo</code>.<br />
-<code>qux</code> does <strong>not</strong> match, as it's also reachable through <code>bar</code>.</p>
-</div>
-<h3 id="matches_range"><code>matches_range</code><a class="headerlink" href="#matches_range" title="Permanent link">&para;</a></h3>
-<p>Checks whether a <a href="../schemas/policy/#component">Component</a>'s or <a href="../schemas/policy/#project">Project</a>'s version falls within a <a href="https://github.com/package-url/vers-spec">vers</a> range.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Name</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><em>receiver</em></td>
-<td style="text-align: left;"><a href="../schemas/policy/#component">Component</a> or <a href="../schemas/policy/#project">Project</a></td>
-<td style="text-align: left;">The component or project to check</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>range</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">A <a href="https://github.com/package-url/vers-spec">vers</a> range string (for example, <code>"vers:maven/&gt;1.0.0\|&lt;2.0.0"</code>)</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns:</strong> <code>true</code> if the version is within the specified range.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">component</span><span class="p">.</span><span class="nx">matches_range</span><span class="p">(</span><span class="s2">&quot;vers:maven/&gt;0|&lt;1|!=0.2.4&quot;</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-<p>Currently supported versioning schemes:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Versioning Scheme</th>
-<th style="text-align: left;">Ecosystem</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>deb</code></td>
-<td style="text-align: left;">Debian / Ubuntu</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>generic</code></td>
-<td style="text-align: left;">Generic / Any</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>golang</code></td>
-<td style="text-align: left;">Go</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>maven</code></td>
-<td style="text-align: left;">Java / Maven</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>npm</code></td>
-<td style="text-align: left;">JavaScript / NodeJS</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>rpm</code></td>
-<td style="text-align: left;">CentOS / Fedora / Red Hat / SUSE</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If the ecosystem of the components to match against is known upfront, it's good practice to use the according
-versioning scheme in <code>matches_range</code>. This helps with accuracy, as versioning schemes have different nuances
-across ecosystems, which makes comparisons error-prone.</p>
-</div>
-<h3 id="spdx_expr_allows"><code>spdx_expr_allows</code><a class="headerlink" href="#spdx_expr_allows" title="Permanent link">&para;</a></h3>
-<p>Checks whether an <a href="https://spdx.github.io/spdx-spec/v2.3/SPDX-license-expressions/">SPDX license expression</a> can be satisfied
-using only licenses from the given set. For <code>OR</code> expressions, at least one branch must
-be satisfiable. For <code>AND</code> expressions, all children must be satisfiable. <code>WITH</code> expressions
-are treated as atomic composites (see below).</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Name</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>expression</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">An SPDX license expression</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>ids</code></td>
-<td style="text-align: left;"><code>list(string)</code></td>
-<td style="text-align: left;">Allowed licenses, including <code>WITH</code> composites if needed</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns:</strong> <code>true</code> if the expression is satisfiable with the given IDs.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">spdx_expr_allows</span><span class="p">(</span><span class="nx">component</span><span class="p">.</span><span class="nx">license_expression</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;MIT&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Apache-2.0&quot;</span><span class="p">])</span>
-<span class="c1">// &quot;MIT&quot;                  =&gt; true  (MIT is allowed)</span>
-<span class="c1">// &quot;MIT OR GPL-3.0-only&quot;  =&gt; true  (MIT branch is satisfiable)</span>
-<span class="c1">// &quot;MIT AND Apache-2.0&quot;   =&gt; true  (both are allowed)</span>
-<span class="c1">// &quot;MIT AND GPL-3.0-only&quot; =&gt; false (GPL-3.0-only is not allowed)</span>
-<span class="c1">// &quot;GPL-3.0-only&quot;         =&gt; false (not in the allowed set)</span>
-</code></pre></div></td></tr></table></div>
-<p>Version-range matching is applied automatically:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">spdx_expr_allows</span><span class="p">(</span><span class="nx">component</span><span class="p">.</span><span class="nx">license_expression</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;GPL-2.0-or-later&quot;</span><span class="p">])</span>
-<span class="c1">// &quot;GPL-2.0-only&quot; =&gt; true  (2.0 is within 2.0-or-later range)</span>
-<span class="c1">// &quot;GPL-3.0-only&quot; =&gt; true  (3.0 is within 2.0-or-later range)</span>
-<span class="c1">// &quot;GPL-1.0-only&quot; =&gt; false (1.0 is below 2.0)</span>
-<span class="c1">// &quot;GPL-2.0&quot;      =&gt; true  (deprecated ID, equivalent to GPL-2.0-only)</span>
-</code></pre></div></td></tr></table></div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p><code>WITH</code> expressions (license-with-exception) are matched as a single unit.
-The allowed set must contain the full compound entry, not the license and exception separately:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">spdx_expr_allows</span><span class="p">(</span><span class="nx">component</span><span class="p">.</span><span class="nx">license_expression</span><span class="p">,</span><span class="w"> </span><span class="p">[</span>
-<span class="w">  </span><span class="s2">&quot;GPL-2.0-only WITH Classpath-exception-2.0&quot;</span>
-<span class="p">])</span>
-<span class="c1">// &quot;GPL-2.0-only WITH Classpath-exception-2.0&quot; =&gt; true  (composite matches)</span>
-<span class="c1">// &quot;GPL-2.0-only&quot;                              =&gt; false (plain license, not in set)</span>
-<span class="c1">// &quot;GPL-2.0-only WITH LLVM-exception&quot;          =&gt; false (different composite)</span>
-</code></pre></div></td></tr></table></div>
-</div>
-<h3 id="spdx_expr_requires_any"><code>spdx_expr_requires_any</code><a class="headerlink" href="#spdx_expr_requires_any" title="Permanent link">&para;</a></h3>
-<p>Checks whether at least one of the given license IDs is required in every possible satisfaction
-of an <a href="https://spdx.github.io/spdx-spec/v2.3/SPDX-license-expressions/">SPDX license expression</a>. For <code>OR</code> expressions, at least one of
-the IDs must be required in all branches. For <code>AND</code> expressions, at least one of the IDs must be
-required in at least one child.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Name</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>expression</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">An SPDX license expression</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>ids</code></td>
-<td style="text-align: left;"><code>list(string)</code></td>
-<td style="text-align: left;">License IDs to check</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns:</strong> <code>true</code> if at least one of the IDs is always required.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">spdx_expr_requires_any</span><span class="p">(</span><span class="nx">component</span><span class="p">.</span><span class="nx">license_expression</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;GPL-2.0-only&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GPL-3.0-only&quot;</span><span class="p">])</span>
-<span class="c1">// &quot;GPL-2.0-only AND MIT&quot;         =&gt; true  (GPL-2.0-only always required)</span>
-<span class="c1">// &quot;GPL-2.0-only OR GPL-3.0-only&quot; =&gt; true  (every branch requires one)</span>
-<span class="c1">// &quot;GPL-2.0 AND MIT&quot;              =&gt; true  (GPL-2.0 is equivalent to GPL-2.0-only)</span>
-<span class="c1">// &quot;GPL-2.0-only OR MIT&quot;          =&gt; false (MIT branch requires neither)</span>
-</code></pre></div></td></tr></table></div>
-<h3 id="version_distance"><code>version_distance</code><a class="headerlink" href="#version_distance" title="Permanent link">&para;</a></h3>
-<p>Checks whether the distance between a <a href="../schemas/policy/#component">Component</a>'s current version and its latest known version
-matches a given <a href="../schemas/policy/#versiondistance">VersionDistance</a>.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Name</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><em>receiver</em></td>
-<td style="text-align: left;"><a href="../schemas/policy/#component">Component</a></td>
-<td style="text-align: left;">The component to check</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>operator</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Numeric comparator: <code>&lt;</code>, <code>&lt;=</code>, <code>=</code>, <code>!=</code>, <code>&gt;</code>, <code>&gt;=</code></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>distance</code></td>
-<td style="text-align: left;"><a href="../schemas/policy/#versiondistance">VersionDistance</a></td>
-<td style="text-align: left;">The version distance to compare against</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns:</strong> <code>true</code> if the version distance satisfies the comparison.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">component</span><span class="p">.</span><span class="nx">version_distance</span><span class="p">(</span><span class="s2">&quot;&gt;=&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">v1</span><span class="p">.</span><span class="nx">VersionDistance</span><span class="p">{</span><span class="nx">major</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">})</span>
-</code></pre></div></td></tr></table></div>
+<p>The pattern applies in both contexts. The exact root variables (<code>component</code>, <code>subject</code>,
+and so on) are documented on the context-specific reference pages linked above.</p>
 
 
 

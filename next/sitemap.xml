@@ -145,10 +145,6 @@
          <lastmod>2026-04-25</lastmod>
     </url>
     <url>
-         <loc>https://dependencytrack.github.io/docs/next/reference/vulnerability-policies/</loc>
-         <lastmod>2026-04-25</lastmod>
-    </url>
-    <url>
          <loc>https://dependencytrack.github.io/docs/next/reference/api/v1/</loc>
          <lastmod>2026-04-25</lastmod>
     </url>
@@ -218,6 +214,14 @@
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/reference/notifications/publishers/</loc>
+         <lastmod>2026-04-25</lastmod>
+    </url>
+    <url>
+         <loc>https://dependencytrack.github.io/docs/next/reference/policies/</loc>
+         <lastmod>2026-04-25</lastmod>
+    </url>
+    <url>
+         <loc>https://dependencytrack.github.io/docs/next/reference/policies/condition-expressions/</loc>
          <lastmod>2026-04-25</lastmod>
     </url>
     <url>

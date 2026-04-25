@@ -2606,9 +2606,34 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="vulnerability-policies/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="policies/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -2622,7 +2647,59 @@
   
   
 
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_6_2" id="__nav_5_6_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Vulnerability policies
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="policies/condition-expressions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Condition expressions
+  
+
+    
+  </span>
+  
+  
+
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -3199,17 +3276,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#notifications" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Notifications
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#datasources" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3221,10 +3287,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#expressions-and-schemas" class="md-nav__link">
+  <a href="#notifications" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Expressions and Schemas
+        Notifications
       
     </span>
   </a>
@@ -3232,10 +3298,54 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#access-control-and-integrations" class="md-nav__link">
+  <a href="#vulnerability-analysis" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Access Control and Integrations
+        Vulnerability Analysis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cel-expressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CEL Expressions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#access-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Access Control
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integrations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schemas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schemas
       
     </span>
   </a>
@@ -3283,13 +3393,6 @@ For background and explanations, see <a href="../concepts/">Concepts</a>.</p>
 <li><a href="configuration/properties/">All Properties</a> --
   complete generated registry of all application properties</li>
 </ul>
-<h2 id="notifications">Notifications<a class="headerlink" href="#notifications" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="notifications/publishers/">Publishers</a> --
-  email, Jira, Kafka, Webhook, and other publisher options</li>
-<li><a href="notifications/filter-expressions/">Filter Expressions</a> --
-  <abbr title="Common Expression Language">CEL</abbr>-based notification filtering</li>
-</ul>
 <h2 id="datasources">Datasources<a class="headerlink" href="#datasources" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="datasources/nvd/"><abbr title="National Vulnerability Database">NVD</abbr></a> --
@@ -3305,25 +3408,49 @@ For background and explanations, see <a href="../concepts/">Concepts</a>.</p>
 <li><a href="datasources/internal-components/">Internal Components</a> --
   excluding first-party components from external analysis</li>
 </ul>
-<h2 id="expressions-and-schemas">Expressions and Schemas<a class="headerlink" href="#expressions-and-schemas" title="Permanent link">&para;</a></h2>
+<h2 id="notifications">Notifications<a class="headerlink" href="#notifications" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="notifications/publishers/">Publishers</a> --
+  email, Jira, Kafka, Webhook, and other publisher options</li>
+<li><a href="notifications/groups/">Groups</a> --
+  the catalog of events Dependency-Track emits notifications for</li>
+<li><a href="notifications/filter-expressions/">Filter Expressions</a> --
+  <abbr title="Common Expression Language">CEL</abbr>-based notification filtering</li>
+</ul>
+<h2 id="vulnerability-analysis">Vulnerability Analysis<a class="headerlink" href="#vulnerability-analysis" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="analyzers/">Vulnerability Analyzers</a> --
+  internal and external analyzers used to identify vulnerabilities</li>
+<li><a href="policies/">Vulnerability Policies</a> --
+  field definitions, bundle YAML schema, and sync configuration</li>
+<li><a href="policies/condition-expressions/">Condition Expressions</a> --
+  inputs and custom functions for policy conditions</li>
+</ul>
+<h2 id="cel-expressions"><abbr title="Common Expression Language">CEL</abbr> Expressions<a class="headerlink" href="#cel-expressions" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="cel-expressions/"><abbr title="Common Expression Language">CEL</abbr> Expressions</a> --
-  syntax reference for <abbr title="Common Expression Language">CEL</abbr> used in policies and notifications</li>
-<li><a href="analyzers/">Vulnerability Analyzers</a></li>
-<li><a href="vulnerability-policies/">Vulnerability Policies</a></li>
-<li><a href="schemas/notification/">Notification Schema</a></li>
-<li><a href="schemas/policy/">Policy Schema</a></li>
+  shared <abbr title="Common Expression Language">CEL</abbr> syntax primer used by both policies and notification filters</li>
 </ul>
-<h2 id="access-control-and-integrations">Access Control and Integrations<a class="headerlink" href="#access-control-and-integrations" title="Permanent link">&para;</a></h2>
+<h2 id="access-control">Access Control<a class="headerlink" href="#access-control" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="permissions/">Permissions</a> --
   users, teams, API keys, and the full permissions table</li>
+</ul>
+<h2 id="integrations">Integrations<a class="headerlink" href="#integrations" title="Permanent link">&para;</a></h2>
+<ul>
 <li><a href="badges/">Badges</a> --
   SVG badges for embedding vulnerability and policy metrics</li>
 <li><a href="file-formats/">File Formats</a> --
   CycloneDX <abbr title="Bill of Materials">BOM</abbr>/<abbr title="Vulnerability Exploitability eXchange">VEX</abbr>/<abbr title="Vulnerability Disclosure Report">VDR</abbr> and Finding Packaging Format (FPF)</li>
 <li><a href="community-integrations/">Community Integrations</a> --
   third-party tools and libraries built on the Dependency-Track API</li>
+</ul>
+<h2 id="schemas">Schemas<a class="headerlink" href="#schemas" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="schemas/notification/">Notification Schema</a> --
+  Protobuf definitions for notification subjects</li>
+<li><a href="schemas/policy/">Policy Schema</a> --
+  Protobuf definitions for the policy <abbr title="Common Expression Language">CEL</abbr> evaluation context</li>
 </ul>
 
 

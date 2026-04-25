@@ -2599,6 +2599,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#available-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Available functions
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2843,9 +2854,34 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../vulnerability-policies/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../policies/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -2859,7 +2895,59 @@
   
   
 
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_6_2" id="__nav_5_6_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Vulnerability policies
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../policies/condition-expressions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Condition expressions
+  
+
+    
+  </span>
+  
+  
+
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -3469,6 +3557,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#available-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Available functions
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3621,18 +3720,17 @@
 <h1 id="filter-expressions">Filter Expressions<a class="headerlink" href="#filter-expressions" title="Permanent link">&para;</a></h1>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
 <p>Alerts can include a filter expression to control which notifications are dispatched
-based on their content. Filter expressions are written in <a href="https://cel.dev/"><abbr title="Common Expression Language">CEL</abbr></a> (Common Expression Language),
-the same language used for <a href="../../cel-expressions/">policy compliance expressions</a>.</p>
+based on their content. Filter expressions are written in
+<a href="../../cel-expressions/"><abbr title="Common Expression Language">CEL</abbr></a> (Common Expression Language).</p>
 <p>Without a filter expression, an alert matches all notifications that satisfy its scope, group,
 level, and project or tag restrictions. A filter expression adds a further condition: the
 notification is only dispatched when the expression evaluates to <code>true</code>.</p>
 <p>See <a href="../groups/">Notification groups</a> for the full list of groups that can be matched.</p>
 <p><img alt="Filter expression field in the alert editor" src="../images/filter-expression-editor.png" /></p>
 <h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link">&para;</a></h2>
-<p>Filter expressions use the same <a href="../../cel-expressions/#syntax"><abbr title="Common Expression Language">CEL</abbr> syntax</a> as
-policy compliance expressions. <abbr title="Common Expression Language">CEL</abbr> is not <a href="https://en.wikipedia.org/wiki/Turing_completeness">Turing-complete</a> and does not support constructs
-like <code>if</code> statements or loops. It compensates for this with <a href="https://github.com/google/cel-spec/blob/v0.13.0/doc/langdef.md#macros">macros</a> like <code>all</code>, <code>exists</code>,
-<code>exists_one</code>, <code>map</code>, and <code>filter</code>.</p>
+<p>Filter expressions use standard <a href="../../cel-expressions/#syntax"><abbr title="Common Expression Language">CEL</abbr> syntax</a>. <abbr title="Common Expression Language">CEL</abbr> is not
+<a href="https://en.wikipedia.org/wiki/Turing_completeness">Turing-complete</a> and does not support constructs like <code>if</code> statements or loops. It compensates
+for this with <a href="https://github.com/google/cel-spec/blob/v0.13.0/doc/langdef.md#macros">macros</a> like <code>all</code>, <code>exists</code>, <code>exists_one</code>, <code>map</code>, and <code>filter</code>.</p>
 <p>Refer to the official <a href="https://github.com/google/cel-spec/blob/v0.13.0/doc/langdef.md#language-definition">language definition</a> for a thorough description of the syntax.</p>
 <h2 id="evaluation-context">Evaluation Context<a class="headerlink" href="#evaluation-context" title="Permanent link">&para;</a></h2>
 <p>The context in which filter expressions are evaluated contains the following variables:</p>
@@ -3745,6 +3843,10 @@ for full details of each subject type and its fields.</p>
 </tr>
 </tbody>
 </table>
+<h3 id="available-functions">Available functions<a class="headerlink" href="#available-functions" title="Permanent link">&para;</a></h3>
+<p>Notification filters have access to the variables listed above and the
+<a href="../../cel-expressions/#standard-library">standard <abbr title="Common Expression Language">CEL</abbr> library</a>. No additional custom functions
+are registered for this context.</p>
 <h2 id="validation">Validation<a class="headerlink" href="#validation" title="Permanent link">&para;</a></h2>
 <p>Filter expressions are validated when an alert is saved. If the expression contains syntax errors
 or references types that do not exist, the save operation will fail and the errors will be reported
@@ -3811,9 +3913,9 @@ only when at least one <code>CRITICAL</code> vulnerability was found in the repo
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="s2">&quot;CRITICAL&quot;</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">subject</span><span class="p">.</span><span class="nx">overview</span><span class="p">.</span><span class="nx">new_vulnerabilities_count_by_severity</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="optional-field-checking">Optional field checking<a class="headerlink" href="#optional-field-checking" title="Permanent link">&para;</a></h3>
-<p><abbr title="Common Expression Language">CEL</abbr> does not have a concept of <code>null</code>. Accessing a field that is not set returns its default
-value (for example, <code>""</code> for strings, <code>0</code> for numbers), which can lead to misleading matches.
-Use the <code>has()</code> macro to check for field presence before accessing it:</p>
+<p>Use the <code>has()</code> macro to check for field presence before accessing it. See
+<a href="../../cel-expressions/#optional-field-checking">Optional field checking</a> in the general primer
+for the rationale.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">has</span><span class="p">(</span><span class="nx">subject</span><span class="p">.</span><span class="nx">vulnerability</span><span class="p">.</span><span class="nx">cvss_v3_vector</span><span class="p">)</span>
 <span class="w">  </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">subject</span><span class="p">.</span><span class="nx">vulnerability</span><span class="p">.</span><span class="nx">cvss_v3_vector</span><span class="p">.</span><span class="nx">matches</span><span class="p">(</span><span class="s2">&quot;.*/AV:N/.*&quot;</span><span class="p">)</span>

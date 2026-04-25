@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://dependencytrack.github.io/docs/next/reference/vulnerability-policies/">
+        <link rel="canonical" href="https://dependencytrack.github.io/docs/next/reference/policies/">
       
       
         <link rel="prev" href="../analyzers/">
       
       
-        <link rel="next" href="../cel-expressions/">
+        <link rel="next" href="condition-expressions/">
       
       
         
@@ -28,7 +28,7 @@
     
     
       
-        <title>Vulnerability policies - Dependency-Track</title>
+        <title>Vulnerability Policies - Dependency-Track</title>
       
     
     
@@ -64,15 +64,15 @@
     
   
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Vulnerability policies - Dependency-Track" />
-<meta property="og:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/reference/vulnerability-policies.png" />
+<meta property="og:title" content="Vulnerability Policies - Dependency-Track" />
+<meta property="og:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/reference/policies/index.png" />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:url" content="https://dependencytrack.github.io/docs/next/reference/vulnerability-policies/" />
+<meta property="og:url" content="https://dependencytrack.github.io/docs/next/reference/policies/" />
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:title" content="Vulnerability policies - Dependency-Track" />
-<meta property="twitter:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/reference/vulnerability-policies.png" />
+<meta property="twitter:title" content="Vulnerability Policies - Dependency-Track" />
+<meta property="twitter:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/reference/policies/index.png" />
 </head>
   
   
@@ -131,7 +131,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Vulnerability policies
+              Vulnerability Policies
             
           </span>
         </div>
@@ -2610,16 +2610,34 @@
   
   
   
-    <li class="md-nav__item md-nav__item--active">
+    
+    
       
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+        
+          
+        
+      
+        
+      
+    
+    
+    
       
       
         
       
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6_2" checked>
+        
           
+          <div class="md-nav__link md-nav__container">
+            <a href="./" class="md-nav__link md-nav__link--active">
+              
   
   
   <span class="md-ellipsis">
@@ -2633,17 +2651,43 @@
   
   
 
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+            </a>
+            
+              
+              <label class="md-nav__link md-nav__link--active" for="__nav_5_6_2" id="__nav_5_6_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_6_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Vulnerability policies
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="condition-expressions/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Vulnerability policies
+    Condition expressions
   
 
     
@@ -2652,124 +2696,13 @@
   
 
       </a>
-      
-        
+    </li>
+  
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#policy-sources" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Policy Sources
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#operation-modes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Operation Modes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#condition-variables" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Condition Variables
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#analysis-fields" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Analysis Fields
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ratings" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Ratings
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bundle-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Bundle Configuration
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bundle-layout" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Bundle Layout
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#policy-file-format" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Policy File Format
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sync-behaviour" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Sync Behaviour
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
+              
+            
+          </ul>
+        </nav>
       
     </li>
   
@@ -3492,45 +3425,13 @@ For step-by-step procedures, see
 </tbody>
 </table>
 <h2 id="condition-variables">Condition Variables<a class="headerlink" href="#condition-variables" title="Permanent link">&para;</a></h2>
-<p>Conditions use the same <a href="../cel-expressions/">Common Expression Language</a> syntax, functions, and variables
-as standard policy expressions, with one exception: A vulnerability policy is scoped to a
-single vulnerability, exposed as the <code>vuln</code> variable, rather than a list of vulnerabilities.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Variable</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>vuln</code></td>
-<td style="text-align: left;"><a href="../schemas/policy/#vulnerability">Vulnerability</a></td>
-<td style="text-align: left;">The vulnerability being evaluated</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>component</code></td>
-<td style="text-align: left;"><a href="../schemas/policy/#component">Component</a></td>
-<td style="text-align: left;">The component the vulnerability applies to</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>project</code></td>
-<td style="text-align: left;"><a href="../schemas/policy/#project">Project</a></td>
-<td style="text-align: left;">The project the component belongs to</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>now</code></td>
-<td style="text-align: left;"><a href="https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp"><code>google.protobuf.Timestamp</code></a></td>
-<td style="text-align: left;">The current time at the start of evaluation</td>
-</tr>
-</tbody>
-</table>
-<p>Because <code>vuln</code> is a single object rather than a list, constructs like <code>vulns.exists(...)</code> from
-standard policies become direct field accesses such as <code>vuln.id == "CVE-2022-41852"</code>. Everything
-else works identically, including <a href="../cel-expressions/#matches_range"><code>matches_range</code></a>,
-<a href="../cel-expressions/#is_dependency_of"><code>is_dependency_of</code></a>, <code>has()</code>, and the full <abbr title="Common Expression Language">CEL</abbr> standard library.
-Refer to the <a href="../cel-expressions/">expressions reference</a> for the complete function list.</p>
+<p>Conditions are written in <a href="../cel-expressions/"><abbr title="Common Expression Language">CEL</abbr></a>. A vulnerability policy is scoped to a
+single vulnerability, exposed as the <code>vuln</code> variable. Standard component policies, in contrast,
+expose a list of vulnerabilities as <code>vulns</code>, so constructs like <code>vulns.exists(...)</code> become direct
+field accesses such as <code>vuln.id == "CVE-2022-41852"</code>. The <code>component</code>, <code>project</code>, <code>now</code> variables
+and all custom functions are identical across both policy types.</p>
+<p>See <a href="condition-expressions/">Condition expressions</a> for the complete list of variables,
+custom functions, and worked examples.</p>
 <h2 id="analysis-fields">Analysis Fields<a class="headerlink" href="#analysis-fields" title="Permanent link">&para;</a></h2>
 <p>When a policy matches in <em>Apply</em> mode, the following analysis fields are applied to the finding:</p>
 <ul>
