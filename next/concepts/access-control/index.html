@@ -1308,7 +1308,8 @@
 
 <h1 id="about-access-control">About access control<a class="headerlink" href="#about-access-control" title="Permanent link">&para;</a></h1>
 <p>Dependency-Track uses a role-based access control model built around <strong>permissions</strong>,
-<strong>teams</strong>, and <strong>users</strong>. Teams hold permissions, and users inherit the
+<strong>teams</strong>, and <strong>users</strong>. Permissions can be assigned to teams or directly to users.
+A user's effective permissions are the union of their direct permissions and the
 permissions of every team they belong to.</p>
 <h2 id="users">Users<a class="headerlink" href="#users" title="Permanent link">&para;</a></h2>
 <p>Three types of users exist:</p>
@@ -1350,11 +1351,14 @@ against the IdP's discovery endpoint and extracts the username from the configur
 claim. With user provisioning turned on, Dependency-Track creates accounts on
 first login.</p>
 <h2 id="teams">Teams<a class="headerlink" href="#teams" title="Permanent link">&para;</a></h2>
-<p>A team is a named collection of users and API keys. Teams hold permissions directly;
-individual users do not. This makes it straightforward to manage access for groups of
-people (for example, <em>Security Engineers</em>, <em>Developers</em>, <em>CI/CD Pipelines</em>) or automated systems.</p>
+<p>A team is a named collection of users and API keys. Teams hold permissions, which makes
+it straightforward to manage access for groups of people (for example, <em>Security Engineers</em>,
+<em>Developers</em>, <em>CI/CD Pipelines</em>) or automated systems.</p>
 <p>A user can belong to more than one team and inherits the union of all permissions from
-every team they are a member of.</p>
+every team they are a member of. Permissions can also be assigned directly to a user.
+Those permissions add to whatever the user inherits from their teams.</p>
+<p>Prefer team-based assignment as the default. Use direct user permissions sparingly, for
+exceptions that don't justify a dedicated team.</p>
 <p>API keys belong to a team and carry the same permissions as that team. They authenticate
 automated access (CI/CD pipelines, integrations) without associating requests with a
 specific human user.</p>
