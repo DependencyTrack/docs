@@ -5,14 +5,14 @@ nav:
   - Configuration: configuration
   - Datasources: datasources
   - Notifications: notifications
-  - Vulnerability Analysis:
-    - Vulnerability Analyzers: analyzers.md
-    - Vulnerability Policies: vulnerability-policies.md
-  - CEL Expressions: cel-expressions.md
-  - Access Control:
+  - Vulnerability analysis:
+    - Vulnerability analyzers: analyzers.md
+    - Vulnerability policies: vulnerability-policies.md
+  - CEL expressions: cel-expressions.md
+  - Access control:
     - Permissions: permissions.md
   - Integrations:
     - Badges: badges.md
-    - File Formats: file-formats.md
-    - Community Integrations: community-integrations.md
+    - File formats: file-formats.md
+    - Community integrations: community-integrations.md
   - Schemas: schemas

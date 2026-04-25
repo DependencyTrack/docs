@@ -1,7 +1,7 @@
 nav:
   - Application: application.md
-  - Data Sources: datasources.md
-  - File Storage: file-storage.md
+  - Data sources: datasources.md
+  - File storage: file-storage.md
   - Database: database.md
-  - Durable Execution Engine: dex-engine.md
-  - All Properties: properties.md
+  - Durable execution engine: dex-engine.md
+  - All properties: properties.md
