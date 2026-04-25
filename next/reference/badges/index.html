@@ -1983,56 +1983,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#access-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Access Configuration
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Access Configuration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#api-key-in-url" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        API Key in URL
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#api-key-in-header" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        API Key in Header
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#required-permission" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Required Permission
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2377,56 +2327,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#access-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Access Configuration
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Access Configuration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#api-key-in-url" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        API Key in URL
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#api-key-in-header" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        API Key in Header
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#required-permission" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Required Permission
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2523,58 +2423,34 @@ internal documentation to give at-a-glance visibility into a project's security 
 the highest severity present, or <em>no vulns</em> if no active findings exist.</p>
 <p>Suppressed vulnerabilities are excluded from badge counts.</p>
 <p><strong>By project name and version:</strong></p>
-<div class="highlight"><pre><span></span><code>https://dtrack.example.com/api/v1/badge/vulns/project/{name}/{version}?apiKey={apiKey}
+<div class="highlight"><pre><span></span><code>https://dtrack.example.com/api/v1/badge/vulns/project/{name}/{version}
 </code></pre></div>
 <p><strong>By project UUID:</strong></p>
-<div class="highlight"><pre><span></span><code>https://dtrack.example.com/api/v1/badge/vulns/project/{uuid}?apiKey={apiKey}
+<div class="highlight"><pre><span></span><code>https://dtrack.example.com/api/v1/badge/vulns/project/{uuid}
 </code></pre></div>
 <h3 id="policy-violations">Policy Violations<a class="headerlink" href="#policy-violations" title="Permanent link">&para;</a></h3>
 <p>Displays the current policy violation state. Shows <em>violations</em> if any active (non-suppressed)
 violations are present, or <em>no violations</em> otherwise.</p>
 <p><strong>By project name and version:</strong></p>
-<div class="highlight"><pre><span></span><code>https://dtrack.example.com/api/v1/badge/violations/project/{name}/{version}?apiKey={apiKey}
+<div class="highlight"><pre><span></span><code>https://dtrack.example.com/api/v1/badge/violations/project/{name}/{version}
 </code></pre></div>
 <p><strong>By project UUID:</strong></p>
-<div class="highlight"><pre><span></span><code>https://dtrack.example.com/api/v1/badge/violations/project/{uuid}?apiKey={apiKey}
+<div class="highlight"><pre><span></span><code>https://dtrack.example.com/api/v1/badge/violations/project/{uuid}
 </code></pre></div>
 <h2 id="embedding-badges">Embedding Badges<a class="headerlink" href="#embedding-badges" title="Permanent link">&para;</a></h2>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Markdown</label><label for="__tabbed_1_2">HTML</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>![<span class="nt">Vulnerabilities</span>](<span class="na">https://dtrack.example.com/api/v1/badge/vulns/project/my-app/1.0.0?apiKey=odt_...</span>)
-![<span class="nt">Policy Violations</span>](<span class="na">https://dtrack.example.com/api/v1/badge/violations/project/my-app/1.0.0?apiKey=odt_...</span>)
+<div class="highlight"><pre><span></span><code>![<span class="nt">Vulnerabilities</span>](<span class="na">https://dtrack.example.com/api/v1/badge/vulns/project/my-app/1.0.0</span>)
+![<span class="nt">Policy Violations</span>](<span class="na">https://dtrack.example.com/api/v1/badge/violations/project/my-app/1.0.0</span>)
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://dtrack.example.com/api/v1/badge/vulns/project/my-app/1.0.0?apiKey=odt_...&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;Vulnerabilities&quot;</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://dtrack.example.com/api/v1/badge/violations/project/my-app/1.0.0?apiKey=odt_...&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;Policy Violations&quot;</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://dtrack.example.com/api/v1/badge/vulns/project/my-app/1.0.0&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;Vulnerabilities&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://dtrack.example.com/api/v1/badge/violations/project/my-app/1.0.0&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;Policy Violations&quot;</span><span class="p">&gt;</span>
 </code></pre></div>
 </div>
 </div>
-</div>
-<h2 id="access-configuration">Access Configuration<a class="headerlink" href="#access-configuration" title="Permanent link">&para;</a></h2>
-<p>Badge requests require authentication. Two approaches are available:</p>
-<h3 id="api-key-in-url">API Key in URL<a class="headerlink" href="#api-key-in-url" title="Permanent link">&para;</a></h3>
-<p>Pass the API key as a query parameter (<code>?apiKey={apiKey}</code>). This is the simplest
-approach for static badge URLs embedded in documentation.</p>
-<div class="highlight"><pre><span></span><code>https://dtrack.example.com/api/v1/badge/vulns/project/{uuid}?apiKey=odt_...
-</code></pre></div>
-<h3 id="api-key-in-header">API Key in Header<a class="headerlink" href="#api-key-in-header" title="Permanent link">&para;</a></h3>
-<p>Pass the API key in the <code>X-Api-Key</code> request header. This is appropriate for server-side
-badge proxies where the key should not appear in URLs.</p>
-<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;X-Api-Key: odt_...&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span><span class="s2">&quot;https://dtrack.example.com/api/v1/badge/vulns/project/{uuid}&quot;</span>
-</code></pre></div>
-<h2 id="required-permission">Required Permission<a class="headerlink" href="#required-permission" title="Permanent link">&para;</a></h2>
-<p>The API key (or the team it belongs to) must have the <code>VIEW_BADGES</code> permission.</p>
-<p>Dependency-Track creates a default <strong>Badge Viewers</strong> team with this permission and a
-pre-generated API key on first startup. You may use this key for badge access, but
-rotate it before going to production.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>API keys in badge URLs are visible to anyone who can view the source of the page
-embedding them. Use a dedicated, low-privilege API key with only the <code>VIEW_BADGES</code>
-permission for this purpose, and avoid reusing keys from more privileged teams.</p>
 </div>
 
 
