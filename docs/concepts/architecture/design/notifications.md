@@ -111,7 +111,7 @@ and defaults to 100.
 ### Routing
 
 The router evaluates each notification against all enabled
-[alerts](../../../reference/notifications/publishers.md).
+[alerts](../../notifications.md#alerts).
 A rule matches if:
 
 * Its scope matches the notification's scope

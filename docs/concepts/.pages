@@ -1,6 +1,7 @@
 title: Concepts
 nav:
   - index.md
-  - access-control.md
-  - vulnerability-policies.md
+  - About access control: access-control.md
+  - About notifications: notifications.md
+  - About vulnerability policies: vulnerability-policies.md
   - ...

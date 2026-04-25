@@ -10,6 +10,8 @@ Without a filter expression, an alert matches all notifications that satisfy its
 level, and project or tag restrictions. A filter expression adds a further condition: the
 notification is only dispatched when the expression evaluates to `true`.
 
+See [Notification groups](groups.md) for the full list of groups that can be matched.
+
 ![Filter expression field in the alert editor](./images/filter-expression-editor.png)
 
 ## Syntax

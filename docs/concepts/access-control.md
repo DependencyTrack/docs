@@ -1,4 +1,4 @@
-# Access control
+# About access control
 
 Dependency-Track uses a role-based access control model built around **permissions**,
 **teams**, and **users**. Teams hold permissions, and users inherit the
