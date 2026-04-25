@@ -1,3 +1,4 @@
 nav:
+  - Groups: groups.md
   - Publishers: publishers.md
   - Filter expressions: filter-expressions.md
