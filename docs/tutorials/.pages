@@ -1,4 +1,6 @@
 title: Tutorials
 nav:
   - index.md
+  - quickstart.md
+  - setting-up-notifications.md
   - ...

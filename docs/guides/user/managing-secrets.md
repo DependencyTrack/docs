@@ -14,7 +14,7 @@ Depending on the capabilities of the configured
 secrets can be [created](#creating-secrets), [updated](#updating-secrets),
 and [deleted](#deleting-secrets).
 
-![Secret management overview](images/configuring-secret-management/secret-management-overview.png)
+![Secret management overview](../../assets/images/guides/user/managing-secrets/secret-management-overview.png)
 
 !!! info
     You cannot *view* the value of secrets after creating them.
@@ -31,7 +31,7 @@ dialogue asking for the following information:
 * The value of the secret
 * An optional description
 
-![Create secret dialogue](images/configuring-secret-management/create-secret.png)
+![Create secret dialogue](../../assets/images/guides/user/managing-secrets/create-secret.png)
 
 ## Updating secrets
 
@@ -43,7 +43,7 @@ the following information:
 * The new secret value
 * An optional description
 
-![Update secret dialogue](images/configuring-secret-management/update-secret.png)
+![Update secret dialogue](../../assets/images/guides/user/managing-secrets/update-secret.png)
 
 Leaving the *value* input empty keeps the existing value.
 If a new value is provided, the old value is irrevocably overwritten.
@@ -55,7 +55,7 @@ can delete existing secrets by clicking the :fontawesome-solid-trash-alt: button
 in the *Actions* column of the secret. This opens a dialogue asking for
 confirmation.
 
-![Delete secret dialogue](images/configuring-secret-management/delete-secret.png)
+![Delete secret dialogue](../../assets/images/guides/user/managing-secrets/delete-secret.png)
 
 Deleted secrets cannot be restored. Proceed with caution.
 
@@ -63,7 +63,7 @@ Deleted secrets cannot be restored. Proceed with caution.
 
 Secrets can be used in configuration fields marked with :key:.
 
-![Secret input field in a configuration form](images/configuring-secret-management/use-secret.png)
+![Secret input field in a configuration form](../../assets/images/guides/user/managing-secrets/use-secret.png)
 
 These fields offer dropdown and search capabilities,
 making it easy to discover available secrets.

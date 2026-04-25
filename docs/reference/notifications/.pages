@@ -1,4 +1,5 @@
 nav:
   - Groups: groups.md
   - Publishers: publishers.md
+  - Templating: templating.md
   - Filter expressions: filter-expressions.md

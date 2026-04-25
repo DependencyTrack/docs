@@ -52,7 +52,7 @@ To upload BOMs to the Dependency-Track v5 system, an API key with `BOM_UPLOAD` a
 permissions is required. Log into your Dependency-Track v5 instance, navigate to *Administration* -> *Access Management*
 -> *Teams*, and create a new team with accompanying API key:
 
-![Creating an API key for Bento in Dependency-Track v5](images/migrating-from-v4/bento-api-key.png)
+![Creating an API key for Bento in Dependency-Track v5](../../assets/images/guides/administration/migrating-from-v4/bento-api-key.png)
 
 ### Deploy Bento
 
@@ -118,11 +118,11 @@ and create a new alert with the following settings:
 * Notification level: *Informational*
 * Publisher: *Outbound Webhook*
 
-![Creating a new alert in Dependency-Track v4](images/migrating-from-v4/create-alert.png)
+![Creating a new alert in Dependency-Track v4](../../assets/images/guides/administration/migrating-from-v4/create-alert.png)
 
 Once created, enable `BOM_PROCESSED` under *Groups*, and configure the URL of your Bento endpoint as *Destination*:
 
-![Configuring the alert in Dependency-Track v4](images/migrating-from-v4/configure-alert.png)
+![Configuring the alert in Dependency-Track v4](../../assets/images/guides/administration/migrating-from-v4/configure-alert.png)
 
 ### Testing
 

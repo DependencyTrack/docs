@@ -28,7 +28,7 @@ Uses both CPE and PURL matching.
 |---------|-----------------------|--------------------------------|
 | Enabled | -                     | Whether the analyzer is active |
 
-![Internal analyzer configuration](./images/analyzers/analyzer-config_internal.png)
+![Internal analyzer configuration](../assets/images/reference/analyzers/analyzer-config_internal.png)
 
 !!! tip "Data source configuration"
     Because the analyzer operates entirely read-only, it is possible to use a separate
@@ -70,7 +70,7 @@ Uses PURL matching. Supports the following ecosystems:
 | Username           | Yes                   | OSS Index account username                                        |
 | API token          | Yes                   | OSS Index API token. Must be a [managed secret].                  |
 
-![OSS Index analyzer configuration](./images/analyzers/analyzer-config_oss-index.png)
+![OSS Index analyzer configuration](../assets/images/reference/analyzers/analyzer-config_oss-index.png)
 
 ## Snyk
 
@@ -101,7 +101,7 @@ Uses PURL matching. Supports the following ecosystems:
 | Organisation ID    | Yes                   | Snyk organisation identifier                            |
 | API token          | Yes                   | Snyk API token. Must be a [managed secret].             |
 
-![Snyk analyzer configuration](./images/analyzers/analyzer-config_snyk.png)
+![Snyk analyzer configuration](../assets/images/reference/analyzers/analyzer-config_snyk.png)
 
 ## Trivy
 
@@ -124,7 +124,7 @@ Uses PURL matching.
 | Scan library   | -                     | Scan language/library packages (enabled by default)                    |
 | Scan OS        | -                     | Scan OS-level packages (disabled by default)                           |
 
-![Trivy analyzer configuration](./images/analyzers/analyzer-config_trivy.png)
+![Trivy analyzer configuration](../assets/images/reference/analyzers/analyzer-config_trivy.png)
 
 ## VulnDB
 
@@ -142,7 +142,7 @@ Uses CPE matching.
 | OAuth 2.0 client ID     | Yes                   | OAuth 2.0 client ID for authentication                                  |
 | OAuth 2.0 client secret | Yes                   | OAuth 2.0 client secret for authentication. Must be a [managed secret]. |
 
-![VulnDB analyzer configuration](./images/analyzers/analyzer-config_vulndb.png)
+![VulnDB analyzer configuration](../assets/images/reference/analyzers/analyzer-config_vulndb.png)
 
 [managed secret]: ../guides/user/managing-secrets.md
 [oss-index]: https://ossindex.sonatype.org/

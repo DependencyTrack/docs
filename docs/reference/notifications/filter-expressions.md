@@ -1,18 +1,20 @@
-# Filter Expressions
+# Filter expressions
 
 ## Introduction
 
-Alerts can include a filter expression to control which notifications are dispatched
-based on their content. Filter expressions are written in
+Alerts can include a filter expression to control which notifications the platform dispatches
+based on their content. Filter expressions use
 [CEL](../cel-expressions.md) (Common Expression Language).
 
-Without a filter expression, an alert matches all notifications that satisfy its scope, group,
+Without a filter expression, an alert matches every notification that meets its scope, group,
 level, and project or tag restrictions. A filter expression adds a further condition: the
-notification is only dispatched when the expression evaluates to `true`.
+platform dispatches the notification only when the expression evaluates to `true`.
 
-See [Notification groups](groups.md) for the full list of groups that can be matched.
+See [Notification groups](groups.md) for the full list of selectable groups,
+and [How alert filtering works](../../concepts/notifications.md#how-alert-filtering-works)
+for the order the platform applies filters and how it handles evaluation failures.
 
-![Filter expression field in the alert editor](./images/filter-expression-editor.png)
+![Filter expression field in the alert editor](../../assets/images/reference/notifications/filter-expressions/filter-expression-editor.png)
 
 ## Syntax
 
@@ -22,9 +24,9 @@ for this with [macros] like `all`, `exists`, `exists_one`, `map`, and `filter`.
 
 Refer to the official [language definition] for a thorough description of the syntax.
 
-## Evaluation Context
+## Evaluation context
 
-The context in which filter expressions are evaluated contains the following variables:
+The expression evaluation context contains the following variables:
 
 | Variable    | Type                                                         | Description                                                                            |
 |:------------|:-------------------------------------------------------------|:---------------------------------------------------------------------------------------|
@@ -33,10 +35,10 @@ The context in which filter expressions are evaluated contains the following var
 | `group`     | [`Group`](../../reference/schemas/notification.md#group)     | The notification group, as an integer enum value. Use named constants (see below).      |
 | `title`     | `string`                                                     | The notification title.                                                                |
 | `content`   | `string`                                                     | The notification content.                                                              |
-| `timestamp` | [`google.protobuf.Timestamp`][protobuf-ts-docs]              | The time at which the notification was created.                                        |
+| `timestamp` | [`google.protobuf.Timestamp`][protobuf-ts-docs]              | The notification creation time.                                                        |
 | `subject`   | dynamic                                                      | The notification subject, typed according to the notification group (see below).        |
 
-### Enum Constants
+### Enum constants
 
 The `level`, `scope`, and `group` variables hold integer values. To compare them in a readable way,
 use the named constants from the [notification schema](../../reference/schemas/notification.md#enums):
@@ -53,64 +55,28 @@ group == Group.GROUP_NEW_VULNERABILITY
 scope == Scope.SCOPE_PORTFOLIO
 ```
 
-### Subject Types
+### Subject types
 
-The `subject` variable holds the notification's subject, which varies depending on the notification
-group. Refer to the [notification schema reference](../../reference/schemas/notification.md#subjects)
-for full details of each subject type and its fields.
-
-| Group                                                   | Subject Type                                                                                                                                            |
-|:--------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `BOM_CONSUMED`, `BOM_PROCESSED`                         | [BomConsumedOrProcessedSubject](../../reference/schemas/notification.md#bomconsumedorprocessedsubject)                                                   |
-| `BOM_PROCESSING_FAILED`                                 | [BomProcessingFailedSubject](../../reference/schemas/notification.md#bomprocessingfailedsubject)                                                         |
-| `BOM_VALIDATION_FAILED`                                 | [BomValidationFailedSubject](../../reference/schemas/notification.md#bomvalidationfailedsubject)                                                         |
-| `NEW_VULNERABILITY`                                     | [NewVulnerabilitySubject](../../reference/schemas/notification.md#newvulnerabilitysubject)                                                               |
-| `NEW_VULNERABLE_DEPENDENCY`                             | [NewVulnerableDependencySubject](../../reference/schemas/notification.md#newvulnerabledependencysubject)                                                 |
-| `POLICY_VIOLATION`                                      | [PolicyViolationSubject](../../reference/schemas/notification.md#policyviolationsubject)                                                                 |
-| `PROJECT_AUDIT_CHANGE`                                  | [VulnerabilityAnalysisDecisionChangeSubject](../../reference/schemas/notification.md#vulnerabilityanalysisdecisionchangesubject) or [PolicyViolationAnalysisDecisionChangeSubject](../../reference/schemas/notification.md#policyviolationanalysisdecisionchangesubject) |
-| `PROJECT_VULN_ANALYSIS_COMPLETE`                        | [ProjectVulnAnalysisCompleteSubject](../../reference/schemas/notification.md#projectvulnanalysiscompletesubject)                                         |
-| `VEX_CONSUMED`, `VEX_PROCESSED`                         | [VexConsumedOrProcessedSubject](../../reference/schemas/notification.md#vexconsumedorprocessedsubject)                                                   |
-| `USER_CREATED`, `USER_DELETED`                          | [UserSubject](../../reference/schemas/notification.md#usersubject)                                                                                       |
+The `subject` variable holds the notification's subject. Its type depends on the notification
+group; see [Subjects](groups.md#subjects) in the notification groups reference for the
+group-to-subject mapping, and the [notification schema reference](../../reference/schemas/notification.md)
+for each subject's fields.
 
 ### Available functions
 
-Notification filters have access to the variables listed above and the
-[standard CEL library](../cel-expressions.md#standard-library). No additional custom functions
-are registered for this context.
+Notification filters have access to the variables in the preceding table and the
+[standard CEL library](../cel-expressions.md#standard-library). No further custom functions
+exist for this context.
 
 ## Validation
 
-Filter expressions are validated when an alert is saved. If the expression contains syntax errors
-or references types that do not exist, the save operation will fail and the errors will be reported
+Saving an alert validates its filter expression. If the expression contains syntax errors
+or references types that do not exist, the save fails and the response reports the errors
 with their exact location (line and column).
 
-![Validation error for an invalid filter expression](./images/filter-expression-editor-error.png)
+![Validation error for an invalid filter expression](../../assets/images/reference/notifications/filter-expressions/filter-expression-editor-error.png)
 
-The maximum length of a filter expression is 2048 characters.
-
-## Failure Behaviour
-
-If a filter expression fails to evaluate at dispatch time (for example due to accessing a field
-that does not exist on the subject), the alert matches the notification regardless.
-This "fail-open" strategy ensures that a broken expression causes over-notification rather than
-silently suppressing notifications. Evaluation failures are logged as warnings.
-
-!!! warning
-    An alert with an expression that consistently fails will behave as though
-    it has no filter expression at all. Check the application logs for evaluation warnings
-    if an alert appears to match more broadly than expected.
-
-## Filtering Order
-
-When a notification is dispatched, Dependency-Track evaluates the following filters in order:
-
-1. **Scope, group, and level** matching (configured on the alert).
-2. **Project and tag restrictions** (if the alert is limited to specific projects or tags).
-3. **Filter expression** (if the alert has one).
-
-The filter expression is only evaluated when the notification has already passed the preceding
-checks. This means that project and tag restrictions are always enforced, regardless of what the
-expression contains.
+A filter expression has a length limit of 2048 characters.
 
 ## Examples
 
@@ -123,7 +89,7 @@ severity is `CRITICAL` or `HIGH`:
 subject.vulnerability.severity in ["CRITICAL", "HIGH"]
 ```
 
-### Vulnerabilities with a CVSS v3 score above a threshold
+### Vulnerabilities with a CVSS v3 score over a threshold
 
 ```js linenums="1"
 subject.vulnerability.cvss_v3 >= 7.0
@@ -141,7 +107,7 @@ subject.project.name.startsWith("acme-")
 !!! tip
     For simple project-based filtering, consider using project and tag restrictions on the
     alert instead. Filter expressions are more useful for content-based conditions
-    that cannot be expressed through project or tag restrictions alone.
+    that project or tag restrictions cannot capture alone.
 
 ### Vulnerabilities with a specific CWE
 
@@ -152,7 +118,7 @@ has CWE-79 (Cross-site Scripting) among its CWEs:
 subject.vulnerability.cwes.exists(cwe, cwe.cwe_id == 79)
 ```
 
-### Combining multiple conditions
+### Combining conditions
 
 The following expression matches `NEW_VULNERABILITY` notifications for `CRITICAL` vulnerabilities
 with a network attack vector in CVSSv3:
@@ -162,11 +128,11 @@ subject.vulnerability.severity == "CRITICAL"
   && subject.vulnerability.cvss_v3_vector.matches(".*/AV:N/.*")
 ```
 
-### Scheduled alerts: only when critical vulnerabilities were found
+### Scheduled alerts: only when critical vulnerabilities exist
 
 For scheduled alerts that produce vulnerability summaries, the subject contains
 an overview with vulnerability counts grouped by severity. The following expression matches
-only when at least one `CRITICAL` vulnerability was found in the reporting period:
+only when the reporting period contains at least one `CRITICAL` vulnerability:
 
 ```js linenums="1"
 "CRITICAL" in subject.overview.new_vulnerabilities_count_by_severity

@@ -65,7 +65,8 @@ Use these terms consistently. Avoid synonyms not listed here.
 - **notification group** — Event type classification (e.g., NEW_VULNERABILITY, POLICY_VIOLATION, BOM_PROCESSED, BOM_PROCESSING_FAILED).
 - **notification level** — *Informational*, *Warning*, or *Error*. Higher levels include lower.
 - **alert** — A routing rule that subscribes to notification groups and delivers to a publisher. Called "notification rule" in the API; prefer "alert" in docs.
-- **publisher** — Delivery mechanism: email, Slack, Teams, Mattermost, Jira, webhook.
+- **publisher** — Delivery mechanism: email, Slack, Teams, Mattermost, Jira, webhook. Fixed set; operators configure global settings but cannot create, clone, or delete publishers.
+- **notification template** — User-managed Pebble template + MIME type bound to a publisher. UI label is "Notification templates". Each built-in publisher ships with a read-only default template; custom templates are created by cloning a default and editing the clone.
 
 ## Access control
 

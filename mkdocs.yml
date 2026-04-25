@@ -98,6 +98,7 @@ plugins:
 - search
 - social
 - awesome-pages
+- glightbox
 - blog:
     categories_allowed:
     - Release
