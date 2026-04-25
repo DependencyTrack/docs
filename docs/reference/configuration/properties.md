@@ -332,21 +332,6 @@ Specifies the password to use when authenticating to the database.
 <tr><th>ENV</th><td><code>DT_DATABASE_PASSWORD</code></td></tr>
 </table>
 
-<span id="dtdatabasepasswordfile">**`dt.database.password.file`** [¶](#dtdatabasepasswordfile){ .headerlink }</span>
-
-Specifies the file to load the database password from.  If set, takes precedence over [`dt.database.password`](#dtdatabasepassword).  
-
-
-!!! warning "Deprecated"
-    Since 5.7.0. Use [`dt.datasource.password`](#dtdatasourcepassword)-file instead.
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
-<tr><th>Default</th><td><code>null</code></td></tr>
-<tr><th>Example</th><td><code>/var/run/secrets/database-password</code></td></tr>
-<tr><th>ENV</th><td><code>DT_DATABASE_PASSWORD_FILE</code></td></tr>
-</table>
-
 <span id="dtdatabasepoolenabled">**`dt.database.pool.enabled`** [¶](#dtdatabasepoolenabled){ .headerlink }</span>
 
 Specifies if the database connection pool is enabled.  
@@ -454,16 +439,6 @@ Defines the password to use for the default data source.
 <tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
 <tr><th>Default</th><td><code>${dt.database.password}</code></td></tr>
 <tr><th>ENV</th><td><code>DT_DATASOURCE_PASSWORD</code></td></tr>
-</table>
-
-<span id="dtdatasourcepassword-file">**`dt.datasource.password-file`** [¶](#dtdatasourcepassword-file){ .headerlink }</span>
-
-Defines the location of the file to load the password for the default data source from.  If set, takes precedence over [`dt.datasource.password`](#dtdatasourcepassword).  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
-<tr><th>Default</th><td><code>${dt.database.password.file}</code></td></tr>
-<tr><th>ENV</th><td><code>DT_DATASOURCE_PASSWORD_FILE</code></td></tr>
 </table>
 
 <span id="dtdatasourcepoolenabled">**`dt.datasource.pool.enabled`** <strong style="color: red">*</strong> [¶](#dtdatasourcepoolenabled){ .headerlink }</span>
@@ -1273,17 +1248,6 @@ HTTP proxy address. If set, then [`dt.http.proxy.port`](#dthttpproxyport) must b
 <tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
 <tr><th>Default</th><td><code>null</code></td></tr>
 <tr><th>ENV</th><td><code>DT_HTTP_PROXY_PASSWORD</code></td></tr>
-</table>
-
-<span id="dthttpproxypasswordfile">**`dt.http.proxy.password.file`** [¶](#dthttpproxypasswordfile){ .headerlink }</span>
-
-Specifies the file to load the HTTP proxy password from.  If set, takes precedence over [`dt.http.proxy.password`](#dthttpproxypassword).  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
-<tr><th>Default</th><td><code>null</code></td></tr>
-<tr><th>Example</th><td><code>/var/run/secrets/http-proxy-password</code></td></tr>
-<tr><th>ENV</th><td><code>DT_HTTP_PROXY_PASSWORD_FILE</code></td></tr>
 </table>
 
 <span id="dthttpproxyport">**`dt.http.proxy.port`** [¶](#dthttpproxyport){ .headerlink }</span>
