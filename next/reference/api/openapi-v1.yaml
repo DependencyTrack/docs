@@ -4027,7 +4027,6 @@ paths:
                 - POLICY_MANAGEMENT_DELETE
                 - TAG_MANAGEMENT
                 - TAG_MANAGEMENT_DELETE
-                - VIEW_BADGES
           description: A list of all permissions
         "401":
           description: Unauthorized
@@ -9287,8 +9286,6 @@ components:
           type: object
           additionalProperties:
             type: object
-        systemUuid:
-          type: string
         timestamp:
           type: string
         uuid:
@@ -11899,7 +11896,6 @@ components:
             - POLICY_MANAGEMENT_DELETE
             - TAG_MANAGEMENT
             - TAG_MANAGEMENT_DELETE
-            - VIEW_BADGES
           uniqueItems: true
         team:
           type: string
@@ -12115,7 +12111,6 @@ components:
             - POLICY_MANAGEMENT_DELETE
             - TAG_MANAGEMENT
             - TAG_MANAGEMENT_DELETE
-            - VIEW_BADGES
           uniqueItems: true
         username:
           type: string

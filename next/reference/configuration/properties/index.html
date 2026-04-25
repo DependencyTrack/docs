@@ -3033,19 +3033,6 @@
 <tr><th>ENV</th><td><code>DT_DATABASE_PASSWORD</code></td></tr>
 </table>
 
-<p><span id="dtdatabasepasswordfile"><strong><code>dt.database.password.file</code></strong> <a class="headerlink" href="#dtdatabasepasswordfile">¶</a></span></p>
-<p>Specifies the file to load the database password from.  If set, takes precedence over <a href="#dtdatabasepassword"><code>dt.database.password</code></a>.  </p>
-<div class="admonition warning">
-<p class="admonition-title">Deprecated</p>
-<p>Since 5.7.0. Use <a href="#dtdatasourcepassword"><code>dt.datasource.password</code></a>-file instead.</p>
-</div>
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
-<tr><th>Default</th><td><code>null</code></td></tr>
-<tr><th>Example</th><td><code>/var/run/secrets/database-password</code></td></tr>
-<tr><th>ENV</th><td><code>DT_DATABASE_PASSWORD_FILE</code></td></tr>
-</table>
-
 <p><span id="dtdatabasepoolenabled"><strong><code>dt.database.pool.enabled</code></strong> <a class="headerlink" href="#dtdatabasepoolenabled">¶</a></span></p>
 <p>Specifies if the database connection pool is enabled.  </p>
 <div class="admonition warning">
@@ -3137,14 +3124,6 @@
 <tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
 <tr><th>Default</th><td><code>${dt.database.password}</code></td></tr>
 <tr><th>ENV</th><td><code>DT_DATASOURCE_PASSWORD</code></td></tr>
-</table>
-
-<p><span id="dtdatasourcepassword-file"><strong><code>dt.datasource.password-file</code></strong> <a class="headerlink" href="#dtdatasourcepassword-file">¶</a></span></p>
-<p>Defines the location of the file to load the password for the default data source from.  If set, takes precedence over <a href="#dtdatasourcepassword"><code>dt.datasource.password</code></a>.  </p>
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
-<tr><th>Default</th><td><code>${dt.database.password.file}</code></td></tr>
-<tr><th>ENV</th><td><code>DT_DATASOURCE_PASSWORD_FILE</code></td></tr>
 </table>
 
 <p><span id="dtdatasourcepoolenabled"><strong><code>dt.datasource.pool.enabled</code></strong> <strong style="color: red">*</strong> <a class="headerlink" href="#dtdatasourcepoolenabled">¶</a></span></p>
@@ -3783,15 +3762,6 @@
 <tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
 <tr><th>Default</th><td><code>null</code></td></tr>
 <tr><th>ENV</th><td><code>DT_HTTP_PROXY_PASSWORD</code></td></tr>
-</table>
-
-<p><span id="dthttpproxypasswordfile"><strong><code>dt.http.proxy.password.file</code></strong> <a class="headerlink" href="#dthttpproxypasswordfile">¶</a></span></p>
-<p>Specifies the file to load the HTTP proxy password from.  If set, takes precedence over <a href="#dthttpproxypassword"><code>dt.http.proxy.password</code></a>.  </p>
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
-<tr><th>Default</th><td><code>null</code></td></tr>
-<tr><th>Example</th><td><code>/var/run/secrets/http-proxy-password</code></td></tr>
-<tr><th>ENV</th><td><code>DT_HTTP_PROXY_PASSWORD_FILE</code></td></tr>
 </table>
 
 <p><span id="dthttpproxyport"><strong><code>dt.http.proxy.port</code></strong> <a class="headerlink" href="#dthttpproxyport">¶</a></span></p>
