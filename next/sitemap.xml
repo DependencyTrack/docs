@@ -17,6 +17,10 @@
          <lastmod>2026-04-25</lastmod>
     </url>
     <url>
+         <loc>https://dependencytrack.github.io/docs/next/concepts/notifications/</loc>
+         <lastmod>2026-04-25</lastmod>
+    </url>
+    <url>
          <loc>https://dependencytrack.github.io/docs/next/concepts/vulnerability-policies/</loc>
          <lastmod>2026-04-25</lastmod>
     </url>
@@ -206,6 +210,10 @@
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/reference/notifications/filter-expressions/</loc>
+         <lastmod>2026-04-25</lastmod>
+    </url>
+    <url>
+         <loc>https://dependencytrack.github.io/docs/next/reference/notifications/groups/</loc>
          <lastmod>2026-04-25</lastmod>
     </url>
     <url>
