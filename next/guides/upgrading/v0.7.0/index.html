@@ -1735,10 +1735,6 @@ must update their configuration accordingly.</p>
 <td style="text-align: left;"><code>dt.datasource.password</code></td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>alpine.database.password.file</code></td>
-<td style="text-align: left;"><code>dt.datasource.password-file</code></td>
-</tr>
-<tr>
 <td style="text-align: left;"><code>alpine.database.pool.enabled</code></td>
 <td style="text-align: left;"><code>dt.datasource.pool.enabled</code></td>
 </tr>
@@ -1769,6 +1765,38 @@ must update their configuration accordingly.</p>
 <li>
 <p>The new datasource configuration mechanism is documented in the
     <a href="../../../reference/configuration/datasources/">datasource configuration reference</a>.</p>
+</li>
+<li>
+<p><strong>Loading secrets from files now uses the <code>${file::}</code> expression syntax.</strong> The legacy
+  <code>&lt;key&gt;.file=/path</code> and <code>alpine.&lt;key&gt;.file=/path</code> properties are no longer recognized, and
+  the API server refuses to start if any of them are set. Rewrite each occurrence as
+  <code>&lt;key&gt;=${file::/path}</code>. Affected properties:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Before</th>
+<th style="text-align: left;">After</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>dt.database.password.file</code> (or <code>alpine.database.password.file</code>)</td>
+<td style="text-align: left;"><code>dt.datasource.password=${file::/path}</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>dt.http.proxy.password.file</code> (or <code>alpine.http.proxy.password.file</code>)</td>
+<td style="text-align: left;"><code>dt.http.proxy.password=${file::/path}</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>dt.ldap.bind.password.file</code> (or <code>alpine.ldap.bind.password.file</code>)</td>
+<td style="text-align: left;"><code>dt.ldap.bind.password=${file::/path}</code></td>
+</tr>
+</tbody>
+</table>
+<p>The file is read once at startup, decoded as UTF-8, and trailing whitespace is stripped.
+Files larger than 64 KiB are rejected. Refer to
+<a href="../../../reference/configuration/application/#loading-values-from-files">Loading values from files</a>
+for details.</p>
 </li>
 <li>
 <p><strong>All configuration properties have been standardized to use the <code>dt.</code> prefix</strong>.
