@@ -11,6 +11,8 @@ that allows organizations to identify and reduce risk in the software supply cha
 
 ## Getting started
 
+Get Dependency-Track running locally in minutes with the [quick start tutorial](tutorials/quickstart.md).
+
 Explore the documentation using the navigation tabs:
 
 - [Tutorials](tutorials/index.md): step-by-step walkthroughs for common workflows.
