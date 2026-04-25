@@ -3,8 +3,8 @@
 ## Introduction
 
 Alerts can include a filter expression to control which notifications are dispatched
-based on their content. Filter expressions are written in [CEL] (Common Expression Language),
-the same language used for [policy compliance expressions](../../reference/cel-expressions.md).
+based on their content. Filter expressions are written in
+[CEL](../cel-expressions.md) (Common Expression Language).
 
 Without a filter expression, an alert matches all notifications that satisfy its scope, group,
 level, and project or tag restrictions. A filter expression adds a further condition: the
@@ -16,10 +16,9 @@ See [Notification groups](groups.md) for the full list of groups that can be mat
 
 ## Syntax
 
-Filter expressions use the same [CEL syntax](../../reference/cel-expressions.md#syntax) as
-policy compliance expressions. CEL is not [Turing-complete] and does not support constructs
-like `if` statements or loops. It compensates for this with [macros] like `all`, `exists`,
-`exists_one`, `map`, and `filter`.
+Filter expressions use standard [CEL syntax](../cel-expressions.md#syntax). CEL is not
+[Turing-complete] and does not support constructs like `if` statements or loops. It compensates
+for this with [macros] like `all`, `exists`, `exists_one`, `map`, and `filter`.
 
 Refer to the official [language definition] for a thorough description of the syntax.
 
@@ -72,6 +71,12 @@ for full details of each subject type and its fields.
 | `PROJECT_VULN_ANALYSIS_COMPLETE`                        | [ProjectVulnAnalysisCompleteSubject](../../reference/schemas/notification.md#projectvulnanalysiscompletesubject)                                         |
 | `VEX_CONSUMED`, `VEX_PROCESSED`                         | [VexConsumedOrProcessedSubject](../../reference/schemas/notification.md#vexconsumedorprocessedsubject)                                                   |
 | `USER_CREATED`, `USER_DELETED`                          | [UserSubject](../../reference/schemas/notification.md#usersubject)                                                                                       |
+
+### Available functions
+
+Notification filters have access to the variables listed above and the
+[standard CEL library](../cel-expressions.md#standard-library). No additional custom functions
+are registered for this context.
 
 ## Validation
 
@@ -169,16 +174,15 @@ only when at least one `CRITICAL` vulnerability was found in the reporting perio
 
 ### Optional field checking
 
-CEL does not have a concept of `null`. Accessing a field that is not set returns its default
-value (for example, `""` for strings, `0` for numbers), which can lead to misleading matches.
-Use the `has()` macro to check for field presence before accessing it:
+Use the `has()` macro to check for field presence before accessing it. See
+[Optional field checking](../cel-expressions.md#optional-field-checking) in the general primer
+for the rationale.
 
 ```js linenums="1"
 has(subject.vulnerability.cvss_v3_vector)
   && subject.vulnerability.cvss_v3_vector.matches(".*/AV:N/.*")
 ```
 
-[CEL]: https://cel.dev/
 [Turing-complete]: https://en.wikipedia.org/wiki/Turing_completeness
 [language definition]: https://github.com/google/cel-spec/blob/v0.13.0/doc/langdef.md#language-definition
 [macros]: https://github.com/google/cel-spec/blob/v0.13.0/doc/langdef.md#macros

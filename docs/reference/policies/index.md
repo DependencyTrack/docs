@@ -1,9 +1,9 @@
 # Vulnerability Policies
 
 For background on what vulnerability policies are and how evaluation works, see
-[Concepts: Vulnerability Policies](../concepts/vulnerability-policies.md).
+[Concepts: Vulnerability Policies](../../concepts/vulnerability-policies.md).
 For step-by-step procedures, see
-[Managing Vulnerability Policies](../guides/user/managing-vulnerability-policies.md).
+[Managing Vulnerability Policies](../../guides/user/managing-vulnerability-policies.md).
 
 ## Policy Sources
 
@@ -24,22 +24,14 @@ Policy names are globally unique across user-managed and bundle-managed policies
 
 ## Condition Variables
 
-Conditions use the same [Common Expression Language](./cel-expressions.md) syntax, functions, and variables
-as standard policy expressions, with one exception: A vulnerability policy is scoped to a
-single vulnerability, exposed as the `vuln` variable, rather than a list of vulnerabilities.
+Conditions are written in [CEL](../cel-expressions.md). A vulnerability policy is scoped to a
+single vulnerability, exposed as the `vuln` variable. Standard component policies, in contrast,
+expose a list of vulnerabilities as `vulns`, so constructs like `vulns.exists(...)` become direct
+field accesses such as `vuln.id == "CVE-2022-41852"`. The `component`, `project`, `now` variables
+and all custom functions are identical across both policy types.
 
-| Variable    | Type                                            | Description                                 |
-|:------------|:------------------------------------------------|:--------------------------------------------|
-| `vuln`      | [Vulnerability]                                 | The vulnerability being evaluated           |
-| `component` | [Component]                                     | The component the vulnerability applies to  |
-| `project`   | [Project]                                       | The project the component belongs to        |
-| `now`       | [`google.protobuf.Timestamp`][protobuf-ts-docs] | The current time at the start of evaluation |
-
-Because `vuln` is a single object rather than a list, constructs like `vulns.exists(...)` from
-standard policies become direct field accesses such as `vuln.id == "CVE-2022-41852"`. Everything
-else works identically, including [`matches_range`](./cel-expressions.md#matches_range),
-[`is_dependency_of`](./cel-expressions.md#is_dependency_of), `has()`, and the full CEL standard library.
-Refer to the [expressions reference](./cel-expressions.md) for the complete function list.
+See [Condition expressions](./condition-expressions.md) for the complete list of variables,
+custom functions, and worked examples.
 
 ## Analysis Fields
 
@@ -62,11 +54,11 @@ Up to three ratings may be attached to a policy. Each rating specifies a method 
 
 | Property                                                                                                                                     | Description                                         |
 |:---------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------|
-| [`dt.vulnerability.policy.bundle.url`](./configuration/properties.md#dtvulnerabilitypolicybundleurl)                           | HTTP(S) URL of the bundle ZIP                       |
-| [`dt.vulnerability.policy.bundle.auth.username`](./configuration/properties.md#dtvulnerabilitypolicybundleauthusername)        | Basic-auth username                                 |
-| [`dt.vulnerability.policy.bundle.auth.password`](./configuration/properties.md#dtvulnerabilitypolicybundleauthpassword)        | Basic-auth password                                 |
-| [`dt.vulnerability.policy.bundle.auth.bearer.token`](./configuration/properties.md#dtvulnerabilitypolicybundleauthbearertoken) | Bearer token, used when no basic-auth is configured |
-| [`dt.task.vulnerability-policy-bundle-sync.cron`](./configuration/properties.md#dttaskvulnerability-policy-bundle-synccron)    | Cron expression for the scheduled sync              |
+| [`dt.vulnerability.policy.bundle.url`](../configuration/properties.md#dtvulnerabilitypolicybundleurl)                           | HTTP(S) URL of the bundle ZIP                       |
+| [`dt.vulnerability.policy.bundle.auth.username`](../configuration/properties.md#dtvulnerabilitypolicybundleauthusername)        | Basic-auth username                                 |
+| [`dt.vulnerability.policy.bundle.auth.password`](../configuration/properties.md#dtvulnerabilitypolicybundleauthpassword)        | Basic-auth password                                 |
+| [`dt.vulnerability.policy.bundle.auth.bearer.token`](../configuration/properties.md#dtvulnerabilitypolicybundleauthbearertoken) | Bearer token, used when no basic-auth is configured |
+| [`dt.task.vulnerability-policy-bundle-sync.cron`](../configuration/properties.md#dttaskvulnerability-policy-bundle-synccron)    | Cron expression for the scheduled sync              |
 
 ## Bundle Layout
 
@@ -152,8 +144,3 @@ A sync is aborted without any database changes when:
 
 The last failure reason is surfaced in the *Bundles* view so that operators can diagnose sync issues
 without needing access to the server logs.
-
-[Component]: ./schemas/policy.md#component
-[Project]: ./schemas/policy.md#project
-[Vulnerability]: ./schemas/policy.md#vulnerability
-[protobuf-ts-docs]: https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp

@@ -7,7 +7,7 @@ nav:
   - Notifications: notifications
   - Vulnerability analysis:
     - Vulnerability analyzers: analyzers.md
-    - Vulnerability policies: vulnerability-policies.md
+    - Vulnerability policies: policies
   - CEL expressions: cel-expressions.md
   - Access control:
     - Permissions: permissions.md

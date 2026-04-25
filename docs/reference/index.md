@@ -25,13 +25,6 @@ For background and explanations, see [Concepts](../concepts/index.md).
 - [All Properties](configuration/properties.md) --
   complete generated registry of all application properties
 
-## Notifications
-
-- [Publishers](notifications/publishers.md) --
-  email, Jira, Kafka, Webhook, and other publisher options
-- [Filter Expressions](notifications/filter-expressions.md) --
-  CEL-based notification filtering
-
 ## Datasources
 
 - [NVD](datasources/nvd.md) --
@@ -47,22 +40,46 @@ For background and explanations, see [Concepts](../concepts/index.md).
 - [Internal Components](datasources/internal-components.md) --
   excluding first-party components from external analysis
 
-## Expressions and Schemas
+## Notifications
+
+- [Publishers](notifications/publishers.md) --
+  email, Jira, Kafka, Webhook, and other publisher options
+- [Groups](notifications/groups.md) --
+  the catalog of events Dependency-Track emits notifications for
+- [Filter Expressions](notifications/filter-expressions.md) --
+  CEL-based notification filtering
+
+## Vulnerability Analysis
+
+- [Vulnerability Analyzers](analyzers.md) --
+  internal and external analyzers used to identify vulnerabilities
+- [Vulnerability Policies](policies/index.md) --
+  field definitions, bundle YAML schema, and sync configuration
+- [Condition Expressions](policies/condition-expressions.md) --
+  inputs and custom functions for policy conditions
+
+## CEL Expressions
 
 - [CEL Expressions](cel-expressions.md) --
-  syntax reference for CEL used in policies and notifications
-- [Vulnerability Analyzers](analyzers.md)
-- [Vulnerability Policies](vulnerability-policies.md)
-- [Notification Schema](schemas/notification.md)
-- [Policy Schema](schemas/policy.md)
+  shared CEL syntax primer used by both policies and notification filters
 
-## Access Control and Integrations
+## Access Control
 
 - [Permissions](permissions.md) --
   users, teams, API keys, and the full permissions table
+
+## Integrations
+
 - [Badges](badges.md) --
   SVG badges for embedding vulnerability and policy metrics
 - [File Formats](file-formats.md) --
   CycloneDX BOM/VEX/VDR and Finding Packaging Format (FPF)
 - [Community Integrations](community-integrations.md) --
   third-party tools and libraries built on the Dependency-Track API
+
+## Schemas
+
+- [Notification Schema](schemas/notification.md) --
+  Protobuf definitions for notification subjects
+- [Policy Schema](schemas/policy.md) --
+  Protobuf definitions for the policy CEL evaluation context
