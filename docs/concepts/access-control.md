@@ -1,7 +1,8 @@
 # About access control
 
 Dependency-Track uses a role-based access control model built around **permissions**,
-**teams**, and **users**. Teams hold permissions, and users inherit the
+**teams**, and **users**. Permissions can be assigned to teams or directly to users.
+A user's effective permissions are the union of their direct permissions and the
 permissions of every team they belong to.
 
 ## Users
@@ -36,12 +37,16 @@ first login.
 
 ## Teams
 
-A team is a named collection of users and API keys. Teams hold permissions directly;
-individual users do not. This makes it straightforward to manage access for groups of
-people (for example, *Security Engineers*, *Developers*, *CI/CD Pipelines*) or automated systems.
+A team is a named collection of users and API keys. Teams hold permissions, which makes
+it straightforward to manage access for groups of people (for example, *Security Engineers*,
+*Developers*, *CI/CD Pipelines*) or automated systems.
 
 A user can belong to more than one team and inherits the union of all permissions from
-every team they are a member of.
+every team they are a member of. Permissions can also be assigned directly to a user.
+Those permissions add to whatever the user inherits from their teams.
+
+Prefer team-based assignment as the default. Use direct user permissions sparingly, for
+exceptions that don't justify a dedicated team.
 
 API keys belong to a team and carry the same permissions as that team. They authenticate
 automated access (CI/CD pipelines, integrations) without associating requests with a
