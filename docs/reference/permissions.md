@@ -86,13 +86,12 @@ variants.
 | `SECRET_MANAGEMENT_UPDATE`    | Update secrets.                   |
 | `SECRET_MANAGEMENT_DELETE`    | Delete secrets.                   |
 
-### Tags and badges
+### Tags
 
 | Permission            | Description                              |
 |:----------------------|:-----------------------------------------|
 | `TAG_MANAGEMENT`      | Update and delete tags.                  |
 | `TAG_MANAGEMENT_DELETE`| Delete tags.                            |
-| `VIEW_BADGES`         | Retrieve SVG badge images for projects.  |
 
 ## Default teams
 
@@ -101,10 +100,5 @@ Dependency-Track creates the following default teams on first startup:
 | Team            | Purpose                                                                                                                     |
 |:----------------|:----------------------------------------------------------------------------------------------------------------------------|
 | Administrators  | Full access. Used for initial setup and ongoing administration. Members receive all permissions.                             |
-| Badge Viewers   | Holds the `VIEW_BADGES` permission and a pre-created API key. Used for unauthenticated-style badge access via a shared key. |
 | Portfolio Managers | Intended for users who manage projects and portfolios without needing administrative access.                              |
 | Automation      | Intended for CI/CD pipelines and automated tools. Typically holds `BOM_UPLOAD` and `PROJECT_CREATION_UPLOAD`.              |
-
-!!! warning
-    Change the default API key on the **Badge Viewers** and **Automation** teams before
-    going to production. Default keys are predictable. Rotate them immediately.
