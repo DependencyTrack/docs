@@ -3,7 +3,18 @@ info:
   contact:
     name: The Dependency-Track Authors
     url: https://github.com/DependencyTrack/dependency-track
-  description: REST API of OWASP Dependency-Track
+  description: |-
+    REST API of OWASP Dependency-Track
+
+    ## Deprecations
+
+    Operations may be removed or replaced over time. When a response
+    carries the `X-API-Deprecated: true` header, the operation that
+    produced it is deprecated and may be removed in a future release.
+    Clients should check for this header on every response and surface
+    it (e.g. via a log warning) so that operators are aware of
+    upcoming breakages. The respective operation's description points
+    out which alternative operation(s) to use.
   license:
     name: Apache-2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
@@ -8684,7 +8695,10 @@ paths:
       - vulnerability
   /v1/vulnerability/project/{uuid}:
     get:
-      description: <p>Requires permission <strong>VIEW_PORTFOLIO</strong></p>
+      deprecated: true
+      description: |-
+        <p>Requires permission <strong>VIEW_PORTFOLIO</strong></p>
+        <p><strong>Deprecated</strong>! Use <code>/api/v1/finding/project/{uuid}</code> instead.</p>
       operationId: getVulnerabilitiesByProject
       parameters:
       - description: The UUID of the project to retrieve vulnerabilities for
