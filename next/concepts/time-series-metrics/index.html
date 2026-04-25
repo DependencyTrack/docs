@@ -8,34 +8,34 @@
       
       
       
-        <link rel="canonical" href="https://dependencytrack.github.io/docs/next/reference/datasources/github-advisories/">
+        <link rel="canonical" href="https://dependencytrack.github.io/docs/next/concepts/time-series-metrics/">
       
       
-        <link rel="prev" href="../nvd/">
+        <link rel="prev" href="../notifications/">
       
       
-        <link rel="next" href="../osv/">
+        <link rel="next" href="../vulnerability-policies/">
       
       
         
       
       
-        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../../feed_rss_created.xml">
-        <link rel="alternate" type="application/rss+xml" title="RSS feed of updated content" href="../../../feed_rss_updated.xml">
+        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../feed_rss_created.xml">
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of updated content" href="../../feed_rss_updated.xml">
       
-      <link rel="icon" href="../../../assets/images/logo.svg">
+      <link rel="icon" href="../../assets/images/logo.svg">
       <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.6">
     
     
       
-        <title>GitHub advisories - Dependency-Track</title>
+        <title>About time series metrics - Dependency-Track</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -54,9 +54,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -64,15 +64,15 @@
     
   
 <meta property="og:type" content="website" />
-<meta property="og:title" content="GitHub advisories - Dependency-Track" />
-<meta property="og:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/reference/datasources/github-advisories.png" />
+<meta property="og:title" content="About time series metrics - Dependency-Track" />
+<meta property="og:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/concepts/time-series-metrics.png" />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:url" content="https://dependencytrack.github.io/docs/next/reference/datasources/github-advisories/" />
+<meta property="og:url" content="https://dependencytrack.github.io/docs/next/concepts/time-series-metrics/" />
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:title" content="GitHub advisories - Dependency-Track" />
-<meta property="twitter:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/reference/datasources/github-advisories.png" />
+<meta property="twitter:title" content="About time series metrics - Dependency-Track" />
+<meta property="twitter:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/concepts/time-series-metrics.png" />
 </head>
   
   
@@ -92,7 +92,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#github-advisories" class="md-skip">
+        <a href="#about-time-series-metrics" class="md-skip">
           Skip to content
         </a>
       
@@ -112,9 +112,9 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="Dependency-Track" class="md-header__button md-logo" aria-label="Dependency-Track" data-md-component="logo">
+    <a href="../.." title="Dependency-Track" class="md-header__button md-logo" aria-label="Dependency-Track" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../assets/images/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -131,7 +131,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              GitHub advisories
+              About time series metrics
             
           </span>
         </div>
@@ -236,7 +236,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../.." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -257,7 +257,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../tutorials/" class="md-tabs__link">
+        <a href="../../tutorials/" class="md-tabs__link">
           
   
   
@@ -279,7 +279,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../guides/" class="md-tabs__link">
+        <a href="../../guides/" class="md-tabs__link">
           
   
   
@@ -297,11 +297,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../../concepts/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -319,13 +321,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../reference/" class="md-tabs__link">
           
   
   
@@ -347,7 +347,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../blog/" class="md-tabs__link">
+        <a href="../../blog/" class="md-tabs__link">
           
   
   
@@ -389,9 +389,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Dependency-Track" class="md-nav__button md-logo" aria-label="Dependency-Track" data-md-component="logo">
+    <a href="../.." title="Dependency-Track" class="md-nav__button md-logo" aria-label="Dependency-Track" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../assets/images/logo.svg" alt="logo">
 
     </a>
     Dependency-Track
@@ -418,7 +418,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -473,7 +473,7 @@
   
   
   
-    <a href="../../../tutorials/" class="md-nav__link">
+    <a href="../../tutorials/" class="md-nav__link">
       
   
   
@@ -538,7 +538,7 @@
   
   
   
-    <a href="../../../guides/" class="md-nav__link">
+    <a href="../../guides/" class="md-nav__link">
       
   
   
@@ -568,6 +568,8 @@
       
   
   
+    
+  
   
   
     
@@ -591,24 +593,26 @@
     
     
       
+        
+        
+      
       
         
       
     
     
       
-        
-        
-      
     
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
-  
-  
-  
-    <a href="../../../concepts/" class="md-nav__link">
-      
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -622,562 +626,21 @@
   
   
 
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
-  
-
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-    
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-        
-        
-      
-      
-        
-      
-    
-    
-      
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
-        
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
-              
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Reference
-  
-
-    
-  </span>
-  
-  
-
             </a>
             
               
-              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_5">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Reference
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    API
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_2">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    API
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../api/v1/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    REST API v1
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../api/v2/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    REST API v2
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuration
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_3">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Configuration
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../configuration/application/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Application
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../configuration/datasources/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Data sources
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../configuration/file-storage/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    File storage
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../configuration/database/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Database
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../configuration/dex-engine/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Durable execution engine
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../configuration/properties/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    All properties
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-      
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" checked>
-        
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
-              
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Datasources
-  
-
-    
-  </span>
-  
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_5_4" id="__nav_5_4_label" tabindex="">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_5_4">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Datasources
+    Concepts
   
 
           </label>
@@ -1192,14 +655,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../nvd/" class="md-nav__link">
+      <a href="../access-control/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    NVD
+    About access control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About notifications
   
 
     
@@ -1236,7 +727,7 @@
   <span class="md-ellipsis">
     
   
-    GitHub advisories
+    About time series metrics
   
 
     
@@ -1254,7 +745,7 @@
   <span class="md-ellipsis">
     
   
-    GitHub advisories
+    About time series metrics
   
 
     
@@ -1280,10 +771,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-it-provides" class="md-nav__link">
+  <a href="#snapshots-not-deltas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What It Provides
+        Snapshots, not deltas
       
     </span>
   </a>
@@ -1291,10 +782,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#mirroring" class="md-nav__link">
+  <a href="#when-snapshots-get-written" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Mirroring
+        When snapshots get written
       
     </span>
   </a>
@@ -1302,10 +793,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
+  <a href="#daily-partitions-and-bounded-retention" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configuration
+        Daily partitions and bounded retention
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-portfolio-metrics-take-two-paths" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why portfolio metrics take two paths
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further reading
       
     </span>
   </a>
@@ -1328,14 +841,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../osv/" class="md-nav__link">
+      <a href="../vulnerability-policies/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    OSV
+    About vulnerability policies
   
 
     
@@ -1344,98 +857,6 @@
   
 
       </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../private-vulnerability-repository/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Private vulnerability repository
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../repositories/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Repositories
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../internal-components/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Internal components
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
     </li>
   
 
@@ -1451,7 +872,7 @@
     
       
         
-      
+          
         
       
         
@@ -1474,17 +895,18 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
         
           
-          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="">
-            
+          <div class="md-nav__link md-nav__container">
+            <a href="../architecture/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
     
   
-    Notifications
+    Architecture
   
 
     
@@ -1492,202 +914,27 @@
   
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_5">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Notifications
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+            </a>
             
               
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../notifications/groups/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Groups
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
+              <label class="md-nav__link " for="__nav_4_6" id="__nav_4_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../notifications/publishers/" class="md-nav__link">
+          </div>
         
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Publishers
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../notifications/filter-expressions/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Filter expressions
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6" >
-        
-          
-          <label class="md-nav__link" for="__nav_5_6" id="__nav_5_6_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Vulnerability analysis
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_6">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Vulnerability analysis
+    Architecture
   
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
               
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../analyzers/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Vulnerability analyzers
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
             
               
                 
@@ -1699,7 +946,9 @@
     
       
         
-          
+      
+        
+      
         
       
         
@@ -1724,14 +973,14 @@
   
   
   
-    <a href="../../policies/" class="md-nav__link">
+    <a href="../architecture/design/durable-execution/" class="md-nav__link">
       
   
   
   <span class="md-ellipsis">
     
   
-    Vulnerability policies
+    Design
   
 
     
@@ -1759,330 +1008,72 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../cel-expressions/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    CEL expressions
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-      
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_8" >
-        
-          
-          <label class="md-nav__link" for="__nav_5_8" id="__nav_5_8_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Access control
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_8">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Access control
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../permissions/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Permissions
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
     </li>
   
 
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-    
-    
     
       
       
-        
-          
-          
-        
-      
-    
-    
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_9" >
-        
-          
-          <label class="md-nav__link" for="__nav_5_9" id="__nav_5_9_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Integrations
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_9">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Integrations
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../badges/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Badges
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../file-formats/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    File formats
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../community-integrations/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Community integrations
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
   
   
   
   
     
     
-      
-        
-      
-        
-      
-    
-    
-    
-      
       
         
           
-          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
         
       
     
     
       
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_10" >
-        
-          
-          <label class="md-nav__link" for="__nav_5_10" id="__nav_5_10_label" tabindex="">
-            
+  
+  
+  
+    <a href="../../reference/" class="md-nav__link">
+      
   
   
   <span class="md-ellipsis">
     
   
-    Schemas
+    Reference
   
 
     
@@ -2090,86 +1081,12 @@
   
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_10_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_10">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Schemas
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../schemas/notification/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Notification schema
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../schemas/policy/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Policy schema
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
       
-    </li>
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
   
 
-              
-            
-          </ul>
-        </nav>
       
     </li>
   
@@ -2210,7 +1127,7 @@
   
   
   
-    <a href="../../../blog/" class="md-nav__link">
+    <a href="../../blog/" class="md-nav__link">
       
   
   
@@ -2263,10 +1180,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-it-provides" class="md-nav__link">
+  <a href="#snapshots-not-deltas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What It Provides
+        Snapshots, not deltas
       
     </span>
   </a>
@@ -2274,10 +1191,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#mirroring" class="md-nav__link">
+  <a href="#when-snapshots-get-written" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Mirroring
+        When snapshots get written
       
     </span>
   </a>
@@ -2285,10 +1202,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
+  <a href="#daily-partitions-and-bounded-retention" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configuration
+        Daily partitions and bounded retention
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-portfolio-metrics-take-two-paths" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why portfolio metrics take two paths
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further reading
       
     </span>
   </a>
@@ -2320,7 +1259,7 @@
   
   
     <li class="md-path__item">
-      <a href="../../.." class="md-path__link">
+      <a href="../.." class="md-path__link">
         
   <span class="md-ellipsis">
     Home
@@ -2338,28 +1277,10 @@
     
     
       <li class="md-path__item">
-        <a href="../../" class="md-path__link">
-          
-  <span class="md-ellipsis">
-    Reference
-  </span>
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-    
-    
-      <li class="md-path__item">
         <a href="../" class="md-path__link">
           
   <span class="md-ellipsis">
-    Datasources
+    Concepts
   </span>
 
         </a>
@@ -2381,49 +1302,101 @@
   
 
 
-<h1 id="github-advisories">GitHub Advisories<a class="headerlink" href="#github-advisories" title="Permanent link">&para;</a></h1>
-<p>The <a href="https://github.com/advisories">GitHub Advisory Database</a> (<abbr title="GitHub Security Advisory">GHSA</abbr>) contains
-security advisories for open source packages hosted on GitHub and other ecosystems.
-Advisories may or may not overlap with <abbr title="National Vulnerability Database">NVD</abbr> CVE records—GitHub often publishes
-advisories for vulnerabilities that are not yet in the <abbr title="National Vulnerability Database">NVD</abbr>, or with more ecosystem-
-specific detail.</p>
-<h2 id="what-it-provides">What It Provides<a class="headerlink" href="#what-it-provides" title="Permanent link">&para;</a></h2>
-<p>GitHub Advisories are keyed by <abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr> and map directly to package ecosystems such as
-npm, Maven, PyPI, Go, NuGet, and others. This makes them highly effective for
-open source component matching without requiring a <abbr title="Common Platform Enumeration, a structured naming scheme for software products">CPE</abbr>.</p>
-<p>Dependency-Track automatically synchronises vulnerability aliases between <abbr title="GitHub Security Advisory">GHSA</abbr> and
-CVE identifiers where GitHub has made the link explicit. This means a component can
-be matched by either its <abbr title="GitHub Security Advisory">GHSA</abbr> or CVE identifier, and the finding will not be
-duplicated.</p>
-<h2 id="mirroring">Mirroring<a class="headerlink" href="#mirroring" title="Permanent link">&para;</a></h2>
-<p>Dependency-Track mirrors GitHub Advisories via GitHub's public GraphQL API. The mirror
-refreshes daily and on instance startup.</p>
-<p>The mirroring schedule is controlled by
-<a href="../../configuration/properties/#dttaskgithubadvisorymirrorcron"><code>dt.task.git.hub.advisory.mirror.cron</code></a>.</p>
-<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
-<p>GitHub Advisory mirroring is configured in the administration UI under
-<strong>Administration → Datasources → GitHub Advisories</strong>.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Setting</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">Enabled</td>
-<td style="text-align: left;">Whether GitHub Advisory mirroring is active. Enabled by default.</td>
-</tr>
-<tr>
-<td style="text-align: left;">GitHub Personal Access Token</td>
-<td style="text-align: left;">Required. A GitHub PAT with no scopes assigned is sufficient. Without a token, the GraphQL API rejects requests.</td>
-</tr>
-</tbody>
-</table>
-<p>To create a token, visit <a href="https://github.com/settings/tokens">github.com/settings/tokens</a>
-and generate a classic or fine-grained token. No scopes are required—the public
-advisory data is accessible to any authenticated user.</p>
+<h1 id="about-time-series-metrics">About time series metrics<a class="headerlink" href="#about-time-series-metrics" title="Permanent link">&para;</a></h1>
+<p>A current-state view of risk answers what's broken right now. It cannot
+answer whether the team is getting better, and how fast. Dependency-Track
+records time series metrics so that the second question has an answer:
+every project, component, and the portfolio as a whole leave a trail of
+measurements that surface remediation progress, audit throughput, and posture
+drift across days, weeks, and quarters.</p>
+<h2 id="snapshots-not-deltas">Snapshots, not deltas<a class="headerlink" href="#snapshots-not-deltas" title="Permanent link">&para;</a></h2>
+<p>A metrics record is a <em>snapshot</em>: a complete count of vulnerabilities,
+findings, suppressions, audit progress, and policy violations at a single
+moment, scoped to one component, project, or the portfolio. Reconstructing
+trends from deltas is fragile (a missed event corrupts the rest of the
+series), so Dependency-Track stores the absolute numbers and lets readers
+diff them.</p>
+<p>Snapshots also explain a few behaviours users meet later:</p>
+<ul>
+<li>A suppression drops a finding from every
+  snapshot taken after it lands. The historical series keeps the old,
+  pre-suppression counts, which is exactly what a posture chart should
+  show.</li>
+<li>The audit state of a finding (under triage, not affected, exploitable)
+  feeds the audited/unaudited counters in the next snapshot, so charts
+  reflect human progress, not just scanner output.</li>
+<li>A project's inherited risk score derives from the risk of its
+  components, recorded in each project snapshot. Portfolio totals sum
+  those project-level scores; the figure is never recomputed from
+  child projects at read time for portfolio metrics.</li>
+</ul>
+<p>The exact field set per scope lives in the
+<a href="../../reference/api/v1/">REST API reference</a>, under the operations tagged
+<code>metrics</code>.</p>
+<h2 id="when-snapshots-get-written">When snapshots get written<a class="headerlink" href="#when-snapshots-get-written" title="Permanent link">&para;</a></h2>
+<p>Two things produce snapshots for a project and its components:</p>
+<ul>
+<li><strong>Project-changing activity.</strong> A <abbr title="Bill of Materials">BOM</abbr> upload, a vulnerability analysis
+  run, or a manual reanalysis writes a fresh snapshot as the final step of
+  that work. Active projects produce many snapshots per day; the series
+  has higher resolution where the project sees more activity.</li>
+<li><strong>A scheduled sweep.</strong> A platform-wide job runs every active project on
+  a fixed schedule (hourly by default), so even an idle project lands at
+  least one snapshot per day. This guarantees the series stays continuous
+  and that retention windows behave predictably.</li>
+</ul>
+<p>Portfolio snapshots are different, and the next two sections explain why.</p>
+<h2 id="daily-partitions-and-bounded-retention">Daily partitions and bounded retention<a class="headerlink" href="#daily-partitions-and-bounded-retention" title="Permanent link">&para;</a></h2>
+<p>Component and project snapshots accumulate forever if nothing prunes them.
+Dependency-Track partitions both tables by day so retention is always a
+single partition drop, never a row scan. The cost of "delete a day of
+metrics" stays the same whether the table holds a million rows or a
+billion. That choice fixes the granularity ceiling (sub-day retention is
+not possible), which suits the analytical questions metrics aim to answer
+(week-over-week, quarter-over-quarter trends) operating at much coarser
+resolution.</p>
+<p>Retention is a configurable duration, 90 days by default. An hourly
+maintenance task drops out-of-window partitions and pre-creates the
+partitions for upcoming days. Administrators change the value at runtime,
+through the frontend or the REST API, rather than via a static startup
+property.</p>
+<p><img alt="Retention setting under Administration &gt; Configuration &gt; Maintenance" src="../../assets/images/admin_maintenance-config.png" /></p>
+<p>Two consequences fall out of the design: shrinking retention reclaims disk
+on the next maintenance cycle, and extending retention only affects data
+recorded from that point onward, because days that already aged out no
+longer exist.</p>
+<h2 id="why-portfolio-metrics-take-two-paths">Why portfolio metrics take two paths<a class="headerlink" href="#why-portfolio-metrics-take-two-paths" title="Permanent link">&para;</a></h2>
+<p>Aggregating risk across an entire portfolio on every dashboard load
+degrades badly past a few thousand projects. Dependency-Track avoids that
+cost with a precomputed snapshot, then falls back to ad-hoc aggregation
+for the cases the snapshot cannot serve:</p>
+<ul>
+<li><strong>Unrestricted callers</strong> (the default, with no <a href="../access-control/#portfolio-access-control">portfolio access
+  control</a>, or a principal
+  who bypasses it) read from a precomputed snapshot that refreshes after
+  each portfolio metrics run. The work already happened in the background,
+  so the read is cheap regardless of portfolio size.</li>
+<li><strong>Restricted callers</strong> (those whom portfolio access control limits to a
+  subset of projects) hit an ad-hoc aggregation instead. The query sums
+  per-day project snapshots across the projects that caller can access.
+  This stays cheap because the visible set is, by construction, smaller
+  than the whole portfolio; the snapshot cannot serve them because it
+  carries portfolio-wide totals, not per-caller filtered ones.</li>
+</ul>
+<p>Collection projects sit outside the precomputed snapshot for the same
+reason inherited risk resolves at read time: their numbers sum the
+children's, so folding them into the portfolio total would double-count.</p>
+<p>The unavoidable trade-off: the precomputed path lags live data by up to
+one refresh cycle, where the ad-hoc path is always current. For a posture
+trend chart this stays invisible; for a "did the last scan land yet" check
+it occasionally surprises.</p>
+<h2 id="further-reading">Further reading<a class="headerlink" href="#further-reading" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../access-control/">About access control</a>: the model that decides which
+  portfolio path a caller takes.</li>
+<li><a href="../../reference/api/v1/">REST API reference</a>: operations tagged <code>metrics</code>
+  describe the exact fields, request parameters, and response shapes.</li>
+</ul>
 
 
 
@@ -2459,7 +1432,7 @@ advisory data is accessible to any authenticated user.</p>
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../nvd/" class="md-footer__link md-footer__link--prev" aria-label="Previous: NVD">
+          <a href="../notifications/" class="md-footer__link md-footer__link--prev" aria-label="Previous: About notifications">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -2469,20 +1442,20 @@ advisory data is accessible to any authenticated user.</p>
                 Previous
               </span>
               <div class="md-ellipsis">
-                NVD
+                About notifications
               </div>
             </div>
           </a>
         
         
           
-          <a href="../osv/" class="md-footer__link md-footer__link--next" aria-label="Next: OSV">
+          <a href="../vulnerability-policies/" class="md-footer__link md-footer__link--next" aria-label="Next: About vulnerability policies">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                OSV
+                About vulnerability policies
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -2585,10 +1558,10 @@ advisory data is accessible to any authenticated user.</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.instant", "navigation.path", "navigation.prune", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "search.highlight", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.instant", "navigation.path", "navigation.prune", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "search.highlight", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
