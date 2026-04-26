@@ -31,6 +31,7 @@ KEKs
 Keycloak
 LDAPS
 Liquibase
+Lucene
 Mattermost
 MkDocs
 Modus
@@ -53,6 +54,7 @@ Postgres
 Protobuf
 SBOM
 SBOMs
+TTLs
 SSDs
 Snyk
 Sonatype
@@ -132,5 +134,6 @@ sAMAccountName
 timestamptz
 truststore
 truststore
+[Tt]yposquatting
 walkthroughs
 zstd

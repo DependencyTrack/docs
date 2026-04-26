@@ -5,4 +5,5 @@ nav:
   - About notifications: notifications.md
   - About time series metrics: time-series-metrics.md
   - About vulnerability policies: vulnerability-policies.md
+  - About changes in v5: changes-in-v5.md
   - ...
