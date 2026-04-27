@@ -85,6 +85,14 @@
          <lastmod>2026-04-27</lastmod>
     </url>
     <url>
+         <loc>https://dependencytrack.github.io/docs/next/guides/administration/debugging-notifications/</loc>
+         <lastmod>2026-04-27</lastmod>
+    </url>
+    <url>
+         <loc>https://dependencytrack.github.io/docs/next/guides/administration/managing-notification-templates/</loc>
+         <lastmod>2026-04-27</lastmod>
+    </url>
+    <url>
          <loc>https://dependencytrack.github.io/docs/next/guides/administration/migrating-from-v4/</loc>
          <lastmod>2026-04-27</lastmod>
     </url>
@@ -106,6 +114,10 @@
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/guides/user/</loc>
+         <lastmod>2026-04-27</lastmod>
+    </url>
+    <url>
+         <loc>https://dependencytrack.github.io/docs/next/guides/user/configuring-notifications/</loc>
          <lastmod>2026-04-27</lastmod>
     </url>
     <url>
@@ -225,6 +237,10 @@
          <lastmod>2026-04-27</lastmod>
     </url>
     <url>
+         <loc>https://dependencytrack.github.io/docs/next/reference/notifications/templating/</loc>
+         <lastmod>2026-04-27</lastmod>
+    </url>
+    <url>
          <loc>https://dependencytrack.github.io/docs/next/reference/policies/</loc>
          <lastmod>2026-04-27</lastmod>
     </url>
@@ -246,6 +262,10 @@
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/tutorials/quickstart/</loc>
+         <lastmod>2026-04-27</lastmod>
+    </url>
+    <url>
+         <loc>https://dependencytrack.github.io/docs/next/tutorials/setting-up-notifications/</loc>
          <lastmod>2026-04-27</lastmod>
     </url>
 </urlset>

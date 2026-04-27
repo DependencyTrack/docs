@@ -1,7 +1,4 @@
-
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
+<!DOCTYPE html><html lang="en" class="no-js"><head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -49,7 +46,7 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
@@ -63,17 +60,27 @@
     
     
   
-<meta property="og:type" content="website" />
-<meta property="og:title" content="Durable execution - Dependency-Track" />
-<meta property="og:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/concepts/architecture/design/durable-execution.png" />
-<meta property="og:image:type" content="image/png" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:url" content="https://dependencytrack.github.io/docs/next/concepts/architecture/design/durable-execution/" />
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:title" content="Durable execution - Dependency-Track" />
-<meta property="twitter:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/concepts/architecture/design/durable-execution.png" />
-</head>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Durable execution - Dependency-Track">
+<meta property="og:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/concepts/architecture/design/durable-execution.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://dependencytrack.github.io/docs/next/concepts/architecture/design/durable-execution/">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="Durable execution - Dependency-Track">
+<meta property="twitter:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/concepts/architecture/design/durable-execution.png">
+<link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
   
   
     
@@ -119,7 +126,7 @@
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -144,20 +151,20 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
       </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
       </label>
     
   
@@ -173,7 +180,7 @@
       
         <label class="md-header__button md-icon" for="__search">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
         </label>
         <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
@@ -182,15 +189,15 @@
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
         </button>
       </nav>
       
@@ -214,7 +221,7 @@
         <a href="https://github.com/DependencyTrack/dependency-track" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
   </div>
   <div class="md-source__repository">
     DependencyTrack/dependency-track
@@ -378,7 +385,7 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -401,7 +408,7 @@
       <a href="https://github.com/DependencyTrack/dependency-track" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
   </div>
   <div class="md-source__repository">
     DependencyTrack/dependency-track
@@ -449,6 +456,8 @@
       
         
           
+        
+      
         
       
         
@@ -1676,7 +1685,7 @@
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -2128,7 +2137,7 @@
   
 
 
-  <nav class="md-path" aria-label="Navigation" >
+  <nav class="md-path" aria-label="Navigation">
     <ol class="md-path__list">
       
         
@@ -2214,14 +2223,14 @@
   
 
 
-<h1 id="durable-execution">Durable execution<a class="headerlink" href="#durable-execution" title="Permanent link">&para;</a></h1>
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<h1 id="durable-execution">Durable execution<a class="headerlink" href="#durable-execution" title="Permanent link">¶</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">¶</a></h2>
 <p>The durable execution engine (abbreviated as <code>dex</code> in code and configuration) is an embedded
 durable execution engine that provides reliable, scalable execution of potentially long-running processes.</p>
 <p>The engine is influenced by <a href="https://temporal.io/">Temporal</a> and Microsoft's <a href="https://github.com/Azure/durabletask">Durable Task Framework</a>.
 It is purpose-built for Dependency-Track's requirements, and optimized for PostgreSQL.</p>
-<h2 id="core-concepts">Core concepts<a class="headerlink" href="#core-concepts" title="Permanent link">&para;</a></h2>
-<h3 id="durable-execution_1">Durable Execution<a class="headerlink" href="#durable-execution_1" title="Permanent link">&para;</a></h3>
+<h2 id="core-concepts">Core concepts<a class="headerlink" href="#core-concepts" title="Permanent link">¶</a></h2>
+<h3 id="durable-execution_1">Durable Execution<a class="headerlink" href="#durable-execution_1" title="Permanent link">¶</a></h3>
 <p>Durable execution is a programming model where the state and progress of (potentially long-running)
 processes is automatically persisted, enabling them to survive failures and restarts.</p>
 <div class="admonition note">
@@ -2236,19 +2245,19 @@ by replaying its event history. This makes workflows resilient without requiring
 work to implement state management or retry logic.</p>
 <p>Durable execution ensures that once a workflow is started, it will run to completion,
 even when experiencing repeated transient failures.</p>
-<h3 id="workflow">Workflow<a class="headerlink" href="#workflow" title="Permanent link">&para;</a></h3>
+<h3 id="workflow">Workflow<a class="headerlink" href="#workflow" title="Permanent link">¶</a></h3>
 <p>A workflow is the formal description of a sequence of steps to execute.
 Workflows are defined as normal Java code, but must be <em>deterministic and free of side effects</em>
 to enable reliable history replay. Their sole purpose is orchestration: sequencing and
 coordinating work, not performing it directly.</p>
 <p>Workflows can invoke <a href="#activity">activities</a>, create <a href="#timer">timers</a>, spawn child workflows,
 and wait for <a href="#external-event">external events</a>.</p>
-<h2 id="workflow-instance">Workflow Instance<a class="headerlink" href="#workflow-instance" title="Permanent link">&para;</a></h2>
+<h2 id="workflow-instance">Workflow Instance<a class="headerlink" href="#workflow-instance" title="Permanent link">¶</a></h2>
 <p>A workflow instance is a specific instantiation of a <a href="#workflow">workflow</a>.</p>
 <p>Instances can be executed multiple times, but only a single execution
 in non-terminal state can exist at any given point in time.</p>
 <p>In the engine, instances are identified by an <em>instance ID</em>, which is defined by clients when starting a workflow.</p>
-<h3 id="activity">Activity<a class="headerlink" href="#activity" title="Permanent link">&para;</a></h3>
+<h3 id="activity">Activity<a class="headerlink" href="#activity" title="Permanent link">¶</a></h3>
 <p>An activity is the formal description of a non-deterministic operation. It is where interactions with
 external systems, and more generally I/O, is intended to happen.</p>
 <p>Execution of activities happens asynchronously from their "owning" workflow's execution, making it non-blocking.</p>
@@ -2256,7 +2265,7 @@ external systems, and more generally I/O, is intended to happen.</p>
 <p>Activities are anticipated to fail, and will be transparently retried. Retry behaviour is
 customizable using retry policies, on a per-invocation basis. Because activities may be executed
 multiple times as part of the retry mechanism, they should be <a href="https://en.wikipedia.org/wiki/Idempotence#Computer_science_meaning">idempotent</a>.</p>
-<h3 id="workflow-run">Workflow run<a class="headerlink" href="#workflow-run" title="Permanent link">&para;</a></h3>
+<h3 id="workflow-run">Workflow run<a class="headerlink" href="#workflow-run" title="Permanent link">¶</a></h3>
 <p>A workflow run is a single execution of a workflow. Each run has a unique identifier
 and maintains a complete event history. The history enables replay for recovery
 and ensures deterministic behaviour.</p>
@@ -2266,21 +2275,21 @@ and ensures deterministic behaviour.</p>
 <li><strong>Priority</strong>: Influences execution order (higher priority runs execute first).</li>
 <li><strong>Labels</strong>: Custom key-value metadata.</li>
 </ul>
-<h3 id="timer">Timer<a class="headerlink" href="#timer" title="Permanent link">&para;</a></h3>
+<h3 id="timer">Timer<a class="headerlink" href="#timer" title="Permanent link">¶</a></h3>
 <p>A timer provides durable delays within a workflow execution.</p>
 <p>Unlike regular sleeps, timers are recorded in the workflow run's event history,
 making them deterministic and replay-safe.</p>
-<h3 id="external-event">External Event<a class="headerlink" href="#external-event" title="Permanent link">&para;</a></h3>
+<h3 id="external-event">External Event<a class="headerlink" href="#external-event" title="Permanent link">¶</a></h3>
 <p>An external event is a message sent to a workflow run from outside the engine.</p>
 <p>External events enable workflows to pause and wait for signals from external systems or users,
 such as approval notifications, webhook callbacks, or status updates. Each event has a unique
 identifier and can carry optional payload data.</p>
-<h3 id="task">Task<a class="headerlink" href="#task" title="Permanent link">&para;</a></h3>
+<h3 id="task">Task<a class="headerlink" href="#task" title="Permanent link">¶</a></h3>
 <p>A task is a unit of work generated by the engine to drive progress of either
 a <a href="#workflow-run">workflow run</a> or an <a href="#activity">activity</a>.</p>
 <p>Tasks are scheduled for execution on <a href="#task-queue">task queues</a>,
 from where they're picked up by <a href="#task-worker">task workers</a>.</p>
-<h3 id="task-queue">Task queue<a class="headerlink" href="#task-queue" title="Permanent link">&para;</a></h3>
+<h3 id="task-queue">Task queue<a class="headerlink" href="#task-queue" title="Permanent link">¶</a></h3>
 <p>A task queue is a named queue where <a href="#task">tasks</a> are scheduled for execution.</p>
 <p>Task queues organize and distribute work to <a href="#task-worker">workers</a>. Each queue has a type (<em>workflow</em> or <em>activity</em>)
 and tracks its capacity and current depth (that is, number of pending tasks). Workflows and activities
@@ -2294,10 +2303,10 @@ is stored in a separate physical table <a href="https://www.postgresql.org/docs/
 </div>
 <p>The capacity of a queue is modifiable at runtime, allowing administrators to throttle
 task execution globally for an entire cluster. It is further possible to <em>pause</em> queues entirely.</p>
-<h3 id="task-worker">Task worker<a class="headerlink" href="#task-worker" title="Permanent link">&para;</a></h3>
+<h3 id="task-worker">Task worker<a class="headerlink" href="#task-worker" title="Permanent link">¶</a></h3>
 <p>A task worker polls tasks from a queue and executes them. Workers process either
 workflow tasks or activity tasks, but not both. Each worker polls from <em>exactly one</em> queue.</p>
-<h2 id="execution-model">Execution model<a class="headerlink" href="#execution-model" title="Permanent link">&para;</a></h2>
+<h2 id="execution-model">Execution model<a class="headerlink" href="#execution-model" title="Permanent link">¶</a></h2>
 <p>The engine uses event sourcing to provide durability. When a workflow executes,
 the engine records events for each completed step. If execution is interrupted,
 the workflow resumes by replaying the recorded history.</p>
@@ -2338,8 +2347,8 @@ activity, timer, or external event, it yields control back to the engine. The
 engine can then progress other workflows while the blocked one waits. This allows
 a single worker to manage many concurrent workflow runs without dedicating a
 thread to each one.</p>
-<h2 id="engine-architecture">Engine architecture<a class="headerlink" href="#engine-architecture" title="Permanent link">&para;</a></h2>
-<h3 id="overview_1">Overview<a class="headerlink" href="#overview_1" title="Permanent link">&para;</a></h3>
+<h2 id="engine-architecture">Engine architecture<a class="headerlink" href="#engine-architecture" title="Permanent link">¶</a></h2>
+<h3 id="overview_1">Overview<a class="headerlink" href="#overview_1" title="Permanent link">¶</a></h3>
 <p>The engine consists of the following components:</p>
 <ul>
 <li><strong>Workflow task scheduler</strong>: Creates workflow tasks from eligible workflow runs.</li>
@@ -2396,7 +2405,7 @@ flowchart TB
 <p>By default, the engine uses the same database as the main Dependency-Track application for simplicity.
 For larger deployments, it can be configured to use a separate database instance
 to isolate engine load from application concerns.</p>
-<h3 id="leader-election">Leader election<a class="headerlink" href="#leader-election" title="Permanent link">&para;</a></h3>
+<h3 id="leader-election">Leader election<a class="headerlink" href="#leader-election" title="Permanent link">¶</a></h3>
 <p>Certain operations are intended to only be performed by a single node in a cluster. For example:</p>
 <ul>
 <li>Maintenance</li>
@@ -2441,7 +2450,7 @@ for a given period of time (default: 30&nbsp;s). This design is inspired by Kube
 resolution is performed using PostgreSQL's
 <a href="https://www.postgresql.org/docs/current/sql-insert.html#SQL-ON-CONFLICT"><code>on conflict</code></a> mechanism:</p>
 <div class="highlight"><pre><span></span><code><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">dex_lease</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">acquired_by</span><span class="p">,</span><span class="w"> </span><span class="n">acquired_at</span><span class="p">,</span><span class="w"> </span><span class="n">expires_at</span><span class="p">)</span>
-<span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;leadership&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;instanceA&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">now</span><span class="p">(),</span><span class="w"> </span><span class="n">now</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">interval</span><span class="w"> </span><span class="s1">&#39;30 seconds&#39;</span><span class="p">)</span>
+<span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="s1">'leadership'</span><span class="p">,</span><span class="w"> </span><span class="s1">'instanceA'</span><span class="p">,</span><span class="w"> </span><span class="n">now</span><span class="p">(),</span><span class="w"> </span><span class="n">now</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">interval</span><span class="w"> </span><span class="s1">'30 seconds'</span><span class="p">)</span>
 <span class="k">on</span><span class="w"> </span><span class="n">conflict</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="k">update</span>
 <span class="k">set</span><span class="w"> </span><span class="n">acquired_by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">excluded</span><span class="p">.</span><span class="n">acquired_by</span>
 <span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="n">acquired_at</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">excluded</span><span class="p">.</span><span class="n">acquired_at</span>
@@ -2460,14 +2469,14 @@ is an increase is potentially expensive operations. Correctness is not affected.
 <p>During graceful shutdown, nodes simply release their leadership lease:</p>
 <div class="highlight"><pre><span></span><code><span class="k">delete</span>
 <span class="w">  </span><span class="k">from</span><span class="w"> </span><span class="n">dex_lease</span>
-<span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;leadership&#39;</span>
-<span class="w">   </span><span class="k">and</span><span class="w"> </span><span class="n">acquired_by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;instanceA&#39;</span>
+<span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'leadership'</span>
+<span class="w">   </span><span class="k">and</span><span class="w"> </span><span class="n">acquired_by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'instanceA'</span>
 </code></pre></div>
 <p>The <code>dex_lease</code> table is <a href="https://www.postgresql.org/docs/current/sql-createtable.html#SQL-CREATETABLE-UNLOGGED"><code>unlogged</code></a>
 and thus does not cause WAL writes. This is possible because leases are ephemeral by design.</p>
-<h3 id="task-scheduling">Task scheduling<a class="headerlink" href="#task-scheduling" title="Permanent link">&para;</a></h3>
+<h3 id="task-scheduling">Task scheduling<a class="headerlink" href="#task-scheduling" title="Permanent link">¶</a></h3>
 <p>The engine has two separate schedulers, both running on the leader node:</p>
-<h4 id="workflow-task-scheduler">Workflow task scheduler<a class="headerlink" href="#workflow-task-scheduler" title="Permanent link">&para;</a></h4>
+<h4 id="workflow-task-scheduler">Workflow task scheduler<a class="headerlink" href="#workflow-task-scheduler" title="Permanent link">¶</a></h4>
 <p>Creates tasks from workflow runs.
 It polls the <code>dex_workflow_run</code> table for workflow runs that:</p>
 <ul>
@@ -2476,7 +2485,7 @@ It polls the <code>dex_workflow_run</code> table for workflow runs that:</p>
 <li>Don't already have a queued task</li>
 </ul>
 <p>For each eligible run, a task is inserted into the <code>dex_workflow_task</code> table.</p>
-<h4 id="activity-task-scheduler">Activity task scheduler<a class="headerlink" href="#activity-task-scheduler" title="Permanent link">&para;</a></h4>
+<h4 id="activity-task-scheduler">Activity task scheduler<a class="headerlink" href="#activity-task-scheduler" title="Permanent link">¶</a></h4>
 <p>Activity task scheduling works differently. Activity tasks are created by
 workflow execution (when an activity is invoked), not by the scheduler.
 The scheduler transitions tasks from <code>CREATED</code> to <code>QUEUED</code> status,
@@ -2485,7 +2494,7 @@ making them visible to workers.</p>
 used for retry delays. A task in <code>CREATED</code> status with a future <code>visible_from</code> is
 not yet eligible for execution. The scheduler polls for tasks where <code>visible_from &lt;= now()</code>
 and transitions them to <code>QUEUED</code>.</p>
-<h4 id="queue">Queue<a class="headerlink" href="#queue" title="Permanent link">&para;</a></h4>
+<h4 id="queue">Queue<a class="headerlink" href="#queue" title="Permanent link">¶</a></h4>
 <p>Each task queue is stored in a separate PostgreSQL table partition, created dynamically
 when a new queue is registered. This provides isolation between workloads and allows
 the database to manage each queue's data independently.</p>
@@ -2498,13 +2507,13 @@ the database to manage each queue's data independently.</p>
 <p>Tasks are scheduled with a priority (0-100), inherited from their workflow run.
 Higher priority tasks are processed first. Within the same priority, tasks are
 processed in creation order.</p>
-<h3 id="task-processing">Task processing<a class="headerlink" href="#task-processing" title="Permanent link">&para;</a></h3>
+<h3 id="task-processing">Task processing<a class="headerlink" href="#task-processing" title="Permanent link">¶</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The engine leverages Java's <a href="https://docs.oracle.com/en/java/javase/25/core/virtual-threads.html">virtual threads</a> for task execution, enabling high degrees
 of concurrency while maintaining a slim resource footprint.</p>
 </div>
-<h4 id="workflow-tasks">Workflow tasks<a class="headerlink" href="#workflow-tasks" title="Permanent link">&para;</a></h4>
+<h4 id="workflow-tasks">Workflow tasks<a class="headerlink" href="#workflow-tasks" title="Permanent link">¶</a></h4>
 <p>The scheduler polls for eligible workflow runs and inserts tasks into the <code>dex_workflow_task</code> table.
 Workers poll from this table, execute the workflow, and update run state and history.</p>
 <pre class="mermaid"><code>---
@@ -2533,7 +2542,7 @@ sequenceDiagram
     W -&gt;&gt; R: Update run status
     W -&gt;&gt; T: DELETE task
     deactivate W</code></pre>
-<h4 id="activity-tasks">Activity tasks<a class="headerlink" href="#activity-tasks" title="Permanent link">&para;</a></h4>
+<h4 id="activity-tasks">Activity tasks<a class="headerlink" href="#activity-tasks" title="Permanent link">¶</a></h4>
 <p>Activity tasks are created by workflow execution, not the scheduler.
 The scheduler transitions tasks from <code>CREATED</code> to <code>QUEUED</code> when their
 <code>visible_from</code> timestamp has passed, making them visible to workers.</p>
@@ -2562,16 +2571,16 @@ sequenceDiagram
     deactivate W</code></pre>
 <p>Because the scheduler and workers poll the same table, the scheduler uses
 <code>FOR NO KEY UPDATE SKIP LOCKED</code> when transitioning tasks to avoid deadlocks.</p>
-<h3 id="concurrency-control">Concurrency Control<a class="headerlink" href="#concurrency-control" title="Permanent link">&para;</a></h3>
+<h3 id="concurrency-control">Concurrency Control<a class="headerlink" href="#concurrency-control" title="Permanent link">¶</a></h3>
 <p>Task execution concurrency can be controlled at two levels:</p>
-<h4 id="local">Local<a class="headerlink" href="#local" title="Permanent link">&para;</a></h4>
+<h4 id="local">Local<a class="headerlink" href="#local" title="Permanent link">¶</a></h4>
 <p>Each worker limits how many tasks it executes concurrently using a <a href="https://docs.oracle.com/en/java/javase/25/docs/api//java.base/java/util/concurrent/Semaphore.html">Semaphore</a>.
 The worker only polls for as many tasks as it has available permits, preventing
 it from claiming more work than it can handle.</p>
 <p>This controls the parallelism of task execution on a single node. Setting a lower
 value reduces resource consumption but may increase latency. Setting a higher value
 allows more throughput but increases memory and CPU usage.</p>
-<h4 id="global">Global<a class="headerlink" href="#global" title="Permanent link">&para;</a></h4>
+<h4 id="global">Global<a class="headerlink" href="#global" title="Permanent link">¶</a></h4>
 <p>Task queue capacity limits how many tasks can be pending across the entire cluster.
 When a queue reaches capacity, the scheduler stops creating new tasks for that queue,
 providing backpressure to the system.</p>
@@ -2581,7 +2590,7 @@ resumes creating tasks for them.</p>
 <p>Local and global concurrency control complement each other.
 Queue capacity controls how much work is queued,
 while worker concurrency controls how fast that work is processed.</p>
-<h3 id="buffering">Buffering<a class="headerlink" href="#buffering" title="Permanent link">&para;</a></h3>
+<h3 id="buffering">Buffering<a class="headerlink" href="#buffering" title="Permanent link">¶</a></h3>
 <p>In contrast to most other durable execution and workflow engines, the engine buffers certain write
 operations, and flushes them to the database in batches. This is done to reduce network round-trips
 between the engine and its database, and amortize transaction overhead.</p>
@@ -2626,7 +2635,7 @@ and efficiency, our scaling ceiling is much higher.</p>
 </ul>
 <p>Users who care more about latency are free to decrease intervals, at the cost of higher database utilization.</p>
 </div>
-<h2 id="retry-and-failure-handling">Retry and Failure Handling<a class="headerlink" href="#retry-and-failure-handling" title="Permanent link">&para;</a></h2>
+<h2 id="retry-and-failure-handling">Retry and Failure Handling<a class="headerlink" href="#retry-and-failure-handling" title="Permanent link">¶</a></h2>
 <p>As noted in <a href="#activity">Activity</a>, activities are automatically retried on failure.
 The retry behavior is controlled by a configurable policy:</p>
 <table>
@@ -2666,17 +2675,17 @@ making it invisible to workers until the retry delay has elapsed.</p>
 <li><strong>Terminal failures</strong> stop retries immediately.</li>
 <li><strong>Retryable failures</strong> trigger the retry mechanism.</li>
 </ul>
-<h2 id="noteworthy-design-decisions">Noteworthy design decisions<a class="headerlink" href="#noteworthy-design-decisions" title="Permanent link">&para;</a></h2>
-<h3 id="embedded">Embedded<a class="headerlink" href="#embedded" title="Permanent link">&para;</a></h3>
+<h2 id="noteworthy-design-decisions">Noteworthy design decisions<a class="headerlink" href="#noteworthy-design-decisions" title="Permanent link">¶</a></h2>
+<h3 id="embedded">Embedded<a class="headerlink" href="#embedded" title="Permanent link">¶</a></h3>
 <p>Not requiring an external service simplifies operations due to fewer moving parts.
 Testing and debugging becomes easier for the same reason.</p>
 <p>Embedding the engine in the application further avoids network and serialization
 overhead during task distribution, since workers can poll the database directly.</p>
-<h3 id="postgresql-only">PostgreSQL Only<a class="headerlink" href="#postgresql-only" title="Permanent link">&para;</a></h3>
+<h3 id="postgresql-only">PostgreSQL Only<a class="headerlink" href="#postgresql-only" title="Permanent link">¶</a></h3>
 <p>Following the direction of the main Dependency-Track application, the engine only supports PostgreSQL.
 This allows for more optimization techniques, easier testing / debugging, and less operational
 overhead for users.</p>
-<h3 id="no-listen-notify">No <code>LISTEN</code> / <code>NOTIFY</code><a class="headerlink" href="#no-listen-notify" title="Permanent link">&para;</a></h3>
+<h3 id="no-listen-notify">No <code>LISTEN</code> / <code>NOTIFY</code><a class="headerlink" href="#no-listen-notify" title="Permanent link">¶</a></h3>
 <p>Many queueing systems based on PostgreSQL utilize the <a href="https://www.postgresql.org/docs/current/sql-notify.html"><code>LISTEN</code> / <code>NOTIFY</code></a>
 feature to reduce latencies, for example by emitting a notification whenever a new task has been scheduled for execution.</p>
 <p>This was explored but ultimately discarded, because:</p>
@@ -2691,14 +2700,14 @@ feature to reduce latencies, for example by emitting a notification whenever a n
 </li>
 </ul>
 <p>Instead, the engine entirely relies on polling.</p>
-<h3 id="protobuf-serialization">Protobuf Serialization<a class="headerlink" href="#protobuf-serialization" title="Permanent link">&para;</a></h3>
+<h3 id="protobuf-serialization">Protobuf Serialization<a class="headerlink" href="#protobuf-serialization" title="Permanent link">¶</a></h3>
 <p>Workflow events, as well as workflow and activity arguments and results, leverage Protobuf for serialization.
 Protobuf is fast and efficient, and serialized messages are smaller than their JSON counterparts.</p>
 <p>The tooling around Protobuf is excellent. With <a href="https://buf.build/"><code>buf</code></a>, we have linting and breaking
 change detection covered.</p>
 <p>This decision comes with the drawback of events and payloads not being human-readable when
 manually inspecting database tables.</p>
-<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">¶</a></h2>
 <ul>
 <li>ADR-002: Workflow Orchestration</li>
 <li><a href="https://temporal.io/">Temporal</a></li>
@@ -2726,7 +2735,7 @@ manually inspecting database tables.</p>
         
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
   Back to top
 </button>
         
@@ -2736,13 +2745,13 @@ manually inspecting database tables.</p>
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
         
           
           <a href="../../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Architecture">
             <div class="md-footer__button md-icon">
               
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
             </div>
             <div class="md-footer__title">
               <span class="md-footer__direction">
@@ -2767,7 +2776,7 @@ manually inspecting database tables.</p>
             </div>
             <div class="md-footer__button md-icon">
               
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
             </div>
           </a>
         
@@ -2779,7 +2788,7 @@ manually inspecting database tables.</p>
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; OWASP Foundation. All Rights Reserved.
+      Copyright © OWASP Foundation. All Rights Reserved.
     </div>
   
   
@@ -2801,7 +2810,7 @@ manually inspecting database tables.</p>
       
     
     <a href="https://dependencytrack.org/slack" target="_blank" rel="noopener" title="dependencytrack.org" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M94.1 315.1c0 25.9-21.2 47.1-47.1 47.1S0 341 0 315.1 21.2 268 47.1 268h47.1v47.1zm23.7 0c0-25.9 21.2-47.1 47.1-47.1s47.1 21.2 47.1 47.1v117.8c0 25.9-21.2 47.1-47.1 47.1s-47.1-21.2-47.1-47.1zm47.1-189c-25.9 0-47.1-21.2-47.1-47.1s21.2-47 47.1-47S212 53.2 212 79.1v47.1h-47.1zm0 23.7c25.9 0 47.1 21.2 47.1 47.1S190.8 244 164.9 244H47.1C21.2 244 0 222.8 0 196.9s21.2-47.1 47.1-47.1zm189 47.1c0-25.9 21.2-47.1 47.1-47.1s47 21.2 47 47.1-21.2 47.1-47.1 47.1h-47.1v-47.1zm-23.7 0c0 25.9-21.2 47.1-47.1 47.1S236 222.8 236 196.9V79.1c0-25.9 21.2-47.1 47.1-47.1s47.1 21.2 47.1 47.1zm-47.1 189c25.9 0 47.1 21.2 47.1 47.1s-21.2 47-47.1 47-47.1-21.2-47.1-47.1v-47.1h47.1zm0-23.7c-25.9 0-47.1-21.2-47.1-47.1s21.2-47.1 47.1-47.1h117.8c25.9 0 47.1 21.2 47.1 47.1s-21.2 47.1-47.1 47.1z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M94.1 315.1c0 25.9-21.2 47.1-47.1 47.1S0 341 0 315.1 21.2 268 47.1 268h47.1v47.1zm23.7 0c0-25.9 21.2-47.1 47.1-47.1s47.1 21.2 47.1 47.1v117.8c0 25.9-21.2 47.1-47.1 47.1s-47.1-21.2-47.1-47.1zm47.1-189c-25.9 0-47.1-21.2-47.1-47.1s21.2-47 47.1-47S212 53.2 212 79.1v47.1h-47.1zm0 23.7c25.9 0 47.1 21.2 47.1 47.1S190.8 244 164.9 244H47.1C21.2 244 0 222.8 0 196.9s21.2-47.1 47.1-47.1zm189 47.1c0-25.9 21.2-47.1 47.1-47.1s47 21.2 47 47.1-21.2 47.1-47.1 47.1h-47.1v-47.1zm-23.7 0c0 25.9-21.2 47.1-47.1 47.1S236 222.8 236 196.9V79.1c0-25.9 21.2-47.1 47.1-47.1s47.1 21.2 47.1 47.1zm-47.1 189c25.9 0 47.1 21.2 47.1 47.1s-21.2 47-47.1 47-47.1-21.2-47.1-47.1v-47.1h47.1zm0-23.7c-25.9 0-47.1-21.2-47.1-47.1s21.2-47.1 47.1-47.1h117.8c25.9 0 47.1 21.2 47.1 47.1s-21.2 47.1-47.1 47.1z"></path></svg>
     </a>
   
     
@@ -2812,7 +2821,7 @@ manually inspecting database tables.</p>
       
     
     <a href="https://github.com/DependencyTrack" target="_blank" rel="noopener" title="github.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
     </a>
   
     
@@ -2823,7 +2832,7 @@ manually inspecting database tables.</p>
       
     
     <a href="https://hub.docker.com/u/dependencytrack" target="_blank" rel="noopener" title="hub.docker.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M349.9 236.3h-66.1v-59.4h66.1zm0-204.3h-66.1v60.7h66.1zm78.2 144.8H362v59.4h66.1zm-156.3-72.1h-66.1v60.1h66.1zm78.1 0h-66.1v60.1h66.1zm276.8 100c-14.4-9.7-47.6-13.2-73.1-8.4-3.3-24-16.7-44.9-41.1-63.7l-14-9.3-9.3 14c-18.4 27.8-23.4 73.6-3.7 103.8-8.7 4.7-25.8 11.1-48.4 10.7H2.4c-8.7 50.8 5.8 116.8 44 162.1 37.1 43.9 92.7 66.2 165.4 66.2 157.4 0 273.9-72.5 328.4-204.2 21.4.4 67.6.1 91.3-45.2 1.5-2.5 6.6-13.2 8.5-17.1zm-511.1-27.9h-66v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1zm78.1 0h-66.1v59.4h66.1zm-78.1-72.1h-66.1v60.1h66.1z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M349.9 236.3h-66.1v-59.4h66.1zm0-204.3h-66.1v60.7h66.1zm78.2 144.8H362v59.4h66.1zm-156.3-72.1h-66.1v60.1h66.1zm78.1 0h-66.1v60.1h66.1zm276.8 100c-14.4-9.7-47.6-13.2-73.1-8.4-3.3-24-16.7-44.9-41.1-63.7l-14-9.3-9.3 14c-18.4 27.8-23.4 73.6-3.7 103.8-8.7 4.7-25.8 11.1-48.4 10.7H2.4c-8.7 50.8 5.8 116.8 44 162.1 37.1 43.9 92.7 66.2 165.4 66.2 157.4 0 273.9-72.5 328.4-204.2 21.4.4 67.6.1 91.3-45.2 1.5-2.5 6.6-13.2 8.5-17.1zm-511.1-27.9h-66v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1zm78.1 0h-66.1v59.4h66.1zm-78.1-72.1h-66.1v60.1h66.1z"></path></svg>
     </a>
   
     
@@ -2834,7 +2843,7 @@ manually inspecting database tables.</p>
       
     
     <a href="https://www.linkedin.com/company/owasp-dependency-track" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"></path></svg>
     </a>
   
     
@@ -2847,7 +2856,7 @@ manually inspecting database tables.</p>
       
     
     <a href="https://infosec.exchange/@DependencyTrack" target="_blank" rel="noopener me" title="infosec.exchange" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M433 179.1c0-97.2-63.7-125.7-63.7-125.7-62.5-28.7-228.6-28.4-290.5 0 0 0-63.7 28.5-63.7 125.7 0 115.7-6.6 259.4 105.6 289.1 40.5 10.7 75.3 13 103.3 11.4 50.8-2.8 79.3-18.1 79.3-18.1l-1.7-36.9s-36.3 11.4-77.1 10.1c-40.4-1.4-83-4.4-89.6-54-.6-4.6-.9-9.3-.9-13.9 85.6 20.9 158.7 9.1 178.7 6.7 56.1-6.7 105-41.3 111.2-72.9 9.8-49.8 9-121.5 9-121.5zm-75.1 125.2h-46.6V190.1c0-49.7-64-51.6-64 6.9v62.5H201V197c0-58.5-64-56.6-64-6.9v114.2H90.3c0-122.1-5.2-147.9 18.4-175 25.9-28.9 79.8-30.8 103.8 6.1l11.6 19.5 11.6-19.5c24.1-37.1 78.1-34.8 103.8-6.1 23.7 27.3 18.4 53 18.4 175"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M433 179.1c0-97.2-63.7-125.7-63.7-125.7-62.5-28.7-228.6-28.4-290.5 0 0 0-63.7 28.5-63.7 125.7 0 115.7-6.6 259.4 105.6 289.1 40.5 10.7 75.3 13 103.3 11.4 50.8-2.8 79.3-18.1 79.3-18.1l-1.7-36.9s-36.3 11.4-77.1 10.1c-40.4-1.4-83-4.4-89.6-54-.6-4.6-.9-9.3-.9-13.9 85.6 20.9 158.7 9.1 178.7 6.7 56.1-6.7 105-41.3 111.2-72.9 9.8-49.8 9-121.5 9-121.5zm-75.1 125.2h-46.6V190.1c0-49.7-64-51.6-64 6.9v62.5H201V197c0-58.5-64-56.6-64-6.9v114.2H90.3c0-122.1-5.2-147.9 18.4-175 25.9-28.9 79.8-30.8 103.8 6.1l11.6 19.5 11.6-19.5c24.1-37.1 78.1-34.8 103.8-6.1 23.7 27.3 18.4 53 18.4 175"></path></svg>
     </a>
   
 </div>
@@ -2871,5 +2880,7 @@ manually inspecting database tables.</p>
       <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
-  </body>
-</html>
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

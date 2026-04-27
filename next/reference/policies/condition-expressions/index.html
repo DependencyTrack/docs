@@ -1,7 +1,4 @@
-
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
+<!DOCTYPE html><html lang="en" class="no-js"><head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -49,7 +46,7 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
@@ -63,17 +60,27 @@
     
     
   
-<meta property="og:type" content="website" />
-<meta property="og:title" content="Condition expressions - Dependency-Track" />
-<meta property="og:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/reference/policies/condition-expressions.png" />
-<meta property="og:image:type" content="image/png" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:url" content="https://dependencytrack.github.io/docs/next/reference/policies/condition-expressions/" />
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:title" content="Condition expressions - Dependency-Track" />
-<meta property="twitter:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/reference/policies/condition-expressions.png" />
-</head>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Condition expressions - Dependency-Track">
+<meta property="og:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/reference/policies/condition-expressions.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://dependencytrack.github.io/docs/next/reference/policies/condition-expressions/">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="Condition expressions - Dependency-Track">
+<meta property="twitter:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/reference/policies/condition-expressions.png">
+<link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
   
   
     
@@ -119,7 +126,7 @@
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -144,20 +151,20 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
       </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
       </label>
     
   
@@ -173,7 +180,7 @@
       
         <label class="md-header__button md-icon" for="__search">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
         </label>
         <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
@@ -182,15 +189,15 @@
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
         </button>
       </nav>
       
@@ -214,7 +221,7 @@
         <a href="https://github.com/DependencyTrack/dependency-track" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
   </div>
   <div class="md-source__repository">
     DependencyTrack/dependency-track
@@ -378,7 +385,7 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -401,7 +408,7 @@
       <a href="https://github.com/DependencyTrack/dependency-track" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
   </div>
   <div class="md-source__repository">
     DependencyTrack/dependency-track
@@ -449,6 +456,8 @@
       
         
           
+        
+      
         
       
         
@@ -758,7 +767,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2">
         
           
           <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="">
@@ -893,7 +902,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3">
         
           
           <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="">
@@ -1144,7 +1153,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4">
         
           
           <div class="md-nav__link md-nav__container">
@@ -1376,6 +1385,8 @@
       
         
       
+        
+      
     
     
     
@@ -1394,7 +1405,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5">
         
           
           <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="">
@@ -1469,6 +1480,34 @@
     
   
     Publishers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notifications/templating/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Templating
   
 
     
@@ -2153,7 +2192,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_8">
         
           
           <label class="md-nav__link" for="__nav_5_8" id="__nav_5_8_label" tabindex="">
@@ -2254,7 +2293,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_9">
         
           
           <label class="md-nav__link" for="__nav_5_9" id="__nav_5_9_label" tabindex="">
@@ -2409,7 +2448,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_10">
         
           
           <label class="md-nav__link" for="__nav_5_10" id="__nav_5_10_label" tabindex="">
@@ -2581,7 +2620,7 @@
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -2938,7 +2977,7 @@
   
 
 
-  <nav class="md-path" aria-label="Navigation" >
+  <nav class="md-path" aria-label="Navigation">
     <ol class="md-path__list">
       
         
@@ -3024,12 +3063,12 @@
   
 
 
-<h1 id="condition-expressions">Condition Expressions<a class="headerlink" href="#condition-expressions" title="Permanent link">&para;</a></h1>
+<h1 id="condition-expressions">Condition Expressions<a class="headerlink" href="#condition-expressions" title="Permanent link">¶</a></h1>
 <p>Policy conditions are written in <a href="../../cel-expressions/"><abbr title="Common Expression Language">CEL</abbr></a>. This page describes the inputs,
 custom functions, and example expressions available to policy conditions.</p>
-<h2 id="evaluation-contexts">Evaluation contexts<a class="headerlink" href="#evaluation-contexts" title="Permanent link">&para;</a></h2>
+<h2 id="evaluation-contexts">Evaluation contexts<a class="headerlink" href="#evaluation-contexts" title="Permanent link">¶</a></h2>
 <p>Dependency-Track has two policy types, each with its own <abbr title="Common Expression Language">CEL</abbr> evaluation context.</p>
-<h3 id="component-policies">Component policies<a class="headerlink" href="#component-policies" title="Permanent link">&para;</a></h3>
+<h3 id="component-policies">Component policies<a class="headerlink" href="#component-policies" title="Permanent link">¶</a></h3>
 <p>Standard policies are scoped to individual components. Each condition is evaluated
 for every component in a project.</p>
 <table>
@@ -3063,7 +3102,7 @@ for every component in a project.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="vulnerability-policies">Vulnerability policies<a class="headerlink" href="#vulnerability-policies" title="Permanent link">&para;</a></h3>
+<h3 id="vulnerability-policies">Vulnerability policies<a class="headerlink" href="#vulnerability-policies" title="Permanent link">¶</a></h3>
 <p><a href="../">Vulnerability policies</a> are scoped to a single vulnerability.
 Each condition is evaluated for every vulnerability finding in a project.</p>
 <table>
@@ -3106,24 +3145,24 @@ custom functions documented below are available to both contexts.</p>
 Use the <code>has()</code> macro to <a href="../../cel-expressions/#optional-field-checking">check for presence of optional fields</a>
 before accessing them.</p>
 </div>
-<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
-<h3 id="component-age">Component age<a class="headerlink" href="#component-age" title="Permanent link">&para;</a></h3>
+<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">¶</a></h2>
+<h3 id="component-age">Component age<a class="headerlink" href="#component-age" title="Permanent link">¶</a></h3>
 <p>Besides out-of-date versions, component age is another indicator of potential risk. Components may be on the latest
 available version, but still be 20 years old.</p>
 <p>The following expression matches <a href="../../schemas/policy/#component">Component</a>s that are two years old, or even older, using the <code>now</code>
 variable and timestamp arithmetic:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">has</span><span class="p">(</span><span class="nx">component</span><span class="p">.</span><span class="nx">published_at</span><span class="p">)</span>
-<span class="w">  </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">component</span><span class="p">.</span><span class="nx">published_at</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">now</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">duration</span><span class="p">(</span><span class="s2">&quot;17520h&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// ~2 years</span>
-</code></pre></div></td></tr></table></div>
-<h3 id="component-blacklist">Component blacklist<a class="headerlink" href="#component-blacklist" title="Permanent link">&para;</a></h3>
+<span class="w">  </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">component</span><span class="p">.</span><span class="nx">published_at</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">now</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">duration</span><span class="p">(</span><span class="s2">"17520h"</span><span class="p">)</span><span class="w"> </span><span class="c1">// ~2 years</span>
+</code></pre></div></td></tr></tbody></table></div>
+<h3 id="component-blacklist">Component blacklist<a class="headerlink" href="#component-blacklist" title="Permanent link">¶</a></h3>
 <p>The following expression matches on the <a href="../../schemas/policy/#component">Component</a>'s <a href="https://github.com/package-url/purl-spec/blob/master/PURL-SPECIFICATION.rst">Package URL</a>, using a regular expression in <a href="https://github.com/google/re2/wiki/Syntax">RE2</a> syntax.
 Additionally, it checks whether the <a href="../../schemas/policy/#component">Component</a>'s version falls into a given <a href="https://github.com/package-url/vers-spec">vers</a> range using
 <a href="#matches_range"><code>matches_range</code></a>, consisting of multiple constraints.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">component</span><span class="p">.</span><span class="nx">purl</span><span class="p">.</span><span class="nx">matches</span><span class="p">(</span><span class="s2">&quot;^pkg:maven/com.acme/acme-lib\\b.*&quot;</span><span class="p">)</span>
-<span class="w">  </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">component</span><span class="p">.</span><span class="nx">matches_range</span><span class="p">(</span><span class="s2">&quot;vers:maven/&gt;0|&lt;1|!=0.2.4&quot;</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">component</span><span class="p">.</span><span class="nx">purl</span><span class="p">.</span><span class="nx">matches</span><span class="p">(</span><span class="s2">"^pkg:maven/com.acme/acme-lib\\b.*"</span><span class="p">)</span>
+<span class="w">  </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">component</span><span class="p">.</span><span class="nx">matches_range</span><span class="p">(</span><span class="s2">"vers:maven/&gt;0|&lt;1|!=0.2.4"</span><span class="p">)</span>
+</code></pre></div></td></tr></tbody></table></div>
 <p>The expression will match:</p>
 <ul>
 <li><code>pkg:maven/com.acme/acme-lib@0.1.0</code></li>
@@ -3134,20 +3173,20 @@ Additionally, it checks whether the <a href="../../schemas/policy/#component">Co
 <li><code>pkg:maven/com.acme/acme-library@0.1.0</code></li>
 <li><code>pkg:maven/com.acme/acme-lib@0.2.4</code></li>
 </ul>
-<h3 id="dependency-graph-traversal">Dependency graph traversal<a class="headerlink" href="#dependency-graph-traversal" title="Permanent link">&para;</a></h3>
+<h3 id="dependency-graph-traversal">Dependency graph traversal<a class="headerlink" href="#dependency-graph-traversal" title="Permanent link">¶</a></h3>
 <p>The following expression matches <a href="../../schemas/policy/#component">Component</a>s that are a (possibly transitive) dependency of a <a href="../../schemas/policy/#component">Component</a>
 with name <code>foo</code>, <em>but only if</em> a <a href="../../schemas/policy/#component">Component</a> with name <code>bar</code> is also present in the <a href="../../schemas/policy/#project">Project</a>.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">component</span><span class="p">.</span><span class="nx">is_dependency_of</span><span class="p">(</span><span class="nx">v1</span><span class="p">.</span><span class="nx">Component</span><span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;foo&quot;</span><span class="p">})</span>
-<span class="w">  </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">project</span><span class="p">.</span><span class="nx">depends_on</span><span class="p">(</span><span class="nx">v1</span><span class="p">.</span><span class="nx">Component</span><span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;bar&quot;</span><span class="p">})</span>
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">component</span><span class="p">.</span><span class="nx">is_dependency_of</span><span class="p">(</span><span class="nx">v1</span><span class="p">.</span><span class="nx">Component</span><span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">"foo"</span><span class="p">})</span>
+<span class="w">  </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">project</span><span class="p">.</span><span class="nx">depends_on</span><span class="p">(</span><span class="nx">v1</span><span class="p">.</span><span class="nx">Component</span><span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">"bar"</span><span class="p">})</span>
+</code></pre></div></td></tr></tbody></table></div>
 <p>To check whether a component is a <em>direct</em> (that is, non-transitive) dependency:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">component</span><span class="p">.</span><span class="nx">is_direct_dependency_of</span><span class="p">(</span><span class="nx">v1</span><span class="p">.</span><span class="nx">Component</span><span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;foo&quot;</span><span class="p">})</span>
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">component</span><span class="p">.</span><span class="nx">is_direct_dependency_of</span><span class="p">(</span><span class="nx">v1</span><span class="p">.</span><span class="nx">Component</span><span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">"foo"</span><span class="p">})</span>
+</code></pre></div></td></tr></tbody></table></div>
 <p>To check whether a component is <em>exclusively</em> introduced through another component
 (that is, no other path in the dependency graph leads to it):</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">component</span><span class="p">.</span><span class="nx">is_exclusive_dependency_of</span><span class="p">(</span><span class="nx">v1</span><span class="p">.</span><span class="nx">Component</span><span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;foo&quot;</span><span class="p">})</span>
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">component</span><span class="p">.</span><span class="nx">is_exclusive_dependency_of</span><span class="p">(</span><span class="nx">v1</span><span class="p">.</span><span class="nx">Component</span><span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">"foo"</span><span class="p">})</span>
+</code></pre></div></td></tr></tbody></table></div>
 <p>Dependency graph functions support the following <a href="../../schemas/policy/#component">Component</a> fields for matching:</p>
 <table>
 <thead>
@@ -3206,37 +3245,37 @@ with name <code>foo</code>, <em>but only if</em> a <a href="../../schemas/policy
 </tbody>
 </table>
 <p>The <code>re:</code> prefix enables <a href="https://github.com/google/re2/wiki/Syntax">RE2</a> regex matching on the field value:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">project</span><span class="p">.</span><span class="nx">depends_on</span><span class="p">(</span><span class="nx">v1</span><span class="p">.</span><span class="nx">Component</span><span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;re:^acme-.*&quot;</span><span class="p">})</span>
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">project</span><span class="p">.</span><span class="nx">depends_on</span><span class="p">(</span><span class="nx">v1</span><span class="p">.</span><span class="nx">Component</span><span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">"re:^acme-.*"</span><span class="p">})</span>
+</code></pre></div></td></tr></tbody></table></div>
 <p>The <code>vers:</code> prefix enables <a href="https://github.com/package-url/vers-spec">vers</a> range matching on the <code>version</code> field:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">project</span><span class="p">.</span><span class="nx">depends_on</span><span class="p">(</span><span class="nx">v1</span><span class="p">.</span><span class="nx">Component</span><span class="p">{</span>
-<span class="w">  </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;acme-lib&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nx">version</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;vers:maven/&gt;1.0.0|&lt;2.0.0&quot;</span>
+<span class="w">  </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">"acme-lib"</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">version</span><span class="o">:</span><span class="w"> </span><span class="s2">"vers:maven/&gt;1.0.0|&lt;2.0.0"</span>
 <span class="p">})</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div></td></tr></tbody></table></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>When constructing objects like <a href="../../schemas/policy/#component">Component</a> on-the-fly, it is necessary to use their version namespace,
 that is, <code>v1</code>. This is required in order to perform type checking, as well as ensuring backward compatibility.</p>
 </div>
-<h3 id="license-expression-allowlist">License expression allowlist<a class="headerlink" href="#license-expression-allowlist" title="Permanent link">&para;</a></h3>
+<h3 id="license-expression-allowlist">License expression allowlist<a class="headerlink" href="#license-expression-allowlist" title="Permanent link">¶</a></h3>
 <p>The following expression matches non-internal <a href="../../schemas/policy/#component">Component</a>s whose <a href="https://spdx.github.io/spdx-spec/v2.3/SPDX-license-expressions/">SPDX license expression</a>
 cannot be satisfied using only the approved set of licenses.
 License-with-exception combinations are listed as a single compound entry.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">!</span><span class="nx">spdx_expr_allows</span><span class="p">(</span><span class="nx">component</span><span class="p">.</span><span class="nx">license_expression</span><span class="p">,</span><span class="w"> </span><span class="p">[</span>
-<span class="w">  </span><span class="s2">&quot;MIT&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Apache-2.0&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;BSD-3-Clause&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="s2">&quot;GPL-2.0-only WITH Classpath-exception-2.0&quot;</span>
+<span class="w">  </span><span class="s2">"MIT"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Apache-2.0"</span><span class="p">,</span><span class="w"> </span><span class="s2">"BSD-3-Clause"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"GPL-2.0-only WITH Classpath-exception-2.0"</span>
 <span class="p">])</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div></td></tr></tbody></table></div>
 <p>When components don't have a license expression, <code>component.resolved_license.id</code> can be used as a fallback.
 A single license ID is a valid SPDX expression, so it gets the same version-aware treatment:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -3245,103 +3284,103 @@ A single license ID is a valid SPDX expression, so it gets the same version-awar
 <span class="w">  </span><span class="nx">has</span><span class="p">(</span><span class="nx">component</span><span class="p">.</span><span class="nx">license_expression</span><span class="p">)</span>
 <span class="w">    </span><span class="o">?</span><span class="w"> </span><span class="nx">component</span><span class="p">.</span><span class="nx">license_expression</span>
 <span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="nx">component</span><span class="p">.</span><span class="nx">resolved_license</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span>
-<span class="w">  </span><span class="p">[</span><span class="s2">&quot;MIT&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Apache-2.0&quot;</span><span class="p">]</span>
+<span class="w">  </span><span class="p">[</span><span class="s2">"MIT"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Apache-2.0"</span><span class="p">]</span>
 <span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-<h3 id="license-blacklist">License blacklist<a class="headerlink" href="#license-blacklist" title="Permanent link">&para;</a></h3>
+</code></pre></div></td></tr></tbody></table></div>
+<h3 id="license-blacklist">License blacklist<a class="headerlink" href="#license-blacklist" title="Permanent link">¶</a></h3>
 <p>The following expression matches <a href="../../schemas/policy/#component">Component</a>s that are <strong>not</strong> internal to the organization,
 and have either:</p>
 <ul>
 <li>No resolved <a href="../../schemas/policy/#license">License</a> at all</li>
 <li>A resolved <a href="../../schemas/policy/#license">License</a> that is not part of the <code>Permissive</code> license group</li>
 </ul>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">!</span><span class="nx">component</span><span class="p">.</span><span class="nx">is_internal</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span>
 <span class="w">  </span><span class="o">!</span><span class="nx">has</span><span class="p">(</span><span class="nx">component</span><span class="p">.</span><span class="nx">resolved_license</span><span class="p">)</span>
 <span class="w">    </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="nx">component</span><span class="p">.</span><span class="nx">resolved_license</span><span class="p">.</span><span class="nx">groups</span><span class="p">.</span><span class="nx">exists</span><span class="p">(</span><span class="nx">licenseGroup</span><span class="p">,</span>
-<span class="w">         </span><span class="nx">licenseGroup</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;Permissive&quot;</span><span class="p">)</span>
+<span class="w">         </span><span class="nx">licenseGroup</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"Permissive"</span><span class="p">)</span>
 <span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-<h3 id="vulnerability-blacklist">Vulnerability blacklist<a class="headerlink" href="#vulnerability-blacklist" title="Permanent link">&para;</a></h3>
+</code></pre></div></td></tr></tbody></table></div>
+<h3 id="vulnerability-blacklist">Vulnerability blacklist<a class="headerlink" href="#vulnerability-blacklist" title="Permanent link">¶</a></h3>
 <p>The following expression matches <a href="../../schemas/policy/#component">Component</a>s in <a href="../../schemas/policy/#project">Project</a>s tagged as <code>3rd-party</code>, with at least one <a href="../../schemas/policy/#vulnerability">Vulnerability</a>
 being any of the given blacklisted IDs.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="s2">&quot;3rd-party&quot;</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">project</span><span class="p">.</span><span class="nx">tags</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="s2">"3rd-party"</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">project</span><span class="p">.</span><span class="nx">tags</span>
 <span class="w">  </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">vulns</span><span class="p">.</span><span class="nx">exists</span><span class="p">(</span><span class="nx">vuln</span><span class="p">,</span><span class="w"> </span><span class="nx">vuln</span><span class="p">.</span><span class="nx">id</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="p">[</span>
-<span class="w">       </span><span class="s2">&quot;CVE-2017-5638&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">// struts RCE</span>
-<span class="w">       </span><span class="s2">&quot;CVE-2021-44228&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// log4shell</span>
-<span class="w">       </span><span class="s2">&quot;CVE-2022-22965&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// spring4shell</span>
+<span class="w">       </span><span class="s2">"CVE-2017-5638"</span><span class="p">,</span><span class="w">  </span><span class="c1">// struts RCE</span>
+<span class="w">       </span><span class="s2">"CVE-2021-44228"</span><span class="p">,</span><span class="w"> </span><span class="c1">// log4shell</span>
+<span class="w">       </span><span class="s2">"CVE-2022-22965"</span><span class="p">,</span><span class="w"> </span><span class="c1">// spring4shell</span>
 <span class="w">     </span><span class="p">])</span>
-</code></pre></div></td></tr></table></div>
-<h3 id="vulnerabilities-with-high-severity-in-public-facing-projects">Vulnerabilities with high severity in public facing projects<a class="headerlink" href="#vulnerabilities-with-high-severity-in-public-facing-projects" title="Permanent link">&para;</a></h3>
+</code></pre></div></td></tr></tbody></table></div>
+<h3 id="vulnerabilities-with-high-severity-in-public-facing-projects">Vulnerabilities with high severity in public facing projects<a class="headerlink" href="#vulnerabilities-with-high-severity-in-public-facing-projects" title="Permanent link">¶</a></h3>
 <p>The following expression matches <a href="../../schemas/policy/#component">Component</a>s in <a href="../../schemas/policy/#project">Project</a>s tagged as <code>public-facing</code>, with at least one <code>HIGH</code>
 or <code>CRITICAL</code>
 <a href="../../schemas/policy/#vulnerability">Vulnerability</a>, where the <a href="https://www.first.org/cvss/v3.0/specification-document">CVSSv3</a> attack vector is <code>Network</code>.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="s2">&quot;public-facing&quot;</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">project</span><span class="p">.</span><span class="nx">tags</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="s2">"public-facing"</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">project</span><span class="p">.</span><span class="nx">tags</span>
 <span class="w">  </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">vulns</span><span class="p">.</span><span class="nx">exists</span><span class="p">(</span><span class="nx">vuln</span><span class="p">,</span>
-<span class="w">    </span><span class="nx">vuln</span><span class="p">.</span><span class="nx">severity</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;HIGH&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;CRITICAL&quot;</span><span class="p">]</span>
-<span class="w">      </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">vuln</span><span class="p">.</span><span class="nx">cvssv3_vector</span><span class="p">.</span><span class="nx">matches</span><span class="p">(</span><span class="s2">&quot;.*/AV:N/.*&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">vuln</span><span class="p">.</span><span class="nx">severity</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="p">[</span><span class="s2">"HIGH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"CRITICAL"</span><span class="p">]</span>
+<span class="w">      </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">vuln</span><span class="p">.</span><span class="nx">cvssv3_vector</span><span class="p">.</span><span class="nx">matches</span><span class="p">(</span><span class="s2">".*/AV:N/.*"</span><span class="p">)</span>
 <span class="w">  </span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-<h3 id="suppressing-a-specific-cve-in-a-vulnerability-policy">Suppressing a specific CVE in a vulnerability policy<a class="headerlink" href="#suppressing-a-specific-cve-in-a-vulnerability-policy" title="Permanent link">&para;</a></h3>
+</code></pre></div></td></tr></tbody></table></div>
+<h3 id="suppressing-a-specific-cve-in-a-vulnerability-policy">Suppressing a specific CVE in a vulnerability policy<a class="headerlink" href="#suppressing-a-specific-cve-in-a-vulnerability-policy" title="Permanent link">¶</a></h3>
 <p>In a <a href="../">vulnerability policy</a>, the subject is a single
 vulnerability. Field accesses on <code>vuln</code> replace the <code>vulns.exists(...)</code> patterns
 above:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">vuln</span><span class="p">.</span><span class="nx">id</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;CVE-2022-41852&quot;</span>
-<span class="w">  </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">component</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;commons-jxpath&quot;</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">vuln</span><span class="p">.</span><span class="nx">id</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"CVE-2022-41852"</span>
+<span class="w">  </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">component</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"commons-jxpath"</span>
 <span class="w">  </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">component</span><span class="p">.</span><span class="nx">is_dependency_of</span><span class="p">(</span><span class="nx">v1</span><span class="p">.</span><span class="nx">Component</span><span class="p">{</span>
-<span class="w">       </span><span class="nx">group</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;org.springframework.cloud&quot;</span><span class="p">,</span>
-<span class="w">       </span><span class="nx">version</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;vers:maven/&gt;3.1|&lt;3.3&quot;</span>
+<span class="w">       </span><span class="nx">group</span><span class="o">:</span><span class="w"> </span><span class="s2">"org.springframework.cloud"</span><span class="p">,</span>
+<span class="w">       </span><span class="nx">version</span><span class="o">:</span><span class="w"> </span><span class="s2">"vers:maven/&gt;3.1|&lt;3.3"</span>
 <span class="w">     </span><span class="p">})</span>
-</code></pre></div></td></tr></table></div>
-<h3 id="version-distance">Version distance<a class="headerlink" href="#version-distance" title="Permanent link">&para;</a></h3>
+</code></pre></div></td></tr></tbody></table></div>
+<h3 id="version-distance">Version distance<a class="headerlink" href="#version-distance" title="Permanent link">¶</a></h3>
 <p>The <a href="#version_distance"><code>version_distance</code></a> function allows matching based on how far behind a component's version
 is from the latest known version. The distance is specified using a <a href="../../schemas/policy/#versiondistance">VersionDistance</a> object with <code>epoch</code>, <code>major</code>,
 <code>minor</code>, and <code>patch</code> fields.</p>
 <p>The following expression matches components that are more than one major version behind:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">component</span><span class="p">.</span><span class="nx">version_distance</span><span class="p">(</span><span class="s2">&quot;&gt;=&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">v1</span><span class="p">.</span><span class="nx">VersionDistance</span><span class="p">{</span><span class="nx">major</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">})</span>
-</code></pre></div></td></tr></table></div>
-<h2 id="spdx-license-expressions">SPDX License Expressions<a class="headerlink" href="#spdx-license-expressions" title="Permanent link">&para;</a></h2>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">component</span><span class="p">.</span><span class="nx">version_distance</span><span class="p">(</span><span class="s2">"&gt;="</span><span class="p">,</span><span class="w"> </span><span class="nx">v1</span><span class="p">.</span><span class="nx">VersionDistance</span><span class="p">{</span><span class="nx">major</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">})</span>
+</code></pre></div></td></tr></tbody></table></div>
+<h2 id="spdx-license-expressions">SPDX License Expressions<a class="headerlink" href="#spdx-license-expressions" title="Permanent link">¶</a></h2>
 <p>The <code>spdx_expr_*</code> functions evaluate <a href="https://spdx.github.io/spdx-spec/v2.3/SPDX-license-expressions/">SPDX license expressions</a>. They operate on expression strings
 (typically <code>component.license_expression</code>) and can also be used with <code>component.resolved_license.id</code>
 as a fallback for components without a license expression.</p>
 <p>All license ID comparisons are <strong>case-insensitive</strong> per the SPDX specification.</p>
-<h3 id="version-equivalence">Version equivalence<a class="headerlink" href="#version-equivalence" title="Permanent link">&para;</a></h3>
+<h3 id="version-equivalence">Version equivalence<a class="headerlink" href="#version-equivalence" title="Permanent link">¶</a></h3>
 <p>Deprecated license IDs are treated as equivalent to their modern counterparts.
 For example, <code>GPL-2.0</code> and <code>GPL-2.0-only</code> are considered the same license.</p>
-<h3 id="version-ranges">Version ranges<a class="headerlink" href="#version-ranges" title="Permanent link">&para;</a></h3>
+<h3 id="version-ranges">Version ranges<a class="headerlink" href="#version-ranges" title="Permanent link">¶</a></h3>
 <p>The <code>+</code> operator and <code>-or-later</code> suffix are understood as "this version or any later
 version in the same license family." For example, <code>GPL-3.0-only</code> satisfies an allow-list containing
 <code>GPL-2.0-or-later</code>, and <code>Apache-1.0+</code> satisfies an allow-list containing <code>Apache-2.0</code>.</p>
-<h3 id="deprecated-with-compounds">Deprecated <code>WITH</code>-compounds<a class="headerlink" href="#deprecated-with-compounds" title="Permanent link">&para;</a></h3>
+<h3 id="deprecated-with-compounds">Deprecated <code>WITH</code>-compounds<a class="headerlink" href="#deprecated-with-compounds" title="Permanent link">¶</a></h3>
 <p>Legacy compound IDs like <code>GPL-2.0-with-classpath-exception</code> are automatically
 resolved to their modern <code>WITH</code> expression form (<code>GPL-2.0-only WITH Classpath-exception-2.0</code>).</p>
-<h3 id="with-composites"><code>WITH</code> composites<a class="headerlink" href="#with-composites" title="Permanent link">&para;</a></h3>
+<h3 id="with-composites"><code>WITH</code> composites<a class="headerlink" href="#with-composites" title="Permanent link">¶</a></h3>
 <p>License-with-exception combinations are treated as atomic composites. The full
 compound (for example, <code>"GPL-2.0-only WITH Classpath-exception-2.0"</code>) must appear as a single entry in
 allow-lists, not as separate license and exception IDs. The license part uses version-aware matching
 (for example, <code>GPL-2.0 WITH ...</code> matches <code>GPL-2.0-only WITH ...</code>), while the exception part requires an exact match.</p>
-<h2 id="function-reference">Function Reference<a class="headerlink" href="#function-reference" title="Permanent link">&para;</a></h2>
+<h2 id="function-reference">Function Reference<a class="headerlink" href="#function-reference" title="Permanent link">¶</a></h2>
 <p>For type definitions, refer to the <a href="../../schemas/policy/">schema reference</a>.</p>
 <p>In addition to the <a href="../../cel-expressions/#standard-library">standard <abbr title="Common Expression Language">CEL</abbr> library</a>, policy
 conditions have access to the following custom functions registered by Dependency-Track.</p>
-<h3 id="depends_on"><code>depends_on</code><a class="headerlink" href="#depends_on" title="Permanent link">&para;</a></h3>
+<h3 id="depends_on"><code>depends_on</code><a class="headerlink" href="#depends_on" title="Permanent link">¶</a></h3>
 <p>Checks whether a <a href="../../schemas/policy/#project">Project</a> contains a <a href="../../schemas/policy/#component">Component</a> matching the given criteria.
 Useful for enforcing policies only when specific components are present in a project.</p>
 <table>
@@ -3366,8 +3405,8 @@ Useful for enforcing policies only when specific components are present in a pro
 </tbody>
 </table>
 <p><strong>Returns:</strong> <code>true</code> if a matching component exists in the project.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">project</span><span class="p">.</span><span class="nx">depends_on</span><span class="p">(</span><span class="nx">v1</span><span class="p">.</span><span class="nx">Component</span><span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;baz&quot;</span><span class="p">})</span>
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">project</span><span class="p">.</span><span class="nx">depends_on</span><span class="p">(</span><span class="nx">v1</span><span class="p">.</span><span class="nx">Component</span><span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">"baz"</span><span class="p">})</span>
+</code></pre></div></td></tr></tbody></table></div>
 <pre class="mermaid"><code>graph TD
   P["Project"]:::match --&gt; A["foo"]
   P --&gt; B["bar"]
@@ -3380,7 +3419,7 @@ Useful for enforcing policies only when specific components are present in a pro
 <p class="admonition-title">Tip</p>
 <p><code>project</code> matches because <code>baz</code> exists in its dependency graph.</p>
 </div>
-<h3 id="is_dependency_of"><code>is_dependency_of</code><a class="headerlink" href="#is_dependency_of" title="Permanent link">&para;</a></h3>
+<h3 id="is_dependency_of"><code>is_dependency_of</code><a class="headerlink" href="#is_dependency_of" title="Permanent link">¶</a></h3>
 <p>Checks whether a <a href="../../schemas/policy/#component">Component</a> is a (possibly transitive) dependency of another <a href="../../schemas/policy/#component">Component</a>.</p>
 <table>
 <thead>
@@ -3404,8 +3443,8 @@ Useful for enforcing policies only when specific components are present in a pro
 </tbody>
 </table>
 <p><strong>Returns:</strong> <code>true</code> if the receiver is a dependency (direct or transitive) of a matching component.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">component</span><span class="p">.</span><span class="nx">is_dependency_of</span><span class="p">(</span><span class="nx">v1</span><span class="p">.</span><span class="nx">Component</span><span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;foo&quot;</span><span class="p">})</span>
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">component</span><span class="p">.</span><span class="nx">is_dependency_of</span><span class="p">(</span><span class="nx">v1</span><span class="p">.</span><span class="nx">Component</span><span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">"foo"</span><span class="p">})</span>
+</code></pre></div></td></tr></tbody></table></div>
 <pre class="mermaid"><code>graph TD
   P["Project"] --&gt; A["foo"]:::criteria
   P --&gt; B["bar"]
@@ -3419,7 +3458,7 @@ Useful for enforcing policies only when specific components are present in a pro
 <p><code>baz</code> and <code>qux</code> match since both are dependencies of <code>foo</code>.
 <code>qux</code> matches even though it's also reachable through <code>bar</code>.</p>
 </div>
-<h3 id="is_direct_dependency_of"><code>is_direct_dependency_of</code><a class="headerlink" href="#is_direct_dependency_of" title="Permanent link">&para;</a></h3>
+<h3 id="is_direct_dependency_of"><code>is_direct_dependency_of</code><a class="headerlink" href="#is_direct_dependency_of" title="Permanent link">¶</a></h3>
 <p>Checks whether a <a href="../../schemas/policy/#component">Component</a> is a <em>direct</em> (non-transitive) dependency of another <a href="../../schemas/policy/#component">Component</a>.</p>
 <table>
 <thead>
@@ -3443,8 +3482,8 @@ Useful for enforcing policies only when specific components are present in a pro
 </tbody>
 </table>
 <p><strong>Returns:</strong> <code>true</code> if the receiver is a direct dependency of a matching component.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">component</span><span class="p">.</span><span class="nx">is_direct_dependency_of</span><span class="p">(</span><span class="nx">v1</span><span class="p">.</span><span class="nx">Component</span><span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;foo&quot;</span><span class="p">})</span>
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">component</span><span class="p">.</span><span class="nx">is_direct_dependency_of</span><span class="p">(</span><span class="nx">v1</span><span class="p">.</span><span class="nx">Component</span><span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">"foo"</span><span class="p">})</span>
+</code></pre></div></td></tr></tbody></table></div>
 <pre class="mermaid"><code>graph TD
   P["Project"] --&gt; A["foo"]:::criteria
   P --&gt; B["bar"]
@@ -3466,10 +3505,10 @@ Useful for enforcing policies only when specific components are present in a pro
   classDef nomatch stroke:#ef4444,stroke-width:3,stroke-dasharray:5</code></pre>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p><code>baz</code> matches since it's a direct child of <code>foo</code>.<br />
+<p><code>baz</code> matches since it's a direct child of <code>foo</code>.<br>
 <code>deep</code> does <strong>not</strong> match, as it's a transitive dependency.</p>
 </div>
-<h3 id="is_exclusive_dependency_of"><code>is_exclusive_dependency_of</code><a class="headerlink" href="#is_exclusive_dependency_of" title="Permanent link">&para;</a></h3>
+<h3 id="is_exclusive_dependency_of"><code>is_exclusive_dependency_of</code><a class="headerlink" href="#is_exclusive_dependency_of" title="Permanent link">¶</a></h3>
 <p>Checks whether a <a href="../../schemas/policy/#component">Component</a> is <em>exclusively</em> introduced through another <a href="../../schemas/policy/#component">Component</a>.
 Returns <code>true</code> only if every path from the project root to the receiver passes through a matching component.</p>
 <table>
@@ -3494,8 +3533,8 @@ Returns <code>true</code> only if every path from the project root to the receiv
 </tbody>
 </table>
 <p><strong>Returns:</strong> <code>true</code> if the receiver is exclusively introduced through a matching component.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">component</span><span class="p">.</span><span class="nx">is_exclusive_dependency_of</span><span class="p">(</span><span class="nx">v1</span><span class="p">.</span><span class="nx">Component</span><span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;foo&quot;</span><span class="p">})</span>
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">component</span><span class="p">.</span><span class="nx">is_exclusive_dependency_of</span><span class="p">(</span><span class="nx">v1</span><span class="p">.</span><span class="nx">Component</span><span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">"foo"</span><span class="p">})</span>
+</code></pre></div></td></tr></tbody></table></div>
 <pre class="mermaid"><code>graph TD
   P["Project"] --&gt; A["foo"]:::criteria
   P --&gt; B["bar"]
@@ -3507,10 +3546,10 @@ Returns <code>true</code> only if every path from the project root to the receiv
   classDef nomatch stroke:#ef4444,stroke-width:3,stroke-dasharray:5</code></pre>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p><code>baz</code> matches since it's only reachable through <code>foo</code>.<br />
+<p><code>baz</code> matches since it's only reachable through <code>foo</code>.<br>
 <code>qux</code> does <strong>not</strong> match, as it's also reachable through <code>bar</code>.</p>
 </div>
-<h3 id="matches_range"><code>matches_range</code><a class="headerlink" href="#matches_range" title="Permanent link">&para;</a></h3>
+<h3 id="matches_range"><code>matches_range</code><a class="headerlink" href="#matches_range" title="Permanent link">¶</a></h3>
 <p>Checks whether a <a href="../../schemas/policy/#component">Component</a>'s or <a href="../../schemas/policy/#project">Project</a>'s version falls within a <a href="https://github.com/package-url/vers-spec">vers</a> range.</p>
 <table>
 <thead>
@@ -3534,8 +3573,8 @@ Returns <code>true</code> only if every path from the project root to the receiv
 </tbody>
 </table>
 <p><strong>Returns:</strong> <code>true</code> if the version is within the specified range.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">component</span><span class="p">.</span><span class="nx">matches_range</span><span class="p">(</span><span class="s2">&quot;vers:maven/&gt;0|&lt;1|!=0.2.4&quot;</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">component</span><span class="p">.</span><span class="nx">matches_range</span><span class="p">(</span><span class="s2">"vers:maven/&gt;0|&lt;1|!=0.2.4"</span><span class="p">)</span>
+</code></pre></div></td></tr></tbody></table></div>
 <p>Currently supported versioning schemes:</p>
 <table>
 <thead>
@@ -3577,7 +3616,7 @@ Returns <code>true</code> only if every path from the project root to the receiv
 versioning scheme in <code>matches_range</code>. This helps with accuracy, as versioning schemes have different nuances
 across ecosystems, which makes comparisons error-prone.</p>
 </div>
-<h3 id="spdx_expr_allows"><code>spdx_expr_allows</code><a class="headerlink" href="#spdx_expr_allows" title="Permanent link">&para;</a></h3>
+<h3 id="spdx_expr_allows"><code>spdx_expr_allows</code><a class="headerlink" href="#spdx_expr_allows" title="Permanent link">¶</a></h3>
 <p>Checks whether an <a href="https://spdx.github.io/spdx-spec/v2.3/SPDX-license-expressions/">SPDX license expression</a> can be satisfied
 using only licenses from the given set. For <code>OR</code> expressions, at least one branch must
 be satisfiable. For <code>AND</code> expressions, all children must be satisfiable. <code>WITH</code> expressions
@@ -3604,47 +3643,47 @@ are treated as atomic composites (see below).</p>
 </tbody>
 </table>
 <p><strong>Returns:</strong> <code>true</code> if the expression is satisfiable with the given IDs.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">spdx_expr_allows</span><span class="p">(</span><span class="nx">component</span><span class="p">.</span><span class="nx">license_expression</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;MIT&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Apache-2.0&quot;</span><span class="p">])</span>
-<span class="c1">// &quot;MIT&quot;                  =&gt; true  (MIT is allowed)</span>
-<span class="c1">// &quot;MIT OR GPL-3.0-only&quot;  =&gt; true  (MIT branch is satisfiable)</span>
-<span class="c1">// &quot;MIT AND Apache-2.0&quot;   =&gt; true  (both are allowed)</span>
-<span class="c1">// &quot;MIT AND GPL-3.0-only&quot; =&gt; false (GPL-3.0-only is not allowed)</span>
-<span class="c1">// &quot;GPL-3.0-only&quot;         =&gt; false (not in the allowed set)</span>
-</code></pre></div></td></tr></table></div>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">spdx_expr_allows</span><span class="p">(</span><span class="nx">component</span><span class="p">.</span><span class="nx">license_expression</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s2">"MIT"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Apache-2.0"</span><span class="p">])</span>
+<span class="c1">// "MIT"                  =&gt; true  (MIT is allowed)</span>
+<span class="c1">// "MIT OR GPL-3.0-only"  =&gt; true  (MIT branch is satisfiable)</span>
+<span class="c1">// "MIT AND Apache-2.0"   =&gt; true  (both are allowed)</span>
+<span class="c1">// "MIT AND GPL-3.0-only" =&gt; false (GPL-3.0-only is not allowed)</span>
+<span class="c1">// "GPL-3.0-only"         =&gt; false (not in the allowed set)</span>
+</code></pre></div></td></tr></tbody></table></div>
 <p>Version-range matching is applied automatically:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">spdx_expr_allows</span><span class="p">(</span><span class="nx">component</span><span class="p">.</span><span class="nx">license_expression</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;GPL-2.0-or-later&quot;</span><span class="p">])</span>
-<span class="c1">// &quot;GPL-2.0-only&quot; =&gt; true  (2.0 is within 2.0-or-later range)</span>
-<span class="c1">// &quot;GPL-3.0-only&quot; =&gt; true  (3.0 is within 2.0-or-later range)</span>
-<span class="c1">// &quot;GPL-1.0-only&quot; =&gt; false (1.0 is below 2.0)</span>
-<span class="c1">// &quot;GPL-2.0&quot;      =&gt; true  (deprecated ID, equivalent to GPL-2.0-only)</span>
-</code></pre></div></td></tr></table></div>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">spdx_expr_allows</span><span class="p">(</span><span class="nx">component</span><span class="p">.</span><span class="nx">license_expression</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s2">"GPL-2.0-or-later"</span><span class="p">])</span>
+<span class="c1">// "GPL-2.0-only" =&gt; true  (2.0 is within 2.0-or-later range)</span>
+<span class="c1">// "GPL-3.0-only" =&gt; true  (3.0 is within 2.0-or-later range)</span>
+<span class="c1">// "GPL-1.0-only" =&gt; false (1.0 is below 2.0)</span>
+<span class="c1">// "GPL-2.0"      =&gt; true  (deprecated ID, equivalent to GPL-2.0-only)</span>
+</code></pre></div></td></tr></tbody></table></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p><code>WITH</code> expressions (license-with-exception) are matched as a single unit.
 The allowed set must contain the full compound entry, not the license and exception separately:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">spdx_expr_allows</span><span class="p">(</span><span class="nx">component</span><span class="p">.</span><span class="nx">license_expression</span><span class="p">,</span><span class="w"> </span><span class="p">[</span>
-<span class="w">  </span><span class="s2">&quot;GPL-2.0-only WITH Classpath-exception-2.0&quot;</span>
+<span class="w">  </span><span class="s2">"GPL-2.0-only WITH Classpath-exception-2.0"</span>
 <span class="p">])</span>
-<span class="c1">// &quot;GPL-2.0-only WITH Classpath-exception-2.0&quot; =&gt; true  (composite matches)</span>
-<span class="c1">// &quot;GPL-2.0-only&quot;                              =&gt; false (plain license, not in set)</span>
-<span class="c1">// &quot;GPL-2.0-only WITH LLVM-exception&quot;          =&gt; false (different composite)</span>
-</code></pre></div></td></tr></table></div>
+<span class="c1">// "GPL-2.0-only WITH Classpath-exception-2.0" =&gt; true  (composite matches)</span>
+<span class="c1">// "GPL-2.0-only"                              =&gt; false (plain license, not in set)</span>
+<span class="c1">// "GPL-2.0-only WITH LLVM-exception"          =&gt; false (different composite)</span>
+</code></pre></div></td></tr></tbody></table></div>
 </div>
-<h3 id="spdx_expr_requires_any"><code>spdx_expr_requires_any</code><a class="headerlink" href="#spdx_expr_requires_any" title="Permanent link">&para;</a></h3>
+<h3 id="spdx_expr_requires_any"><code>spdx_expr_requires_any</code><a class="headerlink" href="#spdx_expr_requires_any" title="Permanent link">¶</a></h3>
 <p>Checks whether at least one of the given license IDs is required in every possible satisfaction
 of an <a href="https://spdx.github.io/spdx-spec/v2.3/SPDX-license-expressions/">SPDX license expression</a>. For <code>OR</code> expressions, at least one of
 the IDs must be required in all branches. For <code>AND</code> expressions, at least one of the IDs must be
@@ -3671,17 +3710,17 @@ required in at least one child.</p>
 </tbody>
 </table>
 <p><strong>Returns:</strong> <code>true</code> if at least one of the IDs is always required.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">spdx_expr_requires_any</span><span class="p">(</span><span class="nx">component</span><span class="p">.</span><span class="nx">license_expression</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;GPL-2.0-only&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GPL-3.0-only&quot;</span><span class="p">])</span>
-<span class="c1">// &quot;GPL-2.0-only AND MIT&quot;         =&gt; true  (GPL-2.0-only always required)</span>
-<span class="c1">// &quot;GPL-2.0-only OR GPL-3.0-only&quot; =&gt; true  (every branch requires one)</span>
-<span class="c1">// &quot;GPL-2.0 AND MIT&quot;              =&gt; true  (GPL-2.0 is equivalent to GPL-2.0-only)</span>
-<span class="c1">// &quot;GPL-2.0-only OR MIT&quot;          =&gt; false (MIT branch requires neither)</span>
-</code></pre></div></td></tr></table></div>
-<h3 id="version_distance"><code>version_distance</code><a class="headerlink" href="#version_distance" title="Permanent link">&para;</a></h3>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">spdx_expr_requires_any</span><span class="p">(</span><span class="nx">component</span><span class="p">.</span><span class="nx">license_expression</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s2">"GPL-2.0-only"</span><span class="p">,</span><span class="w"> </span><span class="s2">"GPL-3.0-only"</span><span class="p">])</span>
+<span class="c1">// "GPL-2.0-only AND MIT"         =&gt; true  (GPL-2.0-only always required)</span>
+<span class="c1">// "GPL-2.0-only OR GPL-3.0-only" =&gt; true  (every branch requires one)</span>
+<span class="c1">// "GPL-2.0 AND MIT"              =&gt; true  (GPL-2.0 is equivalent to GPL-2.0-only)</span>
+<span class="c1">// "GPL-2.0-only OR MIT"          =&gt; false (MIT branch requires neither)</span>
+</code></pre></div></td></tr></tbody></table></div>
+<h3 id="version_distance"><code>version_distance</code><a class="headerlink" href="#version_distance" title="Permanent link">¶</a></h3>
 <p>Checks whether the distance between a <a href="../../schemas/policy/#component">Component</a>'s current version and its latest known version
 matches a given <a href="../../schemas/policy/#versiondistance">VersionDistance</a>.</p>
 <table>
@@ -3711,8 +3750,8 @@ matches a given <a href="../../schemas/policy/#versiondistance">VersionDistance<
 </tbody>
 </table>
 <p><strong>Returns:</strong> <code>true</code> if the version distance satisfies the comparison.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">component</span><span class="p">.</span><span class="nx">version_distance</span><span class="p">(</span><span class="s2">&quot;&gt;=&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">v1</span><span class="p">.</span><span class="nx">VersionDistance</span><span class="p">{</span><span class="nx">major</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">})</span>
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">component</span><span class="p">.</span><span class="nx">version_distance</span><span class="p">(</span><span class="s2">"&gt;="</span><span class="p">,</span><span class="w"> </span><span class="nx">v1</span><span class="p">.</span><span class="nx">VersionDistance</span><span class="p">{</span><span class="nx">major</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">})</span>
+</code></pre></div></td></tr></tbody></table></div>
 
 
 
@@ -3735,7 +3774,7 @@ matches a given <a href="../../schemas/policy/#versiondistance">VersionDistance<
         
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
   Back to top
 </button>
         
@@ -3745,13 +3784,13 @@ matches a given <a href="../../schemas/policy/#versiondistance">VersionDistance<
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
         
           
           <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Vulnerability Policies">
             <div class="md-footer__button md-icon">
               
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
             </div>
             <div class="md-footer__title">
               <span class="md-footer__direction">
@@ -3776,7 +3815,7 @@ matches a given <a href="../../schemas/policy/#versiondistance">VersionDistance<
             </div>
             <div class="md-footer__button md-icon">
               
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
             </div>
           </a>
         
@@ -3788,7 +3827,7 @@ matches a given <a href="../../schemas/policy/#versiondistance">VersionDistance<
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; OWASP Foundation. All Rights Reserved.
+      Copyright © OWASP Foundation. All Rights Reserved.
     </div>
   
   
@@ -3810,7 +3849,7 @@ matches a given <a href="../../schemas/policy/#versiondistance">VersionDistance<
       
     
     <a href="https://dependencytrack.org/slack" target="_blank" rel="noopener" title="dependencytrack.org" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M94.1 315.1c0 25.9-21.2 47.1-47.1 47.1S0 341 0 315.1 21.2 268 47.1 268h47.1v47.1zm23.7 0c0-25.9 21.2-47.1 47.1-47.1s47.1 21.2 47.1 47.1v117.8c0 25.9-21.2 47.1-47.1 47.1s-47.1-21.2-47.1-47.1zm47.1-189c-25.9 0-47.1-21.2-47.1-47.1s21.2-47 47.1-47S212 53.2 212 79.1v47.1h-47.1zm0 23.7c25.9 0 47.1 21.2 47.1 47.1S190.8 244 164.9 244H47.1C21.2 244 0 222.8 0 196.9s21.2-47.1 47.1-47.1zm189 47.1c0-25.9 21.2-47.1 47.1-47.1s47 21.2 47 47.1-21.2 47.1-47.1 47.1h-47.1v-47.1zm-23.7 0c0 25.9-21.2 47.1-47.1 47.1S236 222.8 236 196.9V79.1c0-25.9 21.2-47.1 47.1-47.1s47.1 21.2 47.1 47.1zm-47.1 189c25.9 0 47.1 21.2 47.1 47.1s-21.2 47-47.1 47-47.1-21.2-47.1-47.1v-47.1h47.1zm0-23.7c-25.9 0-47.1-21.2-47.1-47.1s21.2-47.1 47.1-47.1h117.8c25.9 0 47.1 21.2 47.1 47.1s-21.2 47.1-47.1 47.1z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M94.1 315.1c0 25.9-21.2 47.1-47.1 47.1S0 341 0 315.1 21.2 268 47.1 268h47.1v47.1zm23.7 0c0-25.9 21.2-47.1 47.1-47.1s47.1 21.2 47.1 47.1v117.8c0 25.9-21.2 47.1-47.1 47.1s-47.1-21.2-47.1-47.1zm47.1-189c-25.9 0-47.1-21.2-47.1-47.1s21.2-47 47.1-47S212 53.2 212 79.1v47.1h-47.1zm0 23.7c25.9 0 47.1 21.2 47.1 47.1S190.8 244 164.9 244H47.1C21.2 244 0 222.8 0 196.9s21.2-47.1 47.1-47.1zm189 47.1c0-25.9 21.2-47.1 47.1-47.1s47 21.2 47 47.1-21.2 47.1-47.1 47.1h-47.1v-47.1zm-23.7 0c0 25.9-21.2 47.1-47.1 47.1S236 222.8 236 196.9V79.1c0-25.9 21.2-47.1 47.1-47.1s47.1 21.2 47.1 47.1zm-47.1 189c25.9 0 47.1 21.2 47.1 47.1s-21.2 47-47.1 47-47.1-21.2-47.1-47.1v-47.1h47.1zm0-23.7c-25.9 0-47.1-21.2-47.1-47.1s21.2-47.1 47.1-47.1h117.8c25.9 0 47.1 21.2 47.1 47.1s-21.2 47.1-47.1 47.1z"></path></svg>
     </a>
   
     
@@ -3821,7 +3860,7 @@ matches a given <a href="../../schemas/policy/#versiondistance">VersionDistance<
       
     
     <a href="https://github.com/DependencyTrack" target="_blank" rel="noopener" title="github.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
     </a>
   
     
@@ -3832,7 +3871,7 @@ matches a given <a href="../../schemas/policy/#versiondistance">VersionDistance<
       
     
     <a href="https://hub.docker.com/u/dependencytrack" target="_blank" rel="noopener" title="hub.docker.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M349.9 236.3h-66.1v-59.4h66.1zm0-204.3h-66.1v60.7h66.1zm78.2 144.8H362v59.4h66.1zm-156.3-72.1h-66.1v60.1h66.1zm78.1 0h-66.1v60.1h66.1zm276.8 100c-14.4-9.7-47.6-13.2-73.1-8.4-3.3-24-16.7-44.9-41.1-63.7l-14-9.3-9.3 14c-18.4 27.8-23.4 73.6-3.7 103.8-8.7 4.7-25.8 11.1-48.4 10.7H2.4c-8.7 50.8 5.8 116.8 44 162.1 37.1 43.9 92.7 66.2 165.4 66.2 157.4 0 273.9-72.5 328.4-204.2 21.4.4 67.6.1 91.3-45.2 1.5-2.5 6.6-13.2 8.5-17.1zm-511.1-27.9h-66v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1zm78.1 0h-66.1v59.4h66.1zm-78.1-72.1h-66.1v60.1h66.1z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M349.9 236.3h-66.1v-59.4h66.1zm0-204.3h-66.1v60.7h66.1zm78.2 144.8H362v59.4h66.1zm-156.3-72.1h-66.1v60.1h66.1zm78.1 0h-66.1v60.1h66.1zm276.8 100c-14.4-9.7-47.6-13.2-73.1-8.4-3.3-24-16.7-44.9-41.1-63.7l-14-9.3-9.3 14c-18.4 27.8-23.4 73.6-3.7 103.8-8.7 4.7-25.8 11.1-48.4 10.7H2.4c-8.7 50.8 5.8 116.8 44 162.1 37.1 43.9 92.7 66.2 165.4 66.2 157.4 0 273.9-72.5 328.4-204.2 21.4.4 67.6.1 91.3-45.2 1.5-2.5 6.6-13.2 8.5-17.1zm-511.1-27.9h-66v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1zm78.1 0h-66.1v59.4h66.1zm-78.1-72.1h-66.1v60.1h66.1z"></path></svg>
     </a>
   
     
@@ -3843,7 +3882,7 @@ matches a given <a href="../../schemas/policy/#versiondistance">VersionDistance<
       
     
     <a href="https://www.linkedin.com/company/owasp-dependency-track" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"></path></svg>
     </a>
   
     
@@ -3856,7 +3895,7 @@ matches a given <a href="../../schemas/policy/#versiondistance">VersionDistance<
       
     
     <a href="https://infosec.exchange/@DependencyTrack" target="_blank" rel="noopener me" title="infosec.exchange" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M433 179.1c0-97.2-63.7-125.7-63.7-125.7-62.5-28.7-228.6-28.4-290.5 0 0 0-63.7 28.5-63.7 125.7 0 115.7-6.6 259.4 105.6 289.1 40.5 10.7 75.3 13 103.3 11.4 50.8-2.8 79.3-18.1 79.3-18.1l-1.7-36.9s-36.3 11.4-77.1 10.1c-40.4-1.4-83-4.4-89.6-54-.6-4.6-.9-9.3-.9-13.9 85.6 20.9 158.7 9.1 178.7 6.7 56.1-6.7 105-41.3 111.2-72.9 9.8-49.8 9-121.5 9-121.5zm-75.1 125.2h-46.6V190.1c0-49.7-64-51.6-64 6.9v62.5H201V197c0-58.5-64-56.6-64-6.9v114.2H90.3c0-122.1-5.2-147.9 18.4-175 25.9-28.9 79.8-30.8 103.8 6.1l11.6 19.5 11.6-19.5c24.1-37.1 78.1-34.8 103.8-6.1 23.7 27.3 18.4 53 18.4 175"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M433 179.1c0-97.2-63.7-125.7-63.7-125.7-62.5-28.7-228.6-28.4-290.5 0 0 0-63.7 28.5-63.7 125.7 0 115.7-6.6 259.4 105.6 289.1 40.5 10.7 75.3 13 103.3 11.4 50.8-2.8 79.3-18.1 79.3-18.1l-1.7-36.9s-36.3 11.4-77.1 10.1c-40.4-1.4-83-4.4-89.6-54-.6-4.6-.9-9.3-.9-13.9 85.6 20.9 158.7 9.1 178.7 6.7 56.1-6.7 105-41.3 111.2-72.9 9.8-49.8 9-121.5 9-121.5zm-75.1 125.2h-46.6V190.1c0-49.7-64-51.6-64 6.9v62.5H201V197c0-58.5-64-56.6-64-6.9v114.2H90.3c0-122.1-5.2-147.9 18.4-175 25.9-28.9 79.8-30.8 103.8 6.1l11.6 19.5 11.6-19.5c24.1-37.1 78.1-34.8 103.8-6.1 23.7 27.3 18.4 53 18.4 175"></path></svg>
     </a>
   
 </div>
@@ -3880,5 +3919,7 @@ matches a given <a href="../../schemas/policy/#versiondistance">VersionDistance<
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
-  </body>
-</html>
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
