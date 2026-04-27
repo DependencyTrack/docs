@@ -67,3 +67,4 @@ Some reference pages are generated from source repositories. Do not edit these f
 - No line length limit for Markdown prose.
 - YAML indentation: 2 spaces, no document-start markers.
 - Vale enforces Google developer style and write-good rules. Accepted/rejected terms are in `.vale/styles/config/vocabularies/DependencyTrack/`.
+- Page-specific images mirror the docs tree under `docs/assets/images/`: an image used by `docs/<section>/<page>.md` lives at `docs/assets/images/<section>/<page>/<name>.<ext>`. Shared assets (e.g. `logo.svg`) stay at the root of `docs/assets/images/`.

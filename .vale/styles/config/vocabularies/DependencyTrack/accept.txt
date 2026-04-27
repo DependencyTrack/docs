@@ -78,6 +78,7 @@ Webex
 [Cc]onfig
 [Cc]onfigs
 [Cc]ron
+[Cc]rontab
 [Dd]atacenter
 [Dd]atasource
 [Dd]atasources
@@ -94,8 +95,11 @@ Webex
 [Jj]etstack
 [Kk]enna
 [Ll]iveness
+[Ll]oopback
 [Ll]ookups
 [Mm]icroservices
+[Mm]isconfiguration
+[Mm]isconfigured
 [Mm]ixeway
 [Nn]amespace
 [Nn]amespaces
@@ -135,5 +139,6 @@ timestamptz
 truststore
 truststore
 [Tt]yposquatting
+walkthrough
 walkthroughs
 zstd

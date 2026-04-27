@@ -1,6 +1,7 @@
 title: User guides
 nav:
   - index.md
+  - configuring-notifications.md
   - managing-secrets.md
   - managing-vulnerability-policies.md
   - managing-private-vulnerabilities.md

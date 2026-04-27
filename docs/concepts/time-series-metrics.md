@@ -66,7 +66,7 @@ partitions for upcoming days. Administrators change the value at runtime,
 through the frontend or the REST API, rather than via a static startup
 property.
 
-![Retention setting under Administration > Configuration > Maintenance](../assets/images/admin_maintenance-config.png)
+![Retention setting under Administration > Configuration > Maintenance](../assets/images/concepts/time-series-metrics/admin-maintenance-config.png)
 
 Two consequences fall out of the design: shrinking retention reclaims disk
 on the next maintenance cycle, and extending retention only affects data

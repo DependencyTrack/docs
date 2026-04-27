@@ -3,13 +3,14 @@
 A *group* is a granular classification of a notification's subject. Every group
 belongs to one of two scopes: `SYSTEM` (platform-level events) or `PORTFOLIO`
 (events about projects, components, or findings). Every group also has a single
-trigger type: `Event` for ad-hoc notifications emitted in response to a system
-event, or `Schedule` for notifications produced periodically by a cron schedule.
+trigger type: `Event` for ad-hoc notifications that the system emits in response
+to a system event, or `Schedule` for notifications that fire periodically on a
+cron schedule.
 
-Subject schemas for each group are documented in the
-[notification schema reference](../schemas/notification.md).
+The [notification schema reference](../schemas/notification.md) describes the
+subject schema for each group.
 
-## SYSTEM scope
+## System scope
 
 ### `ANALYZER`
 
@@ -71,112 +72,131 @@ Generated as a result of a user creation.
 
 Generated as a result of a user deletion.
 
-## PORTFOLIO scope
+## Portfolio scope
 
 ### `BOM_CONSUMED`
 
 - **Trigger:** Event
 - **Level:** Informational
 
-Generated whenever a supported BOM is ingested and identified.
+Fires when the platform ingests and identifies a supported BOM.
 
 ### `BOM_PROCESSED`
 
 - **Trigger:** Event
 - **Level:** Informational
 
-Generated after a supported BOM is ingested, identified, and successfully
-processed.
+Fires after the platform ingests, identifies, and successfully
+processes a supported BOM.
 
 ### `BOM_PROCESSING_FAILED`
 
 - **Trigger:** Event
 - **Level:** Error
 
-Generated whenever a BOM upload process fails.
+Fires when a BOM upload process fails.
 
 ### `BOM_VALIDATION_FAILED`
 
 - **Trigger:** Event
 - **Level:** Error
 
-Generated whenever an invalid BOM is uploaded.
+Fires on upload of an invalid BOM.
 
 ### `NEW_VULNERABILITY`
 
 - **Trigger:** Event
 - **Level:** Informational
 
-Generated whenever a new vulnerability is identified.
+Fires when the platform finds a new vulnerability.
 
 ### `NEW_VULNERABLE_DEPENDENCY`
 
 - **Trigger:** Event
 - **Level:** Informational
 
-Generated as a result of a vulnerable component becoming a dependency of a
-project.
+Fires when a vulnerable component becomes a dependency of a project.
 
 ### `POLICY_VIOLATION`
 
 - **Trigger:** Event
 - **Level:** Informational
 
-Generated whenever a policy violation is identified.
+Fires when the platform records a policy violation.
 
 ### `PROJECT_AUDIT_CHANGE`
 
 - **Trigger:** Event
 - **Level:** Informational
 
-Generated whenever an analysis or suppression state has changed on a finding
-from a project.
+Fires when an analysis or suppression state changes on a project finding.
 
 ### `PROJECT_CREATED`
 
 - **Trigger:** Event
 - **Level:** Informational
 
-Generated whenever a new project is created.
+Fires on creation of a new project.
 
 ### `PROJECT_VULN_ANALYSIS_COMPLETE`
 
 - **Trigger:** Event
 - **Level:** Informational
 
-Generated when vulnerability analysis for a project completes.
+Fires when vulnerability analysis for a project completes.
 
 ### `VEX_CONSUMED`
 
 - **Trigger:** Event
 - **Level:** Informational
 
-Generated whenever a VEX document is ingested.
+Fires when the platform ingests a VEX document.
 
 ### `VEX_PROCESSED`
 
 - **Trigger:** Event
 - **Level:** Informational
 
-Generated after a VEX document is ingested and successfully processed.
+Fires after the platform ingests and successfully processes a VEX document.
 
 ### `VULNERABILITY_RETRACTED`
 
 - **Trigger:** Event
 - **Level:** Informational
 
-Generated whenever a previously reported vulnerability is retracted.
+Fires when an earlier vulnerability report rolls back.
 
 ### `NEW_VULNERABILITIES_SUMMARY`
 
 - **Trigger:** Schedule
 - **Level:** Informational
 
-Summaries of new vulnerabilities identified in a set of projects.
+Summarizes new vulnerabilities found in a set of projects.
 
 ### `NEW_POLICY_VIOLATIONS_SUMMARY`
 
 - **Trigger:** Schedule
 - **Level:** Informational
 
-Summary of new policy violations identified in a set of projects.
+Summarizes new policy violations found in a set of projects.
+
+## Subjects
+
+The typed subject of a notification depends on its group. The
+[notification schema reference](../schemas/notification.md) describes
+each subject schema.
+
+| Group                                                   | Subject type                                                                                                                                            |
+|:--------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `BOM_CONSUMED`, `BOM_PROCESSED`                         | [BomConsumedOrProcessedSubject](../schemas/notification.md#bomconsumedorprocessedsubject)                                                               |
+| `BOM_PROCESSING_FAILED`                                 | [BomProcessingFailedSubject](../schemas/notification.md#bomprocessingfailedsubject)                                                                     |
+| `BOM_VALIDATION_FAILED`                                 | [BomValidationFailedSubject](../schemas/notification.md#bomvalidationfailedsubject)                                                                     |
+| `NEW_VULNERABILITY`                                     | [NewVulnerabilitySubject](../schemas/notification.md#newvulnerabilitysubject)                                                                           |
+| `NEW_VULNERABLE_DEPENDENCY`                             | [NewVulnerableDependencySubject](../schemas/notification.md#newvulnerabledependencysubject)                                                             |
+| `POLICY_VIOLATION`                                      | [PolicyViolationSubject](../schemas/notification.md#policyviolationsubject)                                                                             |
+| `PROJECT_AUDIT_CHANGE`                                  | [VulnerabilityAnalysisDecisionChangeSubject](../schemas/notification.md#vulnerabilityanalysisdecisionchangesubject) or [PolicyViolationAnalysisDecisionChangeSubject](../schemas/notification.md#policyviolationanalysisdecisionchangesubject) |
+| `PROJECT_VULN_ANALYSIS_COMPLETE`                        | [ProjectVulnAnalysisCompleteSubject](../schemas/notification.md#projectvulnanalysiscompletesubject)                                                     |
+| `VEX_CONSUMED`, `VEX_PROCESSED`                         | [VexConsumedOrProcessedSubject](../schemas/notification.md#vexconsumedorprocessedsubject)                                                               |
+| `USER_CREATED`, `USER_DELETED`                          | [UserSubject](../schemas/notification.md#usersubject)                                                                                                   |
+| `NEW_VULNERABILITIES_SUMMARY`                           | [NewVulnerabilitiesSummarySubject](../schemas/notification.md#newvulnerabilitiessummarysubject)                                                         |
+| `NEW_POLICY_VIOLATIONS_SUMMARY`                         | [NewPolicyViolationsSummarySubject](../schemas/notification.md#newpolicyviolationssummarysubject)                                                       |

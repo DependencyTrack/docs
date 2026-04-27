@@ -1,31 +1,45 @@
 # Publishers
 
+## Restricting local connections
+
+For destinations that accept arbitrary endpoints, Dependency-Track
+blocks connections to local and loopback addresses by default to prevent
+server-side request forgery. Operators can override this per publisher
+via
+[`dt.notification-publisher.email.allow-local-connections`](../configuration/properties.md#dtnotification-publisheremailallow-local-connections)
+and
+[`dt.notification-publisher.kafka.allow-local-connections`](../configuration/properties.md#dtnotification-publisherkafkaallow-local-connections).
+Leave both `false` outside of development and trusted single-host
+deployments.
+
 ## Console
 
 Publishes notifications by writing them to standard output.
 
-This publisher is intended for testing. It does not provide any configuration options.
+This publisher targets testing scenarios. It exposes no configuration options.
 
+<!-- vale Google.WordList = NO -->
 ## Email
+<!-- vale Google.WordList = YES -->
 
-Publishes notifications as emails. [SMTP] and [SMTPS] protocols are supported.
+Publishes notifications as emails. The publisher supports the [SMTP] and [SMTPS] protocols.
 
 ### Global Config
 
 The global configuration defines how Dependency-Track connects to your email server.
 
-![Email publisher global config](images/email-publisher-global-config.png)
+![email publisher global config](../../assets/images/reference/notifications/publishers/email-publisher-global-config.png)
 
 ### Alert Config {: #email-alert-config }
 
 The alert configuration defines the recipients of email notifications,
-as well as an optional subject prefix.
+along with an optional subject prefix.
 
-![Email publisher alert config](images/email-publisher-alert-config.png)
+![email publisher alert config](../../assets/images/reference/notifications/publishers/email-publisher-alert-config.png)
 
-In addition to listing recipient addresses explicitly, you can also specify
-one or more teams as recipients. When teams are specified, emails will be sent
-to all members of those teams.
+Beyond listing recipient addresses explicitly, you can also name
+one or more teams as recipients. When you name teams, the publisher delivers
+emails to every member of those teams.
 
 You can mix explicit recipient addresses and teams, but you must configure
 *at least one* of the two.
@@ -40,7 +54,7 @@ Publishes notifications by creating issues in an Atlassian Jira instance.
 
 The global configuration defines how Dependency-Track connects to your Jira server.
 
-![Jira publisher global config](images/jira-publisher-global-config.png)
+![Jira publisher global config](../../assets/images/reference/notifications/publishers/jira-publisher-global-config.png)
 
 <!-- vale Vale.Terms = NO -->
 ### Alert Config {: #jira-alert-config }
@@ -48,7 +62,7 @@ The global configuration defines how Dependency-Track connects to your Jira serv
 
 The alert configuration defines properties of the issues to create.
 
-![Jira publisher alert config](images/jira-publisher-alert-config.png)
+![Jira publisher alert config](../../assets/images/reference/notifications/publishers/jira-publisher-alert-config.png)
 
 !!! note
     Selecting teams as recipients has no effect for this publisher.
@@ -61,16 +75,16 @@ Publishes notifications by emitting records to an Apache Kafka cluster.
 
 The global configuration defines how Dependency-Track connects to your Kafka cluster.
 
-![Kafka publisher global config](images/kafka-publisher-global-config.png)
+![Kafka publisher global config](../../assets/images/reference/notifications/publishers/kafka-publisher-global-config.png)
 
 !!! note "Configuring TLS"
-    When enabling TLS, you **must** provide the certificate of the certificate authority (CA)
-    that signed the certificate used by your Kafka brokers. It **must** be provided in
-    [PEM] format and **must not** be encrypted, that is, **not** password-protected.
+    When enabling TLS, you **must** supply the certificate of the certificate authority (CA)
+    that signed the certificate your Kafka brokers use. The certificate **must** be in
+    [PEM] format and **must not** carry encryption, that is, **not** password-protected.
 
 !!! note "Configuring mTLS"
-    When enabling [mutual TLS], you **must** provide a client certificate and key in [PEM] format.
-    Both **must not** be encrypted. The client key **must** be a [managed secret](../../guides/user/managing-secrets.md).
+    When enabling [mutual TLS], you **must** supply a client certificate and key in [PEM] format.
+    Neither **must** carry encryption. The client key **must** be a [managed secret](../../guides/user/managing-secrets.md).
 
 !!! note "Default Producer Configs"
     Dependency-Track applies the following [configs](https://kafka.apache.org/41/configuration/producer-configs/)
@@ -85,25 +99,24 @@ The global configuration defines how Dependency-Track connects to your Kafka clu
 
 The alert config defines the destination and format of Kafka records emitted by the publisher.
 
-![Kafka publisher alert config](images/kafka-publisher-alert-config.png)
+![Kafka publisher alert config](../../assets/images/reference/notifications/publishers/kafka-publisher-alert-config.png)
 
 !!! note
     Selecting teams as recipients has no effect for this publisher.
 
 !!! tip "Protobuf"
-    You are strongly encouraged to publish notifications in Protobuf format.
-    Dependency-Track ensures that changes to the Protobuf schema are backward-compatible,
-    which is crucial when notifications are stored in a durable log like Kafka.
+    Publish notifications in Protobuf format whenever possible.
+    Dependency-Track keeps changes to the Protobuf schema backward-compatible,
+    which matters when a durable log like Kafka retains the notifications.
 
 !!! warning "Templating"
-    The Kafka publisher does not ship with a default template, since it's meant to
-    be used with Protobuf. If you prefer a different payload format, you must configure
-    a custom template first.
+    The Kafka publisher ships without a default template, since it targets Protobuf.
+    If you prefer a different payload format, configure a custom template first.
 
 !!! tip "Record Keys"
-    If a notification's subject is a project, as is the case for groups like `BOM_CONSUMED`,
-    `NEW_VULNERABILITY` etc., then the Kafka record key will be the project's UUID.
-    If the notification's subject is *not* a project, the key will be `null`.
+    If a notification's subject is a project (as for groups like `BOM_CONSUMED`,
+    `NEW_VULNERABILITY` etc.), the Kafka record key holds the project's UUID.
+    If the notification's subject is *not* a project, the key is `null`.
 
 ## Mattermost
 
@@ -120,7 +133,9 @@ This should be the URL of an [incoming Webhook](https://docs.mattermost.com/inte
 !!! note
     Selecting teams as recipients has no effect for this publisher.
 
+<!-- vale Google.Headings = NO -->
 ## Microsoft Teams
+<!-- vale Google.Headings = YES -->
 
 Publishes notifications as Microsoft Teams messages.
 

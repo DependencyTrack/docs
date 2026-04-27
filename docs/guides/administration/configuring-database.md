@@ -82,7 +82,7 @@ They will know your organisation's best practices and can guide you in adjusting
 If you're not as lucky, we can wholeheartedly recommend [PGTune]. Given a bit of basic info about your system,
 it will provide a sensible baseline configuration. For the *DB Type* option, select `Online transaction processing system`.
 
-![Example output of PGTune](../../images/operations_database_pgtune.png)
+![Example output of PGTune](../../assets/images/guides/administration/configuring-database/pgtune-output.png)
 
 The `postgresql.conf` is usually located at `/var/lib/postgresql/data/postgresql.conf`.
 Most of these settings require a restart of the application.

@@ -2,7 +2,7 @@
 
 ## Overview
 
-The notification system is responsible for informing users and external systems about events
+The notification system informs users and external systems about events
 occurring in the platform. It consists of three phases:
 
 1. **Emission**: Writing notifications to an outbox table
@@ -42,8 +42,8 @@ in the critical path.
 
 ## Emission
 
-Notifications are emitted by inserting records into the `NOTIFICATION_OUTBOX` table.
-This can happen within the same database transaction that performs the business logic
+Domain logic emits notifications by inserting records into the `NOTIFICATION_OUTBOX` table.
+The insert can happen within the same database transaction that runs the business logic
 triggering the notification, thus avoiding the [dual write problem].
 
 ```mermaid
@@ -60,15 +60,15 @@ erDiagram
 
 The `ID` column uses [UUIDv7], which combines global uniqueness with sortability.
 The `PAYLOAD` column contains the serialized notification in [Protobuf] format.
-Its schema is documented in the [notification schema reference](../../../reference/schemas/notification.md).
+The [notification schema reference](../../../reference/schemas/notification.md) describes the schema.
 
 ### Preliminary filtering
 
-To reduce load on the outbox table, notifications are only inserted if *at least one*
-enabled alert could *potentially* match them. This check is performed during
-the `INSERT` operation using an `EXISTS` subquery against the `NOTIFICATIONRULE` table.
+To reduce load on the outbox table, the system only inserts a notification if *at least one*
+enabled alert could *potentially* match it. The `INSERT` operation runs this check
+using an `EXISTS` subquery against the `NOTIFICATIONRULE` table.
 
-Notifications that have no matching rules are discarded immediately.
+Notifications that have no matching rules drop immediately.
 
 ## Relay
 
@@ -102,11 +102,11 @@ sequenceDiagram
 
 ### Concurrency control
 
-Transaction-level [advisory locks] prevent concurrent relay cycles across multiple API server instances.
-This ensures notifications are relayed in approximately the order they were emitted.
-The lack of concurrency is offset by batch processing. The batch size is configurable
-via [`dt.notification.outbox-relay.batch-size`](../../../reference/configuration/properties.md#dtnotificationoutbox-relaybatch-size)
-and defaults to 100.
+Transaction-level [advisory locks] prevent concurrent relay cycles across API server instances.
+This ensures the relay processes notifications in approximately the order the system emitted them.
+Batch processing offsets the lack of concurrency. Operators configure the batch size
+via [`dt.notification.outbox-relay.batch-size`](../../../reference/configuration/properties.md#dtnotificationoutbox-relaybatch-size);
+the default is 100.
 
 ### Routing
 
@@ -117,23 +117,23 @@ A rule matches if:
 * Its scope matches the notification's scope
 * Its level is equal to or less verbose than the notification's level
 * The notification's group is in the rule's configured groups
-* If the rule is limited to specific projects or tags, the notification's subject matches
+* If the rule limits delivery to specific projects or tags, the notification's subject matches
 
-Routing is performed in batches, using a single SQL query with `UNNEST`,
+The router runs in batches, using a single SQL query with `UNNEST`,
 reducing database round trips.
 
 ### Large notification handling
 
-Notifications exceeding a configurable size threshold (default: 64KiB) are offloaded to
-file storage, rather than being passed directly to the durable execution engine. This prevents large payloads
+Notifications exceeding a configurable size threshold (default: 64KiB) move to
+file storage instead of passing directly to the durable execution engine. This prevents large payloads
 (for example, `PROJECT_VULN_ANALYSIS_COMPLETED`) from bloating the workflow history.
 The publishing workflow retrieves the notification from file storage
 and deletes the file upon completion.
 
 ## Publishing
 
-For each notification with *at least one* matched rule, a *Publish Notification* workflow
-is scheduled. The workflow coordinates delivery for all matched rules.
+For each notification with *at least one* matched rule, the relay schedules a
+*Publish Notification* workflow. The workflow coordinates delivery for all matched rules.
 
 ```mermaid
 ---
@@ -159,12 +159,12 @@ sequenceDiagram
     deactivate W
 ```
 
-Publishing for each rule is performed by a separate activity concurrently,
+A separate activity publishes each rule concurrently,
 allowing independent retries per rule. If delivery to one destination fails,
 it does not affect delivery to others.
 
-A workflow is considered successful if *at least one* rule's publishing succeeded.
-Conversely, if publishing for *all* rules failed, the entire workflow is marked as failed.
+A workflow succeeds if *at least one* rule's publishing succeeded.
+Conversely, if publishing for *all* rules failed, the entire workflow fails.
 
 ### Publishers
 
