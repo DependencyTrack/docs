@@ -1473,16 +1473,6 @@ Specifies the LDAP search filter used to search for users by their name.  The <c
 
 ## Notification
 
-<span id="dtnotification-publisherconsoleenabled">**`dt.notification-publisher.console.enabled`** [¶](#dtnotification-publisherconsoleenabled){ .headerlink }</span>
-
-Defines whether the console notification publisher is enabled.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>boolean</code></td></tr>
-<tr><th>Default</th><td><code>true</code></td></tr>
-<tr><th>ENV</th><td><code>DT_NOTIFICATION_PUBLISHER_CONSOLE_ENABLED</code></td></tr>
-</table>
-
 <span id="dtnotification-publisheremailallow-local-connections">**`dt.notification-publisher.email.allow-local-connections`** [¶](#dtnotification-publisheremailallow-local-connections){ .headerlink }</span>
 
 Defines whether the email notification publisher is allowed to connect to local hosts.  
@@ -1493,26 +1483,6 @@ Defines whether the email notification publisher is allowed to connect to local 
 <tr><th>ENV</th><td><code>DT_NOTIFICATION_PUBLISHER_EMAIL_ALLOW_LOCAL_CONNECTIONS</code></td></tr>
 </table>
 
-<span id="dtnotification-publisheremailenabled">**`dt.notification-publisher.email.enabled`** [¶](#dtnotification-publisheremailenabled){ .headerlink }</span>
-
-Defines whether the email notification publisher is enabled.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>boolean</code></td></tr>
-<tr><th>Default</th><td><code>true</code></td></tr>
-<tr><th>ENV</th><td><code>DT_NOTIFICATION_PUBLISHER_EMAIL_ENABLED</code></td></tr>
-</table>
-
-<span id="dtnotification-publisherjiraenabled">**`dt.notification-publisher.jira.enabled`** [¶](#dtnotification-publisherjiraenabled){ .headerlink }</span>
-
-Defines whether the Jira notification publisher is enabled.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>boolean</code></td></tr>
-<tr><th>Default</th><td><code>true</code></td></tr>
-<tr><th>ENV</th><td><code>DT_NOTIFICATION_PUBLISHER_JIRA_ENABLED</code></td></tr>
-</table>
-
 <span id="dtnotification-publisherkafkaallow-local-connections">**`dt.notification-publisher.kafka.allow-local-connections`** [¶](#dtnotification-publisherkafkaallow-local-connections){ .headerlink }</span>
 
 Defines whether the Kafka notification publisher is allowed to connect to local hosts.  
@@ -1521,66 +1491,6 @@ Defines whether the Kafka notification publisher is allowed to connect to local 
 <tr><th>Type</th><td style="border-width: 0"><code>boolean</code></td></tr>
 <tr><th>Default</th><td><code>false</code></td></tr>
 <tr><th>ENV</th><td><code>DT_NOTIFICATION_PUBLISHER_KAFKA_ALLOW_LOCAL_CONNECTIONS</code></td></tr>
-</table>
-
-<span id="dtnotification-publisherkafkaenabled">**`dt.notification-publisher.kafka.enabled`** [¶](#dtnotification-publisherkafkaenabled){ .headerlink }</span>
-
-Defines whether the Kafka notification publisher is enabled.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>boolean</code></td></tr>
-<tr><th>Default</th><td><code>true</code></td></tr>
-<tr><th>ENV</th><td><code>DT_NOTIFICATION_PUBLISHER_KAFKA_ENABLED</code></td></tr>
-</table>
-
-<span id="dtnotification-publishermattermostenabled">**`dt.notification-publisher.mattermost.enabled`** [¶](#dtnotification-publishermattermostenabled){ .headerlink }</span>
-
-Defines whether the Mattermost notification publisher is enabled.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>boolean</code></td></tr>
-<tr><th>Default</th><td><code>true</code></td></tr>
-<tr><th>ENV</th><td><code>DT_NOTIFICATION_PUBLISHER_MATTERMOST_ENABLED</code></td></tr>
-</table>
-
-<span id="dtnotification-publishermsteamsenabled">**`dt.notification-publisher.msteams.enabled`** [¶](#dtnotification-publishermsteamsenabled){ .headerlink }</span>
-
-Defines whether the Microsoft Teams notification publisher is enabled.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>boolean</code></td></tr>
-<tr><th>Default</th><td><code>true</code></td></tr>
-<tr><th>ENV</th><td><code>DT_NOTIFICATION_PUBLISHER_MSTEAMS_ENABLED</code></td></tr>
-</table>
-
-<span id="dtnotification-publisherslackenabled">**`dt.notification-publisher.slack.enabled`** [¶](#dtnotification-publisherslackenabled){ .headerlink }</span>
-
-Defines whether the Slack notification publisher is enabled.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>boolean</code></td></tr>
-<tr><th>Default</th><td><code>true</code></td></tr>
-<tr><th>ENV</th><td><code>DT_NOTIFICATION_PUBLISHER_SLACK_ENABLED</code></td></tr>
-</table>
-
-<span id="dtnotification-publisherwebexenabled">**`dt.notification-publisher.webex.enabled`** [¶](#dtnotification-publisherwebexenabled){ .headerlink }</span>
-
-Defines whether the WebEx notification publisher is enabled.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>boolean</code></td></tr>
-<tr><th>Default</th><td><code>true</code></td></tr>
-<tr><th>ENV</th><td><code>DT_NOTIFICATION_PUBLISHER_WEBEX_ENABLED</code></td></tr>
-</table>
-
-<span id="dtnotification-publisherwebhookenabled">**`dt.notification-publisher.webhook.enabled`** [¶](#dtnotification-publisherwebhookenabled){ .headerlink }</span>
-
-Defines whether the Webhook notification publisher is enabled.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>boolean</code></td></tr>
-<tr><th>Default</th><td><code>true</code></td></tr>
-<tr><th>ENV</th><td><code>DT_NOTIFICATION_PUBLISHER_WEBHOOK_ENABLED</code></td></tr>
 </table>
 
 <span id="dtnotificationoutbox-relaybatch-size">**`dt.notification.outbox-relay.batch-size`** <strong style="color: red">*</strong> [¶](#dtnotificationoutbox-relaybatch-size){ .headerlink }</span>
@@ -2463,16 +2373,6 @@ Defines the name of the data source to be used by the internal vulnerability ana
 <tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
 <tr><th>Default</th><td><code>default</code></td></tr>
 <tr><th>ENV</th><td><code>DT_VULN_ANALYZER_INTERNAL_DATASOURCE_NAME</code></td></tr>
-</table>
-
-<span id="dtvuln-analyzerinternalenabled">**`dt.vuln-analyzer.internal.enabled`** [¶](#dtvuln-analyzerinternalenabled){ .headerlink }</span>
-
-Defines whether the internal vulnerability analyzer is enabled.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>boolean</code></td></tr>
-<tr><th>Default</th><td><code>true</code></td></tr>
-<tr><th>ENV</th><td><code>DT_VULN_ANALYZER_INTERNAL_ENABLED</code></td></tr>
 </table>
 
 <span id="dtvuln-analyzeross-indexallow-local-connections">**`dt.vuln-analyzer.oss-index.allow-local-connections`** [¶](#dtvuln-analyzeross-indexallow-local-connections){ .headerlink }</span>
