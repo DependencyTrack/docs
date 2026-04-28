@@ -1,4 +1,6 @@
-title: Vulnerability policies
+title: Policies
 nav:
   - index.md
+  - Component policies: component-policies.md
+  - Vulnerability policies: vulnerability-policies.md
   - Condition expressions: condition-expressions.md

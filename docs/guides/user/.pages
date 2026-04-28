@@ -1,7 +1,9 @@
 title: User guides
 nav:
   - index.md
-  - configuring-notifications.md
-  - managing-secrets.md
+  - managing-component-policies.md
+  - triaging-policy-violations.md
   - managing-vulnerability-policies.md
   - managing-private-vulnerabilities.md
+  - configuring-notifications.md
+  - managing-secrets.md

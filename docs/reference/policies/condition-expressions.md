@@ -1,6 +1,6 @@
-# Condition Expressions
+# Condition expressions
 
-Policy conditions are written in [CEL](../cel-expressions.md). This page describes the inputs,
+Policy conditions use [CEL](../cel-expressions.md). This page describes the inputs,
 custom functions, and example expressions available to policy conditions.
 
 ## Evaluation contexts
@@ -9,29 +9,29 @@ Dependency-Track has two policy types, each with its own CEL evaluation context.
 
 ### Component policies
 
-Standard policies are scoped to individual components. Each condition is evaluated
+[Component policies](component-policies.md) apply to individual components. Each condition runs
 for every component in a project.
 
 | Variable    | Type                                                | Description                                  |
 |:------------|:----------------------------------------------------|:---------------------------------------------|
-| `component` | [Component]                                         | The component being evaluated                |
+| `component` | [Component]                                         | The component under evaluation               |
 | `project`   | [Project]                                           | The project the component is part of         |
-| `vulns`     | list([Vulnerability])                               | Vulnerabilities the component is affected by |
+| `vulns`     | list([Vulnerability])                               | Vulnerabilities affecting the component      |
 | `now`       | [`google.protobuf.Timestamp`][protobuf-ts-docs]     | The current time at the start of evaluation  |
 
 ### Vulnerability policies
 
-[Vulnerability policies](index.md) are scoped to a single vulnerability.
-Each condition is evaluated for every vulnerability finding in a project.
+[Vulnerability policies](vulnerability-policies.md) apply to a single vulnerability.
+Each condition runs for every vulnerability finding in a project.
 
 | Variable    | Type                                                | Description                                 |
 |:------------|:----------------------------------------------------|:--------------------------------------------|
 | `component` | [Component]                                         | The component the vulnerability applies to  |
 | `project`   | [Project]                                           | The project the component belongs to        |
-| `vuln`      | [Vulnerability]                                     | The vulnerability being evaluated           |
+| `vuln`      | [Vulnerability]                                     | The vulnerability under evaluation          |
 | `now`       | [`google.protobuf.Timestamp`][protobuf-ts-docs]     | The current time at the start of evaluation |
 
-The two contexts differ only in how vulnerabilities are exposed. Component policies
+The two contexts differ only in how they expose vulnerabilities. Component policies
 iterate over `vulns` (a list); vulnerability policies receive a single `vuln`. All
 custom functions documented below are available to both contexts.
 
@@ -58,15 +58,15 @@ has(component.published_at)
 ### Component blacklist
 
 The following expression matches on the [Component]'s [Package URL], using a regular expression in [RE2] syntax.
-Additionally, it checks whether the [Component]'s version falls into a given [vers] range using
-[`matches_range`](#matches_range), consisting of multiple constraints.
+It also checks whether the [Component]'s version falls into a given [vers] range using
+[`matches_range`](#matches_range).
 
 ```js linenums="1"
 component.purl.matches("^pkg:maven/com.acme/acme-lib\\b.*")
   && component.matches_range("vers:maven/>0|<1|!=0.2.4")
 ```
 
-The expression will match:
+The expression matches:
 
 * `pkg:maven/com.acme/acme-lib@0.1.0`
 * `pkg:maven/com.acme/acme-lib@0.9.9`
@@ -92,7 +92,7 @@ To check whether a component is a *direct* (that is, non-transitive) dependency:
 component.is_direct_dependency_of(v1.Component{name: "foo"})
 ```
 
-To check whether a component is *exclusively* introduced through another component
+To check whether a component is *only* introduced through another component
 (that is, no other path in the dependency graph leads to it):
 
 ```js linenums="1"
@@ -113,7 +113,7 @@ Dependency graph functions support the following [Component] fields for matching
 | `swid_tag_id` |      ✅       |                |
 | `is_internal` |              |                |
 
-The `re:` prefix enables [RE2] regex matching on the field value:
+The `re:` prefix enables [RE2] regular expression matching on the field value:
 
 ```js linenums="1"
 project.depends_on(v1.Component{name: "re:^acme-.*"})
@@ -129,14 +129,14 @@ project.depends_on(v1.Component{
 ```
 
 !!! note
-    When constructing objects like [Component] on-the-fly, it is necessary to use their version namespace,
-    that is, `v1`. This is required in order to perform type checking, as well as ensuring backward compatibility.
+    When constructing objects like [Component] on-the-fly, use their version namespace,
+    that is, `v1`. This enables type checking and ensures backward compatibility.
 
 ### License expression allowlist
 
 The following expression matches non-internal [Component]s whose [SPDX license expression][SPDX license expressions]
-cannot be satisfied using only the approved set of licenses.
-License-with-exception combinations are listed as a single compound entry.
+requires a license outside the approved set.
+License-with-exception combinations appear as a single compound entry.
 
 ```js linenums="1"
 !spdx_expr_allows(component.license_expression, [
@@ -145,7 +145,7 @@ License-with-exception combinations are listed as a single compound entry.
 ])
 ```
 
-When components don't have a license expression, `component.resolved_license.id` can be used as a fallback.
+When components don't have a license expression, `component.resolved_license.id` works as a fallback.
 A single license ID is a valid SPDX expression, so it gets the same version-aware treatment:
 
 ```js linenums="1"
@@ -203,9 +203,9 @@ or `CRITICAL`
 
 ### Suppressing a specific CVE in a vulnerability policy
 
-In a [vulnerability policy](index.md), the subject is a single
-vulnerability. Field accesses on `vuln` replace the `vulns.exists(...)` patterns
-above:
+In a [vulnerability policy](vulnerability-policies.md), the subject is a single
+vulnerability. Field accesses on `vuln` replace the earlier `vulns.exists(...)`
+patterns:
 
 ```js linenums="1"
 vuln.id == "CVE-2022-41852"
@@ -219,7 +219,7 @@ vuln.id == "CVE-2022-41852"
 ### Version distance
 
 The [`version_distance`](#version_distance) function allows matching based on how far behind a component's version
-is from the latest known version. The distance is specified using a [VersionDistance] object with `epoch`, `major`,
+is from the latest known version. Specify the distance using a [VersionDistance] object with `epoch`, `major`,
 `minor`, and `patch` fields.
 
 The following expression matches components that are more than one major version behind:
@@ -228,22 +228,22 @@ The following expression matches components that are more than one major version
 component.version_distance(">=", v1.VersionDistance{major: 1})
 ```
 
-## SPDX License Expressions
+## License expression handling
 
-The `spdx_expr_*` functions evaluate [SPDX license expressions]. They operate on expression strings
-(typically `component.license_expression`) and can also be used with `component.resolved_license.id`
+The `spdx_expr_*` functions check [SPDX license expressions]. They operate on expression strings
+(typically `component.license_expression`) and also work with `component.resolved_license.id`
 as a fallback for components without a license expression.
 
 All license ID comparisons are **case-insensitive** per the SPDX specification.
 
 ### Version equivalence
 
-Deprecated license IDs are treated as equivalent to their modern counterparts.
-For example, `GPL-2.0` and `GPL-2.0-only` are considered the same license.
+Deprecated license IDs match their modern counterparts.
+For example, `GPL-2.0` and `GPL-2.0-only` map to the same license.
 
 ### Version ranges
 
-The `+` operator and `-or-later` suffix are understood as "this version or any later
+The `+` operator and `-or-later` suffix mean "this version or any later
 version in the same license family." For example, `GPL-3.0-only` satisfies an allow-list containing
 `GPL-2.0-or-later`, and `Apache-1.0+` satisfies an allow-list containing `Apache-2.0`.
 
@@ -254,16 +254,16 @@ resolved to their modern `WITH` expression form (`GPL-2.0-only WITH Classpath-ex
 
 ### `WITH` composites
 
-License-with-exception combinations are treated as atomic composites. The full
+License-with-exception combinations act as atomic composites. The full
 compound (for example, `"GPL-2.0-only WITH Classpath-exception-2.0"`) must appear as a single entry in
 allow-lists, not as separate license and exception IDs. The license part uses version-aware matching
 (for example, `GPL-2.0 WITH ...` matches `GPL-2.0-only WITH ...`), while the exception part requires an exact match.
 
-## Function Reference
+## Function reference
 
 For type definitions, refer to the [schema reference](../schemas/policy.md).
 
-In addition to the [standard CEL library](../cel-expressions.md#standard-library), policy
+Beyond the [standard CEL library](../cel-expressions.md#standard-library), policy
 conditions have access to the following custom functions registered by Dependency-Track.
 
 ### `depends_on`
@@ -302,7 +302,7 @@ Checks whether a [Component] is a (possibly transitive) dependency of another [C
 
 | Name        | Type        | Description                                                                |
 |:------------|:------------|:---------------------------------------------------------------------------|
-| *receiver*  | [Component] | The component being evaluated                                              |
+| *receiver*  | [Component] | The component under evaluation                                             |
 | `component` | [Component] | Criteria to match the parent against. Supports `re:` and `vers:` prefixes. |
 
 **Returns:** `true` if the receiver is a dependency (direct or transitive) of a matching component.
@@ -332,7 +332,7 @@ Checks whether a [Component] is a *direct* (non-transitive) dependency of anothe
 
 | Name        | Type        | Description                                                                |
 |:------------|:------------|:---------------------------------------------------------------------------|
-| *receiver*  | [Component] | The component being evaluated                                              |
+| *receiver*  | [Component] | The component under evaluation                                             |
 | `component` | [Component] | Criteria to match the parent against. Supports `re:` and `vers:` prefixes. |
 
 **Returns:** `true` if the receiver is a direct dependency of a matching component.
@@ -372,15 +372,15 @@ graph TD
 
 ### `is_exclusive_dependency_of`
 
-Checks whether a [Component] is *exclusively* introduced through another [Component].
+Checks whether a [Component] is *only* introduced through another [Component].
 Returns `true` only if every path from the project root to the receiver passes through a matching component.
 
 | Name        | Type        | Description                                                                |
 |:------------|:------------|:---------------------------------------------------------------------------|
-| *receiver*  | [Component] | The component being evaluated                                              |
+| *receiver*  | [Component] | The component under evaluation                                             |
 | `component` | [Component] | Criteria to match the parent against. Supports `re:` and `vers:` prefixes. |
 
-**Returns:** `true` if the receiver is exclusively introduced through a matching component.
+**Returns:** `true` if the receiver is only introduced through a matching component.
 
 ```js linenums="1"
 component.is_exclusive_dependency_of(v1.Component{name: "foo"})
@@ -429,16 +429,16 @@ Currently supported versioning schemes:
 | `rpm`             | CentOS / Fedora / Red Hat / SUSE |
 
 !!! note
-    If the ecosystem of the components to match against is known upfront, it's good practice to use the according
+    If you know the ecosystem of the components to match against upfront, it's good practice to use the according
     versioning scheme in `matches_range`. This helps with accuracy, as versioning schemes have different nuances
     across ecosystems, which makes comparisons error-prone.
 
 ### `spdx_expr_allows`
 
-Checks whether an [SPDX license expression][SPDX license expressions] can be satisfied
-using only licenses from the given set. For `OR` expressions, at least one branch must
+Checks whether an [SPDX license expression][SPDX license expressions] holds when limited to
+the given set of licenses. For `OR` expressions, at least one branch must
 be satisfiable. For `AND` expressions, all children must be satisfiable. `WITH` expressions
-are treated as atomic composites (see below).
+act as atomic composites (see below).
 
 | Name         | Type           | Description                                              |
 |:-------------|:---------------|:---------------------------------------------------------|
@@ -456,7 +456,7 @@ spdx_expr_allows(component.license_expression, ["MIT", "Apache-2.0"])
 // "GPL-3.0-only"         => false (not in the allowed set)
 ```
 
-Version-range matching is applied automatically:
+Version-range matching applies automatically:
 
 ```js linenums="1"
 spdx_expr_allows(component.license_expression, ["GPL-2.0-or-later"])
@@ -467,7 +467,7 @@ spdx_expr_allows(component.license_expression, ["GPL-2.0-or-later"])
 ```
 
 !!! tip
-    `WITH` expressions (license-with-exception) are matched as a single unit.
+    `WITH` expressions (license-with-exception) match as a single unit.
     The allowed set must contain the full compound entry, not the license and exception separately:
 
     ```js linenums="1"
@@ -481,17 +481,17 @@ spdx_expr_allows(component.license_expression, ["GPL-2.0-or-later"])
 
 ### `spdx_expr_requires_any`
 
-Checks whether at least one of the given license IDs is required in every possible satisfaction
-of an [SPDX license expression][SPDX license expressions]. For `OR` expressions, at least one of
-the IDs must be required in all branches. For `AND` expressions, at least one of the IDs must be
-required in at least one child.
+Checks whether every possible satisfaction of an [SPDX license expression][SPDX license expressions]
+requires at least one of the given license IDs. For `OR` expressions, at least one of
+the IDs must appear in all branches. For `AND` expressions, at least one of the IDs must
+appear in at least one child.
 
 | Name         | Type            | Description                |
 |:-------------|:----------------|:---------------------------|
 | `expression` | `string`        | An SPDX license expression |
 | `ids`        | `list(string)`  | License IDs to check       |
 
-**Returns:** `true` if at least one of the IDs is always required.
+**Returns:** `true` if every satisfaction requires at least one of the IDs.
 
 ```js linenums="1"
 spdx_expr_requires_any(component.license_expression, ["GPL-2.0-only", "GPL-3.0-only"])

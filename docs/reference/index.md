@@ -53,7 +53,14 @@ For background and explanations, see [Concepts](../concepts/index.md).
 
 - [Vulnerability Analyzers](analyzers.md) --
   internal and external analyzers used to identify vulnerabilities
-- [Vulnerability Policies](policies/index.md) --
+
+## Policies
+
+- [Policies](policies/index.md) --
+  overview of component and vulnerability policies
+- [Component Policies](policies/component-policies.md) --
+  field definitions, condition subjects, operators, and assignment
+- [Vulnerability Policies](policies/vulnerability-policies.md) --
   field definitions, bundle YAML schema, and sync configuration
 - [Condition Expressions](policies/condition-expressions.md) --
   inputs and custom functions for policy conditions
