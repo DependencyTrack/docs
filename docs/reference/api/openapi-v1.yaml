@@ -11218,6 +11218,8 @@ components:
             ._\\-~%]*){0,6})"
         description:
           type: string
+          maxLength: 255
+          minLength: 0
           pattern: "^[\\p{IsWhite_Space}\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]*$"
         directDependencies:
           type: string
