@@ -12409,9 +12409,10 @@ components:
       name: X-Api-Key
       type: apiKey
     BearerAuth:
+      bearerFormat: Opaque
       description: |-
         Authentication via opaque server-issued session token.
         Tokens are obtained from `POST /api/v1/user/login` or
         `POST /api/v1/user/oidc/login`.
-      scheme: Bearer
+      scheme: bearer
       type: http
