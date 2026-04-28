@@ -72,6 +72,31 @@ by [MicroProfile Config]:
     The [configuration reference](properties.md) includes the correct
     environment variable names for each listed config property.
 
+## JVM options
+
+The container images launch the API server with the following defaults, set via the `JAVA_OPTIONS`
+environment variable:
+
+| Flag                              | Purpose                                                             |
+|-----------------------------------|---------------------------------------------------------------------|
+| `-XX:+UseG1GC`                    | Garbage collector tuned for predictable pause times.                |
+| `-XX:+UseStringDeduplication`     | Reduces heap footprint by deduplicating identical `String` values.  |
+| `-XX:+UseCompactObjectHeaders`    | Reduces per-object memory overhead.                                 |
+| `-XX:MaxGCPauseMillis=250`        | G1GC target pause time, in milliseconds.                            |
+| `-XX:MaxRAMPercentage=80.0`       | Caps the JVM heap at 80% of the container's available memory.       |
+
+The remaining 20% of container memory covers off-heap memory, thread stacks, and the OS.
+
+To extend the defaults without replacing them, set extra flags via the `EXTRA_JAVA_OPTIONS`
+environment variable:
+
+```ini
+EXTRA_JAVA_OPTIONS="-XX:MaxGCPauseMillis=100"
+```
+
+At startup, the container appends `EXTRA_JAVA_OPTIONS` to `JAVA_OPTIONS`; later flags override earlier
+values for the same flag.
+
 ## Debugging Configuration Resolution
 
 To verify whether config values are properly resolved and from which source, enable debug logging

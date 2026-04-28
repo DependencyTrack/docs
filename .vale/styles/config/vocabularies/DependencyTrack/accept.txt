@@ -83,7 +83,7 @@ Webex
 [Dd]atacenter
 [Dd]atasource
 [Dd]atasources
-[Dd]eduplicate[ds]?
+[Dd]eduplicat(e[ds]?|ing)
 [Dd]eduplication
 [Dd]efault[Mm]ode
 [Dd]eloyments

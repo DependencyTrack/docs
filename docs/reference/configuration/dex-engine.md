@@ -3,7 +3,7 @@
 The durable execution engine (dex) handles background task scheduling and execution.
 This page documents its worker types, task queues, and default configuration.
 
-For tuning guidance, see [Scaling](../../guides/administration/scaling.md#concurrency-control).
+For tuning guidance, see [Scaling](../../guides/administration/scaling.md#increase-background-throughput).
 
 ## Workers
 

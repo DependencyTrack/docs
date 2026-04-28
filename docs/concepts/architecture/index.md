@@ -3,6 +3,11 @@
 This section covers the internal architecture of Dependency-Track v5,
 describing key subsystems, their design rationale, and trade-offs.
 
+## Topology
+
+- [Deployment topology](deployment.md): How a Dependency-Track cluster fits together: components,
+  network ports, coordination model, and recovery from instance failure.
+
 ## Design documents
 
 - [Durable execution](design/durable-execution.md): The embedded workflow engine
