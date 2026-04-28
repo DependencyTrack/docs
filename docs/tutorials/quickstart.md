@@ -47,5 +47,6 @@ with the default credentials:
 
 ## What's next
 
-- [Configuration](../reference/configuration/application.md): Customize the deployment
-- [Scaling](../guides/administration/scaling.md): Scale for production workloads
+- [Creating a component policy](creating-a-component-policy.md): Catch components that violate your standards
+- [Setting up notifications](setting-up-notifications.md): Route events to Slack, email, or a webhook
+- [Deploying to production](../guides/administration/deploying-to-production.md): Move from this quickstart to a real deployment

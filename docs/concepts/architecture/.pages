@@ -1,4 +1,5 @@
 title: Architecture
 nav:
   - index.md
+  - deployment.md
   - Design: design

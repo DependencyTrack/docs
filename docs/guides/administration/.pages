@@ -1,13 +1,16 @@
 title: Administration guides
 nav:
   - index.md
+  - deploying-to-production.md
+  - scaling.md
   - configuring-database.md
+  - configuring-secret-management.md
+  - configuring-internal-ca.md
   - configuring-observability.md
   - configuring-ldap.md
   - configuring-oidc.md
-  - configuring-internal-ca.md
   - managing-notification-templates.md
   - debugging-notifications.md
-  - configuring-secret-management.md
-  - scaling.md
+  - backing-up.md
+  - upgrading-instances.md
   - migrating-from-v4.md
