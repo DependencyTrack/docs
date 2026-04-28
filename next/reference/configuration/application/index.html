@@ -1053,6 +1053,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#jvm-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JVM options
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#debugging-configuration-resolution" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2482,6 +2493,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#jvm-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JVM options
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#debugging-configuration-resolution" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2641,6 +2663,46 @@ by <a href="https://microprofile.io/specifications/config/">MicroProfile Config<
 <p>The <a href="../properties/">configuration reference</a> includes the correct
 environment variable names for each listed config property.</p>
 </div>
+<h2 id="jvm-options">JVM options<a class="headerlink" href="#jvm-options" title="Permanent link">¶</a></h2>
+<p>The container images launch the API server with the following defaults, set via the <code>JAVA_OPTIONS</code>
+environment variable:</p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-XX:+UseG1GC</code></td>
+<td>Garbage collector tuned for predictable pause times.</td>
+</tr>
+<tr>
+<td><code>-XX:+UseStringDeduplication</code></td>
+<td>Reduces heap footprint by deduplicating identical <code>String</code> values.</td>
+</tr>
+<tr>
+<td><code>-XX:+UseCompactObjectHeaders</code></td>
+<td>Reduces per-object memory overhead.</td>
+</tr>
+<tr>
+<td><code>-XX:MaxGCPauseMillis=250</code></td>
+<td>G1GC target pause time, in milliseconds.</td>
+</tr>
+<tr>
+<td><code>-XX:MaxRAMPercentage=80.0</code></td>
+<td>Caps the JVM heap at 80% of the container's available memory.</td>
+</tr>
+</tbody>
+</table>
+<p>The remaining 20% of container memory covers off-heap memory, thread stacks, and the OS.</p>
+<p>To extend the defaults without replacing them, set extra flags via the <code>EXTRA_JAVA_OPTIONS</code>
+environment variable:</p>
+<div class="highlight"><pre><span></span><code><span class="na">EXTRA_JAVA_OPTIONS</span><span class="o">=</span><span class="s">"-XX:MaxGCPauseMillis=100"</span>
+</code></pre></div>
+<p>At startup, the container appends <code>EXTRA_JAVA_OPTIONS</code> to <code>JAVA_OPTIONS</code>; later flags override earlier
+values for the same flag.</p>
 <h2 id="debugging-configuration-resolution">Debugging Configuration Resolution<a class="headerlink" href="#debugging-configuration-resolution" title="Permanent link">¶</a></h2>
 <p>To verify whether config values are properly resolved and from which source, enable debug logging
 via <a href="../properties/#dtconfiglogvalues"><code>dt.config.log.values</code></a> and

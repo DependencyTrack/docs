@@ -5,13 +5,13 @@
       
       
       
-        <link rel="canonical" href="https://dependencytrack.github.io/docs/next/guides/upgrading/v0.7.0/">
+        <link rel="canonical" href="https://dependencytrack.github.io/docs/next/guides/administration/deploying-to-production/">
       
       
         <link rel="prev" href="../">
       
       
-        <link rel="next" href="../v0.6.0/">
+        <link rel="next" href="../scaling/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Upgrading to v0.7.0 - Dependency-Track</title>
+        <title>Deploying to production - Dependency-Track</title>
       
     
     
@@ -61,15 +61,15 @@
     
   
 <meta property="og:type" content="website">
-<meta property="og:title" content="Upgrading to v0.7.0 - Dependency-Track">
-<meta property="og:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/guides/upgrading/v0.7.0.png">
+<meta property="og:title" content="Deploying to production - Dependency-Track">
+<meta property="og:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/guides/administration/deploying-to-production.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:url" content="https://dependencytrack.github.io/docs/next/guides/upgrading/v0.7.0/">
+<meta property="og:url" content="https://dependencytrack.github.io/docs/next/guides/administration/deploying-to-production/">
 <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:title" content="Upgrading to v0.7.0 - Dependency-Track">
-<meta property="twitter:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/guides/upgrading/v0.7.0.png">
+<meta property="twitter:title" content="Deploying to production - Dependency-Track">
+<meta property="twitter:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/guides/administration/deploying-to-production.png">
 <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
@@ -99,7 +99,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#upgrading-to-v070" class="md-skip">
+        <a href="#deploying-to-production" class="md-skip">
           Skip to content
         </a>
       
@@ -138,7 +138,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Upgrading to v0.7.0
+              Deploying to production
             
           </span>
         </div>
@@ -854,8 +854,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -903,15 +905,15 @@
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../administration/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -935,7 +937,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -952,10 +954,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../administration/deploying-to-production/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deploying to production
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -971,6 +1000,142 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#provision-compute-and-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Provision compute and database
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Provision compute and database">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api-server-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API server instances
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Database
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-more-than-one-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run more than one instance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manage-secrets-outside-the-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manage secrets outside the container
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configure authentication
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#front-the-api-server-with-tls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Front the API server with TLS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-up-observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set up observability
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plan-for-backup-and-upgrade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plan for backup and upgrade
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verify-the-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify the deployment
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -983,7 +1148,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../administration/scaling/" class="md-nav__link">
+      <a href="../scaling/" class="md-nav__link">
         
   
   
@@ -1011,7 +1176,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../administration/configuring-database/" class="md-nav__link">
+      <a href="../configuring-database/" class="md-nav__link">
         
   
   
@@ -1039,7 +1204,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../administration/configuring-secret-management/" class="md-nav__link">
+      <a href="../configuring-secret-management/" class="md-nav__link">
         
   
   
@@ -1067,7 +1232,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../administration/configuring-internal-ca/" class="md-nav__link">
+      <a href="../configuring-internal-ca/" class="md-nav__link">
         
   
   
@@ -1095,7 +1260,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../administration/configuring-observability/" class="md-nav__link">
+      <a href="../configuring-observability/" class="md-nav__link">
         
   
   
@@ -1123,7 +1288,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../administration/configuring-ldap/" class="md-nav__link">
+      <a href="../configuring-ldap/" class="md-nav__link">
         
   
   
@@ -1151,7 +1316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../administration/configuring-oidc/" class="md-nav__link">
+      <a href="../configuring-oidc/" class="md-nav__link">
         
   
   
@@ -1179,7 +1344,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../administration/managing-notification-templates/" class="md-nav__link">
+      <a href="../managing-notification-templates/" class="md-nav__link">
         
   
   
@@ -1207,7 +1372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../administration/debugging-notifications/" class="md-nav__link">
+      <a href="../debugging-notifications/" class="md-nav__link">
         
   
   
@@ -1235,7 +1400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../administration/backing-up/" class="md-nav__link">
+      <a href="../backing-up/" class="md-nav__link">
         
   
   
@@ -1263,7 +1428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../administration/upgrading-instances/" class="md-nav__link">
+      <a href="../upgrading-instances/" class="md-nav__link">
         
   
   
@@ -1291,7 +1456,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../administration/migrating-from-v4/" class="md-nav__link">
+      <a href="../migrating-from-v4/" class="md-nav__link">
         
   
   
@@ -1324,8 +1489,6 @@
                 
   
   
-    
-  
   
   
     
@@ -1353,15 +1516,15 @@
     
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4">
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../upgrading/" class="md-nav__link ">
               
   
   
@@ -1385,7 +1548,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1402,19 +1565,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../upgrading/v0.7.0/" class="md-nav__link">
         
   
   
@@ -1430,7 +1584,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -1443,7 +1596,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../v0.6.0/" class="md-nav__link">
+      <a href="../../upgrading/v0.6.0/" class="md-nav__link">
         
   
   
@@ -1712,6 +1865,130 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#provision-compute-and-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Provision compute and database
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Provision compute and database">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api-server-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API server instances
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Database
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-more-than-one-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run more than one instance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manage-secrets-outside-the-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manage secrets outside the container
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configure authentication
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#front-the-api-server-with-tls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Front the API server with TLS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-up-observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set up observability
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plan-for-backup-and-upgrade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plan for backup and upgrade
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verify-the-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify the deployment
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1774,7 +2051,7 @@
         <a href="../" class="md-path__link">
           
   <span class="md-ellipsis">
-    Upgrade guides
+    Administration guides
   </span>
 
         </a>
@@ -1796,361 +2073,108 @@
   
 
 
-<h1 id="upgrading-to-v070">Upgrading to v0.7.0<a class="headerlink" href="#upgrading-to-v070" title="Permanent link">¶</a></h1>
+<h1 id="deploying-to-production">Deploying to production<a class="headerlink" href="#deploying-to-production" title="Permanent link">¶</a></h1>
+<p>This guide covers the baseline posture for running Dependency-Track against real workloads. For an overview
+of how the components fit together, see
+<a href="../../../concepts/architecture/deployment/">Deployment topology</a>. For tuning a deployment under load, see
+<a href="../scaling/">Scaling</a>.</p>
+<h2 id="provision-compute-and-database">Provision compute and database<a class="headerlink" href="#provision-compute-and-database" title="Permanent link">¶</a></h2>
+<h3 id="api-server-instances">API server instances<a class="headerlink" href="#api-server-instances" title="Permanent link">¶</a></h3>
+<p>A reasonable starting point per instance is <strong>2 GB of memory and 4 CPU cores</strong>. From there, scale up based
+on observed load.</p>
+<p>Two floors are worth knowing:</p>
 <ul>
-<li>
-<p><strong>Vulnerability policy REST API endpoints have been migrated from v1 to v2.</strong>
-  The following v1 endpoints have been removed:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Removed endpoint</th>
-<th style="text-align: left;">Replacement</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>GET /api/v1/policy/vulnerability</code></td>
-<td style="text-align: left;"><code>GET /api/v2/vuln-policies</code></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>GET /api/v1/policy/vulnerability/{uuid}</code></td>
-<td style="text-align: left;"><code>GET /api/v2/vuln-policies/{uuid}</code></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>PUT /api/v1/policy/vulnerability</code></td>
-<td style="text-align: left;"><code>POST /api/v2/vuln-policies</code></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>POST /api/v1/policy/vulnerability</code></td>
-<td style="text-align: left;"><code>PUT /api/v2/vuln-policies/{uuid}</code></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>DELETE /api/v1/policy/vulnerability/{uuid}</code></td>
-<td style="text-align: left;"><code>DELETE /api/v2/vuln-policies/{uuid}</code></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>GET /api/v1/policy/vulnerability/bundle</code></td>
-<td style="text-align: left;"><code>GET /api/v2/vuln-policy-bundles</code></td>
-</tr>
-</tbody>
-</table>
-<p>Vulnerability policies can now be created and managed directly via the REST API,
-without requiring an external bundle. Policies managed via bundles continue to work.</p>
-</li>
-<li>
-<p><strong>Vulnerability policies now support only a single condition per policy.</strong>
-  Previously, multiple conditions could be defined per policy. During the upgrade,
-  only the first condition of each policy is retained. Policies that relied on multiple
-  conditions must be restructured, potentially by splitting them into separate policies
-  or by combining conditions using <abbr title="Common Expression Language">CEL</abbr> expressions.</p>
-</li>
-<li>
-<p><strong>S3 support for vulnerability policy bundle retrieval has been removed.</strong>
-  The following configuration properties are no longer recognized:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Removed property</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>dt.vulnerability.policy.s3.access.key</code></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>dt.vulnerability.policy.s3.secret.key</code></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>dt.vulnerability.policy.s3.bucket.name</code></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>dt.vulnerability.policy.s3.bundle.name</code></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>dt.vulnerability.policy.s3.region</code></td>
-</tr>
-</tbody>
-</table>
-<p>Deployments that previously fetched bundles from S3 must switch to serving the bundle
-via HTTP(S) and use <code>dt.vulnerability.policy.bundle.url</code> instead.</p>
-</li>
-<li>
-<p><strong>The <code>dt.vulnerability.policy.bundle.source.type</code> configuration property has been removed.</strong>
-  Bundle retrieval now only supports HTTP(S). No replacement is necessary if <code>dt.vulnerability.policy.bundle.url</code>
-  is already configured with an HTTP(S) URL.</p>
-</li>
-<li>
-<p><strong>The <code>dt.vulnerability.policy.analysis.enabled</code> configuration property has been removed.</strong>
-  Vulnerability policy analysis is now always enabled when policies exist.</p>
-</li>
-<li>
-<p>The vulnerability policy bundle sync task configuration has been renamed:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Before</th>
-<th style="text-align: left;">After</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>dt.task.vulnerability.policy.fetch.cron</code></td>
-<td style="text-align: left;"><code>dt.task.vulnerability-policy-bundle-sync.cron</code></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>dt.task.vulnerability.policy.fetch.lock.max.duration</code></td>
-<td style="text-align: left;"><em>(removed)</em></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>dt.task.vulnerability.policy.fetch.lock.min.duration</code></td>
-<td style="text-align: left;"><em>(removed)</em></td>
-</tr>
-</tbody>
-</table>
-<p>The default sync interval changed from every 5 minutes to every 15 minutes.</p>
-</li>
-<li>
-<p><strong>Secrets for Fortify SSC, DefectDojo, Kenna Security, and repository passwords have been
-  migrated to <a href="../../administration/configuring-secret-management/">secret management</a>.</strong> During the
-  upgrade, Fortify SSC tokens, DefectDojo API keys, and Kenna Security tokens are cleared from
-  the database, and repositories with stored passwords are turned off. After upgrading, configure
-  the required secrets via the secret management provider, then manually re-enable the affected
-  repositories.</p>
-</li>
-<li>
-<p><strong>Bearer tokens changed from JWTs to opaque tokens.</strong> All existing user sessions
-  are invalidated on upgrade. Users must log in again. The session timeout configuration
-  property has been renamed:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Before</th>
-<th style="text-align: left;">After</th>
-<th style="text-align: left;">Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>dt.auth.jwt.ttl.seconds</code></td>
-<td style="text-align: left;"><code>dt.auth.session-timeout-ms</code></td>
-<td style="text-align: left;">28800000</td>
-</tr>
-</tbody>
-</table>
-<p>Note that the default session lifetime changed from 7 days to 8 hours. Deployments that
-relied on the previous default, or that configured <code>dt.auth.jwt.ttl.seconds</code> explicitly,
-must update their configuration accordingly.</p>
-</li>
-<li>
-<p><strong>The role system introduced in 5.6.0 has been removed</strong>.
-  It <a href="https://github.com/DependencyTrack/hyades/issues/2116">never worked as intended</a>,
-  weakened the existing authorization mechanism, and fixing it is not possible without
-  significant breaking changes to the system.</p>
-</li>
-<li>The minimum supported PostgreSQL version has been raised from 13 to 14 (<a href="https://github.com/DependencyTrack/hyades/issues/1910">hyades/#1910</a>).</li>
-<li><strong>Kafka is no longer required</strong>. The platform can now sustain itself on PostgreSQL alone
-  and no longer requires a separate message broker. Most of the asynchronous processing has
-  been migrated to a <a href="../../../concepts/architecture/design/durable-execution/">durable execution</a> model.</li>
-<li><strong>The vulnerability-analyzer service has been removed</strong>. Vulnerability analysis
-  is now performed by the API server. Refer to the <a href="../../../concepts/architecture/design/vulnerability-analysis/">design documentation</a> for details.</li>
-<li><strong>The repository-meta-analyzer service has been removed</strong>. Package metadata resolution
-  is now performed by the API server. Refer to the <a href="../../../concepts/architecture/design/package-metadata-resolution/">design documentation</a> for details.</li>
-<li><strong>The notification-publisher service has been removed</strong>. Publishing of notifications
-  is now performed by the API server. Refer to the <a href="../../../concepts/architecture/design/notifications/">design documentation</a> for details.</li>
-<li>The way notification publishers and alerts are configured behind the scenes has changed.</li>
-<li>Existing configuration is migrated during the upgrade on a best-effort basis.</li>
-<li>To prevent partially migrated alert configurations from taking effect,
-    <strong>all alerts are turned off during the upgrade</strong>.</li>
-<li>You must manually review and re-enable them after the upgrade.</li>
-<li>Refer to the <a href="../../../reference/notifications/publishers/">notification publishers documentation</a> for guidance.</li>
-<li><strong>Notifications are no longer published to Kafka by default</strong>. Going forward, you must configure
-  alerts explicitly, and use the new <a href="../../../reference/notifications/publishers/#kafka">Kafka publisher</a>
-  if you want to receive notifications via Kafka.</li>
-<li>Email server configuration in the UI has moved from <code>Administration → General → Email</code> to
-  <code>Administration → Notifications → Publishers → Email</code>. <strong>Previously configured email settings
-  are discarded</strong> during the upgrade, and you'll need to reconfigure it if you rely on notifications
-  being sent via email.</li>
-<li>
-<p>The following database configurations in the API server have been deprecated:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Before</th>
-<th style="text-align: left;">After</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>alpine.database.url</code></td>
-<td style="text-align: left;"><code>dt.datasource.url</code></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>alpine.database.username</code></td>
-<td style="text-align: left;"><code>dt.datasource.username</code></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>alpine.database.password</code></td>
-<td style="text-align: left;"><code>dt.datasource.password</code></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>alpine.database.pool.enabled</code></td>
-<td style="text-align: left;"><code>dt.datasource.pool.enabled</code></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>alpine.database.pool.max.size</code></td>
-<td style="text-align: left;"><code>dt.datasource.pool.max-size</code></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>alpine.database.pool.min.idle</code></td>
-<td style="text-align: left;"><code>dt.datasource.pool.min-idle</code></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>alpine.database.pool.idle.timeout</code></td>
-<td style="text-align: left;"><code>dt.datasource.pool.idle-timeout-ms</code></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>alpine.database.pool.max.lifetime</code></td>
-<td style="text-align: left;"><code>dt.datasource.pool.max-lifetime-ms</code></td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p>For this version, the <code>dt.datasource.*</code> configurations default to their <code>alpine.database.*</code>
-    counterparts. Existing deployments should continue to function without changes.
-    Support for <code>alpine.database.*</code> configs is removed before the GA release.</p>
-</li>
-<li>
-<p>The new datasource configuration mechanism is documented in the
-    <a href="../../../reference/configuration/datasources/">datasource configuration reference</a>.</p>
-</li>
-<li>
-<p><strong>Loading secrets from files now uses the <code>${file::}</code> expression syntax.</strong> The legacy
-  <code>&lt;key&gt;.file=/path</code> and <code>alpine.&lt;key&gt;.file=/path</code> properties are no longer recognized, and
-  the API server refuses to start if any of them are set. Rewrite each occurrence as
-  <code>&lt;key&gt;=${file::/path}</code>. Affected properties:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Before</th>
-<th style="text-align: left;">After</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>dt.database.password.file</code> (or <code>alpine.database.password.file</code>)</td>
-<td style="text-align: left;"><code>dt.datasource.password=${file::/path}</code></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>dt.http.proxy.password.file</code> (or <code>alpine.http.proxy.password.file</code>)</td>
-<td style="text-align: left;"><code>dt.http.proxy.password=${file::/path}</code></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>dt.ldap.bind.password.file</code> (or <code>alpine.ldap.bind.password.file</code>)</td>
-<td style="text-align: left;"><code>dt.ldap.bind.password=${file::/path}</code></td>
-</tr>
-</tbody>
-</table>
-<p>The file is read once at startup, decoded as UTF-8, and trailing whitespace is stripped.
-Files larger than 64 KiB are rejected. Refer to
-<a href="../../../reference/configuration/application/#loading-values-from-files">Loading values from files</a>
-for details.</p>
-</li>
-<li>
-<p><strong>All configuration properties have been standardized to use the <code>dt.</code> prefix</strong>.
-  Properties that previously used the <code>alpine.</code> prefix, or no prefix at all, are now under <code>dt.</code>.
-  For example:</p>
-<table>
-<thead>
-<tr>
-<th>Before</th>
-<th>After</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>alpine.ldap.enabled</code></td>
-<td><code>dt.ldap.enabled</code></td>
-</tr>
-<tr>
-<td><code>alpine.oidc.enabled</code></td>
-<td><code>dt.oidc.enabled</code></td>
-</tr>
-<tr>
-<td><code>task.portfolio.metrics.update.cron</code></td>
-<td><code>dt.task.portfolio.metrics.update.cron</code></td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p>The naming rule is straightforward:</p>
+<li><strong>Below 1 GB of memory</strong>, an instance is unlikely to sustain any meaningful load.</li>
+<li><strong>Below 2 CPU cores</strong>, the system cannot exploit the high degree of concurrency it relies on (background
+  workers, the durable execution engine, and request handling all compete for the same threads).</li>
+</ul>
+<p>Accurate sizing depends on workload shape: concurrent frontend users, number of projects in the portfolio,
+and <abbr title="Bill of Materials">BOM</abbr> upload frequency. Usage patterns vary widely between procurement-only, CI/CD-driven, and mixed
+deployments, so observe before scaling. See <a href="../configuring-observability/">Configuring observability</a> for
+the metrics that surface real load.</p>
+<div class="admonition warning">
+<p class="admonition-title">JVM heap scales with container memory</p>
+<p>Adding memory raises the JVM heap cap (default 80% of container memory). Confirm via Prometheus heap
+metrics, not <code>top</code> or <code>docker stats</code>, that the larger heap pays off before over-provisioning. See
+<a href="../../../reference/configuration/application/#jvm-options">JVM options</a> for the underlying behavior.</p>
+</div>
+<h3 id="database">Database<a class="headerlink" href="#database" title="Permanent link">¶</a></h3>
+<p>Dependency-Track runs on PostgreSQL, and PostgreSQL becomes the bottleneck before the API server does. Run
+a managed offering or a self-hosted instance with monitoring and automated backups, and pin a major version.</p>
+<p>A reasonable starting point is <strong>8 GB of memory and 4 CPU cores</strong>; do not go below 4 GB and 2 cores even
+for evaluation workloads. The dominant memory consumers are <code>shared_buffers</code> (typically ~25% of RAM) and
+per-connection working memory (<code>work_mem</code> × the sum of pool sizes), so memory pressure rises with both
+data volume and cluster size.</p>
+<p>Run the database on a dedicated host. Co-locating PostgreSQL with API server instances forces them to
+compete for the same CPU, memory, and I/O, and that contention surfaces as unpredictable latency under
+load.</p>
+<p>When sizing the database host, account for the per-instance connection pool. PostgreSQL's <code>max_connections</code>
+must cover the sum of all pools across the cluster, plus headroom for migrations, backups, and
+administrator sessions:</p>
+<div class="highlight"><pre><span></span><code>max_connections &gt;= (instance_count × dt.datasource.pool.max-size) + headroom
+</code></pre></div>
+<p><a href="../../../reference/configuration/properties/#dtdatasourcepoolmax-size"><code>dt.datasource.pool.max-size</code></a>
+defaults to 30.</p>
+<p>For hosting choices, tuning, and upgrade guidance, see <a href="../configuring-database/">Configuring the database</a>.
+For supported versions and required extensions, see the
+<a href="../../../reference/configuration/database/">database reference</a>.</p>
+<h2 id="run-more-than-one-instance">Run more than one instance<a class="headerlink" href="#run-more-than-one-instance" title="Permanent link">¶</a></h2>
+<p>Run at least two instances against the same database to avoid a single point of failure and to enable rolling
+restarts. Instances coordinate only through PostgreSQL; no clustering protocol or peer-to-peer networking
+joins the deployment. See <a href="../../../concepts/architecture/deployment/#coordination">Coordination</a>
+for the model and <a href="../../../concepts/architecture/deployment/#recovery-from-instance-failure">Recovery from instance failure</a>
+for what happens when an instance dies.</p>
+<p>All instances must share file storage. The default <code>local</code> provider works with a shared persistent volume
+(for example, NFS); the <code>s3</code> provider works in environments where shared volumes are impractical. See
+<a href="../../../reference/configuration/file-storage/">File storage</a>.</p>
+<h2 id="manage-secrets-outside-the-container">Manage secrets outside the container<a class="headerlink" href="#manage-secrets-outside-the-container" title="Permanent link">¶</a></h2>
+<p>Manage two classes of secrets separately:</p>
 <ul>
-<li><code>alpine.&lt;suffix&gt;</code> → <code>dt.&lt;suffix&gt;</code> (for all former <code>alpine.*</code> properties)</li>
-<li><code>&lt;name&gt;</code> → <code>dt.&lt;name&gt;</code> (for all previously unprefixed properties)</li>
+<li><strong>Infrastructure secrets</strong> (database password, LDAP bind password) load at startup.
+  Mount them as files and reference them via <code>${file::/path/to/file}</code> rather than passing them as clear-text
+  environment variables. See
+  <a href="../../../reference/configuration/application/#loading-values-from-files">Loading values from files</a>.</li>
+<li><strong>Integration secrets</strong> (API tokens for Jira, Snyk, Trivy, OSS Index, and similar) live in
+  Dependency-Track's runtime secret store. See
+  <a href="../configuring-secret-management/">Configuring secret management</a> for the supported backends.</li>
 </ul>
-<p>When using environment variables, the same mapping applies: <code>ALPINE_LDAP_ENABLED</code> becomes
-<code>DT_LDAP_ENABLED</code>, <code>TASK_PORTFOLIO_METRICS_UPDATE_CRON</code> becomes <code>DT_TASK_PORTFOLIO_METRICS_UPDATE_CRON</code>,
-and so on.</p>
-<p>No immediate action is required. Old property names and environment variables continue to work
-via a fallback mechanism, but they are deprecated and a future release removes them.
-Update your configurations at your earliest convenience.</p>
-</li>
-<li>
-<p><strong>Health and metrics endpoints have moved to a dedicated management server</strong> that listens
-  on a separate port (default <code>9000</code>). The management server starts before init tasks, making
-  health probes available during the entire startup sequence.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Endpoint</th>
-<th style="text-align: left;">Before</th>
-<th style="text-align: left;">After</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">Health</td>
-<td style="text-align: left;"><code>http://&lt;host&gt;:8080/health</code></td>
-<td style="text-align: left;"><code>http://&lt;host&gt;:9000/health</code></td>
-</tr>
-<tr>
-<td style="text-align: left;">Liveness</td>
-<td style="text-align: left;"><code>http://&lt;host&gt;:8080/health/live</code></td>
-<td style="text-align: left;"><code>http://&lt;host&gt;:9000/health/live</code></td>
-</tr>
-<tr>
-<td style="text-align: left;">Readiness</td>
-<td style="text-align: left;"><code>http://&lt;host&gt;:8080/health/ready</code></td>
-<td style="text-align: left;"><code>http://&lt;host&gt;:9000/health/ready</code></td>
-</tr>
-<tr>
-<td style="text-align: left;">Startup</td>
-<td style="text-align: left;"><code>http://&lt;host&gt;:8080/health/started</code></td>
-<td style="text-align: left;"><code>http://&lt;host&gt;:9000/health/started</code></td>
-</tr>
-<tr>
-<td style="text-align: left;">Metrics</td>
-<td style="text-align: left;"><code>http://&lt;host&gt;:8080/metrics</code></td>
-<td style="text-align: left;"><code>http://&lt;host&gt;:9000/metrics</code></td>
-</tr>
-</tbody>
-</table>
-<p>Refer to the <a href="../../administration/configuring-observability/">observability documentation</a> for details.</p>
-</li>
-<li>
-<p><strong>The <code>LOGGING_LEVEL</code> environment variable has been removed</strong>. Log levels are now configured
-  via <code>dt.logging.level."&lt;logger-name&gt;"</code> per-logger properties.
-  Refer to the <a href="../../administration/configuring-observability/#adjusting-log-levels">logging documentation</a> for details.</p>
-</li>
-<li>The following init task configurations have been removed and replaced with <code>init.tasks.datasource.name</code>:</li>
-<li><code>init.tasks.database.url</code></li>
-<li><code>init.tasks.database.username</code></li>
-<li><code>init.tasks.database.password</code></li>
-<li>Refer to <a href="../../administration/configuring-database/#schema-migration-credentials">schema migration credentials</a>
-  for an example of how to run init tasks with separate database credentials.</li>
+<h2 id="configure-authentication">Configure authentication<a class="headerlink" href="#configure-authentication" title="Permanent link">¶</a></h2>
+<p>Wire Dependency-Track to your identity provider. Local managed users are for evaluation only:</p>
+<ul>
+<li>For OIDC providers (Keycloak, Entra ID, Google, and similar), see <a href="../configuring-oidc/">Configuring OIDC</a>.</li>
+<li>For LDAP and Active Directory, see <a href="../configuring-ldap/">Configuring LDAP</a>.</li>
 </ul>
+<h2 id="front-the-api-server-with-tls">Front the API server with TLS<a class="headerlink" href="#front-the-api-server-with-tls" title="Permanent link">¶</a></h2>
+<p>Handle TLS at a reverse proxy or ingress controller rather than in the API server itself. Forward
+<code>X-Forwarded-Proto</code> and <code>X-Forwarded-For</code> so that audit logs and notification links resolve to the public URL.</p>
+<p>Each instance listens on two ports: <code>8080</code> for the public REST API and <code>9000</code> for health checks and
+metrics. Direct user-facing traffic to <code>8080</code>; direct probes and metric scrapers to <code>9000</code>. See
+<a href="../configuring-observability/#configuring-kubernetes-health-probes">Configuring observability</a> for
+the health-endpoint contract.</p>
+<h2 id="set-up-observability">Set up observability<a class="headerlink" href="#set-up-observability" title="Permanent link">¶</a></h2>
+<p>Scrape Prometheus metrics from <code>/metrics</code> on port <code>9000</code> and configure liveness, readiness, and startup
+probes against <code>/health/live</code>, <code>/health/ready</code>, and <code>/health/started</code> on the same port. Wire both before the
+first real workload lands; capacity decisions are guesses without them. See
+<a href="../configuring-observability/">Configuring observability</a> for the full setup.</p>
+<h2 id="plan-for-backup-and-upgrade">Plan for backup and upgrade<a class="headerlink" href="#plan-for-backup-and-upgrade" title="Permanent link">¶</a></h2>
+<p>Decide and rehearse two procedures before going live.</p>
+<ul>
+<li><strong>Backup and restore.</strong> A standard PostgreSQL backup covers everything Dependency-Track persists. See
+  <a href="../backing-up/">Backing up</a> for what to back up, how restores affect in-flight workflows, and how to run
+  a restore drill.</li>
+<li><strong>Upgrades.</strong> New versions can roll out without downtime when the release notes permit it. See
+  <a href="../upgrading-instances/">Upgrading running instances</a> for the procedure and the conditions that call for
+  a full-stop maintenance window instead.</li>
+</ul>
+<h2 id="verify-the-deployment">Verify the deployment<a class="headerlink" href="#verify-the-deployment" title="Permanent link">¶</a></h2>
+<p>Before exposing the deployment to users:</p>
+<ol>
+<li>Confirm <code>/health/ready</code> returns <code>UP</code> on every instance.</li>
+<li>Sign in via your configured identity provider.</li>
+<li>Upload a sample <abbr title="Bill of Materials">BOM</abbr> and confirm vulnerability analysis completes. The
+   <a href="../../../tutorials/quickstart/">Quickstart</a> covers the end-to-end flow.</li>
+<li>Verify metrics arrive in your scraper and health probes pass through the load balancer.</li>
+</ol>
 
 
 
@@ -2186,7 +2210,7 @@ Update your configurations at your earliest convenience.</p>
       <nav class="md-footer__inner md-grid" aria-label="Footer">
         
           
-          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Upgrade guides">
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Administration guides">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
@@ -2196,20 +2220,20 @@ Update your configurations at your earliest convenience.</p>
                 Previous
               </span>
               <div class="md-ellipsis">
-                Upgrade guides
+                Administration guides
               </div>
             </div>
           </a>
         
         
           
-          <a href="../v0.6.0/" class="md-footer__link md-footer__link--next" aria-label="Next: Upgrading to v0.6.0">
+          <a href="../scaling/" class="md-footer__link md-footer__link--next" aria-label="Next: Scaling">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Upgrading to v0.6.0
+                Scaling
               </div>
             </div>
             <div class="md-footer__button md-icon">

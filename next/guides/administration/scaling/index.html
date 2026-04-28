@@ -8,10 +8,10 @@
         <link rel="canonical" href="https://dependencytrack.github.io/docs/next/guides/administration/scaling/">
       
       
-        <link rel="prev" href="../configuring-secret-management/">
+        <link rel="prev" href="../deploying-to-production/">
       
       
-        <link rel="next" href="../migrating-from-v4/">
+        <link rel="next" href="../configuring-database/">
       
       
         
@@ -885,6 +885,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
     
@@ -951,6 +957,192 @@
   
   
     <li class="md-nav__item">
+      <a href="../deploying-to-production/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deploying to production
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scaling
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scaling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#separate-api-traffic-from-background-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Separate API traffic from background work
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Separate API traffic from background work">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#increase-background-throughput" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Increase background throughput
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pool-connections-centrally" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pool connections centrally
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scale-vertically" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scale vertically
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#isolate-the-engine-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Isolate the engine database
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tune-the-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tune the database
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../configuring-database/" class="md-nav__link">
         
   
@@ -959,6 +1151,62 @@
     
   
     Configuring the database
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuring-secret-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuring secret management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuring-internal-ca/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuring internal CA trust
   
 
     
@@ -1063,34 +1311,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../configuring-internal-ca/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuring internal CA trust
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../managing-notification-templates/" class="md-nav__link">
         
   
@@ -1147,14 +1367,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../configuring-secret-management/" class="md-nav__link">
+      <a href="../backing-up/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Configuring secret management
+    Backing up and restoring
   
 
     
@@ -1172,44 +1392,17 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Scaling
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../upgrading-instances/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Scaling
+    Upgrading running instances
   
 
     
@@ -1218,226 +1411,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#horizontal-scaling" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Horizontal scaling
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Horizontal scaling">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#file-storage" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        File storage
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#web-and-worker-separation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Web and worker separation
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Web and worker separation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#concurrency-control" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Concurrency control
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Concurrency control">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#local-worker-concurrency" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Local (worker concurrency)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#global-queue-capacity" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Global (queue capacity)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#vertical-scaling" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vertical scaling
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dex-engine-tuning" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        dex engine tuning
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="dex engine tuning">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#buffers" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Buffers
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#run-history-cache" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Run history cache
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#maintenance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Maintenance
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#notification-outbox-relay" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Notification outbox relay
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#separate-database-for-dex" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Separate database for dex
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#connection-pooling" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Connection pooling
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#database-tuning" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Database tuning
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1866,43 +1839,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#horizontal-scaling" class="md-nav__link">
+  <a href="#separate-api-traffic-from-background-work" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Horizontal scaling
+        Separate API traffic from background work
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Horizontal scaling">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#file-storage" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        File storage
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#web-and-worker-separation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Web and worker separation
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Web and worker separation">
+    <nav class="md-nav" aria-label="Separate API traffic from background work">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1922,49 +1867,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#concurrency-control" class="md-nav__link">
+  <a href="#increase-background-throughput" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Concurrency control
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Concurrency control">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#local-worker-concurrency" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Local (worker concurrency)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#global-queue-capacity" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Global (queue capacity)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#vertical-scaling" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vertical scaling
+        Increase background throughput
       
     </span>
   </a>
@@ -1972,71 +1878,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#dex-engine-tuning" class="md-nav__link">
+  <a href="#pool-connections-centrally" class="md-nav__link">
     <span class="md-ellipsis">
       
-        dex engine tuning
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="dex engine tuning">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#buffers" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Buffers
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#run-history-cache" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Run history cache
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#maintenance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Maintenance
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#notification-outbox-relay" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Notification outbox relay
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#separate-database-for-dex" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Separate database for dex
+        Pool connections centrally
       
     </span>
   </a>
@@ -2044,10 +1889,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#connection-pooling" class="md-nav__link">
+  <a href="#scale-vertically" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Connection pooling
+        Scale vertically
       
     </span>
   </a>
@@ -2055,10 +1900,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#database-tuning" class="md-nav__link">
+  <a href="#isolate-the-engine-database" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Database tuning
+        Isolate the engine database
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tune-the-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tune the database
       
     </span>
   </a>
@@ -2152,36 +2008,23 @@
 
 
 <h1 id="scaling">Scaling<a class="headerlink" href="#scaling" title="Permanent link">¶</a></h1>
-<p>Dependency-Track requires only PostgreSQL for coordination. Scaling involves
-adding instances, splitting workloads, and tuning concurrency.</p>
-<h2 id="horizontal-scaling">Horizontal scaling<a class="headerlink" href="#horizontal-scaling" title="Permanent link">¶</a></h2>
-<p>Deploy multiple instances pointing at the same database. No additional
-infrastructure (message brokers, caches, etc.) is needed.</p>
-<p>Work distribution is handled by the embedded
-<a href="../../../concepts/architecture/design/durable-execution/">durable execution engine</a>.
-All work is distributed across the cluster automatically; single-instance
-operations (scheduling, maintenance) are handled via leader election.</p>
-<h3 id="file-storage">File storage<a class="headerlink" href="#file-storage" title="Permanent link">¶</a></h3>
-<p>When running multiple instances, all nodes must have access to the same
-<a href="../../../reference/configuration/file-storage/">file storage</a>. The <code>local</code> provider works well
-with a shared persistent volume (for example, NFS). For environments where shared volumes
-are impractical, the <code>s3</code> provider is available.</p>
-<h2 id="web-and-worker-separation">Web and worker separation<a class="headerlink" href="#web-and-worker-separation" title="Permanent link">¶</a></h2>
-<p>By default, every instance serves API traffic <strong>and</strong> runs background workers.
-The <code>web</code> config profile disables all background processing, turning an instance
-into an API-only node. Activate it via <a href="../../../reference/configuration/properties/#dtconfigprofile"><code>dt.config.profile</code></a>:</p>
+<p>This guide assumes the deployment already follows the baseline in
+<a href="../deploying-to-production/">Deploying to production</a>: more than one instance, shared file storage, a tuned
+PostgreSQL, and observability in place. It covers tuning that baseline under load.</p>
+<h2 id="separate-api-traffic-from-background-work">Separate API traffic from background work<a class="headerlink" href="#separate-api-traffic-from-background-work" title="Permanent link">¶</a></h2>
+<p>By default, every instance serves API traffic <strong>and</strong> runs background workers. As the cluster grows,
+request-path latency starts to suffer when background spikes (<abbr title="Bill of Materials">BOM</abbr> imports, vulnerability mirroring) saturate
+worker threads on the same node.</p>
+<p>Activate the <code>web</code> profile on instances that should serve API traffic only via
+<a href="../../../reference/configuration/properties/#dtconfigprofile"><code>dt.config.profile</code></a>:</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">dt.config.profile</span><span class="o">=</span><span class="s">web</span>
 </code></pre></div></td></tr></tbody></table></div>
-<p>This results in two logical node types:</p>
-<ul>
-<li><strong>Web</strong>: API only. Lightweight. Scale based on request volume.</li>
-<li><strong>Worker</strong>: Background processing. Scale based on demand.</li>
-</ul>
+<p>Instances without the profile keep their default behavior and run background workers.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>At least one worker node must be running at all times.
-Workers handle scheduling, vulnerability analysis, notifications, and other
-background tasks that the system depends on.</p>
+<p>At least one worker node must run for scheduling, vulnerability analysis, notifications, and other
+background work to make progress. Run <strong>at least two worker nodes</strong> in production so a single instance
+failure does not stop background processing entirely.</p>
 </div>
 <h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">¶</a></h3>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -2214,105 +2057,78 @@ background tasks that the system depends on.</p>
 <span class="w">      </span><span class="nt">DT_DATASOURCE_USERNAME</span><span class="p">:</span><span class="w"> </span><span class="s">"dtrack"</span>
 <span class="w">      </span><span class="nt">DT_DATASOURCE_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="s">"dtrack"</span>
 </code></pre></div></td></tr></tbody></table></div>
-<h2 id="concurrency-control">Concurrency control<a class="headerlink" href="#concurrency-control" title="Permanent link">¶</a></h2>
-<p>Task execution concurrency can be controlled at two levels:
-local (per-instance) and global (cluster-wide).</p>
-<p>For a detailed explanation, refer to the
-<a href="../../../concepts/architecture/design/durable-execution/#concurrency-control">durable execution design doc</a>.</p>
-<h3 id="local-worker-concurrency">Local (worker concurrency)<a class="headerlink" href="#local-worker-concurrency" title="Permanent link">¶</a></h3>
-<p>Each worker limits how many tasks it processes concurrently per instance.
-Isolated task queues prevent one workload from starving others.</p>
-<p>For example, to increase vulnerability analysis concurrency to 20:</p>
+<p>Scale the two groups independently: <code>web</code> based on request volume, <code>worker</code> based on background workload depth.</p>
+<h2 id="increase-background-throughput">Increase background throughput<a class="headerlink" href="#increase-background-throughput" title="Permanent link">¶</a></h2>
+<p>The durable execution engine exposes three levers for background throughput, each addressing a different
+symptom. For the model behind them, see
+<a href="../../../concepts/architecture/design/durable-execution/#concurrency-control">Concurrency control</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">More concurrency does not necessarily mean more throughput</p>
+<p>Dependency-Track targets throughput, and the engine leans heavily on (micro-)batching to amortize
+database round-trips. Past a workload-specific sweet spot, more concurrency can hurt throughput:
+threads compete for the same database connections, locks, and CPU, and batches shrink as work spreads
+across them. Raise <code>max-concurrency</code> only when metrics show the workload starving for capacity, and
+verify throughput improves after each change.</p>
+</div>
+<p><strong>Worker concurrency.</strong> When one workload saturates its worker (for example, vulnerability analysis) while
+others have headroom, raise that worker's <code>max-concurrency</code> on worker nodes:</p>
 <div class="highlight"><pre><span></span><code><span class="na">dt.dex-engine.activity-worker.vuln-analysis.max-concurrency</span><span class="o">=</span><span class="s">20</span>
 </code></pre></div>
-<p>For all available workers, queues, and their defaults, see the
-<a href="../../../reference/configuration/dex-engine/#workers">dex engine reference</a>.</p>
-<h3 id="global-queue-capacity">Global (queue capacity)<a class="headerlink" href="#global-queue-capacity" title="Permanent link">¶</a></h3>
-<p>Task queue capacity limits how many tasks can be pending across the entire cluster.
-When a queue reaches capacity, the scheduler provides backpressure by pausing
-new task creation.</p>
-<p>Queue capacity is modifiable at runtime in the administrator panel under <em>Workflows</em> -&gt; <em>Task Queues</em>,
-or via REST API. For default capacities, see the
-<a href="../../../reference/configuration/dex-engine/#task-queues">dex engine reference</a>.</p>
-<h2 id="vertical-scaling">Vertical scaling<a class="headerlink" href="#vertical-scaling" title="Permanent link">¶</a></h2>
-<p>Allocate more CPU and memory to containers. The default JVM options are set
-via the <code>JAVA_OPTIONS</code> environment variable:</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>-XX:+UseG1GC
--XX:+UseStringDeduplication
--XX:+UseCompactObjectHeaders
--XX:MaxGCPauseMillis=250
--XX:MaxRAMPercentage=80.0
-</code></pre></div></td></tr></tbody></table></div>
-<p><code>-XX:MaxRAMPercentage=80.0</code> allows the JVM heap to use up to 80% of the container's
-available memory. The remaining 20% covers off-heap memory, thread stacks, and the OS.</p>
-<p>Additional flags can be passed via <code>EXTRA_JAVA_OPTIONS</code> without overriding the defaults:</p>
+<p>For the full list of workers and their defaults, see the
+<a href="../../../reference/configuration/dex-engine/#workers">durable execution engine reference</a>.</p>
+<p><strong>Queue capacity.</strong> When ingestion is outpacing processing across the cluster (queue depths grow unbounded
+under sustained load), lower the queue's capacity to apply backpressure. Once a queue hits capacity, the
+scheduler pauses task creation, propagating throttling back to <abbr title="Bill of Materials">BOM</abbr> upload clients.</p>
+<p>Change capacity at runtime from the administrator panel under <em>Workflows → Task Queues</em>, or via the REST
+API. Defaults live in the <a href="../../../reference/configuration/dex-engine/#task-queues">task queues reference</a>.</p>
+<p><strong>Lower-level engine tuning.</strong> When metrics show write-buffer flush latency, run-history cache misses, or
+notification outbox lag, the engine exposes more knobs. See the
+<a href="../../../reference/configuration/properties/#dtdex-enginetask-event-bufferflush-interval-ms"><code>dt.dex-engine.*</code></a>
+and
+<a href="../../../reference/configuration/properties/#dtnotificationoutbox-relaypoll-interval-ms"><code>notification.outbox-relay.*</code></a>
+properties.</p>
+<h2 id="pool-connections-centrally">Pool connections centrally<a class="headerlink" href="#pool-connections-centrally" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Up to roughly 5 instances</strong> at the default pool size of 30: the per-instance pool works.</li>
+<li><strong>Beyond that:</strong> switch to a centralized pooler such as PgBouncer and turn off local pooling. Many
+  instances each maintaining their own pool inflates database connection count past PostgreSQL's
+  <code>max_connections</code> faster than vertical Postgres scaling can keep up.</li>
+</ul>
+<p><a href="../deploying-to-production/#provision-compute-and-database">Provision compute and database</a> covers the
+<code>max_connections</code> math.</p>
+<p>For pool properties, see
+<a href="../../../reference/configuration/datasources/#connection-pool-properties">Data sources</a>. For the PgBouncer
+setup, see <a href="../configuring-database/#centralised-connection-pooling">Centralised connection pooling</a>.</p>
+<h2 id="scale-vertically">Scale vertically<a class="headerlink" href="#scale-vertically" title="Permanent link">¶</a></h2>
+<p>Add memory before adding instances when large BOMs push GC pressure up. Add CPU when worker throughput
+plateaus despite headroom in concurrency settings.</p>
+<p>To override JVM defaults without replacing them, extend <code>EXTRA_JAVA_OPTIONS</code>. For example, to tighten the
+GC pause target for latency-sensitive frontend traffic:</p>
 <div class="highlight"><pre><span></span><code><span class="na">EXTRA_JAVA_OPTIONS</span><span class="o">=</span><span class="s">"-XX:MaxGCPauseMillis=100"</span>
 </code></pre></div>
-<p>More CPU benefits worker throughput; more memory benefits caching and large <abbr title="Bill of Materials">BOM</abbr> processing.</p>
-<h2 id="dex-engine-tuning">dex engine tuning<a class="headerlink" href="#dex-engine-tuning" title="Permanent link">¶</a></h2>
-<h3 id="buffers">Buffers<a class="headerlink" href="#buffers" title="Permanent link">¶</a></h3>
-<p>The durable execution engine batches write operations to reduce database round-trips.
-Increasing flush intervals and batch sizes improves throughput at the cost of
-higher end-to-end latency. Should generally not be modified unless evidence suggests
-that the defaults are problematic.</p>
-<p>Refer to the buffer properties in the
-<a href="../../../reference/configuration/properties/#dtdex-enginetask-event-bufferflush-interval-ms">configuration reference</a>.</p>
-<h3 id="run-history-cache">Run history cache<a class="headerlink" href="#run-history-cache" title="Permanent link">¶</a></h3>
-<p>Workflow run event histories are cached in memory to avoid redundant database reads
-during replay. Increase <code>max-size</code> on worker nodes with high workflow concurrency
-to trade memory for reduced database load.</p>
-<p>Refer to <a href="../../../reference/configuration/properties/#dtdex-enginerun-history-cachemax-size"><code>dt.dex-engine.run-history-cache.*</code></a>.</p>
-<h3 id="maintenance">Maintenance<a class="headerlink" href="#maintenance" title="Permanent link">¶</a></h3>
-<p>The maintenance worker periodically deletes completed workflow runs.
-At high volume, completed runs accumulate and can increase vacuum and WAL pressure.
-Shortening retention or increasing batch size can help keep the database lean.</p>
-<p>Refer to <a href="../../../reference/configuration/properties/#dtdex-enginemaintenancerun-retention-duration"><code>dt.dex-engine.maintenance.*</code></a>.</p>
-<h3 id="notification-outbox-relay">Notification outbox relay<a class="headerlink" href="#notification-outbox-relay" title="Permanent link">¶</a></h3>
-<p>The outbox relay polls for pending notifications and submits them for publishing.
-Increase <code>batch-size</code> for high notification volume, or decrease <code>poll-interval-ms</code>
-for lower latency.</p>
-<p>Refer to <a href="../../../reference/configuration/properties/#dtnotificationoutbox-relaypoll-interval-ms"><code>notification.outbox-relay.*</code></a>.</p>
-<h2 id="separate-database-for-dex">Separate database for dex<a class="headerlink" href="#separate-database-for-dex" title="Permanent link">¶</a></h2>
-<p>By default, the durable execution engine uses the app database
-(<a href="../../../reference/configuration/properties/#dtdex-enginedatasourcename"><code>dt.dex-engine.datasource.name</code></a><code>=default</code>). For larger deployments, pointing dex
-at a separate PostgreSQL instance isolates its queue vacuuming and WAL activity
-from the main app database.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Configure a separate data source for dex</span>
-<span class="na">dt.datasource.dex.url</span><span class="o">=</span><span class="s">jdbc:postgresql://dex-postgres:5432/dex</span>
-<span class="na">dt.datasource.dex.username</span><span class="o">=</span><span class="s">dex</span>
-<span class="na">dt.datasource.dex.password</span><span class="o">=</span><span class="s">dex</span>
-<span class="na">dt.datasource.dex.pool.enabled</span><span class="o">=</span><span class="s">true</span>
-<span class="na">dt.datasource.dex.pool.max-size</span><span class="o">=</span><span class="s">10</span>
+<p>For the shipped JVM defaults and their meaning, see
+<a href="../../../reference/configuration/application/#jvm-options">JVM options</a>.</p>
+<h2 id="isolate-the-engine-database">Isolate the engine database<a class="headerlink" href="#isolate-the-engine-database" title="Permanent link">¶</a></h2>
+<p>Point the durable execution engine at a separate PostgreSQL server once its queue vacuuming and WAL activity
+start competing with the main database for I/O or autovacuum bandwidth. By default the engine shares the
+main Dependency-Track database
+(<a href="../../../reference/configuration/properties/#dtdex-enginedatasourcename"><code>dt.dex-engine.datasource.name</code></a><code>=default</code>).</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Configure a separate data source for the engine.</span>
+<span class="na">dt.datasource.engine.url</span><span class="o">=</span><span class="s">jdbc:postgresql://engine-postgres:5432/engine</span>
+<span class="na">dt.datasource.engine.username</span><span class="o">=</span><span class="s">engine</span>
+<span class="na">dt.datasource.engine.password</span><span class="o">=</span><span class="s">engine</span>
+<span class="na">dt.datasource.engine.pool.enabled</span><span class="o">=</span><span class="s">true</span>
+<span class="na">dt.datasource.engine.pool.max-size</span><span class="o">=</span><span class="s">10</span>
 
-<span class="c1"># Point dex at the separate data source</span>
-<span class="na">dt.dex-engine.datasource.name</span><span class="o">=</span><span class="s">dex</span>
+<span class="c1"># Point the engine at the separate data source.</span>
+<span class="na">dt.dex-engine.datasource.name</span><span class="o">=</span><span class="s">engine</span>
 </code></pre></div>
-<p>Refer to <a href="../../../reference/configuration/datasources/">Data Sources</a> for full data source configuration.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The durable execution engine manages its own schema.
-It does not need to share the main database cluster.</p>
-</div>
-<h2 id="connection-pooling">Connection pooling<a class="headerlink" href="#connection-pooling" title="Permanent link">¶</a></h2>
-<p>Each instance maintains a local connection pool. The default maximum pool size
-is <strong>20</strong> (<a href="../../../reference/configuration/properties/#dtdatasourcepoolmax-size"><code>dt.datasource.pool.max-size</code></a>). When increasing worker concurrency,
-ensure the pool is large enough to support the combined load of API requests
-and background processing.</p>
-<ul>
-<li><strong>1-5 instances</strong>: Local connection pooling (the default) is sufficient.</li>
-<li><strong>5+ instances</strong>: Consider centralised pooling (for example, PgBouncer) and turn off local pooling.</li>
-<li>Ensure PostgreSQL's <code>max_connections</code> accounts for the sum of all pools.</li>
-</ul>
-<p>Refer to <a href="../../../reference/configuration/datasources/#connection-pool-properties">Data Sources</a> for pool properties,
-and <a href="../configuring-database/#centralised-connection-pooling">Centralised connection pooling</a> for PgBouncer setup.</p>
-<h2 id="database-tuning">Database tuning<a class="headerlink" href="#database-tuning" title="Permanent link">¶</a></h2>
-<p>PostgreSQL tuning (autovacuum, WAL compression, <code>shared_buffers</code>, etc.) can
-impact performance at scale. Refer to <a href="../configuring-database/">Configuring the database</a>
-for tuning recommendations.</p>
+<p>The engine manages its own schema and does not need to share the main database cluster. For full data source
+configuration, see <a href="../../../reference/configuration/datasources/">Data sources</a>.</p>
+<h2 id="tune-the-database">Tune the database<a class="headerlink" href="#tune-the-database" title="Permanent link">¶</a></h2>
+<p>PostgreSQL tuning (autovacuum, WAL compression, <code>shared_buffers</code>, and similar settings) often matters more
+than tuning Dependency-Track itself at scale. See
+<a href="../configuring-database/#advanced-tuning">Configuring the database</a> for recommendations.</p>
 
 
 
@@ -2348,7 +2164,7 @@ for tuning recommendations.</p>
       <nav class="md-footer__inner md-grid" aria-label="Footer">
         
           
-          <a href="../configuring-secret-management/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Configuring secret management">
+          <a href="../deploying-to-production/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Deploying to production">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
@@ -2358,20 +2174,20 @@ for tuning recommendations.</p>
                 Previous
               </span>
               <div class="md-ellipsis">
-                Configuring secret management
+                Deploying to production
               </div>
             </div>
           </a>
         
         
           
-          <a href="../migrating-from-v4/" class="md-footer__link md-footer__link--next" aria-label="Next: Migrating from v4">
+          <a href="../configuring-database/" class="md-footer__link md-footer__link--next" aria-label="Next: Configuring the database">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Migrating from v4
+                Configuring the database
               </div>
             </div>
             <div class="md-footer__button md-icon">

@@ -41,6 +41,10 @@
          <lastmod>2026-04-28</lastmod>
     </url>
     <url>
+         <loc>https://dependencytrack.github.io/docs/next/concepts/architecture/deployment/</loc>
+         <lastmod>2026-04-28</lastmod>
+    </url>
+    <url>
          <loc>https://dependencytrack.github.io/docs/next/concepts/architecture/design/durable-execution/</loc>
          <lastmod>2026-04-28</lastmod>
     </url>
@@ -62,6 +66,10 @@
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/guides/administration/</loc>
+         <lastmod>2026-04-28</lastmod>
+    </url>
+    <url>
+         <loc>https://dependencytrack.github.io/docs/next/guides/administration/backing-up/</loc>
          <lastmod>2026-04-28</lastmod>
     </url>
     <url>
@@ -93,6 +101,10 @@
          <lastmod>2026-04-28</lastmod>
     </url>
     <url>
+         <loc>https://dependencytrack.github.io/docs/next/guides/administration/deploying-to-production/</loc>
+         <lastmod>2026-04-28</lastmod>
+    </url>
+    <url>
          <loc>https://dependencytrack.github.io/docs/next/guides/administration/managing-notification-templates/</loc>
          <lastmod>2026-04-28</lastmod>
     </url>
@@ -102,6 +114,10 @@
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/guides/administration/scaling/</loc>
+         <lastmod>2026-04-28</lastmod>
+    </url>
+    <url>
+         <loc>https://dependencytrack.github.io/docs/next/guides/administration/upgrading-instances/</loc>
          <lastmod>2026-04-28</lastmod>
     </url>
     <url>
