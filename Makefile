@@ -15,6 +15,12 @@
 # SPDX-License-Identifier: Apache-2.0
 # Copyright (c) OWASP Foundation. All Rights Reserved.
 
+MARKDOWNLINT_IMAGE := davidanson/markdownlint-cli2:v0.18.1
+PROTOC_GEN_DOC_IMAGE := pseudomuto/protoc-gen-doc:1.5
+VALE_IMAGE := jdkato/vale:v3.14.1
+VALE_SYNC_STAMP := .vale/styles/.synced
+YAMLLINT_IMAGE := pipelinecomponents/yamllint:0.35.1
+
 build:
 	uv run mkdocs build --strict
 .PHONY: build
@@ -29,15 +35,16 @@ lint: lint-markdown lint-yaml lint-prose lint-python
 lint-markdown:
 	docker run --rm \
 	  -v "$(shell pwd)":/workdir \
-	  davidanson/markdownlint-cli2:v0.18.1 \
-	  "docs/**/*.md" "context/**/*.md"
+	  "$(MARKDOWNLINT_IMAGE)" \
+	  "context/**/*.md" \
+	  "docs/**/*.md"
 .PHONY: lint-markdown
 
 lint-yaml:
 	docker run --rm \
 	  -v "$(shell pwd)":/workdir \
 	  -w /workdir \
-	  pipelinecomponents/yamllint:0.35.1 \
+	  "$(YAMLLINT_IMAGE)" \
 	  yamllint .
 .PHONY: lint-yaml
 
@@ -46,16 +53,22 @@ lint-python:
 	uvx ruff format --check scripts/
 .PHONY: lint-python
 
-lint-prose:
+# Only sync vale when .vale.ini has changed since last sync.
+# https://www.technovelty.org/tips/the-stamp-idiom-with-make.html
+$(VALE_SYNC_STAMP): .vale.ini
 	docker run --rm \
 	  -v "$(shell pwd)":/workdir \
 	  -w /workdir \
-	  jdkato/vale:v3.14.1 \
-	  sync && \
+	  "$(VALE_IMAGE)" \
+	  sync
+	@mkdir -p $(dir $@) && touch $@
+
+lint-prose: $(VALE_SYNC_STAMP)
 	docker run --rm \
 	  -v "$(shell pwd)":/workdir \
 	  -w /workdir \
-	  jdkato/vale:v3.14.1 \
+	  "$(VALE_IMAGE)" \
+	  --output=line \
 	  docs/
 .PHONY: lint-prose
 
@@ -70,11 +83,13 @@ generate-proto-docs:
 	docker run -i --rm -u "$$(id -u):$$(id -g)" \
 	  -v "$$(pwd)/docs/reference/schemas:/out" \
 	  -v "$$(pwd)/$(APISERVER_DIR)/notification/api/src/main/proto/org/dependencytrack/notification/v1:/protos" \
-	  pseudomuto/protoc-gen-doc:1.5 --doc_opt=/out/notification.md.tmpl,notification.md
+	  "$(PROTOC_GEN_DOC_IMAGE)" \
+	  --doc_opt=/out/notification.md.tmpl,notification.md
 	docker run -i --rm -u "$$(id -u):$$(id -g)" \
 	  -v "$$(pwd)/docs/reference/schemas:/out" \
 	  -v "$$(pwd)/$(APISERVER_DIR)/proto/src/main/proto/org/dependencytrack/policy/v1:/protos" \
-	  pseudomuto/protoc-gen-doc:1.5 --doc_opt=/out/policy.md.tmpl,policy.md
+	  "$(PROTOC_GEN_DOC_IMAGE)" \
+	  --doc_opt=/out/policy.md.tmpl,policy.md
 .PHONY: generate-proto-docs
 
 serve:

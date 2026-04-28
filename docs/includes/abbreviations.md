@@ -4,6 +4,7 @@
 *[CPE]: Common Platform Enumeration, a structured naming scheme for software products
 *[CVSS]: Common Vulnerability Scoring System
 *[DEK]: Data Encryption Key
+*[EPSS]: Exploit Prediction Scoring System
 *[GHSA]: GitHub Security Advisory
 *[KEK]: Key Encryption Key
 *[NVD]: National Vulnerability Database

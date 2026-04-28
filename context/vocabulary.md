@@ -53,8 +53,9 @@ Use these terms consistently. Avoid synonyms not listed here.
 - **policy** — A declarative rule evaluated against components, findings, or projects. Enforces license, security, or operational standards.
 - **policy condition** — A single predicate within a policy (e.g., "severity >= HIGH", "license in Copyleft group").
 - **policy violation** — Raised when a component matches a policy condition.
-- **violation state** — *Inform* (visible, non-blocking) or *Fail* (blocks CI/CD gates).
-- **vulnerability policy** — A rule that automatically applies triage decisions (analysis state, suppression, severity override) to findings matching a CEL condition. Distinct from standard policies.
+- **violation state** — `INFO`, `WARN`, or `FAIL`. Inherited by every violation a policy raises; drives project metrics, badges, notifications, and CI/CD gating.
+- **component policy** — A rule that raises a *violation* against components matching one or more conditions. Used to encode license, operational, and security standards. Distinct from vulnerability policies.
+- **vulnerability policy** — A rule that automatically applies triage decisions (analysis state, suppression, severity override) to findings matching a CEL condition. Distinct from component policies.
 - **license group** — A named collection of licenses (e.g., Copyleft, Permissive) used in policy conditions.
 - **CEL** (Common Expression Language) — Expression language used for vulnerability policies and notification filter expressions. Safe, non-Turing-complete.
 

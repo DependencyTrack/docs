@@ -43,6 +43,8 @@ Run the relevant linter after modifying files:
 
 Fix all lint errors before considering work complete.
 
+For newly created files, also fix all lint warnings.
+
 ### Build and preview
 
 - `make serve` — live-reload dev server on port 8000.

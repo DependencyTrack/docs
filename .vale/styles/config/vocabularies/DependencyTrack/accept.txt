@@ -1,4 +1,5 @@
 (?i)superset
+(?i)triag(e|ing)
 ACLs
 APIs
 Aiven
@@ -54,10 +55,10 @@ Postgres
 Protobuf
 SBOM
 SBOMs
-TTLs
 SSDs
 Snyk
 Sonatype
+TTLs
 Timescale
 Tink
 Trivy
@@ -95,8 +96,8 @@ Webex
 [Jj]etstack
 [Kk]enna
 [Ll]iveness
-[Ll]oopback
 [Ll]ookups
+[Ll]oopback
 [Mm]icroservices
 [Mm]isconfiguration
 [Mm]isconfigured
@@ -120,6 +121,7 @@ Webex
 [Tt]inkey
 [Tt]riaged
 [Tt]ruststores
+[Tt]yposquatting
 [Uu]nmanaged
 [Uu]nprefixed
 [Uu]psert
@@ -138,7 +140,6 @@ sAMAccountName
 timestamptz
 truststore
 truststore
-[Tt]yposquatting
 walkthrough
 walkthroughs
 zstd
