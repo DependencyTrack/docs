@@ -160,7 +160,7 @@ tags:
   description: Endpoints related to secrets
 - name: Task Queues
   description: Endpoints related to task queue management
-- name: Vulnerability Policies
+- name: Vuln Policies
   description: Endpoints related to vulnerability policies
 - name: Workflows
   description: Endpoints related to workflows
@@ -186,7 +186,7 @@ paths:
         * `cpe`
         * `last_inherited_risk_score`
 
-        Requires permission <strong>VIEW_PORTFOLIO</strong>
+        Requires permission `VIEW_PORTFOLIO`
       operationId: listComponents
       parameters:
       - name: group_contains
@@ -302,7 +302,7 @@ paths:
       tags:
       - Components
       summary: Creates a new component for the project
-      description: Requires permission <strong>PORTFOLIO_MANAGEMENT</strong> or <strong>PORTFOLIO_MANAGEMENT_UPDATE</strong>
+      description: Requires permission `PORTFOLIO_MANAGEMENT` or `PORTFOLIO_MANAGEMENT_UPDATE`
       operationId: createComponent
       requestBody:
         content:
@@ -358,7 +358,7 @@ paths:
           $ref: "#/components/responses/generic-forbidden-error"
         default:
           $ref: "#/components/responses/generic-error"
-  /extension-points/{extensionPointName}/extensions:
+  /extension-points/{extension_point_name}/extensions:
     get:
       tags:
       - Extensions
@@ -369,7 +369,7 @@ paths:
         Requires the `SYSTEM_CONFIGURATION` or `SYSTEM_CONFIGURATION_READ` permission.
       operationId: listExtensions
       parameters:
-      - name: extensionPointName
+      - name: extension_point_name
         in: path
         description: Name of the extension point
         required: true
@@ -390,7 +390,7 @@ paths:
           $ref: "#/components/responses/generic-not-found-error"
         default:
           $ref: "#/components/responses/generic-error"
-  /extension-points/{extensionPointName}/extensions/{extensionName}/config:
+  /extension-points/{extension_point_name}/extensions/{extension_name}/config:
     get:
       tags:
       - Extensions
@@ -401,13 +401,13 @@ paths:
         Requires the `SYSTEM_CONFIGURATION` or `SYSTEM_CONFIGURATION_READ` permission.
       operationId: getExtensionConfig
       parameters:
-      - name: extensionPointName
+      - name: extension_point_name
         in: path
         description: Name of the extension point
         required: true
         schema:
           type: string
-      - name: extensionName
+      - name: extension_name
         in: path
         description: Name of the extension
         required: true
@@ -442,13 +442,13 @@ paths:
         Requires the `SYSTEM_CONFIGURATION` or `SYSTEM_CONFIGURATION_UPDATE` permission.
       operationId: updateExtensionConfig
       parameters:
-      - name: extensionPointName
+      - name: extension_point_name
         in: path
         description: Name of the extension point
         required: true
         schema:
           type: string
-      - name: extensionName
+      - name: extension_name
         in: path
         description: Name of the extension
         required: true
@@ -481,7 +481,7 @@ paths:
           $ref: "#/components/responses/generic-not-found-error"
         default:
           $ref: "#/components/responses/generic-error"
-  /extension-points/{extensionPointName}/extensions/{extensionName}/config-schema:
+  /extension-points/{extension_point_name}/extensions/{extension_name}/config-schema:
     get:
       tags:
       - Extensions
@@ -492,13 +492,13 @@ paths:
         Requires the `SYSTEM_CONFIGURATION` or `SYSTEM_CONFIGURATION_READ` permission.
       operationId: getExtensionConfigSchema
       parameters:
-      - name: extensionPointName
+      - name: extension_point_name
         in: path
         description: Name of the extension point
         required: true
         schema:
           type: string
-      - name: extensionName
+      - name: extension_name
         in: path
         description: Name of the extension
         required: true
@@ -521,7 +521,7 @@ paths:
           $ref: "#/components/responses/generic-not-found-error"
         default:
           $ref: "#/components/responses/generic-error"
-  /extension-points/{extensionPointName}/extensions/{extensionName}/test:
+  /extension-points/{extension_point_name}/extensions/{extension_name}/test:
     post:
       tags:
       - Extensions
@@ -544,13 +544,13 @@ paths:
         Requires the `SYSTEM_CONFIGURATION` or `SYSTEM_CONFIGURATION_UPDATE` permission.
       operationId: testExtension
       parameters:
-      - name: extensionPointName
+      - name: extension_point_name
         in: path
         description: Name of the extension point
         required: true
         schema:
           type: string
-      - name: extensionName
+      - name: extension_name
         in: path
         description: Name of the extension
         required: true
@@ -590,7 +590,7 @@ paths:
       tags:
       - Projects
       summary: Clones a given project.
-      description: Requires permission <strong>PORTFOLIO_MANAGEMENT</strong>
+      description: Requires permission `PORTFOLIO_MANAGEMENT`
       operationId: cloneProject
       parameters:
       - name: uuid
@@ -633,7 +633,7 @@ paths:
       tags:
       - Projects
       summary: Retrieves a list of all components for a given project.
-      description: Requires permission <strong>VIEW_PORTFOLIO</strong>
+      description: Requires permission `VIEW_PORTFOLIO`
       operationId: listProjectComponents
       parameters:
       - name: uuid
@@ -980,7 +980,7 @@ paths:
   /vuln-policies:
     get:
       tags:
-      - Vulnerability Policies
+      - Vuln Policies
       summary: List vulnerability policies
       description: |-
         Returns a paginated list of vulnerability policies, sorted by priority
@@ -1027,7 +1027,7 @@ paths:
           $ref: "#/components/responses/generic-error"
     post:
       tags:
-      - Vulnerability Policies
+      - Vuln Policies
       summary: Create a vulnerability policy
       description: |-
         Creates a user-managed vulnerability policy.
@@ -1082,7 +1082,7 @@ paths:
   /vuln-policies/{uuid}:
     get:
       tags:
-      - Vulnerability Policies
+      - Vuln Policies
       summary: Get a vulnerability policy
       description: |-
         Returns a vulnerability policy.
@@ -1114,7 +1114,7 @@ paths:
           $ref: "#/components/responses/generic-error"
     put:
       tags:
-      - Vulnerability Policies
+      - Vuln Policies
       summary: Replace a vulnerability policy
       description: |-
         Replaces a user-managed vulnerability policy with the provided data.
@@ -1161,7 +1161,7 @@ paths:
           $ref: "#/components/responses/generic-error"
     delete:
       tags:
-      - Vulnerability Policies
+      - Vuln Policies
       summary: Delete a vulnerability policy
       description: |-
         Deletes a user-managed vulnerability policy.
@@ -1194,7 +1194,7 @@ paths:
   /vuln-policy-bundles:
     get:
       tags:
-      - Vulnerability Policies
+      - Vuln Policies
       summary: List vulnerability policy bundles
       description: |-
         Returns a list of vulnerability policy bundles.
@@ -1217,7 +1217,7 @@ paths:
   /vuln-policy-bundles/{uuid}:
     delete:
       tags:
-      - Vulnerability Policies
+      - Vuln Policies
       summary: Delete a vulnerability policy bundle
       description: |-
         Deletes a vulnerability policy bundle and cascade-deletes all associated policies.
@@ -1248,7 +1248,7 @@ paths:
   /vuln-policy-bundles/{uuid}/sync:
     get:
       tags:
-      - Vulnerability Policies
+      - Vuln Policies
       summary: Get bundle synchronization status
       description: |-
         Returns the status of the most recent synchronization for a given
@@ -1283,7 +1283,7 @@ paths:
           $ref: "#/components/responses/generic-error"
     post:
       tags:
-      - Vulnerability Policies
+      - Vuln Policies
       summary: Trigger bundle synchronization
       description: |-
         Triggers synchronization of the vulnerability policy bundle.
@@ -2181,6 +2181,8 @@ components:
       allOf:
       - $ref: "#/components/schemas/paginated-response"
     paginated-response:
+      required:
+      - total
       type: object
       properties:
         next_page_token:
@@ -2886,10 +2888,14 @@ components:
   securitySchemes:
     apiKeyAuth:
       type: apiKey
-      description: Authentication via API key
+      description: Authentication via API key.
       name: X-Api-Key
       in: header
     bearerAuth:
       type: http
-      description: Authentication via Bearer token
-      scheme: Bearer
+      description: |-
+        Authentication via opaque server-issued session token.
+        Tokens are obtained from `POST /api/v1/user/login` or
+        `POST /api/v1/user/oidc/login`.
+      scheme: bearer
+      bearerFormat: Opaque
