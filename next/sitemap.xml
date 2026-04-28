@@ -21,6 +21,10 @@
          <lastmod>2026-04-28</lastmod>
     </url>
     <url>
+         <loc>https://dependencytrack.github.io/docs/next/concepts/component-policies/</loc>
+         <lastmod>2026-04-28</lastmod>
+    </url>
+    <url>
          <loc>https://dependencytrack.github.io/docs/next/concepts/notifications/</loc>
          <lastmod>2026-04-28</lastmod>
     </url>
@@ -121,6 +125,10 @@
          <lastmod>2026-04-28</lastmod>
     </url>
     <url>
+         <loc>https://dependencytrack.github.io/docs/next/guides/user/managing-component-policies/</loc>
+         <lastmod>2026-04-28</lastmod>
+    </url>
+    <url>
          <loc>https://dependencytrack.github.io/docs/next/guides/user/managing-private-vulnerabilities/</loc>
          <lastmod>2026-04-28</lastmod>
     </url>
@@ -130,6 +138,10 @@
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/guides/user/managing-vulnerability-policies/</loc>
+         <lastmod>2026-04-28</lastmod>
+    </url>
+    <url>
+         <loc>https://dependencytrack.github.io/docs/next/guides/user/triaging-policy-violations/</loc>
          <lastmod>2026-04-28</lastmod>
     </url>
     <url>
@@ -245,7 +257,15 @@
          <lastmod>2026-04-28</lastmod>
     </url>
     <url>
+         <loc>https://dependencytrack.github.io/docs/next/reference/policies/component-policies/</loc>
+         <lastmod>2026-04-28</lastmod>
+    </url>
+    <url>
          <loc>https://dependencytrack.github.io/docs/next/reference/policies/condition-expressions/</loc>
+         <lastmod>2026-04-28</lastmod>
+    </url>
+    <url>
+         <loc>https://dependencytrack.github.io/docs/next/reference/policies/vulnerability-policies/</loc>
          <lastmod>2026-04-28</lastmod>
     </url>
     <url>
@@ -258,6 +278,10 @@
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/tutorials/</loc>
+         <lastmod>2026-04-28</lastmod>
+    </url>
+    <url>
+         <loc>https://dependencytrack.github.io/docs/next/tutorials/creating-a-component-policy/</loc>
          <lastmod>2026-04-28</lastmod>
     </url>
     <url>
