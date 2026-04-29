@@ -2,7 +2,9 @@
 (?i)triag(e|ing)
 ACLs
 APIs
+Active Directory
 Aiven
+ApacheDS
 Artifactory
 Atlassian
 BOM
@@ -18,6 +20,7 @@ Dependency-Track
 Diataxis
 Entra
 Exploitability
+Fedora 389 Directory Server
 Flashpoint
 GUIDs
 HDDs
@@ -30,6 +33,7 @@ JWTs
 Jira
 KEKs
 Keycloak
+LDAP
 LDAPS
 Liquibase
 Lucene
