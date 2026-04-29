@@ -13,6 +13,9 @@ variants.
 
 ### Portfolio
 
+For procedures, see [Organizing projects into hierarchies](../guides/user/organizing-projects.md)
+and [Managing project versions](../guides/user/managing-project-versions.md).
+
 | Permission                        | Description                                                            |
 |:----------------------------------|:-----------------------------------------------------------------------|
 | `BOM_UPLOAD`                      | Upload CycloneDX Software Bills of Materials.                          |

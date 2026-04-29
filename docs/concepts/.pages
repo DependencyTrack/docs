@@ -1,6 +1,8 @@
 title: Concepts
 nav:
   - index.md
+  - About projects: projects.md
+  - About tags: tags.md
   - About access control: access-control.md
   - About notifications: notifications.md
   - About time series metrics: time-series-metrics.md

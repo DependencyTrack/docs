@@ -109,6 +109,14 @@ shipped as a beta feature in v4 with known gaps and noticeable overhead on
 larger portfolios. v5 closes those gaps and reworks the implementation so
 the cost stays bounded as the project count grows.
 
+### Retention policies for projects and metrics
+
+v5 expires inactive project versions and time-series metrics on
+configurable schedules. v4 left both to grow unbounded, so operators
+carried stale portfolio data and ever-growing metric tables. See
+[Configuring project retention](../guides/administration/configuring-project-retention.md)
+and [time-series metrics retention](time-series-metrics.md#daily-partitions-and-bounded-retention).
+
 ### Centralised secrets
 
 Credentials for integrations live in one place instead of spreading across

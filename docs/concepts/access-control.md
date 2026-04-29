@@ -70,3 +70,5 @@ overhead without security benefit.
 
 * [Permissions reference](../reference/permissions.md) for the full permissions table
   and default teams.
+* [About projects](projects.md) for how Dependency-Track models
+  projects, hierarchies, and collection projects.
