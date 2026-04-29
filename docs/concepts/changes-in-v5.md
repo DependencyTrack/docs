@@ -159,6 +159,13 @@ remediation steps, lives in the
   upgrade guide.
 * **Removed deprecated endpoints.** Three v4-deprecated paths under
   `/api/v1/policy` and `/api/v1/tag` go away.
+* **NVD feed mirror.** v4 exposed downloaded NVD feed files at
+  `/mirror/nvd/*` so other tools could use Dependency-Track as a local
+  NVD mirror. v5 no longer persists the feed files (it has no internal
+  use for them), and its file storage abstracts over backends like S3
+  rather than assuming a local filesystem to serve from. The endpoint is
+  removed; consumers should fetch feeds directly from NIST or run a
+  dedicated mirror.
 
 [CEL]: https://cel.dev/
 [Protobuf]: https://protobuf.dev/
