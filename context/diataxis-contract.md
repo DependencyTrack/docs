@@ -71,6 +71,7 @@ correctly and safely.
 - Step-by-step beginner introductions (→ Tutorials).
 - Exhaustive parameter listings (→ Reference).
 - Design rationale or architectural background (→ Concepts).
+- REST endpoints or configuration property keys when the procedure is UI-driven (→ Surface language).
 
 ---
 
@@ -105,6 +106,7 @@ product.
 - Step-by-step instructions (→ Tutorials or Guides).
 - Parameter or API field listings (→ Reference).
 - Actionable procedures ("do X, then Y") (→ Guides).
+- Java field names, REST endpoint paths, or runtime config keys (→ Surface language).
 
 ---
 
@@ -186,3 +188,34 @@ Rules:
 Use relative links between documentation pages. Prefer linking to a specific
 section (`concepts/vulnerability-analysis.md#data-sources`) over linking to an
 entire page when the relevant information is in a subsection.
+
+---
+
+## Surface language
+
+Each Diataxis type has a default surface vocabulary. Match it to the audience
+that consults the page.
+
+- **Concepts**: UI labels and domain terms. Do not use Java field names
+  (`isLatest`, `accessTeams`, `inactiveSince`), REST endpoint paths, or
+  runtime configuration property keys. Refer to features the way they appear
+  in the application. Permission codes and CycloneDX classifier names that
+  surface verbatim in the product (BOMs, dropdowns, badges) are fine.
+- **Guides**: describe procedures via the UI by default. The user's path is
+  the form, the dropdown, the toggle. Inline REST endpoints, request bodies,
+  or configuration property keys only when the page is itself a technical
+  procedure where the API or config file is the user's entry point (for
+  example, "Upload a BOM via REST API", "Configure with environment
+  variables"). Otherwise, link to the relevant Reference subsection and keep
+  prose UI-first.
+- **Reference**: structured tables of UI-visible labels, dropdown values,
+  classifier names, and other product-surface vocabulary belong here. The
+  dedicated REST API and configuration-property references (the OpenAPI
+  specs, the `application.properties` table) are the home for low-level
+  identifiers. Other Reference subsections should also stay UI-first.
+- **Tutorials**: same default as Guides. The student is using the UI unless
+  the tutorial is explicitly an API tutorial.
+
+When a feature has both a UI label and a technical identifier, prefer the UI
+label and link out to Reference for the identifier. The reverse breaks for
+users who never see the API or the config file.

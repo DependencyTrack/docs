@@ -1,6 +1,8 @@
 title: User guides
 nav:
   - index.md
+  - organizing-projects.md
+  - managing-project-versions.md
   - managing-component-policies.md
   - triaging-policy-violations.md
   - managing-vulnerability-policies.md
