@@ -1266,7 +1266,7 @@
   <a href="#frontend-configuration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Frontend Configuration
+        Frontend configuration
       
     </span>
   </a>
@@ -1986,7 +1986,7 @@
   <a href="#frontend-configuration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Frontend Configuration
+        Frontend configuration
       
     </span>
   </a>
@@ -2196,57 +2196,59 @@
 
 
 <h1 id="configuring-openid-connect">Configuring OpenID Connect<a class="headerlink" href="#configuring-openid-connect" title="Permanent link">¶</a></h1>
-<p>Dependency-Track supports single sign-on via OpenID Connect (OIDC). When enabled,
-users authenticate through an external identity provider (IdP) rather than a
-locally managed password.</p>
+<p>Dependency-Track supports SSO via <a href="https://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect</a>
+(<abbr title="OpenID Connect">OIDC</abbr>). When enabled, users authenticate through an external identity provider
+(<abbr title="Identity Provider">IdP</abbr>) rather than with a locally managed password.</p>
 <div class="admonition note">
 <p class="admonition-title">Frontend configuration required</p>
-<p>OIDC requires configuration on both the <strong>API server</strong> and the <strong>frontend</strong>.
-The API server validates tokens; the frontend initiates the OIDC flow. Both
-must be configured with the same issuer and client ID.</p>
+<p><abbr title="OpenID Connect">OIDC</abbr> requires configuration on both the <strong>API server</strong> and the <strong>frontend</strong>.
+The API server validates tokens; the frontend initiates the <abbr title="OpenID Connect">OIDC</abbr> flow.
+Configure both with the same issuer and client ID.</p>
 </div>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h2>
 <ul>
-<li>An OIDC-compatible identity provider with a configured client (app).</li>
+<li>An <abbr title="OpenID Connect">OIDC</abbr>-compatible identity provider with a configured client (app).</li>
 <li>The client must have the Dependency-Track frontend URL registered as a redirect URI.</li>
-<li>The IdP's discovery endpoint (<code>/.well-known/openid-configuration</code>) must be
-  reachable from the API server.</li>
+<li>The <abbr title="Identity Provider">IdP</abbr>'s <a href="https://openid.net/specs/openid-connect-discovery-1_0.html">discovery endpoint</a>
+  (<code>/.well-known/openid-configuration</code>) must be reachable from the API server.</li>
 </ul>
 <h2 id="api-server-configuration">API server configuration<a class="headerlink" href="#api-server-configuration" title="Permanent link">¶</a></h2>
-<p>Configure the following properties on the API server:</p>
+<p>Configure all <abbr title="OpenID Connect">OIDC</abbr> settings via <a href="../../../reference/configuration/properties/">app properties</a>.
+The examples below use property names; see <a href="../../../reference/configuration/application/#environment-variable-mapping">Application configuration</a>
+for how property names map to environment variables.</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">DT_OIDC_ENABLED</span><span class="o">=</span><span class="s">true</span>
-<span class="na">DT_OIDC_ISSUER</span><span class="o">=</span><span class="s">https://idp.example.com</span><span class="w">        </span><span class="c1"># IdP's issuer URL</span>
-<span class="na">DT_OIDC_CLIENT_ID</span><span class="o">=</span><span class="s">dependency-track</span><span class="w">            </span><span class="c1"># Client ID registered with the IdP</span>
-<span class="na">DT_OIDC_USERNAME_CLAIM</span><span class="o">=</span><span class="s">preferred_username</span><span class="w">     </span><span class="c1"># Claim to use as the DT username</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">dt.oidc.enabled</span><span class="o">=</span><span class="s">true</span>
+<span class="na">dt.oidc.issuer</span><span class="o">=</span><span class="s">https://idp.example.com</span>
+<span class="na">dt.oidc.client.id</span><span class="o">=</span><span class="s">dependency-track</span>
+<span class="na">dt.oidc.username.claim</span><span class="o">=</span><span class="s">preferred_username</span>
 </code></pre></div></td></tr></tbody></table></div>
 <h3 id="user-provisioning">User provisioning<a class="headerlink" href="#user-provisioning" title="Permanent link">¶</a></h3>
-<p>When enabled, user accounts are created automatically on first login:</p>
-<div class="highlight"><pre><span></span><code><span class="na">DT_OIDC_USER_PROVISIONING</span><span class="o">=</span><span class="s">true</span>
+<p>When enabled, Dependency-Track creates user accounts automatically on first login:</p>
+<div class="highlight"><pre><span></span><code><span class="na">dt.oidc.user.provisioning</span><span class="o">=</span><span class="s">true</span>
 </code></pre></div>
 <h3 id="team-synchronisation">Team synchronisation<a class="headerlink" href="#team-synchronisation" title="Permanent link">¶</a></h3>
-<p>When enabled, team membership is driven by a claim in the ID token that contains
-a list of group names. Teams must be mapped to those group names in
-<strong>Administration → Access Management → Teams</strong>.</p>
-<div class="highlight"><pre><span></span><code><span class="na">DT_OIDC_TEAM_SYNCHRONIZATION</span><span class="o">=</span><span class="s">true</span>
-<span class="na">DT_OIDC_TEAMS_CLAIM</span><span class="o">=</span><span class="s">groups</span><span class="w">    </span><span class="c1"># Name of the claim containing group names</span>
+<p>When enabled, Dependency-Track derives team membership from a claim that
+contains a list of group names. The API server reads the claim from the ID
+token first, and falls back to the provider's userinfo response if absent.
+Either source works, so configure the claim wherever your <abbr title="Identity Provider">IdP</abbr> makes it
+easiest to emit. Map teams to those group names under
+<strong>Administration &gt; Access Management &gt; Teams</strong>.</p>
+<div class="highlight"><pre><span></span><code><span class="na">dt.oidc.team.synchronization</span><span class="o">=</span><span class="s">true</span>
+<span class="na">dt.oidc.teams.claim</span><span class="o">=</span><span class="s">groups</span>
 </code></pre></div>
-<h2 id="frontend-configuration">Frontend Configuration<a class="headerlink" href="#frontend-configuration" title="Permanent link">¶</a></h2>
-<p>The frontend must also be configured to start the OIDC flow. Pass the following
+<h2 id="frontend-configuration">Frontend configuration<a class="headerlink" href="#frontend-configuration" title="Permanent link">¶</a></h2>
+<p>Configure the frontend to start the <abbr title="OpenID Connect">OIDC</abbr> flow by passing the following
 environment variables to the frontend container:</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Docker Compose example</span>
-<span class="nt">services</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Docker Compose Example</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">frontend</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/dependencytrack/hyades-frontend:latest</span>
 <span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
@@ -2254,13 +2256,13 @@ environment variables to the frontend container:</p>
 <span class="w">      </span><span class="nt">OIDC_ISSUER</span><span class="p">:</span><span class="w"> </span><span class="s">"https://idp.example.com"</span>
 <span class="w">      </span><span class="nt">OIDC_CLIENT_ID</span><span class="p">:</span><span class="w"> </span><span class="s">"dependency-track"</span>
 <span class="w">      </span><span class="nt">OIDC_SCOPE</span><span class="p">:</span><span class="w"> </span><span class="s">"openid</span><span class="nv"> </span><span class="s">profile</span><span class="nv"> </span><span class="s">email"</span>
-<span class="w">      </span><span class="nt">OIDC_FLOW</span><span class="p">:</span><span class="w"> </span><span class="s">"implicit"</span>
 </code></pre></div></td></tr></tbody></table></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Some IdPs require the <code>authorization_code</code> flow instead of <code>implicit</code>. Refer
-to your IdP's documentation and adjust <code>OIDC_FLOW</code> accordingly.</p>
-</div>
+<p>The frontend defaults to the <code>code</code> flow (<a href="https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth">authorization code</a>
+with <a href="https://datatracker.ietf.org/doc/html/rfc7636">PKCE</a>), which works with
+all modern IdPs and is the recommended setting. The <a href="https://openid.net/specs/openid-connect-core-1_0.html#ImplicitFlowAuth">implicit flow</a>
+(<code>OIDC_FLOW: "implicit"</code>) is only needed for IdPs that lack a public-client
+configuration compatible with PKCE; <a href="https://datatracker.ietf.org/doc/html/rfc9700#name-implicit-grant">RFC 9700</a>
+no longer recommends it, so prefer <code>code</code> whenever the <abbr title="Identity Provider">IdP</abbr> supports it.</p>
 <hr>
 <h2 id="identity-provider-examples">Identity provider examples<a class="headerlink" href="#identity-provider-examples" title="Permanent link">¶</a></h2>
 <p>The following sections provide tested configuration notes for common IdPs.
@@ -2274,9 +2276,9 @@ etc.) to match your environment.</p>
 <li>Under <strong>Mappers</strong>, add a <strong>Group Membership</strong> mapper with token claim name <code>groups</code>
    if you want team synchronisation.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="na">DT_OIDC_ISSUER</span><span class="o">=</span><span class="s">https://keycloak.example.com/realms/your-realm</span>
-<span class="na">DT_OIDC_CLIENT_ID</span><span class="o">=</span><span class="s">dependency-track</span>
-<span class="na">DT_OIDC_USERNAME_CLAIM</span><span class="o">=</span><span class="s">preferred_username</span>
+<div class="highlight"><pre><span></span><code><span class="na">dt.oidc.issuer</span><span class="o">=</span><span class="s">https://keycloak.example.com/realms/your-realm</span>
+<span class="na">dt.oidc.client.id</span><span class="o">=</span><span class="s">dependency-track</span>
+<span class="na">dt.oidc.username.claim</span><span class="o">=</span><span class="s">preferred_username</span>
 </code></pre></div>
 <h3 id="microsoft-entra-id-azure-ad">Microsoft Entra ID (Azure AD)<a class="headerlink" href="#microsoft-entra-id-azure-ad" title="Permanent link">¶</a></h3>
 <ol>
@@ -2286,11 +2288,9 @@ etc.) to match your environment.</p>
 <li>Under <strong>Token configuration</strong>, add an optional claim for <code>preferred_username</code> in
    the ID token. Add a <strong>Groups</strong> claim if you want team synchronisation.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="na">DT_OIDC_ISSUER</span><span class="o">=</span><span class="s">https://login.microsoftonline.com/&lt;tenant-id&gt;/v2.0</span>
-<span class="na">DT_OIDC_CLIENT_ID</span><span class="o">=</span><span class="s">&lt;application-client-id&gt;</span>
-<span class="na">DT_OIDC_USERNAME_CLAIM</span><span class="o">=</span><span class="s">preferred_username</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="nt">OIDC_FLOW</span><span class="p">:</span><span class="w"> </span><span class="s">"implicit"</span>
+<div class="highlight"><pre><span></span><code><span class="na">dt.oidc.issuer</span><span class="o">=</span><span class="s">https://login.microsoftonline.com/&lt;tenant-id&gt;/v2.0</span>
+<span class="na">dt.oidc.client.id</span><span class="o">=</span><span class="s">&lt;application-client-id&gt;</span>
+<span class="na">dt.oidc.username.claim</span><span class="o">=</span><span class="s">preferred_username</span>
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -2306,36 +2306,48 @@ the token configuration if you want human-readable group names for team sync.</p
 <li>To include groups/roles, add a custom Action or Rule that injects a <code>groups</code> claim
    into the ID token.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="na">DT_OIDC_ISSUER</span><span class="o">=</span><span class="s">https://your-tenant.auth0.com/</span>
-<span class="na">DT_OIDC_CLIENT_ID</span><span class="o">=</span><span class="s">&lt;auth0-client-id&gt;</span>
-<span class="na">DT_OIDC_USERNAME_CLAIM</span><span class="o">=</span><span class="s">nickname</span>
+<div class="highlight"><pre><span></span><code><span class="na">dt.oidc.issuer</span><span class="o">=</span><span class="s">https://your-tenant.auth0.com/</span>
+<span class="na">dt.oidc.client.id</span><span class="o">=</span><span class="s">&lt;auth0-client-id&gt;</span>
+<span class="na">dt.oidc.username.claim</span><span class="o">=</span><span class="s">nickname</span>
 </code></pre></div>
 <h3 id="gitlab">GitLab<a class="headerlink" href="#gitlab" title="Permanent link">¶</a></h3>
 <ol>
-<li>In your GitLab instance or gitlab.com, go to <strong>User Settings → Applications</strong>.</li>
+<li>In your GitLab instance or on <code>gitlab.com</code>, go to <strong>User Settings &gt; Applications</strong>.</li>
 <li>Add <code>https://dtrack.example.com</code> as a redirect URI.</li>
 <li>Select the <code>openid</code>, <code>profile</code>, and <code>email</code> scopes.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="na">DT_OIDC_ISSUER</span><span class="o">=</span><span class="s">https://gitlab.com</span>
-<span class="na">DT_OIDC_CLIENT_ID</span><span class="o">=</span><span class="s">&lt;application-id&gt;</span>
-<span class="na">DT_OIDC_USERNAME_CLAIM</span><span class="o">=</span><span class="s">nickname</span>
+<div class="highlight"><pre><span></span><code><span class="na">dt.oidc.issuer</span><span class="o">=</span><span class="s">https://gitlab.com</span>
+<span class="na">dt.oidc.client.id</span><span class="o">=</span><span class="s">&lt;application-id&gt;</span>
+<span class="na">dt.oidc.username.claim</span><span class="o">=</span><span class="s">nickname</span>
 </code></pre></div>
 <p>For self-hosted GitLab, replace <code>https://gitlab.com</code> with your GitLab instance URL.</p>
 <h3 id="google">Google<a class="headerlink" href="#google" title="Permanent link">¶</a></h3>
 <ol>
-<li>In the Google Cloud console, create an <strong>OAuth 2.0 Client ID</strong> of type
-   <strong>Web app</strong>.</li>
+<li>In the GCP console, create an <strong>OAuth 2.0 Client ID</strong> of type <strong>Web app</strong>.</li>
 <li>Add <code>https://dtrack.example.com</code> to <strong>Authorized JavaScript origins</strong> and
    <strong>Authorized redirect URIs</strong>.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="na">DT_OIDC_ISSUER</span><span class="o">=</span><span class="s">https://accounts.google.com</span>
-<span class="na">DT_OIDC_CLIENT_ID</span><span class="o">=</span><span class="s">&lt;client-id&gt;.apps.googleusercontent.com</span>
-<span class="na">DT_OIDC_USERNAME_CLAIM</span><span class="o">=</span><span class="s">email</span>
+<div class="highlight"><pre><span></span><code><span class="na">dt.oidc.issuer</span><span class="o">=</span><span class="s">https://accounts.google.com</span>
+<span class="na">dt.oidc.client.id</span><span class="o">=</span><span class="s">&lt;client-id&gt;.apps.googleusercontent.com</span>
+<span class="na">dt.oidc.username.claim</span><span class="o">=</span><span class="s">email</span>
 </code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Google's <strong>Web app</strong> client type requires a <code>client_secret</code> at the token
+endpoint even with PKCE, and Google does not offer a public client type
+for SPAs. The default <code>code</code> flow on the frontend cannot complete against
+Google without exposing the secret in browser code. As a workaround, set
+<code>OIDC_FLOW: "implicit"</code> on the frontend; note that
+<a href="https://datatracker.ietf.org/doc/html/rfc9700#name-implicit-grant">RFC 9700</a>
+no longer recommends the implicit flow. For a more secure setup, front
+Google with an <abbr title="Identity Provider">IdP</abbr> that supports public clients with PKCE (for example
+Keycloak or Auth0).</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Google does not support custom group claims in ID tokens. Team synchronisation
-is not available with Google as the IdP unless you use a proxy IdP layer.</p>
+<p>Google does not emit custom group claims in either the ID token or the
+userinfo response. Team synchronisation is not available with Google as
+the <abbr title="Identity Provider">IdP</abbr> unless you use a proxy <abbr title="Identity Provider">IdP</abbr> layer.</p>
 </div>
 <h3 id="onelogin">OneLogin<a class="headerlink" href="#onelogin" title="Permanent link">¶</a></h3>
 <ol>
@@ -2343,31 +2355,32 @@ is not available with Google as the IdP unless you use a proxy IdP layer.</p>
 <li>Set the <strong>Redirect URI</strong> to <code>https://dtrack.example.com</code>.</li>
 <li>Note the <strong>Client ID</strong> and <strong>Issuer URL</strong> from the app's SSO tab.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="na">DT_OIDC_ISSUER</span><span class="o">=</span><span class="s">https://your-subdomain.onelogin.com/oidc/2</span>
-<span class="na">DT_OIDC_CLIENT_ID</span><span class="o">=</span><span class="s">&lt;client-id&gt;</span>
-<span class="na">DT_OIDC_USERNAME_CLAIM</span><span class="o">=</span><span class="s">preferred_username</span>
+<div class="highlight"><pre><span></span><code><span class="na">dt.oidc.issuer</span><span class="o">=</span><span class="s">https://your-subdomain.onelogin.com/oidc/2</span>
+<span class="na">dt.oidc.client.id</span><span class="o">=</span><span class="s">&lt;client-id&gt;</span>
+<span class="na">dt.oidc.username.claim</span><span class="o">=</span><span class="s">preferred_username</span>
 </code></pre></div>
 <h3 id="aws-cognito">AWS Cognito<a class="headerlink" href="#aws-cognito" title="Permanent link">¶</a></h3>
 <ol>
 <li>Create a <strong>User Pool</strong> in the AWS console.</li>
-<li>Under <strong>App clients</strong>, create a new client with the <strong>implicit grant</strong> flow enabled.</li>
+<li>Under <strong>App clients</strong>, create a new client with the <strong>authorization code grant</strong>
+   flow enabled and <strong>Generate a client secret</strong> turned off (public client + PKCE).</li>
 <li>Add <code>https://dtrack.example.com</code> to <strong>Callback URLs</strong>.</li>
-<li>In the <strong>App client settings</strong>, ensure <code>openid</code>, <code>profile</code>, and <code>email</code> scopes
-   are selected.</li>
+<li>In the <strong>App client settings</strong>, select the <code>openid</code>, <code>profile</code>, and <code>email</code>
+   scopes.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="na">DT_OIDC_ISSUER</span><span class="o">=</span><span class="s">https://cognito-idp.&lt;region&gt;.amazonaws.com/&lt;user-pool-id&gt;</span>
-<span class="na">DT_OIDC_CLIENT_ID</span><span class="o">=</span><span class="s">&lt;app-client-id&gt;</span>
-<span class="na">DT_OIDC_USERNAME_CLAIM</span><span class="o">=</span><span class="s">cognito:username</span>
+<div class="highlight"><pre><span></span><code><span class="na">dt.oidc.issuer</span><span class="o">=</span><span class="s">https://cognito-idp.&lt;region&gt;.amazonaws.com/&lt;user-pool-id&gt;</span>
+<span class="na">dt.oidc.client.id</span><span class="o">=</span><span class="s">&lt;app-client-id&gt;</span>
+<span class="na">dt.oidc.username.claim</span><span class="o">=</span><span class="s">cognito:username</span>
 </code></pre></div>
 <hr>
-<h2 id="all-oidc-properties">All OIDC properties<a class="headerlink" href="#all-oidc-properties" title="Permanent link">¶</a></h2>
-<p>For a full list of OIDC-related configuration properties, see the
+<h2 id="all-oidc-properties">All <abbr title="OpenID Connect">OIDC</abbr> properties<a class="headerlink" href="#all-oidc-properties" title="Permanent link">¶</a></h2>
+<p>For a full list of <abbr title="OpenID Connect">OIDC</abbr>-related configuration properties, see the
 <a href="../../../reference/configuration/properties/#dtoidcenabled">configuration reference</a>.</p>
 <h2 id="see-also">See also<a class="headerlink" href="#see-also" title="Permanent link">¶</a></h2>
 <ul>
-<li><a href="../../../reference/permissions/">Permissions</a>: mapping IdP groups to Dependency-Track teams</li>
-<li><a href="../configuring-ldap/">Configuring <abbr title="Lightweight Directory Access Protocol">LDAP</abbr></a>: alternative to OIDC using <abbr title="Lightweight Directory Access Protocol">LDAP</abbr></li>
-<li><a href="../configuring-internal-ca/">Configuring Internal <abbr title="Certificate Authority">CA</abbr></a>: trust internal TLS certificates for the IdP</li>
+<li><a href="../../../reference/permissions/">Permissions</a>: mapping <abbr title="Identity Provider">IdP</abbr> groups to Dependency-Track teams</li>
+<li><a href="../configuring-ldap/">Configuring <abbr title="Lightweight Directory Access Protocol">LDAP</abbr></a>: alternative to <abbr title="OpenID Connect">OIDC</abbr> using <abbr title="Lightweight Directory Access Protocol">LDAP</abbr></li>
+<li><a href="../configuring-internal-ca/">Configuring Internal <abbr title="Certificate Authority">CA</abbr></a>: trust internal TLS certificates for the <abbr title="Identity Provider">IdP</abbr></li>
 </ul>
 
 

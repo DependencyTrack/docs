@@ -1463,8 +1463,8 @@ permissions of every team they belong to.</p>
 <td style="text-align: left;">Authenticated via an external <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> directory. See <a href="../../guides/administration/configuring-ldap/">Configuring <abbr title="Lightweight Directory Access Protocol">LDAP</abbr></a>.</td>
 </tr>
 <tr>
-<td style="text-align: left;">OIDC User</td>
-<td style="text-align: left;">Authenticated via an OpenID Connect identity provider. See <a href="../../guides/administration/configuring-oidc/">Configuring OIDC</a>.</td>
+<td style="text-align: left;"><abbr title="OpenID Connect">OIDC</abbr> User</td>
+<td style="text-align: left;">Authenticated via an OpenID Connect identity provider. See <a href="../../guides/administration/configuring-oidc/">Configuring <abbr title="OpenID Connect">OIDC</abbr></a>.</td>
 </tr>
 </tbody>
 </table>
@@ -1476,11 +1476,11 @@ bind to locate the user's directory entry, then attempting a bind with the user'
 own credentials to verify their password. On success, the system grants access.
 With user provisioning turned on, Dependency-Track creates the account
 automatically on first login.</p>
-<h3 id="oidc-authentication-flow">OIDC authentication flow<a class="headerlink" href="#oidc-authentication-flow" title="Permanent link">¶</a></h3>
-<p>With OIDC, the frontend redirects the user to the identity provider's authorization
-endpoint. After the user authenticates, the IdP returns an ID token to the frontend,
+<h3 id="oidc-authentication-flow"><abbr title="OpenID Connect">OIDC</abbr> authentication flow<a class="headerlink" href="#oidc-authentication-flow" title="Permanent link">¶</a></h3>
+<p>With <abbr title="OpenID Connect">OIDC</abbr>, the frontend redirects the user to the identity provider's authorization
+endpoint. After the user authenticates, the <abbr title="Identity Provider">IdP</abbr> returns an ID token to the frontend,
 which forwards it to the API server for validation. The API server verifies the token
-against the IdP's discovery endpoint and extracts the username from the configured
+against the <abbr title="Identity Provider">IdP</abbr>'s discovery endpoint and extracts the username from the configured
 claim. With user provisioning turned on, Dependency-Track creates accounts on
 first login.</p>
 <h2 id="teams">Teams<a class="headerlink" href="#teams" title="Permanent link">¶</a></h2>
