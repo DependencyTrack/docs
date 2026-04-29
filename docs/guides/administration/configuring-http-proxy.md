@@ -24,7 +24,7 @@ Otherwise, the API server falls back to the environment.
 
 ## Configuring via app properties
 
-Set the following properties (see [App configuration](../../reference/configuration/application.md#environment-variable-mapping)
+Set the following properties (see [Application configuration](../../reference/configuration/application.md#environment-variable-mapping)
 for how property names map to environment variables):
 
 - [`dt.http.proxy.address`](../../reference/configuration/properties.md#dthttpproxyaddress): proxy hostname or IP address.
