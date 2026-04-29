@@ -3964,9 +3964,9 @@
 <tr><th>ENV</th><td><code>DT_NO_PROXY</code></td></tr>
 </tbody></table>
 
-<h2 id="ldap">LDAP<a class="headerlink" href="#ldap" title="Permanent link">¶</a></h2>
+<h2 id="ldap"><abbr title="Lightweight Directory Access Protocol">LDAP</abbr><a class="headerlink" href="#ldap" title="Permanent link">¶</a></h2>
 <p><span id="dtldapattributemail"><strong><code>dt.ldap.attribute.mail</code></strong> <a class="headerlink" href="#dtldapattributemail">¶</a></span></p>
-<p>Specifies the LDAP attribute used to store a users email address  </p>
+<p>Specifies the <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> attribute used to store a users email address  </p>
 <table>
 <tbody><tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
 <tr><th>Default</th><td><code>mail</code></td></tr>
@@ -4016,7 +4016,7 @@
 </tbody></table>
 
 <p><span id="dtldapenabled"><strong><code>dt.ldap.enabled</code></strong> <a class="headerlink" href="#dtldapenabled">¶</a></span></p>
-<p>Defines if LDAP will be used for user authentication. If enabled,  <code>dt.ldap.*</code> properties should be set accordingly.  </p>
+<p>Defines if <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> will be used for user authentication. If enabled,  <code>dt.ldap.*</code> properties should be set accordingly.  </p>
 <table>
 <tbody><tr><th>Type</th><td style="border-width: 0"><code>boolean</code></td></tr>
 <tr><th>Default</th><td><code>false</code></td></tr>
@@ -4024,7 +4024,7 @@
 </tbody></table>
 
 <p><span id="dtldapgroupsfilter"><strong><code>dt.ldap.groups.filter</code></strong> <a class="headerlink" href="#dtldapgroupsfilter">¶</a></span></p>
-<p>Specifies the LDAP search filter used to retrieve all groups from the directory.  <br><br>  Example (Microsoft Active Directory):  </p><ul><li><code>(&amp;(objectClass=group)(objectCategory=Group))</code></li></ul>  Example (ApacheDS, Fedora 389 Directory, NetIQ/Novell eDirectory, etc):  <ul><li><code>(&amp;(objectClass=groupOfUniqueNames))</code></li></ul>  <p></p>
+<p>Specifies the <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> search filter used to retrieve all groups from the directory.  <br><br>  Example (Microsoft Active Directory):  </p><ul><li><code>(&amp;(objectClass=group)(objectCategory=Group))</code></li></ul>  Example (ApacheDS, Fedora 389 Directory, NetIQ/Novell eDirectory, etc):  <ul><li><code>(&amp;(objectClass=groupOfUniqueNames))</code></li></ul>  <p></p>
 <table>
 <tbody><tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
 <tr><th>Default</th><td><code>(&amp;(objectClass=group)(objectCategory=Group))</code></td></tr>
@@ -4032,7 +4032,7 @@
 </tbody></table>
 
 <p><span id="dtldapgroupssearchfilter"><strong><code>dt.ldap.groups.search.filter</code></strong> <a class="headerlink" href="#dtldapgroupssearchfilter">¶</a></span></p>
-<p>Specifies the LDAP search filter used to search for groups by their name.  The <code>{SEARCH_TERM}</code> variable will be substituted at runtime.  <br><br>  Example (Microsoft Active Directory):  </p><ul><li><code>(&amp;(objectClass=group)(objectCategory=Group)(cn=<em>{SEARCH_TERM}</em>))</code></li></ul>  Example (ApacheDS, Fedora 389 Directory, NetIQ/Novell eDirectory, etc):  <ul><li><code>(&amp;(objectClass=groupOfUniqueNames)(cn=<em>{SEARCH_TERM}</em>))</code></li></ul>  <p></p>
+<p>Specifies the <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> search filter used to search for groups by their name.  The <code>{SEARCH_TERM}</code> variable will be substituted at runtime.  <br><br>  Example (Microsoft Active Directory):  </p><ul><li><code>(&amp;(objectClass=group)(objectCategory=Group)(cn=<em>{SEARCH_TERM}</em>))</code></li></ul>  Example (ApacheDS, Fedora 389 Directory, NetIQ/Novell eDirectory, etc):  <ul><li><code>(&amp;(objectClass=groupOfUniqueNames)(cn=<em>{SEARCH_TERM}</em>))</code></li></ul>  <p></p>
 <table>
 <tbody><tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
 <tr><th>Default</th><td><code>(&amp;(objectClass=group)(objectCategory=Group)(cn=*{SEARCH_TERM}*))</code></td></tr>
@@ -4040,7 +4040,7 @@
 </tbody></table>
 
 <p><span id="dtldapsecurityauth"><strong><code>dt.ldap.security.auth</code></strong> <a class="headerlink" href="#dtldapsecurityauth">¶</a></span></p>
-<p>Specifies the LDAP security authentication level to use. Its value is one of  the following strings: "none", "simple", "strong". If this property is empty  or unspecified, the behaviour is determined by the service provider.  </p>
+<p>Specifies the <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> security authentication level to use. Its value is one of  the following strings: "none", "simple", "strong". If this property is empty  or unspecified, the behaviour is determined by the service provider.  </p>
 <table>
 <tbody><tr><th>Type</th><td style="border-width: 0"><code>enum</code></td></tr>
 <tr><th>Default</th><td><code>simple</code></td></tr>
@@ -4049,7 +4049,7 @@
 </tbody></table>
 
 <p><span id="dtldapserverurl"><strong><code>dt.ldap.server.url</code></strong> <a class="headerlink" href="#dtldapserverurl">¶</a></span></p>
-<p>Specifies the LDAP server URL.  <br><br>  Examples (Microsoft Active Directory):  </p><ul>  <li><code>ldap://ldap.example.com:3268</code></li>  <li><code>ldaps://ldap.example.com:3269</code></li>  </ul>  Examples (ApacheDS, Fedora 389 Directory, NetIQ/Novell eDirectory, etc):  <ul>  <li><code>ldap://ldap.example.com:389</code></li>  <li><code>ldaps://ldap.example.com:636</code></li>  </ul>  <p></p>
+<p>Specifies the <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> server URL.  <br><br>  Examples (Microsoft Active Directory):  </p><ul>  <li><code>ldap://ldap.example.com:3268</code></li>  <li><code>ldaps://ldap.example.com:3269</code></li>  </ul>  Examples (ApacheDS, Fedora 389 Directory, NetIQ/Novell eDirectory, etc):  <ul>  <li><code>ldap://ldap.example.com:389</code></li>  <li><code>ldaps://ldap.example.com:636</code></li>  </ul>  <p></p>
 <table>
 <tbody><tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
 <tr><th>Default</th><td><code>null</code></td></tr>
@@ -4057,7 +4057,7 @@
 </tbody></table>
 
 <p><span id="dtldapteamsynchronization"><strong><code>dt.ldap.team.synchronization</code></strong> <a class="headerlink" href="#dtldapteamsynchronization">¶</a></span></p>
-<p>This option will ensure that team memberships for LDAP users are dynamic and  synchronized with membership of LDAP groups. When a team is mapped to an LDAP  group, all local LDAP users will automatically be assigned to the team if  they are a member of the group the team is mapped to. If the user is later  removed from the LDAP group, they will also be removed from the team. This  option provides the ability to dynamically control user permissions via an  external directory.  </p>
+<p>This option will ensure that team memberships for <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> users are dynamic and  synchronized with membership of <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> groups. When a team is mapped to an <abbr title="Lightweight Directory Access Protocol">LDAP</abbr>  group, all local <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> users will automatically be assigned to the team if  they are a member of the group the team is mapped to. If the user is later  removed from the <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> group, they will also be removed from the team. This  option provides the ability to dynamically control user permissions via an  external directory.  </p>
 <table>
 <tbody><tr><th>Type</th><td style="border-width: 0"><code>boolean</code></td></tr>
 <tr><th>Default</th><td><code>false</code></td></tr>
@@ -4065,7 +4065,7 @@
 </tbody></table>
 
 <p><span id="dtldapusergroupsfilter"><strong><code>dt.ldap.user.groups.filter</code></strong> <a class="headerlink" href="#dtldapusergroupsfilter">¶</a></span></p>
-<p>Specifies the LDAP search filter to use to query a user and retrieve a list  of groups the user is a member of. The <code>{USER_DN}</code> variable will be substituted  with the actual value of the users DN at runtime.  <br><br>  Example (Microsoft Active Directory):  </p><ul><li><code>(&amp;(objectClass=group)(objectCategory=Group)(member={USER_DN}))</code></li></ul>  Example (Microsoft Active Directory - with nested group support):  <ul><li><code>(member:1.2.840.113556.1.4.1941:={USER_DN})</code></li></ul>  Example (ApacheDS, Fedora 389 Directory, NetIQ/Novell eDirectory, etc):  <ul><li><code>(&amp;(objectClass=groupOfUniqueNames)(uniqueMember={USER_DN}))</code></li></ul>  <p></p>
+<p>Specifies the <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> search filter to use to query a user and retrieve a list  of groups the user is a member of. The <code>{USER_DN}</code> variable will be substituted  with the actual value of the users DN at runtime.  <br><br>  Example (Microsoft Active Directory):  </p><ul><li><code>(&amp;(objectClass=group)(objectCategory=Group)(member={USER_DN}))</code></li></ul>  Example (Microsoft Active Directory - with nested group support):  <ul><li><code>(member:1.2.840.113556.1.4.1941:={USER_DN})</code></li></ul>  Example (ApacheDS, Fedora 389 Directory, NetIQ/Novell eDirectory, etc):  <ul><li><code>(&amp;(objectClass=groupOfUniqueNames)(uniqueMember={USER_DN}))</code></li></ul>  <p></p>
 <table>
 <tbody><tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
 <tr><th>Default</th><td><code>(member:1.2.840.113556.1.4.1941:={USER_DN})</code></td></tr>
@@ -4073,7 +4073,7 @@
 </tbody></table>
 
 <p><span id="dtldapuserprovisioning"><strong><code>dt.ldap.user.provisioning</code></strong> <a class="headerlink" href="#dtldapuserprovisioning">¶</a></span></p>
-<p>Specifies if mapped LDAP accounts are automatically created upon successful  authentication. When a user logs in with valid credentials but an account has  not been previously provisioned, an authentication failure will be returned.  This allows admins to control specifically which ldap users can access the  system and which users cannot. When this value is set to true, a local ldap  user will be created and mapped to the ldap account automatically. This  automatic provisioning only affects authentication, not authorization.  </p>
+<p>Specifies if mapped <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> accounts are automatically created upon successful  authentication. When a user logs in with valid credentials but an account has  not been previously provisioned, an authentication failure will be returned.  This allows admins to control specifically which ldap users can access the  system and which users cannot. When this value is set to true, a local ldap  user will be created and mapped to the ldap account automatically. This  automatic provisioning only affects authentication, not authorization.  </p>
 <table>
 <tbody><tr><th>Type</th><td style="border-width: 0"><code>boolean</code></td></tr>
 <tr><th>Default</th><td><code>false</code></td></tr>
@@ -4081,7 +4081,7 @@
 </tbody></table>
 
 <p><span id="dtldapuserssearchfilter"><strong><code>dt.ldap.users.search.filter</code></strong> <a class="headerlink" href="#dtldapuserssearchfilter">¶</a></span></p>
-<p>Specifies the LDAP search filter used to search for users by their name.  The <code>{SEARCH_TERM}</code> variable will be substituted at runtime.  <br><br>  Example (Microsoft Active Directory):  </p><ul><li><code>(&amp;(objectClass=group)(objectCategory=Group)(cn=<em>{SEARCH_TERM}</em>))</code></li></ul>  Example (ApacheDS, Fedora 389 Directory, NetIQ/Novell eDirectory, etc):  <ul><li><code>(&amp;(objectClass=inetOrgPerson)(cn=<em>{SEARCH_TERM}</em>))</code></li></ul>  <p></p>
+<p>Specifies the <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> search filter used to search for users by their name.  The <code>{SEARCH_TERM}</code> variable will be substituted at runtime.  <br><br>  Example (Microsoft Active Directory):  </p><ul><li><code>(&amp;(objectClass=group)(objectCategory=Group)(cn=<em>{SEARCH_TERM}</em>))</code></li></ul>  Example (ApacheDS, Fedora 389 Directory, NetIQ/Novell eDirectory, etc):  <ul><li><code>(&amp;(objectClass=inetOrgPerson)(cn=<em>{SEARCH_TERM}</em>))</code></li></ul>  <p></p>
 <table>
 <tbody><tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
 <tr><th>Default</th><td><code>(&amp;(objectClass=user)(objectCategory=Person)(cn=*{SEARCH_TERM}*))</code></td></tr>
@@ -4516,7 +4516,7 @@
 </tbody></table>
 
 <p><span id="dttaskldapsynccron"><strong><code>dt.task.ldap.sync.cron</code></strong> <strong style="color: red">*</strong> <a class="headerlink" href="#dttaskldapsynccron">¶</a></span></p>
-<p>Cron expression of the LDAP synchronization task.  </p>
+<p>Cron expression of the <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> synchronization task.  </p>
 <table>
 <tbody><tr><th>Type</th><td style="border-width: 0"><code>cron</code></td></tr>
 <tr><th>Default</th><td><code>0 */6 * * *</code></td></tr>
@@ -4524,7 +4524,7 @@
 </tbody></table>
 
 <p><span id="dttaskldapsynclockmaxduration"><strong><code>dt.task.ldap.sync.lock.max.duration</code></strong> <strong style="color: red">*</strong> <a class="headerlink" href="#dttaskldapsynclockmaxduration">¶</a></span></p>
-<p>Maximum duration in ISO 8601 format for which the LDAP synchronization task will hold a lock.  <br><br>  The duration should be long enough to cover the task's execution duration.  </p>
+<p>Maximum duration in ISO 8601 format for which the <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> synchronization task will hold a lock.  <br><br>  The duration should be long enough to cover the task's execution duration.  </p>
 <table>
 <tbody><tr><th>Type</th><td style="border-width: 0"><code>duration</code></td></tr>
 <tr><th>Default</th><td><code>PT15M</code></td></tr>
@@ -4532,7 +4532,7 @@
 </tbody></table>
 
 <p><span id="dttaskldapsynclockminduration"><strong><code>dt.task.ldap.sync.lock.min.duration</code></strong> <strong style="color: red">*</strong> <a class="headerlink" href="#dttaskldapsynclockminduration">¶</a></span></p>
-<p>Minimum duration in ISO 8601 format for which the LDAP synchronization task will hold a lock.  <br><br>  The duration should be long enough to cover eventual clock skew across API server instances.  </p>
+<p>Minimum duration in ISO 8601 format for which the <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> synchronization task will hold a lock.  <br><br>  The duration should be long enough to cover eventual clock skew across API server instances.  </p>
 <table>
 <tbody><tr><th>Type</th><td style="border-width: 0"><code>duration</code></td></tr>
 <tr><th>Default</th><td><code>PT90S</code></td></tr>

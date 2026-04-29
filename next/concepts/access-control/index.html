@@ -1459,8 +1459,8 @@ permissions of every team they belong to.</p>
 <td style="text-align: left;">A local account created and managed within Dependency-Track.</td>
 </tr>
 <tr>
-<td style="text-align: left;">LDAP User</td>
-<td style="text-align: left;">Authenticated via an external LDAP directory. See <a href="../../guides/administration/configuring-ldap/">Configuring LDAP</a>.</td>
+<td style="text-align: left;"><abbr title="Lightweight Directory Access Protocol">LDAP</abbr> User</td>
+<td style="text-align: left;">Authenticated via an external <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> directory. See <a href="../../guides/administration/configuring-ldap/">Configuring <abbr title="Lightweight Directory Access Protocol">LDAP</abbr></a>.</td>
 </tr>
 <tr>
 <td style="text-align: left;">OIDC User</td>
@@ -1470,8 +1470,8 @@ permissions of every team they belong to.</p>
 </table>
 <p>All user types share the same permission model. The authentication mechanism determines
 how the system verifies a user's identity, not what they can access.</p>
-<h3 id="ldap-authentication-flow">LDAP authentication flow<a class="headerlink" href="#ldap-authentication-flow" title="Permanent link">¶</a></h3>
-<p>With LDAP, Dependency-Track authenticates users by performing a service-account
+<h3 id="ldap-authentication-flow"><abbr title="Lightweight Directory Access Protocol">LDAP</abbr> authentication flow<a class="headerlink" href="#ldap-authentication-flow" title="Permanent link">¶</a></h3>
+<p>With <abbr title="Lightweight Directory Access Protocol">LDAP</abbr>, Dependency-Track authenticates users by performing a service-account
 bind to locate the user's directory entry, then attempting a bind with the user's
 own credentials to verify their password. On success, the system grants access.
 With user provisioning turned on, Dependency-Track creates the account

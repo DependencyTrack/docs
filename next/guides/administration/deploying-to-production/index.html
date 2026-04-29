@@ -2130,7 +2130,7 @@ for what happens when an instance dies.</p>
 <h2 id="manage-secrets-outside-the-container">Manage secrets outside the container<a class="headerlink" href="#manage-secrets-outside-the-container" title="Permanent link">¶</a></h2>
 <p>Manage two classes of secrets separately:</p>
 <ul>
-<li><strong>Infrastructure secrets</strong> (database password, LDAP bind password) load at startup.
+<li><strong>Infrastructure secrets</strong> (database password, <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> bind password) load at startup.
   Mount them as files and reference them via <code>${file::/path/to/file}</code> rather than passing them as clear-text
   environment variables. See
   <a href="../../../reference/configuration/application/#loading-values-from-files">Loading values from files</a>.</li>
@@ -2142,7 +2142,7 @@ for what happens when an instance dies.</p>
 <p>Wire Dependency-Track to your identity provider. Local managed users are for evaluation only:</p>
 <ul>
 <li>For OIDC providers (Keycloak, Entra ID, Google, and similar), see <a href="../configuring-oidc/">Configuring OIDC</a>.</li>
-<li>For LDAP and Active Directory, see <a href="../configuring-ldap/">Configuring LDAP</a>.</li>
+<li>For <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> and Active Directory, see <a href="../configuring-ldap/">Configuring <abbr title="Lightweight Directory Access Protocol">LDAP</abbr></a>.</li>
 </ul>
 <h2 id="front-the-api-server-with-tls">Front the API server with TLS<a class="headerlink" href="#front-the-api-server-with-tls" title="Permanent link">¶</a></h2>
 <p>Handle TLS at a reverse proxy or ingress controller rather than in the API server itself. Forward

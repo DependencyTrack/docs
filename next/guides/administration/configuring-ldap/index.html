@@ -1249,12 +1249,12 @@
   <a href="#tested-configurations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Tested Configurations
+        Tested configurations
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Tested Configurations">
+    <nav class="md-nav" aria-label="Tested configurations">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1964,12 +1964,12 @@
   <a href="#tested-configurations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Tested Configurations
+        Tested configurations
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Tested Configurations">
+    <nav class="md-nav" aria-label="Tested configurations">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2129,22 +2129,23 @@
   
 
 
-<h1 id="configuring-ldap">Configuring LDAP<a class="headerlink" href="#configuring-ldap" title="Permanent link">¶</a></h1>
-<p>Dependency-Track can authenticate users against an LDAP directory such as Microsoft
-Active Directory, ApacheDS, or any other LDAP-compatible server. Once enabled, users
+<h1 id="configuring-ldap">Configuring <abbr title="Lightweight Directory Access Protocol">LDAP</abbr><a class="headerlink" href="#configuring-ldap" title="Permanent link">¶</a></h1>
+<p>Dependency-Track can authenticate users against an <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> directory such as Microsoft
+Active Directory, ApacheDS, or any other <abbr title="Lightweight Directory Access Protocol">LDAP</abbr>-compatible server. Once enabled, users
 log in with their directory credentials rather than a locally managed password.</p>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h2>
 <ul>
-<li>A service account in the LDAP directory with read access to users and groups.</li>
-<li>Network connectivity from the Dependency-Track API server to the LDAP server.</li>
-<li>If using LDAPS (recommended for production), a valid TLS certificate on the LDAP server.
-  If the certificate is signed by an internal <abbr title="Certificate Authority">CA</abbr>, see <a href="../configuring-internal-ca/">Configuring Internal <abbr title="Certificate Authority">CA</abbr></a>.</li>
+<li>A service account in the <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> directory with read access to users and groups.</li>
+<li>Network connectivity from the Dependency-Track API server to the <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> server.</li>
+<li>For LDAPS (recommended in production), a valid TLS certificate on the <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> server.
+  If an internal <abbr title="Certificate Authority">CA</abbr> issued the certificate, see <a href="../configuring-internal-ca/">Configuring internal <abbr title="Certificate Authority">CA</abbr> trust</a>.</li>
 </ul>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">¶</a></h2>
-<p>All LDAP settings are configured via <a href="../../../reference/configuration/properties/">app properties</a>.
-The most practical way to supply them in a container deployment is via environment variables.</p>
+<p>Configure all <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> settings via <a href="../../../reference/configuration/properties/">app properties</a>.
+The examples below use property names; see <a href="../../../reference/configuration/application/#environment-variable-mapping">Application configuration</a>
+for how property names map to environment variables.</p>
 <h3 id="minimal-configuration">Minimal configuration<a class="headerlink" href="#minimal-configuration" title="Permanent link">¶</a></h3>
-<p>At least, enable LDAP and configure the server connection:</p>
+<p>Enable <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> and configure the server connection:</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -2153,39 +2154,45 @@ The most practical way to supply them in a container deployment is via environme
 <span class="normal">6</span>
 <span class="normal">7</span>
 <span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">DT_LDAP_ENABLED</span><span class="o">=</span><span class="s">true</span>
-<span class="na">DT_LDAP_SERVER_URL</span><span class="o">=</span><span class="s">ldap://ldap.example.com:389</span>
-<span class="na">DT_LDAP_BASEDN</span><span class="o">=</span><span class="s">dc=example,dc=com</span>
-<span class="na">DT_LDAP_SECURITY_AUTH</span><span class="o">=</span><span class="s">simple</span>
-<span class="na">DT_LDAP_BIND_USERNAME</span><span class="o">=</span><span class="s">cn=dt-service,dc=example,dc=com</span>
-<span class="na">DT_LDAP_BIND_PASSWORD</span><span class="o">=</span><span class="s">changeme</span>
-<span class="na">DT_LDAP_AUTH_USERNAME_FORMAT</span><span class="o">=</span><span class="s">uid={0},ou=users,dc=example,dc=com</span>
-<span class="na">DT_LDAP_ATTRIBUTE_NAME</span><span class="o">=</span><span class="s">cn</span>
-<span class="na">DT_LDAP_ATTRIBUTE_MAIL</span><span class="o">=</span><span class="s">mail</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">dt.ldap.enabled</span><span class="o">=</span><span class="s">true</span>
+<span class="na">dt.ldap.server.url</span><span class="o">=</span><span class="s">ldap://ldap.example.com:389</span>
+<span class="na">dt.ldap.basedn</span><span class="o">=</span><span class="s">dc=example,dc=com</span>
+<span class="na">dt.ldap.security.auth</span><span class="o">=</span><span class="s">simple</span>
+<span class="na">dt.ldap.bind.username</span><span class="o">=</span><span class="s">cn=dt-service,dc=example,dc=com</span>
+<span class="na">dt.ldap.bind.password</span><span class="o">=</span><span class="s">changeme</span>
+<span class="na">dt.ldap.auth.username.format</span><span class="o">=</span><span class="s">uid={0},ou=users,dc=example,dc=com</span>
+<span class="na">dt.ldap.attribute.name</span><span class="o">=</span><span class="s">cn</span>
+<span class="na">dt.ldap.attribute.mail</span><span class="o">=</span><span class="s">mail</span>
 </code></pre></div></td></tr></tbody></table></div>
-<p>The <code>{0}</code> placeholder in <code>DT_LDAP_AUTH_USERNAME_FORMAT</code> is substituted with the
-username entered at login.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Dependency-Track substitutes the <code>{0}</code> placeholder in <code>dt.ldap.auth.username.format</code>
+with the username entered at login.</p>
+</div>
 <h3 id="user-provisioning">User provisioning<a class="headerlink" href="#user-provisioning" title="Permanent link">¶</a></h3>
-<p>When enabled, accounts are created automatically the first time an LDAP user logs in.
-Without provisioning, accounts must be created manually before users can log in.</p>
-<div class="highlight"><pre><span></span><code><span class="na">DT_LDAP_USER_PROVISIONING</span><span class="o">=</span><span class="s">true</span>
+<p>When enabled, Dependency-Track creates accounts automatically the first time an <abbr title="Lightweight Directory Access Protocol">LDAP</abbr>
+user logs in. Otherwise, an administrator must create each account before its user can
+log in.</p>
+<div class="highlight"><pre><span></span><code><span class="na">dt.ldap.user.provisioning</span><span class="o">=</span><span class="s">true</span>
 </code></pre></div>
 <h3 id="team-synchronisation">Team synchronisation<a class="headerlink" href="#team-synchronisation" title="Permanent link">¶</a></h3>
-<p>When enabled, team membership in Dependency-Track is kept in sync with LDAP group
-membership. Teams must be mapped to LDAP groups in <strong>Administration → Access Management → Teams</strong>.</p>
-<div class="highlight"><pre><span></span><code><span class="na">DT_LDAP_TEAM_SYNCHRONIZATION</span><span class="o">=</span><span class="s">true</span>
-<span class="na">DT_LDAP_GROUPS_FILTER</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames))</span>
-<span class="na">DT_LDAP_USER_GROUPS_FILTER</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames)(uniqueMember={USER_DN}))</span>
-<span class="na">DT_LDAP_GROUPS_SEARCH_FILTER</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames)(cn=*{SEARCH_TERM}*))</span>
-<span class="na">DT_LDAP_USERS_SEARCH_FILTER</span><span class="o">=</span><span class="s">(&amp;(objectClass=inetOrgPerson)(cn=*{SEARCH_TERM}*))</span>
+<p>When enabled, Dependency-Track keeps team membership in sync with <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> group membership.
+Map teams to <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> groups under <strong>Administration &gt; Access Management &gt; Teams</strong>.</p>
+<div class="highlight"><pre><span></span><code><span class="na">dt.ldap.team.synchronization</span><span class="o">=</span><span class="s">true</span>
+<span class="na">dt.ldap.groups.filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames))</span>
+<span class="na">dt.ldap.user.groups.filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames)(uniqueMember={USER_DN}))</span>
+<span class="na">dt.ldap.groups.search.filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames)(cn=*{SEARCH_TERM}*))</span>
+<span class="na">dt.ldap.users.search.filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=inetOrgPerson)(cn=*{SEARCH_TERM}*))</span>
 </code></pre></div>
-<p>The <code>{USER_DN}</code> placeholder is substituted with the authenticated user's distinguished
-name. The <code>{SEARCH_TERM}</code> placeholder is substituted with search input from the UI.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Dependency-Track substitutes <code>{USER_DN}</code> with the authenticated user's distinguished
+name, and <code>{SEARCH_TERM}</code> with search input from the UI.</p>
+</div>
 <hr>
-<h2 id="tested-configurations">Tested Configurations<a class="headerlink" href="#tested-configurations" title="Permanent link">¶</a></h2>
-<p>The following configurations have been tested with specific directory implementations.
-Adapt values such as base DNs, bind credentials, and attribute names to match your
-environment.</p>
+<h2 id="tested-configurations">Tested configurations<a class="headerlink" href="#tested-configurations" title="Permanent link">¶</a></h2>
+<p>The configurations below work with specific directory implementations. Adapt values
+such as base DNs, bind credentials, and attribute names to match your environment.</p>
 <h3 id="microsoft-active-directory">Microsoft Active Directory<a class="headerlink" href="#microsoft-active-directory" title="Permanent link">¶</a></h3>
 <p>Active Directory uses a global catalog port (3268/3269) for forest-wide searches.
 Users typically authenticate with their User Principal Name (<code>user@domain.com</code>).</p>
@@ -2201,28 +2208,28 @@ Users typically authenticate with their User Principal Name (<code>user@domain.c
 <span class="normal">10</span>
 <span class="normal">11</span>
 <span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">DT_LDAP_ENABLED</span><span class="o">=</span><span class="s">true</span>
-<span class="na">DT_LDAP_SERVER_URL</span><span class="o">=</span><span class="s">ldap://ldap.example.com:3268</span>
-<span class="na">DT_LDAP_BASEDN</span><span class="o">=</span><span class="s">dc=example,dc=com</span>
-<span class="na">DT_LDAP_SECURITY_AUTH</span><span class="o">=</span><span class="s">simple</span>
-<span class="na">DT_LDAP_BIND_USERNAME</span><span class="o">=</span><span class="s">CN=DT Service Account,DC=example,DC=com</span>
-<span class="na">DT_LDAP_BIND_PASSWORD</span><span class="o">=</span><span class="s">changeme</span>
-<span class="na">DT_LDAP_AUTH_USERNAME_FORMAT</span><span class="o">=</span><span class="s">{0}@example.com</span>
-<span class="na">DT_LDAP_ATTRIBUTE_NAME</span><span class="o">=</span><span class="s">userPrincipalName</span>
-<span class="na">DT_LDAP_ATTRIBUTE_MAIL</span><span class="o">=</span><span class="s">mail</span>
-<span class="na">DT_LDAP_GROUPS_FILTER</span><span class="o">=</span><span class="s">(&amp;(objectClass=group)(objectCategory=Group))</span>
-<span class="na">DT_LDAP_USER_GROUPS_FILTER</span><span class="o">=</span><span class="s">(&amp;(objectClass=group)(objectCategory=Group)(member:1.2.840.113556.1.4.1941:={USER_DN}))</span>
-<span class="na">DT_LDAP_GROUPS_SEARCH_FILTER</span><span class="o">=</span><span class="s">(&amp;(objectClass=group)(objectCategory=Group)(cn=*{SEARCH_TERM}*))</span>
-<span class="na">DT_LDAP_USERS_SEARCH_FILTER</span><span class="o">=</span><span class="s">(&amp;(objectClass=user)(objectCategory=Person)(cn=*{SEARCH_TERM}*))</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">dt.ldap.enabled</span><span class="o">=</span><span class="s">true</span>
+<span class="na">dt.ldap.server.url</span><span class="o">=</span><span class="s">ldap://ldap.example.com:3268</span>
+<span class="na">dt.ldap.basedn</span><span class="o">=</span><span class="s">dc=example,dc=com</span>
+<span class="na">dt.ldap.security.auth</span><span class="o">=</span><span class="s">simple</span>
+<span class="na">dt.ldap.bind.username</span><span class="o">=</span><span class="s">CN=DT Service Account,DC=example,DC=com</span>
+<span class="na">dt.ldap.bind.password</span><span class="o">=</span><span class="s">changeme</span>
+<span class="na">dt.ldap.auth.username.format</span><span class="o">=</span><span class="s">{0}@example.com</span>
+<span class="na">dt.ldap.attribute.name</span><span class="o">=</span><span class="s">userPrincipalName</span>
+<span class="na">dt.ldap.attribute.mail</span><span class="o">=</span><span class="s">mail</span>
+<span class="na">dt.ldap.groups.filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=group)(objectCategory=Group))</span>
+<span class="na">dt.ldap.user.groups.filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=group)(objectCategory=Group)(member:1.2.840.113556.1.4.1941:={USER_DN}))</span>
+<span class="na">dt.ldap.groups.search.filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=group)(objectCategory=Group)(cn=*{SEARCH_TERM}*))</span>
+<span class="na">dt.ldap.users.search.filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=user)(objectCategory=Person)(cn=*{SEARCH_TERM}*))</span>
 </code></pre></div></td></tr></tbody></table></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>The <code>member:1.2.840.113556.1.4.1941:=</code> OID in the user groups filter enables
-recursive group membership lookup (LDAP_MATCHING_RULE_IN_CHAIN). This ensures
-nested group memberships are resolved correctly.</p>
+recursive group membership lookup (LDAP_MATCHING_RULE_IN_CHAIN), so
+Dependency-Track resolves nested group memberships correctly.</p>
 </div>
 <p>For LDAPS (recommended in production), change the port to <code>3269</code> and update the URL:</p>
-<div class="highlight"><pre><span></span><code><span class="na">DT_LDAP_SERVER_URL</span><span class="o">=</span><span class="s">ldaps://ldap.example.com:3269</span>
+<div class="highlight"><pre><span></span><code><span class="na">dt.ldap.server.url</span><span class="o">=</span><span class="s">ldaps://ldap.example.com:3269</span>
 </code></pre></div>
 <h3 id="apacheds">ApacheDS<a class="headerlink" href="#apacheds" title="Permanent link">¶</a></h3>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -2237,19 +2244,19 @@ nested group memberships are resolved correctly.</p>
 <span class="normal">10</span>
 <span class="normal">11</span>
 <span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">DT_LDAP_ENABLED</span><span class="o">=</span><span class="s">true</span>
-<span class="na">DT_LDAP_SERVER_URL</span><span class="o">=</span><span class="s">ldap://ldap.example.com:389</span>
-<span class="na">DT_LDAP_BASEDN</span><span class="o">=</span><span class="s">dc=example,dc=com</span>
-<span class="na">DT_LDAP_SECURITY_AUTH</span><span class="o">=</span><span class="s">simple</span>
-<span class="na">DT_LDAP_BIND_USERNAME</span><span class="o">=</span><span class="s">uid=admin,ou=system</span>
-<span class="na">DT_LDAP_BIND_PASSWORD</span><span class="o">=</span><span class="s">changeme</span>
-<span class="na">DT_LDAP_AUTH_USERNAME_FORMAT</span><span class="o">=</span><span class="s">uid={0},ou=users,dc=example,dc=com</span>
-<span class="na">DT_LDAP_ATTRIBUTE_NAME</span><span class="o">=</span><span class="s">cn</span>
-<span class="na">DT_LDAP_ATTRIBUTE_MAIL</span><span class="o">=</span><span class="s">mail</span>
-<span class="na">DT_LDAP_GROUPS_FILTER</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames))</span>
-<span class="na">DT_LDAP_USER_GROUPS_FILTER</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames)(uniqueMember={USER_DN}))</span>
-<span class="na">DT_LDAP_GROUPS_SEARCH_FILTER</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames)(cn=*{SEARCH_TERM}*))</span>
-<span class="na">DT_LDAP_USERS_SEARCH_FILTER</span><span class="o">=</span><span class="s">(&amp;(objectClass=inetOrgPerson)(cn=*{SEARCH_TERM}*))</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">dt.ldap.enabled</span><span class="o">=</span><span class="s">true</span>
+<span class="na">dt.ldap.server.url</span><span class="o">=</span><span class="s">ldap://ldap.example.com:389</span>
+<span class="na">dt.ldap.basedn</span><span class="o">=</span><span class="s">dc=example,dc=com</span>
+<span class="na">dt.ldap.security.auth</span><span class="o">=</span><span class="s">simple</span>
+<span class="na">dt.ldap.bind.username</span><span class="o">=</span><span class="s">uid=admin,ou=system</span>
+<span class="na">dt.ldap.bind.password</span><span class="o">=</span><span class="s">changeme</span>
+<span class="na">dt.ldap.auth.username.format</span><span class="o">=</span><span class="s">uid={0},ou=users,dc=example,dc=com</span>
+<span class="na">dt.ldap.attribute.name</span><span class="o">=</span><span class="s">cn</span>
+<span class="na">dt.ldap.attribute.mail</span><span class="o">=</span><span class="s">mail</span>
+<span class="na">dt.ldap.groups.filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames))</span>
+<span class="na">dt.ldap.user.groups.filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames)(uniqueMember={USER_DN}))</span>
+<span class="na">dt.ldap.groups.search.filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames)(cn=*{SEARCH_TERM}*))</span>
+<span class="na">dt.ldap.users.search.filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=inetOrgPerson)(cn=*{SEARCH_TERM}*))</span>
 </code></pre></div></td></tr></tbody></table></div>
 <h3 id="fedora-389-directory-server">Fedora 389 Directory Server<a class="headerlink" href="#fedora-389-directory-server" title="Permanent link">¶</a></h3>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -2264,19 +2271,19 @@ nested group memberships are resolved correctly.</p>
 <span class="normal">10</span>
 <span class="normal">11</span>
 <span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">DT_LDAP_ENABLED</span><span class="o">=</span><span class="s">true</span>
-<span class="na">DT_LDAP_SERVER_URL</span><span class="o">=</span><span class="s">ldap://ldap.example.com:389</span>
-<span class="na">DT_LDAP_BASEDN</span><span class="o">=</span><span class="s">dc=example,dc=com</span>
-<span class="na">DT_LDAP_SECURITY_AUTH</span><span class="o">=</span><span class="s">simple</span>
-<span class="na">DT_LDAP_BIND_USERNAME</span><span class="o">=</span><span class="s">cn=Directory Manager</span>
-<span class="na">DT_LDAP_BIND_PASSWORD</span><span class="o">=</span><span class="s">changeme</span>
-<span class="na">DT_LDAP_AUTH_USERNAME_FORMAT</span><span class="o">=</span><span class="s">uid={0},ou=people,dc=example,dc=com</span>
-<span class="na">DT_LDAP_ATTRIBUTE_NAME</span><span class="o">=</span><span class="s">uid</span>
-<span class="na">DT_LDAP_ATTRIBUTE_MAIL</span><span class="o">=</span><span class="s">mail</span>
-<span class="na">DT_LDAP_GROUPS_FILTER</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames))</span>
-<span class="na">DT_LDAP_USER_GROUPS_FILTER</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames)(uniqueMember={USER_DN}))</span>
-<span class="na">DT_LDAP_GROUPS_SEARCH_FILTER</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames)(cn=*{SEARCH_TERM}*))</span>
-<span class="na">DT_LDAP_USERS_SEARCH_FILTER</span><span class="o">=</span><span class="s">(&amp;(objectClass=inetOrgPerson)(uid=*{SEARCH_TERM}*))</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">dt.ldap.enabled</span><span class="o">=</span><span class="s">true</span>
+<span class="na">dt.ldap.server.url</span><span class="o">=</span><span class="s">ldap://ldap.example.com:389</span>
+<span class="na">dt.ldap.basedn</span><span class="o">=</span><span class="s">dc=example,dc=com</span>
+<span class="na">dt.ldap.security.auth</span><span class="o">=</span><span class="s">simple</span>
+<span class="na">dt.ldap.bind.username</span><span class="o">=</span><span class="s">cn=Directory Manager</span>
+<span class="na">dt.ldap.bind.password</span><span class="o">=</span><span class="s">changeme</span>
+<span class="na">dt.ldap.auth.username.format</span><span class="o">=</span><span class="s">uid={0},ou=people,dc=example,dc=com</span>
+<span class="na">dt.ldap.attribute.name</span><span class="o">=</span><span class="s">uid</span>
+<span class="na">dt.ldap.attribute.mail</span><span class="o">=</span><span class="s">mail</span>
+<span class="na">dt.ldap.groups.filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames))</span>
+<span class="na">dt.ldap.user.groups.filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames)(uniqueMember={USER_DN}))</span>
+<span class="na">dt.ldap.groups.search.filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames)(cn=*{SEARCH_TERM}*))</span>
+<span class="na">dt.ldap.users.search.filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=inetOrgPerson)(uid=*{SEARCH_TERM}*))</span>
 </code></pre></div></td></tr></tbody></table></div>
 <h3 id="netiq-novell-edirectory">NetIQ / Novell eDirectory<a class="headerlink" href="#netiq-novell-edirectory" title="Permanent link">¶</a></h3>
 <p>eDirectory typically uses LDAPS on port 636 and an organisation-based DN structure.</p>
@@ -2292,30 +2299,30 @@ nested group memberships are resolved correctly.</p>
 <span class="normal">10</span>
 <span class="normal">11</span>
 <span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">DT_LDAP_ENABLED</span><span class="o">=</span><span class="s">true</span>
-<span class="na">DT_LDAP_SERVER_URL</span><span class="o">=</span><span class="s">ldaps://ldap.example.com:636</span>
-<span class="na">DT_LDAP_BASEDN</span><span class="o">=</span><span class="s">o=example</span>
-<span class="na">DT_LDAP_SECURITY_AUTH</span><span class="o">=</span><span class="s">simple</span>
-<span class="na">DT_LDAP_BIND_USERNAME</span><span class="o">=</span><span class="s">cn=admin,o=example</span>
-<span class="na">DT_LDAP_BIND_PASSWORD</span><span class="o">=</span><span class="s">changeme</span>
-<span class="na">DT_LDAP_AUTH_USERNAME_FORMAT</span><span class="o">=</span><span class="s">uid={0},ou=users,o=example</span>
-<span class="na">DT_LDAP_ATTRIBUTE_NAME</span><span class="o">=</span><span class="s">uid</span>
-<span class="na">DT_LDAP_ATTRIBUTE_MAIL</span><span class="o">=</span><span class="s">mail</span>
-<span class="na">DT_LDAP_GROUPS_FILTER</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames))</span>
-<span class="na">DT_LDAP_USER_GROUPS_FILTER</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames)(uniqueMember={USER_DN}))</span>
-<span class="na">DT_LDAP_GROUPS_SEARCH_FILTER</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames)(cn=*{SEARCH_TERM}*))</span>
-<span class="na">DT_LDAP_USERS_SEARCH_FILTER</span><span class="o">=</span><span class="s">(&amp;(objectClass=inetOrgPerson)(uid=*{SEARCH_TERM}*))</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">dt.ldap.enabled</span><span class="o">=</span><span class="s">true</span>
+<span class="na">dt.ldap.server.url</span><span class="o">=</span><span class="s">ldaps://ldap.example.com:636</span>
+<span class="na">dt.ldap.basedn</span><span class="o">=</span><span class="s">o=example</span>
+<span class="na">dt.ldap.security.auth</span><span class="o">=</span><span class="s">simple</span>
+<span class="na">dt.ldap.bind.username</span><span class="o">=</span><span class="s">cn=admin,o=example</span>
+<span class="na">dt.ldap.bind.password</span><span class="o">=</span><span class="s">changeme</span>
+<span class="na">dt.ldap.auth.username.format</span><span class="o">=</span><span class="s">uid={0},ou=users,o=example</span>
+<span class="na">dt.ldap.attribute.name</span><span class="o">=</span><span class="s">uid</span>
+<span class="na">dt.ldap.attribute.mail</span><span class="o">=</span><span class="s">mail</span>
+<span class="na">dt.ldap.groups.filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames))</span>
+<span class="na">dt.ldap.user.groups.filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames)(uniqueMember={USER_DN}))</span>
+<span class="na">dt.ldap.groups.search.filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames)(cn=*{SEARCH_TERM}*))</span>
+<span class="na">dt.ldap.users.search.filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=inetOrgPerson)(uid=*{SEARCH_TERM}*))</span>
 </code></pre></div></td></tr></tbody></table></div>
 <hr>
-<h2 id="all-ldap-properties">All LDAP properties<a class="headerlink" href="#all-ldap-properties" title="Permanent link">¶</a></h2>
-<p>For a full list of LDAP-related configuration properties and their types, defaults, and
+<h2 id="all-ldap-properties">All <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> properties<a class="headerlink" href="#all-ldap-properties" title="Permanent link">¶</a></h2>
+<p>For a full list of <abbr title="Lightweight Directory Access Protocol">LDAP</abbr>-related configuration properties and their types, defaults, and
 environment variable equivalents, see the
-<a href="../../../reference/configuration/properties/#dtldapenabled">configuration reference</a>.</p>
+<a href="../../../reference/configuration/properties/#ldap">configuration reference</a>.</p>
 <h2 id="see-also">See also<a class="headerlink" href="#see-also" title="Permanent link">¶</a></h2>
 <ul>
-<li><a href="../../../reference/permissions/">Permissions</a>: mapping LDAP groups to Dependency-Track teams</li>
-<li><a href="../configuring-oidc/">Configuring OIDC</a>: alternative to LDAP using OpenID Connect</li>
-<li><a href="../configuring-internal-ca/">Configuring Internal <abbr title="Certificate Authority">CA</abbr></a>: trust internal TLS certificates for LDAPS</li>
+<li><a href="../../../reference/permissions/">Permissions</a>: mapping <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> groups to Dependency-Track teams</li>
+<li><a href="../configuring-oidc/">Configuring OpenID Connect</a>: alternative to <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> using OpenID Connect</li>
+<li><a href="../configuring-internal-ca/">Configuring internal <abbr title="Certificate Authority">CA</abbr> trust</a>: trust internal TLS certificates for LDAPS</li>
 </ul>
 
 
