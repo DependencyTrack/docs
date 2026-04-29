@@ -2,6 +2,7 @@
 (?i)triag(e|ing)
 ACLs
 APIs
+AWS
 Active Directory
 Aiven
 ApacheDS
@@ -23,6 +24,7 @@ Exploitability
 Fedora 389 Directory Server
 Flashpoint
 GUIDs
+GitLab
 HDDs
 Hackage
 IdP
@@ -49,6 +51,7 @@ Novell
 OAuth
 OWASP
 OneLogin
+OpenID Connect
 Operandi
 PGTune
 Packagist
@@ -144,6 +147,7 @@ sAMAccountName
 timestamptz
 truststore
 truststore
+userinfo
 walkthrough
 walkthroughs
 zstd
