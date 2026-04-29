@@ -19,7 +19,7 @@ name: docs
 on:
   push:
     branches: [main]
-    tags: ["v[0-9]+.[0-9]+.[0-9]+"]
+    tags: ["[0-9]+.[0-9]+.[0-9]+", "[0-9]+.[0-9]+.[0-9]+-*"]
   pull_request:
     branches: [main]
 
@@ -77,13 +77,19 @@ jobs:
     - uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
       with:
         enable-cache: false
+    - name: Lint
+      run: make lint
     - name: Deploy next
       if: github.ref == 'refs/heads/main'
       run: uv run mike deploy --push next
     - name: Deploy release
-      if: startsWith(github.ref, 'refs/tags/v')
+      if: startsWith(github.ref, 'refs/tags/')
       run: |
-        TAG="${GITHUB_REF#refs/tags/v}"
-        MINOR="${TAG%.*}"
-        uv run mike deploy --push --update-aliases "$MINOR" latest
-        uv run mike set-default --push latest
+        TAG="${GITHUB_REF#refs/tags/}"
+        if [[ "$TAG" == *-* ]]; then
+          uv run mike deploy --push "$TAG"
+        else
+          MINOR="${TAG%.*}"
+          uv run mike deploy --push --update-aliases "$MINOR" latest
+          uv run mike set-default --push latest
+        fi
