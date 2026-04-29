@@ -745,7 +745,7 @@ paths:
     get:
       operationId: getCvssScores
       parameters:
-      - description: A valid CVSSv2 or CVSSv3 vector
+      - description: "A valid CVSSv2, CVSSv3 or CVSSv4 vector"
         in: query
         name: vector
         required: true
@@ -756,8 +756,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Score"
+                $ref: "#/components/schemas/CvssScoreResponse"
           description: The calculated scores
+        "400":
+          description: An invalid CVSS vector was submitted
         "401":
           description: Unauthorized
       security:
@@ -10195,6 +10197,27 @@ components:
       - name
       - publisher
       - scope
+    CvssScoreResponse:
+      type: object
+      properties:
+        baseScore:
+          type: number
+          format: double
+        environmentalScore:
+          type: number
+          format: double
+        exploitabilitySubScore:
+          type: number
+          format: double
+        impactSubScore:
+          type: number
+          format: double
+        modifiedImpactSubScore:
+          type: number
+          format: double
+        temporalScore:
+          type: number
+          format: double
     Cwe:
       type: object
       properties:
