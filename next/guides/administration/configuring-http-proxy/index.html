@@ -5,13 +5,13 @@
       
       
       
-        <link rel="canonical" href="https://dependencytrack.github.io/docs/next/guides/administration/migrating-from-v4/">
+        <link rel="canonical" href="https://dependencytrack.github.io/docs/next/guides/administration/configuring-http-proxy/">
       
       
-        <link rel="prev" href="../upgrading-instances/">
+        <link rel="prev" href="../configuring-internal-ca/">
       
       
-        <link rel="next" href="../../upgrading/">
+        <link rel="next" href="../configuring-observability/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Migrating from v4 - Dependency-Track</title>
+        <title>Configuring an HTTP proxy - Dependency-Track</title>
       
     
     
@@ -61,15 +61,15 @@
     
   
 <meta property="og:type" content="website">
-<meta property="og:title" content="Migrating from v4 - Dependency-Track">
-<meta property="og:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/guides/administration/migrating-from-v4.png">
+<meta property="og:title" content="Configuring an HTTP proxy - Dependency-Track">
+<meta property="og:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/guides/administration/configuring-http-proxy.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:url" content="https://dependencytrack.github.io/docs/next/guides/administration/migrating-from-v4/">
+<meta property="og:url" content="https://dependencytrack.github.io/docs/next/guides/administration/configuring-http-proxy/">
 <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:title" content="Migrating from v4 - Dependency-Track">
-<meta property="twitter:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/guides/administration/migrating-from-v4.png">
+<meta property="twitter:title" content="Configuring an HTTP proxy - Dependency-Track">
+<meta property="twitter:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/guides/administration/configuring-http-proxy.png">
 <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
@@ -99,7 +99,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#migrating-from-v4" class="md-skip">
+        <a href="#configuring-an-http-proxy" class="md-skip">
           Skip to content
         </a>
       
@@ -138,7 +138,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Migrating from v4
+              Configuring an HTTP proxy
             
           </span>
         </div>
@@ -1096,10 +1096,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../configuring-http-proxy/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuring an HTTP proxy
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1115,6 +1142,92 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration sources
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-via-app-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuring via app properties
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-via-standard-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuring via standard environment variables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bypass-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bypass list
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authenticated-proxies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authenticated proxies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trusting-an-intercepting-proxys-certificate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trusting an intercepting proxy's certificate
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1320,37 +1433,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Migrating from v4
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../migrating-from-v4/" class="md-nav__link">
         
   
   
@@ -1366,98 +1452,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Introduction
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#running-v4-and-v5-in-parallel" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Running v4 and v5 in parallel
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Running v4 and v5 in parallel">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#creating-an-api-key" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Creating an API key
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#deploy-bento" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Deploy Bento
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configure-notification" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configure notification
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#testing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Testing
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1858,10 +1852,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
+  <a href="#configuration-sources" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Introduction
+        Configuration sources
       
     </span>
   </a>
@@ -1869,63 +1863,57 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#running-v4-and-v5-in-parallel" class="md-nav__link">
+  <a href="#configuring-via-app-properties" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Running v4 and v5 in parallel
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Running v4 and v5 in parallel">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#creating-an-api-key" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Creating an API key
+        Configuring via app properties
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#deploy-bento" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#configuring-via-standard-environment-variables" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Deploy Bento
+        Configuring via standard environment variables
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#configure-notification" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#bypass-list" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configure notification
+        Bypass list
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#testing" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#authenticated-proxies" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Testing
+        Authenticated proxies
       
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#trusting-an-intercepting-proxys-certificate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trusting an intercepting proxy's certificate
+      
+    </span>
+  </a>
   
 </li>
       
@@ -2015,159 +2003,86 @@
   
 
 
-<h1 id="migrating-from-v4">Migrating from v4<a class="headerlink" href="#migrating-from-v4" title="Permanent link">¶</a></h1>
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¶</a></h2>
-<p>If you're currently running a Dependency-Track v4 deployment, don't worry.</p>
-<p>The goal is to provide tooling and guides on how to migrate to v5 once it reaches general availability.
-Migration tools are expected to perform the migration automatically, with little to no manual effort
-(except the provisioning of infrastructure of course).</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Follow <a href="https://github.com/DependencyTrack/hyades/issues/881">https://github.com/DependencyTrack/hyades/issues/881</a> for updates on this topic.</p>
+<h1 id="configuring-an-http-proxy">Configuring an HTTP proxy<a class="headerlink" href="#configuring-an-http-proxy" title="Permanent link">¶</a></h1>
+<p>The Dependency-Track API server makes outbound HTTP and HTTPS calls to mirror vulnerability data sources, fetch
+package metadata from repositories, perform <abbr title="OpenID Connect">OIDC</abbr> discovery, deliver webhooks, and reach other integrations. In
+environments where outbound traffic must traverse a corporate proxy, configure the API server to route those calls
+through it.</p>
+<p>Proxy configuration applies to the API server only. The frontend is a static single-page app served to the
+user's browser; any requests it appears to make actually originate from the browser itself.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The API server supports only plain HTTP proxies, with optional Basic or NTLM authentication.
+HTTPS-fronted proxies and SOCKS proxies do not work.</p>
 </div>
-<h2 id="running-v4-and-v5-in-parallel">Running v4 and v5 in parallel<a class="headerlink" href="#running-v4-and-v5-in-parallel" title="Permanent link">¶</a></h2>
-<p>Given an existing production deployment of v4, it can be helpful to run a v5 test deployment in parallel,
-to compare behavior and testing new features on <em>real</em> data.</p>
-<p>This can be done using notifications, in particular <code>BOM_PROCESSED</code> notifications.
-Dependency-Track emits them <em>after</em> synchronizing a <abbr title="Bill of Materials">BOM</abbr>'s contents with the database.</p>
-<p>The subject of <code>BOM_PROCESSED</code> notifications contains the original <abbr title="Bill of Materials">BOM</abbr> (Base64-encoded),
-plus the name and version of the target project. This is enough to
-construct a <abbr title="Bill of Materials">BOM</abbr> upload request for another Dependency-Track instance.</p>
-<p>All that's needed is an app that can:</p>
+<h2 id="configuration-sources">Configuration sources<a class="headerlink" href="#configuration-sources" title="Permanent link">¶</a></h2>
+<p>The API server reads proxy settings from two sources, in this order:</p>
+<ol>
+<li>App properties (<code>dt.http.proxy.*</code>, <code>dt.no.proxy</code>).</li>
+<li>The standard <code>HTTPS_PROXY</code>, <code>HTTP_PROXY</code>, and <code>NO_PROXY</code> environment variables.</li>
+</ol>
+<p>If <code>dt.http.proxy.address</code> has a value, app properties win and the API server ignores the environment variables.
+Otherwise, the API server falls back to the environment.</p>
+<h2 id="configuring-via-app-properties">Configuring via app properties<a class="headerlink" href="#configuring-via-app-properties" title="Permanent link">¶</a></h2>
+<p>Set the following properties (see <a href="../../../reference/configuration/application/#environment-variable-mapping">Application configuration</a>
+for how property names map to environment variables):</p>
 <ul>
-<li>Receive Webhooks, and parse the JSON payload within them</li>
-<li>Perform a mapping from notification subject, to <abbr title="Bill of Materials">BOM</abbr> upload request</li>
-<li>Forward the <abbr title="Bill of Materials">BOM</abbr> upload request to another Dependency-Track instance</li>
+<li><a href="../../../reference/configuration/properties/#dthttpproxyaddress"><code>dt.http.proxy.address</code></a>: proxy hostname or IP address.</li>
+<li><a href="../../../reference/configuration/properties/#dthttpproxyport"><code>dt.http.proxy.port</code></a>: proxy port. Required when
+  <code>dt.http.proxy.address</code> has a value.</li>
+<li><a href="../../../reference/configuration/properties/#dthttpproxyusername"><code>dt.http.proxy.username</code></a>: optional, for
+  authenticated proxies.</li>
+<li><a href="../../../reference/configuration/properties/#dthttpproxypassword"><code>dt.http.proxy.password</code></a>: optional, for
+  authenticated proxies.</li>
+<li><a href="../../../reference/configuration/properties/#dtnoproxy"><code>dt.no.proxy</code></a>: comma-separated bypass list.</li>
 </ul>
-<p>This can be scripted, but <a href="https://github.com/warpstreamlabs/bento">Bento</a> reduces it to a single config file.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>You can use the same approach outlined here to construct a pre-prod / staging environment.</p>
-</div>
-<p>Conceptually, this is what the setup does:</p>
-<pre class="mermaid"><code>sequenceDiagram
-    Client-&gt;&gt;DT v4: Upload BOM&lt;br/&gt;PUT /api/v1/bom
-    DT v4-&gt;&gt;DT v4: Validate and&lt;br/&gt;Process
-    DT v4-&gt;&gt;Bento: Notification&lt;br/&gt;BOM_PROCESSED
-    Bento-&gt;&gt;Bento: Map to BOM&lt;br/&gt;upload request
-    Bento-&gt;&gt;DT v5: Upload BOM&lt;br/&gt;PUT /api/v1/bom
-    DT v5-&gt;&gt;DT v5: Validate and&lt;br/&gt;Process</code></pre>
-<h3 id="creating-an-api-key">Creating an API key<a class="headerlink" href="#creating-an-api-key" title="Permanent link">¶</a></h3>
-<p>To upload BOMs to the Dependency-Track v5 system, an API key with <code>BOM_UPLOAD</code> and <code>PROJECT_CREATION_UPLOAD</code>
-permissions is required. Log into your Dependency-Track v5 instance, navigate to <em>Administration</em> -&gt; <em>Access Management</em>
--&gt; <em>Teams</em>, and create a new team with accompanying API key:</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guides/administration/migrating-from-v4/bento-api-key.png" data-desc-position="bottom"><img alt="Creating an API key for Bento in Dependency-Track v5" src="../../../assets/images/guides/administration/migrating-from-v4/bento-api-key.png"></a></p>
-<h3 id="deploy-bento">Deploy Bento<a class="headerlink" href="#deploy-bento" title="Permanent link">¶</a></h3>
-<p><a href="https://github.com/warpstreamlabs/bento">Bento</a> works with the concept of pipelines, which are <a href="https://warpstreamlabs.github.io/bento/docs/configuration/about">configured via YAML</a>.
-The following pipeline achieves the desired outcome:</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nn">---</span>
-<span class="nt">input</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">http_server</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/notification/bom-processed</span>
-<span class="w">    </span><span class="nt">allowed_verbs</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">POST</span>
-<span class="w">    </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5s</span>
-<span class="w">    </span><span class="nt">sync_response</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="s">"202"</span>
-
-<span class="nt">pipeline</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">processors</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">mapping</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">      </span><span class="no">root.projectName = this.notification.subject.project.name</span>
-<span class="w">      </span><span class="no">root.projectVersion = this.notification.subject.project.version</span>
-<span class="w">      </span><span class="no">root.projectTags = this.notification.subject.project.tags.split(",").catch([]).map_each(tag -&gt; {"name": tag})</span>
-<span class="w">      </span><span class="no">root.bom = this.notification.subject.bom.content</span>
-<span class="w">      </span><span class="no">root.autoCreate = true</span>
-
-<span class="nt">output</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">http_client</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">"${DTV5_API_URL}/api/v1/bom"</span>
-<span class="w">    </span><span class="nt">verb</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PUT</span>
-<span class="w">    </span><span class="nt">headers</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">Content-Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">application/json</span>
-<span class="w">      </span><span class="nt">X-Api-Key</span><span class="p">:</span><span class="w"> </span><span class="s">"${DTV5_API_KEY}"</span>
-<span class="w">    </span><span class="nt">max_in_flight</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
-<span class="w">    </span><span class="c1"># tls:</span>
-<span class="w">    </span><span class="c1">#  skip_cert_verify: true</span>
-<span class="w">    </span><span class="c1">#  ^-- Uncomment this if you're using self-signed certificates.</span>
-</code></pre></div></td></tr></tbody></table></div>
-<p>Refer to the respective pipeline component's documentation for more details:</p>
-<ul>
-<li><a href="https://warpstreamlabs.github.io/bento/docs/components/inputs/http_server"><code>http_server</code> input</a></li>
-<li><a href="https://warpstreamlabs.github.io/bento/docs/components/processors/mapping"><code>mapping</code> processor</a></li>
-<li><a href="https://warpstreamlabs.github.io/bento/docs/components/outputs/http_client"><code>http_client</code> output</a></li>
-</ul>
-<p><a href="https://github.com/warpstreamlabs/bento?tab=readme-ov-file#run">Run Bento</a> as container:</p>
+<p>Example:</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>bento<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-p<span class="w"> </span><span class="s2">"4195:4195"</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-v<span class="w"> </span><span class="s2">"</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">/config.yaml:/bento.yaml"</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-e<span class="w"> </span><span class="s1">'DTV5_API_URL=https://dtv5.example.com'</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-e<span class="w"> </span><span class="s1">'DTV5_API_KEY=odt_****************'</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>ghcr.io/warpstreamlabs/bento
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">dt.http.proxy.address</span><span class="o">=</span><span class="s">proxy.example.com</span>
+<span class="na">dt.http.proxy.port</span><span class="o">=</span><span class="s">8080</span>
+<span class="na">dt.no.proxy</span><span class="o">=</span><span class="s">localhost,127.0.0.1,example.com</span>
 </code></pre></div></td></tr></tbody></table></div>
-<h3 id="configure-notification">Configure notification<a class="headerlink" href="#configure-notification" title="Permanent link">¶</a></h3>
-<p>Log into your Dependency-Track v4 instance, navigate to <em>Administration</em> -&gt; <em>Notifications</em> -&gt; <em>Alerts</em>,
-and create a new alert with the following settings:</p>
+<h2 id="configuring-via-standard-environment-variables">Configuring via standard environment variables<a class="headerlink" href="#configuring-via-standard-environment-variables" title="Permanent link">¶</a></h2>
+<p>When app properties are unset, the API server reads <code>HTTPS_PROXY</code> first and falls back to <code>HTTP_PROXY</code>. Variable
+names match case-insensitively, so the lowercase forms (<code>https_proxy</code>, <code>http_proxy</code>, <code>no_proxy</code>) work too.</p>
+<p>Each value takes the form <code>http://[user[:password]@]host[:port]</code>. The API server URL-decodes the credentials, so
+reserved characters in the username or password require percent-encoding.</p>
+<div class="highlight"><pre><span></span><code>HTTPS_PROXY=http://proxy.example.com:8080
+NO_PROXY=localhost,127.0.0.1,example.com
+</code></pre></div>
+<p>The API server uses the same proxy for both HTTP and HTTPS upstream calls. URIs with any other scheme (such as
+<code>ldap://</code>) always bypass the proxy.</p>
+<h2 id="bypass-list">Bypass list<a class="headerlink" href="#bypass-list" title="Permanent link">¶</a></h2>
+<p>Both <code>dt.no.proxy</code> and <code>NO_PROXY</code> accept a comma-separated list of entries. Each entry takes the form of either a
+hostname or IP address, optionally with <code>:port</code>. CIDR ranges, IP-address ranges, leading-dot notation, and protocol
+schemes are not supported.</p>
+<p>The matching rules are:</p>
 <ul>
-<li>Scope: <em>Portfolio</em></li>
-<li>Notification level: <em>Informational</em></li>
-<li>Publisher: <em>Outbound Webhook</em></li>
+<li>A single <code>*</code> entry disables the proxy for all destinations.</li>
+<li>Comparison is case-insensitive.</li>
+<li>An entry matches the request host exactly, or any subdomain of it. For example, <code>example.com</code> matches both
+  <code>example.com</code> and <code>api.example.com</code>.</li>
+<li>If an entry includes a port (<code>host:port</code>), the host must match (exact or subdomain) and the port must match exactly.</li>
+<li>Only <code>http</code> and <code>https</code> URIs go through the proxy; other schemes always bypass it.</li>
 </ul>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guides/administration/migrating-from-v4/create-alert.png" data-desc-position="bottom"><img alt="Creating a new alert in Dependency-Track v4" src="../../../assets/images/guides/administration/migrating-from-v4/create-alert.png"></a></p>
-<p>Once created, enable <code>BOM_PROCESSED</code> under <em>Groups</em>, and configure the URL of your Bento endpoint as <em>Destination</em>:</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guides/administration/migrating-from-v4/configure-alert.png" data-desc-position="bottom"><img alt="Configuring the alert in Dependency-Track v4" src="../../../assets/images/guides/administration/migrating-from-v4/configure-alert.png"></a></p>
-<h3 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">¶</a></h3>
+<p>For example, given <code>dt.no.proxy=example.com,localhost:5432</code>:</p>
 <ul>
-<li>Upload a <abbr title="Bill of Materials">BOM</abbr> to a project in your Dependency-Track v4 instance.</li>
-<li>Head over to your Dependency-Track v5 instance and wait for the upload to replicate.</li>
+<li><code>https://api.example.com/</code> bypasses the proxy (subdomain match).</li>
+<li><code>https://localhost:5432/</code> bypasses the proxy (host and port match).</li>
+<li><code>https://localhost:5433/</code> goes through the proxy (port mismatch).</li>
 </ul>
-<p>If all goes well, you're done.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>If the <abbr title="Bill of Materials">BOM</abbr> upload does not replicate:</p>
-<ol>
-<li>Check the logs of your Dependency-Track v4 deployment for any errors during notification publishing.</li>
-<li>Check the logs of Bento for any errors or warnings.</li>
-<li>Check the logs of your Dependency-Track v5 deployment for any errors during <abbr title="Bill of Materials">BOM</abbr> processing.</li>
-<li>Ensure that the API key you created has the correct permissions.</li>
-<li>Ensure that Bento is reachable from your Dependency-Track v4 deployment.</li>
-<li>Ensure that your Dependency-Track v5 deployment is reachable from Bento.</li>
-</ol>
-</div>
+<h2 id="authenticated-proxies">Authenticated proxies<a class="headerlink" href="#authenticated-proxies" title="Permanent link">¶</a></h2>
+<p>For Basic-authenticated proxies, set <code>dt.http.proxy.username</code> and <code>dt.http.proxy.password</code>. Avoid placing the password
+in plain text; see <a href="../../../reference/configuration/application/#loading-values-from-files">Loading values from files</a>.</p>
+<p>For NTLM-authenticated proxies, supply the username in <code>domain\username</code> form. The API server splits on the first
+backslash into separate domain and username fields. When using the URL form (<code>HTTPS_PROXY</code>), percent-encode the
+backslash as <code>%5C</code>:</p>
+<div class="highlight"><pre><span></span><code>HTTPS_PROXY=http://CORP%5Cdt-service:s3cret@proxy.example.com:8080
+</code></pre></div>
+<h2 id="trusting-an-intercepting-proxys-certificate">Trusting an intercepting proxy's certificate<a class="headerlink" href="#trusting-an-intercepting-proxys-certificate" title="Permanent link">¶</a></h2>
+<p>If the proxy terminates and re-issues TLS connections, the API server must trust the proxy's certificate authority.
+See <a href="../configuring-internal-ca/">Configuring internal <abbr title="Certificate Authority">CA</abbr> trust</a>.</p>
 
 
 
@@ -2203,7 +2118,7 @@ and create a new alert with the following settings:</p>
       <nav class="md-footer__inner md-grid" aria-label="Footer">
         
           
-          <a href="../upgrading-instances/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Upgrading running instances">
+          <a href="../configuring-internal-ca/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Configuring internal CA trust">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
@@ -2213,20 +2128,20 @@ and create a new alert with the following settings:</p>
                 Previous
               </span>
               <div class="md-ellipsis">
-                Upgrading running instances
+                Configuring internal CA trust
               </div>
             </div>
           </a>
         
         
           
-          <a href="../../upgrading/" class="md-footer__link md-footer__link--next" aria-label="Next: Upgrade guides">
+          <a href="../configuring-observability/" class="md-footer__link md-footer__link--next" aria-label="Next: Configuring observability">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Upgrade guides
+                Configuring observability
               </div>
             </div>
             <div class="md-footer__button md-icon">
