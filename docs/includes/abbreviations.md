@@ -7,6 +7,7 @@
 *[EPSS]: Exploit Prediction Scoring System
 *[GHSA]: GitHub Security Advisory
 *[KEK]: Key Encryption Key
+*[LDAP]: Lightweight Directory Access Protocol
 *[NVD]: National Vulnerability Database
 *[OSV]: Open Source Vulnerabilities
 *[PURL]: Package URL, a standardized format for identifying software packages
