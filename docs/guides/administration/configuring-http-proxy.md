@@ -63,8 +63,8 @@ The API server uses the same proxy for both HTTP and HTTPS upstream calls. URIs 
 ## Bypass list
 
 Both `dt.no.proxy` and `NO_PROXY` accept a comma-separated list of entries. Each entry takes the form of either a
-hostname or `hostname:port`. CIDR ranges, IP-address ranges, leading-dot notation, and protocol schemes are not
-supported.
+hostname or IP address, optionally with `:port`. CIDR ranges, IP-address ranges, leading-dot notation, and protocol
+schemes are not supported.
 
 The matching rules are:
 
