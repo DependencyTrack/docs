@@ -136,6 +136,13 @@ info:
     it (e.g. via a log warning) so that operators are aware of upcoming
     breakages. The respective operation's description points out which
     alternative operation(s) to use.
+
+    ## Internal operations
+
+    Operations under the `/internal` path prefix expose system internals
+    and are reserved for first-party use. They are **not** part of the
+    stable v2 API contract and may change or be removed without notice.
+    Third-party clients should not depend on them.
   contact:
     name: The Dependency-Track Authors
     url: https://github.com/DependencyTrack/dependency-track
@@ -887,96 +894,6 @@ paths:
           $ref: "#/components/responses/generic-not-found-error"
         default:
           $ref: "#/components/responses/generic-error"
-  /task-queues/{type}:
-    get:
-      tags:
-      - Task Queues
-      summary: List task queues
-      description: |-
-        Returns a paginated list of task queues of the given type.
-
-        **Note:** This is an internal API endpoint and may change without notice.
-
-        Requires the `SYSTEM_CONFIGURATION` or `SYSTEM_CONFIGURATION_READ` permission.
-      operationId: listTaskQueues
-      parameters:
-      - name: type
-        in: path
-        description: Type of task queues to list
-        required: true
-        schema:
-          $ref: "#/components/schemas/task-queue-type"
-      - name: limit
-        in: query
-        description: Maximum number of items to retrieve from the collection
-        schema:
-          maximum: 1000
-          minimum: 1
-          type: integer
-          format: int32
-          default: 100
-      - name: page_token
-        in: query
-        description: Opaque token pointing to a specific position in a collection
-        schema:
-          type: string
-      responses:
-        "200":
-          description: Paginated list of task queues
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/list-task-queues-response"
-        "400":
-          $ref: "#/components/responses/invalid-request-error"
-        "401":
-          $ref: "#/components/responses/generic-unauthorized-error"
-        "403":
-          $ref: "#/components/responses/generic-forbidden-error"
-        default:
-          $ref: "#/components/responses/generic-error"
-  /task-queues/{type}/{name}:
-    patch:
-      tags:
-      - Task Queues
-      summary: Update a task queue
-      description: |-
-        Updates the status and/or capacity of a task queue.
-
-        **Note:** This is an internal API endpoint and may change without notice.
-
-        Requires the `SYSTEM_CONFIGURATION` or `SYSTEM_CONFIGURATION_UPDATE` permission.
-      operationId: updateTaskQueue
-      parameters:
-      - name: type
-        in: path
-        description: Type of the task queue
-        required: true
-        schema:
-          $ref: "#/components/schemas/task-queue-type"
-      - name: name
-        in: path
-        description: Name of the task queue
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/update-task-queue-request"
-        required: true
-      responses:
-        "204":
-          description: Task queue updated
-        "401":
-          $ref: "#/components/responses/generic-unauthorized-error"
-        "403":
-          $ref: "#/components/responses/generic-forbidden-error"
-        "404":
-          $ref: "#/components/responses/generic-not-found-error"
-        default:
-          $ref: "#/components/responses/generic-error"
   /vuln-policies:
     get:
       tags:
@@ -1327,7 +1244,93 @@ paths:
                 $ref: "#/components/schemas/problem-details"
         default:
           $ref: "#/components/responses/generic-error"
-  /workflow-instances/{id}:
+  /internal/task-queues/{type}:
+    get:
+      tags:
+      - Task Queues
+      summary: List task queues
+      description: |-
+        Returns a paginated list of task queues of the given type.
+
+        Requires the `SYSTEM_CONFIGURATION` or `SYSTEM_CONFIGURATION_READ` permission.
+      operationId: listTaskQueues
+      parameters:
+      - name: type
+        in: path
+        description: Type of task queues to list
+        required: true
+        schema:
+          $ref: "#/components/schemas/task-queue-type"
+      - name: limit
+        in: query
+        description: Maximum number of items to retrieve from the collection
+        schema:
+          maximum: 1000
+          minimum: 1
+          type: integer
+          format: int32
+          default: 100
+      - name: page_token
+        in: query
+        description: Opaque token pointing to a specific position in a collection
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Paginated list of task queues
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/list-task-queues-response"
+        "400":
+          $ref: "#/components/responses/invalid-request-error"
+        "401":
+          $ref: "#/components/responses/generic-unauthorized-error"
+        "403":
+          $ref: "#/components/responses/generic-forbidden-error"
+        default:
+          $ref: "#/components/responses/generic-error"
+  /internal/task-queues/{type}/{name}:
+    patch:
+      tags:
+      - Task Queues
+      summary: Update a task queue
+      description: |-
+        Updates the status and/or capacity of a task queue.
+
+        Requires the `SYSTEM_CONFIGURATION` or `SYSTEM_CONFIGURATION_UPDATE` permission.
+      operationId: updateTaskQueue
+      parameters:
+      - name: type
+        in: path
+        description: Type of the task queue
+        required: true
+        schema:
+          $ref: "#/components/schemas/task-queue-type"
+      - name: name
+        in: path
+        description: Name of the task queue
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/update-task-queue-request"
+        required: true
+      responses:
+        "204":
+          description: Task queue updated
+        "401":
+          $ref: "#/components/responses/generic-unauthorized-error"
+        "403":
+          $ref: "#/components/responses/generic-forbidden-error"
+        "404":
+          $ref: "#/components/responses/generic-not-found-error"
+        default:
+          $ref: "#/components/responses/generic-error"
+  /internal/workflow-instances/{id}:
     get:
       tags:
       - Workflows
@@ -1340,9 +1343,7 @@ paths:
         returns metadata if a run in non-terminal state exists.
 
         To list all runs for an instance ID, including terminated ones,
-        use the `/workflow-runs` endpoint and filter by `workflow_instance_id`.
-
-        **Note:** This is an internal API endpoint and may change without notice.
+        use the `/internal/workflow-runs` endpoint and filter by `workflow_instance_id`.
 
         Requires the `SYSTEM_CONFIGURATION` or `SYSTEM_CONFIGURATION_READ` permission.
       operationId: getWorkflowInstance
@@ -1370,7 +1371,7 @@ paths:
           $ref: "#/components/responses/generic-not-found-error"
         default:
           $ref: "#/components/responses/generic-error"
-  /workflow-runs:
+  /internal/workflow-runs:
     get:
       tags:
       - Workflows
@@ -1385,8 +1386,6 @@ paths:
         * `id`
         * `created_at`
         * `completed_at`
-
-        **Note:** This is an internal API endpoint and may change without notice.
 
         Requires the `SYSTEM_CONFIGURATION` or `SYSTEM_CONFIGURATION_READ` permission.
       operationId: listWorkflowRuns
@@ -1475,15 +1474,13 @@ paths:
           $ref: "#/components/responses/generic-forbidden-error"
         default:
           $ref: "#/components/responses/generic-error"
-  /workflow-runs/{id}:
+  /internal/workflow-runs/{id}:
     get:
       tags:
       - Workflows
       summary: Get a workflow run
       description: |-
         Returns metadata of a given workflow run.
-
-        **Note:** This is an internal API endpoint and may change without notice.
 
         Requires the `SYSTEM_CONFIGURATION` or `SYSTEM_CONFIGURATION_READ` permission.
       operationId: getWorkflowRun
@@ -1512,15 +1509,13 @@ paths:
           $ref: "#/components/responses/generic-not-found-error"
         default:
           $ref: "#/components/responses/generic-error"
-  /workflow-runs/{id}/events:
+  /internal/workflow-runs/{id}/events:
     get:
       tags:
       - Workflows
       summary: List all events of a workflow run
       description: |-
         Returns a paginated list of workflow run events, sorted by sequence number.
-
-        **Note:** This is an internal API endpoint and may change without notice.
 
         Requires the `SYSTEM_CONFIGURATION` or `SYSTEM_CONFIGURATION_READ` permission.
       operationId: listWorkflowRunEvents
@@ -1894,31 +1889,6 @@ components:
           minLength: 1
           type: string
           description: The new value. Omit this field to retain the current value.
-    task-queue-type:
-      type: string
-      enum:
-      - ACTIVITY
-      - WORKFLOW
-    list-task-queues-response:
-      required:
-      - items
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: "#/components/schemas/task-queue"
-      allOf:
-      - $ref: "#/components/schemas/paginated-response"
-    update-task-queue-request:
-      type: object
-      properties:
-        status:
-          $ref: "#/components/schemas/task-queue-status"
-        capacity:
-          minimum: 1
-          type: integer
-          format: int32
     list-vuln-policies-response:
       required:
       - items
@@ -2098,6 +2068,31 @@ components:
         failure_reason:
           type: string
           description: Reason for why the synchronization failed.
+    task-queue-type:
+      type: string
+      enum:
+      - ACTIVITY
+      - WORKFLOW
+    list-task-queues-response:
+      required:
+      - items
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/task-queue"
+      allOf:
+      - $ref: "#/components/schemas/paginated-response"
+    update-task-queue-request:
+      type: object
+      properties:
+        status:
+          $ref: "#/components/schemas/task-queue-status"
+        capacity:
+          minimum: 1
+          type: integer
+          format: int32
     workflow-run-metadata:
       required:
       - created_at
@@ -2472,36 +2467,6 @@ components:
         uuid:
           type: string
           format: uuid
-    task-queue:
-      required:
-      - capacity
-      - created_at
-      - depth
-      - name
-      - status
-      type: object
-      properties:
-        name:
-          type: string
-        status:
-          $ref: "#/components/schemas/task-queue-status"
-        capacity:
-          minimum: 1
-          type: integer
-          format: int32
-        depth:
-          minimum: 0
-          type: integer
-          format: int32
-        created_at:
-          $ref: "#/components/schemas/timestamp"
-        updated_at:
-          $ref: "#/components/schemas/timestamp"
-    task-queue-status:
-      type: string
-      enum:
-      - ACTIVE
-      - PAUSED
     list-vuln-policies-response-item:
       required:
       - name
@@ -2639,6 +2604,36 @@ components:
           $ref: "#/components/schemas/timestamp"
         updated:
           $ref: "#/components/schemas/timestamp"
+    task-queue:
+      required:
+      - capacity
+      - created_at
+      - depth
+      - name
+      - status
+      type: object
+      properties:
+        name:
+          type: string
+        status:
+          $ref: "#/components/schemas/task-queue-status"
+        capacity:
+          minimum: 1
+          type: integer
+          format: int32
+        depth:
+          minimum: 0
+          type: integer
+          format: int32
+        created_at:
+          $ref: "#/components/schemas/timestamp"
+        updated_at:
+          $ref: "#/components/schemas/timestamp"
+    task-queue-status:
+      type: string
+      enum:
+      - ACTIVE
+      - PAUSED
     list-workflow-run-events-response-item:
       required:
       - event
