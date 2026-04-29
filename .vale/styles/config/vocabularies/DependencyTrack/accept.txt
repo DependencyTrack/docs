@@ -96,6 +96,8 @@ Webex
 [Dd]tapac
 [Ee]num
 [Ff]ileset
+[Hh]ostname
+[Hh]ostnames
 [Ii]dempoten(t|cy)
 [Jj]etstack
 [Kk]enna
@@ -112,6 +114,7 @@ Webex
 [Pp]luggable
 [Pp]ooler
 [Pp]oolers?
+[Pp]roxied
 [Rr]eadiness
 [Rr]ethrow
 [Rr]etryable
