@@ -233,16 +233,6 @@ Defines the TTL in milliseconds for PyPI package metadata resolver response cach
 <tr><th>ENV</th><td><code>DT_CACHE__PACKAGE_METADATA_RESOLVER_PYPI_RESPONSES__TTL_MS</code></td></tr>
 </table>
 
-<span id="dtcachevuln-analyzeross-indexresultsmax-size">**`dt.cache."vuln-analyzer.oss-index.results".max-size`** [¶](#dtcachevuln-analyzeross-indexresultsmax-size){ .headerlink }</span>
-
-Defines the maximum number of entries in the OSS Index result cache.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
-<tr><th>Default</th><td><code>30000</code></td></tr>
-<tr><th>ENV</th><td><code>DT_CACHE__VULN_ANALYZER_OSS_INDEX_RESULTS__MAX_SIZE</code></td></tr>
-</table>
-
 <span id="dtcachevuln-analyzeross-indexresultsttl-ms">**`dt.cache."vuln-analyzer.oss-index.results".ttl-ms`** [¶](#dtcachevuln-analyzeross-indexresultsttl-ms){ .headerlink }</span>
 
 Defines the TTL in milliseconds for OSS Index result cache entries.  
@@ -251,16 +241,6 @@ Defines the TTL in milliseconds for OSS Index result cache entries.
 <tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
 <tr><th>Default</th><td><code>43200000</code></td></tr>
 <tr><th>ENV</th><td><code>DT_CACHE__VULN_ANALYZER_OSS_INDEX_RESULTS__TTL_MS</code></td></tr>
-</table>
-
-<span id="dtcachevuln-analyzersnykresultsmax-size">**`dt.cache."vuln-analyzer.snyk.results".max-size`** [¶](#dtcachevuln-analyzersnykresultsmax-size){ .headerlink }</span>
-
-Defines the maximum number of entries in the Snyk result cache.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
-<tr><th>Default</th><td><code>30000</code></td></tr>
-<tr><th>ENV</th><td><code>DT_CACHE__VULN_ANALYZER_SNYK_RESULTS__MAX_SIZE</code></td></tr>
 </table>
 
 <span id="dtcachevuln-analyzersnykresultsttl-ms">**`dt.cache."vuln-analyzer.snyk.results".ttl-ms`** [¶](#dtcachevuln-analyzersnykresultsttl-ms){ .headerlink }</span>
