@@ -9706,6 +9706,7 @@ components:
           - DEVICE_DRIVER
           - MACHINE_LEARNING_MODEL
           - DATA
+          - CRYPTOGRAPHIC_ASSET
         componentMetaInformation:
           $ref: "#/components/schemas/ComponentMetaInformation"
         copyright:
@@ -9960,6 +9961,7 @@ components:
           - DEVICE_DRIVER
           - MACHINE_LEARNING_MODEL
           - DATA
+          - CRYPTOGRAPHIC_ASSET
         collectionLogic:
           type: string
           description: Collection logic for aggregating child metrics
@@ -10507,6 +10509,10 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/Permission"
+        teams:
+          type: array
+          items:
+            $ref: "#/components/schemas/Team"
         username:
           type: string
           maxLength: 255
@@ -10610,10 +10616,6 @@ components:
             $ref: "#/components/schemas/Permission"
         suspended:
           type: boolean
-        teams:
-          type: array
-          items:
-            $ref: "#/components/schemas/Team"
         username:
           type: string
           maxLength: 255
@@ -11221,6 +11223,7 @@ components:
           - DEVICE_DRIVER
           - MACHINE_LEARNING_MODEL
           - DATA
+          - CRYPTOGRAPHIC_ASSET
         collectionLogic:
           type: string
           enum:

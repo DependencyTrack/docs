@@ -2283,6 +2283,7 @@ components:
       - DEVICE_DRIVER
       - MACHINE_LEARNING_MODEL
       - DATA
+      - CRYPTOGRAPHIC_ASSET
     hashes:
       type: object
       properties:
