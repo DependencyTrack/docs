@@ -2228,6 +2228,12 @@ for what happens when an instance dies.</p>
   Dependency-Track's runtime secret store. See
   <a href="../configuring-secret-management/">Configuring secret management</a> for the supported backends.</li>
 </ul>
+<p>The database secret provider uses envelope encryption: each secret has its own data encryption key (<abbr title="Data Encryption Key">DEK</abbr>),
+and a key encryption key (<abbr title="Key Encryption Key">KEK</abbr>) protects the DEKs. By default, each instance generates a <abbr title="Key Encryption Key">KEK</abbr> keyset file
+on disk on first startup. All instances in the cluster must share the same <abbr title="Key Encryption Key">KEK</abbr>, and refuse to start when
+they detect a mismatch. Provision a keyset file once and mount it into
+every instance, or supply the <abbr title="Key Encryption Key">KEK</abbr> directly via environment variable. See
+<a href="../configuring-secret-management/#key-management">Configuring secret management</a> for both approaches.</p>
 <h2 id="configure-authentication">Configure authentication<a class="headerlink" href="#configure-authentication" title="Permanent link">¶</a></h2>
 <p>Wire Dependency-Track to your identity provider. Local managed users are for evaluation only:</p>
 <ul>
