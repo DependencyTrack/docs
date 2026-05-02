@@ -81,6 +81,13 @@ Manage two classes of secrets separately:
   Dependency-Track's runtime secret store. See
   [Configuring secret management](configuring-secret-management.md) for the supported backends.
 
+The database secret provider uses envelope encryption: each secret has its own data encryption key (DEK),
+and a key encryption key (KEK) protects the DEKs. By default, each instance generates a KEK keyset file
+on disk on first startup. All instances in the cluster must share the same KEK, and refuse to start when
+they detect a mismatch. Provision a keyset file once and mount it into
+every instance, or supply the KEK directly via environment variable. See
+[Configuring secret management](configuring-secret-management.md#key-management) for both approaches.
+
 ## Configure authentication
 
 Wire Dependency-Track to your identity provider. Local managed users are for evaluation only:
