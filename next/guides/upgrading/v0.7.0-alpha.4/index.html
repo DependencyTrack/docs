@@ -8,7 +8,7 @@
         <link rel="canonical" href="https://dependencytrack.github.io/docs/next/guides/upgrading/v0.7.0-alpha.4/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../v0.7.0-alpha.5/">
       
       
         <link rel="next" href="../v0.7.0-alpha.3/">
@@ -1371,6 +1371,8 @@
       
         
       
+        
+      
     
     
     
@@ -1428,6 +1430,34 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../v0.7.0-alpha.5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Upgrading to v0.7.0-alpha.5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -1866,6 +1896,38 @@
   could not be completed in time for the GA release.</li>
 <li><strong>Support for importing CycloneDX BOMs in Protobuf format has been removed</strong>. JSON and XML remain
   the only accepted formats.</li>
+<li>
+<p><strong>Loading secrets from files now uses the <code>${file::}</code> expression syntax.</strong> The legacy
+  <code>&lt;key&gt;.file=/path</code> and <code>alpine.&lt;key&gt;.file=/path</code> properties are no longer recognized, and
+  the API server refuses to start if any of them are set. Rewrite each occurrence as
+  <code>&lt;key&gt;=${file::/path}</code>. Affected properties:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Before</th>
+<th style="text-align: left;">After</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>dt.database.password.file</code> (or <code>alpine.database.password.file</code>)</td>
+<td style="text-align: left;"><code>dt.datasource.password=${file::/path}</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>dt.http.proxy.password.file</code> (or <code>alpine.http.proxy.password.file</code>)</td>
+<td style="text-align: left;"><code>dt.http.proxy.password=${file::/path}</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>dt.ldap.bind.password.file</code> (or <code>alpine.ldap.bind.password.file</code>)</td>
+<td style="text-align: left;"><code>dt.ldap.bind.password=${file::/path}</code></td>
+</tr>
+</tbody>
+</table>
+<p>The file is read once at startup, decoded as UTF-8, and trailing whitespace is stripped.
+Files larger than 64 KiB are rejected. Refer to
+<a href="../../../reference/configuration/application/#loading-values-from-files">Loading values from files</a>
+for details.</p>
+</li>
 </ul>
 
 
@@ -1902,7 +1964,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer">
         
           
-          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Upgrade guides">
+          <a href="../v0.7.0-alpha.5/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Upgrading to v0.7.0-alpha.5">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
@@ -1912,7 +1974,7 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Upgrade guides
+                Upgrading to v0.7.0-alpha.5
               </div>
             </div>
           </a>
