@@ -2202,6 +2202,8 @@ components:
         classifier:
           maxLength: 255
           type: string
+        scope:
+          $ref: "#/components/schemas/scope"
         hashes:
           $ref: "#/components/schemas/hashes"
         cpe:
@@ -2462,6 +2464,8 @@ components:
           minimum: 0
           type: integer
           format: int64
+        scope:
+          $ref: "#/components/schemas/scope"
         last_inherited_risk_score:
           type: number
           format: double
@@ -2662,6 +2666,12 @@ components:
           format: int64
         type:
           $ref: "#/components/schemas/total-count-type"
+    scope:
+      type: string
+      enum:
+      - REQUIRED
+      - OPTIONAL
+      - EXCLUDED
     license:
       type: object
       properties:
