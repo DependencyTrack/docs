@@ -239,7 +239,7 @@ Defines the TTL in milliseconds for OSS Index result cache entries.
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
-<tr><th>Default</th><td><code>43200000</code></td></tr>
+<tr><th>Default</th><td><code>86400000</code></td></tr>
 <tr><th>ENV</th><td><code>DT_CACHE__VULN_ANALYZER_OSS_INDEX_RESULTS__TTL_MS</code></td></tr>
 </table>
 
