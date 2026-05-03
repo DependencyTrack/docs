@@ -1219,17 +1219,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#caching" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Caching
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2090,17 +2079,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#caching" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Caching
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2189,8 +2167,7 @@
 
 <h1 id="configuring-secret-management">Configuring secret management<a class="headerlink" href="#configuring-secret-management" title="Permanent link">¶</a></h1>
 <p>Dependency-Track supports pluggable secret storage providers.
-This guide covers provider selection, encryption key management,
-and caching configuration.</p>
+This guide covers provider selection and encryption key management.</p>
 <p>For creating, updating, and deleting secrets in the app,
 see <a href="../../user/managing-secrets/">Managing secrets</a>.</p>
 <h2 id="providers">Providers<a class="headerlink" href="#providers" title="Permanent link">¶</a></h2>
@@ -2542,27 +2519,6 @@ It also emits a warning log message when it found no secrets at all.</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">dt.secret-management.provider</span><span class="o">=</span><span class="s">env</span>
 </code></pre></div></td></tr></tbody></table></div>
 </details>
-<h2 id="caching">Caching<a class="headerlink" href="#caching" title="Permanent link">¶</a></h2>
-<p>To reduce provider load and improve performance, secret values can be cached
-in memory. This is configured via:</p>
-<ul>
-<li><a href="../../../reference/configuration/properties/#dtsecret-managementcacheenabled"><code>dt.secret-management.cache.enabled</code></a></li>
-<li><a href="../../../reference/configuration/properties/#dtsecret-managementcacheexpire-after-write-ms"><code>dt.secret-management.cache.expire-after-write-ms</code></a></li>
-<li><a href="../../../reference/configuration/properties/#dtsecret-managementcachemax-size"><code>dt.secret-management.cache.max-size</code></a></li>
-</ul>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>Caching is applied transparently regardless of which provider is configured.
-When enabled, decrypted secret values are cached for the configured duration.</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Cached secrets are invalidated when they get updated or deleted.
-This only applies to the node that performed the update or deletion.
-Other nodes in the cluster rely on the time-based invalidation.
-Take this into consideration when enabling the cache and configuring
-the <code>expire-after-write-ms</code> option.</p>
-</div>
 
 
 
