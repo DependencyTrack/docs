@@ -1,8 +1,7 @@
 # Configuring secret management
 
 Dependency-Track supports pluggable secret storage providers.
-This guide covers provider selection, encryption key management,
-and caching configuration.
+This guide covers provider selection and encryption key management.
 
 For creating, updating, and deleting secrets in the app,
 see [Managing secrets](../user/managing-secrets.md).
@@ -321,26 +320,6 @@ The provider may be configured using the following properties:
     ```ini linenums="1"
     dt.secret-management.provider=env
     ```
-
-## Caching
-
-To reduce provider load and improve performance, secret values can be cached
-in memory. This is configured via:
-
-* [`dt.secret-management.cache.enabled`](../../reference/configuration/properties.md#dtsecret-managementcacheenabled)
-* [`dt.secret-management.cache.expire-after-write-ms`](../../reference/configuration/properties.md#dtsecret-managementcacheexpire-after-write-ms)
-* [`dt.secret-management.cache.max-size`](../../reference/configuration/properties.md#dtsecret-managementcachemax-size)
-
-!!! info
-    Caching is applied transparently regardless of which provider is configured.
-    When enabled, decrypted secret values are cached for the configured duration.
-
-!!! warning
-    Cached secrets are invalidated when they get updated or deleted.
-    This only applies to the node that performed the update or deletion.
-    Other nodes in the cluster rely on the time-based invalidation.
-    Take this into consideration when enabling the cache and configuring
-    the `expire-after-write-ms` option.
 
 [AES-GCM-256]: https://en.wikipedia.org/wiki/Galois/Counter_Mode
 [AWS secrets manager]: https://aws.amazon.com/secrets-manager/
