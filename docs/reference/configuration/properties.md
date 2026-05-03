@@ -1645,36 +1645,6 @@ Defines the name of the claim that contains the username in the provider's useri
 
 ## Secrets
 
-<span id="dtsecret-managementcacheenabled">**`dt.secret-management.cache.enabled`** <strong style="color: red">*</strong> [¶](#dtsecret-managementcacheenabled){ .headerlink }</span>
-
-Defines whether secret caching should be enabled.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>boolean</code></td></tr>
-<tr><th>Default</th><td><code>false</code></td></tr>
-<tr><th>ENV</th><td><code>DT_SECRET_MANAGEMENT_CACHE_ENABLED</code></td></tr>
-</table>
-
-<span id="dtsecret-managementcacheexpire-after-write-ms">**`dt.secret-management.cache.expire-after-write-ms`** [¶](#dtsecret-managementcacheexpire-after-write-ms){ .headerlink }</span>
-
-Defines the duration in milliseconds for which secrets should be cached.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
-<tr><th>Default</th><td><code>60000</code></td></tr>
-<tr><th>ENV</th><td><code>DT_SECRET_MANAGEMENT_CACHE_EXPIRE_AFTER_WRITE_MS</code></td></tr>
-</table>
-
-<span id="dtsecret-managementcachemax-size">**`dt.secret-management.cache.max-size`** [¶](#dtsecret-managementcachemax-size){ .headerlink }</span>
-
-Defines the maximum number of secrets to keep in the cache.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
-<tr><th>Default</th><td><code>100</code></td></tr>
-<tr><th>ENV</th><td><code>DT_SECRET_MANAGEMENT_CACHE_MAX_SIZE</code></td></tr>
-</table>
-
 <span id="dtsecret-managementdatabasedatasourcename">**`dt.secret-management.database.datasource.name`** [¶](#dtsecret-managementdatabasedatasourcename){ .headerlink }</span>
 
 Defines the name of the data source to be used by the database secret manager.  <br/><br/>  Required when [`dt.secret-management.provider`](#dtsecret-managementprovider) is `database`.  
