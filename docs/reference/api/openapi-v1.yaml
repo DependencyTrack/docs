@@ -10993,6 +10993,7 @@ components:
           - SWID_TAGID
           - VERSION
           - COMPONENT_HASH
+          - IS_INTERNAL
           - CWE
           - VULNERABILITY_ID
           - VERSION_DISTANCE
