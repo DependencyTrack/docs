@@ -1847,12 +1847,11 @@
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">¶</a></h2>
 <p>The package metadata resolution system retrieves metadata for packages from upstream
 repositories. This includes latest available versions, artifact hashes, and publish timestamps.
-The data is used for latest version checks, component age policies, and integrity verification.</p>
-<p>Resolution is orchestrated as a singleton <a href="../durable-execution/">durable workflow</a> that
-processes packages in controlled batches. The data model is documented in
-ADR-015.</p>
+Dependency-Track uses this data for latest version checks, component age policies, and integrity verification.</p>
+<p>A singleton <a href="../durable-execution/">durable workflow</a> orchestrates resolution and
+processes packages in controlled batches. ADR-015 documents the data model.</p>
 <h2 id="responsible-consumption-of-public-infrastructure">Responsible consumption of public infrastructure<a class="headerlink" href="#responsible-consumption-of-public-infrastructure" title="Permanent link">¶</a></h2>
-<p>Package registries like Maven Central, npm, and PyPI are shared public resources.
+<p>Public registries like Maven Central, npm, and PyPI share a finite pool of bandwidth across all consumers.
 Sonatype has documented that <a href="https://www.sonatype.com/blog/beyond-ips-addressing-organizational-overconsumption-in-maven-central">1% of IP addresses account for 83% of Maven Central's total bandwidth</a>,
 and that registries have begun enforcing <a href="https://www.sonatype.com/blog/maven-central-and-the-tragedy-of-the-commons">organization-level throttling</a> in response,
 returning HTTP 429 errors to excessive consumers.</p>
@@ -1860,10 +1859,18 @@ returning HTTP 429 errors to excessive consumers.</p>
 projects, this has direct architectural implications. Making an HTTP request per component on every
 <abbr title="Bill of Materials">BOM</abbr> upload or scheduled analysis cycle is not viable. Neither is spawning hundreds of concurrent
 requests against upstream registries. Both patterns would quickly exhaust rate limits, especially
-in larger deployments where multiple API server instances run concurrently.</p>
-<p>The resolution system is therefore designed around scheduled, controlled processing rather than
-ad-hoc lookups. Components that need metadata resolution are identified in batches, resolved
-sequentially per resolver, and persisted with enough provenance to avoid redundant upstream requests.</p>
+in larger deployments where many API server instances run concurrently.</p>
+<p>The resolution system thus favors scheduled, controlled processing over
+ad-hoc lookups. The system identifies components needing metadata resolution in batches, resolves
+them sequentially per resolver, and persists results with enough provenance to avoid redundant upstream requests.</p>
+<p>Resolvers also issue <a href="https://www.rfc-editor.org/rfc/rfc7232">conditional HTTP requests</a> when refreshing
+data. A small shared cache stores each upstream response body together with its <code>ETag</code> and
+<code>Last-Modified</code> validators. Refreshes after the in-process freshness window send <code>If-None-Match</code>
+(or <code>If-Modified-Since</code>) and most often exchange a small <code>304 Not Modified</code> rather than a full
+metadata document. This cuts upstream bandwidth without changing how often the system contacts the
+registry, and on registries that exempt <code>304</code> responses from rate limiting (notably the GitHub API)
+it also conserves quota. Sonatype's
+<a href="https://www.sonatype.com/blog/open-is-not-costless-reclaiming-sustainable-infrastructure"><em>Open is not costless: reclaiming sustainable infrastructure</em></a> post explains the motivation.</p>
 <h2 id="data-model">Data model<a class="headerlink" href="#data-model" title="Permanent link">¶</a></h2>
 <p>Two tables form a two-level hierarchy, both keyed by <abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr>:</p>
 <ul>
@@ -1882,20 +1889,20 @@ write-order dependency.</p>
 <h3 id="persistence">Persistence<a class="headerlink" href="#persistence" title="Permanent link">¶</a></h3>
 <p>Both tables use <code>COALESCE</code>-based upserts that preserve existing non-null values.
 A temporal guard (<code>WHERE "RESOLVED_AT" &lt; EXCLUDED."RESOLVED_AT"</code>) prevents older results
-from overwriting newer ones. Writes use PostgreSQL <code>UNNEST</code> to batch multiple rows
+from overwriting newer ones. Writes use PostgreSQL <code>UNNEST</code> to batch many rows
 per statement, reducing round trips.</p>
 <h2 id="workflow">Workflow<a class="headerlink" href="#workflow" title="Permanent link">¶</a></h2>
 <p>Package metadata resolution is a singleton <a href="../durable-execution/">durable workflow</a>.</p>
 <h3 id="singleton-constraint">Singleton constraint<a class="headerlink" href="#singleton-constraint" title="Permanent link">¶</a></h3>
 <p>The workflow uses a fixed instance ID (<code>resolve-package-metadata</code>). The durable execution engine enforces
 that only a single execution of a given workflow instance in non-terminal state can exist at
-any point in time. Attempts to create a run while one is already active are silently deduplicated.</p>
+any moment. Attempts to create a run while one is already active are silently deduplicated.</p>
 <p>This guarantees that at most one resolution workflow is active across the entire cluster,
 regardless of how many API server instances are running. Concurrent resolution attempts are
 structurally impossible, which prevents redundant upstream requests and data races during
 persistence.</p>
 <h3 id="triggers">Triggers<a class="headerlink" href="#triggers" title="Permanent link">¶</a></h3>
-<p>The workflow is triggered in three situations:</p>
+<p>Three situations trigger the workflow:</p>
 <table>
 <thead>
 <tr>
@@ -1965,10 +1972,10 @@ handles deduplication.</p>
 <li>no <code>PACKAGE_METADATA</code> record exists for it, or</li>
 <li>the corresponding <code>PACKAGE_METADATA</code> was last resolved over 24 hours ago.</li>
 </ul>
-<p>Candidates are fetched in batches of 250 and grouped by resolver. Each <abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr> is matched
-to the first resolver whose <code>normalize</code> method returns a non-null result. PURLs with no
-matching resolver are grouped under an empty resolver name. The resolve activity persists
-empty results for these so they don't re-appear as candidates in subsequent batches.</p>
+<p>The activity fetches candidates in batches of 250 and groups them by resolver. Each <abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr> maps
+to the first resolver whose <code>normalize</code> method returns a non-null result. The activity groups PURLs with no
+matching resolver under an empty resolver name. The resolve activity persists
+empty results for these so they don't re-appear as candidates in later batches.</p>
 <h3 id="resolution">Resolution<a class="headerlink" href="#resolution" title="Permanent link">¶</a></h3>
 <table>
 <thead>
@@ -1988,16 +1995,16 @@ empty results for these so they don't re-appear as candidates in subsequent batc
 activities run concurrently.</p>
 <p>For each <abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr>, the activity:</p>
 <ol>
-<li>Checks if it was already resolved within the last 5 minutes (idempotency guard for retries).</li>
+<li>Checks if the resolver already produced a result within the last 5 minutes (idempotency guard for retries).</li>
 <li>Normalizes the <abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr> via the resolver factory.</li>
 <li>Looks up configured repositories for the <abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr> type, ordered by resolution priority.</li>
 <li>Iterates repositories, respecting internal/external classification, invoking the resolver
-   until one succeeds or all are exhausted.</li>
+   until one succeeds or none remain.</li>
 <li>Buffers results and flushes to the database in batches of 25.</li>
 </ol>
 <p>If a resolver signals a retryable error (for example, HTTP 429), the activity flushes any buffered
 results and propagates the error. The durable execution engine then retries the activity with backoff.
-Non-retryable errors for individual PURLs are caught and an empty result is persisted,
+The activity catches non-retryable errors for individual PURLs and persists an empty result,
 preventing the <abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr> from becoming a candidate again immediately.</p>
 <h4 id="retry-policy">Retry policy<a class="headerlink" href="#retry-policy" title="Permanent link">¶</a></h4>
 <table>
@@ -2035,13 +2042,13 @@ preventing the <abbr title="Package URL, a standardized format for identifying s
 picks up the next batch. This prevents unbounded history growth: each run's event history
 covers only one batch. Without this, a single run resolving thousands of packages would
 accumulate a large history that degrades replay performance.</p>
-<p>It also creates a natural checkpoint. If the process is interrupted between batches,
+<p>It also creates a natural checkpoint. If the process stops between batches,
 the next run starts with a fresh candidate query, skipping already-resolved PURLs
 based on the <code>RESOLVED_AT</code> timestamps in the database.</p>
-<p>The cycle continues until no more candidates are returned, at which point the workflow
+<p>The cycle continues until no candidates remain, at which point the workflow
 completes normally.</p>
 <h2 id="concurrency-control">Concurrency control<a class="headerlink" href="#concurrency-control" title="Permanent link">¶</a></h2>
-<p>Concurrency is controlled at multiple levels:</p>
+<p>Concurrency control operates at four levels:</p>
 <table>
 <thead>
 <tr>
@@ -2078,8 +2085,8 @@ concurrency interact.</p>
 <h2 id="resolver-extension-point">Resolver extension point<a class="headerlink" href="#resolver-extension-point" title="Permanent link">¶</a></h2>
 <p>Resolvers are pluggable via the plugin system. The API surface consists of two interfaces:</p>
 <ul>
-<li><strong><code>PackageMetadataResolverFactory</code></strong>: Creates resolver instances. Declares whether a repository
-  is required, normalizes PURLs (returning <code>null</code> to signal non-support), and exposes the
+<li><strong><code>PackageMetadataResolverFactory</code></strong>: Creates resolver instances. Declares whether the resolver
+  needs a repository, normalizes PURLs (returning <code>null</code> to signal non-support), and exposes the
   extension name.</li>
 <li><strong><code>PackageMetadataResolver</code></strong>: Given a normalized <abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr> and an optional repository,
   returns <code>PackageMetadata</code> or <code>null</code>.</li>
@@ -2087,16 +2094,22 @@ concurrency interact.</p>
 <p>A single resolver handles a given <abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr> (first match wins based on factory ordering).
 Within that resolver, a single repository provides the result (first success wins based
 on the configured resolution order).</p>
-<p>Resolvers own their caching strategy. The candidate query marks a <abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr> as eligible
-after 24 hours, but a resolver can decide to serve from its own cache and skip the
-upstream request entirely.</p>
+<p>Resolvers route their upstream fetches through a shared HTTP-resource cache that
+handles ETag and Last-Modified revalidation transparently. While an entry stays fresh the
+cache serves the body without contacting the upstream; once stale but still cached,
+the cache sends validators and a <code>304 Not Modified</code> replays the body, while a <code>200 OK</code> replaces
+the entry. The cache negatively caches <code>404</code> and <code>410</code> responses so absent packages do not re-issue
+requests within the freshness window. The cache uses a separate namespace per resolver and pluggable
+between in-memory and database providers via the existing cache provider mechanism.</p>
+<p>The candidate query marks a <abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr> as eligible after 24 hours, but the resolver-side cache
+typically prevents that from translating to a full upstream transfer.</p>
 <h2 id="maintenance">Maintenance<a class="headerlink" href="#maintenance" title="Permanent link">¶</a></h2>
 <p>A scheduled task cleans up orphaned metadata:</p>
 <ol>
 <li>Deletes <code>PACKAGE_ARTIFACT_METADATA</code> rows where no <code>COMPONENT</code> with a matching <abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr> exists.</li>
 <li>Deletes <code>PACKAGE_METADATA</code> rows where no <code>PACKAGE_ARTIFACT_METADATA</code> references them.</li>
 </ol>
-<p>The two-step cascade prevents unbounded table growth as components are removed from the portfolio.
+<p>The two-step cascade prevents unbounded table growth as components leave the portfolio.
 Distributed locking ensures only one node executes cleanup at a time.</p>
 <h2 id="resiliency">Resiliency<a class="headerlink" href="#resiliency" title="Permanent link">¶</a></h2>
 <p>The <a href="../durable-execution/">durable execution</a> engine handles crash recovery and retries
@@ -2104,10 +2117,10 @@ transparently:</p>
 <ul>
 <li>If a node crashes mid-resolution, the workflow resumes from the last completed step on restart.
   Results already flushed to the database are not re-processed, because the 5-minute idempotency
-  window in the activity causes recently resolved PURLs to be skipped.</li>
+  window in the activity causes the activity to skip recently resolved PURLs.</li>
 <li>When resolution fails for a specific resolver even after exhausting retries, the workflow
-  catches the <code>ActivityFailureException</code>, logs the failure, and continues. Results from
-  other resolvers are persisted normally.</li>
+  catches the <code>ActivityFailureException</code>, logs the failure, and continues. The workflow persists
+  results from other resolvers normally.</li>
 <li>On graceful shutdown, the activity checks for thread interruption before each <abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr>,
   flushes buffered results, and propagates the interruption.</li>
 </ul>
