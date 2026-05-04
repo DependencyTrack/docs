@@ -105,91 +105,91 @@ Controls the content of the `Access-Control-Max-Age` response header.  <br/>  Ha
 
 <span id="dtcachepackage-metadata-resolvercargoresponsesttl-ms">**`dt.cache."package-metadata-resolver.cargo.responses".ttl-ms`** [¶](#dtcachepackage-metadata-resolvercargoresponsesttl-ms){ .headerlink }</span>
 
-Defines the TTL in milliseconds for Cargo package metadata resolver response cache entries.  
+Defines the TTL in milliseconds for the Cargo package metadata resolver's HTTP response cache.  Entries hold response bodies along with their ETag and Last-Modified validators  so that refreshes after the freshness window can revalidate via 304.  Must exceed the freshness window (12h) for conditional requests to fire.  
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
-<tr><th>Default</th><td><code>7200000</code></td></tr>
+<tr><th>Default</th><td><code>604800000</code></td></tr>
 <tr><th>ENV</th><td><code>DT_CACHE__PACKAGE_METADATA_RESOLVER_CARGO_RESPONSES__TTL_MS</code></td></tr>
 </table>
 
 <span id="dtcachepackage-metadata-resolvercomposerresponsesttl-ms">**`dt.cache."package-metadata-resolver.composer.responses".ttl-ms`** [¶](#dtcachepackage-metadata-resolvercomposerresponsesttl-ms){ .headerlink }</span>
 
-Defines the TTL in milliseconds for Composer package metadata resolver response cache entries.  
+Defines the TTL in milliseconds for the Composer package metadata resolver's HTTP response cache.  Entries hold response bodies along with their ETag and Last-Modified validators  so that refreshes after the freshness window can revalidate via 304.  Must exceed the freshness window (12h) for conditional requests to fire.  
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
-<tr><th>Default</th><td><code>7200000</code></td></tr>
+<tr><th>Default</th><td><code>604800000</code></td></tr>
 <tr><th>ENV</th><td><code>DT_CACHE__PACKAGE_METADATA_RESOLVER_COMPOSER_RESPONSES__TTL_MS</code></td></tr>
 </table>
 
 <span id="dtcachepackage-metadata-resolvercpanresponsesttl-ms">**`dt.cache."package-metadata-resolver.cpan.responses".ttl-ms`** [¶](#dtcachepackage-metadata-resolvercpanresponsesttl-ms){ .headerlink }</span>
 
-Defines the TTL in milliseconds for CPAN package metadata resolver response cache entries.  
+Defines the TTL in milliseconds for the CPAN package metadata resolver's HTTP response cache.  Entries hold response bodies along with their ETag and Last-Modified validators  so that refreshes after the freshness window can revalidate via 304.  Must exceed the freshness window (12h) for conditional requests to fire.  
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
-<tr><th>Default</th><td><code>14400000</code></td></tr>
+<tr><th>Default</th><td><code>604800000</code></td></tr>
 <tr><th>ENV</th><td><code>DT_CACHE__PACKAGE_METADATA_RESOLVER_CPAN_RESPONSES__TTL_MS</code></td></tr>
 </table>
 
 <span id="dtcachepackage-metadata-resolvergemresponsesttl-ms">**`dt.cache."package-metadata-resolver.gem.responses".ttl-ms`** [¶](#dtcachepackage-metadata-resolvergemresponsesttl-ms){ .headerlink }</span>
 
-Defines the TTL in milliseconds for RubyGems package metadata resolver response cache entries.  
+Defines the TTL in milliseconds for the RubyGems package metadata resolver's HTTP response cache.  Entries hold response bodies along with their ETag and Last-Modified validators  so that refreshes after the freshness window can revalidate via 304.  Must exceed the freshness window (12h) for conditional requests to fire.  
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
-<tr><th>Default</th><td><code>7200000</code></td></tr>
+<tr><th>Default</th><td><code>604800000</code></td></tr>
 <tr><th>ENV</th><td><code>DT_CACHE__PACKAGE_METADATA_RESOLVER_GEM_RESPONSES__TTL_MS</code></td></tr>
 </table>
 
 <span id="dtcachepackage-metadata-resolvergithubresponsesttl-ms">**`dt.cache."package-metadata-resolver.github.responses".ttl-ms`** [¶](#dtcachepackage-metadata-resolvergithubresponsesttl-ms){ .headerlink }</span>
 
-Defines the TTL in milliseconds for GitHub package metadata resolver response cache entries.  
+Defines the TTL in milliseconds for the GitHub package metadata resolver's HTTP response cache.  Entries hold response bodies along with their ETag and Last-Modified validators  so that refreshes after the freshness window can revalidate via 304.  Must exceed the freshness window (12h) for conditional requests to fire.  
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
-<tr><th>Default</th><td><code>3600000</code></td></tr>
+<tr><th>Default</th><td><code>604800000</code></td></tr>
 <tr><th>ENV</th><td><code>DT_CACHE__PACKAGE_METADATA_RESOLVER_GITHUB_RESPONSES__TTL_MS</code></td></tr>
 </table>
 
 <span id="dtcachepackage-metadata-resolvergomodulesresponsesttl-ms">**`dt.cache."package-metadata-resolver.gomodules.responses".ttl-ms`** [¶](#dtcachepackage-metadata-resolvergomodulesresponsesttl-ms){ .headerlink }</span>
 
-Defines the TTL in milliseconds for Go Modules package metadata resolver response cache entries.  
+Defines the TTL in milliseconds for the Go modules package metadata resolver's HTTP response cache.  Entries hold response bodies along with their ETag and Last-Modified validators  so that refreshes after the freshness window can revalidate via 304.  Must exceed the freshness window (12h) for conditional requests to fire.  
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
-<tr><th>Default</th><td><code>14400000</code></td></tr>
+<tr><th>Default</th><td><code>604800000</code></td></tr>
 <tr><th>ENV</th><td><code>DT_CACHE__PACKAGE_METADATA_RESOLVER_GOMODULES_RESPONSES__TTL_MS</code></td></tr>
 </table>
 
 <span id="dtcachepackage-metadata-resolverhackageresponsesttl-ms">**`dt.cache."package-metadata-resolver.hackage.responses".ttl-ms`** [¶](#dtcachepackage-metadata-resolverhackageresponsesttl-ms){ .headerlink }</span>
 
-Defines the TTL in milliseconds for Hackage package metadata resolver response cache entries.  
+Defines the TTL in milliseconds for the Hackage package metadata resolver's HTTP response cache.  Entries hold response bodies along with their ETag and Last-Modified validators  so that refreshes after the freshness window can revalidate via 304.  Must exceed the freshness window (12h) for conditional requests to fire.  
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
-<tr><th>Default</th><td><code>14400000</code></td></tr>
+<tr><th>Default</th><td><code>604800000</code></td></tr>
 <tr><th>ENV</th><td><code>DT_CACHE__PACKAGE_METADATA_RESOLVER_HACKAGE_RESPONSES__TTL_MS</code></td></tr>
 </table>
 
 <span id="dtcachepackage-metadata-resolverhexresponsesttl-ms">**`dt.cache."package-metadata-resolver.hex.responses".ttl-ms`** [¶](#dtcachepackage-metadata-resolverhexresponsesttl-ms){ .headerlink }</span>
 
-Defines the TTL in milliseconds for Hex package metadata resolver response cache entries.  
+Defines the TTL in milliseconds for the Hex package metadata resolver's HTTP response cache.  Entries hold response bodies along with their ETag and Last-Modified validators  so that refreshes after the freshness window can revalidate via 304.  Must exceed the freshness window (12h) for conditional requests to fire.  
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
-<tr><th>Default</th><td><code>7200000</code></td></tr>
+<tr><th>Default</th><td><code>604800000</code></td></tr>
 <tr><th>ENV</th><td><code>DT_CACHE__PACKAGE_METADATA_RESOLVER_HEX_RESPONSES__TTL_MS</code></td></tr>
 </table>
 
 <span id="dtcachepackage-metadata-resolvermavenresponsesttl-ms">**`dt.cache."package-metadata-resolver.maven.responses".ttl-ms`** [¶](#dtcachepackage-metadata-resolvermavenresponsesttl-ms){ .headerlink }</span>
 
-Defines the TTL in milliseconds for Maven package metadata resolver response cache entries.  
+Defines the TTL in milliseconds for the Maven package metadata resolver's HTTP response cache.  Entries hold response bodies along with their ETag and Last-Modified validators  so that refreshes after the freshness window can revalidate via 304.  Must exceed the freshness window (12h) for conditional requests to fire.  
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
-<tr><th>Default</th><td><code>14400000</code></td></tr>
+<tr><th>Default</th><td><code>604800000</code></td></tr>
 <tr><th>ENV</th><td><code>DT_CACHE__PACKAGE_METADATA_RESOLVER_MAVEN_RESPONSES__TTL_MS</code></td></tr>
 </table>
 
@@ -205,31 +205,31 @@ Defines the TTL in milliseconds for Nixpkgs package metadata resolver response c
 
 <span id="dtcachepackage-metadata-resolvernpmresponsesttl-ms">**`dt.cache."package-metadata-resolver.npm.responses".ttl-ms`** [¶](#dtcachepackage-metadata-resolvernpmresponsesttl-ms){ .headerlink }</span>
 
-Defines the TTL in milliseconds for npm package metadata resolver response cache entries.  
+Defines the TTL in milliseconds for the npm package metadata resolver's HTTP response cache.  Entries hold response bodies along with their ETag and Last-Modified validators  so that refreshes after the freshness window can revalidate via 304.  Must exceed the freshness window (12h) for conditional requests to fire.  
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
-<tr><th>Default</th><td><code>3600000</code></td></tr>
+<tr><th>Default</th><td><code>604800000</code></td></tr>
 <tr><th>ENV</th><td><code>DT_CACHE__PACKAGE_METADATA_RESOLVER_NPM_RESPONSES__TTL_MS</code></td></tr>
 </table>
 
 <span id="dtcachepackage-metadata-resolvernugetresponsesttl-ms">**`dt.cache."package-metadata-resolver.nuget.responses".ttl-ms`** [¶](#dtcachepackage-metadata-resolvernugetresponsesttl-ms){ .headerlink }</span>
 
-Defines the TTL in milliseconds for NuGet package metadata resolver response cache entries.  
+Defines the TTL in milliseconds for the NuGet package metadata resolver's HTTP response cache.  Entries hold response bodies along with their ETag and Last-Modified validators  so that refreshes after the freshness window can revalidate via 304.  Must exceed the freshness window (12h) for conditional requests to fire.  
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
-<tr><th>Default</th><td><code>14400000</code></td></tr>
+<tr><th>Default</th><td><code>604800000</code></td></tr>
 <tr><th>ENV</th><td><code>DT_CACHE__PACKAGE_METADATA_RESOLVER_NUGET_RESPONSES__TTL_MS</code></td></tr>
 </table>
 
 <span id="dtcachepackage-metadata-resolverpypiresponsesttl-ms">**`dt.cache."package-metadata-resolver.pypi.responses".ttl-ms`** [¶](#dtcachepackage-metadata-resolverpypiresponsesttl-ms){ .headerlink }</span>
 
-Defines the TTL in milliseconds for PyPI package metadata resolver response cache entries.  
+Defines the TTL in milliseconds for the PyPI package metadata resolver's HTTP response cache.  Entries hold response bodies along with their ETag and Last-Modified validators  so that refreshes after the freshness window can revalidate via 304.  Must exceed the freshness window (12h) for conditional requests to fire.  
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
-<tr><th>Default</th><td><code>7200000</code></td></tr>
+<tr><th>Default</th><td><code>604800000</code></td></tr>
 <tr><th>ENV</th><td><code>DT_CACHE__PACKAGE_METADATA_RESOLVER_PYPI_RESPONSES__TTL_MS</code></td></tr>
 </table>
 
@@ -239,7 +239,7 @@ Defines the TTL in milliseconds for OSS Index result cache entries.
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
-<tr><th>Default</th><td><code>43200000</code></td></tr>
+<tr><th>Default</th><td><code>86400000</code></td></tr>
 <tr><th>ENV</th><td><code>DT_CACHE__VULN_ANALYZER_OSS_INDEX_RESULTS__TTL_MS</code></td></tr>
 </table>
 
