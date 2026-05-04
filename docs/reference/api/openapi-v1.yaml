@@ -1905,6 +1905,16 @@ paths:
         name: cvssv3To
         schema:
           type: string
+      - description: Filter CVSSv4 from this value
+        in: query
+        name: cvssv4From
+        schema:
+          type: string
+      - description: Filter CVSSv4 to this value
+        in: query
+        name: cvssv4To
+        schema:
+          type: string
       - description: Filter EPSS from this value
         in: query
         name: epssFrom
@@ -2038,6 +2048,16 @@ paths:
       - description: Filter CVSSv3 to this value
         in: query
         name: cvssv3To
+        schema:
+          type: string
+      - description: Filter CVSSv4 from this value
+        in: query
+        name: cvssv4From
+        schema:
+          type: string
+      - description: Filter CVSSv4 to this value
+        in: query
+        name: cvssv4To
         schema:
           type: string
       - description: Filter EPSS from this value
