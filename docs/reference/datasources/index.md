@@ -3,7 +3,7 @@
 Vulnerability datasources are the upstream feeds from which Dependency-Track populates
 its internal vulnerability database. The [internal analyzer](../analyzers.md#internal)
 queries this local database when evaluating components, so no external call is made at
-analysis time—only during mirroring.
+analysis time, only during mirroring.
 
 Mirroring runs on a configurable schedule (daily by default) and on instance startup.
 Progress and errors are reported via the `DATASOURCE_MIRRORING`

@@ -36,7 +36,7 @@ Always use `make` targets for building, serving, and linting. Do not run `docker
 Run the relevant linter after modifying files:
 
 - **Markdown files** (`docs/**/*.md`, `context/**/*.md`): `make lint-markdown`
-- **Prose quality** (`docs/**/*.md`): `make lint-prose`
+- **Prose quality** (`docs/**/*.md`): `make lint-prose`. For fast local iteration on a feature branch, `make lint-prose-changed` lints only files changed vs. the branch's upstream. Scope a full-tree run with `VALE_PATHS=...`; surface lower-severity hints with `VALE_MIN_LEVEL=suggestion`.
 - **YAML files** (`mkdocs.yml`, `.github/**/*.yml`, etc.): `make lint-yaml`
 - **Python files** (`scripts/**/*.py`): `make lint-python`
 - **All at once**: `make lint`

@@ -25,7 +25,7 @@ Two matching modes are available:
 Patterns are matched against the component's PURL namespace and name fields.
 
 !!! note
-    By default, no components are identified as internal—all components are treated
+    By default, no components are identified as internal. All components are treated
     as third-party and may be sent to configured external analyzers.
 
 ## Effects of Being Marked Internal

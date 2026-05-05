@@ -36,11 +36,12 @@ Navigation is managed via `.pages` files in each section directory.
 ## Linting
 
 ```sh
-make lint              # Run all linters
-make lint-markdown     # Markdown (markdownlint)
-make lint-prose        # Prose quality (Vale)
-make lint-yaml         # YAML (yamllint)
-make lint-python       # Python (Ruff)
+make lint                  # Run all linters
+make lint-markdown         # Markdown (markdownlint)
+make lint-prose            # Prose quality (Vale, full docs/ tree)
+make lint-prose-changed    # Vale, only files changed vs. the upstream branch
+make lint-yaml             # YAML (yamllint)
+make lint-python           # Python (Ruff)
 ```
 
 Linters run in Docker, except for Python which uses [Ruff](https://docs.astral.sh/ruff/) via `uvx`. Fix all errors before submitting changes.
