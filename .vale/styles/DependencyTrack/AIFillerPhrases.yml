@@ -17,7 +17,7 @@
 extends: existence
 message: "Avoid filler phrase '%s'. Be direct."
 ignorecase: true
-level: warning
+level: error
 tokens:
 - it is important to note
 - it is worth noting

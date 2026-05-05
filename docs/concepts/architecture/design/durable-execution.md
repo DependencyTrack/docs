@@ -272,8 +272,8 @@ has expired.
 Nodes that fail to attempt lease acquisition, for example due to timeouts,
 will assume their lease to be *lost*. This is to prevent the likelihood
 of [split-brain](https://en.wikipedia.org/wiki/Split-brain_(computing)).
-It should be noted though that the worst symptom of split-brain for the engine
-is an increase is potentially expensive operations. Correctness is not affected.
+For the engine, the worst symptom of split-brain is an increase in
+potentially expensive operations. Correctness is not affected.
 
 During graceful shutdown, nodes simply release their leadership lease:
 
@@ -333,7 +333,7 @@ processed in creation order.
 ### Task processing
 
 !!! note
-    The engine leverages Java's [virtual threads] for task execution, enabling high degrees
+    The engine uses Java's [virtual threads] for task execution, enabling high degrees
     of concurrency while maintaining a slim resource footprint.
 
 #### Workflow tasks
@@ -446,7 +446,7 @@ the engine has to assume that the action itself has never happened. No mechanism
 This is one reason why actions should be [idempotent], making them safe to execute multiple times.
 The engine takes advantage of this inherent risk, and utilises buffering in exactly that time window.
 
-When flushing buffers, the engine leverages
+When flushing buffers, the engine applies
 [Postgres-specific optimizations](https://www.tigerdata.com/blog/boosting-postgres-insert-performance)
 to further reduce the amount of time spent *in the database*.
 
@@ -534,7 +534,7 @@ Instead, the engine entirely relies on polling.
 
 ### Protobuf Serialization
 
-Workflow events, as well as workflow and activity arguments and results, leverage Protobuf for serialization.
+Workflow events, as well as workflow and activity arguments and results, use Protobuf for serialization.
 Protobuf is fast and efficient, and serialized messages are smaller than their JSON counterparts.
 
 The tooling around Protobuf is excellent. With [`buf`](https://buf.build/), we have linting and breaking

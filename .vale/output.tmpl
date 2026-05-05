@@ -1,0 +1,16 @@
+{{- range .Files -}}
+{{- $path := .Path -}}
+{{- if .Alerts }}
+{{ $path }}
+{{ range .Alerts -}}
+{{- if eq .Severity "error"      }}  error  {{ end -}}
+{{- if eq .Severity "warning"    }}  warn   {{ end -}}
+{{- if eq .Severity "suggestion" }}  sugg   {{ end -}}
+{{ printf "%s:%d:%d  [%s]  %s" $path .Line (index .Span 0) .Check .Message }}
+{{ end }}
+{{- end -}}
+{{- end }}
+{{ .LintedTotal }} file(s) linted.
+
+Suppress a rule inline:  <!-- vale RuleName = NO --> ... <!-- vale RuleName = YES -->
+Scope a rule by path:    edit .vale.ini (see the [docs/tutorials/*.md] block)

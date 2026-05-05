@@ -2,7 +2,7 @@
 
 The [GitHub Advisory Database](https://github.com/advisories) (GHSA) contains
 security advisories for open source packages hosted on GitHub and other ecosystems.
-Advisories may or may not overlap with NVD CVE records—GitHub often publishes
+Advisories may or may not overlap with NVD CVE records. GitHub often publishes
 advisories for vulnerabilities that are not yet in the NVD, or with more ecosystem-
 specific detail.
 
@@ -36,5 +36,5 @@ GitHub Advisory mirroring is configured in the administration UI under
 | GitHub Personal Access Token | Required. A GitHub PAT with no scopes assigned is sufficient. Without a token, the GraphQL API rejects requests. |
 
 To create a token, visit [github.com/settings/tokens](https://github.com/settings/tokens)
-and generate a classic or fine-grained token. No scopes are required—the public
+and generate a classic or fine-grained token. No scopes are required; the public
 advisory data is accessible to any authenticated user.

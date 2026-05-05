@@ -4,7 +4,7 @@ Dependency-Track's configuration system is based on [MicroProfile Config],
 enabling it to support multiple [sources](#sources).
 
 !!! tip
-    A comprehensive list of supported config properties can be found in
+    The full list of supported config properties can be found in
     the [configuration reference](properties.md).
 
 ## Sources
@@ -59,7 +59,9 @@ separated by hyphens (`-`) and periods (`.`). For example:
 foo.BAR-baz=123
 ```
 
+<!-- vale DependencyTrack.AIBuzzwords = NO -->
 Environment variables commonly only support alphanumeric characters and underscores (`_`).
+<!-- vale DependencyTrack.AIBuzzwords = YES -->
 To bridge this gap, Dependency-Track will use the following matching strategies,
 as [defined](https://download.eclipse.org/microprofile/microprofile-config-3.1/microprofile-config-spec-3.1.html#default_configsources.env.mapping)
 by [MicroProfile Config]:

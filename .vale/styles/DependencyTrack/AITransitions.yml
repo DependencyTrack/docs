@@ -17,7 +17,7 @@
 extends: existence
 message: "Avoid weak transition '%s' at the start of a sentence. Restructure or remove."
 ignorecase: false
-level: warning
+level: error
 scope: sentence
 tokens:
 - Additionally

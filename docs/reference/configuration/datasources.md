@@ -13,8 +13,8 @@ dt.datasource.<name>.<property>=<value>
 For available properties, and their environment variable equivalents, refer to the [configuration reference].
 
 !!! tip
-    When `<name>` is omitted, `default` is assumed.
-    This means that `dt.datasource.url` and `dt.datasource.default.url` are treated equally.
+    When `<name>` is omitted, `default` is assumed, so
+    `dt.datasource.url` and `dt.datasource.default.url` are treated equally.
 
 The `default` data source is *required*. It serves the REST API
 and the vast majority of background processing.

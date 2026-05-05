@@ -47,7 +47,7 @@ See for example:
 * [Using PostgreSQL with Red Hat Enterprise Linux](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/html/configuring_and_using_database_servers/using-postgresql_configuring-and-using-database-servers)
 
 To get the most out of your Dependency-Track installation, we recommend to run PostgreSQL on a separate machine
-than the application containers. You want PostgreSQL to be able to leverage the entire machine's resources,
+than the application containers. You want PostgreSQL to be able to use the entire machine's resources,
 without being impacted by other applications.
 
 For smaller and non-critical deployments, it is totally fine to run everything on a single machine.
@@ -160,7 +160,7 @@ ALTER SYSTEM SET (WAL_COMPRESSION = 'zstd');
 ## Centralised connection pooling
 
 For large deployments (that is, upwards of 5 instances), it can become undesirable for
-each instance to maintain its own connection pool. In this case, you can leverage
+each instance to maintain its own connection pool. In this case, you can use
 centralised connection pools such as [PgBouncer].
 
 !!! warning

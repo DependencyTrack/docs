@@ -17,7 +17,7 @@
 extends: existence
 message: "Avoid overused term '%s'. Use a more specific word."
 ignorecase: true
-level: warning
+level: error
 tokens:
 - leverage
 - leveraging
