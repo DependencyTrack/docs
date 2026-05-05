@@ -2528,8 +2528,8 @@ has expired.</p>
 <p>Nodes that fail to attempt lease acquisition, for example due to timeouts,
 will assume their lease to be <em>lost</em>. This is to prevent the likelihood
 of <a href="https://en.wikipedia.org/wiki/Split-brain_(computing)">split-brain</a>.
-It should be noted though that the worst symptom of split-brain for the engine
-is an increase is potentially expensive operations. Correctness is not affected.</p>
+For the engine, the worst symptom of split-brain is an increase in
+potentially expensive operations. Correctness is not affected.</p>
 <p>During graceful shutdown, nodes simply release their leadership lease:</p>
 <div class="highlight"><pre><span></span><code><span class="k">delete</span>
 <span class="w">  </span><span class="k">from</span><span class="w"> </span><span class="n">dex_lease</span>
@@ -2574,7 +2574,7 @@ processed in creation order.</p>
 <h3 id="task-processing">Task processing<a class="headerlink" href="#task-processing" title="Permanent link">¶</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The engine leverages Java's <a href="https://docs.oracle.com/en/java/javase/25/core/virtual-threads.html">virtual threads</a> for task execution, enabling high degrees
+<p>The engine uses Java's <a href="https://docs.oracle.com/en/java/javase/25/core/virtual-threads.html">virtual threads</a> for task execution, enabling high degrees
 of concurrency while maintaining a slim resource footprint.</p>
 </div>
 <h4 id="workflow-tasks">Workflow tasks<a class="headerlink" href="#workflow-tasks" title="Permanent link">¶</a></h4>
@@ -2664,7 +2664,7 @@ been <em>recorded</em> (for example, by writing it to a database). If recording 
 the engine has to assume that the action itself has never happened. No mechanism exists to make this atomic.
 This is one reason why actions should be <a href="https://en.wikipedia.org/wiki/Idempotence#Computer_science_meaning">idempotent</a>, making them safe to execute multiple times.
 The engine takes advantage of this inherent risk, and utilises buffering in exactly that time window.</p>
-<p>When flushing buffers, the engine leverages
+<p>When flushing buffers, the engine applies
 <a href="https://www.tigerdata.com/blog/boosting-postgres-insert-performance">Postgres-specific optimizations</a>
 to further reduce the amount of time spent <em>in the database</em>.</p>
 <div class="admonition note">
@@ -2765,7 +2765,7 @@ feature to reduce latencies, for example by emitting a notification whenever a n
 </ul>
 <p>Instead, the engine entirely relies on polling.</p>
 <h3 id="protobuf-serialization">Protobuf Serialization<a class="headerlink" href="#protobuf-serialization" title="Permanent link">¶</a></h3>
-<p>Workflow events, as well as workflow and activity arguments and results, leverage Protobuf for serialization.
+<p>Workflow events, as well as workflow and activity arguments and results, use Protobuf for serialization.
 Protobuf is fast and efficient, and serialized messages are smaller than their JSON counterparts.</p>
 <p>The tooling around Protobuf is excellent. With <a href="https://buf.build/"><code>buf</code></a>, we have linting and breaking
 change detection covered.</p>

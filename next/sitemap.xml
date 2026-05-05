@@ -2,322 +2,322 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://dependencytrack.github.io/docs/next/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/blog/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/concepts/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/concepts/access-control/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/concepts/changes-in-v5/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/concepts/component-policies/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/concepts/notifications/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/concepts/time-series-metrics/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/concepts/vulnerability-policies/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/concepts/architecture/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/concepts/architecture/deployment/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/concepts/architecture/design/durable-execution/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/concepts/architecture/design/notifications/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/concepts/architecture/design/package-metadata-resolution/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/concepts/architecture/design/vulnerability-analysis/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/guides/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/guides/administration/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/guides/administration/backing-up/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/guides/administration/configuring-database/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/guides/administration/configuring-http-proxy/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/guides/administration/configuring-internal-ca/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/guides/administration/configuring-ldap/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/guides/administration/configuring-observability/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/guides/administration/configuring-oidc/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/guides/administration/configuring-secret-management/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/guides/administration/debugging-notifications/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/guides/administration/deploying-to-production/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/guides/administration/managing-notification-templates/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/guides/administration/migrating-from-v4/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/guides/administration/scaling/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/guides/administration/upgrading-instances/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/guides/upgrading/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/guides/upgrading/v0.6.0/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/guides/upgrading/v0.7.0-alpha.3/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/guides/upgrading/v0.7.0-alpha.4/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/guides/upgrading/v0.7.0-alpha.5/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/guides/user/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/guides/user/configuring-notifications/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/guides/user/managing-component-policies/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/guides/user/managing-private-vulnerabilities/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/guides/user/managing-secrets/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/guides/user/managing-vulnerability-policies/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/guides/user/triaging-policy-violations/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/includes/abbreviations/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/reference/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/reference/analyzers/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/reference/badges/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/reference/cel-expressions/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/reference/community-integrations/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/reference/file-formats/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/reference/permissions/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/reference/api/v1/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/reference/api/v2/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/reference/configuration/application/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/reference/configuration/database/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/reference/configuration/datasources/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/reference/configuration/dex-engine/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/reference/configuration/file-storage/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/reference/configuration/properties/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/reference/datasources/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/reference/datasources/github-advisories/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/reference/datasources/internal-components/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/reference/datasources/nvd/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/reference/datasources/osv/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/reference/datasources/private-vulnerability-repository/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/reference/datasources/repositories/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/reference/notifications/filter-expressions/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/reference/notifications/groups/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/reference/notifications/publishers/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/reference/notifications/templating/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/reference/policies/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/reference/policies/component-policies/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/reference/policies/condition-expressions/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/reference/policies/vulnerability-policies/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/reference/schemas/notification/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/reference/schemas/policy/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/tutorials/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/tutorials/creating-a-component-policy/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/tutorials/quickstart/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/tutorials/setting-up-notifications/</loc>
-         <lastmod>2026-05-04</lastmod>
+         <lastmod>2026-05-05</lastmod>
     </url>
 </urlset>
