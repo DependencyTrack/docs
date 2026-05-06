@@ -298,126 +298,13 @@ Defines the interval in milliseconds in which the database  cache provider perfo
 
 ## Database
 
-<span id="dtdatabasepassword">**`dt.database.password`** [¶](#dtdatabasepassword){ .headerlink }</span>
-
-Specifies the password to use when authenticating to the database.  
-
-
-!!! warning "Deprecated"
-    Since 5.7.0. Use [`dt.datasource.password`](#dtdatasourcepassword) instead.
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
-<tr><th>Default</th><td><code>dtrack</code></td></tr>
-<tr><th>ENV</th><td><code>DT_DATABASE_PASSWORD</code></td></tr>
-</table>
-
-<span id="dtdatabasepoolenabled">**`dt.database.pool.enabled`** [¶](#dtdatabasepoolenabled){ .headerlink }</span>
-
-Specifies if the database connection pool is enabled.  
-
-
-!!! warning "Deprecated"
-    Since 5.7.0. Use [`dt.datasource.pool.enabled`](#dtdatasourcepoolenabled) instead.
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>boolean</code></td></tr>
-<tr><th>Default</th><td><code>true</code></td></tr>
-<tr><th>ENV</th><td><code>DT_DATABASE_POOL_ENABLED</code></td></tr>
-</table>
-
-<span id="dtdatabasepoolidletimeout">**`dt.database.pool.idle.timeout`** [¶](#dtdatabasepoolidletimeout){ .headerlink }</span>
-
-This property controls the maximum amount of time that a connection is  allowed to sit idle in the pool.  
-
-
-!!! warning "Deprecated"
-    Since 5.7.0. Use [`dt.datasource.pool.idle-timeout-ms`](#dtdatasourcepoolidle-timeout-ms) instead.
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
-<tr><th>Default</th><td><code>300000</code></td></tr>
-<tr><th>ENV</th><td><code>DT_DATABASE_POOL_IDLE_TIMEOUT</code></td></tr>
-</table>
-
-<span id="dtdatabasepoolmaxlifetime">**`dt.database.pool.max.lifetime`** [¶](#dtdatabasepoolmaxlifetime){ .headerlink }</span>
-
-This property controls the maximum lifetime of a connection in the pool.  An in-use connection will never be retired, only when it is closed will  it then be removed.  
-
-
-!!! warning "Deprecated"
-    Since 5.7.0. Use [`dt.datasource.pool.max-lifetime-ms`](#dtdatasourcepoolmax-lifetime-ms) instead.
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
-<tr><th>Default</th><td><code>600000</code></td></tr>
-<tr><th>ENV</th><td><code>DT_DATABASE_POOL_MAX_LIFETIME</code></td></tr>
-</table>
-
-<span id="dtdatabasepoolmaxsize">**`dt.database.pool.max.size`** [¶](#dtdatabasepoolmaxsize){ .headerlink }</span>
-
-This property controls the maximum size that the pool is allowed to reach,  including both idle and in-use connections.  
-
-
-!!! warning "Deprecated"
-    Since 5.7.0. Use [`dt.datasource.pool.max-size`](#dtdatasourcepoolmax-size) instead.
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
-<tr><th>Default</th><td><code>30</code></td></tr>
-<tr><th>ENV</th><td><code>DT_DATABASE_POOL_MAX_SIZE</code></td></tr>
-</table>
-
-<span id="dtdatabasepoolminidle">**`dt.database.pool.min.idle`** [¶](#dtdatabasepoolminidle){ .headerlink }</span>
-
-This property controls the minimum number of idle connections in the pool.  This value should be equal to or less than [`dt.database.pool.max.size`](#dtdatabasepoolmaxsize).  Warning: If the value is less than [`dt.database.pool.max.size`](#dtdatabasepoolmaxsize),  [`dt.database.pool.idle.timeout`](#dtdatabasepoolidletimeout) will have no effect.  
-
-
-!!! warning "Deprecated"
-    Since 5.7.0. Use [`dt.datasource.pool.min-idle`](#dtdatasourcepoolmin-idle) instead.
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
-<tr><th>Default</th><td><code>15</code></td></tr>
-<tr><th>ENV</th><td><code>DT_DATABASE_POOL_MIN_IDLE</code></td></tr>
-</table>
-
-<span id="dtdatabaseurl">**`dt.database.url`** [¶](#dtdatabaseurl){ .headerlink }</span>
-
-Specifies the JDBC URL to use when connecting to the database.  For best performance, set the `reWriteBatchedInserts` query parameter to `true`.  
-
-
-!!! warning "Deprecated"
-    Since 5.7.0. Use [`dt.datasource.url`](#dtdatasourceurl) instead.
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
-<tr><th>Default</th><td><code>null</code></td></tr>
-<tr><th>Example</th><td><code>jdbc:postgresql://localhost:5432/dtrack?reWriteBatchedInserts=true</code></td></tr>
-<tr><th>ENV</th><td><code>DT_DATABASE_URL</code></td></tr>
-</table>
-
-<span id="dtdatabaseusername">**`dt.database.username`** [¶](#dtdatabaseusername){ .headerlink }</span>
-
-Specifies the username to use when authenticating to the database.  
-
-
-!!! warning "Deprecated"
-    Since 5.7.0. Use [`dt.datasource.username`](#dtdatasourceusername) instead.
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
-<tr><th>Default</th><td><code>dtrack</code></td></tr>
-<tr><th>ENV</th><td><code>DT_DATABASE_USERNAME</code></td></tr>
-</table>
-
 <span id="dtdatasourcepassword">**`dt.datasource.password`** [¶](#dtdatasourcepassword){ .headerlink }</span>
 
 Defines the password to use for the default data source.  
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
-<tr><th>Default</th><td><code>${dt.database.password}</code></td></tr>
+<tr><th>Default</th><td><code>dtrack</code></td></tr>
 <tr><th>ENV</th><td><code>DT_DATASOURCE_PASSWORD</code></td></tr>
 </table>
 
@@ -427,7 +314,7 @@ Defines whether connection pooling is enabled for the default data source.
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>boolean</code></td></tr>
-<tr><th>Default</th><td><code>${dt.database.pool.enabled}</code></td></tr>
+<tr><th>Default</th><td><code>true</code></td></tr>
 <tr><th>ENV</th><td><code>DT_DATASOURCE_POOL_ENABLED</code></td></tr>
 </table>
 
@@ -437,7 +324,7 @@ Defines the maximum time in milliseconds that a connection is allowed to sit idl
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
-<tr><th>Default</th><td><code>${dt.database.pool.idle.timeout}</code></td></tr>
+<tr><th>Default</th><td><code>300000</code></td></tr>
 <tr><th>ENV</th><td><code>DT_DATASOURCE_POOL_IDLE_TIMEOUT_MS</code></td></tr>
 </table>
 
@@ -447,7 +334,7 @@ Defines the maximum time in milliseconds for which connections should be kept in
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
-<tr><th>Default</th><td><code>${dt.database.pool.max.lifetime}</code></td></tr>
+<tr><th>Default</th><td><code>600000</code></td></tr>
 <tr><th>ENV</th><td><code>DT_DATASOURCE_POOL_MAX_LIFETIME_MS</code></td></tr>
 </table>
 
@@ -457,7 +344,7 @@ Defines the maximum size of the connection pool for the default data source.  Re
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
-<tr><th>Default</th><td><code>${dt.database.pool.max.size}</code></td></tr>
+<tr><th>Default</th><td><code>30</code></td></tr>
 <tr><th>ENV</th><td><code>DT_DATASOURCE_POOL_MAX_SIZE</code></td></tr>
 </table>
 
@@ -467,7 +354,7 @@ Defines the minimum number of idle connections in the pool for the default data 
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
-<tr><th>Default</th><td><code>${dt.database.pool.min.idle}</code></td></tr>
+<tr><th>Default</th><td><code>15</code></td></tr>
 <tr><th>ENV</th><td><code>DT_DATASOURCE_POOL_MIN_IDLE</code></td></tr>
 </table>
 
@@ -477,7 +364,7 @@ Defines the JDBC URL to use for the default data source.
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
-<tr><th>Default</th><td><code>${dt.database.url}</code></td></tr>
+<tr><th>Default</th><td><code>null</code></td></tr>
 <tr><th>Example</th><td><code>jdbc:postgresql://localhost:5432/dtrack?reWriteBatchedInserts=true</code></td></tr>
 <tr><th>ENV</th><td><code>DT_DATASOURCE_URL</code></td></tr>
 </table>
@@ -488,7 +375,7 @@ Defines the username to use for the default data source.
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
-<tr><th>Default</th><td><code>${dt.database.username}</code></td></tr>
+<tr><th>Default</th><td><code>dtrack</code></td></tr>
 <tr><th>ENV</th><td><code>DT_DATASOURCE_USERNAME</code></td></tr>
 </table>
 
@@ -1259,26 +1146,6 @@ Defines the connection timeout in seconds for outbound HTTP connections.
 <tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
 <tr><th>Default</th><td><code>30</code></td></tr>
 <tr><th>ENV</th><td><code>DT_HTTP_TIMEOUT_CONNECTION</code></td></tr>
-</table>
-
-<span id="dthttptimeoutpool">**`dt.http.timeout.pool`** [¶](#dthttptimeoutpool){ .headerlink }</span>
-
-Defines the request timeout in seconds for outbound HTTP connections.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
-<tr><th>Default</th><td><code>60</code></td></tr>
-<tr><th>ENV</th><td><code>DT_HTTP_TIMEOUT_POOL</code></td></tr>
-</table>
-
-<span id="dthttptimeoutsocket">**`dt.http.timeout.socket`** [¶](#dthttptimeoutsocket){ .headerlink }</span>
-
-Defines the socket / read timeout in seconds for outbound HTTP connections.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
-<tr><th>Default</th><td><code>30</code></td></tr>
-<tr><th>ENV</th><td><code>DT_HTTP_TIMEOUT_SOCKET</code></td></tr>
 </table>
 
 <span id="dtnoproxy">**`dt.no.proxy`** [¶](#dtnoproxy){ .headerlink }</span>
@@ -2335,16 +2202,6 @@ Defines whether the OSS Index vulnerability analyzer is allowed to connect to lo
 <tr><th>ENV</th><td><code>DT_VULN_ANALYZER_OSS_INDEX_ALLOW_LOCAL_CONNECTIONS</code></td></tr>
 </table>
 
-<span id="dtvuln-analyzeross-indexenabled">**`dt.vuln-analyzer.oss-index.enabled`** [¶](#dtvuln-analyzeross-indexenabled){ .headerlink }</span>
-
-Defines whether the OSS Index vulnerability analyzer is enabled.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>boolean</code></td></tr>
-<tr><th>Default</th><td><code>true</code></td></tr>
-<tr><th>ENV</th><td><code>DT_VULN_ANALYZER_OSS_INDEX_ENABLED</code></td></tr>
-</table>
-
 <span id="dtvuln-analyzersnykapi-version">**`dt.vuln-analyzer.snyk.api-version`** [¶](#dtvuln-analyzersnykapi-version){ .headerlink }</span>
 
 Defines the Snyk REST API version to use.  <br/><br/>  Should only be changed if the default version is discontinued by Snyk  and an upgrade of Dependency-Track is not immediately possible.  
@@ -2353,16 +2210,6 @@ Defines the Snyk REST API version to use.  <br/><br/>  Should only be changed if
 <tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
 <tr><th>Default</th><td><code>2025-11-05</code></td></tr>
 <tr><th>ENV</th><td><code>DT_VULN_ANALYZER_SNYK_API_VERSION</code></td></tr>
-</table>
-
-<span id="dtvuln-analyzersnykenabled">**`dt.vuln-analyzer.snyk.enabled`** [¶](#dtvuln-analyzersnykenabled){ .headerlink }</span>
-
-Defines whether the Snyk vulnerability analyzer is enabled.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>boolean</code></td></tr>
-<tr><th>Default</th><td><code>true</code></td></tr>
-<tr><th>ENV</th><td><code>DT_VULN_ANALYZER_SNYK_ENABLED</code></td></tr>
 </table>
 
 
