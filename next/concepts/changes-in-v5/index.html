@@ -1594,7 +1594,7 @@
 
 
 <h1 id="about-changes-in-v5">About changes in v5<a class="headerlink" href="#about-changes-in-v5" title="Permanent link">¶</a></h1>
-<p>Dependency-Track v5 extensively refactors the platform; it does not rewrite
+<p>Dependency-Track v5 extensively refactors the platform. It does not rewrite
 it. Much of the underlying technology and many subsystems carry over from
 v4 untouched. The changes concentrate on three areas where v4's pain
 points lived: the runtime, the policy engine, and the operational model.</p>
@@ -1623,7 +1623,7 @@ Tasks resume after a restart or crash from where they stopped, instead of
 vanishing with the JVM.</p>
 <p>Notifications follow the same model. The runtime writes each notification
 to a <a href="../architecture/design/notifications/">transactional outbox</a> in the
-same transaction as the change that triggered it; a relay then dispatches
+same transaction as the change that triggered it. A relay then dispatches
 asynchronously. The contract becomes at-least-once delivery: consumers
 must tolerate duplicates, but no event silently disappears mid-flight.
 See <a href="../notifications/">About notifications</a> for the user-facing model.</p>
@@ -1638,14 +1638,14 @@ diffing, so upgrades stay predictable and roll back cleanly.</p>
 <li><strong>Search</strong> runs directly against PostgreSQL. The on-disk
   <code>~/.dependency-track/index</code> directory disappears, along with the
   index-corruption and disk-space failure modes that came with it.
-  Lucene's fuzzy matching disappears with it; see <em>What this breaks</em>.</li>
+  Lucene's fuzzy matching disappears with it. See <em>What this breaks</em>.</li>
 <li><strong>Cache</strong> still lives in PostgreSQL, but in <code>UNLOGGED</code> tables: no
   write-ahead log overhead, non-durable by design, which suits a cache.
   v4 stored cache rows in normal tables and bounded them only through
-  recurring cleanup tasks; v5 enforces per-cache TTLs and size limits.</li>
+  recurring cleanup tasks. v5 enforces per-cache TTLs and size limits.</li>
 </ul>
 <p>Metrics also move into the database. v4 recomputed point-in-time counters
-row-by-row in Java tasks; v5 turns metrics into a proper time series,
+row-by-row in Java tasks. v5 turns metrics into a proper time series,
 computed in PostgreSQL. See
 <a href="../time-series-metrics/">About time-series metrics</a>.</p>
 <h3 id="policies-and-notification-filtering-in-cel">Policies and notification filtering in <abbr title="Common Expression Language">CEL</abbr><a class="headerlink" href="#policies-and-notification-filtering-in-cel" title="Permanent link">¶</a></h3>
@@ -1657,14 +1657,14 @@ readable expression. The same engine drives
 audit or suppress findings before they reach the UI or trigger a
 notification.</p>
 <p><abbr title="Common Expression Language">CEL</abbr> also reaches <a href="../notifications/">notifications</a>. A v4 alert filtered
-on project, tag, level, and group; a v5 alert can match on any field of
+on project, tag, level, and group. A v5 alert can match on any field of
 the notification payload through a
 <a href="../../reference/notifications/filter-expressions/">filter expression</a> the
 alert carries.</p>
 <h3 id="a-provider-model-for-replaceable-subsystems">A provider model for replaceable subsystems<a class="headerlink" href="#a-provider-model-for-replaceable-subsystems" title="Permanent link">¶</a></h3>
 <p>Subsystems an operator might reasonably want to swap now sit behind
-provider interfaces. File storage ships with local and S3 backends; secret
-managers with database and environment-variable backends; cache with
+provider interfaces. File storage ships with local and S3 backends, secret
+managers with database and environment-variable backends, and cache with
 in-memory and database backends. Vulnerability data sources (<abbr title="National Vulnerability Database">NVD</abbr>, GitHub
 Advisories, <abbr title="Open Source Vulnerabilities">OSV</abbr>) and analyzers (internal, OSS Index, Snyk, Trivy, VulnDB)
 load through the same model. Choosing a provider becomes a configuration
@@ -1715,8 +1715,11 @@ remediation steps, lives in the
   <code>NEW_VULNERABILITY</code> → <code>GROUP_NEW_VULNERABILITY</code>), and timestamps
   normalise to a single millisecond-precision format. Templates that
   consumed v4's ad-hoc subject objects need a rewrite.</li>
-<li><strong>Search.</strong> Endpoints under <code>/api/v1/search</code> go away; fuzzy matching
+<li><strong>Search.</strong> Endpoints under <code>/api/v1/search</code> go away, and fuzzy matching
   goes with them.</li>
+<li><strong>Fuzzy vulnerability analysis.</strong> v4's internal analyzer optionally fell back to
+  Lucene-based fuzzy matching against the internal vulnerability database
+  when a component lacked a <abbr title="Common Platform Enumeration, a structured naming scheme for software products">CPE</abbr>. Dropping Lucene removes this capability.</li>
 <li><strong>Findings and SARIF.</strong> Findings and SARIF responses change shape, and
   the per-project findings endpoint now paginates by default. See the
   upgrade guide.</li>
@@ -1727,7 +1730,7 @@ remediation steps, lives in the
   <abbr title="National Vulnerability Database">NVD</abbr> mirror. v5 no longer persists the feed files (it has no internal
   use for them), and its file storage abstracts over backends like S3
   rather than assuming a local filesystem to serve from. The endpoint is
-  removed; consumers should fetch feeds directly from NIST or run a
+  removed. Consumers should fetch feeds directly from NIST or run a
   dedicated mirror.</li>
 </ul>
 
