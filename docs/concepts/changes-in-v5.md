@@ -1,6 +1,6 @@
 # About changes in v5
 
-Dependency-Track v5 extensively refactors the platform; it does not rewrite
+Dependency-Track v5 extensively refactors the platform. It does not rewrite
 it. Much of the underlying technology and many subsystems carry over from
 v4 untouched. The changes concentrate on three areas where v4's pain
 points lived: the runtime, the policy engine, and the operational model.
@@ -38,7 +38,7 @@ vanishing with the JVM.
 
 Notifications follow the same model. The runtime writes each notification
 to a [transactional outbox](architecture/design/notifications.md) in the
-same transaction as the change that triggered it; a relay then dispatches
+same transaction as the change that triggered it. A relay then dispatches
 asynchronously. The contract becomes at-least-once delivery: consumers
 must tolerate duplicates, but no event silently disappears mid-flight.
 See [About notifications](notifications.md) for the user-facing model.
@@ -56,14 +56,14 @@ Two subsystems v4 ran out-of-process now live inside the database:
 * **Search** runs directly against PostgreSQL. The on-disk
   `~/.dependency-track/index` directory disappears, along with the
   index-corruption and disk-space failure modes that came with it.
-  Lucene's fuzzy matching disappears with it; see *What this breaks*.
+  Lucene's fuzzy matching disappears with it. See *What this breaks*.
 * **Cache** still lives in PostgreSQL, but in `UNLOGGED` tables: no
   write-ahead log overhead, non-durable by design, which suits a cache.
   v4 stored cache rows in normal tables and bounded them only through
-  recurring cleanup tasks; v5 enforces per-cache TTLs and size limits.
+  recurring cleanup tasks. v5 enforces per-cache TTLs and size limits.
 
 Metrics also move into the database. v4 recomputed point-in-time counters
-row-by-row in Java tasks; v5 turns metrics into a proper time series,
+row-by-row in Java tasks. v5 turns metrics into a proper time series,
 computed in PostgreSQL. See
 [About time-series metrics](time-series-metrics.md).
 
@@ -78,7 +78,7 @@ audit or suppress findings before they reach the UI or trigger a
 notification.
 
 CEL also reaches [notifications](notifications.md). A v4 alert filtered
-on project, tag, level, and group; a v5 alert can match on any field of
+on project, tag, level, and group. A v5 alert can match on any field of
 the notification payload through a
 [filter expression](../reference/notifications/filter-expressions.md) the
 alert carries.
@@ -86,8 +86,8 @@ alert carries.
 ### A provider model for replaceable subsystems
 
 Subsystems an operator might reasonably want to swap now sit behind
-provider interfaces. File storage ships with local and S3 backends; secret
-managers with database and environment-variable backends; cache with
+provider interfaces. File storage ships with local and S3 backends, secret
+managers with database and environment-variable backends, and cache with
 in-memory and database backends. Vulnerability data sources (NVD, GitHub
 Advisories, OSV) and analyzers (internal, OSS Index, Snyk, Trivy, VulnDB)
 load through the same model. Choosing a provider becomes a configuration
@@ -152,8 +152,11 @@ remediation steps, lives in the
   `NEW_VULNERABILITY` → `GROUP_NEW_VULNERABILITY`), and timestamps
   normalise to a single millisecond-precision format. Templates that
   consumed v4's ad-hoc subject objects need a rewrite.
-* **Search.** Endpoints under `/api/v1/search` go away; fuzzy matching
+* **Search.** Endpoints under `/api/v1/search` go away, and fuzzy matching
   goes with them.
+* **Fuzzy vulnerability analysis.** v4's internal analyzer optionally fell back to
+  Lucene-based fuzzy matching against the internal vulnerability database
+  when a component lacked a CPE. Dropping Lucene removes this capability.
 * **Findings and SARIF.** Findings and SARIF responses change shape, and
   the per-project findings endpoint now paginates by default. See the
   upgrade guide.
@@ -164,7 +167,7 @@ remediation steps, lives in the
   NVD mirror. v5 no longer persists the feed files (it has no internal
   use for them), and its file storage abstracts over backends like S3
   rather than assuming a local filesystem to serve from. The endpoint is
-  removed; consumers should fetch feeds directly from NIST or run a
+  removed. Consumers should fetch feeds directly from NIST or run a
   dedicated mirror.
 
 [CEL]: https://cel.dev/
