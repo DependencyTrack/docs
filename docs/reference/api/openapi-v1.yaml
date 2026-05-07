@@ -3063,6 +3063,8 @@ paths:
         schema:
           type: integer
           format: int32
+          exclusiveMinimum: true
+          minimum: 0
       responses:
         "200":
           content:
