@@ -9558,13 +9558,15 @@ components:
           maxLength: 255
           minLength: 0
         created:
-          type: string
-          format: date-time
+          type: integer
+          format: int64
+          description: UNIX epoch timestamp in milliseconds
         key:
           type: string
         lastUsed:
-          type: string
-          format: date-time
+          type: integer
+          format: int64
+          description: UNIX epoch timestamp in milliseconds
         legacy:
           type: boolean
         maskedKey:
@@ -9903,17 +9905,20 @@ components:
         integrityRepoUrl:
           type: string
         lastFetched:
-          type: string
-          format: date-time
+          type: integer
+          format: int64
+          description: UNIX epoch timestamp in milliseconds
         publishedDate:
-          type: string
-          format: date-time
+          type: integer
+          format: int64
+          description: UNIX epoch timestamp in milliseconds
     ComponentOccurrence:
       type: object
       properties:
         createdAt:
-          type: string
-          format: date-time
+          type: integer
+          format: int64
+          description: UNIX epoch timestamp in milliseconds
         id:
           type: string
           format: uuid
@@ -10008,9 +10013,9 @@ components:
           type: boolean
           description: Whether the project version is latest
         lastBomImport:
-          type: number
+          type: integer
+          format: int64
           description: Timestamp of the last BOM import
-          example: 1719499619599
         lastBomImportFormat:
           type: string
           description: Format of the last imported BOM
@@ -10629,8 +10634,9 @@ components:
           minLength: 0
           pattern: "[\\P{Cc}]+"
         lastPasswordChange:
-          type: string
-          format: date-time
+          type: integer
+          format: int64
+          description: UNIX epoch timestamp in milliseconds
         newPassword:
           type: string
         nonExpiryPassword:
