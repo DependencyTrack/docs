@@ -829,7 +829,10 @@ paths:
       - component
   /v1/component/hash/{hash}:
     get:
-      description: <p>Requires permission <strong>VIEW_PORTFOLIO</strong></p>
+      deprecated: true
+      description: |-
+        <p>Requires permission <strong>VIEW_PORTFOLIO</strong></p>
+        <p><strong>Deprecated</strong>! Use <code>/api/v2/components</code> instead.</p>
       operationId: getComponentByHash
       parameters:
       - description: The page to return. To be used in conjunction with <code>pageSize</code>.
@@ -902,7 +905,10 @@ paths:
       - component
   /v1/component/identity:
     get:
-      description: <p>Requires permission <strong>VIEW_PORTFOLIO</strong></p>
+      deprecated: true
+      description: |-
+        <p>Requires permission <strong>VIEW_PORTFOLIO</strong></p>
+        <p><strong>Deprecated</strong>! Use <code>/api/v2/components</code> instead.</p>
       operationId: getComponentByIdentity
       parameters:
       - description: The page to return. To be used in conjunction with <code>pageSize</code>.
@@ -978,6 +984,17 @@ paths:
         schema:
           type: string
           format: uuid
+      - description: "When true, only return components from active projects"
+        in: query
+        name: excludeInactiveProjects
+        schema:
+          type: boolean
+      - description: "When true, only return components from projects flagged as the\
+          \ latest version"
+        in: query
+        name: onlyLatestProjectVersions
+        schema:
+          type: boolean
       responses:
         "200":
           content:
