@@ -34,10 +34,11 @@ jobs:
       with:
         persist-credentials: false
     - name: Install imaging dependencies
-      run: >-
-        sudo apt-get install -y --no-install-recommends
-        libcairo2-dev libfreetype6-dev libffi-dev
-        libjpeg-dev libpng-dev libz-dev
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y --no-install-recommends \
+          libcairo2-dev libfreetype6-dev libffi-dev \
+          libjpeg-dev libpng-dev libz-dev
     - uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
       with:
         enable-cache: false
@@ -70,10 +71,11 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Install imaging dependencies
-      run: >-
-        sudo apt-get install -y --no-install-recommends
-        libcairo2-dev libfreetype6-dev libffi-dev
-        libjpeg-dev libpng-dev libz-dev
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y --no-install-recommends \
+          libcairo2-dev libfreetype6-dev libffi-dev \
+          libjpeg-dev libpng-dev libz-dev
     - uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
       with:
         enable-cache: false
