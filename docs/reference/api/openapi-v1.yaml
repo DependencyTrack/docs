@@ -10543,10 +10543,6 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/Permission"
-        teams:
-          type: array
-          items:
-            $ref: "#/components/schemas/Team"
         username:
           type: string
           maxLength: 255
@@ -10651,6 +10647,10 @@ components:
             $ref: "#/components/schemas/Permission"
         suspended:
           type: boolean
+        teams:
+          type: array
+          items:
+            $ref: "#/components/schemas/Team"
         username:
           type: string
           maxLength: 255
