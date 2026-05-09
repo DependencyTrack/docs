@@ -1086,6 +1086,34 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#scale-workers-horizontally" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scale workers horizontally
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scale workers horizontally">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#keda-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KEDA example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#pool-connections-centrally" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1998,6 +2026,34 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#scale-workers-horizontally" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scale workers horizontally
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scale workers horizontally">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#keda-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KEDA example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#pool-connections-centrally" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2199,7 +2255,7 @@ others have headroom, raise that worker's <code>max-concurrency</code> on worker
 <p><strong>Queue capacity.</strong> When ingestion is outpacing processing across the cluster (queue depths grow unbounded
 under sustained load), lower the queue's capacity to apply backpressure. Once a queue hits capacity, the
 scheduler pauses task creation, propagating throttling back to <abbr title="Bill of Materials">BOM</abbr> upload clients.</p>
-<p>Change capacity at runtime from the administrator panel under <em>Workflows → Task Queues</em>, or via the REST
+<p>Change capacity at runtime from the administrator panel under <em>Workflows &gt; Task Queues</em>, or via the REST
 API. Defaults live in the <a href="../../../reference/configuration/dex-engine/#task-queues">task queues reference</a>.</p>
 <p><strong>Lower-level engine tuning.</strong> When metrics show write-buffer flush latency, run-history cache misses, or
 notification outbox lag, the engine exposes more knobs. See the
@@ -2207,6 +2263,107 @@ notification outbox lag, the engine exposes more knobs. See the
 and
 <a href="../../../reference/configuration/properties/#dtnotificationoutbox-relaypoll-interval-ms"><code>notification.outbox-relay.*</code></a>
 properties.</p>
+<h2 id="scale-workers-horizontally">Scale workers horizontally<a class="headerlink" href="#scale-workers-horizontally" title="Permanent link">¶</a></h2>
+<p>After tuning the vertical knobs, if an activity backlog keeps growing, scale worker instances
+horizontally on demand signals from the durable execution engine. Do not scale on CPU or memory
+alone: activity workers are I/O-bound (database, registry calls, vulnerability sources) and spend
+most of their time waiting, so CPU stays low while tasks queue up.</p>
+<p>The engine exposes three Prometheus metrics for this. The management server serves them once you
+<a href="../configuring-observability/#enabling-prometheus-metrics-scraping">turn on Prometheus metrics scraping</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>What it tells you</th>
+<th>Use as</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dt_dex_engine_activity_task_queue_backlog{queueName}</code></td>
+<td>Approximate count of ready-to-schedule activity tasks per queue, capped at 10000.</td>
+<td>Primary scale-up trigger.</td>
+</tr>
+<tr>
+<td><code>dt_dex_engine_activity_task_queue_backlog_age_seconds{queueName}</code></td>
+<td>Age of the oldest ready-to-schedule activity task per queue.</td>
+<td><abbr title="Service Level Objectives">SLO</abbr>-aligned secondary trigger.</td>
+</tr>
+<tr>
+<td><code>dt_dex_engine_task_worker_concurrency_utilization{workerType,name}</code></td>
+<td>Fraction (0–1) of a worker's concurrency slots currently in use.</td>
+<td>Scale-down guard.</td>
+</tr>
+</tbody>
+</table>
+<p>Scale up when the backlog exceeds a target per instance, or when the oldest task has waited longer
+than the <abbr title="Service Level Objectives">SLO</abbr>. Scale down only when worker slots stay below a low-use threshold across all
+instances.</p>
+<div class="admonition note">
+<p class="admonition-title">Combine across instances and queues</p>
+<p>Every instance publishes the backlog and age gauges. Most deployments run all activity workers
+together, so the right HPA signal is "any queue needs scale-up." Collapse to a single value
+with <code>max(...)</code> (no <code>by</code> clause), for example
+<code>max(dt_dex_engine_activity_task_queue_backlog)</code>. Add <code>by (queueName)</code> only if you split
+worker types across separate Deployments and want per-queue scaling.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Backlog count is approximate</p>
+<p>The engine caps the count at 10000 per queue to bound query cost. Beyond the cap, the value
+saturates at 10000. This is precise enough to drive scaling decisions.</p>
+</div>
+<!-- vale Google.Headings = NO -->
+<h3 id="keda-example">KEDA example<a class="headerlink" href="#keda-example" title="Permanent link">¶</a></h3>
+<!-- vale Google.Headings = YES -->
+
+<p><a href="https://keda.sh">KEDA</a> can drive a Deployment from these metrics. The <code>ScaledObject</code> below
+targets worker nodes (no <code>web</code> profile), scaling on the worst-case backlog across all queues,
+with the worst-case oldest-task age as a secondary trigger. Each query wraps the metric in
+<code>avg_over_time(...[5m:30s])</code> so a transient spike (a single large <abbr title="Bill of Materials">BOM</abbr> upload) does not trigger
+churn.</p>
+<details class="example">
+<summary><code>ScaledObject</code> manifest</summary>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">keda.sh/v1alpha1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ScaledObject</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dependencytrack-worker</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">scaleTargetRef</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dependencytrack-worker</span>
+<span class="w">  </span><span class="nt">minReplicaCount</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">  </span><span class="nt">maxReplicaCount</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+<span class="w">  </span><span class="nt">triggers</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prometheus</span>
+<span class="w">      </span><span class="nt">metadata</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">serverAddress</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://prometheus.monitoring:9090</span>
+<span class="w">        </span><span class="nt">query</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">avg_over_time(max(dt_dex_engine_activity_task_queue_backlog)[5m:30s])</span>
+<span class="w">        </span><span class="nt">threshold</span><span class="p">:</span><span class="w"> </span><span class="s">"1000"</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prometheus</span>
+<span class="w">      </span><span class="nt">metadata</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">serverAddress</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://prometheus.monitoring:9090</span>
+<span class="w">        </span><span class="nt">query</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">avg_over_time(max(dt_dex_engine_activity_task_queue_backlog_age_seconds)[5m:30s])</span>
+<span class="w">        </span><span class="nt">threshold</span><span class="p">:</span><span class="w"> </span><span class="s">"300"</span>
+</code></pre></div></td></tr></tbody></table></div>
+</details>
 <h2 id="pool-connections-centrally">Pool connections centrally<a class="headerlink" href="#pool-connections-centrally" title="Permanent link">¶</a></h2>
 <ul>
 <li><strong>Up to roughly 5 instances</strong> at the default pool size of 30: the per-instance pool works.</li>
