@@ -258,6 +258,24 @@ paths:
           Requires `hash_type` to be set.
         schema:
           type: string
+      - name: project_state
+        in: query
+        description: |-
+          Filter by the state of the project that the component belongs to.
+
+          Omit to include components from projects in any state.
+        schema:
+          $ref: "#/components/schemas/project-state"
+      - name: project_latest_version
+        in: query
+        description: |-
+          Filter by whether the project the component belongs to is flagged as the latest version.
+
+          When `true`, only components from latest-version projects are returned.
+          When `false`, only components from non-latest projects are returned.
+          Omit to include components regardless of the flag.
+        schema:
+          type: boolean
       - name: limit
         in: query
         description: Maximum number of items to retrieve from the collection
@@ -1572,6 +1590,11 @@ paths:
           $ref: "#/components/responses/generic-error"
 components:
   schemas:
+    project-state:
+      type: string
+      enum:
+      - ACTIVE
+      - INACTIVE
     sort-direction:
       type: string
       enum:
