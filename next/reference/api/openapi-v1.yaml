@@ -9418,9 +9418,6 @@ components:
           - INTERNAL
           - OSV
           - SNYK
-        uuid:
-          type: string
-          format: uuid
       required:
       - firstSeen
       - lastSeen
@@ -11604,6 +11601,10 @@ components:
           description: UNIX epoch timestamp in milliseconds
         latestVersion:
           type: string
+        latestVersionPublishedAt:
+          type: integer
+          format: int64
+          description: UNIX epoch timestamp in milliseconds
         name:
           type: string
         namespace:
