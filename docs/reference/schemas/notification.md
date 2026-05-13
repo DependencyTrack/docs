@@ -54,8 +54,6 @@
 
 
 
-
-
 <a name="org-dependencytrack-notification-v1-Notification"></a>
 
 ## Notification
@@ -73,8 +71,6 @@
 | `timestamp` | `google.protobuf.Timestamp` |  | - |
 | `subject` | `google.protobuf.Any` |  | - |
 | `id` | `string` | Unique identifier of the notification in UUIDv7 format. | - |
-
-
 
 
 
@@ -175,24 +171,6 @@
 | `errors` | `string[]` |  | - |
 
 
-
-
-
-
-
-
-
-<a name="org-dependencytrack-notification-v1-ComponentVulnAnalysisCompleteSubject"></a>
-
-### ComponentVulnAnalysisCompleteSubject
-
-
-
-
-| Field | Type | Description |
-| :---- | :--- | :---------- |
-| `component` | [`Component`](#org-dependencytrack-notification-v1-Component) |  | - |
-| `vulnerabilities` | [`Vulnerability[]`](#org-dependencytrack-notification-v1-Vulnerability) |  | - |
 
 
 
@@ -365,26 +343,6 @@ Subject for GROUP_NEW_VULNERABILITIES_SUMMARY notifications.
 
 
 
-<a name="org-dependencytrack-notification-v1-ProjectVulnAnalysisCompleteSubject"></a>
-
-### ProjectVulnAnalysisCompleteSubject
-
-
-
-
-| Field | Type | Description |
-| :---- | :--- | :---------- |
-| `project` | [`Project`](#org-dependencytrack-notification-v1-Project) |  | - |
-| `findings` | [`ComponentVulnAnalysisCompleteSubject[]`](#org-dependencytrack-notification-v1-ComponentVulnAnalysisCompleteSubject) |  | - |
-| `status` | [`ProjectVulnAnalysisStatus`](#org-dependencytrack-notification-v1-ProjectVulnAnalysisStatus) |  | - |
-| `token` | `string` |  | - |
-
-
-
-
-
-
-
 <a name="org-dependencytrack-notification-v1-UserSubject"></a>
 
 ### UserSubject
@@ -537,8 +495,6 @@ Subject for GROUP_NEW_VULNERABILITIES_SUMMARY notifications.
 | `sha1` | `string` |  | - |
 | `sha256` | `string` |  | - |
 | `sha512` | `string` |  | - |
-
-
 
 
 
@@ -978,8 +934,6 @@ Subject for GROUP_NEW_VULNERABILITIES_SUMMARY notifications.
 
 
 
-
-
 <a name="org-dependencytrack-notification-v1-Vulnerability"></a>
 
 ### Vulnerability
@@ -1123,7 +1077,6 @@ Subject for GROUP_NEW_VULNERABILITIES_SUMMARY notifications.
 | `GROUP_POLICY_VIOLATION` |  |
 | `GROUP_PROJECT_CREATED` |  |
 | `GROUP_BOM_PROCESSING_FAILED` |  |
-| `GROUP_PROJECT_VULN_ANALYSIS_COMPLETE` |  |
 | `GROUP_USER_CREATED` |  |
 | `GROUP_USER_DELETED` |  |
 | `GROUP_BOM_VALIDATION_FAILED` |  |
@@ -1147,21 +1100,6 @@ e.g. due to upstream sources correcting their data. |
 | `LEVEL_INFORMATIONAL` |  |
 | `LEVEL_WARNING` |  |
 | `LEVEL_ERROR` |  |
-
-
-
-
-<a name="org-dependencytrack-notification-v1-ProjectVulnAnalysisStatus"></a>
-
-### ProjectVulnAnalysisStatus
-
-
-
-| Name | Description |
-| :--- | :---------- |
-| `PROJECT_VULN_ANALYSIS_STATUS_UNSPECIFIED` |  |
-| `PROJECT_VULN_ANALYSIS_STATUS_FAILED` |  |
-| `PROJECT_VULN_ANALYSIS_STATUS_COMPLETED` |  |
 
 
 
