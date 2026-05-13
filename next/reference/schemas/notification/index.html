@@ -2296,17 +2296,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#componentvulnanalysiscompletesubject" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ComponentVulnAnalysisCompleteSubject
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#newpolicyviolationssummarysubject" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2366,17 +2355,6 @@
     <span class="md-ellipsis">
       
         PolicyViolationSubject
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#projectvulnanalysiscompletesubject" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ProjectVulnAnalysisCompleteSubject
       
     </span>
   </a>
@@ -2796,17 +2774,6 @@
     <span class="md-ellipsis">
       
         Level
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#projectvulnanalysisstatus" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ProjectVulnAnalysisStatus
       
     </span>
   </a>
@@ -3023,17 +2990,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#componentvulnanalysiscompletesubject" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ComponentVulnAnalysisCompleteSubject
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#newpolicyviolationssummarysubject" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3093,17 +3049,6 @@
     <span class="md-ellipsis">
       
         PolicyViolationSubject
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#projectvulnanalysiscompletesubject" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ProjectVulnAnalysisCompleteSubject
       
     </span>
   </a>
@@ -3523,17 +3468,6 @@
     <span class="md-ellipsis">
       
         Level
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#projectvulnanalysisstatus" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ProjectVulnAnalysisStatus
       
     </span>
   </a>
@@ -3787,29 +3721,6 @@
 </tr>
 </tbody>
 </table>
-<p><a name="org-dependencytrack-notification-v1-ComponentVulnAnalysisCompleteSubject"></a></p>
-<h3 id="componentvulnanalysiscompletesubject">ComponentVulnAnalysisCompleteSubject<a class="headerlink" href="#componentvulnanalysiscompletesubject" title="Permanent link">¶</a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>component</code></td>
-<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Component"><code>Component</code></a></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>vulnerabilities</code></td>
-<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Vulnerability"><code>Vulnerability[]</code></a></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
 <p><a name="org-dependencytrack-notification-v1-NewPolicyViolationsSummarySubject"></a></p>
 <h3 id="newpolicyviolationssummarysubject">NewPolicyViolationsSummarySubject<a class="headerlink" href="#newpolicyviolationssummarysubject" title="Permanent link">¶</a></h3>
 <p>Subject for GROUP_NEW_POLICY_VIOLATIONS_SUMMARY notifications.</p>
@@ -4011,39 +3922,6 @@
 <tr>
 <td style="text-align: left;"><code>policy_violation</code></td>
 <td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-PolicyViolation"><code>PolicyViolation</code></a></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<p><a name="org-dependencytrack-notification-v1-ProjectVulnAnalysisCompleteSubject"></a></p>
-<h3 id="projectvulnanalysiscompletesubject">ProjectVulnAnalysisCompleteSubject<a class="headerlink" href="#projectvulnanalysiscompletesubject" title="Permanent link">¶</a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>project</code></td>
-<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-Project"><code>Project</code></a></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>findings</code></td>
-<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-ComponentVulnAnalysisCompleteSubject"><code>ComponentVulnAnalysisCompleteSubject[]</code></a></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>status</code></td>
-<td style="text-align: left;"><a href="#org-dependencytrack-notification-v1-ProjectVulnAnalysisStatus"><code>ProjectVulnAnalysisStatus</code></a></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>token</code></td>
-<td style="text-align: left;"><code>string</code></td>
 <td style="text-align: left;"></td>
 </tr>
 </tbody>
@@ -5243,10 +5121,6 @@
 <td style="text-align: left;"></td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>GROUP_PROJECT_VULN_ANALYSIS_COMPLETE</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
 <td style="text-align: left;"><code>GROUP_USER_CREATED</code></td>
 <td style="text-align: left;"></td>
 </tr>
@@ -5300,30 +5174,6 @@
 </tr>
 <tr>
 <td style="text-align: left;"><code>LEVEL_ERROR</code></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<p><a name="org-dependencytrack-notification-v1-ProjectVulnAnalysisStatus"></a></p>
-<h3 id="projectvulnanalysisstatus">ProjectVulnAnalysisStatus<a class="headerlink" href="#projectvulnanalysisstatus" title="Permanent link">¶</a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Name</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>PROJECT_VULN_ANALYSIS_STATUS_UNSPECIFIED</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>PROJECT_VULN_ANALYSIS_STATUS_FAILED</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>PROJECT_VULN_ANALYSIS_STATUS_COMPLETED</code></td>
 <td style="text-align: left;"></td>
 </tr>
 </tbody>
