@@ -13,17 +13,20 @@ Bento
 CPEs
 CWEs
 Cognito
+CSAF
 CycloneDX
 DEKs
 DNs
 Dependency-Track
 Diataxis
+EPSS
 ETags?
 Entra
 Exploitability
 Fedora 389 Directory Server
 Flashpoint
 GUIDs
+UUIDs?
 GitLab
 HDDs
 Hackage
@@ -39,6 +42,7 @@ LDAP
 LDAPS
 Liquibase
 Lucene
+MSSQL
 Mattermost
 MkDocs
 Modus
@@ -52,6 +56,7 @@ OneLogin
 OpenID Connect
 Operandi
 PGTune
+PURLs?
 Packagist
 Percona
 PgBouncer
@@ -77,11 +82,14 @@ Webex
 [Bb]ackpressure
 [Bb]locklists?
 [Bb]ooleans
+[Cc]lasspath
 [Cc]onfigs?
 [Cc]ron
 [Cc]rontab
 [Dd]atacenter
 [Dd]atasources?
+[Dd]edup
+[Dd]eduped
 [Dd]eduplicat(e[ds]?|ing)
 [Dd]eduplication
 [Dd]efault[Mm]ode
@@ -98,7 +106,9 @@ Webex
 [Ll]iveness
 [Ll]ookups
 [Ll]oopback
+[Ll]ossy
 [Mm]icroservices
+[Mm]igrators?
 [Mm]isconfiguration
 [Mm]isconfigured
 [Mm]ixeway
@@ -108,7 +118,9 @@ Webex
 [Pp]luggable
 [Pp]oolers?
 [Pp]roxied
+[Rr]eachability
 [Rr]eadiness
+[Rr]esumability
 [Rr]ethrow
 [Rr]etryable
 [Rr]ollouts
