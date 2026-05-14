@@ -10402,13 +10402,10 @@ components:
       properties:
         cve:
           type: string
-          minLength: 1
         percentile:
           type: number
         score:
           type: number
-      required:
-      - cve
     ExternalReference:
       type: object
       properties:
@@ -10802,7 +10799,6 @@ components:
             - VEX_PROCESSED
             - POLICY_VIOLATION
             - PROJECT_CREATED
-            - PROJECT_VULN_ANALYSIS_COMPLETE
             - USER_CREATED
             - USER_DELETED
             - NEW_VULNERABILITIES_SUMMARY
@@ -12090,7 +12086,6 @@ components:
             - VEX_PROCESSED
             - POLICY_VIOLATION
             - PROJECT_CREATED
-            - PROJECT_VULN_ANALYSIS_COMPLETE
             - USER_CREATED
             - USER_DELETED
             - NEW_VULNERABILITIES_SUMMARY

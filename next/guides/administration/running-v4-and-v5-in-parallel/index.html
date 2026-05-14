@@ -5,13 +5,13 @@
       
       
       
-        <link rel="canonical" href="https://dependencytrack.github.io/docs/next/guides/administration/configuring-oidc/">
+        <link rel="canonical" href="https://dependencytrack.github.io/docs/next/guides/administration/running-v4-and-v5-in-parallel/">
       
       
-        <link rel="prev" href="../configuring-ldap/">
+        <link rel="prev" href="../migrating-from-v4/">
       
       
-        <link rel="next" href="../managing-notification-templates/">
+        <link rel="next" href="../../upgrading/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Configuring OpenID Connect - Dependency-Track</title>
+        <title>Running v4 and v5 in parallel - Dependency-Track</title>
       
     
     
@@ -61,15 +61,15 @@
     
   
 <meta property="og:type" content="website">
-<meta property="og:title" content="Configuring OpenID Connect - Dependency-Track">
-<meta property="og:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/guides/administration/configuring-oidc.png">
+<meta property="og:title" content="Running v4 and v5 in parallel - Dependency-Track">
+<meta property="og:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/guides/administration/running-v4-and-v5-in-parallel.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:url" content="https://dependencytrack.github.io/docs/next/guides/administration/configuring-oidc/">
+<meta property="og:url" content="https://dependencytrack.github.io/docs/next/guides/administration/running-v4-and-v5-in-parallel/">
 <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:title" content="Configuring OpenID Connect - Dependency-Track">
-<meta property="twitter:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/guides/administration/configuring-oidc.png">
+<meta property="twitter:title" content="Running v4 and v5 in parallel - Dependency-Track">
+<meta property="twitter:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/guides/administration/running-v4-and-v5-in-parallel.png">
 <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
@@ -99,7 +99,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#configuring-openid-connect" class="md-skip">
+        <a href="#running-v4-and-v5-in-parallel" class="md-skip">
           Skip to content
         </a>
       
@@ -138,7 +138,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Configuring OpenID Connect
+              Running v4 and v5 in parallel
             
           </span>
         </div>
@@ -1182,37 +1182,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuring OpenID Connect
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../configuring-oidc/" class="md-nav__link">
         
   
   
@@ -1228,203 +1201,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Prerequisites
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#api-server-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        API server configuration
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="API server configuration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#user-provisioning" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        User provisioning
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#team-synchronisation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Team synchronisation
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#frontend-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Frontend configuration
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#identity-provider-examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Identity provider examples
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Identity provider examples">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#keycloak" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Keycloak
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#microsoft-entra-id-azure-ad" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Microsoft Entra ID (Azure AD)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#auth0" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Auth0
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#gitlab" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        GitLab
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#google" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Google
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#onelogin" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        OneLogin
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#aws-cognito" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        AWS Cognito
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#all-oidc-properties" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        All OIDC properties
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#see-also" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        See also
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1574,10 +1350,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../running-v4-and-v5-in-parallel/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running v4 and v5 in parallel
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1593,6 +1396,70 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creating-an-api-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating an API key
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deploy-bento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deploy Bento
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-notification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configure notification
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2083,10 +1950,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
+  <a href="#creating-an-api-key" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Prerequisites
+        Creating an API key
       
     </span>
   </a>
@@ -2094,49 +1961,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#api-server-configuration" class="md-nav__link">
+  <a href="#deploy-bento" class="md-nav__link">
     <span class="md-ellipsis">
       
-        API server configuration
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="API server configuration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#user-provisioning" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        User provisioning
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#team-synchronisation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Team synchronisation
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#frontend-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Frontend configuration
+        Deploy Bento
       
     </span>
   </a>
@@ -2144,104 +1972,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#identity-provider-examples" class="md-nav__link">
+  <a href="#configure-notification" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Identity provider examples
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Identity provider examples">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#keycloak" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Keycloak
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#microsoft-entra-id-azure-ad" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Microsoft Entra ID (Azure AD)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#auth0" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Auth0
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#gitlab" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        GitLab
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#google" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Google
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#onelogin" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        OneLogin
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#aws-cognito" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        AWS Cognito
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#all-oidc-properties" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        All OIDC properties
+        Configure notification
       
     </span>
   </a>
@@ -2249,10 +1983,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#see-also" class="md-nav__link">
+  <a href="#testing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        See also
+        Testing
       
     </span>
   </a>
@@ -2345,193 +2079,154 @@
   
 
 
-<h1 id="configuring-openid-connect">Configuring OpenID Connect<a class="headerlink" href="#configuring-openid-connect" title="Permanent link">¶</a></h1>
-<p>Dependency-Track supports SSO via <a href="https://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect</a>
-(<abbr title="OpenID Connect">OIDC</abbr>). When enabled, users authenticate through an external identity provider
-(<abbr title="Identity Provider">IdP</abbr>) rather than with a locally managed password.</p>
-<div class="admonition note">
-<p class="admonition-title">Frontend configuration required</p>
-<p><abbr title="OpenID Connect">OIDC</abbr> requires configuration on both the <strong>API server</strong> and the <strong>frontend</strong>.
-The API server validates tokens; the frontend initiates the <abbr title="OpenID Connect">OIDC</abbr> flow.
-Configure both with the same issuer and client ID.</p>
-</div>
-<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h2>
+<h1 id="running-v4-and-v5-in-parallel">Running v4 and v5 in parallel<a class="headerlink" href="#running-v4-and-v5-in-parallel" title="Permanent link">¶</a></h1>
+<p>Given an existing production deployment of v4, it can be helpful to run a v5 test deployment in parallel,
+to compare behavior and test new features on <em>real</em> data. This is useful for evaluation and validation
+before committing to the one-shot data migration described in
+<a href="../migrating-from-v4/">Migrating from v4 to v5</a>.</p>
+<p>Note that this technique mirrors only <strong><abbr title="Bill of Materials">BOM</abbr> uploads</strong>, not full request traffic.
+v4 emits a <code>BOM_PROCESSED</code> notification <em>after</em> synchronizing each <abbr title="Bill of Materials">BOM</abbr> with its database;
+the parallel v5 instance receives that notification and re-uploads the <abbr title="Bill of Materials">BOM</abbr>.
+Anything not driven by a <abbr title="Bill of Materials">BOM</abbr> upload (manual project edits, policy changes, findings triage,
+notifications) does not replicate.</p>
+<p>The subject of <code>BOM_PROCESSED</code> notifications contains the original <abbr title="Bill of Materials">BOM</abbr> (Base64-encoded),
+plus the name and version of the target project, which is enough to construct a <abbr title="Bill of Materials">BOM</abbr> upload
+request for another Dependency-Track instance.</p>
+<p>All that's needed is an app that can:</p>
 <ul>
-<li>An <abbr title="OpenID Connect">OIDC</abbr>-compatible identity provider with a configured client (app).</li>
-<li>The client must have the Dependency-Track frontend URL registered as a redirect URI.</li>
-<li>The <abbr title="Identity Provider">IdP</abbr>'s <a href="https://openid.net/specs/openid-connect-discovery-1_0.html">discovery endpoint</a>
-  (<code>/.well-known/openid-configuration</code>) must be reachable from the API server.</li>
+<li>Receive Webhooks, and parse the JSON payload within them</li>
+<li>Perform a mapping from notification subject, to <abbr title="Bill of Materials">BOM</abbr> upload request</li>
+<li>Forward the <abbr title="Bill of Materials">BOM</abbr> upload request to another Dependency-Track instance</li>
 </ul>
-<h2 id="api-server-configuration">API server configuration<a class="headerlink" href="#api-server-configuration" title="Permanent link">¶</a></h2>
-<p>Configure all <abbr title="OpenID Connect">OIDC</abbr> settings via <a href="../../../reference/configuration/properties/">app properties</a>.
-The examples below use property names; see <a href="../../../reference/configuration/application/#environment-variable-mapping">Application configuration</a>
-for how property names map to environment variables.</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">dt.oidc.enabled</span><span class="o">=</span><span class="s">true</span>
-<span class="na">dt.oidc.issuer</span><span class="o">=</span><span class="s">https://idp.example.com</span>
-<span class="na">dt.oidc.client.id</span><span class="o">=</span><span class="s">dependency-track</span>
-<span class="na">dt.oidc.username.claim</span><span class="o">=</span><span class="s">preferred_username</span>
+<p>This can be scripted, but <a href="https://github.com/warpstreamlabs/bento">Bento</a> reduces it to a single config file.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can use the same approach outlined here to construct a pre-prod / staging environment.</p>
+</div>
+<p>Conceptually, this is what the setup does:</p>
+<pre class="mermaid"><code>sequenceDiagram
+    Client-&gt;&gt;DT v4: Upload BOM&lt;br/&gt;PUT /api/v1/bom
+    DT v4-&gt;&gt;DT v4: Validate and&lt;br/&gt;Process
+    DT v4-&gt;&gt;Bento: Notification&lt;br/&gt;BOM_PROCESSED
+    Bento-&gt;&gt;Bento: Map to BOM&lt;br/&gt;upload request
+    Bento-&gt;&gt;DT v5: Upload BOM&lt;br/&gt;PUT /api/v1/bom
+    DT v5-&gt;&gt;DT v5: Validate and&lt;br/&gt;Process</code></pre>
+<h2 id="creating-an-api-key">Creating an API key<a class="headerlink" href="#creating-an-api-key" title="Permanent link">¶</a></h2>
+<p>To upload BOMs to the Dependency-Track v5 system, an API key with <code>BOM_UPLOAD</code> and <code>PROJECT_CREATION_UPLOAD</code>
+permissions is required. Log into your Dependency-Track v5 instance, navigate to <em>Administration</em> -&gt; <em>Access Management</em>
+-&gt; <em>Teams</em>, and create a new team with accompanying API key:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guides/administration/running-v4-and-v5-in-parallel/bento-api-key.png" data-desc-position="bottom"><img alt="Creating an API key for Bento in Dependency-Track v5" src="../../../assets/images/guides/administration/running-v4-and-v5-in-parallel/bento-api-key.png"></a></p>
+<h2 id="deploy-bento">Deploy Bento<a class="headerlink" href="#deploy-bento" title="Permanent link">¶</a></h2>
+<p><a href="https://github.com/warpstreamlabs/bento">Bento</a> works with the concept of pipelines, which are <a href="https://warpstreamlabs.github.io/bento/docs/configuration/about">configured via YAML</a>.
+The following pipeline achieves the desired outcome:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nn">---</span>
+<span class="nt">input</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">http_server</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/notification/bom-processed</span>
+<span class="w">    </span><span class="nt">allowed_verbs</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">POST</span>
+<span class="w">    </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5s</span>
+<span class="w">    </span><span class="nt">sync_response</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="s">"202"</span>
+
+<span class="nt">pipeline</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">processors</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">mapping</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">      </span><span class="no">root.projectName = this.notification.subject.project.name</span>
+<span class="w">      </span><span class="no">root.projectVersion = this.notification.subject.project.version</span>
+<span class="w">      </span><span class="no">root.projectTags = this.notification.subject.project.tags.split(",").catch([]).map_each(tag -&gt; {"name": tag})</span>
+<span class="w">      </span><span class="no">root.bom = this.notification.subject.bom.content</span>
+<span class="w">      </span><span class="no">root.autoCreate = true</span>
+
+<span class="nt">output</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">http_client</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">"${DTV5_API_URL}/api/v1/bom"</span>
+<span class="w">    </span><span class="nt">verb</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PUT</span>
+<span class="w">    </span><span class="nt">headers</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">Content-Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">application/json</span>
+<span class="w">      </span><span class="nt">X-Api-Key</span><span class="p">:</span><span class="w"> </span><span class="s">"${DTV5_API_KEY}"</span>
+<span class="w">    </span><span class="nt">max_in_flight</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="w">    </span><span class="c1"># tls:</span>
+<span class="w">    </span><span class="c1">#  skip_cert_verify: true</span>
+<span class="w">    </span><span class="c1">#  ^-- Uncomment this if you're using self-signed certificates.</span>
 </code></pre></div></td></tr></tbody></table></div>
-<h3 id="user-provisioning">User provisioning<a class="headerlink" href="#user-provisioning" title="Permanent link">¶</a></h3>
-<p>When enabled, Dependency-Track creates user accounts automatically on first login:</p>
-<div class="highlight"><pre><span></span><code><span class="na">dt.oidc.user.provisioning</span><span class="o">=</span><span class="s">true</span>
-</code></pre></div>
-<h3 id="team-synchronisation">Team synchronisation<a class="headerlink" href="#team-synchronisation" title="Permanent link">¶</a></h3>
-<p>When enabled, Dependency-Track derives team membership from a claim that
-contains a list of group names. The API server reads the claim from the ID
-token first, and falls back to the provider's userinfo response if absent.
-Either source works, so configure the claim wherever your <abbr title="Identity Provider">IdP</abbr> makes it
-easiest to emit. Map teams to those group names under
-<strong>Administration &gt; Access Management &gt; Teams</strong>.</p>
-<div class="highlight"><pre><span></span><code><span class="na">dt.oidc.team.synchronization</span><span class="o">=</span><span class="s">true</span>
-<span class="na">dt.oidc.teams.claim</span><span class="o">=</span><span class="s">groups</span>
-</code></pre></div>
-<h2 id="frontend-configuration">Frontend configuration<a class="headerlink" href="#frontend-configuration" title="Permanent link">¶</a></h2>
-<p>Configure the frontend to start the <abbr title="OpenID Connect">OIDC</abbr> flow by passing the following
-environment variables to the frontend container:</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Docker Compose Example</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<p>Refer to the respective pipeline component's documentation for more details:</p>
+<ul>
+<li><a href="https://warpstreamlabs.github.io/bento/docs/components/inputs/http_server"><code>http_server</code> input</a></li>
+<li><a href="https://warpstreamlabs.github.io/bento/docs/components/processors/mapping"><code>mapping</code> processor</a></li>
+<li><a href="https://warpstreamlabs.github.io/bento/docs/components/outputs/http_client"><code>http_client</code> output</a></li>
+</ul>
+<p><a href="https://github.com/warpstreamlabs/bento?tab=readme-ov-file#run">Run Bento</a> as container:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">frontend</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/dependencytrack/hyades-frontend:latest</span>
-<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">API_BASE_URL</span><span class="p">:</span><span class="w"> </span><span class="s">"https://dtrack.example.com"</span>
-<span class="w">      </span><span class="nt">OIDC_ISSUER</span><span class="p">:</span><span class="w"> </span><span class="s">"https://idp.example.com"</span>
-<span class="w">      </span><span class="nt">OIDC_CLIENT_ID</span><span class="p">:</span><span class="w"> </span><span class="s">"dependency-track"</span>
-<span class="w">      </span><span class="nt">OIDC_SCOPE</span><span class="p">:</span><span class="w"> </span><span class="s">"openid</span><span class="nv"> </span><span class="s">profile</span><span class="nv"> </span><span class="s">email"</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>bento<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-p<span class="w"> </span><span class="s2">"4195:4195"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-v<span class="w"> </span><span class="s2">"</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">/config.yaml:/bento.yaml"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-e<span class="w"> </span><span class="s1">'DTV5_API_URL=https://dtv5.example.com'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-e<span class="w"> </span><span class="s1">'DTV5_API_KEY=odt_****************'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>ghcr.io/warpstreamlabs/bento
 </code></pre></div></td></tr></tbody></table></div>
-<p>The frontend defaults to the <code>code</code> flow (<a href="https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth">authorization code</a>
-with <a href="https://datatracker.ietf.org/doc/html/rfc7636">PKCE</a>), which works with
-all modern IdPs and is the recommended setting. The <a href="https://openid.net/specs/openid-connect-core-1_0.html#ImplicitFlowAuth">implicit flow</a>
-(<code>OIDC_FLOW: "implicit"</code>) is only needed for IdPs that lack a public-client
-configuration compatible with PKCE; <a href="https://datatracker.ietf.org/doc/html/rfc9700#name-implicit-grant">RFC 9700</a>
-no longer recommends it, so prefer <code>code</code> whenever the <abbr title="Identity Provider">IdP</abbr> supports it.</p>
-<hr>
-<h2 id="identity-provider-examples">Identity provider examples<a class="headerlink" href="#identity-provider-examples" title="Permanent link">¶</a></h2>
-<p>The following sections provide tested configuration notes for common IdPs.
-In each case, adapt the placeholder values (<code>https://dtrack.example.com</code>, client IDs,
-etc.) to match your environment.</p>
-<h3 id="keycloak">Keycloak<a class="headerlink" href="#keycloak" title="Permanent link">¶</a></h3>
-<ol>
-<li>Create a new <strong>Client</strong> in your realm with <strong>Client Protocol</strong> set to <code>openid-connect</code>.</li>
-<li>Set <strong>Access Type</strong> to <code>public</code>.</li>
-<li>Add <code>https://dtrack.example.com/*</code> to <strong>Valid Redirect URIs</strong>.</li>
-<li>Under <strong>Mappers</strong>, add a <strong>Group Membership</strong> mapper with token claim name <code>groups</code>
-   if you want team synchronisation.</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="na">dt.oidc.issuer</span><span class="o">=</span><span class="s">https://keycloak.example.com/realms/your-realm</span>
-<span class="na">dt.oidc.client.id</span><span class="o">=</span><span class="s">dependency-track</span>
-<span class="na">dt.oidc.username.claim</span><span class="o">=</span><span class="s">preferred_username</span>
-</code></pre></div>
-<h3 id="microsoft-entra-id-azure-ad">Microsoft Entra ID (Azure AD)<a class="headerlink" href="#microsoft-entra-id-azure-ad" title="Permanent link">¶</a></h3>
-<ol>
-<li>Register a new app in the Azure portal.</li>
-<li>Under <strong>Authentication</strong>, add a <strong>Single-page app</strong> redirect URI:
-   <code>https://dtrack.example.com</code>.</li>
-<li>Under <strong>Token configuration</strong>, add an optional claim for <code>preferred_username</code> in
-   the ID token. Add a <strong>Groups</strong> claim if you want team synchronisation.</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="na">dt.oidc.issuer</span><span class="o">=</span><span class="s">https://login.microsoftonline.com/&lt;tenant-id&gt;/v2.0</span>
-<span class="na">dt.oidc.client.id</span><span class="o">=</span><span class="s">&lt;application-client-id&gt;</span>
-<span class="na">dt.oidc.username.claim</span><span class="o">=</span><span class="s">preferred_username</span>
-</code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Entra ID returns groups as object IDs (GUIDs) by default, not display names.
-Configure <strong>Groups claim</strong> to emit <code>sAMAccountName</code> or <code>Group Display Name</code> in
-the token configuration if you want human-readable group names for team sync.</p>
-</div>
-<h3 id="auth0">Auth0<a class="headerlink" href="#auth0" title="Permanent link">¶</a></h3>
-<ol>
-<li>Create a new <strong>Single Page Application</strong> in the Auth0 dashboard.</li>
-<li>Add <code>https://dtrack.example.com</code> to <strong>Allowed Callback URLs</strong>, <strong>Allowed Logout URLs</strong>,
-   and <strong>Allowed Web Origins</strong>.</li>
-<li>To include groups/roles, add a custom Action or Rule that injects a <code>groups</code> claim
-   into the ID token.</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="na">dt.oidc.issuer</span><span class="o">=</span><span class="s">https://your-tenant.auth0.com/</span>
-<span class="na">dt.oidc.client.id</span><span class="o">=</span><span class="s">&lt;auth0-client-id&gt;</span>
-<span class="na">dt.oidc.username.claim</span><span class="o">=</span><span class="s">nickname</span>
-</code></pre></div>
-<h3 id="gitlab">GitLab<a class="headerlink" href="#gitlab" title="Permanent link">¶</a></h3>
-<ol>
-<li>In your GitLab instance or on <code>gitlab.com</code>, go to <strong>User Settings &gt; Applications</strong>.</li>
-<li>Add <code>https://dtrack.example.com</code> as a redirect URI.</li>
-<li>Select the <code>openid</code>, <code>profile</code>, and <code>email</code> scopes.</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="na">dt.oidc.issuer</span><span class="o">=</span><span class="s">https://gitlab.com</span>
-<span class="na">dt.oidc.client.id</span><span class="o">=</span><span class="s">&lt;application-id&gt;</span>
-<span class="na">dt.oidc.username.claim</span><span class="o">=</span><span class="s">nickname</span>
-</code></pre></div>
-<p>For self-hosted GitLab, replace <code>https://gitlab.com</code> with your GitLab instance URL.</p>
-<h3 id="google">Google<a class="headerlink" href="#google" title="Permanent link">¶</a></h3>
-<ol>
-<li>In the GCP console, create an <strong>OAuth 2.0 Client ID</strong> of type <strong>Web app</strong>.</li>
-<li>Add <code>https://dtrack.example.com</code> to <strong>Authorized JavaScript origins</strong> and
-   <strong>Authorized redirect URIs</strong>.</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="na">dt.oidc.issuer</span><span class="o">=</span><span class="s">https://accounts.google.com</span>
-<span class="na">dt.oidc.client.id</span><span class="o">=</span><span class="s">&lt;client-id&gt;.apps.googleusercontent.com</span>
-<span class="na">dt.oidc.username.claim</span><span class="o">=</span><span class="s">email</span>
-</code></pre></div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Google's <strong>Web app</strong> client type requires a <code>client_secret</code> at the token
-endpoint even with PKCE, and Google does not offer a public client type
-for SPAs. The default <code>code</code> flow on the frontend cannot complete against
-Google without exposing the secret in browser code. As a workaround, set
-<code>OIDC_FLOW: "implicit"</code> on the frontend; note that
-<a href="https://datatracker.ietf.org/doc/html/rfc9700#name-implicit-grant">RFC 9700</a>
-no longer recommends the implicit flow. For a more secure setup, front
-Google with an <abbr title="Identity Provider">IdP</abbr> that supports public clients with PKCE (for example
-Keycloak or Auth0).</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Google does not emit custom group claims in either the ID token or the
-userinfo response. Team synchronisation is not available with Google as
-the <abbr title="Identity Provider">IdP</abbr> unless you use a proxy <abbr title="Identity Provider">IdP</abbr> layer.</p>
-</div>
-<h3 id="onelogin">OneLogin<a class="headerlink" href="#onelogin" title="Permanent link">¶</a></h3>
-<ol>
-<li>In the OneLogin administration portal, create a new <strong>OpenID Connect</strong> app.</li>
-<li>Set the <strong>Redirect URI</strong> to <code>https://dtrack.example.com</code>.</li>
-<li>Note the <strong>Client ID</strong> and <strong>Issuer URL</strong> from the app's SSO tab.</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="na">dt.oidc.issuer</span><span class="o">=</span><span class="s">https://your-subdomain.onelogin.com/oidc/2</span>
-<span class="na">dt.oidc.client.id</span><span class="o">=</span><span class="s">&lt;client-id&gt;</span>
-<span class="na">dt.oidc.username.claim</span><span class="o">=</span><span class="s">preferred_username</span>
-</code></pre></div>
-<h3 id="aws-cognito">AWS Cognito<a class="headerlink" href="#aws-cognito" title="Permanent link">¶</a></h3>
-<ol>
-<li>Create a <strong>User Pool</strong> in the AWS console.</li>
-<li>Under <strong>App clients</strong>, create a new client with the <strong>authorization code grant</strong>
-   flow enabled and <strong>Generate a client secret</strong> turned off (public client + PKCE).</li>
-<li>Add <code>https://dtrack.example.com</code> to <strong>Callback URLs</strong>.</li>
-<li>In the <strong>App client settings</strong>, select the <code>openid</code>, <code>profile</code>, and <code>email</code>
-   scopes.</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="na">dt.oidc.issuer</span><span class="o">=</span><span class="s">https://cognito-idp.&lt;region&gt;.amazonaws.com/&lt;user-pool-id&gt;</span>
-<span class="na">dt.oidc.client.id</span><span class="o">=</span><span class="s">&lt;app-client-id&gt;</span>
-<span class="na">dt.oidc.username.claim</span><span class="o">=</span><span class="s">cognito:username</span>
-</code></pre></div>
-<hr>
-<h2 id="all-oidc-properties">All <abbr title="OpenID Connect">OIDC</abbr> properties<a class="headerlink" href="#all-oidc-properties" title="Permanent link">¶</a></h2>
-<p>For a full list of <abbr title="OpenID Connect">OIDC</abbr>-related configuration properties, see the
-<a href="../../../reference/configuration/properties/#dtoidcenabled">configuration reference</a>.</p>
-<h2 id="see-also">See also<a class="headerlink" href="#see-also" title="Permanent link">¶</a></h2>
+<h2 id="configure-notification">Configure notification<a class="headerlink" href="#configure-notification" title="Permanent link">¶</a></h2>
+<p>Log into your Dependency-Track v4 instance, navigate to <em>Administration</em> -&gt; <em>Notifications</em> -&gt; <em>Alerts</em>,
+and create a new alert with the following settings:</p>
 <ul>
-<li><a href="../../../reference/permissions/">Permissions</a>: mapping <abbr title="Identity Provider">IdP</abbr> groups to Dependency-Track teams</li>
-<li><a href="../configuring-ldap/">Configuring <abbr title="Lightweight Directory Access Protocol">LDAP</abbr></a>: alternative to <abbr title="OpenID Connect">OIDC</abbr> using <abbr title="Lightweight Directory Access Protocol">LDAP</abbr></li>
-<li><a href="../configuring-internal-ca/">Configuring Internal <abbr title="Certificate Authority">CA</abbr></a>: trust internal TLS certificates for the <abbr title="Identity Provider">IdP</abbr></li>
+<li>Scope: <em>Portfolio</em></li>
+<li>Notification level: <em>Informational</em></li>
+<li>Publisher: <em>Outbound Webhook</em></li>
 </ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guides/administration/running-v4-and-v5-in-parallel/create-alert.png" data-desc-position="bottom"><img alt="Creating a new alert in Dependency-Track v4" src="../../../assets/images/guides/administration/running-v4-and-v5-in-parallel/create-alert.png"></a></p>
+<p>Once created, enable <code>BOM_PROCESSED</code> under <em>Groups</em>, and configure the URL of your Bento endpoint as <em>Destination</em>:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guides/administration/running-v4-and-v5-in-parallel/configure-alert.png" data-desc-position="bottom"><img alt="Configuring the alert in Dependency-Track v4" src="../../../assets/images/guides/administration/running-v4-and-v5-in-parallel/configure-alert.png"></a></p>
+<h2 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">¶</a></h2>
+<ul>
+<li>Upload a <abbr title="Bill of Materials">BOM</abbr> to a project in your Dependency-Track v4 instance.</li>
+<li>Head over to your Dependency-Track v5 instance and wait for the upload to replicate.</li>
+</ul>
+<p>If all goes well, you're done.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If the <abbr title="Bill of Materials">BOM</abbr> upload does not replicate:</p>
+<ol>
+<li>Check the logs of your Dependency-Track v4 deployment for any errors during notification publishing.</li>
+<li>Check the logs of Bento for any errors or warnings.</li>
+<li>Check the logs of your Dependency-Track v5 deployment for any errors during <abbr title="Bill of Materials">BOM</abbr> processing.</li>
+<li>Ensure that the API key you created has the correct permissions.</li>
+<li>Ensure that Bento is reachable from your Dependency-Track v4 deployment.</li>
+<li>Ensure that your Dependency-Track v5 deployment is reachable from Bento.</li>
+</ol>
+</div>
 
 
 
@@ -2567,7 +2262,7 @@ the <abbr title="Identity Provider">IdP</abbr> unless you use a proxy <abbr titl
       <nav class="md-footer__inner md-grid" aria-label="Footer">
         
           
-          <a href="../configuring-ldap/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Configuring LDAP">
+          <a href="../migrating-from-v4/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Migrating from v4 to v5">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
@@ -2577,20 +2272,20 @@ the <abbr title="Identity Provider">IdP</abbr> unless you use a proxy <abbr titl
                 Previous
               </span>
               <div class="md-ellipsis">
-                Configuring LDAP
+                Migrating from v4 to v5
               </div>
             </div>
           </a>
         
         
           
-          <a href="../managing-notification-templates/" class="md-footer__link md-footer__link--next" aria-label="Next: Managing notification templates">
+          <a href="../../upgrading/" class="md-footer__link md-footer__link--next" aria-label="Next: Upgrade guides">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Managing notification templates
+                Upgrade guides
               </div>
             </div>
             <div class="md-footer__button md-icon">

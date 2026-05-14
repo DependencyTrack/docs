@@ -11,7 +11,7 @@
         <link rel="prev" href="../upgrading-instances/">
       
       
-        <link rel="next" href="../../upgrading/">
+        <link rel="next" href="../running-v4-and-v5-in-parallel/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Migrating from v4 - Dependency-Track</title>
+        <title>Migrating from v4 to v5 - Dependency-Track</title>
       
     
     
@@ -61,14 +61,14 @@
     
   
 <meta property="og:type" content="website">
-<meta property="og:title" content="Migrating from v4 - Dependency-Track">
+<meta property="og:title" content="Migrating from v4 to v5 - Dependency-Track">
 <meta property="og:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/guides/administration/migrating-from-v4.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="https://dependencytrack.github.io/docs/next/guides/administration/migrating-from-v4/">
 <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:title" content="Migrating from v4 - Dependency-Track">
+<meta property="twitter:title" content="Migrating from v4 to v5 - Dependency-Track">
 <meta property="twitter:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/guides/administration/migrating-from-v4.png">
 <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
@@ -99,7 +99,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#migrating-from-v4" class="md-skip">
+        <a href="#migrating-from-v4-to-v5" class="md-skip">
           Skip to content
         </a>
       
@@ -138,7 +138,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Migrating from v4
+              Migrating from v4 to v5
             
           </span>
         </div>
@@ -893,6 +893,8 @@
       
         
       
+        
+      
     
     
     
@@ -1339,7 +1341,7 @@
   <span class="md-ellipsis">
     
   
-    Migrating from v4
+    Migrating from v4 to v5
   
 
     
@@ -1357,7 +1359,7 @@
   <span class="md-ellipsis">
     
   
-    Migrating from v4
+    Migrating from v4 to v5
   
 
     
@@ -1383,10 +1385,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
+  <a href="#how-the-migration-works" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Introduction
+        How the migration works
       
     </span>
   </a>
@@ -1394,22 +1396,44 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#running-v4-and-v5-in-parallel" class="md-nav__link">
+  <a href="#before-you-start" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Running v4 and v5 in parallel
+        Before you start
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Running v4 and v5 in parallel">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommended-postgres-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended Postgres tuning
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-the-migration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run the migration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Run the migration">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#creating-an-api-key" class="md-nav__link">
+  <a href="#1-apply-the-v5-schema" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Creating an API key
+        1. Apply the v5 schema
       
     </span>
   </a>
@@ -1417,10 +1441,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#deploy-bento" class="md-nav__link">
+  <a href="#2-verify-the-target" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Deploy Bento
+        2. Verify the target
       
     </span>
   </a>
@@ -1428,10 +1452,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#configure-notification" class="md-nav__link">
+  <a href="#3-dry-run" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configure notification
+        3. Dry run
       
     </span>
   </a>
@@ -1439,10 +1463,43 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#testing" class="md-nav__link">
+  <a href="#4-extract-transform-load" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Testing
+        4. Extract, transform, load
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-sample-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Sample mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-verify-the-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Verify the result
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-drop-staging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Drop staging
       
     </span>
   </a>
@@ -1454,10 +1511,336 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#lossy-and-non-obvious-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lossy and non-obvious changes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lossy and non-obvious changes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#username-collisions-across-user-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Username collisions across user types
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-records-without-a-username" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User records without a username
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#portfolio-access-control-bypass" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Portfolio access control bypass
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dedup-of-teams-oidc-groups-and-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dedup of teams, OIDC groups, and tags
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-deduplication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project deduplication
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-activity-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project activity state
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vulnerability-epss-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vulnerability EPSS values
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metrics-retention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metrics retention
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notification-rule-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notification rule configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repository-analyzer-and-vulnerability-source-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Repository, analyzer, and vulnerability-source credentials
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#encrypted-property-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Encrypted property values
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-values-of-unknown-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Property values of unknown type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classifier-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classifier values
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#purl-filtering-for-package-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PURL filtering for package metadata
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removed-tables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Removed tables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#malformed-uuids" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Malformed UUIDs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mssql-case-folded-uniqueness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MSSQL case-folded uniqueness
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#runtime-behavior-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Runtime behavior changes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Runtime behavior changes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inactive-findings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inactive findings
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-and-observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance and observability
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resumability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resumability
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recovering-from-a-failed-load" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recovering from a failed load
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#moving-the-migrated-data-to-its-production-target" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Moving the migrated data to its production target
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-to-do-after-the-migration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What to do after the migration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See also
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../running-v4-and-v5-in-parallel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running v4 and v5 in parallel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1948,10 +2331,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
+  <a href="#how-the-migration-works" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Introduction
+        How the migration works
       
     </span>
   </a>
@@ -1959,22 +2342,44 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#running-v4-and-v5-in-parallel" class="md-nav__link">
+  <a href="#before-you-start" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Running v4 and v5 in parallel
+        Before you start
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Running v4 and v5 in parallel">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommended-postgres-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended Postgres tuning
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-the-migration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run the migration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Run the migration">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#creating-an-api-key" class="md-nav__link">
+  <a href="#1-apply-the-v5-schema" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Creating an API key
+        1. Apply the v5 schema
       
     </span>
   </a>
@@ -1982,10 +2387,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#deploy-bento" class="md-nav__link">
+  <a href="#2-verify-the-target" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Deploy Bento
+        2. Verify the target
       
     </span>
   </a>
@@ -1993,10 +2398,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#configure-notification" class="md-nav__link">
+  <a href="#3-dry-run" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configure notification
+        3. Dry run
       
     </span>
   </a>
@@ -2004,10 +2409,43 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#testing" class="md-nav__link">
+  <a href="#4-extract-transform-load" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Testing
+        4. Extract, transform, load
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-sample-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Sample mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-verify-the-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Verify the result
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-drop-staging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Drop staging
       
     </span>
   </a>
@@ -2016,6 +2454,304 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lossy-and-non-obvious-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lossy and non-obvious changes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lossy and non-obvious changes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#username-collisions-across-user-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Username collisions across user types
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-records-without-a-username" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User records without a username
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#portfolio-access-control-bypass" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Portfolio access control bypass
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dedup-of-teams-oidc-groups-and-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dedup of teams, OIDC groups, and tags
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-deduplication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project deduplication
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-activity-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project activity state
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vulnerability-epss-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vulnerability EPSS values
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metrics-retention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metrics retention
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notification-rule-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notification rule configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repository-analyzer-and-vulnerability-source-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Repository, analyzer, and vulnerability-source credentials
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#encrypted-property-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Encrypted property values
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-values-of-unknown-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Property values of unknown type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classifier-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classifier values
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#purl-filtering-for-package-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PURL filtering for package metadata
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removed-tables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Removed tables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#malformed-uuids" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Malformed UUIDs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mssql-case-folded-uniqueness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MSSQL case-folded uniqueness
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#runtime-behavior-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Runtime behavior changes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Runtime behavior changes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inactive-findings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inactive findings
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-and-observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance and observability
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resumability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resumability
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recovering-from-a-failed-load" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recovering from a failed load
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#moving-the-migrated-data-to-its-production-target" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Moving the migrated data to its production target
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-to-do-after-the-migration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What to do after the migration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See also
+      
+    </span>
+  </a>
   
 </li>
       
@@ -2105,159 +2841,451 @@
   
 
 
-<h1 id="migrating-from-v4">Migrating from v4<a class="headerlink" href="#migrating-from-v4" title="Permanent link">¶</a></h1>
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¶</a></h2>
-<p>If you're currently running a Dependency-Track v4 deployment, don't worry.</p>
-<p>The goal is to provide tooling and guides on how to migrate to v5 once it reaches general availability.
-Migration tools are expected to perform the migration automatically, with little to no manual effort
-(except the provisioning of infrastructure of course).</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Follow <a href="https://github.com/DependencyTrack/hyades/issues/881">https://github.com/DependencyTrack/hyades/issues/881</a> for updates on this topic.</p>
-</div>
-<h2 id="running-v4-and-v5-in-parallel">Running v4 and v5 in parallel<a class="headerlink" href="#running-v4-and-v5-in-parallel" title="Permanent link">¶</a></h2>
-<p>Given an existing production deployment of v4, it can be helpful to run a v5 test deployment in parallel,
-to compare behavior and testing new features on <em>real</em> data.</p>
-<p>This can be done using notifications, in particular <code>BOM_PROCESSED</code> notifications.
-Dependency-Track emits them <em>after</em> synchronizing a <abbr title="Bill of Materials">BOM</abbr>'s contents with the database.</p>
-<p>The subject of <code>BOM_PROCESSED</code> notifications contains the original <abbr title="Bill of Materials">BOM</abbr> (Base64-encoded),
-plus the name and version of the target project. This is enough to
-construct a <abbr title="Bill of Materials">BOM</abbr> upload request for another Dependency-Track instance.</p>
-<p>All that's needed is an app that can:</p>
+<h1 id="migrating-from-v4-to-v5">Migrating from v4 to v5<a class="headerlink" href="#migrating-from-v4-to-v5" title="Permanent link">¶</a></h1>
+<p>This guide walks you through moving production data from Dependency-Track v4 (Postgres or Microsoft SQL Server)
+into a new Dependency-Track v5 instance (Postgres only).</p>
+<p>The migration is a one-shot, offline operation performed by the <code>v4-migrator</code> command-line tool.
+The tool extracts rows from your v4 database, transforms them inside the Postgres cluster backing the v5 deployment,
+and loads them into the v5 schema.
+v4 must be offline for the duration. The tool does not write to the v4 source.</p>
+<p>If you only need to step a v5 deployment between v5 releases, this guide is not for you.
+See the <a href="../../upgrading/">per-release upgrade pages</a> instead.</p>
+<p>To try v5 against your real workload before committing to the migration, see
+<a href="../running-v4-and-v5-in-parallel/">Running v4 and v5 in parallel</a>.</p>
+<h2 id="how-the-migration-works">How the migration works<a class="headerlink" href="#how-the-migration-works" title="Permanent link">¶</a></h2>
+<p>The <code>v4-migrator</code> command-line tool runs three offline phases (<strong>extract</strong>, <strong>transform</strong>, <strong>load</strong>)
+against the v5 deployment's Postgres target. Rows from the v4 source land first in a dedicated
+<strong>staging schema</strong> (<code>dt_v4_migration</code>) inside the v5 cluster, where the migrator
+reshapes them into v5 form. Only the load phase writes to the final v5 schema.
+The v5 apiserver stays offline until load and verify finish, after which you drop the
+staging schema and bring the apiserver up.</p>
+<pre class="mermaid"><code>flowchart LR
+    V4[(v4 database&lt;br/&gt;Postgres or MSSQL)]
+    subgraph V5[Postgres cluster&lt;br/&gt;backing v5]
+        STG[[staging schema&lt;br/&gt;dt_v4_migration]]
+        FIN[(v5 schema)]
+    end
+    APP[v5 apiserver]
+    V4 -- "1. extract" --&gt; STG
+    STG -- "2. transform" --&gt; STG
+    STG -- "3. load" --&gt; FIN
+    FIN -. "4. start after verify" .-&gt; APP</code></pre>
+<h2 id="before-you-start">Before you start<a class="headerlink" href="#before-you-start" title="Permanent link">¶</a></h2>
+<p>Make sure the following holds:</p>
 <ul>
-<li>Receive Webhooks, and parse the JSON payload within them</li>
-<li>Perform a mapping from notification subject, to <abbr title="Bill of Materials">BOM</abbr> upload request</li>
-<li>Forward the <abbr title="Bill of Materials">BOM</abbr> upload request to another Dependency-Track instance</li>
+<li><strong>Source version.</strong> The v4 instance must be on <strong>4.14.2 or later</strong>.
+  The migrator assumes the schema and data shape of that release.
+  Lower versions are not supported and may fail or silently produce broken output.
+  Upgrade v4 to at least 4.14.2 before running the migrator.</li>
+<li><strong>Source.</strong> Your v4 database runs on Postgres (any version supported by v4) or Microsoft SQL Server 2016 or later.
+  H2 is not supported. Stop the v4 API server before you start.
+  The tool does not write to the source, but concurrent v4 writers produce inconsistent extracts.</li>
+<li><strong>Target.</strong> A Postgres 14+ cluster, dedicated to the v5 instance, ready to receive data.
+  The migrator's <code>bootstrap</code> step applies the v5 database schema for you.
+  See <a href="../configuring-database/">Configuring the database</a> for guidance on
+  provisioning the target cluster.
+  Don't boot the v5 apiserver against the target before running the migrator,
+  or its seeding task populates tables the migrator needs to fill from v4.
+  The migrator refuses to run against any schema version other than the one it ships against,
+  or if the target already holds user data.</li>
+<li><strong>Database user.</strong> Use the same database user for the migrator that the v5 apiserver
+  uses afterwards, <em>or</em> grant the apiserver's user ownership of every object the
+  migrator creates. The apiserver applies follow-up schema migrations on each release
+  and needs DDL privileges on the v5 schema and its tables.
+  A mismatch here surfaces as failed startup migrations after a later v5 upgrade,
+  not at migration time.</li>
+<li><strong>Disk.</strong> The target cluster needs free disk for roughly two times the final dataset size.
+  Staging tables hold a source-typed copy of every migrated row alongside the final v5 rows
+  until you drop the staging schema.</li>
+<li><strong>Extensions.</strong> The target must support installing <code>pg_trgm</code>.
+  The v5 schema bootstrap installs the extension. The migrator's preflight verifies it.</li>
+<li><strong>JDBC reachability.</strong> The host running the migrator can open JDBC connections
+  to both the v4 source and the v5 target.</li>
 </ul>
-<p>This can be scripted, but <a href="https://github.com/warpstreamlabs/bento">Bento</a> reduces it to a single config file.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>You can use the same approach outlined here to construct a pre-prod / staging environment.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The v4 database must run offline during the migration.
+Do not point the migrator at a live v4 instance.
+The tool trusts the offline contract. It does not take write locks on the source.</p>
 </div>
-<p>Conceptually, this is what the setup does:</p>
-<pre class="mermaid"><code>sequenceDiagram
-    Client-&gt;&gt;DT v4: Upload BOM&lt;br/&gt;PUT /api/v1/bom
-    DT v4-&gt;&gt;DT v4: Validate and&lt;br/&gt;Process
-    DT v4-&gt;&gt;Bento: Notification&lt;br/&gt;BOM_PROCESSED
-    Bento-&gt;&gt;Bento: Map to BOM&lt;br/&gt;upload request
-    Bento-&gt;&gt;DT v5: Upload BOM&lt;br/&gt;PUT /api/v1/bom
-    DT v5-&gt;&gt;DT v5: Validate and&lt;br/&gt;Process</code></pre>
-<h3 id="creating-an-api-key">Creating an API key<a class="headerlink" href="#creating-an-api-key" title="Permanent link">¶</a></h3>
-<p>To upload BOMs to the Dependency-Track v5 system, an API key with <code>BOM_UPLOAD</code> and <code>PROJECT_CREATION_UPLOAD</code>
-permissions is required. Log into your Dependency-Track v5 instance, navigate to <em>Administration</em> -&gt; <em>Access Management</em>
--&gt; <em>Teams</em>, and create a new team with accompanying API key:</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guides/administration/migrating-from-v4/bento-api-key.png" data-desc-position="bottom"><img alt="Creating an API key for Bento in Dependency-Track v5" src="../../../assets/images/guides/administration/migrating-from-v4/bento-api-key.png"></a></p>
-<h3 id="deploy-bento">Deploy Bento<a class="headerlink" href="#deploy-bento" title="Permanent link">¶</a></h3>
-<p><a href="https://github.com/warpstreamlabs/bento">Bento</a> works with the concept of pipelines, which are <a href="https://warpstreamlabs.github.io/bento/docs/configuration/about">configured via YAML</a>.
-The following pipeline achieves the desired outcome:</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nn">---</span>
-<span class="nt">input</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">http_server</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/notification/bom-processed</span>
-<span class="w">    </span><span class="nt">allowed_verbs</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">POST</span>
-<span class="w">    </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5s</span>
-<span class="w">    </span><span class="nt">sync_response</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="s">"202"</span>
+<h2 id="recommended-postgres-tuning">Recommended Postgres tuning<a class="headerlink" href="#recommended-postgres-tuning" title="Permanent link">¶</a></h2>
+<p>Apply these for the duration of the migration. The migrator does not set them.
+Configure them on the target before running, and revert afterward if you like.</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Recommendation</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>max_wal_size</code></td>
+<td>8 GB or higher</td>
+<td>The load phase logs every write to the WAL. Default sizes checkpoint frequently.</td>
+</tr>
+<tr>
+<td><code>max_locks_per_transaction</code></td>
+<td>256</td>
+<td>Metrics partition operations can otherwise exhaust the default 64.</td>
+</tr>
+<tr>
+<td><code>maintenance_work_mem</code></td>
+<td>1 GB or higher</td>
+<td>Speeds index updates during load.</td>
+</tr>
+<tr>
+<td><code>checkpoint_timeout</code></td>
+<td>30 minutes</td>
+<td>Absorbs load WAL bursts without thrashing.</td>
+</tr>
+<tr>
+<td><code>checkpoint_completion_target</code></td>
+<td>0.9</td>
+<td>Same.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The v5 apiserver's default time zone must be <code>UTC</code> for the lifetime of the
+deployment, not just the migration window.
+The <a href="https://github.com/DependencyTrack/hyades-apiserver/pkgs/container/hyades-apiserver">official Docker image</a>
+sets <code>TZ=Etc/UTC</code> already, so operators running it need to
+do nothing (and must not override <code>TZ</code>).
+For non-container deployments or custom images, set the <code>TZ</code> environment variable to
+<code>Etc/UTC</code>.</p>
+<p>The migrator pre-creates daily metrics partitions on UTC day boundaries.
+The apiserver extends those partitions using its default time zone,
+so a non-UTC apiserver computes partition bounds offset from the migrator's,
+causing <code>ATTACH PARTITION</code> to fail on overlap.</p>
+</div>
+<h2 id="run-the-migration">Run the migration<a class="headerlink" href="#run-the-migration" title="Permanent link">¶</a></h2>
+<p>The migrator ships as a container image published at <code>ghcr.io/dependencytrack/v4-migrator:&lt;version&gt;</code>.</p>
+<p>The examples below use the following shell alias for brevity:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span>v4-migrator<span class="o">=</span><span class="s1">'docker run --rm -it --network=host ghcr.io/dependencytrack/hyades-apiserver-v4-migrator:&lt;version&gt;'</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>--network=host</code> only works on Linux.
+On Docker Desktop for macOS and Windows, the flag is silently ignored
+and the container gets its own network namespace.
+Replace <code>localhost</code> / <code>127.0.0.1</code> in your JDBC URLs with <code>host.docker.internal</code> to reach databases on the host,
+or attach the container to a user-defined Docker network (<code>--network &lt;name&gt;</code>)
+where both source and target are reachable.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Password prompts</p>
+<p>The examples below pass <code>--source-pass</code> and <code>--target-pass</code> without an argument.
+The migrator then prompts for the password interactively, keeping the secret out of shell history and <code>ps</code> output.
+To supply a password inline, write <code>--source-pass &lt;value&gt;</code> / <code>--target-pass &lt;value&gt;</code> instead.</p>
+</div>
+<h3 id="1-apply-the-v5-schema">1. Apply the v5 schema<a class="headerlink" href="#1-apply-the-v5-schema" title="Permanent link">¶</a></h3>
+<p>Bootstrap the target database. This applies the v5 schema migrations and is safe to re-run.
+The user passed here becomes the owner of the v5 schema objects, so use the same user the
+v5 apiserver connects as (see the <strong>Database user</strong> note in the preceding section).</p>
+<div class="highlight"><pre><span></span><code>v4-migrator<span class="w"> </span>bootstrap<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--target-url<span class="w"> </span><span class="s1">'jdbc:postgresql://target-host:5432/dtrack'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--target-user<span class="w"> </span>dtrack<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--target-pass
+</code></pre></div>
+<p>After this, the target has the v5 schema but no rows.
+The migrator's later phases populate <code>PERMISSION</code>, <code>LICENSE</code>, <code>TEAM</code>, etc. directly from your v4 source.</p>
+<h3 id="2-verify-the-target">2. Verify the target<a class="headerlink" href="#2-verify-the-target" title="Permanent link">¶</a></h3>
+<p>Run preflight to catch problems before you commit time to extraction:</p>
+<div class="highlight"><pre><span></span><code>v4-migrator<span class="w"> </span>verify<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--target-url<span class="w"> </span><span class="s1">'jdbc:postgresql://target-host:5432/dtrack'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--target-user<span class="w"> </span>dtrack<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--target-pass
+</code></pre></div>
+<p><code>verify</code> reads but never writes. On a freshly bootstrapped target with no staging present, expect:</p>
+<ul>
+<li>Schema version <code>202605111028</code> reported <code>OK</code>.</li>
+<li>All row count columns zero.</li>
+<li>No probe entries.</li>
+</ul>
+<h3 id="3-dry-run">3. Dry run<a class="headerlink" href="#3-dry-run" title="Permanent link">¶</a></h3>
+<p>Before the real run, confirm what happens:</p>
+<div class="highlight"><pre><span></span><code>v4-migrator<span class="w"> </span>run<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--target-url<span class="w"> </span><span class="s1">'jdbc:postgresql://target-host:5432/dtrack'</span><span class="w"> </span>--target-user<span class="w"> </span>dtrack<span class="w"> </span>--target-pass<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--source-url<span class="w"> </span><span class="s1">'jdbc:postgresql://v4-host:5432/dtrack'</span><span class="w"> </span>--source-user<span class="w"> </span>dtrack<span class="w"> </span>--source-pass<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--metrics-retention-days<span class="w"> </span><span class="m">90</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--dry-run
+</code></pre></div>
+<p><code>--dry-run</code> runs preflight and prints the plan. It writes nothing to either database.</p>
+<h3 id="4-extract-transform-load">4. Extract, transform, load<a class="headerlink" href="#4-extract-transform-load" title="Permanent link">¶</a></h3>
+<p>Run all three phases in one go:</p>
+<div class="highlight"><pre><span></span><code>v4-migrator<span class="w"> </span>run<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--target-url<span class="w"> </span><span class="s1">'jdbc:postgresql://target-host:5432/dtrack'</span><span class="w"> </span>--target-user<span class="w"> </span>dtrack<span class="w"> </span>--target-pass<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--source-url<span class="w"> </span><span class="s1">'jdbc:postgresql://v4-host:5432/dtrack'</span><span class="w"> </span>--source-user<span class="w"> </span>dtrack<span class="w"> </span>--source-pass<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--metrics-retention-days<span class="w"> </span><span class="m">90</span>
+</code></pre></div>
+<p>You must pass <code>--metrics-retention-days</code> to <code>run</code> and <code>extract</code>.
+v4 has no retention concept, and v5 introduces one, see <a href="../../../concepts/time-series-metrics/">About time series metrics</a>.
+The migrator forces you to choose explicitly rather than silently dropping or carrying over metrics rows.
+Use <code>0</code> to drop all v4 metrics, a positive integer to keep the last <code>N</code> days,
+or a large number to migrate everything.
+The migrator pre-creates one daily partition per retained day, so large values noticeably extend the load phase.</p>
+<p>Or run the phases individually if you want to inspect staging between steps:</p>
+<div class="highlight"><pre><span></span><code>v4-migrator<span class="w"> </span>extract<span class="w">   </span>--target-url<span class="w"> </span>...<span class="w"> </span>--source-url<span class="w"> </span>...<span class="w"> </span>--metrics-retention-days<span class="w"> </span><span class="m">90</span>
+v4-migrator<span class="w"> </span>transform<span class="w"> </span>--target-url<span class="w"> </span>...
+v4-migrator<span class="w"> </span>load<span class="w">      </span>--target-url<span class="w"> </span>...
+</code></pre></div>
+<p>For a Microsoft SQL Server source, swap the source URL:</p>
+<div class="highlight"><pre><span></span><code>--source-url<span class="w"> </span><span class="s1">'jdbc:sqlserver://v4-host:1433;databaseName=dtrack'</span>
+</code></pre></div>
+<p>Append the same connection parameters (TLS, authentication, etc.) you use for the v4 deployment.</p>
+<p>The migrator auto-detects the source flavor from the JDBC URL.</p>
+<h3 id="5-sample-mode">5. Sample mode<a class="headerlink" href="#5-sample-mode" title="Permanent link">¶</a></h3>
+<p>To test the pipeline against your data before committing to a full run, sample a small number of rows per table:</p>
+<div class="highlight"><pre><span></span><code>v4-migrator<span class="w"> </span>run<span class="w"> </span>...<span class="w"> </span>--sample<span class="w"> </span><span class="m">100</span>
+</code></pre></div>
+<p><code>--sample</code> caps the extract per table.
+The downstream phases run against the sampled data and produce a valid (but partial) v5 dataset.</p>
+<p>Before the full run, reset the target the same way you would after a failed load:
+drop and re-create the v5 schema (or the entire target database), re-run <code>v4-migrator bootstrap</code>,
+and drop the staging schema with <code>v4-migrator cleanup</code>.
+See <a href="#recovering-from-a-failed-load">Recovering from a failed load</a> for the reasoning.
+Don't <code>TRUNCATE</code> v5 tables manually.</p>
+<h3 id="6-verify-the-result">6. Verify the result<a class="headerlink" href="#6-verify-the-result" title="Permanent link">¶</a></h3>
+<p>After load, run <code>verify</code> again.
+It now reports source / staging / v5 row counts per table and surfaces every probe (malformed UUIDs, etc.):</p>
+<div class="highlight"><pre><span></span><code>[Schema]
+  OK    Schema version = 202605111028
 
-<span class="nt">pipeline</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">processors</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">mapping</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">      </span><span class="no">root.projectName = this.notification.subject.project.name</span>
-<span class="w">      </span><span class="no">root.projectVersion = this.notification.subject.project.version</span>
-<span class="w">      </span><span class="no">root.projectTags = this.notification.subject.project.tags.split(",").catch([]).map_each(tag -&gt; {"name": tag})</span>
-<span class="w">      </span><span class="no">root.bom = this.notification.subject.bom.content</span>
-<span class="w">      </span><span class="no">root.autoCreate = true</span>
+[Row counts]
+  Table                       Source      Staging           v5
+  LICENSE                       5234         5234         5234
+  TEAM                            47           42           42
+  ...
 
-<span class="nt">output</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">http_client</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">"${DTV5_API_URL}/api/v1/bom"</span>
-<span class="w">    </span><span class="nt">verb</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PUT</span>
-<span class="w">    </span><span class="nt">headers</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">Content-Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">application/json</span>
-<span class="w">      </span><span class="nt">X-Api-Key</span><span class="p">:</span><span class="w"> </span><span class="s">"${DTV5_API_KEY}"</span>
-<span class="w">    </span><span class="nt">max_in_flight</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
-<span class="w">    </span><span class="c1"># tls:</span>
-<span class="w">    </span><span class="c1">#  skip_cert_verify: true</span>
-<span class="w">    </span><span class="c1">#  ^-- Uncomment this if you're using self-signed certificates.</span>
-</code></pre></div></td></tr></tbody></table></div>
-<p>Refer to the respective pipeline component's documentation for more details:</p>
+[Probes]
+  LICENSE                  3 malformed UUID(s) dropped
+
+[Constraints]
+  18 CHECK constraint(s) hold across 6 loaded table(s)
+</code></pre></div>
+<p>Investigate any mismatch where you do not expect dedup or skipping.
+The lossy changes section below lists the expected sources of mismatch.</p>
+<h3 id="7-drop-staging">7. Drop staging<a class="headerlink" href="#7-drop-staging" title="Permanent link">¶</a></h3>
+<p>Once satisfied with the result, drop the staging schema:</p>
+<div class="highlight"><pre><span></span><code>v4-migrator<span class="w"> </span>cleanup<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--target-url<span class="w"> </span>...<span class="w"> </span>--target-user<span class="w"> </span>...<span class="w"> </span>--target-pass
+</code></pre></div>
+<p>Or pass <code>--drop-staging</code> to the <code>load</code> invocation up front to drop on success:</p>
+<div class="highlight"><pre><span></span><code>v4-migrator<span class="w"> </span>load<span class="w"> </span>...<span class="w"> </span>--drop-staging
+</code></pre></div>
+<h2 id="lossy-and-non-obvious-changes">Lossy and non-obvious changes<a class="headerlink" href="#lossy-and-non-obvious-changes" title="Permanent link">¶</a></h2>
+<p>These transformations apply automatically. None are configurable except metrics retention.</p>
+<h3 id="username-collisions-across-user-types">Username collisions across user types<a class="headerlink" href="#username-collisions-across-user-types" title="Permanent link">¶</a></h3>
+<p>v4 stored managed, <abbr title="Lightweight Directory Access Protocol">LDAP</abbr>, and <abbr title="OpenID Connect">OIDC</abbr> users in three separate tables. v5 stores them in one.
+If the same username exists across types, the migrator inserts the managed user first,
+then suffixes the <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> and <abbr title="OpenID Connect">OIDC</abbr> variants:</p>
 <ul>
-<li><a href="https://warpstreamlabs.github.io/bento/docs/components/inputs/http_server"><code>http_server</code> input</a></li>
-<li><a href="https://warpstreamlabs.github.io/bento/docs/components/processors/mapping"><code>mapping</code> processor</a></li>
-<li><a href="https://warpstreamlabs.github.io/bento/docs/components/outputs/http_client"><code>http_client</code> output</a></li>
+<li><code>alice</code> (managed) → <code>alice</code></li>
+<li><code>alice</code> (<abbr title="Lightweight Directory Access Protocol">LDAP</abbr>) → <code>alice-CONFLICT-LDAP</code></li>
+<li><code>alice</code> (<abbr title="OpenID Connect">OIDC</abbr>) → <code>alice-CONFLICT-OIDC</code></li>
 </ul>
-<p><a href="https://github.com/warpstreamlabs/bento?tab=readme-ov-file#run">Run Bento</a> as container:</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>bento<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-p<span class="w"> </span><span class="s2">"4195:4195"</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-v<span class="w"> </span><span class="s2">"</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">/config.yaml:/bento.yaml"</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-e<span class="w"> </span><span class="s1">'DTV5_API_URL=https://dtv5.example.com'</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-e<span class="w"> </span><span class="s1">'DTV5_API_KEY=odt_****************'</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>ghcr.io/warpstreamlabs/bento
-</code></pre></div></td></tr></tbody></table></div>
-<h3 id="configure-notification">Configure notification<a class="headerlink" href="#configure-notification" title="Permanent link">¶</a></h3>
-<p>Log into your Dependency-Track v4 instance, navigate to <em>Administration</em> -&gt; <em>Notifications</em> -&gt; <em>Alerts</em>,
-and create a new alert with the following settings:</p>
-<ul>
-<li>Scope: <em>Portfolio</em></li>
-<li>Notification level: <em>Informational</em></li>
-<li>Publisher: <em>Outbound Webhook</em></li>
-</ul>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guides/administration/migrating-from-v4/create-alert.png" data-desc-position="bottom"><img alt="Creating a new alert in Dependency-Track v4" src="../../../assets/images/guides/administration/migrating-from-v4/create-alert.png"></a></p>
-<p>Once created, enable <code>BOM_PROCESSED</code> under <em>Groups</em>, and configure the URL of your Bento endpoint as <em>Destination</em>:</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guides/administration/migrating-from-v4/configure-alert.png" data-desc-position="bottom"><img alt="Configuring the alert in Dependency-Track v4" src="../../../assets/images/guides/administration/migrating-from-v4/configure-alert.png"></a></p>
-<h3 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">¶</a></h3>
-<ul>
-<li>Upload a <abbr title="Bill of Materials">BOM</abbr> to a project in your Dependency-Track v4 instance.</li>
-<li>Head over to your Dependency-Track v5 instance and wait for the upload to replicate.</li>
-</ul>
-<p>If all goes well, you're done.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>If the <abbr title="Bill of Materials">BOM</abbr> upload does not replicate:</p>
-<ol>
-<li>Check the logs of your Dependency-Track v4 deployment for any errors during notification publishing.</li>
-<li>Check the logs of Bento for any errors or warnings.</li>
-<li>Check the logs of your Dependency-Track v5 deployment for any errors during <abbr title="Bill of Materials">BOM</abbr> processing.</li>
-<li>Ensure that the API key you created has the correct permissions.</li>
-<li>Ensure that Bento is reachable from your Dependency-Track v4 deployment.</li>
-<li>Ensure that your Dependency-Track v5 deployment is reachable from Bento.</li>
-</ol>
+<p>The suffixed account no longer matches its external identity.
+After the migration, list every user whose name ends in <code>-CONFLICT-LDAP</code> or <code>-CONFLICT-OIDC</code>.
+For each one, decide whether the account is a genuine duplicate of the managed user without the suffix (delete it),
+or a legitimate external identity that needs the original username back
+(delete or rename the managed user without the suffix, then rename the suffixed account to match its external identity).</p>
+<h3 id="user-records-without-a-username">User records without a username<a class="headerlink" href="#user-records-without-a-username" title="Permanent link">¶</a></h3>
+<p>v4 allowed managed and <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> user rows with <code>USERNAME IS NULL</code>. v5 requires a non-null username.
+The migrator silently skips these rows.
+They were unusable in v4 (no login surface), so dropping them is safe.</p>
+<h3 id="portfolio-access-control-bypass">Portfolio access control bypass<a class="headerlink" href="#portfolio-access-control-bypass" title="Permanent link">¶</a></h3>
+<p>v4's <code>ACCESS_MANAGEMENT</code> permission implicitly granted the ability to bypass portfolio access control.
+v5 splits that into a dedicated <code>PORTFOLIO_ACCESS_CONTROL_BYPASS</code> permission.
+To preserve v4 behavior, the migrator additionally grants <code>PORTFOLIO_ACCESS_CONTROL_BYPASS</code>
+to every v4 user and team that holds <code>ACCESS_MANAGEMENT</code>.
+If you want the v5 split semantics instead, revoke <code>PORTFOLIO_ACCESS_CONTROL_BYPASS</code> from the affected
+principals after the migration.</p>
+<p>v4 permission names that v5 has retired (for example <code>VIEW_BADGES</code>) drop out during migration.
+Any user or team assignment referencing one of those names is silently removed.</p>
+<h3 id="dedup-of-teams-oidc-groups-and-tags">Dedup of teams, <abbr title="OpenID Connect">OIDC</abbr> groups, and tags<a class="headerlink" href="#dedup-of-teams-oidc-groups-and-tags" title="Permanent link">¶</a></h3>
+<p>v4 did not enforce uniqueness on <code>TEAM.NAME</code>, <code>OIDCGROUP.NAME</code>, or <code>TAG.NAME</code>. v5 does.
+The migrator collapses duplicates to the row with the smallest <code>ID</code>,
+rewrites references in every join table to the canonical ID, and drops the non-canonical rows.</p>
+<h3 id="project-deduplication">Project deduplication<a class="headerlink" href="#project-deduplication" title="Permanent link">¶</a></h3>
+<p>v5 enforces uniqueness on <code>(NAME, VERSION)</code> per project (with a separate partial index for the version-NULL case).
+The migrator collapses duplicates by keeping the newest by <code>LAST_BOM_IMPORTED</code>. Older duplicates drop out.</p>
+<h3 id="project-activity-state">Project activity state<a class="headerlink" href="#project-activity-state" title="Permanent link">¶</a></h3>
+<p>v4 carried an <code>ACTIVE</code> true/false flag. v5 carries <code>INACTIVE_SINCE</code> (an optional timestamp).
+v4 active projects become <code>INACTIVE_SINCE = NULL</code>.
+v4 inactive projects become <code>INACTIVE_SINCE = '1970-01-01 00:00:00+00'</code> (Unix epoch) as a sentinel meaning
+<em>"migrated from v4 as inactive, exact deactivation time unknown."</em></p>
+<h3 id="vulnerability-epss-values">Vulnerability <abbr title="Exploit Prediction Scoring System">EPSS</abbr> values<a class="headerlink" href="#vulnerability-epss-values" title="Permanent link">¶</a></h3>
+<p>v4 stored <abbr title="Exploit Prediction Scoring System">EPSS</abbr> score and percentile directly on each vulnerability row.
+v5 stores <abbr title="Exploit Prediction Scoring System">EPSS</abbr> in a dedicated table populated from the upstream feed.
+The migrator does not copy v4 <abbr title="Exploit Prediction Scoring System">EPSS</abbr> values. v5 re-populates them at runtime within hours of first launch.</p>
+<h3 id="metrics-retention">Metrics retention<a class="headerlink" href="#metrics-retention" title="Permanent link">¶</a></h3>
+<p>v5 keeps daily metrics within a retention window.
+v4 had no matching setting, so the migrator requires the <code>--metrics-retention-days</code> flag on <code>extract</code> and <code>run</code>.
+Rows in <code>DEPENDENCYMETRICS</code> and <code>PROJECTMETRICS</code> older than the cutoff drop out.
+Portfolio metrics are not migrated. v5 derives them as a materialized view computed on demand.</p>
+<h3 id="notification-rule-configuration">Notification rule configuration<a class="headerlink" href="#notification-rule-configuration" title="Permanent link">¶</a></h3>
+<p>v5 changes the on-wire format of <code>NOTIFICATIONRULE.PUBLISHER_CONFIG</code> from free-form text to JSON.
+The migrator rebuilds the configuration for each rule from the v4 <code>destination</code> (and, for Jira, <code>jiraTicketType</code>)
+and sets <code>ENABLED = FALSE</code> on every migrated rule.
+Any other publisher-specific fields encoded in the v4 text payload drop out.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Every migrated notification rule lands turned off in v5.
+Review and re-enable each rule after verifying its configuration.</p>
 </div>
+<h3 id="repository-analyzer-and-vulnerability-source-credentials">Repository, analyzer, and vulnerability-source credentials<a class="headerlink" href="#repository-analyzer-and-vulnerability-source-credentials" title="Permanent link">¶</a></h3>
+<p>v4 stored repository basic-auth passwords on <code>REPOSITORY.PASSWORD</code>,
+and analyzer (OSS Index, Snyk, Trivy, VulnDB) and vulnerability-source (<abbr title="National Vulnerability Database">NVD</abbr>, GitHub Advisories, <abbr title="Open Source Vulnerabilities">OSV</abbr>) API credentials
+as encrypted property values.
+v5 manages every one of these through a centralized <a href="../../user/managing-secrets/">secret manager</a> that the migrator does not populate.</p>
+<p>The migrator nulls every <code>REPOSITORY.PASSWORD</code> and turns off the affected repositories.
+It drops analyzer and vulnerability-source credentials as part of the encrypted-property handling described below.</p>
+<p>After the migration, open the <strong>Repositories</strong>, <strong>Analyzers</strong>, and <strong>Vulnerability Sources</strong> pages in the v5 administrator panel
+and re-enter each credential through the secret manager.
+Turn the affected repositories back on.
+See <a href="../configuring-secret-management/">Configuring secret management</a> if you have not yet set the secret-encryption key for the v5 deployment.</p>
+<h3 id="encrypted-property-values">Encrypted property values<a class="headerlink" href="#encrypted-property-values" title="Permanent link">¶</a></h3>
+<p>v5 removes the <code>ENCRYPTEDSTRING</code> property type.
+The migrator nulls every encrypted property value and rewrites the type to <code>STRING</code>.
+For credentials stored this way (primarily analyzer and vulnerability-source API keys),
+see the preceding section for the recovery procedure.</p>
+<h3 id="property-values-of-unknown-type">Property values of unknown type<a class="headerlink" href="#property-values-of-unknown-type" title="Permanent link">¶</a></h3>
+<p>v5 restricts property types to a fixed set: <code>BOOLEAN</code>, <code>INTEGER</code>, <code>NUMBER</code>, <code>STRING</code>, <code>TIMESTAMP</code>, <code>URL</code>, <code>UUID</code>.
+The migrator drops any v4 property whose type falls outside this set
+(other than <code>ENCRYPTEDSTRING</code>, handled in the preceding section).</p>
+<h3 id="classifier-values">Classifier values<a class="headerlink" href="#classifier-values" title="Permanent link">¶</a></h3>
+<p>v5 removes the <code>NONE</code> classifier for projects and components. The migrator rewrites every <code>NONE</code> to <code>NULL</code>.
+Any other v4 classifier value not in the v5 set is also coerced to <code>NULL</code> (the column permits <code>NULL</code>).</p>
+<h3 id="purl-filtering-for-package-metadata"><abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr> filtering for package metadata<a class="headerlink" href="#purl-filtering-for-package-metadata" title="Permanent link">¶</a></h3>
+<p>v4 indexed repository metadata by name and namespace.
+v5 indexes it by package URL (<abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr>) and enforces a CHECK constraint that forbids <code>@</code>, <code>?</code>, <code>&amp;</code>, and <code>#</code> in PURLs.
+The migrator skips repository metadata rows whose derived <abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr> contains any of those characters.
+v5 repopulates package metadata from the same upstream sources at runtime.</p>
+<h3 id="removed-tables">Removed tables<a class="headerlink" href="#removed-tables" title="Permanent link">¶</a></h3>
+<p>The following v4 tables have no v5 counterpart and do not migrate:</p>
+<ul>
+<li><code>EVENTSERVICELOG</code>, <code>INSTALLEDUPGRADES</code>, <code>SCHEMAVERSION</code>.
+  The v5 schema-migration and durable-execution bookkeeping take over.</li>
+<li><code>COMPONENTANALYSISCACHE</code>. Runtime cache. v5 repopulates as needed.</li>
+</ul>
+<h3 id="malformed-uuids">Malformed UUIDs<a class="headerlink" href="#malformed-uuids" title="Permanent link">¶</a></h3>
+<p>v5 stores UUIDs as native <code>uuid</code> instead of <code>varchar(36)</code>.
+The migrator validates UUIDs against the canonical format.
+The migrator drops any row with a malformed UUID and records it in the <code>probe_invalid_uuids</code> table
+inside the staging schema.
+<code>verify</code> reports the count per source table.
+The staging probe persists until you drop the staging schema, so you can audit affected rows.</p>
+<h3 id="mssql-case-folded-uniqueness">MSSQL case-folded uniqueness<a class="headerlink" href="#mssql-case-folded-uniqueness" title="Permanent link">¶</a></h3>
+<p>Microsoft SQL Server's default collation (<code>SQL_Latin1_General_CP1_CI_AS</code>) treats <code>Alice</code> and <code>alice</code> as the same value.
+Postgres treats them as distinct. The migrator preserves both rows in v5.
+Where v5 enforces uniqueness on a case-folded v4 column (for example, two <code>TEAM.NAME</code> values differing only in case),
+the rows survive as two distinct entries.
+Inspect your data before the run if this is a concern.</p>
+<h2 id="runtime-behavior-changes">Runtime behavior changes<a class="headerlink" href="#runtime-behavior-changes" title="Permanent link">¶</a></h2>
+<p>The preceding section covers transformations the migrator applies to your data.
+This section covers differences in how v5 <em>runs</em> against migrated data.
+None of these are configurable. Expect them after switching to v5, and correlate observed effects (metric drops, missing findings) back to the entries below.</p>
+<h3 id="inactive-findings">Inactive findings<a class="headerlink" href="#inactive-findings" title="Permanent link">¶</a></h3>
+<p>v4 only <em>added</em> findings. A finding persisted on a component even after every analyzer stopped reporting it.
+v5 deactivates such findings automatically, and the default views exclude inactive findings.</p>
+<p>Expect a one-time drop in active-finding counts, and a corresponding step-down in time-series metrics, shortly after the first v5 analysis cycle.
+v5 retains the historical rows in an inactive state instead of deleting them, but they no longer count toward active totals.</p>
+<h2 id="performance-and-observability">Performance and observability<a class="headerlink" href="#performance-and-observability" title="Permanent link">¶</a></h2>
+<p>Throughput depends on your hardware, the source flavor, and the dataset size.
+Expect roughly 50 MB/s for the Postgres-to-Postgres extract (binary <code>COPY</code>)
+and roughly 20 MB/s for the Microsoft SQL Server source (JDBC batched insert).</p>
+<p>For visibility during long runs, the migrator emits per-table progress lines like:</p>
+<div class="highlight"><pre><span></span><code>INFO  Extracting LICENSE
+INFO    -&gt; 5234 rows in 142 ms
+INFO  Transforming LICENSE
+INFO    -&gt; 5231 rows in 38 ms
+INFO  Loading LICENSE into v5
+INFO    -&gt; LICENSE: 5231 rows in 27 ms (193740 rows/s)
+</code></pre></div>
+<p>The load phase additionally emits a heartbeat every 5 seconds while a single table is still running,
+so large tables stay visible even when the underlying <code>INSERT … SELECT</code> has not yet committed:</p>
+<div class="highlight"><pre><span></span><code>INFO  Loading COMPONENT into v5
+INFO    .. COMPONENT: still loading after 25s (expected 4823714 rows)
+INFO    .. COMPONENT: still loading after 30s (expected 4823714 rows)
+INFO    -&gt; COMPONENT: 4823714 rows in 32104 ms (150253 rows/s)
+</code></pre></div>
+<p>The expected count comes from the staging <code>tgt_*</code> row count and is an upper bound
+(deduped, malformed-UUID-dropped rows may reduce the final number).</p>
+<p>A 100 GB v4 dataset should complete in a few hours on a workstation-class disk, less on dedicated server hardware.</p>
+<h2 id="resumability">Resumability<a class="headerlink" href="#resumability" title="Permanent link">¶</a></h2>
+<p>Each phase persists per-table state in the <code>migration_state</code> table inside the staging schema.</p>
+<p><code>extract</code> and <code>transform</code> are safely re-runnable.
+Restarting <code>extract</code> truncates and re-extracts incomplete tables.
+Restarting <code>transform</code> drops and rebuilds every <code>tgt_*</code> table (transforms are idempotent).</p>
+<p><code>load</code> is not automatically resumable.
+Each invocation re-runs every <code>INSERT INTO ... SELECT</code> from scratch.
+Once v5 holds any rows, a follow-up <code>load</code> call fails on constraint violations and leaves the target in an inconsistent state.
+See <strong>Recovering from a failed load</strong> below.</p>
+<p>If you need to abandon a run before <code>load</code> starts, drop the staging schema (<code>v4-migrator cleanup</code>) and start fresh,
+or leave it in place and resume from <code>extract</code> or <code>transform</code> later.</p>
+<h2 id="recovering-from-a-failed-load">Recovering from a failed load<a class="headerlink" href="#recovering-from-a-failed-load" title="Permanent link">¶</a></h2>
+<p>A <code>load</code> invocation that fails partway through leaves rows in v5 from every table that completed before the failure.
+The migrator does not roll those back, and a straight <code>load</code> retry fails.
+Pick one of the following.</p>
+<p><strong>Start over.</strong> Recommended when the failure cause is unclear or when you want a fresh target:</p>
+<div class="highlight"><pre><span></span><code>v4-migrator<span class="w"> </span>cleanup<span class="w"> </span>--target-url<span class="w"> </span>...<span class="w"> </span>--target-user<span class="w"> </span>...<span class="w"> </span>--target-pass
+<span class="c1"># Drop and re-create the v5 schema (or the entire target database) yourself, then:</span>
+v4-migrator<span class="w"> </span>bootstrap<span class="w"> </span>--target-url<span class="w"> </span>...<span class="w"> </span>--target-user<span class="w"> </span>...<span class="w"> </span>--target-pass
+v4-migrator<span class="w"> </span>run<span class="w">       </span>--target-url<span class="w"> </span>...<span class="w"> </span>--source-url<span class="w"> </span>...<span class="w"> </span>--metrics-retention-days<span class="w"> </span>N
+</code></pre></div>
+<p><strong>Reload from existing staging.</strong> Faster when <code>extract</code> and <code>transform</code> outputs are trustworthy and only the load step failed.
+The staging schema survives across <code>bootstrap</code> runs, so:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Drop and re-create the v5 schema (or the entire target database) yourself.</span>
+v4-migrator<span class="w"> </span>bootstrap<span class="w"> </span>--target-url<span class="w"> </span>...<span class="w"> </span>--target-user<span class="w"> </span>...<span class="w"> </span>--target-pass
+v4-migrator<span class="w"> </span>load<span class="w">      </span>--target-url<span class="w"> </span>...<span class="w"> </span>--target-user<span class="w"> </span>...<span class="w"> </span>--target-pass
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Don't manually <code>TRUNCATE</code> individual v5 tables and re-run <code>load</code>.
+The load phase disables triggers on <code>PROJECT</code> and <code>PROJECT_ACCESS_USERS</code>,
+resets identity sequences, and pre-creates daily metrics partitions in a single sequence.
+None of that is idempotent at a per-table granularity.
+Always reset v5 fully before retrying.</p>
+</div>
+<h2 id="moving-the-migrated-data-to-its-production-target">Moving the migrated data to its production target<a class="headerlink" href="#moving-the-migrated-data-to-its-production-target" title="Permanent link">¶</a></h2>
+<p>If you ran the migration against a dedicated host,
+you can move the result with <code>pg_dump</code>/<code>pg_restore</code> after the migrator finishes:</p>
+<div class="highlight"><pre><span></span><code>pg_dump<span class="w"> </span>--format<span class="o">=</span>custom<span class="w"> </span>--no-owner<span class="w"> </span>--no-acl<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--exclude-schema<span class="o">=</span>dt_v4_migration<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-h<span class="w"> </span>migration-host<span class="w"> </span>-U<span class="w"> </span>dtrack<span class="w"> </span>dtrack<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>&gt;<span class="w"> </span>v5.dump
+
+pg_restore<span class="w"> </span>--no-owner<span class="w"> </span>--no-acl<span class="w"> </span>-d<span class="w"> </span>dtrack<span class="w"> </span>-h<span class="w"> </span>prod-host<span class="w"> </span>-U<span class="w"> </span>dtrack<span class="w"> </span>&lt;<span class="w"> </span>v5.dump
+</code></pre></div>
+<p>Exclude the staging schema (<code>dt_v4_migration</code> by default) from the dump.
+The staging schema is not portable across clusters and is not needed by v5 at runtime.</p>
+<h2 id="what-to-do-after-the-migration">What to do after the migration<a class="headerlink" href="#what-to-do-after-the-migration" title="Permanent link">¶</a></h2>
+<ul>
+<li>Start the v5 API server and let it run the post-load reconciliation tasks (metrics, policy evaluation).
+  See <a href="../deploying-to-production/">Deploying to production</a> for the
+  baseline runtime posture.
+  Everything below requires the API server to be running.</li>
+<li>Re-enable every migrated notification rule after reviewing its configuration.
+  See <a href="../../user/configuring-notifications/">Configuring notification alerts</a>.</li>
+<li>Re-enter repository, analyzer, and vulnerability-source credentials through the v5 secret manager,
+  and turn the affected repositories back on.
+  See <a href="../../user/managing-secrets/">Managing secrets</a> and
+  <a href="../configuring-secret-management/">Configuring secret management</a>.</li>
+<li>Reconcile every user whose username got a <code>-CONFLICT-LDAP</code> or <code>-CONFLICT-OIDC</code> suffix
+  (delete genuine duplicates, rename legitimate external identities back to their original username).</li>
+<li>Wait a few hours, then verify that v5 has populated the <code>EPSS</code> table from the upstream feed.</li>
+</ul>
+<h2 id="see-also">See also<a class="headerlink" href="#see-also" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="../configuring-database/">Configuring the database</a>: provisioning and tuning the Postgres cluster backing v5.</li>
+<li><a href="../deploying-to-production/">Deploying to production</a>: sizing, topology, and runtime posture for v5.</li>
+<li><a href="../scaling/">Scaling</a>: tuning a v5 deployment under load.</li>
+<li><a href="../upgrading-instances/">Upgrading instances</a>: for later v5-to-v5 upgrades.</li>
+<li><a href="../../../concepts/changes-in-v5/">About changes in v5</a>: background on what changed and why.</li>
+</ul>
 
 
 
@@ -2310,13 +3338,13 @@ and create a new alert with the following settings:</p>
         
         
           
-          <a href="../../upgrading/" class="md-footer__link md-footer__link--next" aria-label="Next: Upgrade guides">
+          <a href="../running-v4-and-v5-in-parallel/" class="md-footer__link md-footer__link--next" aria-label="Next: Running v4 and v5 in parallel">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Upgrade guides
+                Running v4 and v5 in parallel
               </div>
             </div>
             <div class="md-footer__button md-icon">
