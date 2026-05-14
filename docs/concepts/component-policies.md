@@ -59,7 +59,8 @@ dependency graph, or operate on SPDX license expressions directly.
 ## Where a policy applies
 
 By default, a policy applies to every project in the portfolio. Narrow it to specific projects, to
-descendants of those projects, or to projects carrying specific tags. Scoping is flat: a policy
+descendants of those projects, or to projects carrying specific
+[tags](tags.md). Scoping is flat: a policy
 either applies to a project or does not. See
 [Component policies › Assignment](../reference/policies/component-policies.md#assignment) for the
 exact rules.

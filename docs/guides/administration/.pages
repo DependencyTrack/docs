@@ -12,6 +12,7 @@ nav:
   - configuring-oidc.md
   - managing-notification-templates.md
   - debugging-notifications.md
+  - configuring-project-retention.md
   - backing-up.md
   - upgrading-instances.md
   - migrating-from-v4.md
