@@ -7,6 +7,8 @@ points lived: the runtime, the policy engine, and the operational model.
 
 This page summarises *what changed and why*. For step-by-step upgrade
 instructions, see the [upgrade guides](../guides/upgrading/index.md).
+To move data from an existing v4 deployment into v5, see
+[Migrating from v4 to v5](../guides/administration/migrating-from-v4.md).
 
 ## Why v5
 

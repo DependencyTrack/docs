@@ -113,7 +113,7 @@ functions (including [`spdx_expr_allows`](condition-expressions.md#spdx_expr_all
 
 - **Violation type:** Operational
 - **Operators:** `MATCHES`, `NO_MATCH`
-- **Value:** Regular expression over the component's package URL (purl).
+- **Value:** Regular expression over the component's package URL (PURL).
 
 ### `SEVERITY`
 

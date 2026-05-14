@@ -19,3 +19,8 @@ Explore the documentation using the navigation tabs:
 - [Guides](guides/index.md): task-oriented procedures for specific goals.
 - [Concepts](concepts/index.md): background material on how Dependency-Track works.
 - [Reference](reference/index.md): technical descriptions of APIs, configuration, and internals.
+
+## Coming from v4?
+
+See [About changes in v5](concepts/changes-in-v5.md) for what changed and why,
+and [Migrating from v4 to v5](guides/administration/migrating-from-v4.md) for the one-shot data migration procedure.

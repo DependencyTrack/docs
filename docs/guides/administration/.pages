@@ -15,3 +15,4 @@ nav:
   - backing-up.md
   - upgrading-instances.md
   - migrating-from-v4.md
+  - running-v4-and-v5-in-parallel.md
