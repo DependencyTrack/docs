@@ -174,10 +174,10 @@ Before proceeding, take note of the following constraints:
 * Only `session` and `transaction` pooling modes are supported. `transaction` is recommended.
 * Initialisation tasks, which include database migrations, **must** connect to the
   database directly, bypassing the connection pooler, when using pooling mode `transaction`.
-  * To prevent concurrent initialisation, session-level PostgreSQL advisory locks are used,
-    which are not supported with the `transaction` pooling mode.
-  * To facilitate this, initialisation tasks can be executed in dedicated containers,
-    and / or using separate data sources.
+    * To prevent concurrent initialisation, session-level PostgreSQL advisory locks are used,
+      which are not supported with the `transaction` pooling mode.
+    * To facilitate this, initialisation tasks can be executed in dedicated containers,
+      and / or using separate data sources.
 
 ### Example
 

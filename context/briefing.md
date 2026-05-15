@@ -46,6 +46,6 @@ Version 5 (codename "Hyades") is a ground-up rearchitecture of the backend:
 
 ### Tech stack
 
-- Java 21, Jetty, Jakarta REST (Jersey), DataNucleus (JDO), Liquibase, Protocol Buffers.
+- Java 21, Jetty, Jakarta REST (Jersey), DataNucleus (JDO), Flyway, Protocol Buffers.
 - PostgreSQL as the sole external dependency.
 - Google CEL for policy evaluation and notification filtering.
