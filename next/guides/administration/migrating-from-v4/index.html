@@ -464,6 +464,8 @@
       
         
       
+        
+      
     
     
     
@@ -2852,6 +2854,8 @@ v4 must be offline for the duration. The tool does not write to the v4 source.</
 See the <a href="../../upgrading/">per-release upgrade pages</a> instead.</p>
 <p>To try v5 against your real workload before committing to the migration, see
 <a href="../running-v4-and-v5-in-parallel/">Running v4 and v5 in parallel</a>.</p>
+<p>To walk this migration end to end against a sandbox v5 stack before the production cutover, see
+<a href="../../../tutorials/rehearsing-the-v4-migration/">Rehearsing the v4 to v5 migration</a>.</p>
 <h2 id="how-the-migration-works">How the migration works<a class="headerlink" href="#how-the-migration-works" title="Permanent link">¶</a></h2>
 <p>The <code>v4-migrator</code> command-line tool runs three offline phases (<strong>extract</strong>, <strong>transform</strong>, <strong>load</strong>)
 against the v5 deployment's Postgres target. Rows from the v4 source land first in a dedicated
@@ -2964,7 +2968,7 @@ causing <code>ATTACH PARTITION</code> to fail on overlap.</p>
 <h2 id="run-the-migration">Run the migration<a class="headerlink" href="#run-the-migration" title="Permanent link">¶</a></h2>
 <p>The migrator ships as a container image published at <code>ghcr.io/dependencytrack/v4-migrator:&lt;version&gt;</code>.</p>
 <p>The examples below use the following shell alias for brevity:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span>v4-migrator<span class="o">=</span><span class="s1">'docker run --rm -it --network=host ghcr.io/dependencytrack/hyades-apiserver-v4-migrator:&lt;version&gt;'</span>
+<div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span>v4-migrator<span class="o">=</span><span class="s1">'docker run --rm -it --network=host ghcr.io/dependencytrack/v4-migrator:&lt;version&gt;'</span>
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -3303,6 +3307,8 @@ The staging schema is not portable across clusters and is not needed by v5 at ru
             </div>
           
           
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
@@ -3447,7 +3453,7 @@ The staging schema is not portable across clusters and is not needed by v5 at ru
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.instant", "navigation.path", "navigation.prune", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "search.highlight", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.copy", "content.tabs.link", "navigation.footer", "navigation.indexes", "navigation.instant", "navigation.path", "navigation.prune", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "search.highlight", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>

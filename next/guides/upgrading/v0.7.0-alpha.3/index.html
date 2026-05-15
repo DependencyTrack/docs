@@ -464,6 +464,8 @@
       
         
       
+        
+      
     
     
     
@@ -2108,12 +2110,14 @@ must update their configuration accordingly.</p>
   is now performed by the API server. Refer to the <a href="../../../concepts/architecture/design/package-metadata-resolution/">design documentation</a> for details.</li>
 <li><strong>The notification-publisher service has been removed</strong>. Publishing of notifications
   is now performed by the API server. Refer to the <a href="../../../concepts/architecture/design/notifications/">design documentation</a> for details.</li>
-<li>The way notification publishers and alerts are configured behind the scenes has changed.</li>
+<li>The way notification publishers and alerts are configured behind the scenes has changed.<ul>
 <li>Existing configuration is migrated during the upgrade on a best-effort basis.</li>
 <li>To prevent partially migrated alert configurations from taking effect,
-    <strong>all alerts are turned off during the upgrade</strong>.</li>
+  <strong>all alerts are turned off during the upgrade</strong>.</li>
 <li>You must manually review and re-enable them after the upgrade.</li>
 <li>Refer to the <a href="../../../reference/notifications/publishers/">notification publishers documentation</a> for guidance.</li>
+</ul>
+</li>
 <li><strong>Notifications are no longer published to Kafka by default</strong>. Going forward, you must configure
   alerts explicitly, and use the new <a href="../../../reference/notifications/publishers/#kafka">Kafka publisher</a>
   if you want to receive notifications via Kafka.</li>
@@ -2165,15 +2169,13 @@ must update their configuration accordingly.</p>
 </tr>
 </tbody>
 </table>
-</li>
-<li>
-<p>For this version, the <code>dt.datasource.*</code> configurations default to their <code>alpine.database.*</code>
-    counterparts. Existing deployments should continue to function without changes.
-    Support for <code>alpine.database.*</code> configs is removed before the GA release.</p>
-</li>
-<li>
-<p>The new datasource configuration mechanism is documented in the
-    <a href="../../../reference/configuration/datasources/">datasource configuration reference</a>.</p>
+<ul>
+<li>For this version, the <code>dt.datasource.*</code> configurations default to their <code>alpine.database.*</code>
+  counterparts. Existing deployments should continue to function without changes.
+  Support for <code>alpine.database.*</code> configs is removed before the GA release.</li>
+<li>The new datasource configuration mechanism is documented in the
+  <a href="../../../reference/configuration/datasources/">datasource configuration reference</a>.</li>
+</ul>
 </li>
 <li>
 <p><strong>All configuration properties have been standardized to use the <code>dt.</code> prefix</strong>.
@@ -2201,12 +2203,12 @@ must update their configuration accordingly.</p>
 </tr>
 </tbody>
 </table>
-</li>
-<li>
-<p>The naming rule is straightforward:</p>
 <ul>
+<li>The naming rule is straightforward:<ul>
 <li><code>alpine.&lt;suffix&gt;</code> → <code>dt.&lt;suffix&gt;</code> (for all former <code>alpine.*</code> properties)</li>
 <li><code>&lt;name&gt;</code> → <code>dt.&lt;name&gt;</code> (for all previously unprefixed properties)</li>
+</ul>
+</li>
 </ul>
 <p>When using environment variables, the same mapping applies: <code>ALPINE_LDAP_ENABLED</code> becomes
 <code>DT_LDAP_ENABLED</code>, <code>TASK_PORTFOLIO_METRICS_UPDATE_CRON</code> becomes <code>DT_TASK_PORTFOLIO_METRICS_UPDATE_CRON</code>,
@@ -2262,10 +2264,12 @@ Update your configurations at your earliest convenience.</p>
   via <code>dt.logging.level."&lt;logger-name&gt;"</code> per-logger properties.
   Refer to the <a href="../../administration/configuring-observability/#adjusting-log-levels">logging documentation</a> for details.</p>
 </li>
-<li>The following init task configurations have been removed and replaced with <code>init.tasks.datasource.name</code>:</li>
+<li>The following init task configurations have been removed and replaced with <code>init.tasks.datasource.name</code>:<ul>
 <li><code>init.tasks.database.url</code></li>
 <li><code>init.tasks.database.username</code></li>
 <li><code>init.tasks.database.password</code></li>
+</ul>
+</li>
 <li>Refer to <a href="../../administration/configuring-database/#schema-migration-credentials">schema migration credentials</a>
   for an example of how to run init tasks with separate database credentials.</li>
 </ul>
@@ -2286,6 +2290,8 @@ Update your configurations at your earliest convenience.</p>
             </div>
           
           
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
@@ -2430,7 +2436,7 @@ Update your configurations at your earliest convenience.</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.instant", "navigation.path", "navigation.prune", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "search.highlight", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.copy", "content.tabs.link", "navigation.footer", "navigation.indexes", "navigation.instant", "navigation.path", "navigation.prune", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "search.highlight", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
