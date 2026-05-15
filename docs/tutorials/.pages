@@ -4,4 +4,5 @@ nav:
   - quickstart.md
   - creating-a-component-policy.md
   - setting-up-notifications.md
+  - rehearsing-the-v4-migration.md
   - ...

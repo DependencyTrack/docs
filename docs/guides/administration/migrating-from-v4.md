@@ -14,6 +14,9 @@ See the [per-release upgrade pages](../upgrading/index.md) instead.
 To try v5 against your real workload before committing to the migration, see
 [Running v4 and v5 in parallel](running-v4-and-v5-in-parallel.md).
 
+To walk this migration end to end against a sandbox v5 stack before the production cutover, see
+[Rehearsing the v4 to v5 migration](../../tutorials/rehearsing-the-v4-migration.md).
+
 ## How the migration works
 
 The `v4-migrator` command-line tool runs three offline phases (**extract**, **transform**, **load**)
@@ -111,7 +114,7 @@ The migrator ships as a container image published at `ghcr.io/dependencytrack/v4
 The examples below use the following shell alias for brevity:
 
 ```bash
-alias v4-migrator='docker run --rm -it --network=host ghcr.io/dependencytrack/hyades-apiserver-v4-migrator:<version>'
+alias v4-migrator='docker run --rm -it --network=host ghcr.io/dependencytrack/v4-migrator:<version>'
 ```
 
 !!! note

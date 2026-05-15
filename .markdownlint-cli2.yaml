@@ -24,6 +24,8 @@ config:
     siblings_only: true
   code-block-style: false
   no-space-in-code: false
+  ul-indent:
+    indent: 4
 
 globs:
 - "docs/**/*.md"
