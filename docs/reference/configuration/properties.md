@@ -1938,26 +1938,6 @@ Cron expression of the package metadata maintenance task.  <br/><br/>  The task 
 <tr><th>ENV</th><td><code>DT_TASK_PACKAGE_METADATA_MAINTENANCE_CRON</code></td></tr>
 </table>
 
-<span id="dttaskpackagemetadatamaintenancelockmaxduration">**`dt.task.package.metadata.maintenance.lock.max.duration`** <strong style="color: red">*</strong> [¶](#dttaskpackagemetadatamaintenancelockmaxduration){ .headerlink }</span>
-
-Maximum duration in ISO 8601 format for which the package metadata maintenance task will hold a lock.  <br/><br/>  The duration should be long enough to cover the task's execution duration.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>duration</code></td></tr>
-<tr><th>Default</th><td><code>PT15M</code></td></tr>
-<tr><th>ENV</th><td><code>DT_TASK_PACKAGE_METADATA_MAINTENANCE_LOCK_MAX_DURATION</code></td></tr>
-</table>
-
-<span id="dttaskpackagemetadatamaintenancelockminduration">**`dt.task.package.metadata.maintenance.lock.min.duration`** <strong style="color: red">*</strong> [¶](#dttaskpackagemetadatamaintenancelockminduration){ .headerlink }</span>
-
-Minimum duration in ISO 8601 format for which the package metadata maintenance task will hold a lock.  <br/><br/>  The duration should be long enough to cover eventual clock skew across API server instances.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>duration</code></td></tr>
-<tr><th>Default</th><td><code>PT1M</code></td></tr>
-<tr><th>ENV</th><td><code>DT_TASK_PACKAGE_METADATA_MAINTENANCE_LOCK_MIN_DURATION</code></td></tr>
-</table>
-
 <span id="dttaskportfolio-metrics-updatecron">**`dt.task.portfolio-metrics-update.cron`** <strong style="color: red">*</strong> [¶](#dttaskportfolio-metrics-updatecron){ .headerlink }</span>
 
 Cron expression of the portfolio metrics update task.  
@@ -1978,26 +1958,6 @@ Cron expression of the project maintenance task.  <br/><br/>  The task deletes i
 <tr><th>ENV</th><td><code>DT_TASK_PROJECT_MAINTENANCE_CRON</code></td></tr>
 </table>
 
-<span id="dttaskprojectmaintenancelockmaxduration">**`dt.task.project.maintenance.lock.max.duration`** <strong style="color: red">*</strong> [¶](#dttaskprojectmaintenancelockmaxduration){ .headerlink }</span>
-
-Maximum duration in ISO 8601 format for which the project maintenance task will hold a lock.  <br/><br/>  The duration should be long enough to cover the task's execution duration.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>duration</code></td></tr>
-<tr><th>Default</th><td><code>PT15M</code></td></tr>
-<tr><th>ENV</th><td><code>DT_TASK_PROJECT_MAINTENANCE_LOCK_MAX_DURATION</code></td></tr>
-</table>
-
-<span id="dttaskprojectmaintenancelockminduration">**`dt.task.project.maintenance.lock.min.duration`** <strong style="color: red">*</strong> [¶](#dttaskprojectmaintenancelockminduration){ .headerlink }</span>
-
-Minimum duration in ISO 8601 format for which the project maintenance task will hold a lock.  <br/><br/>  The duration should be long enough to cover eventual clock skew across API server instances.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>duration</code></td></tr>
-<tr><th>Default</th><td><code>PT1M</code></td></tr>
-<tr><th>ENV</th><td><code>DT_TASK_PROJECT_MAINTENANCE_LOCK_MIN_DURATION</code></td></tr>
-</table>
-
 <span id="dttaskscheduled-notification-dispatchcron">**`dt.task.scheduled-notification-dispatch.cron`** <strong style="color: red">*</strong> [¶](#dttaskscheduled-notification-dispatchcron){ .headerlink }</span>
 
 Cron expression for polling scheduled notification rules that are due for dispatch.  
@@ -2016,26 +1976,6 @@ Cron expression of the tag maintenance task.  <br/><br/>  The task deletes orpha
 <tr><th>Type</th><td style="border-width: 0"><code>cron</code></td></tr>
 <tr><th>Default</th><td><code>0 */12 * * *</code></td></tr>
 <tr><th>ENV</th><td><code>DT_TASK_TAG_MAINTENANCE_CRON</code></td></tr>
-</table>
-
-<span id="dttasktagmaintenancelockmaxduration">**`dt.task.tag.maintenance.lock.max.duration`** <strong style="color: red">*</strong> [¶](#dttasktagmaintenancelockmaxduration){ .headerlink }</span>
-
-Maximum duration in ISO 8601 format for which the tag maintenance task will hold a lock.  <br/><br/>  The duration should be long enough to cover the task's execution duration.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>duration</code></td></tr>
-<tr><th>Default</th><td><code>PT15M</code></td></tr>
-<tr><th>ENV</th><td><code>DT_TASK_TAG_MAINTENANCE_LOCK_MAX_DURATION</code></td></tr>
-</table>
-
-<span id="dttasktagmaintenancelockminduration">**`dt.task.tag.maintenance.lock.min.duration`** <strong style="color: red">*</strong> [¶](#dttasktagmaintenancelockminduration){ .headerlink }</span>
-
-Minimum duration in ISO 8601 format for which the tag maintenance task will hold a lock.  <br/><br/>  The duration should be long enough to cover eventual clock skew across API server instances.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>duration</code></td></tr>
-<tr><th>Default</th><td><code>PT1M</code></td></tr>
-<tr><th>ENV</th><td><code>DT_TASK_TAG_MAINTENANCE_LOCK_MIN_DURATION</code></td></tr>
 </table>
 
 <span id="dttasktelemetry-submissioncron">**`dt.task.telemetry-submission.cron`** <strong style="color: red">*</strong> [¶](#dttasktelemetry-submissioncron){ .headerlink }</span>
@@ -2098,26 +2038,6 @@ Cron expression of the vulnerability database maintenance task.  <br/><br/>  The
 <tr><th>ENV</th><td><code>DT_TASK_VULNERABILITY_DATABASE_MAINTENANCE_CRON</code></td></tr>
 </table>
 
-<span id="dttaskvulnerabilitydatabasemaintenancelockmaxduration">**`dt.task.vulnerability.database.maintenance.lock.max.duration`** <strong style="color: red">*</strong> [¶](#dttaskvulnerabilitydatabasemaintenancelockmaxduration){ .headerlink }</span>
-
-Maximum duration in ISO 8601 format for which the vulnerability database maintenance task will hold a lock.  <br/><br/>  The duration should be long enough to cover the task's execution duration.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>duration</code></td></tr>
-<tr><th>Default</th><td><code>PT15M</code></td></tr>
-<tr><th>ENV</th><td><code>DT_TASK_VULNERABILITY_DATABASE_MAINTENANCE_LOCK_MAX_DURATION</code></td></tr>
-</table>
-
-<span id="dttaskvulnerabilitydatabasemaintenancelockminduration">**`dt.task.vulnerability.database.maintenance.lock.min.duration`** <strong style="color: red">*</strong> [¶](#dttaskvulnerabilitydatabasemaintenancelockminduration){ .headerlink }</span>
-
-Minimum duration in ISO 8601 format for which the vulnerability database maintenance task will hold a lock.  <br/><br/>  The duration should be long enough to cover eventual clock skew across API server instances.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>duration</code></td></tr>
-<tr><th>Default</th><td><code>PT1M</code></td></tr>
-<tr><th>ENV</th><td><code>DT_TASK_VULNERABILITY_DATABASE_MAINTENANCE_LOCK_MIN_DURATION</code></td></tr>
-</table>
-
 <span id="dttaskvulnerabilitymetricsupdatecron">**`dt.task.vulnerability.metrics.update.cron`** <strong style="color: red">*</strong> [¶](#dttaskvulnerabilitymetricsupdatecron){ .headerlink }</span>
 
 Cron expression of the vulnerability metrics update task.  
@@ -2126,26 +2046,6 @@ Cron expression of the vulnerability metrics update task.
 <tr><th>Type</th><td style="border-width: 0"><code>cron</code></td></tr>
 <tr><th>Default</th><td><code>40 * * * *</code></td></tr>
 <tr><th>ENV</th><td><code>DT_TASK_VULNERABILITY_METRICS_UPDATE_CRON</code></td></tr>
-</table>
-
-<span id="dttaskvulnerabilitymetricsupdatelockmaxduration">**`dt.task.vulnerability.metrics.update.lock.max.duration`** <strong style="color: red">*</strong> [¶](#dttaskvulnerabilitymetricsupdatelockmaxduration){ .headerlink }</span>
-
-Maximum duration in ISO 8601 format for which the vulnerability metrics update task will hold a lock.  <br/><br/>  The duration should be long enough to cover the task's execution duration.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>duration</code></td></tr>
-<tr><th>Default</th><td><code>PT15M</code></td></tr>
-<tr><th>ENV</th><td><code>DT_TASK_VULNERABILITY_METRICS_UPDATE_LOCK_MAX_DURATION</code></td></tr>
-</table>
-
-<span id="dttaskvulnerabilitymetricsupdatelockminduration">**`dt.task.vulnerability.metrics.update.lock.min.duration`** <strong style="color: red">*</strong> [¶](#dttaskvulnerabilitymetricsupdatelockminduration){ .headerlink }</span>
-
-Minimum duration in ISO 8601 format for which the vulnerability metrics update task will hold a lock.  <br/><br/>  The duration should be long enough to cover eventual clock skew across API server instances.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>duration</code></td></tr>
-<tr><th>Default</th><td><code>PT90S</code></td></tr>
-<tr><th>ENV</th><td><code>DT_TASK_VULNERABILITY_METRICS_UPDATE_LOCK_MIN_DURATION</code></td></tr>
 </table>
 
 <span id="dttaskworkflowmaintenancecron">**`dt.task.workflow.maintenance.cron`** <strong style="color: red">*</strong> [¶](#dttaskworkflowmaintenancecron){ .headerlink }</span>
