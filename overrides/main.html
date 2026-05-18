@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+  {{ super() }}
+  {% if config.extra.scarf_pixel %}
+  <img referrerpolicy="no-referrer-when-downgrade" src="https://static.scarf.sh/a.png?x-pxid=4e38a992-0670-4e48-a193-edd89b6482d0" alt="" />
+  {% endif %}
+{% endblock %}
