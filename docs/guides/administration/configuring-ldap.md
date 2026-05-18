@@ -4,6 +4,14 @@ Dependency-Track can authenticate users against an LDAP directory such as Micros
 Active Directory, ApacheDS, or any other LDAP-compatible server. Once enabled, users
 log in with their directory credentials rather than a locally managed password.
 
+## Authentication flow
+
+Dependency-Track authenticates LDAP users by first performing a service-account
+bind to locate the user's directory entry, then attempting a bind with the
+user's own credentials to verify their password. On success, the system grants
+access. With user provisioning enabled, Dependency-Track creates the account
+automatically on first login.
+
 ## Prerequisites
 
 - A service account in the LDAP directory with read access to users and groups.

@@ -12,6 +12,7 @@
 *[NVD]: National Vulnerability Database
 *[OIDC]: OpenID Connect
 *[OSV]: Open Source Vulnerabilities
+*[PAC]: Portfolio Access Control
 *[PURL]: Package URL, a standardized format for identifying software packages
 *[SBOM]: Software Bill of Materials
 *[SLO]: Service Level Objectives
