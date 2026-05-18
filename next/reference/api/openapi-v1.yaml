@@ -2209,6 +2209,16 @@ paths:
         name: hasAnalysis
         schema:
           type: boolean
+      - description: Filter EPSS score from this value (inclusive)
+        in: query
+        name: epssFrom
+        schema:
+          type: number
+      - description: Filter EPSS score to this value (inclusive)
+        in: query
+        name: epssTo
+        schema:
+          type: number
       responses:
         "200":
           content:
