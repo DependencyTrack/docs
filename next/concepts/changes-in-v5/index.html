@@ -1734,6 +1734,11 @@ remediation steps, lives in the
   upgrade guide.</li>
 <li><strong>Removed deprecated endpoints.</strong> Three v4-deprecated paths under
   <code>/api/v1/policy</code> and <code>/api/v1/tag</code> go away.</li>
+<li><strong>Distribution formats.</strong> v4 shipped separate API server and frontend
+  container images, a "bundled" container image combining both, and an
+  executable WAR. v5 ships container images only, and drops the bundled
+  image. Operators on the bundled image or the WAR must move to the
+  separate API server and frontend containers.</li>
 <li><strong><abbr title="National Vulnerability Database">NVD</abbr> feed mirror.</strong> v4 exposed downloaded <abbr title="National Vulnerability Database">NVD</abbr> feed files at
   <code>/mirror/nvd/*</code> so other tools could use Dependency-Track as a local
   <abbr title="National Vulnerability Database">NVD</abbr> mirror. v5 no longer persists the feed files (it has no internal
