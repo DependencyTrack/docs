@@ -164,6 +164,11 @@ remediation steps, lives in the
   upgrade guide.
 * **Removed deprecated endpoints.** Three v4-deprecated paths under
   `/api/v1/policy` and `/api/v1/tag` go away.
+* **Distribution formats.** v4 shipped separate API server and frontend
+  container images, a "bundled" container image combining both, and an
+  executable WAR. v5 ships container images only, and drops the bundled
+  image. Operators on the bundled image or the WAR must move to the
+  separate API server and frontend containers.
 * **NVD feed mirror.** v4 exposed downloaded NVD feed files at
   `/mirror/nvd/*` so other tools could use Dependency-Track as a local
   NVD mirror. v5 no longer persists the feed files (it has no internal
