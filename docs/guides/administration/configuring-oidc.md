@@ -6,8 +6,17 @@ Dependency-Track supports SSO via [OpenID Connect](https://openid.net/specs/open
 
 !!! note "Frontend configuration required"
     OIDC requires configuration on both the **API server** and the **frontend**.
-    The API server validates tokens; the frontend initiates the OIDC flow.
+    The API server validates tokens, while the frontend initiates the OIDC flow.
     Configure both with the same issuer and client ID.
+
+## Authentication flow
+
+The frontend redirects the user to the identity provider's authorization
+endpoint. After the user authenticates, the IdP returns an ID token to the
+frontend, which forwards it to the API server for validation. The API server
+verifies the token against the IdP's discovery endpoint and extracts the
+username from the configured claim. With user provisioning enabled,
+Dependency-Track creates the account automatically on first login.
 
 ## Prerequisites
 
