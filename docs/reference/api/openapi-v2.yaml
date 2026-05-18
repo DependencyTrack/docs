@@ -167,6 +167,8 @@ tags:
   description: Endpoints related to secrets
 - name: Task Queues
   description: Endpoints related to task queue management
+- name: Vuln Data Sources
+  description: Endpoints related to vulnerability data sources
 - name: Vuln Policies
   description: Endpoints related to vulnerability policies
 - name: Workflows
@@ -1262,6 +1264,89 @@ paths:
                 $ref: "#/components/schemas/problem-details"
         default:
           $ref: "#/components/responses/generic-error"
+  /vuln-data-sources/{name}/mirror-runs:
+    post:
+      tags:
+      - Vuln Data Sources
+      summary: Trigger a vulnerability data source mirror run
+      description: |-
+        Triggers a mirror run for the given vulnerability data source.
+
+        Requires permission `SYSTEM_CONFIGURATION` or `SYSTEM_CONFIGURATION_UPDATE`.
+      operationId: triggerVulnDataSourceMirrorRun
+      parameters:
+      - name: name
+        in: path
+        description: "Name of the vulnerability data source (e.g. `nvd`, `osv`, `github`)."
+        required: true
+        schema:
+          type: string
+      responses:
+        "202":
+          description: Mirror run triggered
+          headers:
+            Location:
+              description: URL of the latest mirror run resource.
+              schema:
+                type: string
+                format: uri
+        "400":
+          description: Mirror run cannot be started
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/problem-details"
+        "401":
+          $ref: "#/components/responses/generic-unauthorized-error"
+        "403":
+          $ref: "#/components/responses/generic-forbidden-error"
+        "404":
+          $ref: "#/components/responses/generic-not-found-error"
+        "409":
+          description: A mirror run is already in progress
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/problem-details"
+        default:
+          $ref: "#/components/responses/generic-error"
+  /vuln-data-sources/{name}/mirror-runs/latest:
+    get:
+      tags:
+      - Vuln Data Sources
+      summary: Get the latest vulnerability data source mirror run
+      description: |-
+        Returns the status of the most recent mirror run for a given
+        vulnerability data source.
+
+        Returns 404 if no mirror run is available
+        (e.g. none has been triggered yet, or the most recent run
+        is no longer retained), or if the data source is unknown.
+
+        Requires permission `SYSTEM_CONFIGURATION` or `SYSTEM_CONFIGURATION_READ`.
+      operationId: getLatestVulnDataSourceMirrorRun
+      parameters:
+      - name: name
+        in: path
+        description: "Name of the vulnerability data source (e.g. `nvd`, `osv`, `github`)."
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Mirror run status
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/vuln-data-source-mirror-status"
+        "401":
+          $ref: "#/components/responses/generic-unauthorized-error"
+        "403":
+          $ref: "#/components/responses/generic-forbidden-error"
+        "404":
+          $ref: "#/components/responses/generic-not-found-error"
+        default:
+          $ref: "#/components/responses/generic-error"
   /internal/task-queues/{type}:
     get:
       tags:
@@ -1632,7 +1717,7 @@ components:
         type:
           type: string
           description: A URI reference that identifies the problem type
-          format: uri
+          format: uri-reference
           default: about:blank
         status:
           maximum: 599
@@ -1655,7 +1740,7 @@ components:
           type: string
           description: Reference URI that identifies the specific occurrence of the
             problem
-          format: uri
+          format: uri-reference
       description: An RFC 9457 problem object.
       externalDocs:
         url: https://www.rfc-editor.org/rfc/rfc9457.html
@@ -2091,6 +2176,26 @@ components:
         failure_reason:
           type: string
           description: Reason for why the synchronization failed.
+    vuln-data-source-mirror-status:
+      required:
+      - status
+      type: object
+      properties:
+        status:
+          type: string
+          description: Status of the mirror run.
+          enum:
+          - PENDING
+          - RUNNING
+          - COMPLETED
+          - FAILED
+        started_at:
+          $ref: "#/components/schemas/timestamp"
+        completed_at:
+          $ref: "#/components/schemas/timestamp"
+        failure_reason:
+          type: string
+          description: Reason for why the mirror run failed.
     task-queue-type:
       type: string
       enum:
