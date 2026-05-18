@@ -1247,6 +1247,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#authentication-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authentication flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2085,6 +2096,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#authentication-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authentication flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2354,9 +2376,16 @@
 <div class="admonition note">
 <p class="admonition-title">Frontend configuration required</p>
 <p><abbr title="OpenID Connect">OIDC</abbr> requires configuration on both the <strong>API server</strong> and the <strong>frontend</strong>.
-The API server validates tokens; the frontend initiates the <abbr title="OpenID Connect">OIDC</abbr> flow.
+The API server validates tokens, while the frontend initiates the <abbr title="OpenID Connect">OIDC</abbr> flow.
 Configure both with the same issuer and client ID.</p>
 </div>
+<h2 id="authentication-flow">Authentication flow<a class="headerlink" href="#authentication-flow" title="Permanent link">¶</a></h2>
+<p>The frontend redirects the user to the identity provider's authorization
+endpoint. After the user authenticates, the <abbr title="Identity Provider">IdP</abbr> returns an ID token to the
+frontend, which forwards it to the API server for validation. The API server
+verifies the token against the <abbr title="Identity Provider">IdP</abbr>'s discovery endpoint and extracts the
+username from the configured claim. With user provisioning enabled,
+Dependency-Track creates the account automatically on first login.</p>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h2>
 <ul>
 <li>An <abbr title="OpenID Connect">OIDC</abbr>-compatible identity provider with a configured client (app).</li>

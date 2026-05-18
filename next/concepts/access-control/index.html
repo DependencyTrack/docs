@@ -740,34 +740,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Users">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ldap-authentication-flow" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        LDAP authentication flow
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#oidc-authentication-flow" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        OIDC authentication flow
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -789,6 +761,67 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Portfolio access control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-pac-interacts-with-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How PAC interacts with permissions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pattern-separating-permission-teams-from-access-teams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pattern: separating permission teams from access teams
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inheritance-through-the-project-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inheritance through the project hierarchy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bypassing-pac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bypassing PAC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-creation-under-pac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project creation under PAC
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1310,34 +1343,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Users">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ldap-authentication-flow" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        LDAP authentication flow
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#oidc-authentication-flow" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        OIDC authentication flow
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -1359,6 +1364,67 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Portfolio access control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-pac-interacts-with-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How PAC interacts with permissions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pattern-separating-permission-teams-from-access-teams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pattern: separating permission teams from access teams
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inheritance-through-the-project-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inheritance through the project hierarchy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bypassing-pac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bypassing PAC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-creation-under-pac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project creation under PAC
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1443,9 +1509,13 @@
 
 <h1 id="about-access-control">About access control<a class="headerlink" href="#about-access-control" title="Permanent link">¶</a></h1>
 <p>Dependency-Track uses a role-based access control model built around <strong>permissions</strong>,
-<strong>teams</strong>, and <strong>users</strong>. Permissions can be assigned to teams or directly to users.
-A user's effective permissions are the union of their direct permissions and the
-permissions of every team they belong to.</p>
+<strong>teams</strong>, and <strong>users</strong>. Permissions can be assigned to teams or directly to users.</p>
+<div class="admonition note">
+<p class="admonition-title">Effective permissions</p>
+<p>A user's effective permissions are the <strong>union</strong> of their direct permissions
+and the permissions of every team they belong to. Permissions are never
+intersected or downgraded by team membership.</p>
+</div>
 <h2 id="users">Users<a class="headerlink" href="#users" title="Permanent link">¶</a></h2>
 <p>Three types of users exist:</p>
 <table>
@@ -1472,19 +1542,6 @@ permissions of every team they belong to.</p>
 </table>
 <p>All user types share the same permission model. The authentication mechanism determines
 how the system verifies a user's identity, not what they can access.</p>
-<h3 id="ldap-authentication-flow"><abbr title="Lightweight Directory Access Protocol">LDAP</abbr> authentication flow<a class="headerlink" href="#ldap-authentication-flow" title="Permanent link">¶</a></h3>
-<p>With <abbr title="Lightweight Directory Access Protocol">LDAP</abbr>, Dependency-Track authenticates users by performing a service-account
-bind to locate the user's directory entry, then attempting a bind with the user's
-own credentials to verify their password. On success, the system grants access.
-With user provisioning turned on, Dependency-Track creates the account
-automatically on first login.</p>
-<h3 id="oidc-authentication-flow"><abbr title="OpenID Connect">OIDC</abbr> authentication flow<a class="headerlink" href="#oidc-authentication-flow" title="Permanent link">¶</a></h3>
-<p>With <abbr title="OpenID Connect">OIDC</abbr>, the frontend redirects the user to the identity provider's authorization
-endpoint. After the user authenticates, the <abbr title="Identity Provider">IdP</abbr> returns an ID token to the frontend,
-which forwards it to the API server for validation. The API server verifies the token
-against the <abbr title="Identity Provider">IdP</abbr>'s discovery endpoint and extracts the username from the configured
-claim. With user provisioning turned on, Dependency-Track creates accounts on
-first login.</p>
 <h2 id="teams">Teams<a class="headerlink" href="#teams" title="Permanent link">¶</a></h2>
 <p>A team is a named collection of users and API keys. Teams hold permissions, which makes
 it straightforward to manage access for groups of people (for example, <em>Security Engineers</em>,
@@ -1497,16 +1554,135 @@ exceptions that don't justify a dedicated team.</p>
 <p>API keys belong to a team and carry the same permissions as that team. They authenticate
 automated access (CI/CD pipelines, integrations) without associating requests with a
 specific human user.</p>
+<p>Deleting a team also deletes its API keys and any project access assignments
+made through it. Projects and user accounts are unaffected, but users lose the
+permissions they had inherited from the deleted team.</p>
 <h2 id="portfolio-access-control">Portfolio access control<a class="headerlink" href="#portfolio-access-control" title="Permanent link">¶</a></h2>
-<p>By default, all teams with <code>VIEW_PORTFOLIO</code> can see every project. Access Control Lists
-(ACLs) restrict portfolio visibility so that a team can only see the projects explicitly
-assigned to it.</p>
-<p>Enable ACLs in <strong>Administration &gt; Access Management &gt; Portfolio Access Control</strong>.
-Once active, every project must be explicitly assigned to at least one team for it to
-be visible to non-administrator users.</p>
-<p>ACLs are most useful in multi-tenant scenarios where different teams should not see
-each other's projects. For single-team or open environments, ACLs add management
+<p>By default, every principal with <code>VIEW_PORTFOLIO</code> can see every project.
+Portfolio Access Control (<abbr title="Portfolio Access Control">PAC</abbr>) restricts that visibility so a team can only act
+on the projects explicitly assigned to it. The per-project list of assigned
+teams is the project's Access Control List (ACL).</p>
+<p>With <abbr title="Portfolio Access Control">PAC</abbr> enabled, ACL membership gates every operation on a project: viewing,
+<abbr title="Bill of Materials">BOM</abbr> upload, editing, deletion, and vulnerability triage. The portfolio
+permissions (<code>VIEW_PORTFOLIO</code>, <code>PORTFOLIO_MANAGEMENT_UPDATE</code>, and so on) become
+<em>necessary but not sufficient</em>: a principal must hold the relevant permission
+<strong>and</strong> belong to a team on the project's ACL.</p>
+<p>Enable <abbr title="Portfolio Access Control">PAC</abbr> in <strong>Administration &gt; Access Management &gt; Portfolio Access Control</strong>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Enabling <abbr title="Portfolio Access Control">PAC</abbr> affects existing projects</p>
+<p>Existing projects keep their data but start with no team assignments. Until
+an administrator (or a principal with <code>PORTFOLIO_ACCESS_CONTROL_BYPASS</code>)
+assigns at least one team to each project, those projects become invisible
+to all non-administrator users. Plan the assignment rollout before enabling
+<abbr title="Portfolio Access Control">PAC</abbr> on a production instance.</p>
+</div>
+<p><abbr title="Portfolio Access Control">PAC</abbr> is most useful in multi-tenant scenarios where different teams should not see
+each other's projects. For single-team or open environments, <abbr title="Portfolio Access Control">PAC</abbr> adds management
 overhead without security benefit.</p>
+<h3 id="how-pac-interacts-with-permissions">How <abbr title="Portfolio Access Control">PAC</abbr> interacts with permissions<a class="headerlink" href="#how-pac-interacts-with-permissions" title="Permanent link">¶</a></h3>
+<p>Permissions and ACLs are orthogonal:</p>
+<ul>
+<li><strong>Permissions</strong> define <em>what a principal can do</em>, such as uploading BOMs,
+  editing projects, or triaging vulnerabilities. They are global to the
+  principal. The model has no per-project permissions.</li>
+<li><strong>ACLs</strong> define <em>which projects a principal can do it on</em>. They gate both reads
+  and writes, but do not change which capabilities the principal holds.</li>
+</ul>
+<p>To act on a project, a principal needs both the relevant permission <em>and</em> ACL
+access to that project. A user with <code>PORTFOLIO_MANAGEMENT_UPDATE</code> can edit every
+project they have ACL access to, and none of the ones they don't. Removing a
+team from a project's ACL revokes that team's access to the project but leaves
+the team's permissions unchanged elsewhere.</p>
+<h3 id="pattern-separating-permission-teams-from-access-teams">Pattern: separating permission teams from access teams<a class="headerlink" href="#pattern-separating-permission-teams-from-access-teams" title="Permanent link">¶</a></h3>
+<p>Because permissions and ACLs compose independently, a useful pattern is to
+split teams by role:</p>
+<ul>
+<li><strong>Permission teams</strong> carry capabilities (<code>VIEW_PORTFOLIO</code>,
+  <code>VULNERABILITY_ANALYSIS</code>, and so on) but are not assigned to any project.</li>
+<li><strong>Access teams</strong> hold no permissions but are assigned to a subset of
+  projects.</li>
+</ul>
+<p>A user joins one team of each kind. Their effective rights are the union of
+all their teams' permissions, scoped to the union of all their teams' ACL
+grants. This emulates per-project permissions without the model having to
+support them directly.</p>
+<p>For an organization with a <em>Front Office</em> and a <em>Back Office</em> portfolio:</p>
+<pre class="mermaid"><code>flowchart LR
+    Alice(["Alice&lt;br/&gt;Developer, Front Office"])
+    Bob(["Bob&lt;br/&gt;Developer, Back Office"])
+    Carol(["Carol&lt;br/&gt;Auditor, Front + Back Office"])
+
+    subgraph Permission teams
+        Devs["&lt;b&gt;Developers&lt;/b&gt;&lt;br/&gt;VIEW_PORTFOLIO&lt;br/&gt;VIEW_VULNERABILITY"]
+        Auditors["&lt;b&gt;Auditors&lt;/b&gt;&lt;br/&gt;VIEW_PORTFOLIO&lt;br/&gt;VIEW_VULNERABILITY&lt;br/&gt;VULNERABILITY_ANALYSIS"]
+    end
+
+    subgraph Access teams
+        FO["&lt;b&gt;Front Office&lt;/b&gt;&lt;br/&gt;(no permissions)"]
+        BO["&lt;b&gt;Back Office&lt;/b&gt;&lt;br/&gt;(no permissions)"]
+    end
+
+    FP[("Front Office&lt;br/&gt;projects")]
+    BP[("Back Office&lt;br/&gt;projects")]
+
+    Alice --&gt; Devs
+    Alice --&gt; FO
+    Bob --&gt; Devs
+    Bob --&gt; BO
+    Carol --&gt; Auditors
+    Carol --&gt; FO
+    Carol --&gt; BO
+
+    FO -. ACL .-&gt; FP
+    BO -. ACL .-&gt; BP</code></pre>
+<p>Resulting effective access:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">User</th>
+<th style="text-align: left;">Can view</th>
+<th style="text-align: left;">Can triage vulnerabilities on</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Alice</td>
+<td style="text-align: left;">Front Office projects</td>
+<td style="text-align: left;">none</td>
+</tr>
+<tr>
+<td style="text-align: left;">Bob</td>
+<td style="text-align: left;">Back Office projects</td>
+<td style="text-align: left;">none</td>
+</tr>
+<tr>
+<td style="text-align: left;">Carol</td>
+<td style="text-align: left;">Front Office and Back Office projects</td>
+<td style="text-align: left;">both portfolios</td>
+</tr>
+</tbody>
+</table>
+<p>Adding a new domain becomes a single new access team and its ACL assignments.
+Granting an existing user analyst rights on that domain is a team membership
+change, not a per-project edit.</p>
+<h3 id="inheritance-through-the-project-hierarchy">Inheritance through the project hierarchy<a class="headerlink" href="#inheritance-through-the-project-hierarchy" title="Permanent link">¶</a></h3>
+<p>ACL grants are inherited down the project hierarchy. Granting a team access to a
+parent project grants access to every descendant, current and future. Assigning
+teams at the top of a project tree is usually preferable to assigning them on
+every leaf.</p>
+<h3 id="bypassing-pac">Bypassing <abbr title="Portfolio Access Control">PAC</abbr><a class="headerlink" href="#bypassing-pac" title="Permanent link">¶</a></h3>
+<p>The <code>PORTFOLIO_ACCESS_CONTROL_BYPASS</code> permission exempts a principal from <abbr title="Portfolio Access Control">PAC</abbr>
+entirely: they see every project as if <abbr title="Portfolio Access Control">PAC</abbr> were disabled. Reserve it for
+administrators and trusted automation that legitimately needs to operate across
+the full portfolio.</p>
+<h3 id="project-creation-under-pac">Project creation under <abbr title="Portfolio Access Control">PAC</abbr><a class="headerlink" href="#project-creation-under-pac" title="Permanent link">¶</a></h3>
+<p>When an API key creates a project (for example, via <abbr title="Bill of Materials">BOM</abbr> upload with
+<code>PROJECT_CREATION_UPLOAD</code>), the API key's team is added to the new project's
+ACL automatically.</p>
+<p>When a user creates a project, they must designate an owning team from those
+they belong to. The chosen team is added to the new project's ACL. A project
+created with no team assignment is invisible to everyone except administrators
+and holders of <code>PORTFOLIO_ACCESS_CONTROL_BYPASS</code> until one is assigned.</p>
 <h2 id="further-reading">Further reading<a class="headerlink" href="#further-reading" title="Permanent link">¶</a></h2>
 <ul>
 <li><a href="../../reference/permissions/">Permissions reference</a> for the full permissions table
