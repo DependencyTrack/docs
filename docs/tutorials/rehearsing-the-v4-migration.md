@@ -24,7 +24,7 @@ and lossy transformations before the production run.
 ## What we need
 
 - [Docker](https://docs.docker.com/get-docker/) and [Compose v2](https://docs.docker.com/compose/install/).
-- A reachable v4 instance on version **4.14.2 or later**, backed by either:
+- A reachable database of a v4 instance on version **4.14.2 or later**, backed by either:
     - **PostgreSQL**, or
     - **Microsoft SQL Server**.
 - The JDBC URL, username, and password for that v4 database.
