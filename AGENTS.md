@@ -84,7 +84,7 @@ Where Google style conflicts with `context/diataxis-contract.md`, Diataxis wins.
 - Use ATX-style headings (`# Heading`), not setext.
 - Inline HTML is allowed (admonitions, tabs).
 - No line length limit for Markdown prose.
-- End every Markdown file with a single trailing newline (markdownlint MD047).
+- End linted Markdown files in `docs/` and `context/` with a single trailing newline (markdownlint MD047).
 - YAML indentation: 2 spaces, no document-start markers.
 - Vale enforces Google developer style and write-good rules. Accepted/rejected terms are in `.vale/styles/config/vocabularies/DependencyTrack/`.
 - Page-specific images mirror the docs tree under `docs/assets/images/`: an image used by `docs/<section>/<page>.md` lives at `docs/assets/images/<section>/<page>/<name>.<ext>`. Shared assets (e.g. `logo.svg`) stay at the root of `docs/assets/images/`.
