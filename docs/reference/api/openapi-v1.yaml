@@ -10566,7 +10566,6 @@ components:
           minLength: 1
           pattern: "[\\P{Cc}]+"
       required:
-      - dn
       - username
     License:
       type: object
