@@ -1,9 +1,9 @@
 # Configuring an HTTP proxy
 
-The Dependency-Track API server makes outbound HTTP and HTTPS calls to mirror vulnerability data sources, fetch
-package metadata from repositories, perform OIDC discovery, deliver webhooks, and reach other integrations. In
-environments where outbound traffic must traverse a corporate proxy, configure the API server to route those calls
-through it.
+The Dependency-Track API server makes outbound HTTP and HTTPS calls to mirror
+[vulnerability data sources](configuring-vulnerability-sources.md), fetch package metadata from repositories, perform
+OIDC discovery, deliver webhooks, and reach other integrations. In environments where outbound traffic must traverse a
+corporate proxy, configure the API server to route those calls through it.
 
 Proxy configuration applies to the API server only. The frontend is a static single-page app served to the
 user's browser; any requests it appears to make actually originate from the browser itself.

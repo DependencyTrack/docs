@@ -27,12 +27,12 @@ For background and explanations, see [Concepts](../concepts/index.md).
 
 ## Datasources
 
-- [NVD](datasources/nvd.md) --
-  National Vulnerability Database mirroring and CPE matching
-- [GitHub Advisories](datasources/github-advisories.md) --
-  GHSA mirroring via GitHub's GraphQL API
-- [OSV](datasources/osv.md) --
-  Open Source Vulnerabilities mirroring, selectable by ecosystem
+For background on what data sources contribute and how to enable them, see
+[About vulnerability data sources](../concepts/about-vulnerability-data-sources.md) and
+[Configuring vulnerability sources](../guides/administration/configuring-vulnerability-sources.md).
+
+- [Datasources overview](datasources/index.md) --
+  mirrored sources (NVD, GitHub Advisories, OSV) and the other sources Dependency-Track integrates with
 - [Private Vulnerability Repository](datasources/private-vulnerability-repository.md) --
   internally managed vulnerabilities for proprietary components
 - [Repositories](datasources/repositories.md) --

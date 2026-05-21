@@ -1,37 +1,34 @@
-# Internal Components
+# Internal components
 
-Dependency-Track allows organisations to mark certain component namespaces and/or names
-as *internal*. Components identified as internal are excluded from all external services:
-they are never sent to external vulnerability analyzers (OSS Index, Snyk, Trivy, VulnDB)
-and never queried against public package repositories.
+Dependency-Track allows organizations to mark certain component namespaces and names as *internal*. Components
+identified as internal are excluded from all external services. They are never sent to external vulnerability analyzers
+(OSS Index, Snyk, Trivy, VulnDB) and never queried against public package repositories.
 
-This is useful when your SBOMs include first-party libraries with coordinates that could
-coincide with public packages, or when you simply do not want metadata about internal
-packages to leave your network.
+This is useful when SBOMs include first-party libraries whose coordinates could coincide with public packages, or when
+metadata about internal packages must not leave the network.
 
-## How Matching Works
+## How matching works
 
-Internal component identification is configured in
-**Administration → Internal Components** by specifying one or more namespace and/or name
-patterns.
+Configure internal component identification in **Administration > Internal components** by specifying one or more
+namespace and name patterns.
 
 Two matching modes are available:
 
-| Mode | Behaviour |
-|:-----|:----------|
-| OR (default) | A component is internal if its namespace *or* name matches any configured pattern. |
-| AND | A component is internal if its namespace *and* name both match. |
+| Mode | Behavior |
+|:-----|:---------|
+| OR (default) | A component is internal if its namespace or name matches any configured pattern. |
+| AND | A component is internal if its namespace and name both match. |
 
 Patterns are matched against the component's PURL namespace and name fields.
 
 !!! note
-    By default, no components are identified as internal. All components are treated
-    as third-party and may be sent to configured external analyzers.
+    By default, no components are identified as internal. All components are treated as third-party and may be sent to
+    configured external analyzers.
 
-## Effects of Being Marked Internal
+## Effects of being marked internal
 
-| Service | Behaviour for internal components |
-|:--------|:----------------------------------|
+| Service | Behavior for internal components |
+|:--------|:---------------------------------|
 | OSS Index | Not queried |
 | Snyk | Not queried |
 | Trivy | Not queried |
@@ -40,9 +37,8 @@ Patterns are matched against the component's PURL namespace and name fields.
 | Internal analyzer | Still evaluated against the local vulnerability database |
 | Private repositories | Still queried if configured |
 
-## Use with the Private Vulnerability Repository
+## Use with the private vulnerability repository
 
-Internal components can still be matched against vulnerabilities defined in the
-[private vulnerability repository](private-vulnerability-repository.md). This allows
-organisations to track and triage vulnerabilities in their own codebases without
-exposing component identifiers externally.
+Internal components can still be matched against vulnerabilities defined in the [private vulnerability
+repository](private-vulnerability-repository.md). This allows organizations to track and triage vulnerabilities in their
+own codebases without exposing component identifiers externally.

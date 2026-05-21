@@ -15,7 +15,8 @@ Common scenarios where this occurs:
 - **LDAPS**: connecting to an LDAP server using TLS ([Configuring LDAP](configuring-ldap.md))
 - **OIDC**: the identity provider uses a privately signed certificate ([Configuring OIDC](configuring-oidc.md))
 - **HTTP proxy**: an intercepting TLS proxy sits between Dependency-Track and external services
-- **Internal vulnerability sources**: a private vulnerability repository or API server with an internal certificate
+- **Internal vulnerability sources**: an internal mirror of NVD or OSV behind a privately signed certificate (see
+  [Configuring vulnerability sources](configuring-vulnerability-sources.md) and [Running air-gapped](running-air-gapped.md))
 
 The solution is to import your internal CA certificate into the JVM truststore and
 mount the modified truststore into the container.
