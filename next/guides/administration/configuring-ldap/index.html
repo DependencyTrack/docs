@@ -2313,6 +2313,10 @@ bind to locate the user's directory entry, then attempting a bind with the
 user's own credentials to verify their password. On success, the system grants
 access. With user provisioning enabled, Dependency-Track creates the account
 automatically on first login.</p>
+<p>On every successful login, Dependency-Track refreshes the user's distinguished
+name and email from the directory, and (when team synchronisation is enabled)
+re-evaluates team membership against the user's current <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> groups. A user
+who never logs in keeps the attributes captured at provisioning time.</p>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h2>
 <ul>
 <li>A service account in the <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> directory with read access to users and groups.</li>
