@@ -74,6 +74,7 @@ Trivy
 URIs
 VDRs?
 VEX
+Vanlightly's?
 VulnDB
 Webex
 [Aa]llowlists?
@@ -99,6 +100,7 @@ Webex
 [Dd]tapac
 [Ee]num
 [Ff]ileset
+[Hh]eartbeat(s|ing)?
 [Hh]ostnames?
 [Ii]dempoten(t|cy)
 [Jj]etstack
@@ -126,6 +128,7 @@ Webex
 [Rr]ollouts
 [Ss]bomify
 [Ss]ortability
+[Ss]cheduler's
 [Ss]ubdomain
 [Ss]ubquery
 [Ss]uppressions
