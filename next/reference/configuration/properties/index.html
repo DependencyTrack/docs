@@ -4364,30 +4364,6 @@
 <tr><th>ENV</th><td><code>DT_TASK_KENNA_SECURITY_UPLOAD_CRON</code></td></tr>
 </tbody></table>
 
-<p><span id="dttaskldapsynccron"><strong><code>dt.task.ldap.sync.cron</code></strong> <strong style="color: red">*</strong> <a class="headerlink" href="#dttaskldapsynccron">¶</a></span></p>
-<p>Cron expression of the <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> synchronization task.  </p>
-<table>
-<tbody><tr><th>Type</th><td style="border-width: 0"><code>cron</code></td></tr>
-<tr><th>Default</th><td><code>0 */6 * * *</code></td></tr>
-<tr><th>ENV</th><td><code>DT_TASK_LDAP_SYNC_CRON</code></td></tr>
-</tbody></table>
-
-<p><span id="dttaskldapsynclockmaxduration"><strong><code>dt.task.ldap.sync.lock.max.duration</code></strong> <strong style="color: red">*</strong> <a class="headerlink" href="#dttaskldapsynclockmaxduration">¶</a></span></p>
-<p>Maximum duration in ISO 8601 format for which the <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> synchronization task will hold a lock.  <br><br>  The duration should be long enough to cover the task's execution duration.  </p>
-<table>
-<tbody><tr><th>Type</th><td style="border-width: 0"><code>duration</code></td></tr>
-<tr><th>Default</th><td><code>PT15M</code></td></tr>
-<tr><th>ENV</th><td><code>DT_TASK_LDAP_SYNC_LOCK_MAX_DURATION</code></td></tr>
-</tbody></table>
-
-<p><span id="dttaskldapsynclockminduration"><strong><code>dt.task.ldap.sync.lock.min.duration</code></strong> <strong style="color: red">*</strong> <a class="headerlink" href="#dttaskldapsynclockminduration">¶</a></span></p>
-<p>Minimum duration in ISO 8601 format for which the <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> synchronization task will hold a lock.  <br><br>  The duration should be long enough to cover eventual clock skew across API server instances.  </p>
-<table>
-<tbody><tr><th>Type</th><td style="border-width: 0"><code>duration</code></td></tr>
-<tr><th>Default</th><td><code>PT90S</code></td></tr>
-<tr><th>ENV</th><td><code>DT_TASK_LDAP_SYNC_LOCK_MIN_DURATION</code></td></tr>
-</tbody></table>
-
 <p><span id="dttaskmetricsmaintenancecron"><strong><code>dt.task.metrics.maintenance.cron</code></strong> <strong style="color: red">*</strong> <a class="headerlink" href="#dttaskmetricsmaintenancecron">¶</a></span></p>
 <p>Cron expression of the metrics maintenance task.  <br><br>  The task creates new partitions for the day for the following tables  And deletes records older than the configured metrics retention duration from the following tables:  </p><ul>  <li><code>DEPENDENCYMETRICS</code></li>  <li><code>PROJECTMETRICS</code></li>  </ul>  <p></p>
 <table>
