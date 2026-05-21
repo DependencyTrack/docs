@@ -11,7 +11,7 @@
         <link rel="prev" href="../configuration/properties/">
       
       
-        <link rel="next" href="nvd/">
+        <link rel="next" href="private-vulnerability-repository/">
       
       
         
@@ -604,6 +604,8 @@
       
         
       
+        
+      
     
     
     
@@ -1139,12 +1141,6 @@
       
         
       
-        
-      
-        
-      
-        
-      
     
     
     
@@ -1202,90 +1198,6 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="nvd/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    NVD
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="github-advisories/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    GitHub advisories
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="osv/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    OSV
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
               
             
               
@@ -2341,7 +2253,7 @@
   <a href="#mirrored-sources" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Mirrored Sources
+        Mirrored sources
       
     </span>
   </a>
@@ -2352,7 +2264,7 @@
   <a href="#other-sources" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Other Sources
+        Other sources
       
     </span>
   </a>
@@ -2363,7 +2275,7 @@
   <a href="#analyzers-that-query-external-services" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Analyzers That Query External Services
+        Analyzers that query external services
       
     </span>
   </a>
@@ -2456,44 +2368,43 @@
   
 
 
-<h1 id="vulnerability-datasources">Vulnerability Datasources<a class="headerlink" href="#vulnerability-datasources" title="Permanent link">¶</a></h1>
-<p>Vulnerability datasources are the upstream feeds from which Dependency-Track populates
-its internal vulnerability database. The <a href="../analyzers/#internal">internal analyzer</a>
-queries this local database when evaluating components, so no external call is made at
-analysis time, only during mirroring.</p>
-<p>Mirroring runs on a configurable schedule (daily by default) and on instance startup.
-Progress and errors are reported via the <code>DATASOURCE_MIRRORING</code>
-<a href="../../concepts/architecture/design/notifications/">notification group</a>.</p>
-<h2 id="mirrored-sources">Mirrored Sources<a class="headerlink" href="#mirrored-sources" title="Permanent link">¶</a></h2>
-<p>These sources are downloaded and stored locally. The internal analyzer queries them
-without contacting any external service during vulnerability analysis.</p>
+<h1 id="vulnerability-datasources">Vulnerability datasources<a class="headerlink" href="#vulnerability-datasources" title="Permanent link">¶</a></h1>
+<p>Vulnerability datasources are the upstream feeds from which Dependency-Track populates its internal vulnerability
+database. The <a href="../analyzers/#internal">internal analyzer</a> queries this local database during vulnerability analysis,
+so no external call is made at analysis time, only during mirroring.</p>
+<p>For background on what each source provides and the trade-offs between them, see <a href="../../concepts/about-vulnerability-data-sources/">About vulnerability data
+sources</a>. For the procedure to enable and schedule mirrors, see
+<a href="../../guides/administration/configuring-vulnerability-sources/">Configuring vulnerability sources</a>.</p>
+<h2 id="mirrored-sources">Mirrored sources<a class="headerlink" href="#mirrored-sources" title="Permanent link">¶</a></h2>
+<p>Dependency-Track can mirror three public sources into its local database. Mirroring runs on a configurable schedule
+(daily by default) and on instance startup. Progress and errors are written to the API server logs.</p>
 <table>
 <thead>
 <tr>
 <th style="text-align: left;">Source</th>
 <th style="text-align: left;">Identifier prefix</th>
-<th style="text-align: left;">Primary use</th>
+<th style="text-align: left;">Matches on</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><a href="nvd/"><abbr title="National Vulnerability Database">NVD</abbr></a></td>
+<td style="text-align: left;"><abbr title="National Vulnerability Database">NVD</abbr></td>
 <td style="text-align: left;"><code>CVE-</code></td>
-<td style="text-align: left;"><abbr title="Common Platform Enumeration, a structured naming scheme for software products">CPE</abbr>-based matching for all component types</td>
+<td style="text-align: left;"><abbr title="Common Platform Enumeration, a structured naming scheme for software products">CPE</abbr></td>
 </tr>
 <tr>
-<td style="text-align: left;"><a href="github-advisories/">GitHub Advisories</a></td>
+<td style="text-align: left;">GitHub advisories</td>
 <td style="text-align: left;"><code>GHSA-</code></td>
-<td style="text-align: left;"><abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr>-based matching for open source packages</td>
+<td style="text-align: left;"><abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr></td>
 </tr>
 <tr>
-<td style="text-align: left;"><a href="osv/"><abbr title="Open Source Vulnerabilities">OSV</abbr></a></td>
+<td style="text-align: left;"><abbr title="Open Source Vulnerabilities">OSV</abbr></td>
 <td style="text-align: left;">varies by ecosystem</td>
-<td style="text-align: left;"><abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr>-based matching for open source packages</td>
+<td style="text-align: left;"><abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr></td>
 </tr>
 </tbody>
 </table>
-<h2 id="other-sources">Other Sources<a class="headerlink" href="#other-sources" title="Permanent link">¶</a></h2>
+<h2 id="other-sources">Other sources<a class="headerlink" href="#other-sources" title="Permanent link">¶</a></h2>
 <table>
 <thead>
 <tr>
@@ -2503,22 +2414,22 @@ without contacting any external service during vulnerability analysis.</p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><a href="private-vulnerability-repository/">Private Vulnerability Repository</a></td>
-<td style="text-align: left;">Internally managed vulnerabilities for proprietary components or pre-disclosure research</td>
+<td style="text-align: left;"><a href="private-vulnerability-repository/">Private vulnerability repository</a></td>
+<td style="text-align: left;">Internally managed vulnerabilities for proprietary components or pre-disclosure research.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><a href="repositories/">Repositories</a></td>
-<td style="text-align: left;">Package registry integrations used for outdated component detection</td>
+<td style="text-align: left;">Package registry integrations used for outdated component detection. Not a vulnerability source.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><a href="internal-components/">Internal Components</a></td>
-<td style="text-align: left;">Configuring components that should never be sent to external services</td>
+<td style="text-align: left;"><a href="internal-components/">Internal components</a></td>
+<td style="text-align: left;">Marks components that must never be sent to external services.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="analyzers-that-query-external-services">Analyzers That Query External Services<a class="headerlink" href="#analyzers-that-query-external-services" title="Permanent link">¶</a></h2>
-<p>OSS Index, Snyk, Trivy, and VulnDB are <em>analyzers</em> that call external APIs at analysis
-time. They are documented separately in the <a href="../analyzers/">Analyzers</a> reference.</p>
+<h2 id="analyzers-that-query-external-services">Analyzers that query external services<a class="headerlink" href="#analyzers-that-query-external-services" title="Permanent link">¶</a></h2>
+<p>OSS Index, Snyk, Trivy, and VulnDB are <em>analyzers</em> that call external APIs at analysis time. They are documented
+separately in the <a href="../analyzers/">Analyzers</a> reference.</p>
 
 
 
@@ -2573,13 +2484,13 @@ time. They are documented separately in the <a href="../analyzers/">Analyzers</a
         
         
           
-          <a href="nvd/" class="md-footer__link md-footer__link--next" aria-label="Next: NVD">
+          <a href="private-vulnerability-repository/" class="md-footer__link md-footer__link--next" aria-label="Next: Private vulnerability repository">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                NVD
+                Private vulnerability repository
               </div>
             </div>
             <div class="md-footer__button md-icon">

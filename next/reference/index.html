@@ -604,6 +604,8 @@
       
         
       
+        
+      
     
     
     
@@ -1137,12 +1139,6 @@
       
         
       
-        
-      
-        
-      
-        
-      
     
     
     
@@ -1200,90 +1196,6 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="datasources/nvd/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    NVD
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="datasources/github-advisories/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    GitHub advisories
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="datasources/osv/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    OSV
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
               
             
               
@@ -2538,13 +2450,12 @@ For background and explanations, see <a href="../concepts/">Concepts</a>.</p>
   complete generated registry of all application properties</li>
 </ul>
 <h2 id="datasources">Datasources<a class="headerlink" href="#datasources" title="Permanent link">¶</a></h2>
+<p>For background on what data sources contribute and how to enable them, see
+<a href="../concepts/about-vulnerability-data-sources/">About vulnerability data sources</a> and
+<a href="../guides/administration/configuring-vulnerability-sources/">Configuring vulnerability sources</a>.</p>
 <ul>
-<li><a href="datasources/nvd/"><abbr title="National Vulnerability Database">NVD</abbr></a> --
-  National Vulnerability Database mirroring and <abbr title="Common Platform Enumeration, a structured naming scheme for software products">CPE</abbr> matching</li>
-<li><a href="datasources/github-advisories/">GitHub Advisories</a> --
-  <abbr title="GitHub Security Advisory">GHSA</abbr> mirroring via GitHub's GraphQL API</li>
-<li><a href="datasources/osv/"><abbr title="Open Source Vulnerabilities">OSV</abbr></a> --
-  Open Source Vulnerabilities mirroring, selectable by ecosystem</li>
+<li><a href="datasources/">Datasources overview</a> --
+  mirrored sources (<abbr title="National Vulnerability Database">NVD</abbr>, GitHub Advisories, <abbr title="Open Source Vulnerabilities">OSV</abbr>) and the other sources Dependency-Track integrates with</li>
 <li><a href="datasources/private-vulnerability-repository/">Private Vulnerability Repository</a> --
   internally managed vulnerabilities for proprietary components</li>
 <li><a href="datasources/repositories/">Repositories</a> --

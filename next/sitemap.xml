@@ -13,6 +13,10 @@
          <lastmod>2026-05-21</lastmod>
     </url>
     <url>
+         <loc>https://dependencytrack.github.io/docs/next/concepts/about-vulnerability-data-sources/</loc>
+         <lastmod>2026-05-21</lastmod>
+    </url>
+    <url>
          <loc>https://dependencytrack.github.io/docs/next/concepts/access-control/</loc>
          <lastmod>2026-05-21</lastmod>
     </url>
@@ -101,6 +105,10 @@
          <lastmod>2026-05-21</lastmod>
     </url>
     <url>
+         <loc>https://dependencytrack.github.io/docs/next/guides/administration/configuring-vulnerability-sources/</loc>
+         <lastmod>2026-05-21</lastmod>
+    </url>
+    <url>
          <loc>https://dependencytrack.github.io/docs/next/guides/administration/debugging-notifications/</loc>
          <lastmod>2026-05-21</lastmod>
     </url>
@@ -114,6 +122,10 @@
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/guides/administration/migrating-from-v4/</loc>
+         <lastmod>2026-05-21</lastmod>
+    </url>
+    <url>
+         <loc>https://dependencytrack.github.io/docs/next/guides/administration/running-air-gapped/</loc>
          <lastmod>2026-05-21</lastmod>
     </url>
     <url>
@@ -249,19 +261,7 @@
          <lastmod>2026-05-21</lastmod>
     </url>
     <url>
-         <loc>https://dependencytrack.github.io/docs/next/reference/datasources/github-advisories/</loc>
-         <lastmod>2026-05-21</lastmod>
-    </url>
-    <url>
          <loc>https://dependencytrack.github.io/docs/next/reference/datasources/internal-components/</loc>
-         <lastmod>2026-05-21</lastmod>
-    </url>
-    <url>
-         <loc>https://dependencytrack.github.io/docs/next/reference/datasources/nvd/</loc>
-         <lastmod>2026-05-21</lastmod>
-    </url>
-    <url>
-         <loc>https://dependencytrack.github.io/docs/next/reference/datasources/osv/</loc>
          <lastmod>2026-05-21</lastmod>
     </url>
     <url>

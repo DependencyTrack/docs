@@ -897,6 +897,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -1213,6 +1217,62 @@
     
   
     Configuring an HTTP proxy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuring-vulnerability-sources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuring vulnerability sources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../running-air-gapped/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running air-gapped
   
 
     
@@ -1750,6 +1810,8 @@
       
         
       
+        
+      
     
     
     
@@ -2116,7 +2178,8 @@ unable to find valid certification path to requested object
 <li><strong>LDAPS</strong>: connecting to an <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> server using TLS (<a href="../configuring-ldap/">Configuring <abbr title="Lightweight Directory Access Protocol">LDAP</abbr></a>)</li>
 <li><strong><abbr title="OpenID Connect">OIDC</abbr></strong>: the identity provider uses a privately signed certificate (<a href="../configuring-oidc/">Configuring <abbr title="OpenID Connect">OIDC</abbr></a>)</li>
 <li><strong>HTTP proxy</strong>: an intercepting TLS proxy sits between Dependency-Track and external services</li>
-<li><strong>Internal vulnerability sources</strong>: a private vulnerability repository or API server with an internal certificate</li>
+<li><strong>Internal vulnerability sources</strong>: an internal mirror of <abbr title="National Vulnerability Database">NVD</abbr> or <abbr title="Open Source Vulnerabilities">OSV</abbr> behind a privately signed certificate (see
+  <a href="../configuring-vulnerability-sources/">Configuring vulnerability sources</a> and <a href="../running-air-gapped/">Running air-gapped</a>)</li>
 </ul>
 <p>The solution is to import your internal <abbr title="Certificate Authority">CA</abbr> certificate into the <abbr title="Java Virtual Machine">JVM</abbr> truststore and
 mount the modified truststore into the container.</p>

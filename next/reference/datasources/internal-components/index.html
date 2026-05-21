@@ -604,6 +604,8 @@
       
         
       
+        
+      
     
     
     
@@ -1139,12 +1141,6 @@
       
         
       
-        
-      
-        
-      
-        
-      
     
     
     
@@ -1202,90 +1198,6 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../nvd/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    NVD
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../github-advisories/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    GitHub advisories
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../osv/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    OSV
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
               
             
               
@@ -1414,7 +1326,7 @@
   <a href="#how-matching-works" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How Matching Works
+        How matching works
       
     </span>
   </a>
@@ -1425,7 +1337,7 @@
   <a href="#effects-of-being-marked-internal" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Effects of Being Marked Internal
+        Effects of being marked internal
       
     </span>
   </a>
@@ -1436,7 +1348,7 @@
   <a href="#use-with-the-private-vulnerability-repository" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Use with the Private Vulnerability Repository
+        Use with the private vulnerability repository
       
     </span>
   </a>
@@ -2421,7 +2333,7 @@
   <a href="#how-matching-works" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How Matching Works
+        How matching works
       
     </span>
   </a>
@@ -2432,7 +2344,7 @@
   <a href="#effects-of-being-marked-internal" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Effects of Being Marked Internal
+        Effects of being marked internal
       
     </span>
   </a>
@@ -2443,7 +2355,7 @@
   <a href="#use-with-the-private-vulnerability-repository" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Use with the Private Vulnerability Repository
+        Use with the private vulnerability repository
       
     </span>
   </a>
@@ -2536,49 +2448,46 @@
   
 
 
-<h1 id="internal-components">Internal Components<a class="headerlink" href="#internal-components" title="Permanent link">¶</a></h1>
-<p>Dependency-Track allows organisations to mark certain component namespaces and/or names
-as <em>internal</em>. Components identified as internal are excluded from all external services:
-they are never sent to external vulnerability analyzers (OSS Index, Snyk, Trivy, VulnDB)
-and never queried against public package repositories.</p>
-<p>This is useful when your SBOMs include first-party libraries with coordinates that could
-coincide with public packages, or when you simply do not want metadata about internal
-packages to leave your network.</p>
-<h2 id="how-matching-works">How Matching Works<a class="headerlink" href="#how-matching-works" title="Permanent link">¶</a></h2>
-<p>Internal component identification is configured in
-<strong>Administration → Internal Components</strong> by specifying one or more namespace and/or name
-patterns.</p>
+<h1 id="internal-components">Internal components<a class="headerlink" href="#internal-components" title="Permanent link">¶</a></h1>
+<p>Dependency-Track allows organizations to mark certain component namespaces and names as <em>internal</em>. Components
+identified as internal are excluded from all external services. They are never sent to external vulnerability analyzers
+(OSS Index, Snyk, Trivy, VulnDB) and never queried against public package repositories.</p>
+<p>This is useful when SBOMs include first-party libraries whose coordinates could coincide with public packages, or when
+metadata about internal packages must not leave the network.</p>
+<h2 id="how-matching-works">How matching works<a class="headerlink" href="#how-matching-works" title="Permanent link">¶</a></h2>
+<p>Configure internal component identification in <strong>Administration &gt; Internal components</strong> by specifying one or more
+namespace and name patterns.</p>
 <p>Two matching modes are available:</p>
 <table>
 <thead>
 <tr>
 <th style="text-align: left;">Mode</th>
-<th style="text-align: left;">Behaviour</th>
+<th style="text-align: left;">Behavior</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align: left;">OR (default)</td>
-<td style="text-align: left;">A component is internal if its namespace <em>or</em> name matches any configured pattern.</td>
+<td style="text-align: left;">A component is internal if its namespace or name matches any configured pattern.</td>
 </tr>
 <tr>
 <td style="text-align: left;">AND</td>
-<td style="text-align: left;">A component is internal if its namespace <em>and</em> name both match.</td>
+<td style="text-align: left;">A component is internal if its namespace and name both match.</td>
 </tr>
 </tbody>
 </table>
 <p>Patterns are matched against the component's <abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr> namespace and name fields.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>By default, no components are identified as internal. All components are treated
-as third-party and may be sent to configured external analyzers.</p>
+<p>By default, no components are identified as internal. All components are treated as third-party and may be sent to
+configured external analyzers.</p>
 </div>
-<h2 id="effects-of-being-marked-internal">Effects of Being Marked Internal<a class="headerlink" href="#effects-of-being-marked-internal" title="Permanent link">¶</a></h2>
+<h2 id="effects-of-being-marked-internal">Effects of being marked internal<a class="headerlink" href="#effects-of-being-marked-internal" title="Permanent link">¶</a></h2>
 <table>
 <thead>
 <tr>
 <th style="text-align: left;">Service</th>
-<th style="text-align: left;">Behaviour for internal components</th>
+<th style="text-align: left;">Behavior for internal components</th>
 </tr>
 </thead>
 <tbody>
@@ -2612,11 +2521,10 @@ as third-party and may be sent to configured external analyzers.</p>
 </tr>
 </tbody>
 </table>
-<h2 id="use-with-the-private-vulnerability-repository">Use with the Private Vulnerability Repository<a class="headerlink" href="#use-with-the-private-vulnerability-repository" title="Permanent link">¶</a></h2>
-<p>Internal components can still be matched against vulnerabilities defined in the
-<a href="../private-vulnerability-repository/">private vulnerability repository</a>. This allows
-organisations to track and triage vulnerabilities in their own codebases without
-exposing component identifiers externally.</p>
+<h2 id="use-with-the-private-vulnerability-repository">Use with the private vulnerability repository<a class="headerlink" href="#use-with-the-private-vulnerability-repository" title="Permanent link">¶</a></h2>
+<p>Internal components can still be matched against vulnerabilities defined in the <a href="../private-vulnerability-repository/">private vulnerability
+repository</a>. This allows organizations to track and triage vulnerabilities in their
+own codebases without exposing component identifiers externally.</p>
 
 
 
