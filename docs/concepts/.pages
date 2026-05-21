@@ -2,6 +2,7 @@ title: Concepts
 nav:
   - index.md
   - About access control: access-control.md
+  - About vulnerability data sources: about-vulnerability-data-sources.md
   - About notifications: notifications.md
   - About time series metrics: time-series-metrics.md
   - About component policies: component-policies.md

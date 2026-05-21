@@ -16,6 +16,9 @@ Matches components against Dependency-Track's own vulnerability database. This i
 vulnerabilities mirrored from sources such as the NVD, GitHub Advisories, and OSV.
 The internal analyzer is enabled by default.
 
+For background on what each mirrored source contributes and how matching works,
+see [About vulnerability data sources](../concepts/about-vulnerability-data-sources.md).
+
 Uses both CPE and PURL matching.
 
 !!! note

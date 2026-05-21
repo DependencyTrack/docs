@@ -366,6 +366,7 @@ It drops analyzer and vulnerability-source credentials as part of the encrypted-
 After the migration, open the **Repositories**, **Analyzers**, and **Vulnerability Sources** pages in the v5 administrator panel
 and re-enter each credential through the secret manager.
 Turn the affected repositories back on.
+See [Configuring vulnerability sources](configuring-vulnerability-sources.md) for the full procedure to re-enable each mirror.
 See [Configuring secret management](configuring-secret-management.md) if you have not yet set the secret-encryption key for the v5 deployment.
 
 ### Encrypted property values

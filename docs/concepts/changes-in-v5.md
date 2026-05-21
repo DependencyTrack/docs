@@ -168,6 +168,7 @@ remediation steps, lives in the
   use for them), and its file storage abstracts over backends like S3
   rather than assuming a local filesystem to serve from. Dependency-Track
   no longer serves this endpoint. Fetch feeds directly from NIST or run a dedicated mirror.
+  See [Running air-gapped](../guides/administration/running-air-gapped.md) for hosting an internal NVD or OSV mirror.
 
 [CEL]: https://cel.dev/
 [Protobuf]: https://protobuf.dev/

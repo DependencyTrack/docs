@@ -1,8 +1,5 @@
 nav:
   - Overview: index.md
-  - NVD: nvd.md
-  - GitHub advisories: github-advisories.md
-  - OSV: osv.md
   - Private vulnerability repository: private-vulnerability-repository.md
   - Repositories: repositories.md
   - Internal components: internal-components.md
