@@ -2613,7 +2613,7 @@ the <a href="../properties/">configuration reference</a>.</p>
 <h2 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">¶</a></h2>
 <p>Config properties are loaded, <em>in order</em>, from the following sources:</p>
 <ol>
-<li>JVM system properties</li>
+<li><abbr title="Java Virtual Machine">JVM</abbr> system properties</li>
 <li>Environment variables</li>
 <li><code>${cwd}/.env</code> file</li>
 <li><code>${cwd}/config/application.properties</code> file</li>
@@ -2626,7 +2626,7 @@ When running an official container image, it is <code>/opt/owasp/dependency-trac
 </div>
 <p>Once a value is found, later sources will not be checked. For example, when Dependency-Track
 attempts to look up the config property <code>foo.bar</code>, the environment variable <code>FOO_BAR=123</code> is
-ignored if the JVM was launched with <code>-Dfoo.bar=321</code>.</p>
+ignored if the <abbr title="Java Virtual Machine">JVM</abbr> was launched with <code>-Dfoo.bar=321</code>.</p>
 <h2 id="expressions">Expressions<a class="headerlink" href="#expressions" title="Permanent link">¶</a></h2>
 <p>Configuration values may use expressions, indicated by <code>${...}</code>, to reference each other:</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -2667,7 +2667,7 @@ by <a href="https://microprofile.io/specifications/config/">MicroProfile Config<
 <p>The <a href="../properties/">configuration reference</a> includes the correct
 environment variable names for each listed config property.</p>
 </div>
-<h2 id="jvm-options">JVM options<a class="headerlink" href="#jvm-options" title="Permanent link">¶</a></h2>
+<h2 id="jvm-options"><abbr title="Java Virtual Machine">JVM</abbr> options<a class="headerlink" href="#jvm-options" title="Permanent link">¶</a></h2>
 <p>The container images launch the API server with the following defaults, set via the <code>JAVA_OPTIONS</code>
 environment variable:</p>
 <table>
@@ -2696,7 +2696,7 @@ environment variable:</p>
 </tr>
 <tr>
 <td><code>-XX:MaxRAMPercentage=80.0</code></td>
-<td>Caps the JVM heap at 80% of the container's available memory.</td>
+<td>Caps the <abbr title="Java Virtual Machine">JVM</abbr> heap at 80% of the container's available memory.</td>
 </tr>
 </tbody>
 </table>

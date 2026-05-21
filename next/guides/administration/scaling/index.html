@@ -2287,7 +2287,7 @@ others have headroom, raise that worker's <code>max-concurrency</code> on worker
 <p><strong>Queue capacity.</strong> When ingestion is outpacing processing across the cluster (queue depths grow unbounded
 under sustained load), lower the queue's capacity to apply backpressure. Once a queue hits capacity, the
 scheduler pauses task creation, propagating throttling back to <abbr title="Bill of Materials">BOM</abbr> upload clients.</p>
-<p>Change capacity at runtime from the administrator panel under <em>Workflows &gt; Task Queues</em>, or via the REST
+<p>Change capacity at runtime from the administrator panel under <em>Workflows &gt; Task Queues</em>, or via the <abbr title="Representational State Transfer">REST</abbr>
 API. Defaults live in the <a href="../../../reference/configuration/dex-engine/#task-queues">task queues reference</a>.</p>
 <p><strong>Lower-level engine tuning.</strong> When metrics show write-buffer flush latency, run-history cache misses, or
 notification outbox lag, the engine exposes more knobs. See the
@@ -2411,12 +2411,12 @@ setup, see <a href="../configuring-database/#centralised-connection-pooling">Cen
 <h2 id="scale-vertically">Scale vertically<a class="headerlink" href="#scale-vertically" title="Permanent link">¶</a></h2>
 <p>Add memory before adding instances when large BOMs push GC pressure up. Add CPU when worker throughput
 plateaus despite headroom in concurrency settings.</p>
-<p>To override JVM defaults without replacing them, extend <code>EXTRA_JAVA_OPTIONS</code>. For example, to tighten the
+<p>To override <abbr title="Java Virtual Machine">JVM</abbr> defaults without replacing them, extend <code>EXTRA_JAVA_OPTIONS</code>. For example, to tighten the
 GC pause target for latency-sensitive frontend traffic:</p>
 <div class="highlight"><pre><span></span><code><span class="na">EXTRA_JAVA_OPTIONS</span><span class="o">=</span><span class="s">"-XX:MaxGCPauseMillis=100"</span>
 </code></pre></div>
-<p>For the shipped JVM defaults and their meaning, see
-<a href="../../../reference/configuration/application/#jvm-options">JVM options</a>.</p>
+<p>For the shipped <abbr title="Java Virtual Machine">JVM</abbr> defaults and their meaning, see
+<a href="../../../reference/configuration/application/#jvm-options"><abbr title="Java Virtual Machine">JVM</abbr> options</a>.</p>
 <h2 id="isolate-the-engine-database">Isolate the engine database<a class="headerlink" href="#isolate-the-engine-database" title="Permanent link">¶</a></h2>
 <p>Point the durable execution engine at a separate PostgreSQL server once its queue vacuuming and WAL activity
 start competing with the main database for I/O or autovacuum bandwidth. By default the engine shares the

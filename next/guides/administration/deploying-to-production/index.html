@@ -2245,10 +2245,10 @@ and <abbr title="Bill of Materials">BOM</abbr> upload frequency. Usage patterns 
 deployments, so observe before scaling. See <a href="../configuring-observability/">Configuring observability</a> for
 the metrics that surface real load.</p>
 <div class="admonition warning">
-<p class="admonition-title">JVM heap scales with container memory</p>
-<p>Adding memory raises the JVM heap cap (default 80% of container memory). Confirm via Prometheus heap
+<p class="admonition-title"><abbr title="Java Virtual Machine">JVM</abbr> heap scales with container memory</p>
+<p>Adding memory raises the <abbr title="Java Virtual Machine">JVM</abbr> heap cap (default 80% of container memory). Confirm via Prometheus heap
 metrics, not <code>top</code> or <code>docker stats</code>, that the larger heap pays off before over-provisioning. See
-<a href="../../../reference/configuration/application/#jvm-options">JVM options</a> for the underlying behavior.</p>
+<a href="../../../reference/configuration/application/#jvm-options"><abbr title="Java Virtual Machine">JVM</abbr> options</a> for the underlying behavior.</p>
 </div>
 <h3 id="database">Database<a class="headerlink" href="#database" title="Permanent link">¶</a></h3>
 <p>Dependency-Track runs on PostgreSQL, and PostgreSQL becomes the bottleneck before the API server does. Run
@@ -2305,7 +2305,7 @@ every instance, or supply the <abbr title="Key Encryption Key">KEK</abbr> direct
 <h2 id="front-the-api-server-with-tls">Front the API server with TLS<a class="headerlink" href="#front-the-api-server-with-tls" title="Permanent link">¶</a></h2>
 <p>Handle TLS at a reverse proxy or ingress controller rather than in the API server itself. Forward
 <code>X-Forwarded-Proto</code> and <code>X-Forwarded-For</code> so that audit logs and notification links resolve to the public URL.</p>
-<p>Each instance listens on two ports: <code>8080</code> for the public REST API and <code>9000</code> for health checks and
+<p>Each instance listens on two ports: <code>8080</code> for the public <abbr title="Representational State Transfer">REST</abbr> API and <code>9000</code> for health checks and
 metrics. Direct user-facing traffic to <code>8080</code>; direct probes and metric scrapers to <code>9000</code>. See
 <a href="../configuring-observability/#configuring-kubernetes-health-probes">Configuring observability</a> for
 the health-endpoint contract.</p>

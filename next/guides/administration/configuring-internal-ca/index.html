@@ -2118,7 +2118,7 @@ unable to find valid certification path to requested object
 <li><strong>HTTP proxy</strong>: an intercepting TLS proxy sits between Dependency-Track and external services</li>
 <li><strong>Internal vulnerability sources</strong>: a private vulnerability repository or API server with an internal certificate</li>
 </ul>
-<p>The solution is to import your internal <abbr title="Certificate Authority">CA</abbr> certificate into the JVM truststore and
+<p>The solution is to import your internal <abbr title="Certificate Authority">CA</abbr> certificate into the <abbr title="Java Virtual Machine">JVM</abbr> truststore and
 mount the modified truststore into the container.</p>
 <h2 id="step-1-export-the-default-truststore">Step 1: Export the default truststore<a class="headerlink" href="#step-1-export-the-default-truststore" title="Permanent link">¶</a></h2>
 <p>Run a temporary container from the API server image and copy out the default truststore:</p>

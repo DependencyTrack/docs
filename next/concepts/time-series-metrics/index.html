@@ -1436,7 +1436,7 @@ diff them.</p>
   child projects at read time for portfolio metrics.</li>
 </ul>
 <p>The exact field set per scope lives in the
-<a href="../../reference/api/v1/">REST API reference</a>, under the operations tagged
+<a href="../../reference/api/v1/"><abbr title="Representational State Transfer">REST</abbr> API reference</a>, under the operations tagged
 <code>metrics</code>.</p>
 <h2 id="when-snapshots-get-written">When snapshots get written<a class="headerlink" href="#when-snapshots-get-written" title="Permanent link">¶</a></h2>
 <p>Two things produce snapshots for a project and its components:</p>
@@ -1463,7 +1463,7 @@ resolution.</p>
 <p>Retention is a configurable duration, 90 days by default. An hourly
 maintenance task drops out-of-window partitions and pre-creates the
 partitions for upcoming days. Administrators change the value at runtime,
-through the frontend or the REST API, rather than via a static startup
+through the frontend or the <abbr title="Representational State Transfer">REST</abbr> API, rather than via a static startup
 property.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/images/concepts/time-series-metrics/admin-maintenance-config.png" data-desc-position="bottom"><img alt="Retention setting under Administration > Configuration > Maintenance" src="../../assets/images/concepts/time-series-metrics/admin-maintenance-config.png"></a></p>
 <p>Two consequences fall out of the design: shrinking retention reclaims disk
@@ -1499,7 +1499,7 @@ it occasionally surprises.</p>
 <ul>
 <li><a href="../access-control/">About access control</a>: the model that decides which
   portfolio path a caller takes.</li>
-<li><a href="../../reference/api/v1/">REST API reference</a>: operations tagged <code>metrics</code>
+<li><a href="../../reference/api/v1/"><abbr title="Representational State Transfer">REST</abbr> API reference</a>: operations tagged <code>metrics</code>
   describe the exact fields, request parameters, and response shapes.</li>
 </ul>
 

@@ -9332,10 +9332,6 @@ components:
           type: string
         framework:
           $ref: "#/components/schemas/Framework"
-        providerData:
-          type: object
-          additionalProperties:
-            type: object
         timestamp:
           type: string
         uuid:

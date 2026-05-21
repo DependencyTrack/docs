@@ -1484,7 +1484,7 @@ ingress:</p>
 
     FE[Frontend] -.served by.-&gt; LB</code></pre>
 <ul>
-<li><strong>API server.</strong> Java service exposing the REST API and running background workers. Stateless
+<li><strong>API server.</strong> Java service exposing the <abbr title="Representational State Transfer">REST</abbr> API and running background workers. Stateless
   beyond what it commits to PostgreSQL and file storage. One or more instances run side by side
   (see <a href="#coordination">Coordination</a>).</li>
 <li><strong>PostgreSQL.</strong> Single source of truth for product data, the durable execution engine's workflow

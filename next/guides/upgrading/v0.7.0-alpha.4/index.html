@@ -1950,10 +1950,10 @@
 
 <h1 id="upgrading-to-v070-alpha4">Upgrading to v0.7.0-alpha.4<a class="headerlink" href="#upgrading-to-v070-alpha4" title="Permanent link">¶</a></h1>
 <ul>
-<li><strong>Legacy workflow REST API endpoints have been removed</strong>. All paths under <code>/api/v1/workflow</code>
+<li><strong>Legacy workflow <abbr title="Representational State Transfer">REST</abbr> API endpoints have been removed</strong>. All paths under <code>/api/v1/workflow</code>
   are no longer available. Use <code>/api/v1/bom/token/{uuid}</code> or <code>/api/v1/event/token/{uuid}</code> to
   check whether a given task, such as <abbr title="Bill of Materials">BOM</abbr> upload processing, is still ongoing.</li>
-<li><strong>Advisory and CSAF REST API endpoints have been removed</strong>. All paths under <code>/api/v2/advisories</code>
+<li><strong>Advisory and CSAF <abbr title="Representational State Transfer">REST</abbr> API endpoints have been removed</strong>. All paths under <code>/api/v2/advisories</code>
   and <code>/api/v2/csaf</code> are no longer available. The functionality was removed because its implementation
   could not be completed in time for the GA release.</li>
 <li><strong>Support for importing CycloneDX BOMs in Protobuf format has been removed</strong>. JSON and XML remain

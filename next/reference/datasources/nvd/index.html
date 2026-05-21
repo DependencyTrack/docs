@@ -2560,7 +2560,7 @@
 
 <h1 id="national-vulnerability-database-nvd">National Vulnerability Database (<abbr title="National Vulnerability Database">NVD</abbr>)<a class="headerlink" href="#national-vulnerability-database-nvd" title="Permanent link">¶</a></h1>
 <p>The <a href="https://nvd.nist.gov/">National Vulnerability Database</a> (<abbr title="National Vulnerability Database">NVD</abbr>) is the largest
-publicly available source of vulnerability intelligence, maintained by NIST and building
+publicly available source of vulnerability intelligence, maintained by <abbr title="National Institute of Standards and Technology">NIST</abbr> and building
 on CVE identifiers from MITRE. It contains over 200,000 CVE records spanning from the
 early nineties to the present day.</p>
 <div class="admonition note">
@@ -2573,7 +2573,7 @@ descriptions, <abbr title="Common Vulnerability Scoring System">CVSS</abbr> scor
 expressed as <abbr title="Common Platform Enumeration, a structured naming scheme for software products">CPE</abbr>. The <a href="../../analyzers/#internal">internal analyzer</a> uses this data
 to match components with valid CPEs against known vulnerabilities.</p>
 <h2 id="mirroring">Mirroring<a class="headerlink" href="#mirroring" title="Permanent link">¶</a></h2>
-<p>Dependency-Track mirrors the <abbr title="National Vulnerability Database">NVD</abbr> via the <abbr title="National Vulnerability Database">NVD</abbr> REST API. The mirror refreshes daily and
+<p>Dependency-Track mirrors the <abbr title="National Vulnerability Database">NVD</abbr> via the <abbr title="National Vulnerability Database">NVD</abbr> <abbr title="Representational State Transfer">REST</abbr> API. The mirror refreshes daily and
 on instance startup. The initial mirror may take significantly longer than subsequent
 incremental updates.</p>
 <p>The mirroring schedule is controlled by
@@ -2607,7 +2607,7 @@ the entire <abbr title="National Vulnerability Database">NVD</abbr> dataset must
 </div>
 <h2 id="cpe-matching"><abbr title="Common Platform Enumeration, a structured naming scheme for software products">CPE</abbr> Matching<a class="headerlink" href="#cpe-matching" title="Permanent link">¶</a></h2>
 <p><abbr title="National Vulnerability Database">NVD</abbr> records describe affected products using <abbr title="Common Platform Enumeration, a structured naming scheme for software products">CPE</abbr> (Common Platform Enumeration).
-Dependency-Track follows the NIST <abbr title="Common Platform Enumeration, a structured naming scheme for software products">CPE</abbr> name matching specification with adjustments
+Dependency-Track follows the <abbr title="National Institute of Standards and Technology">NIST</abbr> <abbr title="Common Platform Enumeration, a structured naming scheme for software products">CPE</abbr> name matching specification with adjustments
 to reduce false positives: matches are rejected when the vendor comparison yields
 <em>SUBSET</em> and the product comparison yields <em>SUPERSET</em>, or vice versa.</p>
 <p>Components without a valid <abbr title="Common Platform Enumeration, a structured naming scheme for software products">CPE</abbr> are not evaluated by the internal analyzer against
