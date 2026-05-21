@@ -12,6 +12,11 @@ user's own credentials to verify their password. On success, the system grants
 access. With user provisioning enabled, Dependency-Track creates the account
 automatically on first login.
 
+On every successful login, Dependency-Track refreshes the user's distinguished
+name and email from the directory, and (when team synchronisation is enabled)
+re-evaluates team membership against the user's current LDAP groups. A user
+who never logs in keeps the attributes captured at provisioning time.
+
 ## Prerequisites
 
 - A service account in the LDAP directory with read access to users and groups.
