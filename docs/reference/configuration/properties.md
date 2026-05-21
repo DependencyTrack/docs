@@ -1838,36 +1838,6 @@ Cron expression of the Kenna Security upload task.
 <tr><th>ENV</th><td><code>DT_TASK_KENNA_SECURITY_UPLOAD_CRON</code></td></tr>
 </table>
 
-<span id="dttaskldapsynccron">**`dt.task.ldap.sync.cron`** <strong style="color: red">*</strong> [¶](#dttaskldapsynccron){ .headerlink }</span>
-
-Cron expression of the LDAP synchronization task.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>cron</code></td></tr>
-<tr><th>Default</th><td><code>0 */6 * * *</code></td></tr>
-<tr><th>ENV</th><td><code>DT_TASK_LDAP_SYNC_CRON</code></td></tr>
-</table>
-
-<span id="dttaskldapsynclockmaxduration">**`dt.task.ldap.sync.lock.max.duration`** <strong style="color: red">*</strong> [¶](#dttaskldapsynclockmaxduration){ .headerlink }</span>
-
-Maximum duration in ISO 8601 format for which the LDAP synchronization task will hold a lock.  <br/><br/>  The duration should be long enough to cover the task's execution duration.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>duration</code></td></tr>
-<tr><th>Default</th><td><code>PT15M</code></td></tr>
-<tr><th>ENV</th><td><code>DT_TASK_LDAP_SYNC_LOCK_MAX_DURATION</code></td></tr>
-</table>
-
-<span id="dttaskldapsynclockminduration">**`dt.task.ldap.sync.lock.min.duration`** <strong style="color: red">*</strong> [¶](#dttaskldapsynclockminduration){ .headerlink }</span>
-
-Minimum duration in ISO 8601 format for which the LDAP synchronization task will hold a lock.  <br/><br/>  The duration should be long enough to cover eventual clock skew across API server instances.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>duration</code></td></tr>
-<tr><th>Default</th><td><code>PT90S</code></td></tr>
-<tr><th>ENV</th><td><code>DT_TASK_LDAP_SYNC_LOCK_MIN_DURATION</code></td></tr>
-</table>
-
 <span id="dttaskmetricsmaintenancecron">**`dt.task.metrics.maintenance.cron`** <strong style="color: red">*</strong> [¶](#dttaskmetricsmaintenancecron){ .headerlink }</span>
 
 Cron expression of the metrics maintenance task.  <br/><br/>  The task creates new partitions for the day for the following tables  And deletes records older than the configured metrics retention duration from the following tables:  <ul>  <li><code>DEPENDENCYMETRICS</code></li>  <li><code>PROJECTMETRICS</code></li>  </ul>  
