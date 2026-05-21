@@ -1,11 +1,12 @@
 # About changes in v5
 
-Dependency-Track v5 extensively refactors the platform. It does not rewrite
+Dependency-Track v5 extensively refactors the platform. It doesn't rewrite
 it. Much of the underlying technology and many subsystems carry over from
-v4 untouched. The changes concentrate on three areas where v4's pain
-points lived: the runtime, the policy engine, and the operational model.
+v4 untouched. Most changes address where v4's design showed its limits:
+scalability and reliability, the policy engine, and operational
+complexity. A few sections cover new capabilities v4 lacked entirely.
 
-This page summarises *what changed and why*. For step-by-step upgrade
+This page summarizes *what changed and why*. For step-by-step upgrade
 instructions, see the [upgrade guides](../guides/upgrading/index.md).
 To move data from an existing v4 deployment into v5, see
 [Migrating from v4 to v5](../guides/administration/migrating-from-v4.md).
@@ -28,15 +29,15 @@ engine. Smaller deployments still work, and gain the same guarantees.
 v5 removes v4's in-process single point of failure (the in-memory queue
 and local index). Web and worker nodes now scale independently, and
 background work distributes through PostgreSQL-backed queues instead of an
-in-memory pool. PostgreSQL itself stays a tier you must operate in HA if
-you need full availability. See
+in-memory pool. PostgreSQL high availability remains your responsibility. See
 [Scaling Dependency-Track](../guides/administration/scaling.md).
 
 Long-running work (BOM processing, vulnerability analysis, notification
 delivery) runs on a
 [durable execution engine](architecture/design/durable-execution.md).
 Tasks resume after a restart or crash from where they stopped, instead of
-vanishing with the JVM.
+vanishing with the JVM. Failed steps retry automatically with exponential
+backoff, rather than requiring manual re-triggering.
 
 Notifications follow the same model. The runtime writes each notification
 to a [transactional outbox](architecture/design/notifications.md) in the
@@ -48,54 +49,53 @@ See [About notifications](notifications.md) for the user-facing model.
 ### A single data plane on PostgreSQL
 
 v5 commits to PostgreSQL and drops H2, MySQL, and Microsoft SQL Server.
-Concentrating on one engine lets the project use Postgres-specific
-features that the v4 multi-database abstraction could not. Schema changes
-now flow through an explicit, versioned changelog rather than runtime ORM
-diffing, so upgrades stay predictable and roll back cleanly.
+Concentrating on one engine lets the project use PostgreSQL-specific
+features that the v4 multi-database abstraction couldn't. Schema changes
+now flow through an explicit, versioned changelog rather than runtime
+object-relational mapper (ORM) diffing, so upgrades stay predictable and
+roll back cleanly.
 
-Two subsystems v4 ran out-of-process now live inside the database:
+Two subsystems that v4 ran as separate processes now live inside the database:
 
 * **Search** runs directly against PostgreSQL. The on-disk
   `~/.dependency-track/index` directory disappears, along with the
   index-corruption and disk-space failure modes that came with it.
-  Lucene's fuzzy matching disappears with it. See *What this breaks*.
+  Lucene's fuzzy matching disappears with it. See [What this breaks](#what-this-breaks).
 * **Cache** still lives in PostgreSQL, but in `UNLOGGED` tables: no
-  write-ahead log overhead, non-durable by design, which suits a cache.
+  write-ahead log overhead, non-durable by design.
   v4 stored cache rows in normal tables and bounded them only through
-  recurring cleanup tasks. v5 enforces per-cache TTLs and size limits.
+  recurring cleanup tasks. v5 enforces per-cache TTLs.
 
 Metrics also move into the database. v4 recomputed point-in-time counters
 row-by-row in Java tasks. v5 turns metrics into a proper time series,
 computed in PostgreSQL. See
 [About time-series metrics](time-series-metrics.md).
 
+The schema tightens constraints that v4 deferred to app code under the
+multi-database abstraction. Stricter constraints catch bad data at the
+persistence layer rather than letting it propagate silently.
+
+The PostgreSQL commitment also unlocks targeted performance work:
+partial indexes on common query shapes, table partitioning for high-volume time-series data,
+and batched reads and writes to cut network and I/O overhead.
+
 ### Policies and notification filtering in CEL
 
-A policy in v4 lived in the UI as a tree of click-built clauses, capped by
-what the editor could express. v5 evaluates policies in
-[Common Expression Language][CEL], so a complex rule collapses to a single
-readable expression. The same engine drives
+v4's policy editor provided a list of conditions with a fixed set of
+operators. v5 backs the same editor with a new engine that is more
+efficient than v4's and uses [Common Expression Language][CEL] for
+evaluation. An Expression condition lets operators write CEL directly
+when the structured conditions are not enough. The same engine drives
 [vulnerability policies](vulnerability-policies.md), letting operators
-audit or suppress findings before they reach the UI or trigger a
+audit or suppress findings before they reach the frontend or trigger a
 notification.
 
 CEL also reaches [notifications](notifications.md). A v4 alert filtered
 on project, tag, level, and group. A v5 alert can match on any field of
 the notification payload through a
 [filter expression](../reference/notifications/filter-expressions.md) the
-alert carries.
-
-### A provider model for replaceable subsystems
-
-Subsystems an operator might reasonably want to swap now sit behind
-provider interfaces. File storage ships with local and S3 backends, secret
-managers with database and environment-variable backends, and cache with
-in-memory and database backends. Vulnerability data sources (NVD, GitHub
-Advisories, OSV) and analyzers (internal, OSS Index, Snyk, Trivy, VulnDB)
-load through the same model. Choosing a provider becomes a configuration
-decision, not a fork. See the
-[file storage reference](../reference/configuration/file-storage.md) for
-the storage end of the model.
+alert carries. For example, an alert can fire only for vulnerabilities at
+or exceeding a given severity.
 
 ### Component integrity verification
 
@@ -111,19 +111,12 @@ shipped as a beta feature in v4 with known gaps and noticeable overhead on
 larger portfolios. v5 closes those gaps and reworks the implementation so
 the cost stays bounded as the project count grows.
 
-### Centralised secrets
+### Centralized secrets
 
 Credentials for integrations live in one place instead of spreading across
 per-feature settings, behind whichever secret-manager provider the
-deployment selects. See [Managing secrets](../guides/user/managing-secrets.md).
-
-### A spec-first REST API v2
-
-v4 generated its OpenAPI specification from server-side annotations. v5
-inverts that for a new [v2 API](../reference/api/v2.md): the spec becomes
-the contract, and handlers plug into the interfaces it generates. The
-[legacy v1 surface](../reference/api/v1.md) stays in place for backward
-compatibility.
+deployment selects. A single store simplifies auditing and rotation: you rotate a compromised
+credential in one place, not across scattered configuration screens. See [Managing secrets](../guides/user/managing-secrets.md).
 
 ### A separate management surface
 
@@ -152,18 +145,18 @@ remediation steps, lives in the
   List fields gain a `List` suffix, enum-like values gain a type prefix
   (`INFORMATIONAL` → `LEVEL_INFORMATIONAL`, `SYSTEM` → `SCOPE_SYSTEM`,
   `NEW_VULNERABILITY` → `GROUP_NEW_VULNERABILITY`), and timestamps
-  normalise to a single millisecond-precision format. Templates that
+  normalize to a single millisecond-precision format. Templates that
   consumed v4's ad-hoc subject objects need a rewrite.
-* **Search.** Endpoints under `/api/v1/search` go away, and fuzzy matching
-  goes with them.
+* **Search.** Dependency-Track removes the endpoints under `/api/v1/search`,
+  along with fuzzy matching.
 * **Fuzzy vulnerability analysis.** v4's internal analyzer optionally fell back to
   Lucene-based fuzzy matching against the internal vulnerability database
   when a component lacked a CPE. Dropping Lucene removes this capability.
-* **Findings and SARIF.** Findings and SARIF responses change shape, and
-  the per-project findings endpoint now paginates by default. See the
-  upgrade guide.
-* **Removed deprecated endpoints.** Three v4-deprecated paths under
-  `/api/v1/policy` and `/api/v1/tag` go away.
+* **Findings and SARIF.** Findings and SARIF responses change shape, and the per-project findings
+  endpoint now paginates by default. See the
+  [upgrade guide](../guides/upgrading/index.md).
+* **Removed deprecated endpoints.** Dependency-Track removes three
+  v4-deprecated paths under `/api/v1/policy` and `/api/v1/tag`.
 * **Distribution formats.** v4 shipped separate API server and frontend
   container images, a "bundled" container image combining both, and an
   executable WAR. v5 ships container images only, and drops the bundled
@@ -173,9 +166,8 @@ remediation steps, lives in the
   `/mirror/nvd/*` so other tools could use Dependency-Track as a local
   NVD mirror. v5 no longer persists the feed files (it has no internal
   use for them), and its file storage abstracts over backends like S3
-  rather than assuming a local filesystem to serve from. The endpoint is
-  removed. Consumers should fetch feeds directly from NIST or run a
-  dedicated mirror.
+  rather than assuming a local filesystem to serve from. Dependency-Track
+  no longer serves this endpoint. Fetch feeds directly from NIST or run a dedicated mirror.
 
 [CEL]: https://cel.dev/
 [Protobuf]: https://protobuf.dev/
