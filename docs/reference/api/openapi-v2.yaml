@@ -165,6 +165,8 @@ tags:
   description: Endpoints related to projects
 - name: Secrets
   description: Endpoints related to secrets
+- name: System Capabilities
+  description: Endpoints exposing the capabilities of the running server
 - name: Task Queues
   description: Endpoints related to task queue management
 - name: Vuln Data Sources
@@ -1347,6 +1349,24 @@ paths:
           $ref: "#/components/responses/generic-not-found-error"
         default:
           $ref: "#/components/responses/generic-error"
+  /internal/system-capabilities:
+    get:
+      tags:
+      - System Capabilities
+      summary: Get system capabilities
+      description: Returns the capabilities of the system.
+      operationId: getSystemCapabilities
+      responses:
+        "200":
+          description: System capabilities
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/system-capabilities-response"
+        "401":
+          $ref: "#/components/responses/generic-unauthorized-error"
+        default:
+          $ref: "#/components/responses/generic-error"
   /internal/task-queues/{type}:
     get:
       tags:
@@ -1516,6 +1536,19 @@ paths:
         description: Status to filter by
         schema:
           $ref: "#/components/schemas/workflow-run-status"
+      - name: label
+        in: query
+        description: |-
+          Filter by label in `key=value` form. Repeat to require multiple labels.
+          A run matches only if it carries every supplied label.
+          On duplicate keys the last occurrence wins.
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            pattern: "^[^=]+=.*$"
+            type: string
       - name: created_at_from
         in: query
         description: Filter runs created on or after this timestamp.
@@ -2196,6 +2229,21 @@ components:
         failure_reason:
           type: string
           description: Reason for why the mirror run failed.
+    system-capabilities-response:
+      required:
+      - capabilities
+      type: object
+      properties:
+        capabilities:
+          type: object
+          additionalProperties:
+            type: object
+            additionalProperties: true
+          description: Map of namespaces to capability flags.
+      example:
+        capabilities:
+          secret_management:
+            read_only: false
     task-queue-type:
       type: string
       enum:
