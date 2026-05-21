@@ -15,10 +15,10 @@
 *[OIDC]: OpenID Connect
 *[OSV]: Open Source Vulnerabilities
 *[PAC]: Portfolio Access Control
-*[REST]: Representational State Transfer
 *[PURL]: Package URL, a standardized format for identifying software packages
-*[SBOM]: Software Bill of Materials
+*[REST]: Representational State Transfer
 *[SARIF]: Static Analysis Results Interchange Format
+*[SBOM]: Software Bill of Materials
 *[SLO]: Service Level Objectives
 *[VDR]: Vulnerability Disclosure Report
 *[VEX]: Vulnerability Exploitability eXchange
