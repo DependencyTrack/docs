@@ -1692,30 +1692,6 @@ Defines the HTTP write timeout for S3 requests in milliseconds.
 
 
 
-## Task Execution
-
-<span id="dtworkerthreadmultiplier">**`dt.worker.thread.multiplier`** <strong style="color: red">*</strong> [¶](#dtworkerthreadmultiplier){ .headerlink }</span>
-
-Defines a multiplier that is used to calculate the number of threads used  by the event subsystem. This property is only used when [`dt.worker.threads`](#dtworkerthreads)  is set to 0. A machine with 4 cores and a multiplier of 4, will use (at most)  16 worker threads.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
-<tr><th>Default</th><td><code>4</code></td></tr>
-<tr><th>ENV</th><td><code>DT_WORKER_THREAD_MULTIPLIER</code></td></tr>
-</table>
-
-<span id="dtworkerthreads">**`dt.worker.threads`** <strong style="color: red">*</strong> [¶](#dtworkerthreads){ .headerlink }</span>
-
-Defines the number of worker threads that the event subsystem will consume.  Events occur asynchronously and are processed by the Event subsystem. This  value should be large enough to handle most production situations without  introducing much delay, yet small enough not to pose additional load on an  already resource-constrained server.  A value of 0 will instruct Alpine to allocate 1 thread per CPU core. This  can further be tweaked using the [`dt.worker.thread.multiplier`](#dtworkerthreadmultiplier) property.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
-<tr><th>Default</th><td><code>0</code></td></tr>
-<tr><th>ENV</th><td><code>DT_WORKER_THREADS</code></td></tr>
-</table>
-
-
-
 ## Task Scheduling
 
 <span id="dttask-schedulerenabled">**`dt.task-scheduler.enabled`** [¶](#dttask-schedulerenabled){ .headerlink }</span>
@@ -1726,6 +1702,36 @@ Defines whether the task scheduler should be enabled.  <br/><br/>  May be disabl
 <tr><th>Type</th><td style="border-width: 0"><code>boolean</code></td></tr>
 <tr><th>Default</th><td><code>true</code></td></tr>
 <tr><th>ENV</th><td><code>DT_TASK_SCHEDULER_ENABLED</code></td></tr>
+</table>
+
+<span id="dttask-schedulerpoll-interval-ms">**`dt.task-scheduler.poll-interval-ms`** [¶](#dttask-schedulerpoll-interval-ms){ .headerlink }</span>
+
+Defines the interval in milliseconds in which the task scheduler polls the  database for due tasks.  
+
+<table>
+<tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
+<tr><th>Default</th><td><code>30000</code></td></tr>
+<tr><th>ENV</th><td><code>DT_TASK_SCHEDULER_POLL_INTERVAL_MS</code></td></tr>
+</table>
+
+<span id="dttask-schedulershutdown-max-wait-ms">**`dt.task-scheduler.shutdown-max-wait-ms`** [¶](#dttask-schedulershutdown-max-wait-ms){ .headerlink }</span>
+
+Defines how long, in milliseconds, the task scheduler waits for running tasks  to complete during shutdown. Tasks still running when this elapses are left in  place and picked up by another node once their heartbeat expires.  
+
+<table>
+<tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
+<tr><th>Default</th><td><code>5000</code></td></tr>
+<tr><th>ENV</th><td><code>DT_TASK_SCHEDULER_SHUTDOWN_MAX_WAIT_MS</code></td></tr>
+</table>
+
+<span id="dttask-schedulerthreads">**`dt.task-scheduler.threads`** [¶](#dttask-schedulerthreads){ .headerlink }</span>
+
+Defines the number of threads the task scheduler uses to execute due tasks.  This is the maximum number of scheduled tasks that may run concurrently on  a single node.  <br/><br/>  The scheduled task volume is low, but a few tasks can be long-running,  so the value should be large enough to keep one slow task from blocking others.  <br/><br/>  Note that the grunt of asynchronous work is performed by the dex engine,  not by the task scheduler. This is the wrong knob to tweak in most cases.  
+
+<table>
+<tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
+<tr><th>Default</th><td><code>3</code></td></tr>
+<tr><th>ENV</th><td><code>DT_TASK_SCHEDULER_THREADS</code></td></tr>
 </table>
 
 <span id="dttaskdefectdojouploadcron">**`dt.task.defect.dojo.upload.cron`** <strong style="color: red">*</strong> [¶](#dttaskdefectdojouploadcron){ .headerlink }</span>
@@ -1746,26 +1752,6 @@ Cron expression of the EPSS mirroring task.
 <tr><th>Type</th><td style="border-width: 0"><code>cron</code></td></tr>
 <tr><th>Default</th><td><code>0 1 * * *</code></td></tr>
 <tr><th>ENV</th><td><code>DT_TASK_EPSS_MIRROR_CRON</code></td></tr>
-</table>
-
-<span id="dttaskepssmirrorlockmaxduration">**`dt.task.epss.mirror.lock.max.duration`** <strong style="color: red">*</strong> [¶](#dttaskepssmirrorlockmaxduration){ .headerlink }</span>
-
-Maximum duration in ISO 8601 format for which the EPSS mirror task will hold a lock.  <br/><br/>  The duration should be long enough to cover the task's execution duration.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>duration</code></td></tr>
-<tr><th>Default</th><td><code>PT15M</code></td></tr>
-<tr><th>ENV</th><td><code>DT_TASK_EPSS_MIRROR_LOCK_MAX_DURATION</code></td></tr>
-</table>
-
-<span id="dttaskepssmirrorlockminduration">**`dt.task.epss.mirror.lock.min.duration`** <strong style="color: red">*</strong> [¶](#dttaskepssmirrorlockminduration){ .headerlink }</span>
-
-Minimum duration in ISO 8601 format for which the EPSS mirror task will hold a lock.  <br/><br/>  The duration should be long enough to cover eventual clock skew across API server instances.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>duration</code></td></tr>
-<tr><th>Default</th><td><code>PT1M</code></td></tr>
-<tr><th>ENV</th><td><code>DT_TASK_EPSS_MIRROR_LOCK_MIN_DURATION</code></td></tr>
 </table>
 
 <span id="dttaskexpired-session-cleanupcron">**`dt.task.expired-session-cleanup.cron`** <strong style="color: red">*</strong> [¶](#dttaskexpired-session-cleanupcron){ .headerlink }</span>
@@ -1798,36 +1784,6 @@ Cron expression of the vulnerability GitHub Advisories mirroring task.
 <tr><th>ENV</th><td><code>DT_TASK_GIT_HUB_ADVISORY_MIRROR_CRON</code></td></tr>
 </table>
 
-<span id="dttaskinternalcomponentidentificationcron">**`dt.task.internal.component.identification.cron`** <strong style="color: red">*</strong> [¶](#dttaskinternalcomponentidentificationcron){ .headerlink }</span>
-
-Cron expression of the internal component identification task.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>cron</code></td></tr>
-<tr><th>Default</th><td><code>25 */6 * * *</code></td></tr>
-<tr><th>ENV</th><td><code>DT_TASK_INTERNAL_COMPONENT_IDENTIFICATION_CRON</code></td></tr>
-</table>
-
-<span id="dttaskinternalcomponentidentificationlockmaxduration">**`dt.task.internal.component.identification.lock.max.duration`** <strong style="color: red">*</strong> [¶](#dttaskinternalcomponentidentificationlockmaxduration){ .headerlink }</span>
-
-Maximum duration in ISO 8601 format for which the internal component identification task will hold a lock.  <br/><br/>  The duration should be long enough to cover the task's execution duration.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>duration</code></td></tr>
-<tr><th>Default</th><td><code>PT15M</code></td></tr>
-<tr><th>ENV</th><td><code>DT_TASK_INTERNAL_COMPONENT_IDENTIFICATION_LOCK_MAX_DURATION</code></td></tr>
-</table>
-
-<span id="dttaskinternalcomponentidentificationlockminduration">**`dt.task.internal.component.identification.lock.min.duration`** <strong style="color: red">*</strong> [¶](#dttaskinternalcomponentidentificationlockminduration){ .headerlink }</span>
-
-Minimum duration in ISO 8601 format for which the internal component identification task will hold a lock.  <br/><br/>  The duration should be long enough to cover eventual clock skew across API server instances.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>duration</code></td></tr>
-<tr><th>Default</th><td><code>PT90S</code></td></tr>
-<tr><th>ENV</th><td><code>DT_TASK_INTERNAL_COMPONENT_IDENTIFICATION_LOCK_MIN_DURATION</code></td></tr>
-</table>
-
 <span id="dttaskkennasecurityuploadcron">**`dt.task.kenna.security.upload.cron`** <strong style="color: red">*</strong> [¶](#dttaskkennasecurityuploadcron){ .headerlink }</span>
 
 Cron expression of the Kenna Security upload task.  
@@ -1846,26 +1802,6 @@ Cron expression of the metrics maintenance task.  <br/><br/>  The task creates n
 <tr><th>Type</th><td style="border-width: 0"><code>cron</code></td></tr>
 <tr><th>Default</th><td><code>1 * * * *</code></td></tr>
 <tr><th>ENV</th><td><code>DT_TASK_METRICS_MAINTENANCE_CRON</code></td></tr>
-</table>
-
-<span id="dttaskmetricsmaintenancelockmaxduration">**`dt.task.metrics.maintenance.lock.max.duration`** <strong style="color: red">*</strong> [¶](#dttaskmetricsmaintenancelockmaxduration){ .headerlink }</span>
-
-Maximum duration in ISO 8601 format for which the metrics maintenance task will hold a lock.  <br/><br/>  The duration should be long enough to cover the task's execution duration.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>duration</code></td></tr>
-<tr><th>Default</th><td><code>PT15M</code></td></tr>
-<tr><th>ENV</th><td><code>DT_TASK_METRICS_MAINTENANCE_LOCK_MAX_DURATION</code></td></tr>
-</table>
-
-<span id="dttaskmetricsmaintenancelockminduration">**`dt.task.metrics.maintenance.lock.min.duration`** <strong style="color: red">*</strong> [¶](#dttaskmetricsmaintenancelockminduration){ .headerlink }</span>
-
-Minimum duration in ISO 8601 format for which the metrics maintenance task will hold a lock.  <br/><br/>  The duration should be long enough to cover eventual clock skew across API server instances.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>duration</code></td></tr>
-<tr><th>Default</th><td><code>PT1M</code></td></tr>
-<tr><th>ENV</th><td><code>DT_TASK_METRICS_MAINTENANCE_LOCK_MIN_DURATION</code></td></tr>
 </table>
 
 <span id="dttasknistmirrorcron">**`dt.task.nist.mirror.cron`** <strong style="color: red">*</strong> [¶](#dttasknistmirrorcron){ .headerlink }</span>
@@ -1978,26 +1914,6 @@ Cron expression of the portfolio vulnerability analysis task.
 <tr><th>ENV</th><td><code>DT_TASK_VULNERABILITY_ANALYSIS_CRON</code></td></tr>
 </table>
 
-<span id="dttaskvulnerabilityanalysislockmaxduration">**`dt.task.vulnerability.analysis.lock.max.duration`** <strong style="color: red">*</strong> [¶](#dttaskvulnerabilityanalysislockmaxduration){ .headerlink }</span>
-
-Maximum duration in ISO 8601 format for which the portfolio vulnerability analysis task will hold a lock.  <br/><br/>  The duration should be long enough to cover the task's execution duration.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>duration</code></td></tr>
-<tr><th>Default</th><td><code>PT15M</code></td></tr>
-<tr><th>ENV</th><td><code>DT_TASK_VULNERABILITY_ANALYSIS_LOCK_MAX_DURATION</code></td></tr>
-</table>
-
-<span id="dttaskvulnerabilityanalysislockminduration">**`dt.task.vulnerability.analysis.lock.min.duration`** <strong style="color: red">*</strong> [¶](#dttaskvulnerabilityanalysislockminduration){ .headerlink }</span>
-
-Minimum duration in ISO 8601 format for which the portfolio vulnerability analysis task will hold a lock.  <br/><br/>  The duration should be long enough to cover eventual clock skew across API server instances.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>duration</code></td></tr>
-<tr><th>Default</th><td><code>PT90S</code></td></tr>
-<tr><th>ENV</th><td><code>DT_TASK_VULNERABILITY_ANALYSIS_LOCK_MIN_DURATION</code></td></tr>
-</table>
-
 <span id="dttaskvulnerabilitydatabasemaintenancecron">**`dt.task.vulnerability.database.maintenance.cron`** <strong style="color: red">*</strong> [¶](#dttaskvulnerabilitydatabasemaintenancecron){ .headerlink }</span>
 
 Cron expression of the vulnerability database maintenance task.  <br/><br/>  The task deletes orphaned records from the `VULNERABLESOFTWARE` table.  
@@ -2016,36 +1932,6 @@ Cron expression of the vulnerability metrics update task.
 <tr><th>Type</th><td style="border-width: 0"><code>cron</code></td></tr>
 <tr><th>Default</th><td><code>40 * * * *</code></td></tr>
 <tr><th>ENV</th><td><code>DT_TASK_VULNERABILITY_METRICS_UPDATE_CRON</code></td></tr>
-</table>
-
-<span id="dttaskworkflowmaintenancecron">**`dt.task.workflow.maintenance.cron`** <strong style="color: red">*</strong> [¶](#dttaskworkflowmaintenancecron){ .headerlink }</span>
-
-Cron expression of the workflow maintenance task.  <br/><br/>  The task:  <ul>  <li>Transitions workflow steps from <code>PENDING</code> to <code>TIMED_OUT</code> state</li>  <li>Transitions workflow steps from <code>TIMED_OUT</code> to <code>FAILED</code> state</li>  <li>Transitions children of <code>FAILED</code> steps to <code>CANCELLED</code> state</li>  <li>Deletes finished workflows according to the configured retention duration</li>  </ul>  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>cron</code></td></tr>
-<tr><th>Default</th><td><code>*/15 * * * *</code></td></tr>
-<tr><th>ENV</th><td><code>DT_TASK_WORKFLOW_MAINTENANCE_CRON</code></td></tr>
-</table>
-
-<span id="dttaskworkflowmaintenancelockmaxduration">**`dt.task.workflow.maintenance.lock.max.duration`** <strong style="color: red">*</strong> [¶](#dttaskworkflowmaintenancelockmaxduration){ .headerlink }</span>
-
-Maximum duration in ISO 8601 format for which the workflow maintenance task will hold a lock.  <br/><br/>  The duration should be long enough to cover the task's execution duration.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>duration</code></td></tr>
-<tr><th>Default</th><td><code>PT5M</code></td></tr>
-<tr><th>ENV</th><td><code>DT_TASK_WORKFLOW_MAINTENANCE_LOCK_MAX_DURATION</code></td></tr>
-</table>
-
-<span id="dttaskworkflowmaintenancelockminduration">**`dt.task.workflow.maintenance.lock.min.duration`** <strong style="color: red">*</strong> [¶](#dttaskworkflowmaintenancelockminduration){ .headerlink }</span>
-
-Minimum duration in ISO 8601 format for which the workflow maintenance task will hold a lock.  <br/><br/>  The duration should be long enough to cover eventual clock skew across API server instances.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>duration</code></td></tr>
-<tr><th>Default</th><td><code>PT1M</code></td></tr>
-<tr><th>ENV</th><td><code>DT_TASK_WORKFLOW_MAINTENANCE_LOCK_MIN_DURATION</code></td></tr>
 </table>
 
 
