@@ -1267,10 +1267,6 @@ paths:
         name: includeRepositoryMetaData
         schema:
           type: boolean
-      - in: query
-        name: includeIntegrityMetaData
-        schema:
-          type: boolean
       responses:
         "200":
           content:
@@ -9750,8 +9746,6 @@ components:
           - MACHINE_LEARNING_MODEL
           - DATA
           - CRYPTOGRAPHIC_ASSET
-        componentMetaInformation:
-          $ref: "#/components/schemas/ComponentMetaInformation"
         copyright:
           type: string
           maxLength: 1024
@@ -9912,26 +9906,6 @@ components:
       - name
       - project
       - uuid
-    ComponentMetaInformation:
-      type: object
-      properties:
-        integrityMatchStatus:
-          type: string
-          enum:
-          - HASH_MATCH_PASSED
-          - HASH_MATCH_FAILED
-          - HASH_MATCH_UNKNOWN
-          - COMPONENT_MISSING_HASH
-        integrityRepoUrl:
-          type: string
-        lastFetched:
-          type: integer
-          format: int64
-          description: UNIX epoch timestamp in milliseconds
-        publishedDate:
-          type: integer
-          format: int64
-          description: UNIX epoch timestamp in milliseconds
     ComponentOccurrence:
       type: object
       properties:
@@ -10560,10 +10534,6 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/Permission"
-        teams:
-          type: array
-          items:
-            $ref: "#/components/schemas/Team"
         username:
           type: string
           maxLength: 255
@@ -10667,6 +10637,10 @@ components:
             $ref: "#/components/schemas/Permission"
         suspended:
           type: boolean
+        teams:
+          type: array
+          items:
+            $ref: "#/components/schemas/Team"
         username:
           type: string
           maxLength: 255
