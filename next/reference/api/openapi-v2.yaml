@@ -50,6 +50,16 @@ info:
     Note that if no sortable fields are documented for an operation,
     sorting is not supported *at all*.
 
+    ## Field expansion
+
+    Some collection endpoints support an `expand` query parameter.
+    Passing an expand value includes optional fields in each response item
+    that are omitted by default, typically because they are expensive to compute
+    and only needed in specific contexts.
+
+    Valid `expand` values for an endpoint are listed in its operation description.
+    Unknown values are silently ignored.
+
     ## Errors
 
     All error responses use the `application/problem+json` media type
@@ -191,11 +201,16 @@ paths:
         Sorting is supported for the following fields:
 
         * `name`
-        * `version`
         * `group`
-        * `purl`
-        * `cpe`
         * `last_inherited_risk_score`
+
+        ### Expandable fields
+
+        The following fields can be included via `expand`:
+
+        * `metrics`
+        * `package_metadata`
+        * `package_artifact_metadata`
 
         Requires permission `VIEW_PORTFOLIO`
       operationId: listComponents
@@ -262,6 +277,22 @@ paths:
           Requires `hash_type` to be set.
         schema:
           type: string
+      - name: package_artifact_published_since
+        in: query
+        description: |-
+          Filter by package artifact publish date (inclusive lower bound).
+
+          Note that components without resolved package artifact metadata,
+          or whose upstream repository did not report a publication date,
+          are excluded whenever `package_artifact_published_since` or
+          `package_artifact_published_before` is set.
+        schema:
+          $ref: "#/components/schemas/timestamp"
+      - name: package_artifact_published_before
+        in: query
+        description: Filter by package artifact publish date (exclusive upper bound).
+        schema:
+          $ref: "#/components/schemas/timestamp"
       - name: project_state
         in: query
         description: |-
@@ -280,6 +311,16 @@ paths:
           Omit to include components regardless of the flag.
         schema:
           type: boolean
+      - name: expand
+        in: query
+        description: Optional fields to include in each component response item. Unknown
+          values are silently ignored.
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
       - name: limit
         in: query
         description: Maximum number of items to retrieve from the collection
@@ -662,7 +703,30 @@ paths:
       tags:
       - Projects
       summary: Retrieves a list of all components for a given project.
-      description: Requires permission `VIEW_PORTFOLIO`
+      description: |-
+        Requires permission `VIEW_PORTFOLIO`
+
+        ### Sortable fields
+
+        Sorting is supported for the following fields:
+
+        * `name`
+        * `group`
+        * `last_inherited_risk_score`
+        * `package_artifact_metadata.published_at`
+
+        Components without resolved artifact metadata, or whose upstream registry did not
+        report a publication date, are placed at the end of the result for both sort
+        directions when sorting by `package_artifact_metadata.published_at`.
+
+        ### Expandable fields
+
+        The following fields can be included via `expand`:
+
+        * `metrics`
+        * `package_metadata`
+        * `package_artifact_metadata`
+        * `occurrence_count`
       operationId: listProjectComponents
       parameters:
       - name: uuid
@@ -684,6 +748,22 @@ paths:
           are returned
         schema:
           type: boolean
+      - name: q
+        in: query
+        description: Optional free-text search term. Matches components whose `group`
+          or `name` contains the given value (case-insensitive).
+        schema:
+          type: string
+      - name: expand
+        in: query
+        description: Optional fields to include in each component response item. Unknown
+          values are silently ignored.
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
       - name: limit
         in: query
         description: Maximum number of items to retrieve from the collection
@@ -697,6 +777,18 @@ paths:
         in: query
         description: Opaque token pointing to a specific position in a collection
         schema:
+          type: string
+      - name: sort_direction
+        in: query
+        schema:
+          $ref: "#/components/schemas/sort-direction"
+      - name: sort_by
+        in: query
+        description: Field to sort by. Refer to the operation description for information
+          about which fields are sortable.
+        schema:
+          maxLength: 255
+          minLength: 1
           type: string
       responses:
         "200":
@@ -1549,22 +1641,22 @@ paths:
           items:
             pattern: "^[^=]+=.*$"
             type: string
-      - name: created_at_from
+      - name: created_since
         in: query
         description: Filter runs created on or after this timestamp.
         schema:
           $ref: "#/components/schemas/timestamp"
-      - name: created_at_to
+      - name: created_before
         in: query
         description: Filter runs created before this timestamp.
         schema:
           $ref: "#/components/schemas/timestamp"
-      - name: completed_at_from
+      - name: completed_since
         in: query
         description: Filter runs completed on or after this timestamp.
         schema:
           $ref: "#/components/schemas/timestamp"
-      - name: completed_at_to
+      - name: completed_before
         in: query
         description: Filter runs completed before this timestamp.
         schema:
@@ -1708,6 +1800,11 @@ paths:
           $ref: "#/components/responses/generic-error"
 components:
   schemas:
+    timestamp:
+      type: integer
+      description: "Epoch timestamp in milliseconds since January 1, 1970 UTC."
+      format: int64
+      example: 1752209050377
     project-state:
       type: string
       enum:
@@ -2324,11 +2421,6 @@ components:
       - FAILED
       - COMPLETED
       - CANCELLED
-    timestamp:
-      type: integer
-      description: "Epoch timestamp in milliseconds since January 1, 1970 UTC."
-      format: int64
-      example: 1752209050377
     list-workflow-runs-response:
       required:
       - items
@@ -2364,6 +2456,9 @@ components:
           $ref: "#/components/schemas/total-count"
       x-parent: true
     list-components-response-item:
+      required:
+      - name
+      - uuid
       type: object
       properties:
         name:
@@ -2417,6 +2512,10 @@ components:
           $ref: "#/components/schemas/component-project"
         metrics:
           $ref: "#/components/schemas/dependency-metrics"
+        package_metadata:
+          $ref: "#/components/schemas/package-metadata"
+        package_artifact_metadata:
+          $ref: "#/components/schemas/package-artifact-metadata"
     json-schema-validation-error:
       required:
       - instance_location
@@ -2595,6 +2694,9 @@ components:
       - SERVICES
       - TAGS
     list-project-components-response-item:
+      required:
+      - name
+      - uuid
       type: object
       properties:
         name:
@@ -2648,6 +2750,12 @@ components:
         uuid:
           type: string
           format: uuid
+        metrics:
+          $ref: "#/components/schemas/dependency-metrics"
+        package_metadata:
+          $ref: "#/components/schemas/package-metadata"
+        package_artifact_metadata:
+          $ref: "#/components/schemas/package-artifact-metadata"
     list-vuln-policies-response-item:
       required:
       - name
@@ -2959,6 +3067,51 @@ components:
         policy_violations_operational_unaudited:
           type: integer
           format: int32
+    package-metadata:
+      required:
+      - resolved_at
+      type: object
+      properties:
+        latest_version:
+          type: string
+          description: |
+            Latest known version in the configured registries. Null when the resolver ran but returned no version.
+          nullable: true
+        latest_version_published_at:
+          description: |
+            When the latest version was published. May be null even when latest_version is non-null, as some registries do not report publication dates.
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/timestamp"
+        resolved_at:
+          description: When package metadata was last resolved from the upstream repository.
+          allOf:
+          - $ref: "#/components/schemas/timestamp"
+      description: |
+        Latest version information from configured package registries. Only present when the component has a PURL with a type supported by at least one configured repository, and metadata has been successfully resolved from an upstream repository. Metadata resolution is asynchronous and runs in the background after a component is created or updated. This field may be absent for recently created components until resolution completes.
+    package-artifact-metadata:
+      type: object
+      properties:
+        hashes:
+          $ref: "#/components/schemas/hashes"
+        published_at:
+          description: When this artifact was published to the repository.
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/timestamp"
+        resolved_from:
+          type: string
+          description: Identifier of the repository from which artifact metadata was
+            fetched.
+          nullable: true
+        resolved_at:
+          description: When artifact metadata was last resolved from the upstream
+            repository.
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/timestamp"
+      description: |
+        Artifact-level metadata for the component's exact version from configured package repositories. Only present when the component has a PURL with a version, the PURL type is supported by at least one configured repository, and artifact metadata has been successfully resolved from an upstream repository. Metadata resolution is asynchronous and runs in the background after a component is created or updated. This field may be absent for recently created components until resolution completes.
     extension-test-check-status:
       type: string
       enum:
