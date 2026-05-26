@@ -2131,6 +2131,12 @@ paths:
       description: <p>Requires permission <strong>VIEW_VULNERABILITY</strong></p>
       operationId: getFindingsByProject
       parameters:
+      - description: "Case-insensitive substring filter matched against component\
+          \ name, component group, and vulnerability ID."
+        in: query
+        name: searchText
+        schema:
+          type: string
       - description: The page to return. To be used in conjunction with <code>pageSize</code>.
         in: query
         name: pageNumber
