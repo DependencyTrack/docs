@@ -1276,51 +1276,16 @@ paths:
           $ref: "#/components/responses/generic-not-found-error"
         default:
           $ref: "#/components/responses/generic-error"
-  /vuln-policy-bundles/{uuid}/sync:
-    get:
-      tags:
-      - Vuln Policies
-      summary: Get bundle synchronization status
-      description: |-
-        Returns the status of the most recent synchronization for a given
-        vulnerability policy bundle.
-
-        Returns 404 if no synchronization has been triggered yet.
-
-        Requires permission `POLICY_MANAGEMENT` or `POLICY_MANAGEMENT_READ`.
-      operationId: getVulnPolicyBundleSyncStatus
-      parameters:
-      - name: uuid
-        in: path
-        description: UUID of the vulnerability policy bundle
-        required: true
-        schema:
-          type: string
-          format: uuid
-      responses:
-        "200":
-          description: Synchronization status
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/vuln-policy-bundle-sync-status"
-        "401":
-          $ref: "#/components/responses/generic-unauthorized-error"
-        "403":
-          $ref: "#/components/responses/generic-forbidden-error"
-        "404":
-          $ref: "#/components/responses/generic-not-found-error"
-        default:
-          $ref: "#/components/responses/generic-error"
+  /vuln-policy-bundles/{uuid}/sync-runs:
     post:
       tags:
       - Vuln Policies
-      summary: Trigger bundle synchronization
+      summary: Trigger a vulnerability policy bundle sync run
       description: |-
-        Triggers synchronization of the vulnerability policy bundle.
+        Triggers a synchronization run for the given vulnerability policy bundle.
 
         Requires permission `POLICY_MANAGEMENT` or `POLICY_MANAGEMENT_UPDATE`.
-      operationId: triggerVulnPolicyBundleSync
+      operationId: triggerVulnPolicyBundleSyncRun
       parameters:
       - name: uuid
         in: path
@@ -1331,15 +1296,15 @@ paths:
           format: uuid
       responses:
         "202":
-          description: Synchronization triggered
+          description: Sync run triggered
           headers:
             Location:
-              description: URL of the synchronization status endpoint
+              description: URL of the latest sync run resource.
               schema:
                 type: string
                 format: uri
         "400":
-          description: Bad Request
+          description: Sync run cannot be started
           content:
             application/problem+json:
               schema:
@@ -1351,11 +1316,49 @@ paths:
         "404":
           $ref: "#/components/responses/generic-not-found-error"
         "409":
-          description: Synchronization already in progress
+          description: A sync run is already in progress
           content:
             application/problem+json:
               schema:
                 $ref: "#/components/schemas/problem-details"
+        default:
+          $ref: "#/components/responses/generic-error"
+  /vuln-policy-bundles/{uuid}/sync-runs/latest:
+    get:
+      tags:
+      - Vuln Policies
+      summary: Get the latest vulnerability policy bundle sync run
+      description: |-
+        Returns the status of the most recent synchronization run for a given
+        vulnerability policy bundle.
+
+        Returns 404 if no sync run is available
+        (e.g. none has been triggered yet, or the most recent run
+        is no longer retained), or if the bundle is unknown.
+
+        Requires permission `POLICY_MANAGEMENT` or `POLICY_MANAGEMENT_READ`.
+      operationId: getLatestVulnPolicyBundleSyncRun
+      parameters:
+      - name: uuid
+        in: path
+        description: UUID of the vulnerability policy bundle
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        "200":
+          description: Sync run status
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/vuln-policy-bundle-sync-status"
+        "401":
+          $ref: "#/components/responses/generic-unauthorized-error"
+        "403":
+          $ref: "#/components/responses/generic-forbidden-error"
+        "404":
+          $ref: "#/components/responses/generic-not-found-error"
         default:
           $ref: "#/components/responses/generic-error"
   /vuln-data-sources/{name}/mirror-runs:
@@ -2378,6 +2381,9 @@ components:
       type: object
       properties:
         id:
+          type: string
+          format: uuid
+        parent_id:
           type: string
           format: uuid
         workflow_name:
