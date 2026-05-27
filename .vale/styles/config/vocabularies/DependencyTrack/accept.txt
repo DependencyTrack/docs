@@ -33,6 +33,7 @@ Hackage
 IdP
 IdP's
 IdPs
+JDK
 JFrog
 JWTs
 Jira
@@ -51,6 +52,7 @@ NVME
 Nixpkgs
 Novell
 OAuth
+OSGi
 OWASP
 OneLogin
 OpenID Connect
@@ -64,12 +66,15 @@ Podman
 Postgres
 Protobuf
 SBOMs?
+Sigstore
 SSDs
 Snyk
 Sonatype
+SPIs?
 TTLs
 Timescale
 Tink
+Trino
 Trivy
 URIs
 VDRs?
@@ -82,7 +87,14 @@ Webex
 [Bb]ackoff
 [Bb]ackpressure
 [Bb]locklists?
-[Bb]ooleans
+[Bb]ooleans?
+[Aa]ccessors?
+[Cc]amelCase
+[Cc]lassloaders?
+[Dd]eserializ(e[ds]?|ing|ation)
+[Nn]amespacing
+[Pp]laintext
+[Tt]ooltips?
 [Cc]lasspath
 [Cc]onfigs?
 [Cc]ron
@@ -126,6 +138,8 @@ Webex
 [Rr]ethrow
 [Rr]etryable
 [Rr]ollouts
+[Ss]andbox(es|ed|ing)?
+[Vv]endor(ed|ing)
 [Ss]bomify
 [Ss]ortability
 [Ss]cheduler's
