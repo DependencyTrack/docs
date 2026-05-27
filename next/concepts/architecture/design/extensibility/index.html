@@ -5,13 +5,13 @@
       
       
       
-        <link rel="canonical" href="https://dependencytrack.github.io/docs/next/concepts/architecture/design/package-metadata-resolution/">
+        <link rel="canonical" href="https://dependencytrack.github.io/docs/next/concepts/architecture/design/extensibility/">
       
       
-        <link rel="prev" href="../notifications/">
+        <link rel="prev" href="../durable-execution/">
       
       
-        <link rel="next" href="../../../../reference/">
+        <link rel="next" href="../vulnerability-analysis/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Package metadata resolution - Dependency-Track</title>
+        <title>Extensibility - Dependency-Track</title>
       
     
     
@@ -61,15 +61,15 @@
     
   
 <meta property="og:type" content="website">
-<meta property="og:title" content="Package metadata resolution - Dependency-Track">
-<meta property="og:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/concepts/architecture/design/package-metadata-resolution.png">
+<meta property="og:title" content="Extensibility - Dependency-Track">
+<meta property="og:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/concepts/architecture/design/extensibility.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:url" content="https://dependencytrack.github.io/docs/next/concepts/architecture/design/package-metadata-resolution/">
+<meta property="og:url" content="https://dependencytrack.github.io/docs/next/concepts/architecture/design/extensibility/">
 <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:title" content="Package metadata resolution - Dependency-Track">
-<meta property="twitter:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/concepts/architecture/design/package-metadata-resolution.png">
+<meta property="twitter:title" content="Extensibility - Dependency-Track">
+<meta property="twitter:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/concepts/architecture/design/extensibility.png">
 <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
@@ -99,7 +99,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#package-metadata-resolution" class="md-skip">
+        <a href="#extensibility" class="md-skip">
           Skip to content
         </a>
       
@@ -138,7 +138,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Package metadata resolution
+              Extensibility
             
           </span>
         </div>
@@ -1069,10 +1069,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../extensibility/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Extensibility
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1088,6 +1115,320 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plugin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extension-point" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extension point
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extension" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extension
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extension-factory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extension factory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extension-identity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extension identity
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#component-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Component model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#minimal-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Minimal example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loading-and-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loading and lifecycle
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-extensions-can-see" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What extensions can see
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What extensions can see">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#schema-extensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schema extensions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optional-capabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optional capabilities
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Optional capabilities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#runtime-configurable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Runtime-configurable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boundaries-and-rationale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Boundaries and rationale
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#toward-third-party-plugins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Toward third-party plugins
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Toward third-party plugins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api-stability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API stability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-artifact-publication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API artifact publication
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classloader-isolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classloader isolation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integrity-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integrity verification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other open questions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1153,37 +1494,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Package metadata resolution
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../package-metadata-resolution/" class="md-nav__link">
         
   
   
@@ -1199,220 +1513,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Overview
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#responsible-consumption-of-public-infrastructure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Responsible consumption of public infrastructure
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#data-model" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Data model
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Data model">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#persistence" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Persistence
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#workflow" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Workflow
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Workflow">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#singleton-constraint" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Singleton constraint
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#triggers" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Triggers
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Structure
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#candidate-fetching" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Candidate fetching
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#resolution" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Resolution
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Resolution">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#retry-policy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Retry policy
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#continue-as-new" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Continue-as-new
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#concurrency-control" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Concurrency control
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resolver-extension-point" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Resolver extension point
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#maintenance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Maintenance
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resiliency" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Resiliency
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1619,33 +1719,66 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#responsible-consumption-of-public-infrastructure" class="md-nav__link">
+  <a href="#core-concepts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Responsible consumption of public infrastructure
+        Core concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plugin
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#data-model" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#extension-point" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Data model
+        Extension point
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Data model">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
-  <a href="#persistence" class="md-nav__link">
+  <a href="#extension" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Persistence
+        Extension
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extension-factory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extension factory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extension-identity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extension identity
       
     </span>
   </a>
@@ -1658,78 +1791,67 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#workflow" class="md-nav__link">
+  <a href="#component-model" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Workflow
+        Component model
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Workflow">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#minimal-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Minimal example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loading-and-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loading and lifecycle
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-extensions-can-see" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What extensions can see
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What extensions can see">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#singleton-constraint" class="md-nav__link">
+  <a href="#configuration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Singleton constraint
+        Configuration
       
     </span>
   </a>
   
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#triggers" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Triggers
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Structure
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#candidate-fetching" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Candidate fetching
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#resolution" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Resolution
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Resolution">
+    <nav class="md-nav" aria-label="Configuration">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#retry-policy" class="md-nav__link">
+  <a href="#schema-extensions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Retry policy
+        Schema extensions
       
     </span>
   </a>
@@ -1741,11 +1863,39 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#continue-as-new" class="md-nav__link">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optional-capabilities" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Continue-as-new
+        Optional capabilities
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Optional capabilities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#runtime-configurable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Runtime-configurable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testable
       
     </span>
   </a>
@@ -1758,10 +1908,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#concurrency-control" class="md-nav__link">
+  <a href="#examples" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Concurrency control
+        Examples
       
     </span>
   </a>
@@ -1769,10 +1919,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#resolver-extension-point" class="md-nav__link">
+  <a href="#boundaries-and-rationale" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Resolver extension point
+        Boundaries and rationale
       
     </span>
   </a>
@@ -1780,24 +1930,74 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#maintenance" class="md-nav__link">
+  <a href="#toward-third-party-plugins" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Maintenance
+        Toward third-party plugins
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Toward third-party plugins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api-stability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API stability
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#resiliency" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#api-artifact-publication" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Resiliency
+        API artifact publication
       
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classloader-isolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classloader isolation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integrity-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integrity verification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other open questions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1905,286 +2105,363 @@
   
 
 
-<h1 id="package-metadata-resolution">Package metadata resolution<a class="headerlink" href="#package-metadata-resolution" title="Permanent link">¶</a></h1>
+<h1 id="extensibility">Extensibility<a class="headerlink" href="#extensibility" title="Permanent link">¶</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Internal API today</p>
+<p>The plugin system on this page is <strong>internal</strong> to the platform. Only the platform's own modules use it, and the
+API can change at any time between releases. A public API for community extensions is on the roadmap, but the
+team hasn't set a date. See <a href="#toward-third-party-plugins">Toward third-party plugins</a> for what must be ready
+first. This page describes the current design, not a stable contract.</p>
+</div>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">¶</a></h2>
-<p>The package metadata resolution system retrieves metadata for packages from upstream
-repositories. This includes latest available versions, artifact hashes, and publish timestamps.
-Dependency-Track uses this data for latest version checks, component age policies, and integrity verification.</p>
-<p>A singleton <a href="../durable-execution/">durable workflow</a> orchestrates resolution and
-processes packages in controlled batches. ADR-015 documents the data model.</p>
-<h2 id="responsible-consumption-of-public-infrastructure">Responsible consumption of public infrastructure<a class="headerlink" href="#responsible-consumption-of-public-infrastructure" title="Permanent link">¶</a></h2>
-<p>Public registries like Maven Central, npm, and PyPI share a finite pool of bandwidth across all consumers.
-Sonatype has documented that <a href="https://www.sonatype.com/blog/beyond-ips-addressing-organizational-overconsumption-in-maven-central">1% of IP addresses account for 83% of Maven Central's total bandwidth</a>,
-and that registries have begun enforcing <a href="https://www.sonatype.com/blog/maven-central-and-the-tragedy-of-the-commons">organization-level throttling</a> in response,
-returning HTTP 429 errors to excessive consumers.</p>
-<p>For a system like Dependency-Track, which may track hundreds of thousands of components across many
-projects, this has direct architectural implications. Making an HTTP request per component on every
-<abbr title="Bill of Materials">BOM</abbr> upload or scheduled analysis cycle is not viable. Neither is spawning hundreds of concurrent
-requests against upstream registries. Both patterns would quickly exhaust rate limits, especially
-in larger deployments where many API server instances run concurrently.</p>
-<p>The resolution system thus favors scheduled, controlled processing over
-ad-hoc lookups. The system identifies components needing metadata resolution in batches, resolves
-them sequentially per resolver, and persists results with enough provenance to avoid redundant upstream requests.</p>
-<p>Resolvers also issue <a href="https://www.rfc-editor.org/rfc/rfc7232">conditional HTTP requests</a> when refreshing
-data. A small shared cache stores each upstream response body together with its <code>ETag</code> and
-<code>Last-Modified</code> validators. Refreshes after the in-process freshness window send <code>If-None-Match</code>
-(or <code>If-Modified-Since</code>) and most often exchange a small <code>304 Not Modified</code> rather than a full
-metadata document. This cuts upstream bandwidth without changing how often the system contacts the
-registry, and on registries that exempt <code>304</code> responses from rate limiting (notably the GitHub API)
-it also conserves quota. Sonatype's
-<a href="https://www.sonatype.com/blog/open-is-not-costless-reclaiming-sustainable-infrastructure"><em>Open is not costless: reclaiming sustainable infrastructure</em></a> post explains the motivation.</p>
-<h2 id="data-model">Data model<a class="headerlink" href="#data-model" title="Permanent link">¶</a></h2>
-<p>Two tables form a two-level hierarchy, both keyed by <abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr>:</p>
+<p>The platform has a plugin system. It lets some parts of the platform accept plug-in code. The platform decides which
+parts are open: only components that the platform marks as <em>extension points</em> accept extensions. Extension code can't
+reach anything else through an official API.</p>
+<p>The design takes ideas from
+<a href="https://trino.io/docs/current/installation/plugins.html">Trino plugins</a> and
+<a href="https://www.keycloak.org/docs/latest/server_development/index.html#_providers">Keycloak SPIs</a>. The structure is the
+same: a small set of extension points that the platform defines, loaded with <code>ServiceLoader</code>, and a fixed set of
+platform services that extensions can use.</p>
+<p>The plugin system doesn't use <a href="https://dev.java/learn/modules/intro/">Java's module system</a> or
+<a href="https://www.osgi.org/">OSGi</a>. Both add lifecycle, resolver, and descriptor features that the platform doesn't need,
+and a per-plugin classloader (see <a href="#classloader-isolation">Classloader isolation</a>) gives the same isolation without
+the rest of the framework.</p>
+<p>The plugin system runs in the same process as the platform. It doesn't use HTTP or gRPC, as
+<a href="https://github.com/hashicorp/go-plugin">hashicorp/go-plugin</a> does. Out-of-process calls would add serialization cost,
+network latency, timeouts, and extra work for connection management, observability, and securing the channel (TLS,
+authentication).</p>
+<h2 id="core-concepts">Core concepts<a class="headerlink" href="#core-concepts" title="Permanent link">¶</a></h2>
+<h3 id="plugin">Plugin<a class="headerlink" href="#plugin" title="Permanent link">¶</a></h3>
+<p>A plugin is a packaging unit. It implements the <code>Plugin</code> interface and provides one or more extension factories. The
+platform finds it at startup with Java's
+<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ServiceLoader.html"><code>ServiceLoader</code></a>.</p>
+<p>All API types referenced on this page live in <code>org.dependencytrack.plugin.api</code> and its <code>config</code> and <code>storage</code> child
+packages. <code>ExtensionPoint</code> and <code>ExtensionFactory</code> both extend <code>java.io.Closeable</code>, so extension instances work
+with try-with-resources by default.</p>
+<h3 id="extension-point">Extension point<a class="headerlink" href="#extension-point" title="Permanent link">¶</a></h3>
+<p>An extension point is a feature that the platform makes pluggable. It's a Java interface that extends <code>ExtensionPoint</code>
+and has the <code>@ExtensionPointSpec</code> annotation. The annotation gives it a stable name. An extension point can have zero,
+one, or many extensions.</p>
+<h3 id="extension">Extension<a class="headerlink" href="#extension" title="Permanent link">¶</a></h3>
+<p>An extension is a class that implements an extension point. A factory creates and sets it up. The host code never
+creates it directly.</p>
+<h3 id="extension-factory">Extension factory<a class="headerlink" href="#extension-factory" title="Permanent link">¶</a></h3>
+<p>A factory implements <code>ExtensionFactory</code>. It creates and sets up extensions for one extension point. The factory
+declares:</p>
 <ul>
-<li><code>PACKAGE_METADATA</code>: Keyed by <abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr> <em>without version, qualifiers, or subpath</em>
-  (for example, <code>pkg:maven/com.acme/acme-lib</code>). Stores the latest available version and resolution provenance.
-  One record per package.</li>
-<li><code>PACKAGE_ARTIFACT_METADATA</code>: Keyed by full <abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr> <em>including qualifiers and subpath</em>
-  (for example, <code>pkg:maven/com.acme/acme-lib@1.2.3?type=jar</code>). Stores artifact hashes, publish timestamp,
-  and resolution provenance. One record per distinct artifact. Has a foreign key to <code>PACKAGE_METADATA</code>.</li>
+<li>The extension's name (kebab-case).</li>
+<li>The extension class it creates.</li>
+<li>A priority. Lower numeric value wins. Callers that go through all factories of an extension point see them in this order.</li>
 </ul>
-<p>This separates package-level information (latest version) from artifact-level information
-(hashes, publish timestamp). The FK constraint enforces that artifact metadata cannot exist
-without corresponding package metadata, and the orchestration logic respects the resulting
-write-order dependency.</p>
-<p>Refer to ADR-015 for the full rationale.</p>
-<h3 id="persistence">Persistence<a class="headerlink" href="#persistence" title="Permanent link">¶</a></h3>
-<p>Both tables use <code>COALESCE</code>-based upserts that preserve existing non-null values.
-A temporal guard (<code>WHERE "RESOLVED_AT" &lt; EXCLUDED."RESOLVED_AT"</code>) prevents older results
-from overwriting newer ones. Writes use PostgreSQL <code>UNNEST</code> to batch many rows
-per statement, reducing round trips.</p>
-<h2 id="workflow">Workflow<a class="headerlink" href="#workflow" title="Permanent link">¶</a></h2>
-<p>Package metadata resolution is a singleton <a href="../durable-execution/">durable workflow</a>.</p>
-<h3 id="singleton-constraint">Singleton constraint<a class="headerlink" href="#singleton-constraint" title="Permanent link">¶</a></h3>
-<p>The workflow uses a fixed instance ID (<code>resolve-package-metadata</code>). The durable execution engine enforces
-that only a single execution of a given workflow instance in non-terminal state can exist at
-any moment. Attempts to create a run while one is already active are silently deduplicated.</p>
-<p>This guarantees that at most one resolution workflow is active across the entire cluster,
-regardless of how many API server instances are running. Concurrent resolution attempts are
-structurally impossible, which prevents redundant upstream requests and data races during
-persistence.</p>
-<h3 id="triggers">Triggers<a class="headerlink" href="#triggers" title="Permanent link">¶</a></h3>
-<p>Three situations trigger the workflow:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Trigger</th>
-<th style="text-align: left;">When</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">Scheduled</td>
-<td style="text-align: left;">Configurable cron schedule</td>
-</tr>
-<tr>
-<td style="text-align: left;"><abbr title="Bill of Materials">BOM</abbr> upload</td>
-<td style="text-align: left;">After importing a <abbr title="Bill of Materials">BOM</abbr> that contains components</td>
-</tr>
-<tr>
-<td style="text-align: left;">Manual analysis</td>
-<td style="text-align: left;">When a user manually triggers vulnerability analysis for a project</td>
-</tr>
-</tbody>
-</table>
-<p>All triggers create a run with the same singleton instance ID. If a run is already active,
-the creation request is a no-op. This makes triggers cheap to invoke, as the singleton constraint
-handles deduplication.</p>
-<h3 id="structure">Structure<a class="headerlink" href="#structure" title="Permanent link">¶</a></h3>
-<pre class="mermaid"><code>sequenceDiagram
-    participant W as resolve-package-metadata&lt;br/&gt;&lt;&lt;Workflow&gt;&gt;
-    participant F as fetch-candidates&lt;br/&gt;&lt;&lt;Activity&gt;&gt;
-    participant R as resolve-purl-metadata&lt;br/&gt;&lt;&lt;Activity&gt;&gt;
+<p>The factory chooses what <code>create()</code> returns. It can return a new instance every time, or always the same one. A new
+instance per call works well for extensions that hold resources for one call and release them at the end. A factory
+that returns a shared instance must make <code>close()</code> on that instance idempotent and safe, because the caller always
+closes whatever <code>create()</code> returns.</p>
+<p>A factory can also turn on more features. See <a href="#optional-capabilities">Optional capabilities</a>.</p>
+<h3 id="extension-identity">Extension identity<a class="headerlink" href="#extension-identity" title="Permanent link">¶</a></h3>
+<p>Every extension has an identity. The identity is the extension-point class plus the extension name. The platform turns
+this into the string pair <code>(extension-point-name, extension-name)</code>. The platform uses that pair as the namespace key
+for every per-extension store: configuration keys, key-value storage, cache entries, and metric tags. Two extensions
+can share the same extension name only if they belong to different extension points.</p>
+<h2 id="component-model">Component model<a class="headerlink" href="#component-model" title="Permanent link">¶</a></h2>
+<pre class="mermaid"><code>---
+title: Plugin, factory, extension
+---
+graph LR
+    SL["ServiceLoader&lt;br/&gt;(META-INF/services)"] --&gt; P["Plugin"]
+    P --&gt;|provides| F1["ExtensionFactory&amp;lt;T&amp;gt;"]
+    P --&gt;|provides| F2["ExtensionFactory&amp;lt;U&amp;gt;"]
+    F1 --&gt;|create&amp;#40;&amp;#41;| E1["Extension : T"]
+    F2 --&gt;|create&amp;#40;&amp;#41;| E2["Extension : U"]
+    EPS1["@ExtensionPointSpec"] -.declares.-&gt; T["ExtensionPoint T"]
+    EPS2["@ExtensionPointSpec"] -.declares.-&gt; U["ExtensionPoint U"]
+    T -.implemented by.-&gt; E1
+    U -.implemented by.-&gt; E2</code></pre>
+<h2 id="minimal-example">Minimal example<a class="headerlink" href="#minimal-example" title="Permanent link">¶</a></h2>
+<p>A complete plugin is three Java types plus one <code>ServiceLoader</code> registration file. The example below defines a fictional
+<code>Greeter</code> extension point, one extension, its factory, and the plugin that exposes the factory.</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@ExtensionPointSpec</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"greeter"</span><span class="p">)</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">Greeter</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ExtensionPoint</span><span class="w"> </span><span class="p">{</span>
 
-    activate W
-    W -&gt;&gt; F: Fetch resolution candidates
-    activate F
-    F --&gt;&gt; W: Candidate groups (by resolver)
-    deactivate F
-    alt No candidates
-        Note over W: Complete
-    else Has candidates
-        par for each resolver
-            W -&gt;&gt; R: Resolve batch
-            activate R
-            R --&gt;&gt; W: Done (or failure)
-            deactivate R
-        end
-        Note over W: Continue-as-new
-    end
-    deactivate W</code></pre>
-<h3 id="candidate-fetching">Candidate fetching<a class="headerlink" href="#candidate-fetching" title="Permanent link">¶</a></h3>
+<span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">);</span>
+
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span> <span class="nc">FriendlyGreeter</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Greeter</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"Hello, %s!"</span><span class="p">.</span><span class="na">formatted</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span> <span class="nc">FriendlyGreeterFactory</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">ExtensionFactory</span><span class="o">&lt;</span><span class="n">Greeter</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">extensionName</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"friendly"</span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Class</span><span class="o">&lt;?</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Greeter</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">extensionClass</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">FriendlyGreeter</span><span class="p">.</span><span class="na">class</span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">priority</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">PRIORITY_HIGHEST</span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="n">ServiceRegistry</span><span class="w"> </span><span class="n">serviceRegistry</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Resolve platform services once at startup. Nothing to do here.</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Greeter</span><span class="w"> </span><span class="nf">create</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FriendlyGreeter</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">GreeterPlugin</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Plugin</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Collection</span><span class="o">&lt;?</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ExtensionFactory</span><span class="o">&lt;?</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ExtensionPoint</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nf">extensionFactories</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">FriendlyGreeterFactory</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>The <code>ServiceLoader</code> registration is a single line in <code>META-INF/services/org.dependencytrack.plugin.api.Plugin</code>:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>com.example.greeter.GreeterPlugin
+</code></pre></div></td></tr></tbody></table></div>
+<h2 id="loading-and-lifecycle">Loading and lifecycle<a class="headerlink" href="#loading-and-lifecycle" title="Permanent link">¶</a></h2>
+<p>The host creates a <code>PluginManager</code> and gives it the list of supported extension-point classes. Then it loads plugins
+with <code>ServiceLoader</code> and passes them to the manager. The manager checks each factory (name pattern, class is concrete,
+manager knows the target extension point, identity is unique), builds a <code>ServiceRegistry</code> for the extension, and calls
+the factory's <code>init</code>. <code>init</code> runs <strong>once per factory</strong> at startup. If it throws, the platform stops plugin loading
+instead of skipping the extension. <code>create()</code> runs every time the host asks for an instance.</p>
+<pre class="mermaid"><code>---
+title: Plugin manager lifecycle
+---
+sequenceDiagram
+    autonumber
+    participant Host as Host
+    participant PM as PluginManager
+    participant F as ExtensionFactory
+    participant E as Extension instance
+    Host-&gt;&gt;PM: loadPlugins(plugins)
+    PM-&gt;&gt;F: init(serviceRegistry)
+    Note over Host,E: Steady state
+    Host-&gt;&gt;PM: getExtension(extensionPoint, name)
+    PM-&gt;&gt;F: create()
+    F--&gt;&gt;Host: extension instance
+    Host-&gt;&gt;E: use, then close()
+    Note over Host,E: Shutdown
+    PM-&gt;&gt;F: close() (reverse load order)
+    F-&gt;&gt;E: close() any retained instances</code></pre>
+<p>The host gets an extension from the <code>PluginManager</code> by name and uses it within a try-with-resources block. The caller
+owns the instance returned by <code>create()</code> and closes it when done. Instances that a factory keeps stay open until the
+factory's own <code>close()</code> runs at shutdown.</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="n">greeter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pluginManager</span><span class="p">.</span><span class="na">getExtension</span><span class="p">(</span><span class="n">Greeter</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="s">"friendly"</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">greeter</span><span class="p">.</span><span class="na">greet</span><span class="p">(</span><span class="s">"world"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>At shutdown, the platform calls <code>close()</code> on each factory in reverse load order. The factory then closes any
+extension instances it kept.</p>
+<p>The platform assumes extension instances are stateful and <strong>not thread-safe</strong>. An extension point can state otherwise.
+A factory that returns a new instance per call already meets the assumption. A factory that reuses one long-lived
+instance must make that instance thread-safe itself.</p>
+<p>Errors from an extension go to the caller. The <code>PluginManager</code> doesn't catch them, and one failing extension doesn't
+bring down the host.</p>
+<h2 id="what-extensions-can-see">What extensions can see<a class="headerlink" href="#what-extensions-can-see" title="Permanent link">¶</a></h2>
+<p>Extensions only talk to the platform through a small, fixed set of services. During <code>init</code>, the factory gets a
+read-only <code>ServiceRegistry</code>. The registry holds a fixed set of platform services and nothing more. Extensions can't
+add their own services. They also can't reach the platform's framework context, database connections, or domain
+repositories.</p>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Activity</th>
-<th style="text-align: left;">Task Queue</th>
+<th>Service</th>
+<th>Scope</th>
+<th>Purpose</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><code>fetch-package-metadata-resolution-candidates</code></td>
-<td style="text-align: left;"><code>default</code></td>
+<td><code>ConfigRegistry</code></td>
+<td>Per-extension</td>
+<td>Access to deployment and runtime configuration</td>
+</tr>
+<tr>
+<td><code>KeyValueStore</code></td>
+<td>Per-extension</td>
+<td>Persistent state with optimistic concurrency</td>
+</tr>
+<tr>
+<td><code>CacheManager</code></td>
+<td>Per-extension (namespaced)</td>
+<td>Cache provided by the configured <code>CacheProvider</code> (default: database, <code>CACHE_ENTRY</code> table)</td>
+</tr>
+<tr>
+<td><code>HttpClient</code></td>
+<td>Shared</td>
+<td>Outbound HTTP, set to platform defaults</td>
 </tr>
 </tbody>
 </table>
-<p>A <abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr> is eligible for resolution if:</p>
+<h3 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">¶</a></h3>
+<p>Extensions have two kinds of configuration. Both come from the per-extension <code>ConfigRegistry</code>.</p>
+<p><strong>Deployment configuration</strong> doesn't change while the process runs. The process reads it at startup. It uses the
+platform's process-level configuration (see the <a href="../../../../reference/configuration/application/">configuration
+reference</a> for sources, formats, and the full property catalog). The
+keys live under a namespace based on the extension's identity, in the form <code>dt.&lt;extension-point&gt;.&lt;extension&gt;.&lt;key&gt;</code>.
+For the <code>friendly</code> extension of the <code>greeter</code> extension point, a property named <code>endpoint</code> maps to
+<code>dt.greeter.friendly.endpoint</code>. The per-extension <code>DeploymentConfig</code> blocks access to keys outside that namespace,
+so one extension can't read another extension's configuration through the official API.</p>
+<p><strong>Runtime configuration</strong> lives in the database. It can change while the process runs, and the platform validates it
+on every read. A factory turns this on by implementing <code>RuntimeConfigurable</code> and returning a <code>RuntimeConfigSpec</code>. The
+spec contains a default config instance, a <a href="https://json-schema.org/">JSON Schema</a> document for the config class
+(written against the <a href="https://json-schema.org/specification-links#2020-12">2020-12 draft</a>), and an optional validator
+for checks that the schema can't express. The platform writes the default into the database at load time if no value
+is there yet.</p>
+<h4 id="schema-extensions">Schema extensions<a class="headerlink" href="#schema-extensions" title="Permanent link">¶</a></h4>
+<p>The platform reserves custom JSON Schema keywords. They don't affect validation, but they have meaning for the
+frontend and for the configuration mapper:</p>
 <ul>
-<li>No <code>PACKAGE_ARTIFACT_METADATA</code> record exists for it, or</li>
-<li>no <code>PACKAGE_METADATA</code> record exists for it, or</li>
-<li>the corresponding <code>PACKAGE_METADATA</code> was last resolved over 24 hours ago.</li>
+<li><code>x-secret-ref</code> (Boolean). It marks a field whose value is the <strong>name</strong> of a managed secret, not the secret value
+  itself. Configuration never stores raw secrets. At read time, the <code>ConfigRegistry</code> uses a secret resolver from the
+  platform to turn the name into the plaintext value. The <code>ConfigRegistry</code> does this before it passes the config to
+  the extension. The naming and storage rules for secrets belong to the
+  <a href="../../../../guides/administration/configuring-secret-management/">secret management subsystem</a>.</li>
+<li><code>x-ui-hint</code> (object). A hint for how to render the configuration form. For example, it can ask for a multi-line
+  input field instead of a single-line one.</li>
 </ul>
-<p>The activity fetches candidates in batches of 250 and groups them by resolver. Each <abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr> maps
-to the first resolver whose <code>normalize</code> method returns a non-null result. The activity groups PURLs with no
-matching resolver under an empty resolver name. The resolve activity persists
-empty results for these so they don't re-appear as candidates in later batches.</p>
-<h3 id="resolution">Resolution<a class="headerlink" href="#resolution" title="Permanent link">¶</a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Activity</th>
-<th style="text-align: left;">Task Queue</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>resolve-purl-metadata</code></td>
-<td style="text-align: left;"><code>package-metadata-resolutions</code></td>
-</tr>
-</tbody>
-</table>
-<p>One activity per resolver processes its assigned PURLs sequentially. Different resolver
-activities run concurrently.</p>
-<p>For each <abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr>, the activity:</p>
-<ol>
-<li>Checks if the resolver already produced a result within the last 5 minutes (idempotency guard for retries).</li>
-<li>Normalizes the <abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr> via the resolver factory.</li>
-<li>Looks up configured repositories for the <abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr> type, ordered by resolution priority.</li>
-<li>Iterates repositories, respecting internal/external classification, invoking the resolver
-   until one succeeds or none remain.</li>
-<li>Buffers results and flushes to the database in batches of 25.</li>
-</ol>
-<p>If a resolver signals a retryable error (for example, HTTP 429), the activity flushes any buffered
-results and propagates the error. The durable execution engine then retries the activity with backoff.
-The activity catches non-retryable errors for individual PURLs and persists an empty result,
-preventing the <abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr> from becoming a candidate again immediately.</p>
-<h4 id="retry-policy">Retry policy<a class="headerlink" href="#retry-policy" title="Permanent link">¶</a></h4>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Parameter</th>
-<th style="text-align: left;">Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">Initial delay</td>
-<td style="text-align: left;">5&nbsp;s</td>
-</tr>
-<tr>
-<td style="text-align: left;">Delay multiplier</td>
-<td style="text-align: left;">2x</td>
-</tr>
-<tr>
-<td style="text-align: left;">Randomization factor</td>
-<td style="text-align: left;">0.3</td>
-</tr>
-<tr>
-<td style="text-align: left;">Max delay</td>
-<td style="text-align: left;">1&nbsp;m</td>
-</tr>
-<tr>
-<td style="text-align: left;">Max attempts</td>
-<td style="text-align: left;">3</td>
-</tr>
-</tbody>
-</table>
-<h3 id="continue-as-new">Continue-as-new<a class="headerlink" href="#continue-as-new" title="Permanent link">¶</a></h3>
-<p>After processing a batch, the workflow uses <code>continueAsNew</code> to start a fresh run that
-picks up the next batch. This prevents unbounded history growth: each run's event history
-covers only one batch. Without this, a single run resolving thousands of packages would
-accumulate a large history that degrades replay performance.</p>
-<p>It also creates a natural checkpoint. If the process stops between batches,
-the next run starts with a fresh candidate query, skipping already-resolved PURLs
-based on the <code>RESOLVED_AT</code> timestamps in the database.</p>
-<p>The cycle continues until no candidates remain, at which point the workflow
-completes normally.</p>
-<h2 id="concurrency-control">Concurrency control<a class="headerlink" href="#concurrency-control" title="Permanent link">¶</a></h2>
-<p>Concurrency control operates at four levels:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Level</th>
-<th style="text-align: left;">Mechanism</th>
-<th style="text-align: left;">Effect</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">Cluster</td>
-<td style="text-align: left;">Singleton instance ID</td>
-<td style="text-align: left;">At most one resolution workflow across the cluster</td>
-</tr>
-<tr>
-<td style="text-align: left;">Engine</td>
-<td style="text-align: left;"><code>package-metadata-resolutions</code> queue capacity</td>
-<td style="text-align: left;">Limits pending resolve activities (default: 25)</td>
-</tr>
-<tr>
-<td style="text-align: left;">Node</td>
-<td style="text-align: left;">Activity worker max concurrency</td>
-<td style="text-align: left;">Limits parallel activity execution per node</td>
-</tr>
-<tr>
-<td style="text-align: left;">Resolver</td>
-<td style="text-align: left;">Sequential processing within each activity</td>
-<td style="text-align: left;">Each resolver processes one <abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr> at a time</td>
-</tr>
-</tbody>
-</table>
-<p>Refer to <a href="../durable-execution/">durable execution</a> for how queue capacity and worker
-concurrency interact.</p>
-<h2 id="resolver-extension-point">Resolver extension point<a class="headerlink" href="#resolver-extension-point" title="Permanent link">¶</a></h2>
-<p>Resolvers are pluggable via the plugin system. The API surface consists of two interfaces:</p>
+<p>The frontend uses these schemas to build configuration forms at runtime: <code>title</code> and <code>description</code> give labels and
+help text, <code>x-secret-ref</code> brings up a secret-input field, and <code>x-ui-hint</code> picks the input type. The schema is part of
+the extension's UI contract, not only a way to check input.</p>
+<h2 id="optional-capabilities">Optional capabilities<a class="headerlink" href="#optional-capabilities" title="Permanent link">¶</a></h2>
+<h3 id="runtime-configurable">Runtime-configurable<a class="headerlink" href="#runtime-configurable" title="Permanent link">¶</a></h3>
+<p>A factory that implements <code>RuntimeConfigurable</code> declares a <code>RuntimeConfigSpec</code>. It then gets its typed <code>RuntimeConfig</code>
+from the <code>ConfigRegistry</code>. This is how an administrator can change extension behavior without restarting the platform.</p>
+<h3 id="testable">Testable<a class="headerlink" href="#testable" title="Permanent link">¶</a></h3>
+<p>A factory that implements <code>Testable</code> has a <code>test</code> method. The platform calls it so operators can check that an
+extension's configuration works before they turn it on. The result has one or more named checks with the status
+<code>PASSED</code>, <code>FAILED</code>, or <code>SKIPPED</code>. For example, the email publisher has one <code>connection</code> check that opens an SMTP
+session.</p>
+<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">¶</a></h2>
+<p>Extension points used in the platform today:</p>
 <ul>
-<li><strong><code>PackageMetadataResolverFactory</code></strong>: Creates resolver instances. Declares whether the resolver
-  needs a repository, normalizes PURLs (returning <code>null</code> to signal non-support), and exposes the
-  extension name.</li>
-<li><strong><code>PackageMetadataResolver</code></strong>: Given a normalized <abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr> and an optional repository,
-  returns <code>PackageMetadata</code> or <code>null</code>.</li>
+<li><code>NotificationPublisher</code>: sends notifications to channels like email, Jira, Slack, and webhooks.</li>
+<li><code>PackageMetadataResolver</code>: looks up package metadata for an ecosystem (latest versions, publish dates, hashes).</li>
+<li><code>VulnAnalyzer</code>: analyzes a CycloneDX <abbr title="Bill of Materials">BOM</abbr> and returns a vulnerability disclosure report.</li>
+<li><code>VulnDataSource</code>: mirrors vulnerability data from sources like <abbr title="Open Source Vulnerabilities">OSV</abbr>, <abbr title="National Vulnerability Database">NVD</abbr>, and GitHub Advisories.</li>
 </ul>
-<p>A single resolver handles a given <abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr> (first match wins based on factory ordering).
-Within that resolver, a single repository provides the result (first success wins based
-on the configured resolution order).</p>
-<p>Resolvers route their upstream fetches through a shared HTTP-resource cache that
-handles ETag and Last-Modified revalidation transparently. While an entry stays fresh the
-cache serves the body without contacting the upstream; once stale but still cached,
-the cache sends validators and a <code>304 Not Modified</code> replays the body, while a <code>200 OK</code> replaces
-the entry. The cache negatively caches <code>404</code> and <code>410</code> responses so absent packages do not re-issue
-requests within the freshness window. The cache uses a separate namespace per resolver and pluggable
-between in-memory and database providers via the existing cache provider mechanism.</p>
-<p>The candidate query marks a <abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr> as eligible after 24 hours, but the resolver-side cache
-typically prevents that from translating to a full upstream transfer.</p>
-<h2 id="maintenance">Maintenance<a class="headerlink" href="#maintenance" title="Permanent link">¶</a></h2>
-<p>A scheduled task cleans up orphaned metadata:</p>
-<ol>
-<li>Deletes <code>PACKAGE_ARTIFACT_METADATA</code> rows where no <code>COMPONENT</code> with a matching <abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr> exists.</li>
-<li>Deletes <code>PACKAGE_METADATA</code> rows where no <code>PACKAGE_ARTIFACT_METADATA</code> references them.</li>
-</ol>
-<p>The two-step cascade prevents unbounded table growth as components leave the portfolio.
-Distributed locking ensures only one node executes cleanup at a time.</p>
-<h2 id="resiliency">Resiliency<a class="headerlink" href="#resiliency" title="Permanent link">¶</a></h2>
-<p>The <a href="../durable-execution/">durable execution</a> engine handles crash recovery and retries
-transparently:</p>
+<h2 id="boundaries-and-rationale">Boundaries and rationale<a class="headerlink" href="#boundaries-and-rationale" title="Permanent link">¶</a></h2>
+<p>Extensibility has clear limits by design. The platform picks what to open and what to keep closed. The set of services
+stays small, so the team can keep it stable and reason about it. Extensions get the services they need without
+getting access to the rest of the platform. Two more properties matter on top of the services from
+<a href="#what-extensions-can-see">What extensions can see</a>:</p>
 <ul>
-<li>If a node crashes mid-resolution, the workflow resumes from the last completed step on restart.
-  Results already flushed to the database are not re-processed, because the 5-minute idempotency
-  window in the activity causes the activity to skip recently resolved PURLs.</li>
-<li>When resolution fails for a specific resolver even after exhausting retries, the workflow
-  catches the <code>ActivityFailureException</code>, logs the failure, and continues. The workflow persists
-  results from other resolvers normally.</li>
-<li>On graceful shutdown, the activity checks for thread interruption before each <abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr>,
-  flushes buffered results, and propagates the interruption.</li>
+<li><strong>Per-extension namespacing.</strong> Configuration keys, key-value storage, and cache are all scoped by extension
+  identity. An extension can't read another extension's data through the official APIs.</li>
+<li><strong>Secrets never live in config.</strong> Sensitive fields hold only secret names. The platform's secret resolver turns them
+  <strong>into values at read time.</strong></li>
+</ul>
+<p>These limits are at the <strong>API level</strong>, not at the execution level. Plugins share the platform's classloader and Java
+Virtual Machine (<abbr title="Java Virtual Machine">JVM</abbr>). The platform doesn't run a sandbox, and nothing stops reflection from breaking the namespacing
+rules.
+This is fine for now because every plugin the platform loads ships in the same repository as the platform. Opening
+the system to third-party plugins needs more. See <a href="#toward-third-party-plugins">Toward third-party plugins</a>.</p>
+<h2 id="toward-third-party-plugins">Toward third-party plugins<a class="headerlink" href="#toward-third-party-plugins" title="Permanent link">¶</a></h2>
+<p>The team designed the plugin system with community extensions in mind, but the platform doesn't load any today, and
+the public API isn't a contract yet. The platform needs the items below first. None of them have a date.</p>
+<h3 id="api-stability">API stability<a class="headerlink" href="#api-stability" title="Permanent link">¶</a></h3>
+<p>The current internal API would become a public contract. That brings the usual rules: a deprecation policy, semantic
+versioning, and backwards compatibility across platform releases. Until then, anything on this page can change
+between releases.</p>
+<h3 id="api-artifact-publication">API artifact publication<a class="headerlink" href="#api-artifact-publication" title="Permanent link">¶</a></h3>
+<p>The plugin API modules need to ship to <a href="https://central.sonatype.com/">Maven Central</a>. Authors can then depend on
+them with normal build tools, instead of copying sources or pulling the whole platform repository.</p>
+<h3 id="classloader-isolation">Classloader isolation<a class="headerlink" href="#classloader-isolation" title="Permanent link">¶</a></h3>
+<p>Today, plugins share the platform's classloader. That's fine for first-party plugins, which ship in the same
+repository as the platform and pick their dependencies against the same versions: no third-party code to
+isolate from, and the build resolves any dependency conflicts.</p>
+<p>Third-party plugins break those assumptions. Sharing one classloader then causes three problems: a plugin's transitive
+dependencies can clash with the platform's, a plugin can load classes from other plugins, and reflection can reach any
+platform internal. Each plugin then needs its own classloader, separate from the platform's and from other plugins'.</p>
+<p>A per-plugin <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/net/URLClassLoader.html"><code>URLClassLoader</code></a>,
+with the platform classloader as a filtered parent that only exposes the API module, gives this isolation without a
+full module or bundle framework. The result limits a plugin to the API module and its own dependencies, removes
+dependency clashes, and makes the API the only way in.</p>
+<h3 id="integrity-verification">Integrity verification<a class="headerlink" href="#integrity-verification" title="Permanent link">¶</a></h3>
+<p>Plugin artifacts need a way to verify their origin. Operators must be able to trust that a plugin is what its author
+published. The platform doesn't commit to a specific mechanism yet. Options include:</p>
+<ul>
+<li><a href="https://docs.oracle.com/en/java/javase/21/docs/specs/man/jarsigner.html"><code>jarsigner</code></a>, the JDK's built-in JAR
+  signing tool. It's stable and standalone, but the operator has to manage an X.509 trust store.</li>
+<li><a href="https://www.sigstore.dev/">Sigstore</a> (<code>cosign</code>). It signs artifacts with short-lived keys tied to an <abbr title="OpenID Connect">OIDC</abbr> identity
+  and records the signature in a public transparency log. It needs less operator effort, but it adds a runtime
+  dependency on Sigstore infrastructure (or a self-hosted version).</li>
+</ul>
+<p>Whatever the platform picks, it needs to check signatures before it loads a plugin, and the operator needs a way to
+say which signers they trust.</p>
+<h3 id="other-open-questions">Other open questions<a class="headerlink" href="#other-open-questions" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong>Distribution and discovery.</strong> How operators find, install, and update plugins. The current <code>ServiceLoader</code>
+  mechanism assumes the JARs are already on the classpath at startup.</li>
 </ul>
 
 
@@ -2223,7 +2500,7 @@ transparently:</p>
       <nav class="md-footer__inner md-grid" aria-label="Footer">
         
           
-          <a href="../notifications/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Notifications">
+          <a href="../durable-execution/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Durable execution">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
@@ -2233,20 +2510,20 @@ transparently:</p>
                 Previous
               </span>
               <div class="md-ellipsis">
-                Notifications
+                Durable execution
               </div>
             </div>
           </a>
         
         
           
-          <a href="../../../../reference/" class="md-footer__link md-footer__link--next" aria-label="Next: Reference">
+          <a href="../vulnerability-analysis/" class="md-footer__link md-footer__link--next" aria-label="Next: Vulnerability analysis">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Reference
+                Vulnerability analysis
               </div>
             </div>
             <div class="md-footer__button md-icon">
