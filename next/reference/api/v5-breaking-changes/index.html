@@ -5,13 +5,13 @@
       
       
       
-        <link rel="canonical" href="https://dependencytrack.github.io/docs/next/reference/schemas/policy/">
+        <link rel="canonical" href="https://dependencytrack.github.io/docs/next/reference/api/v5-breaking-changes/">
       
       
-        <link rel="prev" href="../notification/">
+        <link rel="prev" href="../v2/">
       
       
-        <link rel="next" href="../../../blog/">
+        <link rel="next" href="../../configuration/application/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Policy schema - Dependency-Track</title>
+        <title>Breaking changes in v5 - Dependency-Track</title>
       
     
     
@@ -61,15 +61,15 @@
     
   
 <meta property="og:type" content="website">
-<meta property="og:title" content="Policy schema - Dependency-Track">
-<meta property="og:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/reference/schemas/policy.png">
+<meta property="og:title" content="Breaking changes in v5 - Dependency-Track">
+<meta property="og:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/reference/api/v5-breaking-changes.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:url" content="https://dependencytrack.github.io/docs/next/reference/schemas/policy/">
+<meta property="og:url" content="https://dependencytrack.github.io/docs/next/reference/api/v5-breaking-changes/">
 <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:title" content="Policy schema - Dependency-Track">
-<meta property="twitter:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/reference/schemas/policy.png">
+<meta property="twitter:title" content="Breaking changes in v5 - Dependency-Track">
+<meta property="twitter:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/reference/api/v5-breaking-changes.png">
 <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
@@ -99,7 +99,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#messages" class="md-skip">
+        <a href="#breaking-changes-in-v5" class="md-skip">
           Skip to content
         </a>
       
@@ -138,7 +138,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Policy schema
+              Breaking changes in v5
             
           </span>
         </div>
@@ -750,6 +750,8 @@
                 
   
   
+    
+  
   
   
     
@@ -775,11 +777,11 @@
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
         
           
           <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="">
@@ -800,7 +802,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -818,7 +820,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/v1/" class="md-nav__link">
+      <a href="../v1/" class="md-nav__link">
         
   
   
@@ -846,7 +848,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/v2/" class="md-nav__link">
+      <a href="../v2/" class="md-nav__link">
         
   
   
@@ -871,10 +873,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../api/v5-breaking-changes/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Breaking changes in v5
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -890,6 +919,291 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#whats-most-likely-to-break-your-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What's most likely to break your client
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removed-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Removed endpoints
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cross-cutting-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-cutting changes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cross-cutting changes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#additive-permission-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Additive permission changes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#per-resource-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Per-resource changes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Per-resource changes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#badge-resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Badge resource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bom-resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BOM resource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calculator-resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Calculator resource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#component-resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Component resource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#component-property-resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Component property resource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#config-property-resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Config property resource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finding-resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Finding resource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metrics-resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metrics resource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notification-publisher-resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notification publisher resource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notification-rule-resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notification rule resource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permission-resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Permission resource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policy-resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Policy resource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project resource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-property-resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project property resource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repository-resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Repository resource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tag-resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tag resource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#team-resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Team resource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vulnerability-resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vulnerability resource
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2060,8 +2374,6 @@
                 
   
   
-    
-  
   
   
     
@@ -2085,11 +2397,11 @@
     
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_11" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_11">
         
           
           <label class="md-nav__link" for="__nav_5_11" id="__nav_5_11_label" tabindex="">
@@ -2110,7 +2422,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_11_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_11_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_11">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2128,7 +2440,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../notification/" class="md-nav__link">
+      <a href="../../schemas/notification/" class="md-nav__link">
         
   
   
@@ -2153,35 +2465,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Policy schema
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../schemas/policy/" class="md-nav__link">
         
   
   
@@ -2197,162 +2484,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#messages" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Messages
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Messages">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#component" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Component
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#componentproperty" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Component.Property
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#license" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        License
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#licensegroup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        License.Group
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#project" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Project
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#projectmetadata" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Project.Metadata
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#projectproperty" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Project.Property
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tools" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tools
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#versiondistance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        VersionDistance
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vulnerability" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vulnerability
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vulnerabilityalias" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vulnerability.Alias
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2451,6 +2582,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -2459,22 +2592,72 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#messages" class="md-nav__link">
+  <a href="#whats-most-likely-to-break-your-client" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Messages
+        What's most likely to break your client
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Messages">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removed-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Removed endpoints
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cross-cutting-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-cutting changes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cross-cutting changes">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#component" class="md-nav__link">
+  <a href="#additive-permission-changes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Component
+        Additive permission changes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#per-resource-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Per-resource changes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Per-resource changes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#badge-resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Badge resource
       
     </span>
   </a>
@@ -2482,10 +2665,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#componentproperty" class="md-nav__link">
+  <a href="#bom-resource" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Component.Property
+        BOM resource
       
     </span>
   </a>
@@ -2493,10 +2676,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#license" class="md-nav__link">
+  <a href="#calculator-resource" class="md-nav__link">
     <span class="md-ellipsis">
       
-        License
+        Calculator resource
       
     </span>
   </a>
@@ -2504,10 +2687,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#licensegroup" class="md-nav__link">
+  <a href="#component-resource" class="md-nav__link">
     <span class="md-ellipsis">
       
-        License.Group
+        Component resource
       
     </span>
   </a>
@@ -2515,10 +2698,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#project" class="md-nav__link">
+  <a href="#component-property-resource" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Project
+        Component property resource
       
     </span>
   </a>
@@ -2526,10 +2709,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#projectmetadata" class="md-nav__link">
+  <a href="#config-property-resource" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Project.Metadata
+        Config property resource
       
     </span>
   </a>
@@ -2537,10 +2720,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#projectproperty" class="md-nav__link">
+  <a href="#finding-resource" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Project.Property
+        Finding resource
       
     </span>
   </a>
@@ -2548,10 +2731,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#tools" class="md-nav__link">
+  <a href="#metrics-resource" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Tools
+        Metrics resource
       
     </span>
   </a>
@@ -2559,10 +2742,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#versiondistance" class="md-nav__link">
+  <a href="#notification-publisher-resource" class="md-nav__link">
     <span class="md-ellipsis">
       
-        VersionDistance
+        Notification publisher resource
       
     </span>
   </a>
@@ -2570,10 +2753,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#vulnerability" class="md-nav__link">
+  <a href="#notification-rule-resource" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Vulnerability
+        Notification rule resource
       
     </span>
   </a>
@@ -2581,10 +2764,87 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#vulnerabilityalias" class="md-nav__link">
+  <a href="#permission-resource" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Vulnerability.Alias
+        Permission resource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policy-resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Policy resource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project resource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-property-resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project property resource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repository-resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Repository resource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tag-resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tag resource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#team-resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Team resource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vulnerability-resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vulnerability resource
       
     </span>
   </a>
@@ -2657,10 +2917,10 @@
     
     
       <li class="md-path__item">
-        <a href="../notification/" class="md-path__link">
+        <a href="../v1/" class="md-path__link">
           
   <span class="md-ellipsis">
-    Schemas
+    API
   </span>
 
         </a>
@@ -2682,612 +2942,324 @@
   
 
 
-  <h1>Policy schema</h1>
-
-<h2 id="messages">Messages<a class="headerlink" href="#messages" title="Permanent link">¶</a></h2>
-<p><a name="org-dependencytrack-policy-v1-Component"></a></p>
-<h3 id="component">Component<a class="headerlink" href="#component" title="Permanent link">¶</a></h3>
+<h1 id="breaking-changes-in-v5">Breaking changes in v5<a class="headerlink" href="#breaking-changes-in-v5" title="Permanent link">¶</a></h1>
+<p>This page enumerates the breaking changes to <abbr title="Representational State Transfer">REST</abbr> API v1 between Dependency-Track v4 and v5. <abbr title="Representational State Transfer">REST</abbr> API v2 is new in v5
+and out of scope.</p>
+<p>The current <a href="../v1/">v1 OpenAPI spec</a> is the authoritative source. The <a href="#removed-endpoints">removed endpoints</a> table and
+cross-cutting sections cover the changes most clients hit. The per-resource sections list everything else for lookup.</p>
+<h2 id="whats-most-likely-to-break-your-client">What's most likely to break your client<a class="headerlink" href="#whats-most-likely-to-break-your-client" title="Permanent link">¶</a></h2>
+<p>Quick triage. Each item links to the section with the full detail.</p>
+<ul>
+<li><strong>Endpoints your client calls may no longer exist.</strong> Check the <a href="#removed-endpoints">removed endpoints</a> table.</li>
+<li><strong>List endpoints now cap at 100 results by default.</strong> Pagination applies to team, finding, and per-vulnerability
+  project listings. See the <a href="#team-resource">Team</a>, <a href="#finding-resource">Finding</a>, and
+  <a href="#vulnerability-resource">Vulnerability</a> sections.</li>
+<li><strong>Authentication contract changed on badge endpoints.</strong> v5 accepts unauthenticated requests, <code>401</code> no longer signals
+  bad credentials. See <a href="#badge-resource">Badge resource</a>.</li>
+<li><strong>New <code>403</code> responses on project-association endpoints.</strong> Strict status-code matching fails. See
+  <a href="#policy-resource">Policy</a> and <a href="#notification-rule-resource">Notification rule</a>.</li>
+<li><strong>Request body shape and required fields changed</strong> on these resources: <a href="#repository-resource">Repository</a>,
+  <a href="#notification-publisher-resource">Notification publisher</a>, <a href="#notification-rule-resource">Notification rule</a>, and
+  <a href="#tag-resource">Tag</a>.</li>
+</ul>
+<h2 id="removed-endpoints">Removed endpoints<a class="headerlink" href="#removed-endpoints" title="Permanent link">¶</a></h2>
+<p>v5 removes the <code>/v1/search/*</code> and <code>/v1/integration/osv/*</code> resources entirely, plus the individual endpoints below.</p>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Field</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Method</th>
+<th style="text-align: left;">Path</th>
+<th style="text-align: left;">Replacement</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><code>uuid</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">UUID of the component.</td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;"><code>/v1/search</code></td>
+<td style="text-align: left;">None. v5 removes the Lucene-backed search index. v5 has no fuzzy-matching capability.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>group</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Group / namespace of the component.</td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;"><code>/v1/search/component</code></td>
+<td style="text-align: left;">None.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>name</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Name of the component.</td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;"><code>/v1/search/license</code></td>
+<td style="text-align: left;">None.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>version</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Version of the component.</td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;"><code>/v1/search/project</code></td>
+<td style="text-align: left;">None.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>classifier</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Classifier / type of the component. May be any of: - APPLICATION - CONTAINER - DEVICE - FILE - FIRMWARE - FRAMEWORK - LIBRARY - OPERATING_SYSTEM</td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;"><code>/v1/search/reindex</code></td>
+<td style="text-align: left;">None. The search index no longer needs rebuilding.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>cpe</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"><abbr title="Common Platform Enumeration, a structured naming scheme for software products">CPE</abbr> of the component. https://csrc.nist.gov/projects/security-content-automation-protocol/specifications/cpe</td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;"><code>/v1/search/service</code></td>
+<td style="text-align: left;">None.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>purl</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Package URL of the component. https://github.com/package-url/purl-spec</td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;"><code>/v1/search/vulnerability</code></td>
+<td style="text-align: left;">None.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>swid_tag_id</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">SWID tag ID of the component. https://csrc.nist.gov/projects/Software-Identification-SWID</td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;"><code>/v1/search/vulnerablesoftware</code></td>
+<td style="text-align: left;">None.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>is_internal</code></td>
-<td style="text-align: left;"><code>bool</code></td>
-<td style="text-align: left;">Whether the component is internal to the organization.</td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;"><code>/v1/integration/osv/ecosystem</code></td>
+<td style="text-align: left;">None.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>properties</code></td>
-<td style="text-align: left;"><a href="#org-dependencytrack-policy-v1-Component-Property"><code>Component.Property[]</code></a></td>
-<td style="text-align: left;">Properties of the component.</td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;"><code>/v1/integration/osv/ecosystem/inactive</code></td>
+<td style="text-align: left;">None.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>md5</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;"><code>/v1/notification/publisher/restoreDefaultTemplates</code></td>
+<td style="text-align: left;">None.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>sha1</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;"><code>/v1/notification/publisher/test/smtp</code></td>
+<td style="text-align: left;"><code>POST /v2/extension-points/notification.publisher/extensions/email/test</code></td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>sha256</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;"><code>/v1/policy/{policyUuid}/tag/{tagName}</code></td>
+<td style="text-align: left;"><code>POST /v1/tag/{name}/policy</code></td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>sha384</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;"><code>/v1/policy/{policyUuid}/tag/{tagName}</code></td>
+<td style="text-align: left;"><code>DELETE /v1/tag/{name}/policy</code></td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>sha512</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>sha3_256</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>sha3_384</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>sha3_512</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>blake2b_256</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>blake2b_384</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>blake2b_512</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>blake3</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>license_name</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>license_expression</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>resolved_license</code></td>
-<td style="text-align: left;"><a href="#org-dependencytrack-policy-v1-License"><code>License</code></a></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>published_at</code></td>
-<td style="text-align: left;"><code>google.protobuf.Timestamp</code></td>
-<td style="text-align: left;">When the component current version last modified.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>latest_version</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;"><code>/v1/tag/{policyUuid}</code></td>
+<td style="text-align: left;"><code>GET /v1/tag/policy/{uuid}</code></td>
 </tr>
 </tbody>
 </table>
-<p><a name="org-dependencytrack-policy-v1-Component-Property"></a></p>
-<h3 id="componentproperty">Component.Property<a class="headerlink" href="#componentproperty" title="Permanent link">¶</a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>group</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>name</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>value</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>type</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<p><a name="org-dependencytrack-policy-v1-License"></a></p>
-<h3 id="license">License<a class="headerlink" href="#license" title="Permanent link">¶</a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>uuid</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>id</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>name</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>groups</code></td>
-<td style="text-align: left;"><a href="#org-dependencytrack-policy-v1-License-Group"><code>License.Group[]</code></a></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>is_osi_approved</code></td>
-<td style="text-align: left;"><code>bool</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>is_fsf_libre</code></td>
-<td style="text-align: left;"><code>bool</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>is_deprecated_id</code></td>
-<td style="text-align: left;"><code>bool</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>is_custom</code></td>
-<td style="text-align: left;"><code>bool</code></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<p><a name="org-dependencytrack-policy-v1-License-Group"></a></p>
-<h3 id="licensegroup">License.Group<a class="headerlink" href="#licensegroup" title="Permanent link">¶</a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>uuid</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>name</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<p><a name="org-dependencytrack-policy-v1-Project"></a></p>
-<h3 id="project">Project<a class="headerlink" href="#project" title="Permanent link">¶</a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>uuid</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>group</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>name</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>version</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>classifier</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>is_active</code></td>
-<td style="text-align: left;"><code>bool</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>tags</code></td>
-<td style="text-align: left;"><code>string[]</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>properties</code></td>
-<td style="text-align: left;"><a href="#org-dependencytrack-policy-v1-Project-Property"><code>Project.Property[]</code></a></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>cpe</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>purl</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>swid_tag_id</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>last_bom_import</code></td>
-<td style="text-align: left;"><code>google.protobuf.Timestamp</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>metadata</code></td>
-<td style="text-align: left;"><a href="#org-dependencytrack-policy-v1-Project-Metadata"><code>Project.Metadata</code></a></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<p><a name="org-dependencytrack-policy-v1-Project-Metadata"></a></p>
-<h3 id="projectmetadata">Project.Metadata<a class="headerlink" href="#projectmetadata" title="Permanent link">¶</a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>tools</code></td>
-<td style="text-align: left;"><a href="#org-dependencytrack-policy-v1-Tools"><code>Tools</code></a></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>bom_generated</code></td>
-<td style="text-align: left;"><code>google.protobuf.Timestamp</code></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<p><a name="org-dependencytrack-policy-v1-Project-Property"></a></p>
-<h3 id="projectproperty">Project.Property<a class="headerlink" href="#projectproperty" title="Permanent link">¶</a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>group</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>name</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>value</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>type</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<p><a name="org-dependencytrack-policy-v1-Tools"></a></p>
-<h3 id="tools">Tools<a class="headerlink" href="#tools" title="Permanent link">¶</a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>components</code></td>
-<td style="text-align: left;"><a href="#org-dependencytrack-policy-v1-Component"><code>Component[]</code></a></td>
-<td style="text-align: left;">Components used as tools.</td>
-</tr>
-</tbody>
-</table>
-<p><a name="org-dependencytrack-policy-v1-VersionDistance"></a></p>
-<h3 id="versiondistance">VersionDistance<a class="headerlink" href="#versiondistance" title="Permanent link">¶</a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>epoch</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>major</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>minor</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>patch</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<p><a name="org-dependencytrack-policy-v1-Vulnerability"></a></p>
-<h3 id="vulnerability">Vulnerability<a class="headerlink" href="#vulnerability" title="Permanent link">¶</a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>uuid</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>id</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>source</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>aliases</code></td>
-<td style="text-align: left;"><a href="#org-dependencytrack-policy-v1-Vulnerability-Alias"><code>Vulnerability.Alias[]</code></a></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>cwes</code></td>
-<td style="text-align: left;"><code>int32[]</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>created</code></td>
-<td style="text-align: left;"><code>google.protobuf.Timestamp</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>published</code></td>
-<td style="text-align: left;"><code>google.protobuf.Timestamp</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>updated</code></td>
-<td style="text-align: left;"><code>google.protobuf.Timestamp</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>severity</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>cvssv2_base_score</code></td>
-<td style="text-align: left;"><code>double</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>cvssv2_impact_subscore</code></td>
-<td style="text-align: left;"><code>double</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>cvssv2_exploitability_subscore</code></td>
-<td style="text-align: left;"><code>double</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>cvssv2_vector</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>cvssv3_base_score</code></td>
-<td style="text-align: left;"><code>double</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>cvssv3_impact_subscore</code></td>
-<td style="text-align: left;"><code>double</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>cvssv3_exploitability_subscore</code></td>
-<td style="text-align: left;"><code>double</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>cvssv3_vector</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>owasp_rr_likelihood_score</code></td>
-<td style="text-align: left;"><code>double</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>owasp_rr_technical_impact_score</code></td>
-<td style="text-align: left;"><code>double</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>owasp_rr_business_impact_score</code></td>
-<td style="text-align: left;"><code>double</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>owasp_rr_vector</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>epss_score</code></td>
-<td style="text-align: left;"><code>double</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>epss_percentile</code></td>
-<td style="text-align: left;"><code>double</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>cvssv4_vector</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>cvssv4_score</code></td>
-<td style="text-align: left;"><code>double</code></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<p><a name="org-dependencytrack-policy-v1-Vulnerability-Alias"></a></p>
-<h3 id="vulnerabilityalias">Vulnerability.Alias<a class="headerlink" href="#vulnerabilityalias" title="Permanent link">¶</a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>id</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>source</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
+<h2 id="cross-cutting-changes">Cross-cutting changes<a class="headerlink" href="#cross-cutting-changes" title="Permanent link">¶</a></h2>
+<p>These hit many endpoints. They're documented once here to avoid repetition in the per-resource sections.</p>
+<ul>
+<li><strong><code>propertyType</code> enum lost <code>ENCRYPTEDSTRING</code>.</strong> Applies to <code>ConfigProperty.propertyType</code>,
+  <code>ProjectProperty.propertyType</code>, and <code>ComponentProperty.propertyType</code>.</li>
+<li><strong><code>Project.classifier</code> and <code>Project.collectionLogic</code> lost <code>NONE</code>.</strong> Applies to every endpoint returning <code>Project</code>,
+  including nested occurrences.</li>
+<li><strong><code>ProjectMetrics.collectionLogic</code> and <code>collectionLogicChanged</code> removed.</strong> Applies to every endpoint returning
+  <code>ProjectMetrics</code>.</li>
+<li><strong><code>Permission</code> enum lost <code>VIEW_BADGES</code>.</strong> Affects <code>GET /v1/permission</code> and any field carrying a permission value.</li>
+<li><strong><code>AffectedVersionAttribution</code></strong> (nested in <code>Vulnerability.affectedComponents[]</code>) lost the <code>uuid</code> field.</li>
+<li><strong><code>VulnerabilityAlias.uuid</code> removed</strong> from all vulnerability responses.</li>
+</ul>
+<h3 id="additive-permission-changes">Additive permission changes<a class="headerlink" href="#additive-permission-changes" title="Permanent link">¶</a></h3>
+<p>v5 introduces per-action permissions (for example, <code>POLICY_MANAGEMENT_READ</code>, <code>SYSTEM_CONFIGURATION_UPDATE</code>,
+<code>VULNERABILITY_ANALYSIS_READ</code>) alongside the v4 coarse-grained permission. Existing tokens with the v4 permission still
+work, so these additions don't break clients. See <a href="../../permissions/">Permissions</a> for the full list.</p>
+<h2 id="per-resource-changes">Per-resource changes<a class="headerlink" href="#per-resource-changes" title="Permanent link">¶</a></h2>
+<p>Resource sections appear in alphabetical order. Within each section, endpoint paths appear in bold at the start of each
+change group.</p>
+<h3 id="badge-resource">Badge resource<a class="headerlink" href="#badge-resource" title="Permanent link">¶</a></h3>
+<p><strong>All four badge endpoints (<code>/v1/badge/vulns/...</code>, <code>/v1/badge/violations/...</code>)</strong></p>
+<ul>
+<li><strong>Auth no longer required</strong>: badge endpoints accept unauthenticated requests in v5. Clients that relied on <code>401</code> to
+  detect missing or bad credentials no longer receive it. Badge support remains turned off by default, and admins must
+  explicitly enable unauthenticated access.</li>
+<li><strong>Status code change</strong>: <code>401</code> no longer returned. <code>403</code> means the administrator turned badges off, not that the
+  credential is wrong. Do not retry with different credentials on <code>403</code>.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>v4.12.0 introduced auth for badge access. Because badges typically embed in documents such as <code>README</code>s, the
+standard <code>Authorization</code> header doesn't work there. To compensate, <code>/v1/badge</code> endpoints accepted API keys through
+a URL query parameter, with the expectation that an API key holding only the <code>VIEW_BADGES</code> permission made this
+safe. In practice the design exposed API keys in logs and referrer headers, so v5 drops it.</p>
+</div>
+<h3 id="bom-resource"><abbr title="Bill of Materials">BOM</abbr> resource<a class="headerlink" href="#bom-resource" title="Permanent link">¶</a></h3>
+<p><strong><code>GET /v1/bom/cyclonedx/project/{uuid}</code></strong></p>
+<ul>
+<li><strong>Permission tightened</strong>: v4 required only <code>VIEW_PORTFOLIO</code> for all variants. v5 additionally requires one of
+  <code>VIEW_VULNERABILITY</code>, <code>VULNERABILITY_ANALYSIS</code>, or <code>VULNERABILITY_ANALYSIS_READ</code> when <code>variant=withVulnerabilities</code>
+  or <code>variant=vdr</code>.</li>
+</ul>
+<h3 id="calculator-resource">Calculator resource<a class="headerlink" href="#calculator-resource" title="Permanent link">¶</a></h3>
+<p><strong><code>GET /v1/calculator/cvss</code></strong></p>
+<ul>
+<li><strong>Response field omission</strong>: v4 returned all six score fields (<code>baseScore</code>, <code>impactSubScore</code>,
+  <code>exploitabilitySubScore</code>, <code>temporalScore</code>, <code>environmentalScore</code>, <code>modifiedImpactSubScore</code>) as primitives, even when
+  inapplicable (<code>NaN</code>). v5 omits fields that don't apply for the given vector. Clients must handle missing keys rather
+  than assume <code>NaN</code>.</li>
+</ul>
+<h3 id="component-resource">Component resource<a class="headerlink" href="#component-resource" title="Permanent link">¶</a></h3>
+<p><strong><code>GET /v1/component/project/{uuid}</code>, <code>PUT /v1/component/project/{uuid}</code>, <code>POST /v1/component</code>, <code>GET /v1/component/{uuid}</code></strong></p>
+<ul>
+<li><strong>Enum value removed</strong>: <code>Component.classifier.NONE</code>. <code>null</code> or an absent field means what <code>NONE</code> meant in v4.</li>
+<li><strong>Removed field</strong>: nested <code>RepositoryMetaComponent.published</code> -&gt; <code>latestVersionPublishedAt</code>.</li>
+<li><strong>Required-field contract loosened</strong>: <code>RepositoryMetaComponent</code> no longer declares <code>lastCheck</code>, <code>latestVersion</code>,
+  <code>name</code>, or <code>repositoryType</code> as required. Clients can no longer assume their presence.</li>
+</ul>
+<h3 id="component-property-resource">Component property resource<a class="headerlink" href="#component-property-resource" title="Permanent link">¶</a></h3>
+<p><strong>All endpoints under <code>/v1/component/{uuid}/property</code></strong></p>
+<ul>
+<li><strong>Enum value removed</strong>: <code>ComponentProperty.propertyType.ENCRYPTEDSTRING</code>.</li>
+</ul>
+<h3 id="config-property-resource">Config property resource<a class="headerlink" href="#config-property-resource" title="Permanent link">¶</a></h3>
+<p><strong>All endpoints under <code>/v1/configProperty</code></strong></p>
+<ul>
+<li><strong>Enum value removed</strong>: <code>ConfigProperty.propertyType.ENCRYPTEDSTRING</code>.</li>
+</ul>
+<h3 id="finding-resource">Finding resource<a class="headerlink" href="#finding-resource" title="Permanent link">¶</a></h3>
+<p><strong>All endpoints returning <code>Finding</code></strong></p>
+<ul>
+<li><strong><code>vulnerability.cwes</code> shape changed</strong>: v4 returned an array of CWE integer IDs (for example <code>[80, 666]</code>). v5 returns
+  an array of CWE objects with <code>cweId</code> and <code>name</code> fields (for example <code>[{"cweId": 80, "name": "..."}, ...]</code>). The <abbr title="Static Analysis Results Interchange Format">SARIF</abbr>
+  output emitted by these endpoints carries the same change: v4 serialized <code>cwes</code> as a quoted string of the underlying
+  list, v5 emits a proper JSON array of <code>{cweId, name}</code> objects.</li>
+</ul>
+<p><strong><code>POST /v1/finding/project/{uuid}/analyze</code></strong></p>
+<ul>
+<li><strong>Permission tightened</strong>: required permission changed <code>VIEW_VULNERABILITY</code> -&gt; <code>VULNERABILITY_ANALYSIS</code>.</li>
+</ul>
+<p><strong><code>GET /v1/finding/project/{uuid}</code></strong></p>
+<ul>
+<li><strong>Pagination now honored</strong>: v4 exposed <code>pageNumber</code>/<code>pageSize</code> but the underlying SQL ignored them, the response
+  always contained every matching row. v5 applies the parameters. Callers that relied on receiving the full result set
+  in one response now silently truncate at <code>pageSize=100</code> by default.</li>
+</ul>
+<p><strong><code>GET /v1/finding</code> and <code>GET /v1/finding/grouped</code></strong></p>
+<ul>
+<li><strong>Pagination now honored</strong>: same change as <code>GET /v1/finding/project/{uuid}</code>. v4 accepted <code>pageNumber</code> and <code>pageSize</code>
+  but ignored them, v5 applies them.</li>
+</ul>
+<h3 id="metrics-resource">Metrics resource<a class="headerlink" href="#metrics-resource" title="Permanent link">¶</a></h3>
+<p><strong><code>GET /v1/metrics/project/{uuid}/current</code>, <code>/since/{date}</code>, <code>/days/{days}</code></strong></p>
+<ul>
+<li><strong>Removed response fields</strong>: <code>ProjectMetrics.collectionLogic</code>, <code>collectionLogicChanged</code>.</li>
+</ul>
+<h3 id="notification-publisher-resource">Notification publisher resource<a class="headerlink" href="#notification-publisher-resource" title="Permanent link">¶</a></h3>
+<p>v5 removes <code>POST /v1/notification/publisher/restoreDefaultTemplates</code> and <code>POST /v1/notification/publisher/test/smtp</code>.
+See the <a href="#removed-endpoints">removed-endpoints table</a>.</p>
+<p><strong><code>PUT /v1/notification/publisher</code></strong></p>
+<ul>
+<li><strong>Request body schema changed</strong>: v4 accepted full <code>NotificationPublisher</code>. v5 uses
+  <code>CreateNotificationPublisherRequest</code>.</li>
+<li><strong>Renamed and required field</strong>: <code>publisherClass</code> -&gt; <code>extensionName</code> (required). <code>extensionName</code> must refer to a name
+  listed under <code>GET /v2/extension-points/notification.publisher/extensions</code>.</li>
+<li><strong>Removed request fields</strong>: <code>defaultPublisher</code> and <code>uuid</code> no longer accepted (v4 never used them). <code>templateMimeType</code>
+  no longer required on create.</li>
+</ul>
+<p><strong><code>POST /v1/notification/publisher</code></strong></p>
+<ul>
+<li><strong>Request body schema changed</strong>: v4 accepted full <code>NotificationPublisher</code>. v5 uses
+  <code>UpdateNotificationPublisherRequest</code>.</li>
+<li><strong>Renamed and required field</strong>: <code>publisherClass</code> -&gt; <code>extensionName</code> (required). <code>extensionName</code> must refer to a name
+  listed under <code>GET /v2/extension-points/notification.publisher/extensions</code>.</li>
+</ul>
+<p><strong><code>NotificationPublisher</code> response schema</strong></p>
+<ul>
+<li><strong>Renamed field</strong>: <code>publisherClass</code> -&gt; <code>extensionName</code>.</li>
+</ul>
+<h3 id="notification-rule-resource">Notification rule resource<a class="headerlink" href="#notification-rule-resource" title="Permanent link">¶</a></h3>
+<p><strong><code>PUT /v1/notification/rule</code></strong></p>
+<ul>
+<li><strong>Request body schema changed</strong>: v4 accepted full <code>NotificationRule</code>. v5 uses <code>CreateNotificationRuleRequest</code>.</li>
+<li><strong>Renamed field</strong>: <code>notificationLevel</code> -&gt; <code>level</code>.</li>
+<li><strong>New mandatory request field</strong>: <code>publisher</code> (UUID wrapper) is now required.</li>
+<li><strong>Removed request fields</strong>: <code>triggerType</code> and <code>uuid</code> no longer accepted (server-assigned).</li>
+</ul>
+<p><strong><code>POST /v1/notification/rule</code></strong></p>
+<ul>
+<li><strong>Request body schema changed</strong>: v4 accepted full <code>NotificationRule</code>. v5 uses <code>UpdateNotificationRuleRequest</code>.</li>
+<li><strong>Renamed field</strong>: <code>notificationLevel</code> -&gt; <code>level</code>.</li>
+<li><strong>New mandatory request fields</strong>: <code>level</code> and <code>scope</code> now required.</li>
+<li><strong>Removed request fields</strong>: <code>triggerType</code>, <code>projects</code>, <code>teams</code>, <code>tags</code>, <code>publisher</code>, <code>publisherConfig</code>, and schedule
+  fields no longer in the update body (managed through dedicated sub-endpoints).</li>
+</ul>
+<p><strong><code>NotificationRule</code> response schema</strong></p>
+<ul>
+<li><strong>Enum value removed</strong>: <code>notifyOn.INDEXING_SERVICE</code>.</li>
+</ul>
+<p><strong><code>POST /v1/notification/rule/{ruleUuid}/project/{projectUuid}</code>, <code>DELETE /v1/notification/rule/{ruleUuid}/project/{projectUuid}</code></strong></p>
+<ul>
+<li><strong>New response status</strong>: <code>403 Forbidden</code> (project access denied).</li>
+</ul>
+<h3 id="permission-resource">Permission resource<a class="headerlink" href="#permission-resource" title="Permanent link">¶</a></h3>
+<p><strong><code>GET /v1/permission</code></strong></p>
+<ul>
+<li><strong>Enum value removed</strong>: <code>Permission.VIEW_BADGES</code>.</li>
+</ul>
+<h3 id="policy-resource">Policy resource<a class="headerlink" href="#policy-resource" title="Permanent link">¶</a></h3>
+<p><strong><code>POST /v1/policy/{policyUuid}/project/{projectUuid}</code>, <code>DELETE /v1/policy/{policyUuid}/project/{projectUuid}</code></strong></p>
+<ul>
+<li><strong>New response status</strong>: <code>403 Forbidden</code> (project access denied). Strict clients that match only v4 codes see
+  undocumented errors.</li>
+</ul>
+<p>v5 removes the <code>POST</code> and <code>DELETE</code> variants of <code>/v1/policy/{policyUuid}/tag/{tagName}</code>. See the
+<a href="#removed-endpoints">removed endpoints</a> table.</p>
+<h3 id="project-resource">Project resource<a class="headerlink" href="#project-resource" title="Permanent link">¶</a></h3>
+<p><strong><code>PUT /v1/project</code>, <code>POST /v1/project</code>, <code>GET /v1/project/{uuid}</code>, <code>PATCH /v1/project/{uuid}</code></strong></p>
+<ul>
+<li><strong>Removed response field</strong>: <code>Project.properties</code> inline array. Fetch project properties via
+  <code>GET /v1/project/{uuid}/property</code> instead.</li>
+<li><strong>Enum values removed</strong>: <code>Project.classifier.NONE</code>, <code>Project.collectionLogic.NONE</code>. <code>null</code> or an absent field means
+  what <code>NONE</code> meant in v4.</li>
+</ul>
+<p><strong><code>POST /v1/project/batchDelete</code></strong></p>
+<ul>
+<li><strong>Removed response</strong>: v4 documented a <code>400</code> with <code>ProjectOperationProblemDetails</code>. v5 documents only <code>204</code> and <code>401</code>.</li>
+</ul>
+<h3 id="project-property-resource">Project property resource<a class="headerlink" href="#project-property-resource" title="Permanent link">¶</a></h3>
+<p><strong>All endpoints under <code>/v1/project/{uuid}/property</code></strong></p>
+<ul>
+<li><strong>Enum value removed</strong>: <code>ProjectProperty.propertyType.ENCRYPTEDSTRING</code>.</li>
+</ul>
+<h3 id="repository-resource">Repository resource<a class="headerlink" href="#repository-resource" title="Permanent link">¶</a></h3>
+<p><strong><code>GET /v1/repository/latest</code></strong></p>
+<ul>
+<li><strong>Renamed response field</strong>: <code>RepositoryMetaComponent.published</code> -&gt; <code>latestVersionPublishedAt</code>.</li>
+<li><strong>Required-field contract loosened</strong>: <code>lastCheck</code>, <code>latestVersion</code>, <code>name</code>, <code>published</code>, and <code>repositoryType</code>,
+  required in v4, are now all optional in the response schema.</li>
+</ul>
+<p><strong><code>PUT /v1/repository</code>, <code>POST /v1/repository</code></strong></p>
+<ul>
+<li><strong>New mandatory request field</strong>: <code>Repository.authenticationRequired</code>.</li>
+</ul>
+<h3 id="tag-resource">Tag resource<a class="headerlink" href="#tag-resource" title="Permanent link">¶</a></h3>
+<p>v5 removes <code>GET /v1/tag/{policyUuid}</code> in favor of <code>GET /v1/tag/policy/{uuid}</code>. See the
+<a href="#removed-endpoints">removed-endpoints table</a>.</p>
+<h3 id="team-resource">Team resource<a class="headerlink" href="#team-resource" title="Permanent link">¶</a></h3>
+<p><strong><code>GET /v1/team</code></strong></p>
+<ul>
+<li><strong>Pagination introduced</strong>: v4 had no pagination parameters. v5 adds <code>pageNumber</code>, <code>pageSize</code>, <code>offset</code>, <code>limit</code>,
+  <code>sortName</code>, and <code>sortOrder</code> with default <code>pageSize=100</code>. Naive callers silently drop teams beyond the first 100.</li>
+</ul>
+<h3 id="vulnerability-resource">Vulnerability resource<a class="headerlink" href="#vulnerability-resource" title="Permanent link">¶</a></h3>
+<p><strong>All endpoints returning <code>Vulnerability</code></strong></p>
+<ul>
+<li><strong>Removed response fields</strong>: <code>findingAttribution</code> and <code>normalizedCvssV2Vector</code> removed without replacement. <code>cwe</code>
+  (singular) removed, use the <code>cwes</code> array instead (a single CWE appears as a one-element array).</li>
+<li>Nested <code>VulnerabilityAlias.uuid</code> removed. Nested <code>AffectedVersionAttribution.uuid</code> removed.</li>
+</ul>
+<p><strong><code>GET /v1/vulnerability/source/{source}/vuln/{vuln}/projects</code></strong></p>
+<ul>
+<li><strong>Pagination introduced</strong>: v4 returned an unbounded list. v5 caps at <code>pageSize=100</code> by default and exposes
+  <code>pageNumber</code>, <code>pageSize</code>, <code>sortName</code>, and <code>sortOrder</code>. Naive callers silently drop projects beyond the first 100.</li>
+<li><strong>Response type changed</strong>: v4 returned <code>Project[]</code> (full schema). v5 returns <code>AffectedProject[]</code>, a slim DTO
+  containing only <code>active</code>, <code>affectedComponentUuids</code>, <code>dependencyGraphAvailable</code>, <code>name</code>, <code>uuid</code>, and <code>version</code>. v5
+  drops all other <code>Project</code> fields.</li>
+<li><strong>Status code removed</strong>: v4 returned <code>404</code> for an unknown vulnerability. v5 returns <code>200</code> with an empty list.</li>
+</ul>
 
 
 
@@ -3325,7 +3297,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer">
         
           
-          <a href="../notification/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Notification schema">
+          <a href="../v2/" class="md-footer__link md-footer__link--prev" aria-label="Previous: REST API v2">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
@@ -3335,20 +3307,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Notification schema
+                REST API v2
               </div>
             </div>
           </a>
         
         
           
-          <a href="../../../blog/" class="md-footer__link md-footer__link--next" aria-label="Next: Blog">
+          <a href="../../configuration/application/" class="md-footer__link md-footer__link--next" aria-label="Next: Application">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Blog
+                Application
               </div>
             </div>
             <div class="md-footer__button md-icon">

@@ -1700,16 +1700,13 @@ remediation steps, lives in the
   <code>NEW_VULNERABILITY</code> → <code>GROUP_NEW_VULNERABILITY</code>), and timestamps
   normalize to a single millisecond-precision format. Templates that
   consumed v4's ad-hoc subject objects need a rewrite.</li>
-<li><strong>Search.</strong> Dependency-Track removes the endpoints under <code>/api/v1/search</code>,
-  along with fuzzy matching.</li>
+<li><strong><abbr title="Representational State Transfer">REST</abbr> API v1.</strong> Few endpoints removed, response schemas
+  change, and list endpoints enforce pagination by default. See
+  <a href="../../reference/api/v5-breaking-changes/">Breaking changes in v5</a>
+  for the full enumeration.</li>
 <li><strong>Fuzzy vulnerability analysis.</strong> v4's internal analyzer optionally fell back to
   Lucene-based fuzzy matching against the internal vulnerability database
   when a component lacked a <abbr title="Common Platform Enumeration, a structured naming scheme for software products">CPE</abbr>. Dropping Lucene removes this capability.</li>
-<li><strong>Findings and <abbr title="Static Analysis Results Interchange Format">SARIF</abbr>.</strong> Findings and <abbr title="Static Analysis Results Interchange Format">SARIF</abbr> responses change shape, and the per-project findings
-  endpoint now paginates by default. See the
-  <a href="../../guides/upgrading/">upgrade guide</a>.</li>
-<li><strong>Removed deprecated endpoints.</strong> Dependency-Track removes three
-  v4-deprecated paths under <code>/api/v1/policy</code> and <code>/api/v1/tag</code>.</li>
 <li><strong>Distribution formats.</strong> v4 shipped separate API server and frontend
   container images, a "bundled" container image combining both, and an
   executable WAR. v5 ships container images only, and drops the bundled
