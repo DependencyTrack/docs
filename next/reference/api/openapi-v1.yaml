@@ -2194,14 +2194,13 @@ paths:
           type: string
           enum:
           - NVD
-          - NPM
           - GITHUB
           - VULNDB
           - OSSINDEX
-          - RETIREJS
           - INTERNAL
           - OSV
           - SNYK
+          - UNKNOWN
       - in: header
         name: accept
         schema:
@@ -9418,14 +9417,13 @@ components:
           type: string
           enum:
           - NVD
-          - NPM
           - GITHUB
           - VULNDB
           - OSSINDEX
-          - RETIREJS
           - INTERNAL
           - OSV
           - SNYK
+          - UNKNOWN
       required:
       - firstSeen
       - lastSeen
