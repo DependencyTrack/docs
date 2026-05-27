@@ -1,5 +1,6 @@
 nav:
   - Durable execution: durable-execution.md
+  - Extensibility: extensibility.md
   - Vulnerability analysis: vulnerability-analysis.md
   - Notifications: notifications.md
   - Package metadata resolution: package-metadata-resolution.md
