@@ -1602,6 +1602,12 @@ paths:
       description: Returns a list of all CWEs
       operationId: getCwes
       parameters:
+      - description: Case-insensitive substring filter matched against CWE name and
+          CWE-ID.
+        in: query
+        name: searchText
+        schema:
+          type: string
       - description: The page to return. To be used in conjunction with <code>pageSize</code>.
         in: query
         name: pageNumber
