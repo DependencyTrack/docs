@@ -14,48 +14,19 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 # Copyright (c) OWASP Foundation. All Rights Reserved.
-name: docs
+name: Deploy
 
 on:
   push:
     branches: [main]
     tags: ["[0-9]+.[0-9]+.[0-9]+", "[0-9]+.[0-9]+.[0-9]+-*"]
-  pull_request:
-    branches: [main]
 
 permissions: {}
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request'
-    steps:
-    - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-      with:
-        persist-credentials: false
-    - name: Install imaging dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y --no-install-recommends \
-          libcairo2-dev libfreetype6-dev libffi-dev \
-          libjpeg-dev libpng-dev libz-dev
-    - uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
-      with:
-        enable-cache: false
-    - name: Lint Markdown
-      run: make lint-markdown
-    - name: Lint YAML
-      run: make lint-yaml
-    - name: Lint prose
-      run: make lint-prose
-    - name: Lint Python
-      run: make lint-python
-    - name: Build
-      run: make build
-
   deploy:
+    name: Deploy
     runs-on: ubuntu-latest
-    if: github.event_name == 'push'
     permissions:
       contents: write
     env:
@@ -76,8 +47,12 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y --no-install-recommends \
-          libcairo2-dev libfreetype6-dev libffi-dev \
-          libjpeg-dev libpng-dev libz-dev
+          libcairo2-dev \
+          libffi-dev \
+          libfreetype6-dev \
+          libjpeg-dev \
+          libpng-dev \
+          libz-dev
     - uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
       with:
         enable-cache: false
