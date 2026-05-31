@@ -27,7 +27,7 @@ A shared persistent volume (for example, NFS) works well for this.
 Configuration:
 
 - [`dt.file-storage.local.directory`](properties.md#dtfile-storagelocaldirectory)
-- [`dt.file-storage.local.compression-level`](properties.md#dtfile-storagelocalcompressionlevel)
+- [`dt.file-storage.local.compression-level`](properties.md#dtfile-storagelocalcompression-level)
 
 ### S3
 
