@@ -38,11 +38,11 @@ jobs:
     - name: Checkout API Server Repository
       uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       with:
-        repository: DependencyTrack/hyades-apiserver
-        path: hyades-apiserver
+        repository: DependencyTrack/dependency-track
+        path: dependency-track
         persist-credentials: false
     - name: Generate Proto Documentation
-      run: make generate-proto-docs APISERVER_DIR=hyades-apiserver
+      run: make generate-proto-docs APISERVER_DIR=dependency-track
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
       with:
