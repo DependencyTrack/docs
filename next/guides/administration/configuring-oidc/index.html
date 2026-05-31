@@ -1710,6 +1710,8 @@
       
         
       
+        
+      
     
     
     
@@ -1767,6 +1769,34 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../upgrading/v5.0.0-rc.2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Upgrading to v5.0.0-rc.2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -2584,12 +2614,12 @@ for how property names map to environment variables.</p>
 <span class="normal">3</span>
 <span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">dt.oidc.enabled</span><span class="o">=</span><span class="s">true</span>
 <span class="na">dt.oidc.issuer</span><span class="o">=</span><span class="s">https://idp.example.com</span>
-<span class="na">dt.oidc.client.id</span><span class="o">=</span><span class="s">dependency-track</span>
-<span class="na">dt.oidc.username.claim</span><span class="o">=</span><span class="s">preferred_username</span>
+<span class="na">dt.oidc.client-id</span><span class="o">=</span><span class="s">dependency-track</span>
+<span class="na">dt.oidc.username-claim</span><span class="o">=</span><span class="s">preferred_username</span>
 </code></pre></div></td></tr></tbody></table></div>
 <h3 id="user-provisioning">User provisioning<a class="headerlink" href="#user-provisioning" title="Permanent link">¶</a></h3>
 <p>When enabled, Dependency-Track creates user accounts automatically on first login:</p>
-<div class="highlight"><pre><span></span><code><span class="na">dt.oidc.user.provisioning</span><span class="o">=</span><span class="s">true</span>
+<div class="highlight"><pre><span></span><code><span class="na">dt.oidc.user-provisioning</span><span class="o">=</span><span class="s">true</span>
 </code></pre></div>
 <h3 id="team-synchronisation">Team synchronisation<a class="headerlink" href="#team-synchronisation" title="Permanent link">¶</a></h3>
 <p>When enabled, Dependency-Track derives team membership from a claim that
@@ -2598,8 +2628,8 @@ token first, and falls back to the provider's userinfo response if absent.
 Either source works, so configure the claim wherever your <abbr title="Identity Provider">IdP</abbr> makes it
 easiest to emit. Map teams to those group names under
 <strong>Administration &gt; Access Management &gt; Teams</strong>.</p>
-<div class="highlight"><pre><span></span><code><span class="na">dt.oidc.team.synchronization</span><span class="o">=</span><span class="s">true</span>
-<span class="na">dt.oidc.teams.claim</span><span class="o">=</span><span class="s">groups</span>
+<div class="highlight"><pre><span></span><code><span class="na">dt.oidc.team-synchronization</span><span class="o">=</span><span class="s">true</span>
+<span class="na">dt.oidc.teams-claim</span><span class="o">=</span><span class="s">groups</span>
 </code></pre></div>
 <h2 id="frontend-configuration">Frontend configuration<a class="headerlink" href="#frontend-configuration" title="Permanent link">¶</a></h2>
 <p>Configure the frontend to start the <abbr title="OpenID Connect">OIDC</abbr> flow by passing the following
@@ -2640,8 +2670,8 @@ etc.) to match your environment.</p>
    if you want team synchronisation.</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="na">dt.oidc.issuer</span><span class="o">=</span><span class="s">https://keycloak.example.com/realms/your-realm</span>
-<span class="na">dt.oidc.client.id</span><span class="o">=</span><span class="s">dependency-track</span>
-<span class="na">dt.oidc.username.claim</span><span class="o">=</span><span class="s">preferred_username</span>
+<span class="na">dt.oidc.client-id</span><span class="o">=</span><span class="s">dependency-track</span>
+<span class="na">dt.oidc.username-claim</span><span class="o">=</span><span class="s">preferred_username</span>
 </code></pre></div>
 <h3 id="microsoft-entra-id-azure-ad">Microsoft Entra ID (Azure AD)<a class="headerlink" href="#microsoft-entra-id-azure-ad" title="Permanent link">¶</a></h3>
 <ol>
@@ -2652,8 +2682,8 @@ etc.) to match your environment.</p>
    the ID token. Add a <strong>Groups</strong> claim if you want team synchronisation.</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="na">dt.oidc.issuer</span><span class="o">=</span><span class="s">https://login.microsoftonline.com/&lt;tenant-id&gt;/v2.0</span>
-<span class="na">dt.oidc.client.id</span><span class="o">=</span><span class="s">&lt;application-client-id&gt;</span>
-<span class="na">dt.oidc.username.claim</span><span class="o">=</span><span class="s">preferred_username</span>
+<span class="na">dt.oidc.client-id</span><span class="o">=</span><span class="s">&lt;application-client-id&gt;</span>
+<span class="na">dt.oidc.username-claim</span><span class="o">=</span><span class="s">preferred_username</span>
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -2670,8 +2700,8 @@ the token configuration if you want human-readable group names for team sync.</p
    into the ID token.</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="na">dt.oidc.issuer</span><span class="o">=</span><span class="s">https://your-tenant.auth0.com/</span>
-<span class="na">dt.oidc.client.id</span><span class="o">=</span><span class="s">&lt;auth0-client-id&gt;</span>
-<span class="na">dt.oidc.username.claim</span><span class="o">=</span><span class="s">nickname</span>
+<span class="na">dt.oidc.client-id</span><span class="o">=</span><span class="s">&lt;auth0-client-id&gt;</span>
+<span class="na">dt.oidc.username-claim</span><span class="o">=</span><span class="s">nickname</span>
 </code></pre></div>
 <h3 id="gitlab">GitLab<a class="headerlink" href="#gitlab" title="Permanent link">¶</a></h3>
 <ol>
@@ -2680,8 +2710,8 @@ the token configuration if you want human-readable group names for team sync.</p
 <li>Select the <code>openid</code>, <code>profile</code>, and <code>email</code> scopes.</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="na">dt.oidc.issuer</span><span class="o">=</span><span class="s">https://gitlab.com</span>
-<span class="na">dt.oidc.client.id</span><span class="o">=</span><span class="s">&lt;application-id&gt;</span>
-<span class="na">dt.oidc.username.claim</span><span class="o">=</span><span class="s">nickname</span>
+<span class="na">dt.oidc.client-id</span><span class="o">=</span><span class="s">&lt;application-id&gt;</span>
+<span class="na">dt.oidc.username-claim</span><span class="o">=</span><span class="s">nickname</span>
 </code></pre></div>
 <p>For self-hosted GitLab, replace <code>https://gitlab.com</code> with your GitLab instance URL.</p>
 <h3 id="google">Google<a class="headerlink" href="#google" title="Permanent link">¶</a></h3>
@@ -2691,8 +2721,8 @@ the token configuration if you want human-readable group names for team sync.</p
    <strong>Authorized redirect URIs</strong>.</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="na">dt.oidc.issuer</span><span class="o">=</span><span class="s">https://accounts.google.com</span>
-<span class="na">dt.oidc.client.id</span><span class="o">=</span><span class="s">&lt;client-id&gt;.apps.googleusercontent.com</span>
-<span class="na">dt.oidc.username.claim</span><span class="o">=</span><span class="s">email</span>
+<span class="na">dt.oidc.client-id</span><span class="o">=</span><span class="s">&lt;client-id&gt;.apps.googleusercontent.com</span>
+<span class="na">dt.oidc.username-claim</span><span class="o">=</span><span class="s">email</span>
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -2719,8 +2749,8 @@ the <abbr title="Identity Provider">IdP</abbr> unless you use a proxy <abbr titl
 <li>Note the <strong>Client ID</strong> and <strong>Issuer URL</strong> from the app's SSO tab.</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="na">dt.oidc.issuer</span><span class="o">=</span><span class="s">https://your-subdomain.onelogin.com/oidc/2</span>
-<span class="na">dt.oidc.client.id</span><span class="o">=</span><span class="s">&lt;client-id&gt;</span>
-<span class="na">dt.oidc.username.claim</span><span class="o">=</span><span class="s">preferred_username</span>
+<span class="na">dt.oidc.client-id</span><span class="o">=</span><span class="s">&lt;client-id&gt;</span>
+<span class="na">dt.oidc.username-claim</span><span class="o">=</span><span class="s">preferred_username</span>
 </code></pre></div>
 <h3 id="aws-cognito">AWS Cognito<a class="headerlink" href="#aws-cognito" title="Permanent link">¶</a></h3>
 <ol>
@@ -2732,8 +2762,8 @@ the <abbr title="Identity Provider">IdP</abbr> unless you use a proxy <abbr titl
    scopes.</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="na">dt.oidc.issuer</span><span class="o">=</span><span class="s">https://cognito-idp.&lt;region&gt;.amazonaws.com/&lt;user-pool-id&gt;</span>
-<span class="na">dt.oidc.client.id</span><span class="o">=</span><span class="s">&lt;app-client-id&gt;</span>
-<span class="na">dt.oidc.username.claim</span><span class="o">=</span><span class="s">cognito:username</span>
+<span class="na">dt.oidc.client-id</span><span class="o">=</span><span class="s">&lt;app-client-id&gt;</span>
+<span class="na">dt.oidc.username-claim</span><span class="o">=</span><span class="s">cognito:username</span>
 </code></pre></div>
 <hr>
 <h2 id="all-oidc-properties">All <abbr title="OpenID Connect">OIDC</abbr> properties<a class="headerlink" href="#all-oidc-properties" title="Permanent link">¶</a></h2>

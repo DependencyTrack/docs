@@ -3273,7 +3273,7 @@ correctness, not cache freshness. The cache is a latency optimization, not a con
 mechanism.</p>
 <h3 id="maintenance">Maintenance<a class="headerlink" href="#maintenance" title="Permanent link">¶</a></h3>
 <p>A leader-only maintenance worker periodically deletes terminal workflow runs older than
-<a href="../../../../reference/configuration/properties/#dtdex-enginemaintenancerun-retention-duration"><code>dt.dex-engine.maintenance.run-retention-duration</code></a>.
+<a href="../../../../reference/configuration/properties/#dtdex-enginemaintenancerun-retention-ms"><code>dt.dex-engine.maintenance.run-retention-ms</code></a>.
 Deletion happens in batches of <a href="../../../../reference/configuration/properties/#dtdex-enginemaintenancerun-deletion-batch-size"><code>dt.dex-engine.maintenance.run-deletion-batch-size</code></a>
 rows using <code>FOR NO KEY UPDATE SKIP LOCKED</code> to coexist with active workloads.
 Cascade foreign keys remove the associated history, inbox, and task rows in the same transaction.</p>

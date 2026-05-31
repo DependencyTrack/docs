@@ -2582,7 +2582,7 @@ useful when secrets are mounted into the container as files, for example via Doc
 secrets:</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">dt.datasource.password</span><span class="o">=</span><span class="s">${file::/var/run/secrets/database-password}</span>
-<span class="na">dt.ldap.bind.password</span><span class="o">=</span><span class="s">${file::/var/run/secrets/ldap-bind-password}</span>
+<span class="na">dt.ldap.bind-password</span><span class="o">=</span><span class="s">${file::/var/run/secrets/ldap-bind-password}</span>
 </code></pre></div></td></tr></tbody></table></div>
 <p>The file is read once at startup, decoded as UTF-8, and trailing whitespace is stripped. Files
 larger than 64 KiB are rejected.</p>
@@ -2651,7 +2651,7 @@ environment variable:</p>
 values for the same flag.</p>
 <h2 id="debugging-configuration-resolution">Debugging Configuration Resolution<a class="headerlink" href="#debugging-configuration-resolution" title="Permanent link">¶</a></h2>
 <p>To verify whether config values are properly resolved and from which source, enable debug logging
-via <a href="../properties/#dtconfiglogvalues"><code>dt.config.log.values</code></a> and
+via <a href="../properties/#dtconfiglog-values"><code>dt.config.log-values</code></a> and
 <a href="../properties/"><code>dt.logging.level."io.smallrye.config"</code></a> set to <code>DEBUG</code>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>

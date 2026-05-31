@@ -2509,7 +2509,7 @@ A shared persistent volume (for example, NFS) works well for this.</p>
 <p>Configuration:</p>
 <ul>
 <li><a href="../properties/#dtfile-storagelocaldirectory"><code>dt.file-storage.local.directory</code></a></li>
-<li><a href="../properties/#dtfile-storagelocalcompressionlevel"><code>dt.file-storage.local.compression.level</code></a></li>
+<li><a href="../properties/#dtfile-storagelocalcompression-level"><code>dt.file-storage.local.compression-level</code></a></li>
 </ul>
 <h3 id="s3">S3<a class="headerlink" href="#s3" title="Permanent link">¶</a></h3>
 <p>The <code>s3</code> provider stores files in an S3-compatible object store (AWS S3, MinIO, etc.).
@@ -2519,18 +2519,18 @@ and fail to start if it's not found.</p>
 <div class="highlight"><pre><span></span><code><span class="na">dt.file-storage.provider</span><span class="o">=</span><span class="s">s3</span>
 <span class="na">dt.file-storage.s3.endpoint</span><span class="o">=</span><span class="s">https://s3.amazonaws.com</span>
 <span class="na">dt.file-storage.s3.bucket</span><span class="o">=</span><span class="s">dtrack-files</span>
-<span class="na">dt.file-storage.s3.access.key</span><span class="o">=</span><span class="s">&lt;access-key&gt;</span>
-<span class="na">dt.file-storage.s3.secret.key</span><span class="o">=</span><span class="s">&lt;secret-key&gt;</span>
+<span class="na">dt.file-storage.s3.access-key</span><span class="o">=</span><span class="s">&lt;access-key&gt;</span>
+<span class="na">dt.file-storage.s3.secret-key</span><span class="o">=</span><span class="s">&lt;secret-key&gt;</span>
 <span class="na">dt.file-storage.s3.region</span><span class="o">=</span><span class="s">us-east-1</span>
 </code></pre></div>
 <p>Configuration:</p>
 <ul>
 <li><a href="../properties/#dtfile-storages3endpoint"><code>dt.file-storage.s3.endpoint</code></a></li>
 <li><a href="../properties/#dtfile-storages3bucket"><code>dt.file-storage.s3.bucket</code></a></li>
-<li><a href="../properties/#dtfile-storages3accesskey"><code>dt.file-storage.s3.access.key</code></a></li>
-<li><a href="../properties/#dtfile-storages3secretkey"><code>dt.file-storage.s3.secret.key</code></a></li>
+<li><a href="../properties/#dtfile-storages3access-key"><code>dt.file-storage.s3.access-key</code></a></li>
+<li><a href="../properties/#dtfile-storages3secret-key"><code>dt.file-storage.s3.secret-key</code></a></li>
 <li><a href="../properties/#dtfile-storages3region"><code>dt.file-storage.s3.region</code></a></li>
-<li><a href="../properties/#dtfile-storages3compressionlevel"><code>dt.file-storage.s3.compression.level</code></a></li>
+<li><a href="../properties/#dtfile-storages3compression-level"><code>dt.file-storage.s3.compression-level</code></a></li>
 <li><a href="../properties/#dtfile-storages3connect-timeout-ms"><code>dt.file-storage.s3.connect-timeout-ms</code></a></li>
 <li><a href="../properties/#dtfile-storages3read-timeout-ms"><code>dt.file-storage.s3.read-timeout-ms</code></a></li>
 <li><a href="../properties/#dtfile-storages3write-timeout-ms"><code>dt.file-storage.s3.write-timeout-ms</code></a></li>

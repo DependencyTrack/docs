@@ -1677,6 +1677,8 @@
       
         
       
+        
+      
     
     
     
@@ -1734,6 +1736,34 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../upgrading/v5.0.0-rc.2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Upgrading to v5.0.0-rc.2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -2521,34 +2551,34 @@ for how property names map to environment variables.</p>
 <span class="normal">7</span>
 <span class="normal">8</span>
 <span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">dt.ldap.enabled</span><span class="o">=</span><span class="s">true</span>
-<span class="na">dt.ldap.server.url</span><span class="o">=</span><span class="s">ldap://ldap.example.com:389</span>
-<span class="na">dt.ldap.basedn</span><span class="o">=</span><span class="s">dc=example,dc=com</span>
-<span class="na">dt.ldap.security.auth</span><span class="o">=</span><span class="s">simple</span>
-<span class="na">dt.ldap.bind.username</span><span class="o">=</span><span class="s">cn=dt-service,dc=example,dc=com</span>
-<span class="na">dt.ldap.bind.password</span><span class="o">=</span><span class="s">changeme</span>
-<span class="na">dt.ldap.auth.username.format</span><span class="o">=</span><span class="s">uid={0},ou=users,dc=example,dc=com</span>
-<span class="na">dt.ldap.attribute.name</span><span class="o">=</span><span class="s">cn</span>
-<span class="na">dt.ldap.attribute.mail</span><span class="o">=</span><span class="s">mail</span>
+<span class="na">dt.ldap.server-url</span><span class="o">=</span><span class="s">ldap://ldap.example.com:389</span>
+<span class="na">dt.ldap.base-dn</span><span class="o">=</span><span class="s">dc=example,dc=com</span>
+<span class="na">dt.ldap.security-auth</span><span class="o">=</span><span class="s">simple</span>
+<span class="na">dt.ldap.bind-username</span><span class="o">=</span><span class="s">cn=dt-service,dc=example,dc=com</span>
+<span class="na">dt.ldap.bind-password</span><span class="o">=</span><span class="s">changeme</span>
+<span class="na">dt.ldap.username-format</span><span class="o">=</span><span class="s">uid={0},ou=users,dc=example,dc=com</span>
+<span class="na">dt.ldap.name-attribute</span><span class="o">=</span><span class="s">cn</span>
+<span class="na">dt.ldap.mail-attribute</span><span class="o">=</span><span class="s">mail</span>
 </code></pre></div></td></tr></tbody></table></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Dependency-Track substitutes the <code>{0}</code> placeholder in <code>dt.ldap.auth.username.format</code>
+<p>Dependency-Track substitutes the <code>{0}</code> placeholder in <code>dt.ldap.username-format</code>
 with the username entered at login.</p>
 </div>
 <h3 id="user-provisioning">User provisioning<a class="headerlink" href="#user-provisioning" title="Permanent link">¶</a></h3>
 <p>When enabled, Dependency-Track creates accounts automatically the first time an <abbr title="Lightweight Directory Access Protocol">LDAP</abbr>
 user logs in. Otherwise, an administrator must create each account before its user can
 log in.</p>
-<div class="highlight"><pre><span></span><code><span class="na">dt.ldap.user.provisioning</span><span class="o">=</span><span class="s">true</span>
+<div class="highlight"><pre><span></span><code><span class="na">dt.ldap.user-provisioning</span><span class="o">=</span><span class="s">true</span>
 </code></pre></div>
 <h3 id="team-synchronisation">Team synchronisation<a class="headerlink" href="#team-synchronisation" title="Permanent link">¶</a></h3>
 <p>When enabled, Dependency-Track keeps team membership in sync with <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> group membership.
 Map teams to <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> groups under <strong>Administration &gt; Access Management &gt; Teams</strong>.</p>
-<div class="highlight"><pre><span></span><code><span class="na">dt.ldap.team.synchronization</span><span class="o">=</span><span class="s">true</span>
-<span class="na">dt.ldap.groups.filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames))</span>
-<span class="na">dt.ldap.user.groups.filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames)(uniqueMember={USER_DN}))</span>
-<span class="na">dt.ldap.groups.search.filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames)(cn=*{SEARCH_TERM}*))</span>
-<span class="na">dt.ldap.users.search.filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=inetOrgPerson)(cn=*{SEARCH_TERM}*))</span>
+<div class="highlight"><pre><span></span><code><span class="na">dt.ldap.team-synchronization</span><span class="o">=</span><span class="s">true</span>
+<span class="na">dt.ldap.group-filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames))</span>
+<span class="na">dt.ldap.user-groups-filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames)(uniqueMember={USER_DN}))</span>
+<span class="na">dt.ldap.group-search-filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames)(cn=*{SEARCH_TERM}*))</span>
+<span class="na">dt.ldap.user-search-filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=inetOrgPerson)(cn=*{SEARCH_TERM}*))</span>
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -2575,18 +2605,18 @@ Users typically authenticate with their User Principal Name (<code>user@domain.c
 <span class="normal">11</span>
 <span class="normal">12</span>
 <span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">dt.ldap.enabled</span><span class="o">=</span><span class="s">true</span>
-<span class="na">dt.ldap.server.url</span><span class="o">=</span><span class="s">ldap://ldap.example.com:3268</span>
-<span class="na">dt.ldap.basedn</span><span class="o">=</span><span class="s">dc=example,dc=com</span>
-<span class="na">dt.ldap.security.auth</span><span class="o">=</span><span class="s">simple</span>
-<span class="na">dt.ldap.bind.username</span><span class="o">=</span><span class="s">CN=DT Service Account,DC=example,DC=com</span>
-<span class="na">dt.ldap.bind.password</span><span class="o">=</span><span class="s">changeme</span>
-<span class="na">dt.ldap.auth.username.format</span><span class="o">=</span><span class="s">{0}@example.com</span>
-<span class="na">dt.ldap.attribute.name</span><span class="o">=</span><span class="s">userPrincipalName</span>
-<span class="na">dt.ldap.attribute.mail</span><span class="o">=</span><span class="s">mail</span>
-<span class="na">dt.ldap.groups.filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=group)(objectCategory=Group))</span>
-<span class="na">dt.ldap.user.groups.filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=group)(objectCategory=Group)(member:1.2.840.113556.1.4.1941:={USER_DN}))</span>
-<span class="na">dt.ldap.groups.search.filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=group)(objectCategory=Group)(cn=*{SEARCH_TERM}*))</span>
-<span class="na">dt.ldap.users.search.filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=user)(objectCategory=Person)(cn=*{SEARCH_TERM}*))</span>
+<span class="na">dt.ldap.server-url</span><span class="o">=</span><span class="s">ldap://ldap.example.com:3268</span>
+<span class="na">dt.ldap.base-dn</span><span class="o">=</span><span class="s">dc=example,dc=com</span>
+<span class="na">dt.ldap.security-auth</span><span class="o">=</span><span class="s">simple</span>
+<span class="na">dt.ldap.bind-username</span><span class="o">=</span><span class="s">CN=DT Service Account,DC=example,DC=com</span>
+<span class="na">dt.ldap.bind-password</span><span class="o">=</span><span class="s">changeme</span>
+<span class="na">dt.ldap.username-format</span><span class="o">=</span><span class="s">{0}@example.com</span>
+<span class="na">dt.ldap.name-attribute</span><span class="o">=</span><span class="s">userPrincipalName</span>
+<span class="na">dt.ldap.mail-attribute</span><span class="o">=</span><span class="s">mail</span>
+<span class="na">dt.ldap.group-filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=group)(objectCategory=Group))</span>
+<span class="na">dt.ldap.user-groups-filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=group)(objectCategory=Group)(member:1.2.840.113556.1.4.1941:={USER_DN}))</span>
+<span class="na">dt.ldap.group-search-filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=group)(objectCategory=Group)(cn=*{SEARCH_TERM}*))</span>
+<span class="na">dt.ldap.user-search-filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=user)(objectCategory=Person)(cn=*{SEARCH_TERM}*))</span>
 </code></pre></div></td></tr></tbody></table></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -2595,7 +2625,7 @@ recursive group membership lookup (LDAP_MATCHING_RULE_IN_CHAIN), so
 Dependency-Track resolves nested group memberships correctly.</p>
 </div>
 <p>For LDAPS (recommended in production), change the port to <code>3269</code> and update the URL:</p>
-<div class="highlight"><pre><span></span><code><span class="na">dt.ldap.server.url</span><span class="o">=</span><span class="s">ldaps://ldap.example.com:3269</span>
+<div class="highlight"><pre><span></span><code><span class="na">dt.ldap.server-url</span><span class="o">=</span><span class="s">ldaps://ldap.example.com:3269</span>
 </code></pre></div>
 <h3 id="apacheds">ApacheDS<a class="headerlink" href="#apacheds" title="Permanent link">¶</a></h3>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -2611,18 +2641,18 @@ Dependency-Track resolves nested group memberships correctly.</p>
 <span class="normal">11</span>
 <span class="normal">12</span>
 <span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">dt.ldap.enabled</span><span class="o">=</span><span class="s">true</span>
-<span class="na">dt.ldap.server.url</span><span class="o">=</span><span class="s">ldap://ldap.example.com:389</span>
-<span class="na">dt.ldap.basedn</span><span class="o">=</span><span class="s">dc=example,dc=com</span>
-<span class="na">dt.ldap.security.auth</span><span class="o">=</span><span class="s">simple</span>
-<span class="na">dt.ldap.bind.username</span><span class="o">=</span><span class="s">uid=admin,ou=system</span>
-<span class="na">dt.ldap.bind.password</span><span class="o">=</span><span class="s">changeme</span>
-<span class="na">dt.ldap.auth.username.format</span><span class="o">=</span><span class="s">uid={0},ou=users,dc=example,dc=com</span>
-<span class="na">dt.ldap.attribute.name</span><span class="o">=</span><span class="s">cn</span>
-<span class="na">dt.ldap.attribute.mail</span><span class="o">=</span><span class="s">mail</span>
-<span class="na">dt.ldap.groups.filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames))</span>
-<span class="na">dt.ldap.user.groups.filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames)(uniqueMember={USER_DN}))</span>
-<span class="na">dt.ldap.groups.search.filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames)(cn=*{SEARCH_TERM}*))</span>
-<span class="na">dt.ldap.users.search.filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=inetOrgPerson)(cn=*{SEARCH_TERM}*))</span>
+<span class="na">dt.ldap.server-url</span><span class="o">=</span><span class="s">ldap://ldap.example.com:389</span>
+<span class="na">dt.ldap.base-dn</span><span class="o">=</span><span class="s">dc=example,dc=com</span>
+<span class="na">dt.ldap.security-auth</span><span class="o">=</span><span class="s">simple</span>
+<span class="na">dt.ldap.bind-username</span><span class="o">=</span><span class="s">uid=admin,ou=system</span>
+<span class="na">dt.ldap.bind-password</span><span class="o">=</span><span class="s">changeme</span>
+<span class="na">dt.ldap.username-format</span><span class="o">=</span><span class="s">uid={0},ou=users,dc=example,dc=com</span>
+<span class="na">dt.ldap.name-attribute</span><span class="o">=</span><span class="s">cn</span>
+<span class="na">dt.ldap.mail-attribute</span><span class="o">=</span><span class="s">mail</span>
+<span class="na">dt.ldap.group-filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames))</span>
+<span class="na">dt.ldap.user-groups-filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames)(uniqueMember={USER_DN}))</span>
+<span class="na">dt.ldap.group-search-filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames)(cn=*{SEARCH_TERM}*))</span>
+<span class="na">dt.ldap.user-search-filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=inetOrgPerson)(cn=*{SEARCH_TERM}*))</span>
 </code></pre></div></td></tr></tbody></table></div>
 <h3 id="fedora-389-directory-server">Fedora 389 Directory Server<a class="headerlink" href="#fedora-389-directory-server" title="Permanent link">¶</a></h3>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -2638,18 +2668,18 @@ Dependency-Track resolves nested group memberships correctly.</p>
 <span class="normal">11</span>
 <span class="normal">12</span>
 <span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">dt.ldap.enabled</span><span class="o">=</span><span class="s">true</span>
-<span class="na">dt.ldap.server.url</span><span class="o">=</span><span class="s">ldap://ldap.example.com:389</span>
-<span class="na">dt.ldap.basedn</span><span class="o">=</span><span class="s">dc=example,dc=com</span>
-<span class="na">dt.ldap.security.auth</span><span class="o">=</span><span class="s">simple</span>
-<span class="na">dt.ldap.bind.username</span><span class="o">=</span><span class="s">cn=Directory Manager</span>
-<span class="na">dt.ldap.bind.password</span><span class="o">=</span><span class="s">changeme</span>
-<span class="na">dt.ldap.auth.username.format</span><span class="o">=</span><span class="s">uid={0},ou=people,dc=example,dc=com</span>
-<span class="na">dt.ldap.attribute.name</span><span class="o">=</span><span class="s">uid</span>
-<span class="na">dt.ldap.attribute.mail</span><span class="o">=</span><span class="s">mail</span>
-<span class="na">dt.ldap.groups.filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames))</span>
-<span class="na">dt.ldap.user.groups.filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames)(uniqueMember={USER_DN}))</span>
-<span class="na">dt.ldap.groups.search.filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames)(cn=*{SEARCH_TERM}*))</span>
-<span class="na">dt.ldap.users.search.filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=inetOrgPerson)(uid=*{SEARCH_TERM}*))</span>
+<span class="na">dt.ldap.server-url</span><span class="o">=</span><span class="s">ldap://ldap.example.com:389</span>
+<span class="na">dt.ldap.base-dn</span><span class="o">=</span><span class="s">dc=example,dc=com</span>
+<span class="na">dt.ldap.security-auth</span><span class="o">=</span><span class="s">simple</span>
+<span class="na">dt.ldap.bind-username</span><span class="o">=</span><span class="s">cn=Directory Manager</span>
+<span class="na">dt.ldap.bind-password</span><span class="o">=</span><span class="s">changeme</span>
+<span class="na">dt.ldap.username-format</span><span class="o">=</span><span class="s">uid={0},ou=people,dc=example,dc=com</span>
+<span class="na">dt.ldap.name-attribute</span><span class="o">=</span><span class="s">uid</span>
+<span class="na">dt.ldap.mail-attribute</span><span class="o">=</span><span class="s">mail</span>
+<span class="na">dt.ldap.group-filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames))</span>
+<span class="na">dt.ldap.user-groups-filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames)(uniqueMember={USER_DN}))</span>
+<span class="na">dt.ldap.group-search-filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames)(cn=*{SEARCH_TERM}*))</span>
+<span class="na">dt.ldap.user-search-filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=inetOrgPerson)(uid=*{SEARCH_TERM}*))</span>
 </code></pre></div></td></tr></tbody></table></div>
 <h3 id="netiq-novell-edirectory">NetIQ / Novell eDirectory<a class="headerlink" href="#netiq-novell-edirectory" title="Permanent link">¶</a></h3>
 <p>eDirectory typically uses LDAPS on port 636 and an organisation-based DN structure.</p>
@@ -2666,18 +2696,18 @@ Dependency-Track resolves nested group memberships correctly.</p>
 <span class="normal">11</span>
 <span class="normal">12</span>
 <span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">dt.ldap.enabled</span><span class="o">=</span><span class="s">true</span>
-<span class="na">dt.ldap.server.url</span><span class="o">=</span><span class="s">ldaps://ldap.example.com:636</span>
-<span class="na">dt.ldap.basedn</span><span class="o">=</span><span class="s">o=example</span>
-<span class="na">dt.ldap.security.auth</span><span class="o">=</span><span class="s">simple</span>
-<span class="na">dt.ldap.bind.username</span><span class="o">=</span><span class="s">cn=admin,o=example</span>
-<span class="na">dt.ldap.bind.password</span><span class="o">=</span><span class="s">changeme</span>
-<span class="na">dt.ldap.auth.username.format</span><span class="o">=</span><span class="s">uid={0},ou=users,o=example</span>
-<span class="na">dt.ldap.attribute.name</span><span class="o">=</span><span class="s">uid</span>
-<span class="na">dt.ldap.attribute.mail</span><span class="o">=</span><span class="s">mail</span>
-<span class="na">dt.ldap.groups.filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames))</span>
-<span class="na">dt.ldap.user.groups.filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames)(uniqueMember={USER_DN}))</span>
-<span class="na">dt.ldap.groups.search.filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames)(cn=*{SEARCH_TERM}*))</span>
-<span class="na">dt.ldap.users.search.filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=inetOrgPerson)(uid=*{SEARCH_TERM}*))</span>
+<span class="na">dt.ldap.server-url</span><span class="o">=</span><span class="s">ldaps://ldap.example.com:636</span>
+<span class="na">dt.ldap.base-dn</span><span class="o">=</span><span class="s">o=example</span>
+<span class="na">dt.ldap.security-auth</span><span class="o">=</span><span class="s">simple</span>
+<span class="na">dt.ldap.bind-username</span><span class="o">=</span><span class="s">cn=admin,o=example</span>
+<span class="na">dt.ldap.bind-password</span><span class="o">=</span><span class="s">changeme</span>
+<span class="na">dt.ldap.username-format</span><span class="o">=</span><span class="s">uid={0},ou=users,o=example</span>
+<span class="na">dt.ldap.name-attribute</span><span class="o">=</span><span class="s">uid</span>
+<span class="na">dt.ldap.mail-attribute</span><span class="o">=</span><span class="s">mail</span>
+<span class="na">dt.ldap.group-filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames))</span>
+<span class="na">dt.ldap.user-groups-filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames)(uniqueMember={USER_DN}))</span>
+<span class="na">dt.ldap.group-search-filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=groupOfUniqueNames)(cn=*{SEARCH_TERM}*))</span>
+<span class="na">dt.ldap.user-search-filter</span><span class="o">=</span><span class="s">(&amp;(objectClass=inetOrgPerson)(uid=*{SEARCH_TERM}*))</span>
 </code></pre></div></td></tr></tbody></table></div>
 <hr>
 <h2 id="all-ldap-properties">All <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> properties<a class="headerlink" href="#all-ldap-properties" title="Permanent link">¶</a></h2>

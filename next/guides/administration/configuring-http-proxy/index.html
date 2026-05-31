@@ -1588,6 +1588,8 @@
       
         
       
+        
+      
     
     
     
@@ -1645,6 +1647,34 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../upgrading/v5.0.0-rc.2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Upgrading to v5.0.0-rc.2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -2322,30 +2352,30 @@ HTTPS-fronted proxies and SOCKS proxies do not work.</p>
 <h2 id="configuration-sources">Configuration sources<a class="headerlink" href="#configuration-sources" title="Permanent link">¶</a></h2>
 <p>The API server reads proxy settings from two sources, in this order:</p>
 <ol>
-<li>App properties (<code>dt.http.proxy.*</code>, <code>dt.no.proxy</code>).</li>
+<li>App properties (<code>dt.http.proxy.*</code>).</li>
 <li>The standard <code>HTTPS_PROXY</code>, <code>HTTP_PROXY</code>, and <code>NO_PROXY</code> environment variables.</li>
 </ol>
-<p>If <code>dt.http.proxy.address</code> has a value, app properties win and the API server ignores the environment variables.
+<p>If <code>dt.http.proxy.host</code> has a value, app properties win and the API server ignores the environment variables.
 Otherwise, the API server falls back to the environment.</p>
 <h2 id="configuring-via-app-properties">Configuring via app properties<a class="headerlink" href="#configuring-via-app-properties" title="Permanent link">¶</a></h2>
 <p>Set the following properties (see <a href="../../../reference/configuration/application/#environment-variable-mapping">Application configuration</a>
 for how property names map to environment variables):</p>
 <ul>
-<li><a href="../../../reference/configuration/properties/#dthttpproxyaddress"><code>dt.http.proxy.address</code></a>: proxy hostname or IP address.</li>
+<li><a href="../../../reference/configuration/properties/#dthttpproxyhost"><code>dt.http.proxy.host</code></a>: proxy hostname or IP address.</li>
 <li><a href="../../../reference/configuration/properties/#dthttpproxyport"><code>dt.http.proxy.port</code></a>: proxy port. Required when
-  <code>dt.http.proxy.address</code> has a value.</li>
-<li><a href="../../../reference/configuration/properties/#dthttpproxyusername"><code>dt.http.proxy.username</code></a>: optional, for
+  <code>dt.http.proxy.host</code> has a value.</li>
+<li><a href="../../../reference/configuration/properties/#dthttpproxyauthusername"><code>dt.http.proxy.auth.username</code></a>: optional, for
   authenticated proxies.</li>
-<li><a href="../../../reference/configuration/properties/#dthttpproxypassword"><code>dt.http.proxy.password</code></a>: optional, for
+<li><a href="../../../reference/configuration/properties/#dthttpproxyauthpassword"><code>dt.http.proxy.auth.password</code></a>: optional, for
   authenticated proxies.</li>
-<li><a href="../../../reference/configuration/properties/#dtnoproxy"><code>dt.no.proxy</code></a>: comma-separated bypass list.</li>
+<li><a href="../../../reference/configuration/properties/#dthttpproxyexclusions"><code>dt.http.proxy.exclusions</code></a>: comma-separated bypass list.</li>
 </ul>
 <p>Example:</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">dt.http.proxy.address</span><span class="o">=</span><span class="s">proxy.example.com</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">dt.http.proxy.host</span><span class="o">=</span><span class="s">proxy.example.com</span>
 <span class="na">dt.http.proxy.port</span><span class="o">=</span><span class="s">8080</span>
-<span class="na">dt.no.proxy</span><span class="o">=</span><span class="s">localhost,127.0.0.1,example.com</span>
+<span class="na">dt.http.proxy.exclusions</span><span class="o">=</span><span class="s">localhost,127.0.0.1,example.com</span>
 </code></pre></div></td></tr></tbody></table></div>
 <h2 id="configuring-via-standard-environment-variables">Configuring via standard environment variables<a class="headerlink" href="#configuring-via-standard-environment-variables" title="Permanent link">¶</a></h2>
 <p>When app properties are unset, the API server reads <code>HTTPS_PROXY</code> first and falls back to <code>HTTP_PROXY</code>. Variable
@@ -2358,7 +2388,7 @@ NO_PROXY=localhost,127.0.0.1,example.com
 <p>The API server uses the same proxy for both HTTP and HTTPS upstream calls. URIs with any other scheme (such as
 <code>ldap://</code>) always bypass the proxy.</p>
 <h2 id="bypass-list">Bypass list<a class="headerlink" href="#bypass-list" title="Permanent link">¶</a></h2>
-<p>Both <code>dt.no.proxy</code> and <code>NO_PROXY</code> accept a comma-separated list of entries. Each entry takes the form of either a
+<p>Both <code>dt.http.proxy.exclusions</code> and <code>NO_PROXY</code> accept a comma-separated list of entries. Each entry takes the form of either a
 hostname or IP address, optionally with <code>:port</code>. CIDR ranges, IP-address ranges, leading-dot notation, and protocol
 schemes are not supported.</p>
 <p>The matching rules are:</p>
@@ -2370,14 +2400,14 @@ schemes are not supported.</p>
 <li>If an entry includes a port (<code>host:port</code>), the host must match (exact or subdomain) and the port must match exactly.</li>
 <li>Only <code>http</code> and <code>https</code> URIs go through the proxy; other schemes always bypass it.</li>
 </ul>
-<p>For example, given <code>dt.no.proxy=example.com,localhost:5432</code>:</p>
+<p>For example, given <code>dt.http.proxy.exclusions=example.com,localhost:5432</code>:</p>
 <ul>
 <li><code>https://api.example.com/</code> bypasses the proxy (subdomain match).</li>
 <li><code>https://localhost:5432/</code> bypasses the proxy (host and port match).</li>
 <li><code>https://localhost:5433/</code> goes through the proxy (port mismatch).</li>
 </ul>
 <h2 id="authenticated-proxies">Authenticated proxies<a class="headerlink" href="#authenticated-proxies" title="Permanent link">¶</a></h2>
-<p>For Basic-authenticated proxies, set <code>dt.http.proxy.username</code> and <code>dt.http.proxy.password</code>. Avoid placing the password
+<p>For Basic-authenticated proxies, set <code>dt.http.proxy.auth.username</code> and <code>dt.http.proxy.auth.password</code>. Avoid placing the password
 in plain text; see <a href="../../../reference/configuration/application/#loading-values-from-files">Loading values from files</a>.</p>
 <p>For NTLM-authenticated proxies, supply the username in <code>domain\username</code> form. The API server splits on the first
 backslash into separate domain and username fields. When using the URL form (<code>HTTPS_PROXY</code>), percent-encode the
