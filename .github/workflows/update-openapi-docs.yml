@@ -39,7 +39,7 @@ jobs:
       env:
         GH_TOKEN: "${{ github.token }}"
       run: |-
-        gh run download --repo DependencyTrack/hyades-apiserver \
+        gh run download --repo DependencyTrack/dependency-track \
           --name openapi-spec \
           --dir /tmp/openapi-spec
     - name: Update Spec Files
