@@ -691,7 +691,7 @@ mechanism.
 ### Maintenance
 
 A leader-only maintenance worker periodically deletes terminal workflow runs older than
-[`dt.dex-engine.maintenance.run-retention-duration`](../../../reference/configuration/properties.md#dtdex-enginemaintenancerun-retention-duration).
+[`dt.dex-engine.maintenance.run-retention-ms`](../../../reference/configuration/properties.md#dtdex-enginemaintenancerun-retention-ms).
 Deletion happens in batches of [`dt.dex-engine.maintenance.run-deletion-batch-size`](../../../reference/configuration/properties.md#dtdex-enginemaintenancerun-deletion-batch-size)
 rows using `FOR NO KEY UPDATE SKIP LOCKED` to coexist with active workloads.
 Cascade foreign keys remove the associated history, inbox, and task rows in the same transaction.

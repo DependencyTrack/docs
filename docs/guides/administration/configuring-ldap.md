@@ -36,18 +36,18 @@ Enable LDAP and configure the server connection:
 
 ```properties linenums="1"
 dt.ldap.enabled=true
-dt.ldap.server.url=ldap://ldap.example.com:389
-dt.ldap.basedn=dc=example,dc=com
-dt.ldap.security.auth=simple
-dt.ldap.bind.username=cn=dt-service,dc=example,dc=com
-dt.ldap.bind.password=changeme
-dt.ldap.auth.username.format=uid={0},ou=users,dc=example,dc=com
-dt.ldap.attribute.name=cn
-dt.ldap.attribute.mail=mail
+dt.ldap.server-url=ldap://ldap.example.com:389
+dt.ldap.base-dn=dc=example,dc=com
+dt.ldap.security-auth=simple
+dt.ldap.bind-username=cn=dt-service,dc=example,dc=com
+dt.ldap.bind-password=changeme
+dt.ldap.username-format=uid={0},ou=users,dc=example,dc=com
+dt.ldap.name-attribute=cn
+dt.ldap.mail-attribute=mail
 ```
 
 !!! tip
-    Dependency-Track substitutes the `{0}` placeholder in `dt.ldap.auth.username.format`
+    Dependency-Track substitutes the `{0}` placeholder in `dt.ldap.username-format`
     with the username entered at login.
 
 ### User provisioning
@@ -57,7 +57,7 @@ user logs in. Otherwise, an administrator must create each account before its us
 log in.
 
 ```properties
-dt.ldap.user.provisioning=true
+dt.ldap.user-provisioning=true
 ```
 
 ### Team synchronisation
@@ -66,11 +66,11 @@ When enabled, Dependency-Track keeps team membership in sync with LDAP group mem
 Map teams to LDAP groups under **Administration > Access Management > Teams**.
 
 ```properties
-dt.ldap.team.synchronization=true
-dt.ldap.groups.filter=(&(objectClass=groupOfUniqueNames))
-dt.ldap.user.groups.filter=(&(objectClass=groupOfUniqueNames)(uniqueMember={USER_DN}))
-dt.ldap.groups.search.filter=(&(objectClass=groupOfUniqueNames)(cn=*{SEARCH_TERM}*))
-dt.ldap.users.search.filter=(&(objectClass=inetOrgPerson)(cn=*{SEARCH_TERM}*))
+dt.ldap.team-synchronization=true
+dt.ldap.group-filter=(&(objectClass=groupOfUniqueNames))
+dt.ldap.user-groups-filter=(&(objectClass=groupOfUniqueNames)(uniqueMember={USER_DN}))
+dt.ldap.group-search-filter=(&(objectClass=groupOfUniqueNames)(cn=*{SEARCH_TERM}*))
+dt.ldap.user-search-filter=(&(objectClass=inetOrgPerson)(cn=*{SEARCH_TERM}*))
 ```
 
 !!! tip
@@ -91,18 +91,18 @@ Users typically authenticate with their User Principal Name (`user@domain.com`).
 
 ```properties linenums="1"
 dt.ldap.enabled=true
-dt.ldap.server.url=ldap://ldap.example.com:3268
-dt.ldap.basedn=dc=example,dc=com
-dt.ldap.security.auth=simple
-dt.ldap.bind.username=CN=DT Service Account,DC=example,DC=com
-dt.ldap.bind.password=changeme
-dt.ldap.auth.username.format={0}@example.com
-dt.ldap.attribute.name=userPrincipalName
-dt.ldap.attribute.mail=mail
-dt.ldap.groups.filter=(&(objectClass=group)(objectCategory=Group))
-dt.ldap.user.groups.filter=(&(objectClass=group)(objectCategory=Group)(member:1.2.840.113556.1.4.1941:={USER_DN}))
-dt.ldap.groups.search.filter=(&(objectClass=group)(objectCategory=Group)(cn=*{SEARCH_TERM}*))
-dt.ldap.users.search.filter=(&(objectClass=user)(objectCategory=Person)(cn=*{SEARCH_TERM}*))
+dt.ldap.server-url=ldap://ldap.example.com:3268
+dt.ldap.base-dn=dc=example,dc=com
+dt.ldap.security-auth=simple
+dt.ldap.bind-username=CN=DT Service Account,DC=example,DC=com
+dt.ldap.bind-password=changeme
+dt.ldap.username-format={0}@example.com
+dt.ldap.name-attribute=userPrincipalName
+dt.ldap.mail-attribute=mail
+dt.ldap.group-filter=(&(objectClass=group)(objectCategory=Group))
+dt.ldap.user-groups-filter=(&(objectClass=group)(objectCategory=Group)(member:1.2.840.113556.1.4.1941:={USER_DN}))
+dt.ldap.group-search-filter=(&(objectClass=group)(objectCategory=Group)(cn=*{SEARCH_TERM}*))
+dt.ldap.user-search-filter=(&(objectClass=user)(objectCategory=Person)(cn=*{SEARCH_TERM}*))
 ```
 
 !!! tip
@@ -113,43 +113,43 @@ dt.ldap.users.search.filter=(&(objectClass=user)(objectCategory=Person)(cn=*{SEA
 For LDAPS (recommended in production), change the port to `3269` and update the URL:
 
 ```properties
-dt.ldap.server.url=ldaps://ldap.example.com:3269
+dt.ldap.server-url=ldaps://ldap.example.com:3269
 ```
 
 ### ApacheDS
 
 ```properties linenums="1"
 dt.ldap.enabled=true
-dt.ldap.server.url=ldap://ldap.example.com:389
-dt.ldap.basedn=dc=example,dc=com
-dt.ldap.security.auth=simple
-dt.ldap.bind.username=uid=admin,ou=system
-dt.ldap.bind.password=changeme
-dt.ldap.auth.username.format=uid={0},ou=users,dc=example,dc=com
-dt.ldap.attribute.name=cn
-dt.ldap.attribute.mail=mail
-dt.ldap.groups.filter=(&(objectClass=groupOfUniqueNames))
-dt.ldap.user.groups.filter=(&(objectClass=groupOfUniqueNames)(uniqueMember={USER_DN}))
-dt.ldap.groups.search.filter=(&(objectClass=groupOfUniqueNames)(cn=*{SEARCH_TERM}*))
-dt.ldap.users.search.filter=(&(objectClass=inetOrgPerson)(cn=*{SEARCH_TERM}*))
+dt.ldap.server-url=ldap://ldap.example.com:389
+dt.ldap.base-dn=dc=example,dc=com
+dt.ldap.security-auth=simple
+dt.ldap.bind-username=uid=admin,ou=system
+dt.ldap.bind-password=changeme
+dt.ldap.username-format=uid={0},ou=users,dc=example,dc=com
+dt.ldap.name-attribute=cn
+dt.ldap.mail-attribute=mail
+dt.ldap.group-filter=(&(objectClass=groupOfUniqueNames))
+dt.ldap.user-groups-filter=(&(objectClass=groupOfUniqueNames)(uniqueMember={USER_DN}))
+dt.ldap.group-search-filter=(&(objectClass=groupOfUniqueNames)(cn=*{SEARCH_TERM}*))
+dt.ldap.user-search-filter=(&(objectClass=inetOrgPerson)(cn=*{SEARCH_TERM}*))
 ```
 
 ### Fedora 389 Directory Server
 
 ```properties linenums="1"
 dt.ldap.enabled=true
-dt.ldap.server.url=ldap://ldap.example.com:389
-dt.ldap.basedn=dc=example,dc=com
-dt.ldap.security.auth=simple
-dt.ldap.bind.username=cn=Directory Manager
-dt.ldap.bind.password=changeme
-dt.ldap.auth.username.format=uid={0},ou=people,dc=example,dc=com
-dt.ldap.attribute.name=uid
-dt.ldap.attribute.mail=mail
-dt.ldap.groups.filter=(&(objectClass=groupOfUniqueNames))
-dt.ldap.user.groups.filter=(&(objectClass=groupOfUniqueNames)(uniqueMember={USER_DN}))
-dt.ldap.groups.search.filter=(&(objectClass=groupOfUniqueNames)(cn=*{SEARCH_TERM}*))
-dt.ldap.users.search.filter=(&(objectClass=inetOrgPerson)(uid=*{SEARCH_TERM}*))
+dt.ldap.server-url=ldap://ldap.example.com:389
+dt.ldap.base-dn=dc=example,dc=com
+dt.ldap.security-auth=simple
+dt.ldap.bind-username=cn=Directory Manager
+dt.ldap.bind-password=changeme
+dt.ldap.username-format=uid={0},ou=people,dc=example,dc=com
+dt.ldap.name-attribute=uid
+dt.ldap.mail-attribute=mail
+dt.ldap.group-filter=(&(objectClass=groupOfUniqueNames))
+dt.ldap.user-groups-filter=(&(objectClass=groupOfUniqueNames)(uniqueMember={USER_DN}))
+dt.ldap.group-search-filter=(&(objectClass=groupOfUniqueNames)(cn=*{SEARCH_TERM}*))
+dt.ldap.user-search-filter=(&(objectClass=inetOrgPerson)(uid=*{SEARCH_TERM}*))
 ```
 
 ### NetIQ / Novell eDirectory
@@ -158,18 +158,18 @@ eDirectory typically uses LDAPS on port 636 and an organisation-based DN structu
 
 ```properties linenums="1"
 dt.ldap.enabled=true
-dt.ldap.server.url=ldaps://ldap.example.com:636
-dt.ldap.basedn=o=example
-dt.ldap.security.auth=simple
-dt.ldap.bind.username=cn=admin,o=example
-dt.ldap.bind.password=changeme
-dt.ldap.auth.username.format=uid={0},ou=users,o=example
-dt.ldap.attribute.name=uid
-dt.ldap.attribute.mail=mail
-dt.ldap.groups.filter=(&(objectClass=groupOfUniqueNames))
-dt.ldap.user.groups.filter=(&(objectClass=groupOfUniqueNames)(uniqueMember={USER_DN}))
-dt.ldap.groups.search.filter=(&(objectClass=groupOfUniqueNames)(cn=*{SEARCH_TERM}*))
-dt.ldap.users.search.filter=(&(objectClass=inetOrgPerson)(uid=*{SEARCH_TERM}*))
+dt.ldap.server-url=ldaps://ldap.example.com:636
+dt.ldap.base-dn=o=example
+dt.ldap.security-auth=simple
+dt.ldap.bind-username=cn=admin,o=example
+dt.ldap.bind-password=changeme
+dt.ldap.username-format=uid={0},ou=users,o=example
+dt.ldap.name-attribute=uid
+dt.ldap.mail-attribute=mail
+dt.ldap.group-filter=(&(objectClass=groupOfUniqueNames))
+dt.ldap.user-groups-filter=(&(objectClass=groupOfUniqueNames)(uniqueMember={USER_DN}))
+dt.ldap.group-search-filter=(&(objectClass=groupOfUniqueNames)(cn=*{SEARCH_TERM}*))
+dt.ldap.user-search-filter=(&(objectClass=inetOrgPerson)(uid=*{SEARCH_TERM}*))
 ```
 
 ---

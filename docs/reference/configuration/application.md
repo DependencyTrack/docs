@@ -44,7 +44,7 @@ secrets:
 
 ```ini linenums="1"
 dt.datasource.password=${file::/var/run/secrets/database-password}
-dt.ldap.bind.password=${file::/var/run/secrets/ldap-bind-password}
+dt.ldap.bind-password=${file::/var/run/secrets/ldap-bind-password}
 ```
 
 The file is read once at startup, decoded as UTF-8, and trailing whitespace is stripped. Files
@@ -102,7 +102,7 @@ values for the same flag.
 ## Debugging Configuration Resolution
 
 To verify whether config values are properly resolved and from which source, enable debug logging
-via [`dt.config.log.values`](properties.md#dtconfiglogvalues) and
+via [`dt.config.log-values`](properties.md#dtconfiglog-values) and
 [`dt.logging.level."io.smallrye.config"`](properties.md) set to `DEBUG`.
 
 !!! warning
