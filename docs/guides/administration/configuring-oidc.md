@@ -34,8 +34,8 @@ for how property names map to environment variables.
 ```properties linenums="1"
 dt.oidc.enabled=true
 dt.oidc.issuer=https://idp.example.com
-dt.oidc.client.id=dependency-track
-dt.oidc.username.claim=preferred_username
+dt.oidc.client-id=dependency-track
+dt.oidc.username-claim=preferred_username
 ```
 
 ### User provisioning
@@ -43,7 +43,7 @@ dt.oidc.username.claim=preferred_username
 When enabled, Dependency-Track creates user accounts automatically on first login:
 
 ```properties
-dt.oidc.user.provisioning=true
+dt.oidc.user-provisioning=true
 ```
 
 ### Team synchronisation
@@ -56,8 +56,8 @@ easiest to emit. Map teams to those group names under
 **Administration > Access Management > Teams**.
 
 ```properties
-dt.oidc.team.synchronization=true
-dt.oidc.teams.claim=groups
+dt.oidc.team-synchronization=true
+dt.oidc.teams-claim=groups
 ```
 
 ## Frontend configuration
@@ -101,8 +101,8 @@ etc.) to match your environment.
 
 ```properties
 dt.oidc.issuer=https://keycloak.example.com/realms/your-realm
-dt.oidc.client.id=dependency-track
-dt.oidc.username.claim=preferred_username
+dt.oidc.client-id=dependency-track
+dt.oidc.username-claim=preferred_username
 ```
 
 ### Microsoft Entra ID (Azure AD)
@@ -115,8 +115,8 @@ dt.oidc.username.claim=preferred_username
 
 ```properties
 dt.oidc.issuer=https://login.microsoftonline.com/<tenant-id>/v2.0
-dt.oidc.client.id=<application-client-id>
-dt.oidc.username.claim=preferred_username
+dt.oidc.client-id=<application-client-id>
+dt.oidc.username-claim=preferred_username
 ```
 
 !!! note
@@ -134,8 +134,8 @@ dt.oidc.username.claim=preferred_username
 
 ```properties
 dt.oidc.issuer=https://your-tenant.auth0.com/
-dt.oidc.client.id=<auth0-client-id>
-dt.oidc.username.claim=nickname
+dt.oidc.client-id=<auth0-client-id>
+dt.oidc.username-claim=nickname
 ```
 
 ### GitLab
@@ -146,8 +146,8 @@ dt.oidc.username.claim=nickname
 
 ```properties
 dt.oidc.issuer=https://gitlab.com
-dt.oidc.client.id=<application-id>
-dt.oidc.username.claim=nickname
+dt.oidc.client-id=<application-id>
+dt.oidc.username-claim=nickname
 ```
 
 For self-hosted GitLab, replace `https://gitlab.com` with your GitLab instance URL.
@@ -160,8 +160,8 @@ For self-hosted GitLab, replace `https://gitlab.com` with your GitLab instance U
 
 ```properties
 dt.oidc.issuer=https://accounts.google.com
-dt.oidc.client.id=<client-id>.apps.googleusercontent.com
-dt.oidc.username.claim=email
+dt.oidc.client-id=<client-id>.apps.googleusercontent.com
+dt.oidc.username-claim=email
 ```
 
 !!! warning
@@ -188,8 +188,8 @@ dt.oidc.username.claim=email
 
 ```properties
 dt.oidc.issuer=https://your-subdomain.onelogin.com/oidc/2
-dt.oidc.client.id=<client-id>
-dt.oidc.username.claim=preferred_username
+dt.oidc.client-id=<client-id>
+dt.oidc.username-claim=preferred_username
 ```
 
 ### AWS Cognito
@@ -203,8 +203,8 @@ dt.oidc.username.claim=preferred_username
 
 ```properties
 dt.oidc.issuer=https://cognito-idp.<region>.amazonaws.com/<user-pool-id>
-dt.oidc.client.id=<app-client-id>
-dt.oidc.username.claim=cognito:username
+dt.oidc.client-id=<app-client-id>
+dt.oidc.username-claim=cognito:username
 ```
 
 ---

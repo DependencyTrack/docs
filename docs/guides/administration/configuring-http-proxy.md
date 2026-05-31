@@ -16,10 +16,10 @@ user's browser; any requests it appears to make actually originate from the brow
 
 The API server reads proxy settings from two sources, in this order:
 
-1. App properties (`dt.http.proxy.*`, `dt.no.proxy`).
+1. App properties (`dt.http.proxy.*`).
 2. The standard `HTTPS_PROXY`, `HTTP_PROXY`, and `NO_PROXY` environment variables.
 
-If `dt.http.proxy.address` has a value, app properties win and the API server ignores the environment variables.
+If `dt.http.proxy.host` has a value, app properties win and the API server ignores the environment variables.
 Otherwise, the API server falls back to the environment.
 
 ## Configuring via app properties
@@ -27,21 +27,21 @@ Otherwise, the API server falls back to the environment.
 Set the following properties (see [Application configuration](../../reference/configuration/application.md#environment-variable-mapping)
 for how property names map to environment variables):
 
-- [`dt.http.proxy.address`](../../reference/configuration/properties.md#dthttpproxyaddress): proxy hostname or IP address.
+- [`dt.http.proxy.host`](../../reference/configuration/properties.md#dthttpproxyhost): proxy hostname or IP address.
 - [`dt.http.proxy.port`](../../reference/configuration/properties.md#dthttpproxyport): proxy port. Required when
-  `dt.http.proxy.address` has a value.
-- [`dt.http.proxy.username`](../../reference/configuration/properties.md#dthttpproxyusername): optional, for
+  `dt.http.proxy.host` has a value.
+- [`dt.http.proxy.auth.username`](../../reference/configuration/properties.md#dthttpproxyauthusername): optional, for
   authenticated proxies.
-- [`dt.http.proxy.password`](../../reference/configuration/properties.md#dthttpproxypassword): optional, for
+- [`dt.http.proxy.auth.password`](../../reference/configuration/properties.md#dthttpproxyauthpassword): optional, for
   authenticated proxies.
-- [`dt.no.proxy`](../../reference/configuration/properties.md#dtnoproxy): comma-separated bypass list.
+- [`dt.http.proxy.exclusions`](../../reference/configuration/properties.md#dthttpproxyexclusions): comma-separated bypass list.
 
 Example:
 
 ```properties linenums="1"
-dt.http.proxy.address=proxy.example.com
+dt.http.proxy.host=proxy.example.com
 dt.http.proxy.port=8080
-dt.no.proxy=localhost,127.0.0.1,example.com
+dt.http.proxy.exclusions=localhost,127.0.0.1,example.com
 ```
 
 ## Configuring via standard environment variables
@@ -62,7 +62,7 @@ The API server uses the same proxy for both HTTP and HTTPS upstream calls. URIs 
 
 ## Bypass list
 
-Both `dt.no.proxy` and `NO_PROXY` accept a comma-separated list of entries. Each entry takes the form of either a
+Both `dt.http.proxy.exclusions` and `NO_PROXY` accept a comma-separated list of entries. Each entry takes the form of either a
 hostname or IP address, optionally with `:port`. CIDR ranges, IP-address ranges, leading-dot notation, and protocol
 schemes are not supported.
 
@@ -75,7 +75,7 @@ The matching rules are:
 - If an entry includes a port (`host:port`), the host must match (exact or subdomain) and the port must match exactly.
 - Only `http` and `https` URIs go through the proxy; other schemes always bypass it.
 
-For example, given `dt.no.proxy=example.com,localhost:5432`:
+For example, given `dt.http.proxy.exclusions=example.com,localhost:5432`:
 
 - `https://api.example.com/` bypasses the proxy (subdomain match).
 - `https://localhost:5432/` bypasses the proxy (host and port match).
@@ -83,7 +83,7 @@ For example, given `dt.no.proxy=example.com,localhost:5432`:
 
 ## Authenticated proxies
 
-For Basic-authenticated proxies, set `dt.http.proxy.username` and `dt.http.proxy.password`. Avoid placing the password
+For Basic-authenticated proxies, set `dt.http.proxy.auth.username` and `dt.http.proxy.auth.password`. Avoid placing the password
 in plain text; see [Loading values from files](../../reference/configuration/application.md#loading-values-from-files).
 
 For NTLM-authenticated proxies, supply the username in `domain\username` form. The API server splits on the first
