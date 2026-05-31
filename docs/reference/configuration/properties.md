@@ -1,7 +1,7 @@
 <!--
   GENERATED. DO NOT EDIT.
 
-  Generated with: --template scripts/templates/config-docs.md.j2 --output docs/reference/configuration/properties.md hyades-apiserver/apiserver/src/main/resources/application.properties
+  Generated with: --template scripts/templates/config-docs.md.j2 --output docs/reference/configuration/properties.md dependency-track/apiserver/src/main/resources/application.properties
 -->
 
 # Configuration Properties
@@ -29,7 +29,7 @@ Configuration properties may use the following types:
 
 ## CORS
 
-<span id="dtcorsallowcredentials">**`dt.cors.allow.credentials`** [¶](#dtcorsallowcredentials){ .headerlink }</span>
+<span id="dtcorsallow-credentials">**`dt.cors.allow-credentials`** [¶](#dtcorsallow-credentials){ .headerlink }</span>
 
 Controls the content of the `Access-Control-Allow-Credentials` response header.  <br/>  Has no effect when [`dt.cors.enabled`](#dtcorsenabled) is `false`.  
 
@@ -39,34 +39,34 @@ Controls the content of the `Access-Control-Allow-Credentials` response header. 
 <tr><th>ENV</th><td><code>DT_CORS_ALLOW_CREDENTIALS</code></td></tr>
 </table>
 
-<span id="dtcorsallowheaders">**`dt.cors.allow.headers`** [¶](#dtcorsallowheaders){ .headerlink }</span>
+<span id="dtcorsallowed-headers">**`dt.cors.allowed-headers`** [¶](#dtcorsallowed-headers){ .headerlink }</span>
 
 Controls the content of the `Access-Control-Allow-Headers` response header.  <br/>  Has no effect when [`dt.cors.enabled`](#dtcorsenabled) is `false`.  
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
 <tr><th>Default</th><td><code>Origin,Content-Type,Authorization,X-Requested-With,Content-Length,Accept,Origin,X-Api-Key,X-Total-Count,*</code></td></tr>
-<tr><th>ENV</th><td><code>DT_CORS_ALLOW_HEADERS</code></td></tr>
+<tr><th>ENV</th><td><code>DT_CORS_ALLOWED_HEADERS</code></td></tr>
 </table>
 
-<span id="dtcorsallowmethods">**`dt.cors.allow.methods`** [¶](#dtcorsallowmethods){ .headerlink }</span>
+<span id="dtcorsallowed-methods">**`dt.cors.allowed-methods`** [¶](#dtcorsallowed-methods){ .headerlink }</span>
 
 Controls the content of the `Access-Control-Allow-Methods` response header.  <br/>  Has no effect when [`dt.cors.enabled`](#dtcorsenabled) is `false`.  
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
 <tr><th>Default</th><td><code>GET,POST,PUT,PATCH,DELETE,OPTIONS</code></td></tr>
-<tr><th>ENV</th><td><code>DT_CORS_ALLOW_METHODS</code></td></tr>
+<tr><th>ENV</th><td><code>DT_CORS_ALLOWED_METHODS</code></td></tr>
 </table>
 
-<span id="dtcorsalloworigin">**`dt.cors.allow.origin`** [¶](#dtcorsalloworigin){ .headerlink }</span>
+<span id="dtcorsallowed-origins">**`dt.cors.allowed-origins`** [¶](#dtcorsallowed-origins){ .headerlink }</span>
 
 Controls the content of the `Access-Control-Allow-Origin` response header.  <br/>  Has no effect when [`dt.cors.enabled`](#dtcorsenabled) is `false`.  
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
 <tr><th>Default</th><td><code>*</code></td></tr>
-<tr><th>ENV</th><td><code>DT_CORS_ALLOW_ORIGIN</code></td></tr>
+<tr><th>ENV</th><td><code>DT_CORS_ALLOWED_ORIGINS</code></td></tr>
 </table>
 
 <span id="dtcorsenabled">**`dt.cors.enabled`** [¶](#dtcorsenabled){ .headerlink }</span>
@@ -79,17 +79,17 @@ Defines whether [Cross Origin Resource Sharing](https://developer.mozilla.org/en
 <tr><th>ENV</th><td><code>DT_CORS_ENABLED</code></td></tr>
 </table>
 
-<span id="dtcorsexposeheaders">**`dt.cors.expose.headers`** [¶](#dtcorsexposeheaders){ .headerlink }</span>
+<span id="dtcorsexposed-headers">**`dt.cors.exposed-headers`** [¶](#dtcorsexposed-headers){ .headerlink }</span>
 
 Controls the content of the `Access-Control-Expose-Headers` response header.  <br/>  Has no effect when [`dt.cors.enabled`](#dtcorsenabled) is `false`.  
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
 <tr><th>Default</th><td><code>Origin,Content-Type,Authorization,X-Requested-With,Content-Length,Accept,Origin,X-Api-Key,X-Total-Count</code></td></tr>
-<tr><th>ENV</th><td><code>DT_CORS_EXPOSE_HEADERS</code></td></tr>
+<tr><th>ENV</th><td><code>DT_CORS_EXPOSED_HEADERS</code></td></tr>
 </table>
 
-<span id="dtcorsmaxage">**`dt.cors.max.age`** [¶](#dtcorsmaxage){ .headerlink }</span>
+<span id="dtcorsmax-age">**`dt.cors.max-age`** [¶](#dtcorsmax-age){ .headerlink }</span>
 
 Controls the content of the `Access-Control-Max-Age` response header.  <br/>  Has no effect when [`dt.cors.enabled`](#dtcorsenabled) is `false`.  
 
@@ -399,17 +399,17 @@ Defines the name of the data source to use for executing database  migrations of
 <tr><th>ENV</th><td><code>DT_DEX_ENGINE_MIGRATION_DATASOURCE_NAME</code></td></tr>
 </table>
 
-<span id="dtinittasksdatasourceclose-after-use">**`dt.init.tasks.datasource.close-after-use`** <strong style="color: red">*</strong> [¶](#dtinittasksdatasourceclose-after-use){ .headerlink }</span>
+<span id="dtinit-tasksdatasourceclose-after-completion">**`dt.init-tasks.datasource.close-after-completion`** <strong style="color: red">*</strong> [¶](#dtinit-tasksdatasourceclose-after-completion){ .headerlink }</span>
 
 Defines whether the data source used by init tasks should be closed  after all tasks completed. This is useful when a non-default data source  was configured, that is not used anywhere else.  
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>boolean</code></td></tr>
 <tr><th>Default</th><td><code>false</code></td></tr>
-<tr><th>ENV</th><td><code>DT_INIT_TASKS_DATASOURCE_CLOSE_AFTER_USE</code></td></tr>
+<tr><th>ENV</th><td><code>DT_INIT_TASKS_DATASOURCE_CLOSE_AFTER_COMPLETION</code></td></tr>
 </table>
 
-<span id="dtinittasksdatasourcename">**`dt.init.tasks.datasource.name`** <strong style="color: red">*</strong> [¶](#dtinittasksdatasourcename){ .headerlink }</span>
+<span id="dtinit-tasksdatasourcename">**`dt.init-tasks.datasource.name`** <strong style="color: red">*</strong> [¶](#dtinit-tasksdatasourcename){ .headerlink }</span>
 
 Defines the name of the data source to be used by init tasks.  
 
@@ -423,7 +423,7 @@ Defines the name of the data source to be used by init tasks.
 
 ## Development
 
-<span id="dtdevservicesenabled">**`dt.dev.services.enabled`** [¶](#dtdevservicesenabled){ .headerlink }</span>
+<span id="dtdev-servicesenabled">**`dt.dev-services.enabled`** [¶](#dtdev-servicesenabled){ .headerlink }</span>
 
 Whether dev services shall be enabled.  <br/><br/>  When enabled, Dependency-Track will automatically launch containers for:  <ul>  <li>Frontend</li>  <li>PostgreSQL</li>  </ul>  at startup, and configures itself to use them. They are disposed when  Dependency-Track stops. The containers are exposed on randomized ports,  which will be logged during startup.  <br/><br/>  Trying to enable dev services in a production build will prevent  the application from starting.  <br/><br/>  Note that the containers launched by the API server can not currently  be discovered and re-used by other Hyades services. This is a future  enhancement tracked in <https://github.com/DependencyTrack/hyades/issues/1188>.  
 
@@ -433,34 +433,34 @@ Whether dev services shall be enabled.  <br/><br/>  When enabled, Dependency-Tra
 <tr><th>ENV</th><td><code>DT_DEV_SERVICES_ENABLED</code></td></tr>
 </table>
 
-<span id="dtdevservicesimagefrontend">**`dt.dev.services.image.frontend`** [¶](#dtdevservicesimagefrontend){ .headerlink }</span>
+<span id="dtdev-servicesfrontend-image">**`dt.dev-services.frontend-image`** [¶](#dtdev-servicesfrontend-image){ .headerlink }</span>
 
 The image to use for the frontend dev services container.  
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
-<tr><th>Default</th><td><code>ghcr.io/dependencytrack/hyades-frontend:snapshot</code></td></tr>
-<tr><th>ENV</th><td><code>DT_DEV_SERVICES_IMAGE_FRONTEND</code></td></tr>
+<tr><th>Default</th><td><code>ghcr.io/dependencytrack/frontend:5-snapshot</code></td></tr>
+<tr><th>ENV</th><td><code>DT_DEV_SERVICES_FRONTEND_IMAGE</code></td></tr>
 </table>
 
-<span id="dtdevservicesimagepostgres">**`dt.dev.services.image.postgres`** [¶](#dtdevservicesimagepostgres){ .headerlink }</span>
-
-The image to use for the PostgreSQL dev services container.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
-<tr><th>Default</th><td><code>postgres:14-alpine</code></td></tr>
-<tr><th>ENV</th><td><code>DT_DEV_SERVICES_IMAGE_POSTGRES</code></td></tr>
-</table>
-
-<span id="dtdevservicesportfrontend">**`dt.dev.services.port.frontend`** [¶](#dtdevservicesportfrontend){ .headerlink }</span>
+<span id="dtdev-servicesfrontend-port">**`dt.dev-services.frontend-port`** [¶](#dtdev-servicesfrontend-port){ .headerlink }</span>
 
 The port on which the frontend dev services container shall be exposed on the host.  
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
 <tr><th>Default</th><td><code>8081</code></td></tr>
-<tr><th>ENV</th><td><code>DT_DEV_SERVICES_PORT_FRONTEND</code></td></tr>
+<tr><th>ENV</th><td><code>DT_DEV_SERVICES_FRONTEND_PORT</code></td></tr>
+</table>
+
+<span id="dtdev-servicespostgres-image">**`dt.dev-services.postgres-image`** [¶](#dtdev-servicespostgres-image){ .headerlink }</span>
+
+The image to use for the PostgreSQL dev services container.  
+
+<table>
+<tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
+<tr><th>Default</th><td><code>postgres:14-alpine</code></td></tr>
+<tr><th>ENV</th><td><code>DT_DEV_SERVICES_POSTGRES_IMAGE</code></td></tr>
 </table>
 
 
@@ -757,17 +757,17 @@ Defines the maximum number of completed workflow runs to delete during a single 
 <tr><th>ENV</th><td><code>DT_DEX_ENGINE_MAINTENANCE_RUN_DELETION_BATCH_SIZE</code></td></tr>
 </table>
 
-<span id="dtdex-enginemaintenancerun-retention-duration">**`dt.dex-engine.maintenance.run-retention-duration`** [¶](#dtdex-enginemaintenancerun-retention-duration){ .headerlink }</span>
+<span id="dtdex-enginemaintenancerun-retention-ms">**`dt.dex-engine.maintenance.run-retention-ms`** [¶](#dtdex-enginemaintenancerun-retention-ms){ .headerlink }</span>
 
-Defines the duration in ISO 8601 format after which completed workflow runs become  eligible for deletion.  
+Defines the duration in milliseconds after which completed workflow runs become  eligible for deletion.  
 
 <table>
-<tr><th>Type</th><td style="border-width: 0"><code>duration</code></td></tr>
-<tr><th>Default</th><td><code>P1D</code></td></tr>
-<tr><th>ENV</th><td><code>DT_DEX_ENGINE_MAINTENANCE_RUN_RETENTION_DURATION</code></td></tr>
+<tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
+<tr><th>Default</th><td><code>86400000</code></td></tr>
+<tr><th>ENV</th><td><code>DT_DEX_ENGINE_MAINTENANCE_RUN_RETENTION_MS</code></td></tr>
 </table>
 
-<span id="dtdex-enginemaintenanceworkerinitial-delay-ms">**`dt.dex-engine.maintenance.worker.initial-delay-ms`** [¶](#dtdex-enginemaintenanceworkerinitial-delay-ms){ .headerlink }</span>
+<span id="dtdex-enginemaintenanceworker-initial-delay-ms">**`dt.dex-engine.maintenance.worker-initial-delay-ms`** [¶](#dtdex-enginemaintenanceworker-initial-delay-ms){ .headerlink }</span>
 
 Defines the initial delay in milliseconds after which the maintenance worker will execute for the first time.  <br/><br/>  Note that only the leader node in the cluster will actually perform maintenance work.  For nodes that are not leaders, maintenance is a no-op.  
 
@@ -777,7 +777,7 @@ Defines the initial delay in milliseconds after which the maintenance worker wil
 <tr><th>ENV</th><td><code>DT_DEX_ENGINE_MAINTENANCE_WORKER_INITIAL_DELAY_MS</code></td></tr>
 </table>
 
-<span id="dtdex-enginemaintenanceworkerinterval-ms">**`dt.dex-engine.maintenance.worker.interval-ms`** [¶](#dtdex-enginemaintenanceworkerinterval-ms){ .headerlink }</span>
+<span id="dtdex-enginemaintenanceworker-interval-ms">**`dt.dex-engine.maintenance.worker-interval-ms`** [¶](#dtdex-enginemaintenanceworker-interval-ms){ .headerlink }</span>
 
 Defines the interval in milliseconds at which the maintenance worker will execute.  <br/><br/>  Note that only the leader node in the cluster will actually perform maintenance work.  For nodes that are not leaders, maintenance is a no-op.  
 
@@ -787,7 +787,7 @@ Defines the interval in milliseconds at which the maintenance worker will execut
 <tr><th>ENV</th><td><code>DT_DEX_ENGINE_MAINTENANCE_WORKER_INTERVAL_MS</code></td></tr>
 </table>
 
-<span id="dtdex-enginemetricscollectorenabled">**`dt.dex-engine.metrics.collector.enabled`** [¶](#dtdex-enginemetricscollectorenabled){ .headerlink }</span>
+<span id="dtdex-enginemetrics-collectorenabled">**`dt.dex-engine.metrics-collector.enabled`** [¶](#dtdex-enginemetrics-collectorenabled){ .headerlink }</span>
 
 Defines whether the metrics collector should be enabled.  <br/><br/>  The collector is responsible for collecting metrics from  the database, such as the distribution of workflow run statuses,  task queue capacities and depths, and more.  <br/><br/>  It is recommended to keep it enabled for monitoring purposes,  but may be disabled in case it generates undesired load.  
 
@@ -797,7 +797,7 @@ Defines whether the metrics collector should be enabled.  <br/><br/>  The collec
 <tr><th>ENV</th><td><code>DT_DEX_ENGINE_METRICS_COLLECTOR_ENABLED</code></td></tr>
 </table>
 
-<span id="dtdex-enginemetricscollectorinitial-delay-ms">**`dt.dex-engine.metrics.collector.initial-delay-ms`** [¶](#dtdex-enginemetricscollectorinitial-delay-ms){ .headerlink }</span>
+<span id="dtdex-enginemetrics-collectorinitial-delay-ms">**`dt.dex-engine.metrics-collector.initial-delay-ms`** [¶](#dtdex-enginemetrics-collectorinitial-delay-ms){ .headerlink }</span>
 
 Defines the initial delay in milliseconds after which the metrics collector will first run.  
 
@@ -807,7 +807,7 @@ Defines the initial delay in milliseconds after which the metrics collector will
 <tr><th>ENV</th><td><code>DT_DEX_ENGINE_METRICS_COLLECTOR_INITIAL_DELAY_MS</code></td></tr>
 </table>
 
-<span id="dtdex-enginemetricscollectorinterval-ms">**`dt.dex-engine.metrics.collector.interval-ms`** [¶](#dtdex-enginemetricscollectorinterval-ms){ .headerlink }</span>
+<span id="dtdex-enginemetrics-collectorinterval-ms">**`dt.dex-engine.metrics-collector.interval-ms`** [¶](#dtdex-enginemetrics-collectorinterval-ms){ .headerlink }</span>
 
 Defines the interval in milliseconds in which the metrics collector runs.  
 
@@ -901,7 +901,7 @@ Defines the maximum concurrency of the default workflow worker.  <br/><br/>  Not
 
 ## General
 
-<span id="dtapikeyprefix">**`dt.api.key.prefix`** [¶](#dtapikeyprefix){ .headerlink }</span>
+<span id="dtapi-keyprefix">**`dt.api-key.prefix`** [¶](#dtapi-keyprefix){ .headerlink }</span>
 
 Defines the prefix to be used for API keys. A maximum prefix length of 251  characters is supported. The prefix may also be left empty.  
 
@@ -931,7 +931,7 @@ Specifies the number of bcrypt rounds to use when hashing a user's password.  Th
 <tr><th>ENV</th><td><code>DT_BCRYPT_ROUNDS</code></td></tr>
 </table>
 
-<span id="dtconfiglogvalues">**`dt.config.log.values`** [¶](#dtconfiglogvalues){ .headerlink }</span>
+<span id="dtconfiglog-values">**`dt.config.log-values`** [¶](#dtconfiglog-values){ .headerlink }</span>
 
 Defines whether config value lookups should be logged.  <br/><br/>  Logging happens at DEBUG level. To make the logs visible, you must configure  `dt.logging.level."io.smallrye.config"=DEBUG`.  <br/><br/>  Note that this will not mask or omit any secrets.  **Do not use in production environments!**  
 
@@ -951,7 +951,7 @@ Defines the configuration profile to apply.  <br/><br/>  For example, the `web` 
 <tr><th>ENV</th><td><code>DT_CONFIG_PROFILE</code></td></tr>
 </table>
 
-<span id="dtdatadirectory">**`dt.data.directory`** <strong style="color: red">*</strong> [¶](#dtdatadirectory){ .headerlink }</span>
+<span id="dtdata-directory">**`dt.data-directory`** <strong style="color: red">*</strong> [¶](#dtdata-directory){ .headerlink }</span>
 
 Defines the path to the data directory. This directory will hold logs,  keys, and any database or index files along with application-specific  files or directories.  
 
@@ -961,19 +961,9 @@ Defines the path to the data directory. This directory will hold logs,  keys, an
 <tr><th>ENV</th><td><code>DT_DATA_DIRECTORY</code></td></tr>
 </table>
 
-<span id="dtinitandexit">**`dt.init.and.exit`** [¶](#dtinitandexit){ .headerlink }</span>
+<span id="dtinit-taskdatabase-migrationenabled">**`dt.init-task.database-migration.enabled`** [¶](#dtinit-taskdatabase-migrationenabled){ .headerlink }</span>
 
-Whether to only execute initialization tasks and exit.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>boolean</code></td></tr>
-<tr><th>Default</th><td><code>false</code></td></tr>
-<tr><th>ENV</th><td><code>DT_INIT_AND_EXIT</code></td></tr>
-</table>
-
-<span id="dtinittaskdatabasemigrationenabled">**`dt.init.task.database.migration.enabled`** [¶](#dtinittaskdatabasemigrationenabled){ .headerlink }</span>
-
-Whether to enable the database migration init task.  Has no effect unless [`dt.init.tasks.enabled`](#dtinittasksenabled) is `true`.  
+Whether to enable the database migration init task.  Has no effect unless [`dt.init-tasks.enabled`](#dtinit-tasksenabled) is `true`.  
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>boolean</code></td></tr>
@@ -981,9 +971,9 @@ Whether to enable the database migration init task.  Has no effect unless [`dt.i
 <tr><th>ENV</th><td><code>DT_INIT_TASK_DATABASE_MIGRATION_ENABLED</code></td></tr>
 </table>
 
-<span id="dtinittaskdatabasepartitionmaintenanceenabled">**`dt.init.task.database.partition.maintenance.enabled`** [¶](#dtinittaskdatabasepartitionmaintenanceenabled){ .headerlink }</span>
+<span id="dtinit-taskdatabase-partition-maintenanceenabled">**`dt.init-task.database-partition-maintenance.enabled`** [¶](#dtinit-taskdatabase-partition-maintenanceenabled){ .headerlink }</span>
 
-Whether to enable the database partition maintenance init task.  Has no effect unless [`dt.init.tasks.enabled`](#dtinittasksenabled) is `true`.  
+Whether to enable the database partition maintenance init task.  Has no effect unless [`dt.init-tasks.enabled`](#dtinit-tasksenabled) is `true`.  
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>boolean</code></td></tr>
@@ -991,9 +981,9 @@ Whether to enable the database partition maintenance init task.  Has no effect u
 <tr><th>ENV</th><td><code>DT_INIT_TASK_DATABASE_PARTITION_MAINTENANCE_ENABLED</code></td></tr>
 </table>
 
-<span id="dtinittaskdatabaseseedingenabled">**`dt.init.task.database.seeding.enabled`** [¶](#dtinittaskdatabaseseedingenabled){ .headerlink }</span>
+<span id="dtinit-taskdatabase-seedingenabled">**`dt.init-task.database-seeding.enabled`** [¶](#dtinit-taskdatabase-seedingenabled){ .headerlink }</span>
 
-Whether to enable the database seeding init task.  Seeding involves populating the database with default objects,  such as permissions, users, licenses, etc.  Has no effect unless [`dt.init.tasks.enabled`](#dtinittasksenabled) is `true`.  
+Whether to enable the database seeding init task.  Seeding involves populating the database with default objects,  such as permissions, users, licenses, etc.  Has no effect unless [`dt.init-tasks.enabled`](#dtinit-tasksenabled) is `true`.  
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>boolean</code></td></tr>
@@ -1001,9 +991,9 @@ Whether to enable the database seeding init task.  Seeding involves populating t
 <tr><th>ENV</th><td><code>DT_INIT_TASK_DATABASE_SEEDING_ENABLED</code></td></tr>
 </table>
 
-<span id="dtinittaskdexenginedatabasemigrationenabled">**`dt.init.task.dex.engine.database.migration.enabled`** [¶](#dtinittaskdexenginedatabasemigrationenabled){ .headerlink }</span>
+<span id="dtinit-taskdex-engine-database-migrationenabled">**`dt.init-task.dex-engine-database-migration.enabled`** [¶](#dtinit-taskdex-engine-database-migrationenabled){ .headerlink }</span>
 
-Whether to enable the durable execution engine database migration init task.  Has no effect unless [`dt.init.tasks.enabled`](#dtinittasksenabled) is `true`.  
+Whether to enable the durable execution engine database migration init task.  Has no effect unless [`dt.init-tasks.enabled`](#dtinit-tasksenabled) is `true`.  
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>boolean</code></td></tr>
@@ -1011,17 +1001,7 @@ Whether to enable the durable execution engine database migration init task.  Ha
 <tr><th>ENV</th><td><code>DT_INIT_TASK_DEX_ENGINE_DATABASE_MIGRATION_ENABLED</code></td></tr>
 </table>
 
-<span id="dtinittaskkeygenerationenabled">**`dt.init.task.key.generation.enabled`** [¶](#dtinittaskkeygenerationenabled){ .headerlink }</span>
-
-Whether to enable the key generation init task.  Has no effect unless [`dt.init.tasks.enabled`](#dtinittasksenabled) is `true`.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>boolean</code></td></tr>
-<tr><th>Default</th><td><code>true</code></td></tr>
-<tr><th>ENV</th><td><code>DT_INIT_TASK_KEY_GENERATION_ENABLED</code></td></tr>
-</table>
-
-<span id="dtinittasksenabled">**`dt.init.tasks.enabled`** [¶](#dtinittasksenabled){ .headerlink }</span>
+<span id="dtinit-tasksenabled">**`dt.init-tasks.enabled`** [¶](#dtinit-tasksenabled){ .headerlink }</span>
 
 Whether to execute initialization tasks on startup.  
 
@@ -1031,17 +1011,27 @@ Whether to execute initialization tasks on startup.
 <tr><th>ENV</th><td><code>DT_INIT_TASKS_ENABLED</code></td></tr>
 </table>
 
-<span id="dttelemetrysubmissionenableddefault">**`dt.telemetry.submission.enabled.default`** [¶](#dttelemetrysubmissionenableddefault){ .headerlink }</span>
+<span id="dtinit-tasksexit-after-completion">**`dt.init-tasks.exit-after-completion`** [¶](#dtinit-tasksexit-after-completion){ .headerlink }</span>
+
+Whether to only execute initialization tasks and exit.  
+
+<table>
+<tr><th>Type</th><td style="border-width: 0"><code>boolean</code></td></tr>
+<tr><th>Default</th><td><code>false</code></td></tr>
+<tr><th>ENV</th><td><code>DT_INIT_TASKS_EXIT_AFTER_COMPLETION</code></td></tr>
+</table>
+
+<span id="dttelemetrysubmissiondefault-enabled">**`dt.telemetry.submission.default-enabled`** [¶](#dttelemetrysubmissiondefault-enabled){ .headerlink }</span>
 
 Defines the default value for the telemetry submission enabled setting.  <br/><br/>  This is only used during initial database seeding. Once the setting exists in the  database, it can be toggled via the REST API or the admin UI.  <br/><br/>  To opt out of telemetry before first startup, set this to `false`.  
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>boolean</code></td></tr>
 <tr><th>Default</th><td><code>true</code></td></tr>
-<tr><th>ENV</th><td><code>DT_TELEMETRY_SUBMISSION_ENABLED_DEFAULT</code></td></tr>
+<tr><th>ENV</th><td><code>DT_TELEMETRY_SUBMISSION_DEFAULT_ENABLED</code></td></tr>
 </table>
 
-<span id="dttmpdelaybomprocessednotification">**`dt.tmp.delay.bom.processed.notification`** [¶](#dttmpdelaybomprocessednotification){ .headerlink }</span>
+<span id="dttmpdelay-bom-processed-notification">**`dt.tmp.delay-bom-processed-notification`** [¶](#dttmpdelay-bom-processed-notification){ .headerlink }</span>
 
 Delays the BOM_PROCESSED notification until the vulnerability analysis associated with a given BOM upload  is completed. The intention being that it is then "safe" to query the API for any identified vulnerabilities.  This is specifically for cases where polling the /api/v1/bom/token/<TOKEN> endpoint is not feasible.  THIS IS A TEMPORARY FUNCTIONALITY AND MAY BE REMOVED IN FUTURE RELEASES WITHOUT FURTHER NOTICE.  
 
@@ -1051,37 +1041,37 @@ Delays the BOM_PROCESSED notification until the vulnerability analysis associate
 <tr><th>ENV</th><td><code>DT_TMP_DELAY_BOM_PROCESSED_NOTIFICATION</code></td></tr>
 </table>
 
-<span id="dtvulnerabilitypolicybundleauthbearertoken">**`dt.vulnerability.policy.bundle.auth.bearer.token`** [¶](#dtvulnerabilitypolicybundleauthbearertoken){ .headerlink }</span>
+<span id="dtvuln-policy-bundleauthbearer-token">**`dt.vuln-policy-bundle.auth.bearer-token`** [¶](#dtvuln-policy-bundleauthbearer-token){ .headerlink }</span>
 
 Defines the bearer token to be used for authentication against the service hosting the vulnerability policy bundle.  
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
 <tr><th>Default</th><td><code>null</code></td></tr>
-<tr><th>ENV</th><td><code>DT_VULNERABILITY_POLICY_BUNDLE_AUTH_BEARER_TOKEN</code></td></tr>
+<tr><th>ENV</th><td><code>DT_VULN_POLICY_BUNDLE_AUTH_BEARER_TOKEN</code></td></tr>
 </table>
 
-<span id="dtvulnerabilitypolicybundleauthpassword">**`dt.vulnerability.policy.bundle.auth.password`** [¶](#dtvulnerabilitypolicybundleauthpassword){ .headerlink }</span>
+<span id="dtvuln-policy-bundleauthpassword">**`dt.vuln-policy-bundle.auth.password`** [¶](#dtvuln-policy-bundleauthpassword){ .headerlink }</span>
 
 Defines the password to be used for basic authentication against the service hosting the vulnerability policy bundle.  
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
 <tr><th>Default</th><td><code>null</code></td></tr>
-<tr><th>ENV</th><td><code>DT_VULNERABILITY_POLICY_BUNDLE_AUTH_PASSWORD</code></td></tr>
+<tr><th>ENV</th><td><code>DT_VULN_POLICY_BUNDLE_AUTH_PASSWORD</code></td></tr>
 </table>
 
-<span id="dtvulnerabilitypolicybundleauthusername">**`dt.vulnerability.policy.bundle.auth.username`** [¶](#dtvulnerabilitypolicybundleauthusername){ .headerlink }</span>
+<span id="dtvuln-policy-bundleauthusername">**`dt.vuln-policy-bundle.auth.username`** [¶](#dtvuln-policy-bundleauthusername){ .headerlink }</span>
 
 Defines the username to be used for basic authentication against the service hosting the vulnerability policy bundle.  
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
 <tr><th>Default</th><td><code>null</code></td></tr>
-<tr><th>ENV</th><td><code>DT_VULNERABILITY_POLICY_BUNDLE_AUTH_USERNAME</code></td></tr>
+<tr><th>ENV</th><td><code>DT_VULN_POLICY_BUNDLE_AUTH_USERNAME</code></td></tr>
 </table>
 
-<span id="dtvulnerabilitypolicybundleurl">**`dt.vulnerability.policy.bundle.url`** [¶](#dtvulnerabilitypolicybundleurl){ .headerlink }</span>
+<span id="dtvuln-policy-bundleurl">**`dt.vuln-policy-bundle.url`** [¶](#dtvuln-policy-bundleurl){ .headerlink }</span>
 
 Defines where to fetch the vulnerability policy bundle from.  
 
@@ -1089,14 +1079,55 @@ Defines where to fetch the vulnerability policy bundle from.
 <tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
 <tr><th>Default</th><td><code>null</code></td></tr>
 <tr><th>Example</th><td><code>https://example.com/bundles/bundle.zip</code></td></tr>
-<tr><th>ENV</th><td><code>DT_VULNERABILITY_POLICY_BUNDLE_URL</code></td></tr>
+<tr><th>ENV</th><td><code>DT_VULN_POLICY_BUNDLE_URL</code></td></tr>
 </table>
 
 
 
 ## HTTP
 
-<span id="dthttpproxyaddress">**`dt.http.proxy.address`** [¶](#dthttpproxyaddress){ .headerlink }</span>
+<span id="dthttpconnect-timeout-ms">**`dt.http.connect-timeout-ms`** [¶](#dthttpconnect-timeout-ms){ .headerlink }</span>
+
+Defines the connection timeout in milliseconds for outbound HTTP connections.  
+
+<table>
+<tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
+<tr><th>Default</th><td><code>30000</code></td></tr>
+<tr><th>ENV</th><td><code>DT_HTTP_CONNECT_TIMEOUT_MS</code></td></tr>
+</table>
+
+<span id="dthttpproxyauthpassword">**`dt.http.proxy.auth.password`** [¶](#dthttpproxyauthpassword){ .headerlink }</span>
+
+
+
+<table>
+<tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
+<tr><th>Default</th><td><code>null</code></td></tr>
+<tr><th>ENV</th><td><code>DT_HTTP_PROXY_AUTH_PASSWORD</code></td></tr>
+</table>
+
+<span id="dthttpproxyauthusername">**`dt.http.proxy.auth.username`** [¶](#dthttpproxyauthusername){ .headerlink }</span>
+
+
+
+<table>
+<tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
+<tr><th>Default</th><td><code>null</code></td></tr>
+<tr><th>ENV</th><td><code>DT_HTTP_PROXY_AUTH_USERNAME</code></td></tr>
+</table>
+
+<span id="dthttpproxyexclusions">**`dt.http.proxy.exclusions`** [¶](#dthttpproxyexclusions){ .headerlink }</span>
+
+
+
+<table>
+<tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
+<tr><th>Default</th><td><code>null</code></td></tr>
+<tr><th>Example</th><td><code>localhost,127.0.0.1</code></td></tr>
+<tr><th>ENV</th><td><code>DT_HTTP_PROXY_EXCLUSIONS</code></td></tr>
+</table>
+
+<span id="dthttpproxyhost">**`dt.http.proxy.host`** [¶](#dthttpproxyhost){ .headerlink }</span>
 
 HTTP proxy address. If set, then [`dt.http.proxy.port`](#dthttpproxyport) must be set too.  
 
@@ -1104,17 +1135,7 @@ HTTP proxy address. If set, then [`dt.http.proxy.port`](#dthttpproxyport) must b
 <tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
 <tr><th>Default</th><td><code>null</code></td></tr>
 <tr><th>Example</th><td><code>proxy.example.com</code></td></tr>
-<tr><th>ENV</th><td><code>DT_HTTP_PROXY_ADDRESS</code></td></tr>
-</table>
-
-<span id="dthttpproxypassword">**`dt.http.proxy.password`** [¶](#dthttpproxypassword){ .headerlink }</span>
-
-
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
-<tr><th>Default</th><td><code>null</code></td></tr>
-<tr><th>ENV</th><td><code>DT_HTTP_PROXY_PASSWORD</code></td></tr>
+<tr><th>ENV</th><td><code>DT_HTTP_PROXY_HOST</code></td></tr>
 </table>
 
 <span id="dthttpproxyport">**`dt.http.proxy.port`** [¶](#dthttpproxyport){ .headerlink }</span>
@@ -1128,73 +1149,11 @@ HTTP proxy address. If set, then [`dt.http.proxy.port`](#dthttpproxyport) must b
 <tr><th>ENV</th><td><code>DT_HTTP_PROXY_PORT</code></td></tr>
 </table>
 
-<span id="dthttpproxyusername">**`dt.http.proxy.username`** [¶](#dthttpproxyusername){ .headerlink }</span>
-
-
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
-<tr><th>Default</th><td><code>null</code></td></tr>
-<tr><th>ENV</th><td><code>DT_HTTP_PROXY_USERNAME</code></td></tr>
-</table>
-
-<span id="dthttptimeoutconnection">**`dt.http.timeout.connection`** [¶](#dthttptimeoutconnection){ .headerlink }</span>
-
-Defines the connection timeout in seconds for outbound HTTP connections.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
-<tr><th>Default</th><td><code>30</code></td></tr>
-<tr><th>ENV</th><td><code>DT_HTTP_TIMEOUT_CONNECTION</code></td></tr>
-</table>
-
-<span id="dtnoproxy">**`dt.no.proxy`** [¶](#dtnoproxy){ .headerlink }</span>
-
-
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
-<tr><th>Default</th><td><code>null</code></td></tr>
-<tr><th>Example</th><td><code>localhost,127.0.0.1</code></td></tr>
-<tr><th>ENV</th><td><code>DT_NO_PROXY</code></td></tr>
-</table>
-
 
 
 ## LDAP
 
-<span id="dtldapattributemail">**`dt.ldap.attribute.mail`** [¶](#dtldapattributemail){ .headerlink }</span>
-
-Specifies the LDAP attribute used to store a users email address  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
-<tr><th>Default</th><td><code>mail</code></td></tr>
-<tr><th>ENV</th><td><code>DT_LDAP_ATTRIBUTE_MAIL</code></td></tr>
-</table>
-
-<span id="dtldapattributename">**`dt.ldap.attribute.name`** [¶](#dtldapattributename){ .headerlink }</span>
-
-Specifies the Attribute that identifies a users ID.  <br/><br/>  Example (Microsoft Active Directory):  <ul><li><code>userPrincipalName</code></li></ul>  Example (ApacheDS, Fedora 389 Directory, NetIQ/Novell eDirectory, etc):  <ul><li><code>uid</code></li></ul>  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
-<tr><th>Default</th><td><code>userPrincipalName</code></td></tr>
-<tr><th>ENV</th><td><code>DT_LDAP_ATTRIBUTE_NAME</code></td></tr>
-</table>
-
-<span id="dtldapauthusernameformat">**`dt.ldap.auth.username.format`** [¶](#dtldapauthusernameformat){ .headerlink }</span>
-
-Specifies if the username entered during login needs to be formatted prior  to asserting credentials against the directory. For Active Directory, the  userPrincipal attribute typically ends with the domain, whereas the  samAccountName attribute and other directory server implementations do not.  The %s variable will be substituted with the username asserted during login.  <br/><br/>  Example (Microsoft Active Directory):  <ul><li><code>%s@example.com</code></li></ul>  Example (ApacheDS, Fedora 389 Directory, NetIQ/Novell eDirectory, etc):  <ul><li><code>%s</code></li></ul>  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
-<tr><th>Default</th><td><code>null</code></td></tr>
-<tr><th>Example</th><td><code>%s@example.com</code></td></tr>
-<tr><th>ENV</th><td><code>DT_LDAP_AUTH_USERNAME_FORMAT</code></td></tr>
-</table>
-
-<span id="dtldapbasedn">**`dt.ldap.basedn`** [¶](#dtldapbasedn){ .headerlink }</span>
+<span id="dtldapbase-dn">**`dt.ldap.base-dn`** [¶](#dtldapbase-dn){ .headerlink }</span>
 
 Specifies the base DN that all queries should search from  
 
@@ -1202,10 +1161,10 @@ Specifies the base DN that all queries should search from
 <tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
 <tr><th>Default</th><td><code>null</code></td></tr>
 <tr><th>Example</th><td><code>dc=example,dc=com</code></td></tr>
-<tr><th>ENV</th><td><code>DT_LDAP_BASEDN</code></td></tr>
+<tr><th>ENV</th><td><code>DT_LDAP_BASE_DN</code></td></tr>
 </table>
 
-<span id="dtldapbindpassword">**`dt.ldap.bind.password`** [¶](#dtldapbindpassword){ .headerlink }</span>
+<span id="dtldapbind-password">**`dt.ldap.bind-password`** [¶](#dtldapbind-password){ .headerlink }</span>
 
 If anonymous access is not permitted, specify a password for the username  used to bind.  
 
@@ -1215,7 +1174,7 @@ If anonymous access is not permitted, specify a password for the username  used 
 <tr><th>ENV</th><td><code>DT_LDAP_BIND_PASSWORD</code></td></tr>
 </table>
 
-<span id="dtldapbindusername">**`dt.ldap.bind.username`** [¶](#dtldapbindusername){ .headerlink }</span>
+<span id="dtldapbind-username">**`dt.ldap.bind-username`** [¶](#dtldapbind-username){ .headerlink }</span>
 
 If anonymous access is not permitted, specify a username with limited access  to the directory, just enough to perform searches. This should be the fully  qualified DN of the user.  
 
@@ -1235,27 +1194,47 @@ Defines if LDAP will be used for user authentication. If enabled,  `dt.ldap.*` p
 <tr><th>ENV</th><td><code>DT_LDAP_ENABLED</code></td></tr>
 </table>
 
-<span id="dtldapgroupsfilter">**`dt.ldap.groups.filter`** [¶](#dtldapgroupsfilter){ .headerlink }</span>
+<span id="dtldapgroup-filter">**`dt.ldap.group-filter`** [¶](#dtldapgroup-filter){ .headerlink }</span>
 
 Specifies the LDAP search filter used to retrieve all groups from the directory.  <br/><br/>  Example (Microsoft Active Directory):  <ul><li><code>(&(objectClass=group)(objectCategory=Group))</code></li></ul>  Example (ApacheDS, Fedora 389 Directory, NetIQ/Novell eDirectory, etc):  <ul><li><code>(&(objectClass=groupOfUniqueNames))</code></li></ul>  
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
 <tr><th>Default</th><td><code>(&(objectClass=group)(objectCategory=Group))</code></td></tr>
-<tr><th>ENV</th><td><code>DT_LDAP_GROUPS_FILTER</code></td></tr>
+<tr><th>ENV</th><td><code>DT_LDAP_GROUP_FILTER</code></td></tr>
 </table>
 
-<span id="dtldapgroupssearchfilter">**`dt.ldap.groups.search.filter`** [¶](#dtldapgroupssearchfilter){ .headerlink }</span>
+<span id="dtldapgroup-search-filter">**`dt.ldap.group-search-filter`** [¶](#dtldapgroup-search-filter){ .headerlink }</span>
 
 Specifies the LDAP search filter used to search for groups by their name.  The `{SEARCH_TERM}` variable will be substituted at runtime.  <br/><br/>  Example (Microsoft Active Directory):  <ul><li><code>(&(objectClass=group)(objectCategory=Group)(cn=*{SEARCH_TERM}*))</code></li></ul>  Example (ApacheDS, Fedora 389 Directory, NetIQ/Novell eDirectory, etc):  <ul><li><code>(&(objectClass=groupOfUniqueNames)(cn=*{SEARCH_TERM}*))</code></li></ul>  
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
 <tr><th>Default</th><td><code>(&(objectClass=group)(objectCategory=Group)(cn=*{SEARCH_TERM}*))</code></td></tr>
-<tr><th>ENV</th><td><code>DT_LDAP_GROUPS_SEARCH_FILTER</code></td></tr>
+<tr><th>ENV</th><td><code>DT_LDAP_GROUP_SEARCH_FILTER</code></td></tr>
 </table>
 
-<span id="dtldapsecurityauth">**`dt.ldap.security.auth`** [¶](#dtldapsecurityauth){ .headerlink }</span>
+<span id="dtldapmail-attribute">**`dt.ldap.mail-attribute`** [¶](#dtldapmail-attribute){ .headerlink }</span>
+
+Specifies the LDAP attribute used to store a users email address  
+
+<table>
+<tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
+<tr><th>Default</th><td><code>mail</code></td></tr>
+<tr><th>ENV</th><td><code>DT_LDAP_MAIL_ATTRIBUTE</code></td></tr>
+</table>
+
+<span id="dtldapname-attribute">**`dt.ldap.name-attribute`** [¶](#dtldapname-attribute){ .headerlink }</span>
+
+Specifies the Attribute that identifies a users ID.  <br/><br/>  Example (Microsoft Active Directory):  <ul><li><code>userPrincipalName</code></li></ul>  Example (ApacheDS, Fedora 389 Directory, NetIQ/Novell eDirectory, etc):  <ul><li><code>uid</code></li></ul>  
+
+<table>
+<tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
+<tr><th>Default</th><td><code>userPrincipalName</code></td></tr>
+<tr><th>ENV</th><td><code>DT_LDAP_NAME_ATTRIBUTE</code></td></tr>
+</table>
+
+<span id="dtldapsecurity-auth">**`dt.ldap.security-auth`** [¶](#dtldapsecurity-auth){ .headerlink }</span>
 
 Specifies the LDAP security authentication level to use. Its value is one of  the following strings: "none", "simple", "strong". If this property is empty  or unspecified, the behaviour is determined by the service provider.  
 
@@ -1266,7 +1245,7 @@ Specifies the LDAP security authentication level to use. Its value is one of  th
 <tr><th>ENV</th><td><code>DT_LDAP_SECURITY_AUTH</code></td></tr>
 </table>
 
-<span id="dtldapserverurl">**`dt.ldap.server.url`** [¶](#dtldapserverurl){ .headerlink }</span>
+<span id="dtldapserver-url">**`dt.ldap.server-url`** [¶](#dtldapserver-url){ .headerlink }</span>
 
 Specifies the LDAP server URL.  <br/><br/>  Examples (Microsoft Active Directory):  <ul>  <li><code>ldap://ldap.example.com:3268</code></li>  <li><code>ldaps://ldap.example.com:3269</code></li>  </ul>  Examples (ApacheDS, Fedora 389 Directory, NetIQ/Novell eDirectory, etc):  <ul>  <li><code>ldap://ldap.example.com:389</code></li>  <li><code>ldaps://ldap.example.com:636</code></li>  </ul>  
 
@@ -1276,7 +1255,7 @@ Specifies the LDAP server URL.  <br/><br/>  Examples (Microsoft Active Directory
 <tr><th>ENV</th><td><code>DT_LDAP_SERVER_URL</code></td></tr>
 </table>
 
-<span id="dtldapteamsynchronization">**`dt.ldap.team.synchronization`** [¶](#dtldapteamsynchronization){ .headerlink }</span>
+<span id="dtldapteam-synchronization">**`dt.ldap.team-synchronization`** [¶](#dtldapteam-synchronization){ .headerlink }</span>
 
 This option will ensure that team memberships for LDAP users are dynamic and  synchronized with membership of LDAP groups. When a team is mapped to an LDAP  group, all local LDAP users will automatically be assigned to the team if  they are a member of the group the team is mapped to. If the user is later  removed from the LDAP group, they will also be removed from the team. This  option provides the ability to dynamically control user permissions via an  external directory.  
 
@@ -1286,7 +1265,7 @@ This option will ensure that team memberships for LDAP users are dynamic and  sy
 <tr><th>ENV</th><td><code>DT_LDAP_TEAM_SYNCHRONIZATION</code></td></tr>
 </table>
 
-<span id="dtldapusergroupsfilter">**`dt.ldap.user.groups.filter`** [¶](#dtldapusergroupsfilter){ .headerlink }</span>
+<span id="dtldapuser-groups-filter">**`dt.ldap.user-groups-filter`** [¶](#dtldapuser-groups-filter){ .headerlink }</span>
 
 Specifies the LDAP search filter to use to query a user and retrieve a list  of groups the user is a member of. The `{USER_DN}` variable will be substituted  with the actual value of the users DN at runtime.  <br/><br/>  Example (Microsoft Active Directory):  <ul><li><code>(&(objectClass=group)(objectCategory=Group)(member={USER_DN}))</code></li></ul>  Example (Microsoft Active Directory - with nested group support):  <ul><li><code>(member:1.2.840.113556.1.4.1941:={USER_DN})</code></li></ul>  Example (ApacheDS, Fedora 389 Directory, NetIQ/Novell eDirectory, etc):  <ul><li><code>(&(objectClass=groupOfUniqueNames)(uniqueMember={USER_DN}))</code></li></ul>  
 
@@ -1296,7 +1275,7 @@ Specifies the LDAP search filter to use to query a user and retrieve a list  of 
 <tr><th>ENV</th><td><code>DT_LDAP_USER_GROUPS_FILTER</code></td></tr>
 </table>
 
-<span id="dtldapuserprovisioning">**`dt.ldap.user.provisioning`** [¶](#dtldapuserprovisioning){ .headerlink }</span>
+<span id="dtldapuser-provisioning">**`dt.ldap.user-provisioning`** [¶](#dtldapuser-provisioning){ .headerlink }</span>
 
 Specifies if mapped LDAP accounts are automatically created upon successful  authentication. When a user logs in with valid credentials but an account has  not been previously provisioned, an authentication failure will be returned.  This allows admins to control specifically which ldap users can access the  system and which users cannot. When this value is set to true, a local ldap  user will be created and mapped to the ldap account automatically. This  automatic provisioning only affects authentication, not authorization.  
 
@@ -1306,14 +1285,25 @@ Specifies if mapped LDAP accounts are automatically created upon successful  aut
 <tr><th>ENV</th><td><code>DT_LDAP_USER_PROVISIONING</code></td></tr>
 </table>
 
-<span id="dtldapuserssearchfilter">**`dt.ldap.users.search.filter`** [¶](#dtldapuserssearchfilter){ .headerlink }</span>
+<span id="dtldapuser-search-filter">**`dt.ldap.user-search-filter`** [¶](#dtldapuser-search-filter){ .headerlink }</span>
 
 Specifies the LDAP search filter used to search for users by their name.  The <code>{SEARCH_TERM}</code> variable will be substituted at runtime.  <br/><br/>  Example (Microsoft Active Directory):  <ul><li><code>(&(objectClass=group)(objectCategory=Group)(cn=*{SEARCH_TERM}*))</code></li></ul>  Example (ApacheDS, Fedora 389 Directory, NetIQ/Novell eDirectory, etc):  <ul><li><code>(&(objectClass=inetOrgPerson)(cn=*{SEARCH_TERM}*))</code></li></ul>  
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
 <tr><th>Default</th><td><code>(&(objectClass=user)(objectCategory=Person)(cn=*{SEARCH_TERM}*))</code></td></tr>
-<tr><th>ENV</th><td><code>DT_LDAP_USERS_SEARCH_FILTER</code></td></tr>
+<tr><th>ENV</th><td><code>DT_LDAP_USER_SEARCH_FILTER</code></td></tr>
+</table>
+
+<span id="dtldapusername-format">**`dt.ldap.username-format`** [¶](#dtldapusername-format){ .headerlink }</span>
+
+Specifies if the username entered during login needs to be formatted prior  to asserting credentials against the directory. For Active Directory, the  userPrincipal attribute typically ends with the domain, whereas the  samAccountName attribute and other directory server implementations do not.  The %s variable will be substituted with the username asserted during login.  <br/><br/>  Example (Microsoft Active Directory):  <ul><li><code>%s@example.com</code></li></ul>  Example (ApacheDS, Fedora 389 Directory, NetIQ/Novell eDirectory, etc):  <ul><li><code>%s</code></li></ul>  
+
+<table>
+<tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
+<tr><th>Default</th><td><code>null</code></td></tr>
+<tr><th>Example</th><td><code>%s@example.com</code></td></tr>
+<tr><th>ENV</th><td><code>DT_LDAP_USERNAME_FORMAT</code></td></tr>
 </table>
 
 
@@ -1438,7 +1428,7 @@ Defines whether Prometheus metrics will be exposed.  If enabled, metrics will be
 
 ## OpenID Connect
 
-<span id="dtoidcclientid">**`dt.oidc.client.id`** [¶](#dtoidcclientid){ .headerlink }</span>
+<span id="dtoidcclient-id">**`dt.oidc.client-id`** [¶](#dtoidcclient-id){ .headerlink }</span>
 
 Defines the client ID to be used for OpenID Connect.  The client ID should be the same as the one configured for the frontend,  and will only be used to validate ID tokens.  
 
@@ -1468,7 +1458,7 @@ Defines the issuer URL to be used for OpenID Connect.  This issuer MUST support 
 <tr><th>ENV</th><td><code>DT_OIDC_ISSUER</code></td></tr>
 </table>
 
-<span id="dtoidcteamsynchronization">**`dt.oidc.team.synchronization`** [¶](#dtoidcteamsynchronization){ .headerlink }</span>
+<span id="dtoidcteam-synchronization">**`dt.oidc.team-synchronization`** [¶](#dtoidcteam-synchronization){ .headerlink }</span>
 
 This option will ensure that team memberships for OpenID Connect users are dynamic and  synchronized with membership of OpenID Connect groups or assigned roles. When a team is  mapped to an OpenID Connect group, all local OpenID Connect users will automatically be  assigned to the team if they are a member of the group the team is mapped to. If the user  is later removed from the OpenID Connect group, they will also be removed from the team. This  option provides the ability to dynamically control user permissions via the identity provider.  Note that team synchronization is only performed during user provisioning and after successful  authentication.  
 
@@ -1478,7 +1468,7 @@ This option will ensure that team memberships for OpenID Connect users are dynam
 <tr><th>ENV</th><td><code>DT_OIDC_TEAM_SYNCHRONIZATION</code></td></tr>
 </table>
 
-<span id="dtoidcteamsclaim">**`dt.oidc.teams.claim`** [¶](#dtoidcteamsclaim){ .headerlink }</span>
+<span id="dtoidcteams-claim">**`dt.oidc.teams-claim`** [¶](#dtoidcteams-claim){ .headerlink }</span>
 
 Defines the name of the claim that contains group memberships or role assignments in the provider's userinfo endpoint.  The claim must be an array of strings, or a comma-delimited string. Most public identity providers do not support group or role management.  When using a customizable / on-demand hosted identity provider, name, content, and inclusion in the userinfo endpoint  will most likely need to be configured.  
 
@@ -1488,7 +1478,7 @@ Defines the name of the claim that contains group memberships or role assignment
 <tr><th>ENV</th><td><code>DT_OIDC_TEAMS_CLAIM</code></td></tr>
 </table>
 
-<span id="dtoidcuserprovisioning">**`dt.oidc.user.provisioning`** [¶](#dtoidcuserprovisioning){ .headerlink }</span>
+<span id="dtoidcuser-provisioning">**`dt.oidc.user-provisioning`** [¶](#dtoidcuser-provisioning){ .headerlink }</span>
 
 Specifies if mapped OpenID Connect accounts are automatically created upon successful  authentication. When a user logs in with a valid access token but an account has  not been previously provisioned, an authentication failure will be returned.  This allows admins to control specifically which OpenID Connect users can access the  system and which users cannot. When this value is set to true, a local OpenID Connect  user will be created and mapped to the OpenID Connect account automatically. This  automatic provisioning only affects authentication, not authorization.  
 
@@ -1498,7 +1488,7 @@ Specifies if mapped OpenID Connect accounts are automatically created upon succe
 <tr><th>ENV</th><td><code>DT_OIDC_USER_PROVISIONING</code></td></tr>
 </table>
 
-<span id="dtoidcusernameclaim">**`dt.oidc.username.claim`** [¶](#dtoidcusernameclaim){ .headerlink }</span>
+<span id="dtoidcusername-claim">**`dt.oidc.username-claim`** [¶](#dtoidcusername-claim){ .headerlink }</span>
 
 Defines the name of the claim that contains the username in the provider's userinfo endpoint.  Common claims are `name`, `username`, `preferred_username` or `nickname`.  See also:  <ul>  <li>https://openid.net/specs/openid-connect-core-1_0.html#UserInfoResponse</li>  </ul>  
 
@@ -1548,7 +1538,7 @@ Defines the path to the key encryption keyset to use for the database secret man
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
-<tr><th>Default</th><td><code>${dt.data.directory}/keys/secret-management-kek.json</code></td></tr>
+<tr><th>Default</th><td><code>${dt.data-directory}/keys/secret-management-kek.json</code></td></tr>
 <tr><th>ENV</th><td><code>DT_SECRET_MANAGEMENT_DATABASE_KEK_KEYSET_PATH</code></td></tr>
 </table>
 
@@ -1567,7 +1557,7 @@ Defines the secret management type to use.
 
 ## Storage
 
-<span id="dtfile-storagelocalcompressionlevel">**`dt.file-storage.local.compression.level`** [¶](#dtfile-storagelocalcompressionlevel){ .headerlink }</span>
+<span id="dtfile-storagelocalcompression-level">**`dt.file-storage.local.compression-level`** [¶](#dtfile-storagelocalcompression-level){ .headerlink }</span>
 
 Defines the zstd compression level to use for local file storage.  
 
@@ -1584,7 +1574,7 @@ Defines the local directory where files shall be stored.
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
-<tr><th>Default</th><td><code>${dt.data.directory}/storage</code></td></tr>
+<tr><th>Default</th><td><code>${dt.data-directory}/storage</code></td></tr>
 <tr><th>ENV</th><td><code>DT_FILE_STORAGE_LOCAL_DIRECTORY</code></td></tr>
 </table>
 
@@ -1599,7 +1589,7 @@ Defines the file storage provider to use.
 <tr><th>ENV</th><td><code>DT_FILE_STORAGE_PROVIDER</code></td></tr>
 </table>
 
-<span id="dtfile-storages3accesskey">**`dt.file-storage.s3.access.key`** [¶](#dtfile-storages3accesskey){ .headerlink }</span>
+<span id="dtfile-storages3access-key">**`dt.file-storage.s3.access-key`** [¶](#dtfile-storages3access-key){ .headerlink }</span>
 
 Defines the S3 access key / username.  
 
@@ -1619,7 +1609,7 @@ Defines the name of the S3 bucket.  The existence of the bucket will be verified
 <tr><th>ENV</th><td><code>DT_FILE_STORAGE_S3_BUCKET</code></td></tr>
 </table>
 
-<span id="dtfile-storages3compressionlevel">**`dt.file-storage.s3.compression.level`** [¶](#dtfile-storages3compressionlevel){ .headerlink }</span>
+<span id="dtfile-storages3compression-level">**`dt.file-storage.s3.compression-level`** [¶](#dtfile-storages3compression-level){ .headerlink }</span>
 
 Defines the zstd compression level to use for S3 file storage.  
 
@@ -1670,7 +1660,7 @@ Defines the region of the S3 bucket.
 <tr><th>ENV</th><td><code>DT_FILE_STORAGE_S3_REGION</code></td></tr>
 </table>
 
-<span id="dtfile-storages3secretkey">**`dt.file-storage.s3.secret.key`** [¶](#dtfile-storages3secretkey){ .headerlink }</span>
+<span id="dtfile-storages3secret-key">**`dt.file-storage.s3.secret-key`** [¶](#dtfile-storages3secret-key){ .headerlink }</span>
 
 Defines the S3 secret key / password.  
 
@@ -1734,7 +1724,7 @@ Defines the number of threads the task scheduler uses to execute due tasks.  Thi
 <tr><th>ENV</th><td><code>DT_TASK_SCHEDULER_THREADS</code></td></tr>
 </table>
 
-<span id="dttaskdefectdojouploadcron">**`dt.task.defect.dojo.upload.cron`** <strong style="color: red">*</strong> [¶](#dttaskdefectdojouploadcron){ .headerlink }</span>
+<span id="dttaskdefect-dojo-uploadcron">**`dt.task.defect-dojo-upload.cron`** <strong style="color: red">*</strong> [¶](#dttaskdefect-dojo-uploadcron){ .headerlink }</span>
 
 Cron expression of the DefectDojo upload task.  
 
@@ -1744,7 +1734,7 @@ Cron expression of the DefectDojo upload task.
 <tr><th>ENV</th><td><code>DT_TASK_DEFECT_DOJO_UPLOAD_CRON</code></td></tr>
 </table>
 
-<span id="dttaskepssmirrorcron">**`dt.task.epss.mirror.cron`** <strong style="color: red">*</strong> [¶](#dttaskepssmirrorcron){ .headerlink }</span>
+<span id="dttaskepss-mirrorcron">**`dt.task.epss-mirror.cron`** <strong style="color: red">*</strong> [¶](#dttaskepss-mirrorcron){ .headerlink }</span>
 
 Cron expression of the EPSS mirroring task.  
 
@@ -1764,7 +1754,7 @@ Cron expression of the expired session cleanup task.
 <tr><th>ENV</th><td><code>DT_TASK_EXPIRED_SESSION_CLEANUP_CRON</code></td></tr>
 </table>
 
-<span id="dttaskfortifysscuploadcron">**`dt.task.fortify.ssc.upload.cron`** <strong style="color: red">*</strong> [¶](#dttaskfortifysscuploadcron){ .headerlink }</span>
+<span id="dttaskfortify-ssc-uploadcron">**`dt.task.fortify-ssc-upload.cron`** <strong style="color: red">*</strong> [¶](#dttaskfortify-ssc-uploadcron){ .headerlink }</span>
 
 Cron expression of the Fortify SSC upload task.  
 
@@ -1774,17 +1764,17 @@ Cron expression of the Fortify SSC upload task.
 <tr><th>ENV</th><td><code>DT_TASK_FORTIFY_SSC_UPLOAD_CRON</code></td></tr>
 </table>
 
-<span id="dttaskgithubadvisorymirrorcron">**`dt.task.git.hub.advisory.mirror.cron`** <strong style="color: red">*</strong> [¶](#dttaskgithubadvisorymirrorcron){ .headerlink }</span>
+<span id="dttaskgithub-advisory-vuln-data-source-mirrorcron">**`dt.task.github-advisory-vuln-data-source-mirror.cron`** <strong style="color: red">*</strong> [¶](#dttaskgithub-advisory-vuln-data-source-mirrorcron){ .headerlink }</span>
 
 Cron expression of the vulnerability GitHub Advisories mirroring task.  
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>cron</code></td></tr>
 <tr><th>Default</th><td><code>0 2 * * *</code></td></tr>
-<tr><th>ENV</th><td><code>DT_TASK_GIT_HUB_ADVISORY_MIRROR_CRON</code></td></tr>
+<tr><th>ENV</th><td><code>DT_TASK_GITHUB_ADVISORY_VULN_DATA_SOURCE_MIRROR_CRON</code></td></tr>
 </table>
 
-<span id="dttaskkennasecurityuploadcron">**`dt.task.kenna.security.upload.cron`** <strong style="color: red">*</strong> [¶](#dttaskkennasecurityuploadcron){ .headerlink }</span>
+<span id="dttaskkenna-security-uploadcron">**`dt.task.kenna-security-upload.cron`** <strong style="color: red">*</strong> [¶](#dttaskkenna-security-uploadcron){ .headerlink }</span>
 
 Cron expression of the Kenna Security upload task.  
 
@@ -1794,7 +1784,7 @@ Cron expression of the Kenna Security upload task.
 <tr><th>ENV</th><td><code>DT_TASK_KENNA_SECURITY_UPLOAD_CRON</code></td></tr>
 </table>
 
-<span id="dttaskmetricsmaintenancecron">**`dt.task.metrics.maintenance.cron`** <strong style="color: red">*</strong> [¶](#dttaskmetricsmaintenancecron){ .headerlink }</span>
+<span id="dttaskmetrics-maintenancecron">**`dt.task.metrics-maintenance.cron`** <strong style="color: red">*</strong> [¶](#dttaskmetrics-maintenancecron){ .headerlink }</span>
 
 Cron expression of the metrics maintenance task.  <br/><br/>  The task creates new partitions for the day for the following tables  And deletes records older than the configured metrics retention duration from the following tables:  <ul>  <li><code>DEPENDENCYMETRICS</code></li>  <li><code>PROJECTMETRICS</code></li>  </ul>  
 
@@ -1804,24 +1794,34 @@ Cron expression of the metrics maintenance task.  <br/><br/>  The task creates n
 <tr><th>ENV</th><td><code>DT_TASK_METRICS_MAINTENANCE_CRON</code></td></tr>
 </table>
 
-<span id="dttasknistmirrorcron">**`dt.task.nist.mirror.cron`** <strong style="color: red">*</strong> [¶](#dttasknistmirrorcron){ .headerlink }</span>
+<span id="dttasknvd-vuln-data-source-mirrorcron">**`dt.task.nvd-vuln-data-source-mirror.cron`** <strong style="color: red">*</strong> [¶](#dttasknvd-vuln-data-source-mirrorcron){ .headerlink }</span>
 
 Cron expression of the NIST / NVD mirroring task.  
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>cron</code></td></tr>
 <tr><th>Default</th><td><code>0 4 * * *</code></td></tr>
-<tr><th>ENV</th><td><code>DT_TASK_NIST_MIRROR_CRON</code></td></tr>
+<tr><th>ENV</th><td><code>DT_TASK_NVD_VULN_DATA_SOURCE_MIRROR_CRON</code></td></tr>
 </table>
 
-<span id="dttaskosvmirrorcron">**`dt.task.osv.mirror.cron`** <strong style="color: red">*</strong> [¶](#dttaskosvmirrorcron){ .headerlink }</span>
+<span id="dttaskosv-vuln-data-source-mirrorcron">**`dt.task.osv-vuln-data-source-mirror.cron`** <strong style="color: red">*</strong> [¶](#dttaskosv-vuln-data-source-mirrorcron){ .headerlink }</span>
 
 Cron expression of the OSV mirroring task.  
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>cron</code></td></tr>
 <tr><th>Default</th><td><code>0 3 * * *</code></td></tr>
-<tr><th>ENV</th><td><code>DT_TASK_OSV_MIRROR_CRON</code></td></tr>
+<tr><th>ENV</th><td><code>DT_TASK_OSV_VULN_DATA_SOURCE_MIRROR_CRON</code></td></tr>
+</table>
+
+<span id="dttaskpackage-metadata-maintenancecron">**`dt.task.package-metadata-maintenance.cron`** <strong style="color: red">*</strong> [¶](#dttaskpackage-metadata-maintenancecron){ .headerlink }</span>
+
+Cron expression of the package metadata maintenance task.  <br/><br/>  The task deletes orphaned records from the `PACKAGE_ARTIFACT_METADATA` and  `PACKAGE_METADATA` tables.  
+
+<table>
+<tr><th>Type</th><td style="border-width: 0"><code>cron</code></td></tr>
+<tr><th>Default</th><td><code>0 */12 * * *</code></td></tr>
+<tr><th>ENV</th><td><code>DT_TASK_PACKAGE_METADATA_MAINTENANCE_CRON</code></td></tr>
 </table>
 
 <span id="dttaskpackage-metadata-resolutioncron">**`dt.task.package-metadata-resolution.cron`** <strong style="color: red">*</strong> [¶](#dttaskpackage-metadata-resolutioncron){ .headerlink }</span>
@@ -1834,14 +1834,14 @@ Cron expression of the package metadata resolution task.  <br/><br/>  Note that 
 <tr><th>ENV</th><td><code>DT_TASK_PACKAGE_METADATA_RESOLUTION_CRON</code></td></tr>
 </table>
 
-<span id="dttaskpackagemetadatamaintenancecron">**`dt.task.package.metadata.maintenance.cron`** <strong style="color: red">*</strong> [¶](#dttaskpackagemetadatamaintenancecron){ .headerlink }</span>
+<span id="dttaskportfolio-analysiscron">**`dt.task.portfolio-analysis.cron`** <strong style="color: red">*</strong> [¶](#dttaskportfolio-analysiscron){ .headerlink }</span>
 
-Cron expression of the package metadata maintenance task.  <br/><br/>  The task deletes orphaned records from the `PACKAGE_ARTIFACT_METADATA` and  `PACKAGE_METADATA` tables.  
+Cron expression of the portfolio vulnerability analysis task.  
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>cron</code></td></tr>
-<tr><th>Default</th><td><code>0 */12 * * *</code></td></tr>
-<tr><th>ENV</th><td><code>DT_TASK_PACKAGE_METADATA_MAINTENANCE_CRON</code></td></tr>
+<tr><th>Default</th><td><code>0 6 * * *</code></td></tr>
+<tr><th>ENV</th><td><code>DT_TASK_PORTFOLIO_ANALYSIS_CRON</code></td></tr>
 </table>
 
 <span id="dttaskportfolio-metrics-updatecron">**`dt.task.portfolio-metrics-update.cron`** <strong style="color: red">*</strong> [¶](#dttaskportfolio-metrics-updatecron){ .headerlink }</span>
@@ -1854,7 +1854,7 @@ Cron expression of the portfolio metrics update task.
 <tr><th>ENV</th><td><code>DT_TASK_PORTFOLIO_METRICS_UPDATE_CRON</code></td></tr>
 </table>
 
-<span id="dttaskprojectmaintenancecron">**`dt.task.project.maintenance.cron`** <strong style="color: red">*</strong> [¶](#dttaskprojectmaintenancecron){ .headerlink }</span>
+<span id="dttaskproject-maintenancecron">**`dt.task.project-maintenance.cron`** <strong style="color: red">*</strong> [¶](#dttaskproject-maintenancecron){ .headerlink }</span>
 
 Cron expression of the project maintenance task.  <br/><br/>  The task deletes inactive projects based on retention policy.  
 
@@ -1874,7 +1874,7 @@ Cron expression for polling scheduled notification rules that are due for dispat
 <tr><th>ENV</th><td><code>DT_TASK_SCHEDULED_NOTIFICATION_DISPATCH_CRON</code></td></tr>
 </table>
 
-<span id="dttasktagmaintenancecron">**`dt.task.tag.maintenance.cron`** <strong style="color: red">*</strong> [¶](#dttasktagmaintenancecron){ .headerlink }</span>
+<span id="dttasktag-maintenancecron">**`dt.task.tag-maintenance.cron`** <strong style="color: red">*</strong> [¶](#dttasktag-maintenancecron){ .headerlink }</span>
 
 Cron expression of the tag maintenance task.  <br/><br/>  The task deletes orphaned tags that are not used anymore.  
 
@@ -1894,44 +1894,34 @@ Cron expression of the telemetry submission task.  <br/><br/>  The task enforces
 <tr><th>ENV</th><td><code>DT_TASK_TELEMETRY_SUBMISSION_CRON</code></td></tr>
 </table>
 
-<span id="dttaskvulnerability-policy-bundle-synccron">**`dt.task.vulnerability-policy-bundle-sync.cron`** <strong style="color: red">*</strong> [¶](#dttaskvulnerability-policy-bundle-synccron){ .headerlink }</span>
-
-Cron expression of the vulnerability policy bundle synchronization task.  <br/><br/>  Has no effect unless [`dt.vulnerability.policy.bundle.url`](#dtvulnerabilitypolicybundleurl) is also configured.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>cron</code></td></tr>
-<tr><th>Default</th><td><code>*/15 * * * *</code></td></tr>
-<tr><th>ENV</th><td><code>DT_TASK_VULNERABILITY_POLICY_BUNDLE_SYNC_CRON</code></td></tr>
-</table>
-
-<span id="dttaskvulnerabilityanalysiscron">**`dt.task.vulnerability.analysis.cron`** <strong style="color: red">*</strong> [¶](#dttaskvulnerabilityanalysiscron){ .headerlink }</span>
-
-Cron expression of the portfolio vulnerability analysis task.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>cron</code></td></tr>
-<tr><th>Default</th><td><code>0 6 * * *</code></td></tr>
-<tr><th>ENV</th><td><code>DT_TASK_VULNERABILITY_ANALYSIS_CRON</code></td></tr>
-</table>
-
-<span id="dttaskvulnerabilitydatabasemaintenancecron">**`dt.task.vulnerability.database.maintenance.cron`** <strong style="color: red">*</strong> [¶](#dttaskvulnerabilitydatabasemaintenancecron){ .headerlink }</span>
+<span id="dttaskvuln-database-maintenancecron">**`dt.task.vuln-database-maintenance.cron`** <strong style="color: red">*</strong> [¶](#dttaskvuln-database-maintenancecron){ .headerlink }</span>
 
 Cron expression of the vulnerability database maintenance task.  <br/><br/>  The task deletes orphaned records from the `VULNERABLESOFTWARE` table.  
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>cron</code></td></tr>
 <tr><th>Default</th><td><code>0 0 * * *</code></td></tr>
-<tr><th>ENV</th><td><code>DT_TASK_VULNERABILITY_DATABASE_MAINTENANCE_CRON</code></td></tr>
+<tr><th>ENV</th><td><code>DT_TASK_VULN_DATABASE_MAINTENANCE_CRON</code></td></tr>
 </table>
 
-<span id="dttaskvulnerabilitymetricsupdatecron">**`dt.task.vulnerability.metrics.update.cron`** <strong style="color: red">*</strong> [¶](#dttaskvulnerabilitymetricsupdatecron){ .headerlink }</span>
+<span id="dttaskvuln-metrics-updatecron">**`dt.task.vuln-metrics-update.cron`** <strong style="color: red">*</strong> [¶](#dttaskvuln-metrics-updatecron){ .headerlink }</span>
 
 Cron expression of the vulnerability metrics update task.  
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>cron</code></td></tr>
-<tr><th>Default</th><td><code>40 * * * *</code></td></tr>
-<tr><th>ENV</th><td><code>DT_TASK_VULNERABILITY_METRICS_UPDATE_CRON</code></td></tr>
+<tr><th>Default</th><td><code>0 */6 * * *</code></td></tr>
+<tr><th>ENV</th><td><code>DT_TASK_VULN_METRICS_UPDATE_CRON</code></td></tr>
+</table>
+
+<span id="dttaskvuln-policy-bundle-synccron">**`dt.task.vuln-policy-bundle-sync.cron`** <strong style="color: red">*</strong> [¶](#dttaskvuln-policy-bundle-synccron){ .headerlink }</span>
+
+Cron expression of the vulnerability policy bundle synchronization task.  <br/><br/>  Has no effect unless [`dt.vuln-policy-bundle.url`](#dtvuln-policy-bundleurl) is also configured.  
+
+<table>
+<tr><th>Type</th><td style="border-width: 0"><code>cron</code></td></tr>
+<tr><th>Default</th><td><code>*/15 * * * *</code></td></tr>
+<tr><th>ENV</th><td><code>DT_TASK_VULN_POLICY_BUNDLE_SYNC_CRON</code></td></tr>
 </table>
 
 
