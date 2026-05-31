@@ -50,10 +50,10 @@ Configuration:
 
 - [`dt.file-storage.s3.endpoint`](properties.md#dtfile-storages3endpoint)
 - [`dt.file-storage.s3.bucket`](properties.md#dtfile-storages3bucket)
-- [`dt.file-storage.s3.access-key`](properties.md#dtfile-storages3accesskey)
-- [`dt.file-storage.s3.secret-key`](properties.md#dtfile-storages3secretkey)
+- [`dt.file-storage.s3.access-key`](properties.md#dtfile-storages3access-key)
+- [`dt.file-storage.s3.secret-key`](properties.md#dtfile-storages3secret-key)
 - [`dt.file-storage.s3.region`](properties.md#dtfile-storages3region)
-- [`dt.file-storage.s3.compression-level`](properties.md#dtfile-storages3compressionlevel)
+- [`dt.file-storage.s3.compression-level`](properties.md#dtfile-storages3compression-level)
 - [`dt.file-storage.s3.connect-timeout-ms`](properties.md#dtfile-storages3connect-timeout-ms)
 - [`dt.file-storage.s3.read-timeout-ms`](properties.md#dtfile-storages3read-timeout-ms)
 - [`dt.file-storage.s3.write-timeout-ms`](properties.md#dtfile-storages3write-timeout-ms)
