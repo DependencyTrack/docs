@@ -145,8 +145,8 @@ v4-migrator bootstrap \
   --target-pass
 ```
 
-After this, the target has the v5 schema but no rows.
-The migrator's later phases populate `PERMISSION`, `LICENSE`, `TEAM`, etc. directly from your v4 source.
+After this, the target has the v5 schema and a seeded `PERMISSION` catalog (the well-known set of v5 permissions).
+No other rows are written by bootstrap; the migrator's later phases populate `LICENSE`, `TEAM`, `USER`, and the rest from your v4 source.
 
 ### 2. Verify the target
 
@@ -162,7 +162,7 @@ v4-migrator verify \
 `verify` reads but never writes. On a freshly bootstrapped target with no staging present, expect:
 
 - Schema version `202605111028` reported `OK`.
-- All row count columns zero.
+- All row count columns **except for the v5 `PERMISSION` table** zero.
 - No probe entries.
 
 ### 3. Dry run
@@ -504,6 +504,8 @@ The staging schema survives across `bootstrap` runs, so:
 v4-migrator bootstrap --target-url ... --target-user ... --target-pass
 v4-migrator load      --target-url ... --target-user ... --target-pass
 ```
+
+`bootstrap` re-seeds the v5 `PERMISSION` catalog after applying the schema, so the rerun of `load` can resolve permission foreign keys without re-running `transform`.
 
 !!! warning
 

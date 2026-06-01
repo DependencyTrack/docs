@@ -147,7 +147,7 @@ Applying v5 Flyway schema up to 202605111028
 Bootstrap complete. Flyway head = 202605111028. Run 'extract' or 'run' next.
 ```
 
-After this, the target has the v5 schema but no rows.
+After this, the target has the v5 schema but no rows, **except in the `PERMISSION` table**.
 
 ## Verifying the empty target
 
@@ -180,7 +180,7 @@ Expected output:
   13 CHECK constraint(s) hold across 55 loaded table(s)
 ```
 
-If the schema version is anything else or any row count is non-zero,
+If the schema version is anything else or any row count is non-zero, **except in the `PERMISSION` table**,
 the rest of the rehearsal will not work.
 
 ## Dry-running the migration
