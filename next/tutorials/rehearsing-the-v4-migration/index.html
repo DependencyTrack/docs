@@ -1590,7 +1590,7 @@ We can confirm with <code>docker network ls</code>:</p>
 ...
 Bootstrap complete. Flyway head = 202605111028. Run 'extract' or 'run' next.
 </code></pre></div></td></tr></tbody></table></div>
-<p>After this, the target has the v5 schema but no rows.</p>
+<p>After this, the target has the v5 schema but no rows, <strong>except in the <code>PERMISSION</code> table</strong>.</p>
 <h2 id="verifying-the-empty-target">Verifying the empty target<a class="headerlink" href="#verifying-the-empty-target" title="Permanent link">¶</a></h2>
 <p>We run preflight against the freshly bootstrapped target:</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -1632,7 +1632,7 @@ Bootstrap complete. Flyway head = 202605111028. Run 'extract' or 'run' next.
 [Constraints]
   13 CHECK constraint(s) hold across 55 loaded table(s)
 </code></pre></div></td></tr></tbody></table></div>
-<p>If the schema version is anything else or any row count is non-zero,
+<p>If the schema version is anything else or any row count is non-zero, <strong>except in the <code>PERMISSION</code> table</strong>,
 the rest of the rehearsal will not work.</p>
 <h2 id="dry-running-the-migration">Dry-running the migration<a class="headerlink" href="#dry-running-the-migration" title="Permanent link">¶</a></h2>
 <p>Before writing anything, we ask the migrator to print its plan.

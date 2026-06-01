@@ -3206,8 +3206,8 @@ v5 apiserver connects as (see the <strong>Database user</strong> note in the pre
 <span class="w">  </span>--target-user<span class="w"> </span>dtrack<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--target-pass
 </code></pre></div>
-<p>After this, the target has the v5 schema but no rows.
-The migrator's later phases populate <code>PERMISSION</code>, <code>LICENSE</code>, <code>TEAM</code>, etc. directly from your v4 source.</p>
+<p>After this, the target has the v5 schema and a seeded <code>PERMISSION</code> catalog (the well-known set of v5 permissions).
+No other rows are written by bootstrap; the migrator's later phases populate <code>LICENSE</code>, <code>TEAM</code>, <code>USER</code>, and the rest from your v4 source.</p>
 <h3 id="2-verify-the-target">2. Verify the target<a class="headerlink" href="#2-verify-the-target" title="Permanent link">¶</a></h3>
 <p>Run preflight to catch problems before you commit time to extraction:</p>
 <div class="highlight"><pre><span></span><code>v4-migrator<span class="w"> </span>verify<span class="w"> </span><span class="se">\</span>
@@ -3218,7 +3218,7 @@ The migrator's later phases populate <code>PERMISSION</code>, <code>LICENSE</cod
 <p><code>verify</code> reads but never writes. On a freshly bootstrapped target with no staging present, expect:</p>
 <ul>
 <li>Schema version <code>202605111028</code> reported <code>OK</code>.</li>
-<li>All row count columns zero.</li>
+<li>All row count columns <strong>except for the v5 <code>PERMISSION</code> table</strong> zero.</li>
 <li>No probe entries.</li>
 </ul>
 <h3 id="3-dry-run">3. Dry run<a class="headerlink" href="#3-dry-run" title="Permanent link">¶</a></h3>
@@ -3459,6 +3459,7 @@ The staging schema survives across <code>bootstrap</code> runs, so:</p>
 v4-migrator<span class="w"> </span>bootstrap<span class="w"> </span>--target-url<span class="w"> </span>...<span class="w"> </span>--target-user<span class="w"> </span>...<span class="w"> </span>--target-pass
 v4-migrator<span class="w"> </span>load<span class="w">      </span>--target-url<span class="w"> </span>...<span class="w"> </span>--target-user<span class="w"> </span>...<span class="w"> </span>--target-pass
 </code></pre></div>
+<p><code>bootstrap</code> re-seeds the v5 <code>PERMISSION</code> catalog after applying the schema, so the rerun of <code>load</code> can resolve permission foreign keys without re-running <code>transform</code>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Don't manually <code>TRUNCATE</code> individual v5 tables and re-run <code>load</code>.
