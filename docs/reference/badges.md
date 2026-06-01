@@ -4,6 +4,10 @@ Dependency-Track provides SVG badges that display a project's current vulnerabil
 and policy violation metrics. Badges can be embedded in README files, dashboards, or
 internal documentation to give at-a-glance visibility into a project's security posture.
 
+Badge URLs reference a project by UUID, by `(name, version)`, or by name alone. The
+name-only form resolves to whichever version carries the latest-version flag. See
+[Managing project versions](../guides/user/managing-project-versions.md#mark-a-version-as-latest).
+
 ## Badge Types
 
 ### Vulnerable Components

@@ -175,3 +175,5 @@ and holders of `PORTFOLIO_ACCESS_CONTROL_BYPASS` until one is assigned.
 
 * [Permissions reference](../reference/permissions.md) for the full permissions table
   and default teams.
+* [About projects](projects.md) for how Dependency-Track models
+  projects, hierarchies, and collection projects.

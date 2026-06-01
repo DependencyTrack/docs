@@ -82,6 +82,7 @@ VEX
 Vanlightly's?
 VulnDB
 Webex
+[Aa]ggregate
 [Aa]llowlists?
 [Aa]utodetect
 [Bb]ackoff
