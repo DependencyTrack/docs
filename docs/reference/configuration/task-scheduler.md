@@ -1,9 +1,9 @@
 # Task scheduler
 
-The task scheduler runs or triggers recurring background activities like vulnerability
+The task scheduler triggers recurring background activities like vulnerability
 data source mirroring, integration uploads, metric updates, and maintenance
-sweeps. The [durable execution engine](dex-engine.md) handles the bulk of
-asynchronous work and is a separate subsystem.
+sweeps. Many tasks enqueue work for the [durable execution engine](dex-engine.md),
+which executes workflows and other asynchronous processing.
 
 Nodes with the scheduler enabled coexist safely. The scheduler coordinates
 execution through the database, so each due task runs on exactly one node
