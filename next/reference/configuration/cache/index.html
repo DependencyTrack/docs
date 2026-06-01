@@ -5,13 +5,13 @@
       
       
       
-        <link rel="canonical" href="https://dependencytrack.github.io/docs/next/reference/schemas/policy/">
+        <link rel="canonical" href="https://dependencytrack.github.io/docs/next/reference/configuration/cache/">
       
       
-        <link rel="prev" href="../notification/">
+        <link rel="prev" href="../application/">
       
       
-        <link rel="next" href="../../../blog/">
+        <link rel="next" href="../datasources/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Policy schema - Dependency-Track</title>
+        <title>Cache - Dependency-Track</title>
       
     
     
@@ -61,15 +61,15 @@
     
   
 <meta property="og:type" content="website">
-<meta property="og:title" content="Policy schema - Dependency-Track">
-<meta property="og:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/reference/schemas/policy.png">
+<meta property="og:title" content="Cache - Dependency-Track">
+<meta property="og:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/reference/configuration/cache.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:url" content="https://dependencytrack.github.io/docs/next/reference/schemas/policy/">
+<meta property="og:url" content="https://dependencytrack.github.io/docs/next/reference/configuration/cache/">
 <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:title" content="Policy schema - Dependency-Track">
-<meta property="twitter:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/reference/schemas/policy.png">
+<meta property="twitter:title" content="Cache - Dependency-Track">
+<meta property="twitter:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/reference/configuration/cache.png">
 <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
@@ -99,7 +99,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#messages" class="md-skip">
+        <a href="#cache" class="md-skip">
           Skip to content
         </a>
       
@@ -138,7 +138,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Policy schema
+              Cache
             
           </span>
         </div>
@@ -907,6 +907,8 @@
                 
   
   
+    
+  
   
   
     
@@ -944,11 +946,11 @@
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" checked>
         
           
           <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="">
@@ -969,7 +971,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -987,7 +989,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/application/" class="md-nav__link">
+      <a href="../application/" class="md-nav__link">
         
   
   
@@ -1012,10 +1014,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../configuration/cache/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cache
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1031,6 +1060,93 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#providers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Providers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Providers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Database
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entry-ttls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entry TTLs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Entry TTLs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vulnerability-analyzer-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vulnerability analyzer results
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#package-metadata-resolver-responses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Package metadata resolver responses
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1043,7 +1159,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/datasources/" class="md-nav__link">
+      <a href="../datasources/" class="md-nav__link">
         
   
   
@@ -1071,7 +1187,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/database/" class="md-nav__link">
+      <a href="../database/" class="md-nav__link">
         
   
   
@@ -1099,7 +1215,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/dex-engine/" class="md-nav__link">
+      <a href="../dex-engine/" class="md-nav__link">
         
   
   
@@ -1127,7 +1243,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/file-storage/" class="md-nav__link">
+      <a href="../file-storage/" class="md-nav__link">
         
   
   
@@ -1155,7 +1271,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/task-scheduler/" class="md-nav__link">
+      <a href="../task-scheduler/" class="md-nav__link">
         
   
   
@@ -1183,7 +1299,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/telemetry/" class="md-nav__link">
+      <a href="../telemetry/" class="md-nav__link">
         
   
   
@@ -1211,7 +1327,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/properties/" class="md-nav__link">
+      <a href="../properties/" class="md-nav__link">
         
   
   
@@ -2150,8 +2266,6 @@
                 
   
   
-    
-  
   
   
     
@@ -2175,11 +2289,11 @@
     
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_11" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_11">
         
           
           <label class="md-nav__link" for="__nav_5_11" id="__nav_5_11_label" tabindex="">
@@ -2200,7 +2314,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_11_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_11_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_11">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2218,7 +2332,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../notification/" class="md-nav__link">
+      <a href="../../schemas/notification/" class="md-nav__link">
         
   
   
@@ -2243,35 +2357,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Policy schema
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../schemas/policy/" class="md-nav__link">
         
   
   
@@ -2287,162 +2376,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#messages" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Messages
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Messages">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#component" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Component
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#componentproperty" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Component.Property
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#license" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        License
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#licensegroup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        License.Group
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#project" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Project
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#projectmetadata" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Project.Metadata
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#projectproperty" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Project.Property
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tools" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tools
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#versiondistance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        VersionDistance
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vulnerability" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vulnerability
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vulnerabilityalias" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vulnerability.Alias
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2541,6 +2474,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -2549,22 +2484,50 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#messages" class="md-nav__link">
+  <a href="#providers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Messages
+        Providers
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Messages">
+    <nav class="md-nav" aria-label="Providers">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#component" class="md-nav__link">
+  <a href="#database" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Component
+        Database
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entry-ttls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entry TTLs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Entry TTLs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vulnerability-analyzer-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vulnerability analyzer results
       
     </span>
   </a>
@@ -2572,109 +2535,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#componentproperty" class="md-nav__link">
+  <a href="#package-metadata-resolver-responses" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Component.Property
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#license" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        License
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#licensegroup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        License.Group
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#project" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Project
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#projectmetadata" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Project.Metadata
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#projectproperty" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Project.Property
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tools" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tools
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#versiondistance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        VersionDistance
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vulnerability" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vulnerability
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vulnerabilityalias" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vulnerability.Alias
+        Package metadata resolver responses
       
     </span>
   </a>
@@ -2747,10 +2611,10 @@
     
     
       <li class="md-path__item">
-        <a href="../notification/" class="md-path__link">
+        <a href="../application/" class="md-path__link">
           
   <span class="md-ellipsis">
-    Schemas
+    Configuration
   </span>
 
         </a>
@@ -2772,612 +2636,74 @@
   
 
 
-  <h1>Policy schema</h1>
-
-<h2 id="messages">Messages<a class="headerlink" href="#messages" title="Permanent link">¶</a></h2>
-<p><a name="org-dependencytrack-policy-v1-Component"></a></p>
-<h3 id="component">Component<a class="headerlink" href="#component" title="Permanent link">¶</a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>uuid</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">UUID of the component.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>group</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Group / namespace of the component.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>name</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Name of the component.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>version</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Version of the component.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>classifier</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Classifier / type of the component. May be any of: - APPLICATION - CONTAINER - DEVICE - FILE - FIRMWARE - FRAMEWORK - LIBRARY - OPERATING_SYSTEM</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>cpe</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"><abbr title="Common Platform Enumeration, a structured naming scheme for software products">CPE</abbr> of the component. https://csrc.nist.gov/projects/security-content-automation-protocol/specifications/cpe</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>purl</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Package URL of the component. https://github.com/package-url/purl-spec</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>swid_tag_id</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">SWID tag ID of the component. https://csrc.nist.gov/projects/Software-Identification-SWID</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>is_internal</code></td>
-<td style="text-align: left;"><code>bool</code></td>
-<td style="text-align: left;">Whether the component is internal to the organization.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>properties</code></td>
-<td style="text-align: left;"><a href="#org-dependencytrack-policy-v1-Component-Property"><code>Component.Property[]</code></a></td>
-<td style="text-align: left;">Properties of the component.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>md5</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>sha1</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>sha256</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>sha384</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>sha512</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>sha3_256</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>sha3_384</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>sha3_512</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>blake2b_256</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>blake2b_384</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>blake2b_512</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>blake3</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>license_name</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>license_expression</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>resolved_license</code></td>
-<td style="text-align: left;"><a href="#org-dependencytrack-policy-v1-License"><code>License</code></a></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>published_at</code></td>
-<td style="text-align: left;"><code>google.protobuf.Timestamp</code></td>
-<td style="text-align: left;">When the component current version last modified.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>latest_version</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<p><a name="org-dependencytrack-policy-v1-Component-Property"></a></p>
-<h3 id="componentproperty">Component.Property<a class="headerlink" href="#componentproperty" title="Permanent link">¶</a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>group</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>name</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>value</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>type</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<p><a name="org-dependencytrack-policy-v1-License"></a></p>
-<h3 id="license">License<a class="headerlink" href="#license" title="Permanent link">¶</a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>uuid</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>id</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>name</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>groups</code></td>
-<td style="text-align: left;"><a href="#org-dependencytrack-policy-v1-License-Group"><code>License.Group[]</code></a></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>is_osi_approved</code></td>
-<td style="text-align: left;"><code>bool</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>is_fsf_libre</code></td>
-<td style="text-align: left;"><code>bool</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>is_deprecated_id</code></td>
-<td style="text-align: left;"><code>bool</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>is_custom</code></td>
-<td style="text-align: left;"><code>bool</code></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<p><a name="org-dependencytrack-policy-v1-License-Group"></a></p>
-<h3 id="licensegroup">License.Group<a class="headerlink" href="#licensegroup" title="Permanent link">¶</a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>uuid</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>name</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<p><a name="org-dependencytrack-policy-v1-Project"></a></p>
-<h3 id="project">Project<a class="headerlink" href="#project" title="Permanent link">¶</a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>uuid</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>group</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>name</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>version</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>classifier</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>is_active</code></td>
-<td style="text-align: left;"><code>bool</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>tags</code></td>
-<td style="text-align: left;"><code>string[]</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>properties</code></td>
-<td style="text-align: left;"><a href="#org-dependencytrack-policy-v1-Project-Property"><code>Project.Property[]</code></a></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>cpe</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>purl</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>swid_tag_id</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>last_bom_import</code></td>
-<td style="text-align: left;"><code>google.protobuf.Timestamp</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>metadata</code></td>
-<td style="text-align: left;"><a href="#org-dependencytrack-policy-v1-Project-Metadata"><code>Project.Metadata</code></a></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<p><a name="org-dependencytrack-policy-v1-Project-Metadata"></a></p>
-<h3 id="projectmetadata">Project.Metadata<a class="headerlink" href="#projectmetadata" title="Permanent link">¶</a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>tools</code></td>
-<td style="text-align: left;"><a href="#org-dependencytrack-policy-v1-Tools"><code>Tools</code></a></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>bom_generated</code></td>
-<td style="text-align: left;"><code>google.protobuf.Timestamp</code></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<p><a name="org-dependencytrack-policy-v1-Project-Property"></a></p>
-<h3 id="projectproperty">Project.Property<a class="headerlink" href="#projectproperty" title="Permanent link">¶</a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>group</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>name</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>value</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>type</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<p><a name="org-dependencytrack-policy-v1-Tools"></a></p>
-<h3 id="tools">Tools<a class="headerlink" href="#tools" title="Permanent link">¶</a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>components</code></td>
-<td style="text-align: left;"><a href="#org-dependencytrack-policy-v1-Component"><code>Component[]</code></a></td>
-<td style="text-align: left;">Components used as tools.</td>
-</tr>
-</tbody>
-</table>
-<p><a name="org-dependencytrack-policy-v1-VersionDistance"></a></p>
-<h3 id="versiondistance">VersionDistance<a class="headerlink" href="#versiondistance" title="Permanent link">¶</a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>epoch</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>major</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>minor</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>patch</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<p><a name="org-dependencytrack-policy-v1-Vulnerability"></a></p>
-<h3 id="vulnerability">Vulnerability<a class="headerlink" href="#vulnerability" title="Permanent link">¶</a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>uuid</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>id</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>source</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>aliases</code></td>
-<td style="text-align: left;"><a href="#org-dependencytrack-policy-v1-Vulnerability-Alias"><code>Vulnerability.Alias[]</code></a></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>cwes</code></td>
-<td style="text-align: left;"><code>int32[]</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>created</code></td>
-<td style="text-align: left;"><code>google.protobuf.Timestamp</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>published</code></td>
-<td style="text-align: left;"><code>google.protobuf.Timestamp</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>updated</code></td>
-<td style="text-align: left;"><code>google.protobuf.Timestamp</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>severity</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>cvssv2_base_score</code></td>
-<td style="text-align: left;"><code>double</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>cvssv2_impact_subscore</code></td>
-<td style="text-align: left;"><code>double</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>cvssv2_exploitability_subscore</code></td>
-<td style="text-align: left;"><code>double</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>cvssv2_vector</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>cvssv3_base_score</code></td>
-<td style="text-align: left;"><code>double</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>cvssv3_impact_subscore</code></td>
-<td style="text-align: left;"><code>double</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>cvssv3_exploitability_subscore</code></td>
-<td style="text-align: left;"><code>double</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>cvssv3_vector</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>owasp_rr_likelihood_score</code></td>
-<td style="text-align: left;"><code>double</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>owasp_rr_technical_impact_score</code></td>
-<td style="text-align: left;"><code>double</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>owasp_rr_business_impact_score</code></td>
-<td style="text-align: left;"><code>double</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>owasp_rr_vector</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>epss_score</code></td>
-<td style="text-align: left;"><code>double</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>epss_percentile</code></td>
-<td style="text-align: left;"><code>double</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>cvssv4_vector</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>cvssv4_score</code></td>
-<td style="text-align: left;"><code>double</code></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<p><a name="org-dependencytrack-policy-v1-Vulnerability-Alias"></a></p>
-<h3 id="vulnerabilityalias">Vulnerability.Alias<a class="headerlink" href="#vulnerabilityalias" title="Permanent link">¶</a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>id</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>source</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
+<h1 id="cache">Cache<a class="headerlink" href="#cache" title="Permanent link">¶</a></h1>
+<p>Dependency-Track caches results of expensive operations to reduce load on
+external services and speed up repeated lookups. Each cache has a TTL after
+which entries expire and the cache provider drops them.</p>
+<p>Select the provider via <a href="../properties/#dtcacheprovider"><code>dt.cache.provider</code></a>.</p>
+<h2 id="providers">Providers<a class="headerlink" href="#providers" title="Permanent link">¶</a></h2>
+<h3 id="database">Database<a class="headerlink" href="#database" title="Permanent link">¶</a></h3>
+<p>The <code>database</code> provider stores cache entries in the <code>CACHE_ENTRY</code> table on a
+configured data source. This is the only built-in provider.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The provider does not manage its own schema. The configured data source
+must point at the same schema as the <code>default</code> data source, where Dependency-Track's
+schema migrations create the <code>CACHE_ENTRY</code> table.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Pointing the cache at a <a href="../datasources/">secondary data source</a> that
+targets the same schema can still be useful as a way to isolate cache
+traffic from the main connection pool, so that cache activity doesn't
+compete with the API server for database connections.</p>
+</div>
+<p>A background maintenance worker periodically deletes expired rows and
+refreshes the per-cache size counters that feed the cache metrics.</p>
+<p>Configuration:</p>
+<ul>
+<li><a href="../properties/#dtcacheproviderdatabasedatasourcename"><code>dt.cache.provider.database.datasource.name</code></a></li>
+<li><a href="../properties/#dtcacheproviderdatabasemaintenanceinitial-delay-ms"><code>dt.cache.provider.database.maintenance.initial-delay-ms</code></a></li>
+<li><a href="../properties/#dtcacheproviderdatabasemaintenanceinterval-ms"><code>dt.cache.provider.database.maintenance.interval-ms</code></a></li>
+</ul>
+<h2 id="entry-ttls">Entry TTLs<a class="headerlink" href="#entry-ttls" title="Permanent link">¶</a></h2>
+<p>Each named cache has its own TTL property of the form
+<code>dt.cache."&lt;name&gt;".ttl-ms</code>.</p>
+<h3 id="vulnerability-analyzer-results">Vulnerability analyzer results<a class="headerlink" href="#vulnerability-analyzer-results" title="Permanent link">¶</a></h3>
+<p>Cached results of remote vulnerability analyzer lookups, keyed by component
+identifier. Reduces API calls to upstream services across analyses of the same
+components.</p>
+<p>Configuration:</p>
+<ul>
+<li><a href="../properties/#dtcachevuln-analyzeross-indexresultsttl-ms"><code>dt.cache."vuln-analyzer.oss-index.results".ttl-ms</code></a></li>
+<li><a href="../properties/#dtcachevuln-analyzersnykresultsttl-ms"><code>dt.cache."vuln-analyzer.snyk.results".ttl-ms</code></a></li>
+</ul>
+<h3 id="package-metadata-resolver-responses">Package metadata resolver responses<a class="headerlink" href="#package-metadata-resolver-responses" title="Permanent link">¶</a></h3>
+<p>Cached HTTP responses from package registry metadata endpoints, used to detect
+outdated components.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Entries include the response body together with <code>ETag</code> and <code>Last-Modified</code> validators
+so that refreshes after the freshness window revalidate with a conditional request and
+receive a 304 when the upstream response hasn't changed. The TTL must exceed the 12 h
+freshness window for conditional requests to fire.</p>
+</div>
+<p>Configuration:</p>
+<ul>
+<li><a href="../properties/#dtcachepackage-metadata-resolvercargoresponsesttl-ms"><code>dt.cache."package-metadata-resolver.cargo.responses".ttl-ms</code></a></li>
+<li><a href="../properties/#dtcachepackage-metadata-resolvercomposerresponsesttl-ms"><code>dt.cache."package-metadata-resolver.composer.responses".ttl-ms</code></a></li>
+<li><a href="../properties/#dtcachepackage-metadata-resolvercpanresponsesttl-ms"><code>dt.cache."package-metadata-resolver.cpan.responses".ttl-ms</code></a></li>
+<li><a href="../properties/#dtcachepackage-metadata-resolvergemresponsesttl-ms"><code>dt.cache."package-metadata-resolver.gem.responses".ttl-ms</code></a></li>
+<li><a href="../properties/#dtcachepackage-metadata-resolvergithubresponsesttl-ms"><code>dt.cache."package-metadata-resolver.github.responses".ttl-ms</code></a></li>
+<li><a href="../properties/#dtcachepackage-metadata-resolvergomodulesresponsesttl-ms"><code>dt.cache."package-metadata-resolver.gomodules.responses".ttl-ms</code></a></li>
+<li><a href="../properties/#dtcachepackage-metadata-resolverhackageresponsesttl-ms"><code>dt.cache."package-metadata-resolver.hackage.responses".ttl-ms</code></a></li>
+<li><a href="../properties/#dtcachepackage-metadata-resolverhexresponsesttl-ms"><code>dt.cache."package-metadata-resolver.hex.responses".ttl-ms</code></a></li>
+<li><a href="../properties/#dtcachepackage-metadata-resolvermavenresponsesttl-ms"><code>dt.cache."package-metadata-resolver.maven.responses".ttl-ms</code></a></li>
+<li><a href="../properties/#dtcachepackage-metadata-resolvernixpkgsresponsesttl-ms"><code>dt.cache."package-metadata-resolver.nixpkgs.responses".ttl-ms</code></a></li>
+<li><a href="../properties/#dtcachepackage-metadata-resolvernpmresponsesttl-ms"><code>dt.cache."package-metadata-resolver.npm.responses".ttl-ms</code></a></li>
+<li><a href="../properties/#dtcachepackage-metadata-resolvernugetresponsesttl-ms"><code>dt.cache."package-metadata-resolver.nuget.responses".ttl-ms</code></a></li>
+<li><a href="../properties/#dtcachepackage-metadata-resolverpypiresponsesttl-ms"><code>dt.cache."package-metadata-resolver.pypi.responses".ttl-ms</code></a></li>
+</ul>
 
 
 
@@ -3415,7 +2741,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer">
         
           
-          <a href="../notification/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Notification schema">
+          <a href="../application/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Application">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
@@ -3425,20 +2751,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Notification schema
+                Application
               </div>
             </div>
           </a>
         
         
           
-          <a href="../../../blog/" class="md-footer__link md-footer__link--next" aria-label="Next: Blog">
+          <a href="../datasources/" class="md-footer__link md-footer__link--next" aria-label="Next: Data sources">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Blog
+                Data sources
               </div>
             </div>
             <div class="md-footer__button md-icon">

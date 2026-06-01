@@ -265,6 +265,10 @@
          <lastmod>2026-06-01</lastmod>
     </url>
     <url>
+         <loc>https://dependencytrack.github.io/docs/next/reference/configuration/cache/</loc>
+         <lastmod>2026-06-01</lastmod>
+    </url>
+    <url>
          <loc>https://dependencytrack.github.io/docs/next/reference/configuration/database/</loc>
          <lastmod>2026-06-01</lastmod>
     </url>
@@ -282,6 +286,14 @@
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/reference/configuration/properties/</loc>
+         <lastmod>2026-06-01</lastmod>
+    </url>
+    <url>
+         <loc>https://dependencytrack.github.io/docs/next/reference/configuration/task-scheduler/</loc>
+         <lastmod>2026-06-01</lastmod>
+    </url>
+    <url>
+         <loc>https://dependencytrack.github.io/docs/next/reference/configuration/telemetry/</loc>
          <lastmod>2026-06-01</lastmod>
     </url>
     <url>

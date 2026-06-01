@@ -5,13 +5,13 @@
       
       
       
-        <link rel="canonical" href="https://dependencytrack.github.io/docs/next/reference/schemas/policy/">
+        <link rel="canonical" href="https://dependencytrack.github.io/docs/next/reference/configuration/telemetry/">
       
       
-        <link rel="prev" href="../notification/">
+        <link rel="prev" href="../task-scheduler/">
       
       
-        <link rel="next" href="../../../blog/">
+        <link rel="next" href="../properties/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Policy schema - Dependency-Track</title>
+        <title>Telemetry - Dependency-Track</title>
       
     
     
@@ -61,15 +61,15 @@
     
   
 <meta property="og:type" content="website">
-<meta property="og:title" content="Policy schema - Dependency-Track">
-<meta property="og:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/reference/schemas/policy.png">
+<meta property="og:title" content="Telemetry - Dependency-Track">
+<meta property="og:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/reference/configuration/telemetry.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:url" content="https://dependencytrack.github.io/docs/next/reference/schemas/policy/">
+<meta property="og:url" content="https://dependencytrack.github.io/docs/next/reference/configuration/telemetry/">
 <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:title" content="Policy schema - Dependency-Track">
-<meta property="twitter:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/reference/schemas/policy.png">
+<meta property="twitter:title" content="Telemetry - Dependency-Track">
+<meta property="twitter:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/reference/configuration/telemetry.png">
 <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
@@ -99,7 +99,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#messages" class="md-skip">
+        <a href="#telemetry" class="md-skip">
           Skip to content
         </a>
       
@@ -138,7 +138,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Policy schema
+              Telemetry
             
           </span>
         </div>
@@ -907,6 +907,8 @@
                 
   
   
+    
+  
   
   
     
@@ -944,11 +946,11 @@
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" checked>
         
           
           <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="">
@@ -969,7 +971,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -987,7 +989,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/application/" class="md-nav__link">
+      <a href="../application/" class="md-nav__link">
         
   
   
@@ -1015,7 +1017,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/cache/" class="md-nav__link">
+      <a href="../cache/" class="md-nav__link">
         
   
   
@@ -1043,7 +1045,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/datasources/" class="md-nav__link">
+      <a href="../datasources/" class="md-nav__link">
         
   
   
@@ -1071,7 +1073,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/database/" class="md-nav__link">
+      <a href="../database/" class="md-nav__link">
         
   
   
@@ -1099,7 +1101,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/dex-engine/" class="md-nav__link">
+      <a href="../dex-engine/" class="md-nav__link">
         
   
   
@@ -1127,7 +1129,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/file-storage/" class="md-nav__link">
+      <a href="../file-storage/" class="md-nav__link">
         
   
   
@@ -1155,7 +1157,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/task-scheduler/" class="md-nav__link">
+      <a href="../task-scheduler/" class="md-nav__link">
         
   
   
@@ -1180,10 +1182,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../configuration/telemetry/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Telemetry
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1199,6 +1228,98 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#data-collected" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data collected
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#submission-schedule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Submission schedule
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opting-out" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opting out
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Opting out">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#administration-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Administration UI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration API
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#before-first-startup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before first startup
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1211,7 +1332,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/properties/" class="md-nav__link">
+      <a href="../properties/" class="md-nav__link">
         
   
   
@@ -2150,8 +2271,6 @@
                 
   
   
-    
-  
   
   
     
@@ -2175,11 +2294,11 @@
     
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_11" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_11">
         
           
           <label class="md-nav__link" for="__nav_5_11" id="__nav_5_11_label" tabindex="">
@@ -2200,7 +2319,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_11_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_11_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_11">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2218,7 +2337,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../notification/" class="md-nav__link">
+      <a href="../../schemas/notification/" class="md-nav__link">
         
   
   
@@ -2243,35 +2362,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Policy schema
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../schemas/policy/" class="md-nav__link">
         
   
   
@@ -2287,162 +2381,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#messages" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Messages
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Messages">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#component" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Component
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#componentproperty" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Component.Property
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#license" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        License
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#licensegroup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        License.Group
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#project" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Project
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#projectmetadata" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Project.Metadata
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#projectproperty" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Project.Property
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tools" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tools
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#versiondistance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        VersionDistance
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vulnerability" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vulnerability
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vulnerabilityalias" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vulnerability.Alias
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2541,6 +2479,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -2549,22 +2489,44 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#messages" class="md-nav__link">
+  <a href="#data-collected" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Messages
+        Data collected
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Messages">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#submission-schedule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Submission schedule
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opting-out" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opting out
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Opting out">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#component" class="md-nav__link">
+  <a href="#administration-ui" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Component
+        Administration UI
       
     </span>
   </a>
@@ -2572,10 +2534,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#componentproperty" class="md-nav__link">
+  <a href="#configuration-api" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Component.Property
+        Configuration API
       
     </span>
   </a>
@@ -2583,98 +2545,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#license" class="md-nav__link">
+  <a href="#before-first-startup" class="md-nav__link">
     <span class="md-ellipsis">
       
-        License
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#licensegroup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        License.Group
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#project" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Project
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#projectmetadata" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Project.Metadata
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#projectproperty" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Project.Property
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tools" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tools
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#versiondistance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        VersionDistance
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vulnerability" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vulnerability
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vulnerabilityalias" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vulnerability.Alias
+        Before first startup
       
     </span>
   </a>
@@ -2747,10 +2621,10 @@
     
     
       <li class="md-path__item">
-        <a href="../notification/" class="md-path__link">
+        <a href="../application/" class="md-path__link">
           
   <span class="md-ellipsis">
-    Schemas
+    Configuration
   </span>
 
         </a>
@@ -2772,612 +2646,88 @@
   
 
 
-  <h1>Policy schema</h1>
-
-<h2 id="messages">Messages<a class="headerlink" href="#messages" title="Permanent link">¶</a></h2>
-<p><a name="org-dependencytrack-policy-v1-Component"></a></p>
-<h3 id="component">Component<a class="headerlink" href="#component" title="Permanent link">¶</a></h3>
+<h1 id="telemetry">Telemetry<a class="headerlink" href="#telemetry" title="Permanent link">¶</a></h1>
+<p>Dependency-Track periodically submits a small, anonymous data point to
+<code>https://metrics.dependencytrack.org</code>. This helps the maintainers understand
+adoption, plan version support, and decide which database systems to keep
+testing against.</p>
+<p>The submission does not include information that could tie data back to a
+specific organization, such as IP addresses, hostnames, or project content.</p>
+<h2 id="data-collected">Data collected<a class="headerlink" href="#data-collected" title="Permanent link">¶</a></h2>
+<p>Each submission is a single JSON object with four fields:</p>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Field</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
+<th>Field</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><code>uuid</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">UUID of the component.</td>
+<td><code>system_id</code></td>
+<td>Random cluster identifier generated at first startup. Stable across restarts and node replacements.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>group</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Group / namespace of the component.</td>
+<td><code>dt_version</code></td>
+<td>Dependency-Track release version.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>name</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Name of the component.</td>
+<td><code>db_type</code></td>
+<td>Database product name reported by JDBC (for example, <code>PostgreSQL</code>).</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>version</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Version of the component.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>classifier</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Classifier / type of the component. May be any of: - APPLICATION - CONTAINER - DEVICE - FILE - FIRMWARE - FRAMEWORK - LIBRARY - OPERATING_SYSTEM</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>cpe</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"><abbr title="Common Platform Enumeration, a structured naming scheme for software products">CPE</abbr> of the component. https://csrc.nist.gov/projects/security-content-automation-protocol/specifications/cpe</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>purl</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Package URL of the component. https://github.com/package-url/purl-spec</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>swid_tag_id</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">SWID tag ID of the component. https://csrc.nist.gov/projects/Software-Identification-SWID</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>is_internal</code></td>
-<td style="text-align: left;"><code>bool</code></td>
-<td style="text-align: left;">Whether the component is internal to the organization.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>properties</code></td>
-<td style="text-align: left;"><a href="#org-dependencytrack-policy-v1-Component-Property"><code>Component.Property[]</code></a></td>
-<td style="text-align: left;">Properties of the component.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>md5</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>sha1</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>sha256</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>sha384</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>sha512</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>sha3_256</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>sha3_384</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>sha3_512</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>blake2b_256</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>blake2b_384</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>blake2b_512</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>blake3</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>license_name</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>license_expression</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>resolved_license</code></td>
-<td style="text-align: left;"><a href="#org-dependencytrack-policy-v1-License"><code>License</code></a></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>published_at</code></td>
-<td style="text-align: left;"><code>google.protobuf.Timestamp</code></td>
-<td style="text-align: left;">When the component current version last modified.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>latest_version</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
+<td><code>db_version</code></td>
+<td>Database product version reported by JDBC.</td>
 </tr>
 </tbody>
 </table>
-<p><a name="org-dependencytrack-policy-v1-Component-Property"></a></p>
-<h3 id="componentproperty">Component.Property<a class="headerlink" href="#componentproperty" title="Permanent link">¶</a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>group</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>name</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>value</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>type</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<p><a name="org-dependencytrack-policy-v1-License"></a></p>
-<h3 id="license">License<a class="headerlink" href="#license" title="Permanent link">¶</a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>uuid</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>id</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>name</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>groups</code></td>
-<td style="text-align: left;"><a href="#org-dependencytrack-policy-v1-License-Group"><code>License.Group[]</code></a></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>is_osi_approved</code></td>
-<td style="text-align: left;"><code>bool</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>is_fsf_libre</code></td>
-<td style="text-align: left;"><code>bool</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>is_deprecated_id</code></td>
-<td style="text-align: left;"><code>bool</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>is_custom</code></td>
-<td style="text-align: left;"><code>bool</code></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<p><a name="org-dependencytrack-policy-v1-License-Group"></a></p>
-<h3 id="licensegroup">License.Group<a class="headerlink" href="#licensegroup" title="Permanent link">¶</a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>uuid</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>name</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<p><a name="org-dependencytrack-policy-v1-Project"></a></p>
-<h3 id="project">Project<a class="headerlink" href="#project" title="Permanent link">¶</a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>uuid</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>group</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>name</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>version</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>classifier</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>is_active</code></td>
-<td style="text-align: left;"><code>bool</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>tags</code></td>
-<td style="text-align: left;"><code>string[]</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>properties</code></td>
-<td style="text-align: left;"><a href="#org-dependencytrack-policy-v1-Project-Property"><code>Project.Property[]</code></a></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>cpe</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>purl</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>swid_tag_id</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>last_bom_import</code></td>
-<td style="text-align: left;"><code>google.protobuf.Timestamp</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>metadata</code></td>
-<td style="text-align: left;"><a href="#org-dependencytrack-policy-v1-Project-Metadata"><code>Project.Metadata</code></a></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<p><a name="org-dependencytrack-policy-v1-Project-Metadata"></a></p>
-<h3 id="projectmetadata">Project.Metadata<a class="headerlink" href="#projectmetadata" title="Permanent link">¶</a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>tools</code></td>
-<td style="text-align: left;"><a href="#org-dependencytrack-policy-v1-Tools"><code>Tools</code></a></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>bom_generated</code></td>
-<td style="text-align: left;"><code>google.protobuf.Timestamp</code></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<p><a name="org-dependencytrack-policy-v1-Project-Property"></a></p>
-<h3 id="projectproperty">Project.Property<a class="headerlink" href="#projectproperty" title="Permanent link">¶</a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>group</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>name</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>value</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>type</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<p><a name="org-dependencytrack-policy-v1-Tools"></a></p>
-<h3 id="tools">Tools<a class="headerlink" href="#tools" title="Permanent link">¶</a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>components</code></td>
-<td style="text-align: left;"><a href="#org-dependencytrack-policy-v1-Component"><code>Component[]</code></a></td>
-<td style="text-align: left;">Components used as tools.</td>
-</tr>
-</tbody>
-</table>
-<p><a name="org-dependencytrack-policy-v1-VersionDistance"></a></p>
-<h3 id="versiondistance">VersionDistance<a class="headerlink" href="#versiondistance" title="Permanent link">¶</a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>epoch</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>major</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>minor</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>patch</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<p><a name="org-dependencytrack-policy-v1-Vulnerability"></a></p>
-<h3 id="vulnerability">Vulnerability<a class="headerlink" href="#vulnerability" title="Permanent link">¶</a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>uuid</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>id</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>source</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>aliases</code></td>
-<td style="text-align: left;"><a href="#org-dependencytrack-policy-v1-Vulnerability-Alias"><code>Vulnerability.Alias[]</code></a></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>cwes</code></td>
-<td style="text-align: left;"><code>int32[]</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>created</code></td>
-<td style="text-align: left;"><code>google.protobuf.Timestamp</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>published</code></td>
-<td style="text-align: left;"><code>google.protobuf.Timestamp</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>updated</code></td>
-<td style="text-align: left;"><code>google.protobuf.Timestamp</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>severity</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>cvssv2_base_score</code></td>
-<td style="text-align: left;"><code>double</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>cvssv2_impact_subscore</code></td>
-<td style="text-align: left;"><code>double</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>cvssv2_exploitability_subscore</code></td>
-<td style="text-align: left;"><code>double</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>cvssv2_vector</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>cvssv3_base_score</code></td>
-<td style="text-align: left;"><code>double</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>cvssv3_impact_subscore</code></td>
-<td style="text-align: left;"><code>double</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>cvssv3_exploitability_subscore</code></td>
-<td style="text-align: left;"><code>double</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>cvssv3_vector</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>owasp_rr_likelihood_score</code></td>
-<td style="text-align: left;"><code>double</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>owasp_rr_technical_impact_score</code></td>
-<td style="text-align: left;"><code>double</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>owasp_rr_business_impact_score</code></td>
-<td style="text-align: left;"><code>double</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>owasp_rr_vector</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>epss_score</code></td>
-<td style="text-align: left;"><code>double</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>epss_percentile</code></td>
-<td style="text-align: left;"><code>double</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>cvssv4_vector</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>cvssv4_score</code></td>
-<td style="text-align: left;"><code>double</code></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<p><a name="org-dependencytrack-policy-v1-Vulnerability-Alias"></a></p>
-<h3 id="vulnerabilityalias">Vulnerability.Alias<a class="headerlink" href="#vulnerabilityalias" title="Permanent link">¶</a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>id</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>source</code></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
+<p>The <code>system_id</code> lets the maintainers correlate submissions from the same
+deployment over time without identifying who runs it.</p>
+<h2 id="submission-schedule">Submission schedule<a class="headerlink" href="#submission-schedule" title="Permanent link">¶</a></h2>
+<p>The <a href="../task-scheduler/">task scheduler</a> runs the telemetry submission task
+once shortly after startup with a random delay of up to one minute, and then
+on the schedule defined by
+<a href="../properties/#dttasktelemetry-submissioncron"><code>dt.task.telemetry-submission.cron</code></a>
+(default <code>0 */1 * * *</code>, hourly).</p>
+<p>The task itself enforces a 24-hour interval between submissions, so the cron
+expression controls how often the task checks whether a new submission is
+due, not how often data is actually sent.</p>
+<h2 id="opting-out">Opting out<a class="headerlink" href="#opting-out" title="Permanent link">¶</a></h2>
+<p>You can opt out at any time through any of the following methods.</p>
+<h3 id="administration-ui">Administration UI<a class="headerlink" href="#administration-ui" title="Permanent link">¶</a></h3>
+<p>Navigate to <strong>Administration</strong> &gt; <strong>Configuration</strong> &gt; <strong>Telemetry</strong> and turn
+off submission.</p>
+<h3 id="configuration-api">Configuration API<a class="headerlink" href="#configuration-api" title="Permanent link">¶</a></h3>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">'X-Api-Key: odt_...'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">'Content-Type: application/json'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s1">'{</span>
+<span class="s1">        "groupName": "telemetry",</span>
+<span class="s1">        "propertyName": "submission.enabled",</span>
+<span class="s1">        "propertyValue": "false"</span>
+<span class="s1">      }'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>https://dtrack.example.com/api/v1/configProperty
+</code></pre></div></td></tr></tbody></table></div>
+<h3 id="before-first-startup">Before first startup<a class="headerlink" href="#before-first-startup" title="Permanent link">¶</a></h3>
+<p>To opt out before the first startup populates the runtime setting, set
+<a href="../properties/#dttelemetrysubmissiondefault-enabled"><code>dt.telemetry.submission.default-enabled</code></a>
+to <code>false</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="na">dt.telemetry.submission.default-enabled</span><span class="o">=</span><span class="s">false</span>
+</code></pre></div>
+<p>As an environment variable:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">DT_TELEMETRY_SUBMISSION_DEFAULT_ENABLED</span><span class="o">=</span><span class="nb">false</span>
+</code></pre></div>
+<p>This property only seeds the initial value of the runtime setting. Once the
+setting exists in the database, changes via the UI or <abbr title="Representational State Transfer">REST</abbr> API override the
+initial value.</p>
 
 
 
@@ -3415,7 +2765,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer">
         
           
-          <a href="../notification/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Notification schema">
+          <a href="../task-scheduler/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Task scheduler">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
@@ -3425,20 +2775,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Notification schema
+                Task scheduler
               </div>
             </div>
           </a>
         
         
           
-          <a href="../../../blog/" class="md-footer__link md-footer__link--next" aria-label="Next: Blog">
+          <a href="../properties/" class="md-footer__link md-footer__link--next" aria-label="Next: All properties">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Blog
+                All properties
               </div>
             </div>
             <div class="md-footer__button md-icon">
