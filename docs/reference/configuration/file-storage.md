@@ -1,4 +1,4 @@
-# File Storage
+# File storage
 
 Dependency-Track uses file storage for intermediate data during background processing,
 including uploaded BOMs, vulnerability analysis results, and large notifications.

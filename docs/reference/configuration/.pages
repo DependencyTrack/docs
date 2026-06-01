@@ -1,7 +1,10 @@
 nav:
   - Application: application.md
+  - Cache: cache.md
   - Data sources: datasources.md
-  - File storage: file-storage.md
   - Database: database.md
   - Durable execution engine: dex-engine.md
+  - File storage: file-storage.md
+  - Task scheduler: task-scheduler.md
+  - Telemetry: telemetry.md
   - All properties: properties.md

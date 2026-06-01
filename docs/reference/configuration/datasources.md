@@ -1,4 +1,4 @@
-# Data Sources
+# Data sources
 
 Data sources are logical objects through which database connections can be acquired.
 
