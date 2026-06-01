@@ -608,6 +608,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -665,6 +669,62 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About tags
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -980,6 +1040,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#retention-policies-for-projects-and-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retention policies for projects and metrics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#centralized-secrets" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1072,7 +1143,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_11">
         
           
           <div class="md-nav__link md-nav__container">
@@ -1094,14 +1165,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_9" id="__nav_4_9_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4_11" id="__nav_4_11_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_9">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_11">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1233,6 +1304,8 @@
       
         
           
+        
+      
         
       
         
@@ -1467,6 +1540,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#retention-policies-for-projects-and-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retention policies for projects and metrics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#centralized-secrets" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1673,6 +1757,12 @@ scanners further down the chain.</p>
 shipped as a beta feature in v4 with known gaps and noticeable overhead on
 larger portfolios. v5 closes those gaps and reworks the implementation so
 the cost stays bounded as the project count grows.</p>
+<h3 id="retention-policies-for-projects-and-metrics">Retention policies for projects and metrics<a class="headerlink" href="#retention-policies-for-projects-and-metrics" title="Permanent link">¶</a></h3>
+<p>v5 expires inactive project versions and time-series metrics on
+configurable schedules. v4 left both to grow unbounded, so operators
+carried stale portfolio data and ever-growing metric tables. See
+<a href="../../guides/administration/configuring-project-retention/">Configuring project retention</a>
+and <a href="../time-series-metrics/#daily-partitions-and-bounded-retention">time-series metrics retention</a>.</p>
 <h3 id="centralized-secrets">Centralized secrets<a class="headerlink" href="#centralized-secrets" title="Permanent link">¶</a></h3>
 <p>Credentials for integrations live in one place instead of spreading across
 per-feature settings, behind whichever secret-manager provider the

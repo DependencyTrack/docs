@@ -33,6 +33,14 @@
          <lastmod>2026-06-01</lastmod>
     </url>
     <url>
+         <loc>https://dependencytrack.github.io/docs/next/concepts/projects/</loc>
+         <lastmod>2026-06-01</lastmod>
+    </url>
+    <url>
+         <loc>https://dependencytrack.github.io/docs/next/concepts/tags/</loc>
+         <lastmod>2026-06-01</lastmod>
+    </url>
+    <url>
          <loc>https://dependencytrack.github.io/docs/next/concepts/time-series-metrics/</loc>
          <lastmod>2026-06-01</lastmod>
     </url>
@@ -102,6 +110,10 @@
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/guides/administration/configuring-oidc/</loc>
+         <lastmod>2026-06-01</lastmod>
+    </url>
+    <url>
+         <loc>https://dependencytrack.github.io/docs/next/guides/administration/configuring-project-retention/</loc>
          <lastmod>2026-06-01</lastmod>
     </url>
     <url>
@@ -205,11 +217,19 @@
          <lastmod>2026-06-01</lastmod>
     </url>
     <url>
+         <loc>https://dependencytrack.github.io/docs/next/guides/user/managing-project-versions/</loc>
+         <lastmod>2026-06-01</lastmod>
+    </url>
+    <url>
          <loc>https://dependencytrack.github.io/docs/next/guides/user/managing-secrets/</loc>
          <lastmod>2026-06-01</lastmod>
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/guides/user/managing-vulnerability-policies/</loc>
+         <lastmod>2026-06-01</lastmod>
+    </url>
+    <url>
+         <loc>https://dependencytrack.github.io/docs/next/guides/user/organizing-projects/</loc>
          <lastmod>2026-06-01</lastmod>
     </url>
     <url>
@@ -246,6 +266,10 @@
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/reference/permissions/</loc>
+         <lastmod>2026-06-01</lastmod>
+    </url>
+    <url>
+         <loc>https://dependencytrack.github.io/docs/next/reference/projects/</loc>
          <lastmod>2026-06-01</lastmod>
     </url>
     <url>
