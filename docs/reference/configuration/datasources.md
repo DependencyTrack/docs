@@ -51,6 +51,24 @@ via [`dt.secret-management.database.datasource.name`](properties.md#dtsecret-man
     data sources as you like, but unless they're being used by a feature,
     they will not be created.
 
+## Privileges
+
+The user configured for the `default` data source must hold privileges to perform
+DDL against the Dependency-Track schema. The API server issues DDL during normal
+operation:
+
+* On startup, by running [init tasks](init-tasks.md) when configured to use the `default`
+  data source (schema migrations, extension creation, partition setup, seeding).
+* At runtime, by creating and dropping [table partitions] to manage
+  [time series metrics retention](../../concepts/time-series-metrics.md#daily-partitions-and-bounded-retention).
+
+!!! warning
+    Configuring an unprivileged user for the `default` data source is not supported.
+    A user restricted to `SELECT`, `INSERT`, `UPDATE`, and `DELETE` will cause runtime
+    failures even after a successful startup.
+
+Grant the user ownership of the database, or of the Dependency-Track schema within it.
+
 ## Connection Pool Properties
 
 The following properties control local connection pooling per data source:
@@ -73,3 +91,4 @@ For centralised connection pooling with PgBouncer, see the
 [database configuration guide](../../guides/administration/configuring-database.md#centralised-connection-pooling).
 
 [configuration reference]: database.md
+[table partitions]: https://www.postgresql.org/docs/current/ddl-partitioning.html

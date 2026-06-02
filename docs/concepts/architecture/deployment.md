@@ -38,8 +38,9 @@ flowchart LR
 - **Frontend.** Static Vue.js single-page app, typically served by the same load balancer or a CDN.
   Stateless.
 
-Each instance exposes a separate management server for health and metrics that starts before init
-tasks such as schema migration, so probes stay reachable while the main server initializes.
+Each instance exposes a separate management server for health and metrics that starts before
+[init tasks](../../reference/configuration/init-tasks.md) such as schema migration, so probes
+stay reachable while the main server initializes.
 
 ## Coordination
 

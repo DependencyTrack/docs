@@ -5,6 +5,7 @@ nav:
   - Database: database.md
   - Durable execution engine: dex-engine.md
   - File storage: file-storage.md
+  - Init tasks: init-tasks.md
   - Task scheduler: task-scheduler.md
   - Telemetry: telemetry.md
   - All properties: properties.md
