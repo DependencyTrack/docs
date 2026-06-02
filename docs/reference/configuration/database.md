@@ -2,32 +2,32 @@
 
 Dependency-Track requires a [PostgreSQL], or PostgreSQL-compatible database to operate.
 
-The lowest supported version is 14. You are encouraged to use the [newest available version].
+The lowest supported version is 14. Prefer the [newest available version].
 
 For guidance on choosing a hosting solution, deploying, and tuning PostgreSQL, see the
 [database configuration guide](../../guides/administration/configuring-database.md).
 
 ## Extensions
 
-The following PostgreSQL [extensions](https://www.postgresql.org/docs/current/external-extensions.html)
-are **required** by Dependency-Track. When choosing a hosting solution, verify that the extensions listed
-here are supported.
+Dependency-Track **requires** the following PostgreSQL
+[extensions](https://www.postgresql.org/docs/current/external-extensions.html).
+When choosing a hosting solution, verify it supports them.
 
 * [`pg_trgm`](https://www.postgresql.org/docs/current/pgtrgm.html): *Support for similarity of text using trigram matching*
 
 !!! note
-    Dependency-Track will execute the necessary `CREATE EXTENSION IF NOT EXISTS` statements
-    during [schema migration](#schema-migrations). Enabling extensions manually is not necessary.
+    Dependency-Track executes the necessary `CREATE EXTENSION IF NOT EXISTS` statements
+    during [schema migration](#schema-migrations). You do not need to enable extensions manually.
 
-Generally, usage of extensions is limited to those that:
+Dependency-Track limits extension usage to those that:
 
 1. Ship with PostgreSQL [out-of-the-box](https://www.postgresql.org/docs/current/contrib.html)
 2. Are [trusted](https://www.postgresql.org/about/featurematrix/detail/347/) by default
 
-## Tuning Parameters
+## Tuning parameters
 
-The following PostgreSQL parameters are recommended for Dependency-Track deployments.
-For context on when and why to apply these, see the
+Dependency-Track recommends the following PostgreSQL parameters for production
+deployments. For context on when and why to apply these, see the
 [advanced tuning guide](../../guides/administration/configuring-database.md#advanced-tuning).
 
 ### `autovacuum_vacuum_scale_factor`
@@ -107,18 +107,13 @@ For context on when and why to apply these, see the
   </tbody>
 </table>
 
-## Schema Migrations
+## Schema migrations
 
-Schema migrations are performed automatically by the API server upon startup using [Liquibase].
-Usually no manual action is required when upgrading from an older Dependency-Track version, unless explicitly
-stated otherwise in the release notes.
+By default, schema migrations run on startup as an [init task](init-tasks.md), using [Flyway].
+Upgrading from an older Dependency-Track version requires no manual action,
+unless the [upgrade guides](../../guides/upgrading/index.md) explicitly state
+otherwise.
 
-This behaviour can be turned off by setting [`init.tasks.enabled`](properties.md#dtinittasksenabled)
-on the API server container to `false`.
-
-For configuring separate migration credentials, see the
-[schema migration credentials guide](../../guides/administration/configuring-database.md#schema-migration-credentials).
-
-[Liquibase]: https://www.liquibase.com/
+[Flyway]: https://www.red-gate.com/products/flyway/
 [PostgreSQL]: https://www.postgresql.org/
 [newest available version]: https://www.postgresql.org/support/versioning/

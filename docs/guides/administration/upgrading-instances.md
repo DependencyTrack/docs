@@ -11,7 +11,7 @@ The durable execution engine, leader election, and
 to replace one API server instance at a time as long as:
 
 - The release notes describe no breaking schema changes that require all instances to stop.
-- The destination version's Liquibase migrations are additive against the running schema.
+- The destination version's Flyway migrations are additive against the running schema.
 - More than one instance is running. A single-instance deployment cannot upgrade without downtime.
 
 If any of these conditions fail, plan a full-stop upgrade window instead.
@@ -23,7 +23,7 @@ If any of these conditions fail, plan a full-stop upgrade window instead.
   full-stop upgrade if any release calls for one.
 - If you run schema migrations in a dedicated container (recommended for large deployments and
   PgBouncer in transaction mode), plan to run it before any new-version API server starts. See
-  [Schema migration credentials](configuring-database.md#schema-migration-credentials).
+  [init-only containers](../../reference/configuration/init-tasks.md#init-only-containers).
 
 ## Rolling upgrade
 
@@ -37,9 +37,6 @@ Old and new instances run side by side until the roll-out completes. The "additi
 condition listed earlier is what makes that safe: the old version must keep working against the
 migrated schema for the duration of the roll-out. Cap the roll-out to a single deploy window. Do
 not leave the cluster running mixed versions indefinitely.
-
-If a migration fails partway and leaves the Liquibase change-log lock held, clear the lock in
-PostgreSQL before retrying the upgrade.
 
 ## Web/worker split
 

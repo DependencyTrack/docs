@@ -26,7 +26,7 @@ or extensions of it (for example [Neon] or [Timescale]), will most definitely wo
 
 The same is not necessarily true for platforms based on heavily modified PostgreSQL, or even entire re-implementations
 such as [CockroachDB] or [YugabyteDB]. Such solutions make certain trade-offs to achieve higher levels of scalability,
-which might impact functionality that Dependency-Track relies on. If you'd like to see support for those, please [let us know].
+which might impact functionality that Dependency-Track relies on.
 
 ### Self-hosting
 
@@ -172,12 +172,12 @@ centralised connection pools such as [PgBouncer].
 Before proceeding, take note of the following constraints:
 
 * Only `session` and `transaction` pooling modes are supported. `transaction` is recommended.
-* Initialisation tasks, which include database migrations, **must** connect to the
+* [Init tasks](../../reference/configuration/init-tasks.md) **must** connect to the
   database directly, bypassing the connection pooler, when using pooling mode `transaction`.
-    * To prevent concurrent initialisation, session-level PostgreSQL advisory locks are used,
-      which are not supported with the `transaction` pooling mode.
-    * To facilitate this, initialisation tasks can be executed in dedicated containers,
-      and / or using separate data sources.
+  Init tasks coordinate across instances using session-level PostgreSQL advisory locks,
+  which are not supported with the `transaction` pooling mode. Route them through a
+  separate data source that connects to PostgreSQL directly, run them in a
+  dedicated container, or configure both.
 
 ### Example
 
@@ -224,25 +224,6 @@ services:
       DT_INIT_TASKS_DATASOURCE_NAME: "init"
 ```
 
-## Schema migration credentials
-
-It is possible to use different credentials for migrations than for the application itself.
-This can be achieved by configuring a separate data source, and instructing the init tasks to use it:
-
-```ini linenums="1"
-# Configure a data source named "init-tasks".
-dt.datasource.init-tasks.url=jdbc:postgresql://localhost:5432/dtrack
-dt.datasource.init-tasks.username=my-init-task-user
-dt.datasource.init-tasks.password=my-init-task-pass
-
-# Configure init tasks to use the data source.
-init.tasks.datasource.name=init-tasks
-
-# If the data source is only meant for init tasks, there is no need to
-# keep it around after the tasks completed.
-init.tasks.datasource.close-after-use=true
-```
-
 [Autovacuum]: https://www.postgresql.org/docs/current/routine-vacuuming.html
 [CockroachDB]: https://www.cockroachlabs.com/
 [Neon]: https://neon.tech/
@@ -251,6 +232,5 @@ init.tasks.datasource.close-after-use=true
 [Postgres Operator]: https://github.com/zalando/postgres-operator
 [Timescale]: https://www.timescale.com/
 [YugabyteDB]: https://www.yugabyte.com/
-[let us know]: https://github.com/DependencyTrack/hyades/issues/new?assignees=&labels=enhancement&projects=&template=enhancement-request.yml
 [list of well-known commercial hosting providers]: https://www.postgresql.org/support/professional_hosting/
 [official upgrading guide]: https://www.postgresql.org/docs/current/upgrading.html

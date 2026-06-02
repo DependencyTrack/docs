@@ -41,7 +41,10 @@ containers:
       periodSeconds: 5
 ```
 
-The aggregate endpoint `/health` returns the combined status of all checks.
+The startup probe at `/health/started` reports per-task progress while
+[init tasks](../../reference/configuration/init-tasks.md) run, then turns
+healthy once the main server is ready. The aggregate endpoint `/health`
+returns the combined status of all checks.
 
 ## Enabling Prometheus metrics scraping
 
