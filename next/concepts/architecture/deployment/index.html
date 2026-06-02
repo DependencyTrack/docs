@@ -1589,8 +1589,9 @@ ingress:</p>
 <li><strong>Frontend.</strong> Static Vue.js single-page app, typically served by the same load balancer or a CDN.
   Stateless.</li>
 </ul>
-<p>Each instance exposes a separate management server for health and metrics that starts before init
-tasks such as schema migration, so probes stay reachable while the main server initializes.</p>
+<p>Each instance exposes a separate management server for health and metrics that starts before
+<a href="../../../reference/configuration/init-tasks/">init tasks</a> such as schema migration, so probes
+stay reachable while the main server initializes.</p>
 <h2 id="coordination">Coordination<a class="headerlink" href="#coordination" title="Permanent link">¶</a></h2>
 <p>API server instances coordinate only through PostgreSQL. Instances do not need network connectivity
 to each other, only to PostgreSQL and to file storage. The cluster runs no peer-to-peer protocol,

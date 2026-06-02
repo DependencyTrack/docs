@@ -5,34 +5,34 @@
       
       
       
-        <link rel="canonical" href="https://dependencytrack.github.io/docs/next/reference/file-formats/">
+        <link rel="canonical" href="https://dependencytrack.github.io/docs/next/reference/configuration/init-tasks/">
       
       
-        <link rel="prev" href="../badges/">
+        <link rel="prev" href="../file-storage/">
       
       
-        <link rel="next" href="../community-integrations/">
+        <link rel="next" href="../task-scheduler/">
       
       
         
       
       
-        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../feed_rss_created.xml">
-        <link rel="alternate" type="application/rss+xml" title="RSS feed of updated content" href="../../feed_rss_updated.xml">
+        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../../feed_rss_created.xml">
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of updated content" href="../../../feed_rss_updated.xml">
       
-      <link rel="icon" href="../../assets/images/logo.svg">
+      <link rel="icon" href="../../../assets/images/logo.svg">
       <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.6">
     
     
       
-        <title>File formats - Dependency-Track</title>
+        <title>Init tasks - Dependency-Track</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,9 +51,9 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -61,16 +61,16 @@
     
   
 <meta property="og:type" content="website">
-<meta property="og:title" content="File formats - Dependency-Track">
-<meta property="og:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/reference/file-formats.png">
+<meta property="og:title" content="Init tasks - Dependency-Track">
+<meta property="og:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/reference/configuration/init-tasks.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:url" content="https://dependencytrack.github.io/docs/next/reference/file-formats/">
+<meta property="og:url" content="https://dependencytrack.github.io/docs/next/reference/configuration/init-tasks/">
 <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:title" content="File formats - Dependency-Track">
-<meta property="twitter:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/reference/file-formats.png">
-<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+<meta property="twitter:title" content="Init tasks - Dependency-Track">
+<meta property="twitter:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/reference/configuration/init-tasks.png">
+<link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -99,7 +99,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#file-formats" class="md-skip">
+        <a href="#init-tasks" class="md-skip">
           Skip to content
         </a>
       
@@ -119,9 +119,9 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Dependency-Track" class="md-header__button md-logo" aria-label="Dependency-Track" data-md-component="logo">
+    <a href="../../.." title="Dependency-Track" class="md-header__button md-logo" aria-label="Dependency-Track" data-md-component="logo">
       
-  <img src="../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -138,7 +138,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              File formats
+              Init tasks
             
           </span>
         </div>
@@ -243,7 +243,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
   
@@ -264,7 +264,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../tutorials/" class="md-tabs__link">
+        <a href="../../../tutorials/" class="md-tabs__link">
           
   
   
@@ -286,7 +286,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../guides/" class="md-tabs__link">
+        <a href="../../../guides/" class="md-tabs__link">
           
   
   
@@ -308,7 +308,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../concepts/" class="md-tabs__link">
+        <a href="../../../concepts/" class="md-tabs__link">
           
   
   
@@ -332,7 +332,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+        <a href="../../" class="md-tabs__link">
           
   
   
@@ -354,7 +354,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../blog/" class="md-tabs__link">
+        <a href="../../../blog/" class="md-tabs__link">
           
   
   
@@ -396,9 +396,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Dependency-Track" class="md-nav__button md-logo" aria-label="Dependency-Track" data-md-component="logo">
+    <a href="../../.." title="Dependency-Track" class="md-nav__button md-logo" aria-label="Dependency-Track" data-md-component="logo">
       
-  <img src="../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo">
 
     </a>
     Dependency-Track
@@ -425,7 +425,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -486,7 +486,7 @@
   
   
   
-    <a href="../../tutorials/" class="md-nav__link">
+    <a href="../../../tutorials/" class="md-nav__link">
       
   
   
@@ -551,7 +551,7 @@
   
   
   
-    <a href="../../guides/" class="md-nav__link">
+    <a href="../../../guides/" class="md-nav__link">
       
   
   
@@ -630,7 +630,7 @@
   
   
   
-    <a href="../../concepts/" class="md-nav__link">
+    <a href="../../../concepts/" class="md-nav__link">
       
   
   
@@ -715,7 +715,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../" class="md-nav__link ">
               
   
   
@@ -759,7 +759,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../projects/" class="md-nav__link">
+      <a href="../../projects/" class="md-nav__link">
         
   
   
@@ -852,7 +852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../api/v1/" class="md-nav__link">
+      <a href="../../api/v1/" class="md-nav__link">
         
   
   
@@ -880,7 +880,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../api/v2/" class="md-nav__link">
+      <a href="../../api/v2/" class="md-nav__link">
         
   
   
@@ -908,7 +908,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../api/v5-breaking-changes/" class="md-nav__link">
+      <a href="../../api/v5-breaking-changes/" class="md-nav__link">
         
   
   
@@ -941,6 +941,8 @@
                 
   
   
+    
+  
   
   
     
@@ -980,11 +982,11 @@
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" checked>
         
           
           <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="">
@@ -1005,7 +1007,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1023,7 +1025,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../configuration/application/" class="md-nav__link">
+      <a href="../application/" class="md-nav__link">
         
   
   
@@ -1051,7 +1053,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../configuration/cache/" class="md-nav__link">
+      <a href="../cache/" class="md-nav__link">
         
   
   
@@ -1079,7 +1081,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../configuration/datasources/" class="md-nav__link">
+      <a href="../datasources/" class="md-nav__link">
         
   
   
@@ -1107,7 +1109,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../configuration/database/" class="md-nav__link">
+      <a href="../database/" class="md-nav__link">
         
   
   
@@ -1135,7 +1137,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../configuration/dex-engine/" class="md-nav__link">
+      <a href="../dex-engine/" class="md-nav__link">
         
   
   
@@ -1163,7 +1165,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../configuration/file-storage/" class="md-nav__link">
+      <a href="../file-storage/" class="md-nav__link">
         
   
   
@@ -1188,10 +1190,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../configuration/init-tasks/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Init tasks
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1207,6 +1236,81 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lifecycle
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tasks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data source
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#init-only-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Init-only containers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1219,7 +1323,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../configuration/task-scheduler/" class="md-nav__link">
+      <a href="../task-scheduler/" class="md-nav__link">
         
   
   
@@ -1247,7 +1351,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../configuration/telemetry/" class="md-nav__link">
+      <a href="../telemetry/" class="md-nav__link">
         
   
   
@@ -1275,7 +1379,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../configuration/properties/" class="md-nav__link">
+      <a href="../properties/" class="md-nav__link">
         
   
   
@@ -1345,7 +1449,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../datasources/" class="md-nav__link ">
+            <a href="../../datasources/" class="md-nav__link ">
               
   
   
@@ -1389,7 +1493,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../datasources/private-vulnerability-repository/" class="md-nav__link">
+      <a href="../../datasources/private-vulnerability-repository/" class="md-nav__link">
         
   
   
@@ -1417,7 +1521,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../datasources/repositories/" class="md-nav__link">
+      <a href="../../datasources/repositories/" class="md-nav__link">
         
   
   
@@ -1445,7 +1549,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../datasources/internal-components/" class="md-nav__link">
+      <a href="../../datasources/internal-components/" class="md-nav__link">
         
   
   
@@ -1548,7 +1652,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../notifications/groups/" class="md-nav__link">
+      <a href="../../notifications/groups/" class="md-nav__link">
         
   
   
@@ -1576,7 +1680,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../notifications/publishers/" class="md-nav__link">
+      <a href="../../notifications/publishers/" class="md-nav__link">
         
   
   
@@ -1604,7 +1708,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../notifications/templating/" class="md-nav__link">
+      <a href="../../notifications/templating/" class="md-nav__link">
         
   
   
@@ -1632,7 +1736,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../notifications/filter-expressions/" class="md-nav__link">
+      <a href="../../notifications/filter-expressions/" class="md-nav__link">
         
   
   
@@ -1729,7 +1833,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../analyzers/" class="md-nav__link">
+      <a href="../../analyzers/" class="md-nav__link">
         
   
   
@@ -1799,7 +1903,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../policies/" class="md-nav__link ">
+            <a href="../../policies/" class="md-nav__link ">
               
   
   
@@ -1843,7 +1947,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../policies/component-policies/" class="md-nav__link">
+      <a href="../../policies/component-policies/" class="md-nav__link">
         
   
   
@@ -1871,7 +1975,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../policies/vulnerability-policies/" class="md-nav__link">
+      <a href="../../policies/vulnerability-policies/" class="md-nav__link">
         
   
   
@@ -1899,7 +2003,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../policies/condition-expressions/" class="md-nav__link">
+      <a href="../../policies/condition-expressions/" class="md-nav__link">
         
   
   
@@ -1935,7 +2039,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cel-expressions/" class="md-nav__link">
+      <a href="../../cel-expressions/" class="md-nav__link">
         
   
   
@@ -2024,7 +2128,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../permissions/" class="md-nav__link">
+      <a href="../../permissions/" class="md-nav__link">
         
   
   
@@ -2057,8 +2161,6 @@
                 
   
   
-    
-  
   
   
     
@@ -2084,11 +2186,11 @@
     
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_11" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_11">
         
           
           <label class="md-nav__link" for="__nav_5_11" id="__nav_5_11_label" tabindex="">
@@ -2109,7 +2211,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_11_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_11_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_11">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2127,7 +2229,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../badges/" class="md-nav__link">
+      <a href="../../badges/" class="md-nav__link">
         
   
   
@@ -2152,37 +2254,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    File formats
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../file-formats/" class="md-nav__link">
         
   
   
@@ -2198,87 +2273,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#cyclonedx" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        CycloneDX
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#finding-packaging-format-fpf" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Finding Packaging Format (FPF)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Finding Packaging Format (FPF)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Structure
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#api-endpoint" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        API Endpoint
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#version-history" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Version History
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2291,7 +2285,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../community-integrations/" class="md-nav__link">
+      <a href="../../community-integrations/" class="md-nav__link">
         
   
   
@@ -2390,7 +2384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../schemas/notification/" class="md-nav__link">
+      <a href="../../schemas/notification/" class="md-nav__link">
         
   
   
@@ -2418,7 +2412,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../schemas/policy/" class="md-nav__link">
+      <a href="../../schemas/policy/" class="md-nav__link">
         
   
   
@@ -2489,7 +2483,7 @@
   
   
   
-    <a href="../../blog/" class="md-nav__link">
+    <a href="../../../blog/" class="md-nav__link">
       
   
   
@@ -2542,10 +2536,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#cyclonedx" class="md-nav__link">
+  <a href="#lifecycle" class="md-nav__link">
     <span class="md-ellipsis">
       
-        CycloneDX
+        Lifecycle
       
     </span>
   </a>
@@ -2553,52 +2547,46 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#finding-packaging-format-fpf" class="md-nav__link">
+  <a href="#tasks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Finding Packaging Format (FPF)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Finding Packaging Format (FPF)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Structure
+        Tasks
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#api-endpoint" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#data-source" class="md-nav__link">
     <span class="md-ellipsis">
       
-        API Endpoint
+        Data source
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#version-history" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#init-only-containers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Version History
+        Init-only containers
       
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration
+      
+    </span>
+  </a>
   
 </li>
       
@@ -2627,7 +2615,7 @@
   
   
     <li class="md-path__item">
-      <a href="../.." class="md-path__link">
+      <a href="../../.." class="md-path__link">
         
   <span class="md-ellipsis">
     Home
@@ -2645,7 +2633,7 @@
     
     
       <li class="md-path__item">
-        <a href="../" class="md-path__link">
+        <a href="../../" class="md-path__link">
           
   <span class="md-ellipsis">
     Reference
@@ -2663,10 +2651,10 @@
     
     
       <li class="md-path__item">
-        <a href="../badges/" class="md-path__link">
+        <a href="../application/" class="md-path__link">
           
   <span class="md-ellipsis">
-    Integrations
+    Configuration
   </span>
 
         </a>
@@ -2688,126 +2676,100 @@
   
 
 
-<h1 id="file-formats">File Formats<a class="headerlink" href="#file-formats" title="Permanent link">¶</a></h1>
-<h2 id="cyclonedx">CycloneDX<a class="headerlink" href="#cyclonedx" title="Permanent link">¶</a></h2>
-<p>Dependency-Track's primary file format is <a href="https://cyclonedx.org/">CycloneDX</a>, a
-lightweight, security-focused Bill of Materials specification. CycloneDX is the only
-format supported for <strong>uploading</strong> SBOMs to Dependency-Track.</p>
-<p>Supported CycloneDX serialisations:</p>
+<h1 id="init-tasks">Init tasks<a class="headerlink" href="#init-tasks" title="Permanent link">¶</a></h1>
+<p>Init tasks are one-time operations the API server performs at startup, before
+the main server begins serving traffic. They prepare the database schema, seed
+default objects, and bring the durable execution engine to a consistent state.</p>
+<h2 id="lifecycle">Lifecycle<a class="headerlink" href="#lifecycle" title="Permanent link">¶</a></h2>
+<p>Init tasks run before the HTTP listener starts and before background workers
+initialize. They block startup. If any task fails, the <abbr title="Java Virtual Machine">JVM</abbr> exits and the
+container does not begin serving traffic.</p>
+<p>The management server starts before init tasks run and exposes the
+<a href="../../../guides/administration/configuring-observability/#configuring-kubernetes-health-probes">startup health endpoint</a>
+at <code>/health/started</code>, which reports per-task status (<code>STARTED</code>, <code>COMPLETED</code>,
+<code>FAILED</code>) during execution.</p>
+<p>By default, init tasks run in every API server container. To coordinate across
+instances, the executor acquires a session-level PostgreSQL <a href="https://www.postgresql.org/docs/current/explicit-locking.html#ADVISORY-LOCKS">advisory lock</a>,
+so only one container performs each task at a time. Remaining containers wait
+for the lock, then confirm there is nothing left to do.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Session-level advisory locks are incompatible with PgBouncer in
+<code>transaction</code> pooling mode. When using a transaction-mode connection
+pooler, configure a separate <a href="#data-source">init data source</a> that
+connects directly to PostgreSQL.</p>
+</div>
+<h2 id="tasks">Tasks<a class="headerlink" href="#tasks" title="Permanent link">¶</a></h2>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Format</th>
-<th style="text-align: left;">Content-Type</th>
+<th>Task</th>
+<th>Purpose</th>
+<th>Enable property</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">JSON</td>
-<td style="text-align: left;"><code>application/vnd.cyclonedx+json</code></td>
+<td>Database migration</td>
+<td>Runs <a href="../database/#schema-migrations">Flyway</a> migrations against the Dependency-Track schema. Creates required <a href="../database/#extensions">extensions</a>.</td>
+<td><a href="../properties/#dtinit-taskdatabase-migrationenabled"><code>dt.init-task.database-migration.enabled</code></a></td>
 </tr>
 <tr>
-<td style="text-align: left;">XML</td>
-<td style="text-align: left;"><code>application/vnd.cyclonedx+xml</code></td>
+<td>Database partition maintenance</td>
+<td>Creates <a href="https://www.postgresql.org/docs/current/ddl-partitioning.html">table partitions</a> required for <a href="../../../concepts/time-series-metrics/">time series metrics</a>.</td>
+<td><a href="../properties/#dtinit-taskdatabase-partition-maintenanceenabled"><code>dt.init-task.database-partition-maintenance.enabled</code></a></td>
+</tr>
+<tr>
+<td>Database seeding</td>
+<td>Populates default permissions, teams, users, licenses, license groups, repositories, and configuration properties. Idempotent. Skips on later startups when the build identifier has not changed.</td>
+<td><a href="../properties/#dtinit-taskdatabase-seedingenabled"><code>dt.init-task.database-seeding.enabled</code></a></td>
+</tr>
+<tr>
+<td>Dex engine database migration</td>
+<td>Runs schema migrations for the <a href="../dex-engine/">durable execution engine</a>.</td>
+<td><a href="../properties/#dtinit-taskdex-engine-database-migrationenabled"><code>dt.init-task.dex-engine-database-migration.enabled</code></a></td>
 </tr>
 </tbody>
 </table>
-<p>All versions of the CycloneDX <abbr title="Bill of Materials">BOM</abbr> specification are supported for upload.</p>
-<p>Dependency-Track also <strong>generates</strong> CycloneDX documents in several forms:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Document type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><abbr title="Bill of Materials">BOM</abbr></td>
-<td style="text-align: left;">A full software bill of materials reflecting the current component inventory of a project.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><abbr title="Vulnerability Exploitability eXchange">VEX</abbr></td>
-<td style="text-align: left;">A Vulnerability Exploitability Exchange document containing analysis decisions (states, justifications) for a project's findings.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><abbr title="Vulnerability Disclosure Report">VDR</abbr></td>
-<td style="text-align: left;">A Vulnerability Disclosure Report containing full vulnerability data for a project's components.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="finding-packaging-format-fpf">Finding Packaging Format (FPF)<a class="headerlink" href="#finding-packaging-format-fpf" title="Permanent link">¶</a></h2>
-<p>The Finding Packaging Format (FPF) is a Dependency-Track-native JSON format for
-exporting findings. It is used primarily to integrate with platforms that cannot
-consume the <abbr title="Representational State Transfer">REST</abbr> API directly.</p>
-<h3 id="structure">Structure<a class="headerlink" href="#structure" title="Permanent link">¶</a></h3>
-<p>An FPF document contains four top-level fields:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Field</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>version</code></td>
-<td style="text-align: left;">The FPF format version.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>meta</code></td>
-<td style="text-align: left;">Information about the Dependency-Track instance that generated the file.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>project</code></td>
-<td style="text-align: left;">Project metadata (name, version, UUID).</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>findings</code></td>
-<td style="text-align: left;">Array of finding records, each linking a component to a vulnerability and including the current analysis state.</td>
-</tr>
-</tbody>
-</table>
-<p>Each finding record includes the affected component's coordinates, the vulnerability
-details (ID, source, severity, <abbr title="Common Vulnerability Scoring System">CVSS</abbr> vectors, CWEs), the current analysis state and
-justification, and a matrix identifier that uniquely identifies the (project, component,
-vulnerability) triple.</p>
-<h3 id="api-endpoint">API Endpoint<a class="headerlink" href="#api-endpoint" title="Permanent link">¶</a></h3>
-<div class="highlight"><pre><span></span><code>GET /api/v1/finding/project/{uuid}/export
-</code></pre></div>
-<p>Requires the <code>VIEW_VULNERABILITY</code> permission.</p>
-<h3 id="version-history">Version History<a class="headerlink" href="#version-history" title="Permanent link">¶</a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">FPF Version</th>
-<th style="text-align: left;">Dependency-Track Version</th>
-<th style="text-align: left;">Changes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">v1.0</td>
-<td style="text-align: left;">Initial</td>
-<td style="text-align: left;">Baseline format.</td>
-</tr>
-<tr>
-<td style="text-align: left;">v1.1</td>
-<td style="text-align: left;">v4.5</td>
-<td style="text-align: left;">Added <code>cwes</code> array to support multiple CWEs per vulnerability.</td>
-</tr>
-<tr>
-<td style="text-align: left;">v1.2</td>
-<td style="text-align: left;">v4.8.0</td>
-<td style="text-align: left;">Removed <code>allBySource</code> and internal <code>id</code> fields from aliases.</td>
-</tr>
-<tr>
-<td style="text-align: left;">v1.3</td>
-<td style="text-align: left;">v4.14.0</td>
-<td style="text-align: left;">Added optional <abbr title="Common Vulnerability Scoring System">CVSS</abbr> vectors (<code>cvssV2Vector</code>, <code>cvssV3Vector</code>, <code>cvssV4Vector</code>) and OWASP Risk Rating vector fields.</td>
-</tr>
-</tbody>
-</table>
+<p>Per-task enable properties take effect only when
+<a href="../properties/#dtinit-tasksenabled"><code>dt.init-tasks.enabled</code></a> is <code>true</code>.</p>
+<h2 id="data-source">Data source<a class="headerlink" href="#data-source" title="Permanent link">¶</a></h2>
+<p>By default, init tasks use the <code>default</code> <a href="../datasources/">data source</a>.
+Override this with
+<a href="../properties/#dtinit-tasksdatasourcename"><code>dt.init-tasks.datasource.name</code></a>
+to route them through a separate connection pool.</p>
+<p>The most common reason: centralized connection pooling with PgBouncer in
+<code>transaction</code> mode, which requires init tasks to bypass the pooler and
+connect to PostgreSQL directly. The default data source connects through
+PgBouncer, while the init data source connects to PostgreSQL directly so
+session-level advisory locks remain usable. See
+<a href="../../../guides/administration/configuring-database/#centralised-connection-pooling">centralized connection pooling</a>
+for an example.</p>
+<p>When the init data source exists solely to serve init tasks, set
+<a href="../properties/#dtinit-tasksdatasourceclose-after-completion"><code>dt.init-tasks.datasource.close-after-completion</code></a>
+to <code>true</code>. The API server closes the connection pool once tasks finish,
+freeing its connections.</p>
+<h2 id="init-only-containers">Init-only containers<a class="headerlink" href="#init-only-containers" title="Permanent link">¶</a></h2>
+<p>Setting
+<a href="../properties/#dtinit-tasksexit-after-completion"><code>dt.init-tasks.exit-after-completion</code></a>
+to <code>true</code> causes the <abbr title="Java Virtual Machine">JVM</abbr> to exit with status <code>0</code> once init tasks succeed,
+without starting the main server. This supports a dedicated init container
+pattern, where a short-lived container runs init tasks and exits before
+long-lived API server containers start.</p>
+<p>In this pattern, the long-lived containers set
+<a href="../properties/#dtinit-tasksenabled"><code>dt.init-tasks.enabled</code></a> to <code>false</code> to
+skip init tasks on startup.</p>
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="../properties/#dtinit-tasksenabled"><code>dt.init-tasks.enabled</code></a></li>
+<li><a href="../properties/#dtinit-tasksdatasourcename"><code>dt.init-tasks.datasource.name</code></a></li>
+<li><a href="../properties/#dtinit-tasksdatasourceclose-after-completion"><code>dt.init-tasks.datasource.close-after-completion</code></a></li>
+<li><a href="../properties/#dtinit-tasksexit-after-completion"><code>dt.init-tasks.exit-after-completion</code></a></li>
+<li><a href="../properties/#dtinit-taskdatabase-migrationenabled"><code>dt.init-task.database-migration.enabled</code></a></li>
+<li><a href="../properties/#dtinit-taskdatabase-partition-maintenanceenabled"><code>dt.init-task.database-partition-maintenance.enabled</code></a></li>
+<li><a href="../properties/#dtinit-taskdatabase-seedingenabled"><code>dt.init-task.database-seeding.enabled</code></a></li>
+<li><a href="../properties/#dtinit-taskdex-engine-database-migrationenabled"><code>dt.init-task.dex-engine-database-migration.enabled</code></a></li>
+</ul>
 
 
 
@@ -2845,7 +2807,7 @@ vulnerability) triple.</p>
       <nav class="md-footer__inner md-grid" aria-label="Footer">
         
           
-          <a href="../badges/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Badges">
+          <a href="../file-storage/" class="md-footer__link md-footer__link--prev" aria-label="Previous: File storage">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
@@ -2855,20 +2817,20 @@ vulnerability) triple.</p>
                 Previous
               </span>
               <div class="md-ellipsis">
-                Badges
+                File storage
               </div>
             </div>
           </a>
         
         
           
-          <a href="../community-integrations/" class="md-footer__link md-footer__link--next" aria-label="Next: Community integrations">
+          <a href="../task-scheduler/" class="md-footer__link md-footer__link--next" aria-label="Next: Task scheduler">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Community integrations
+                Task scheduler
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -2982,11 +2944,11 @@ vulnerability) triple.</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.tabs.link", "navigation.footer", "navigation.indexes", "navigation.instant", "navigation.path", "navigation.prune", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "search.highlight", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.copy", "content.tabs.link", "navigation.footer", "navigation.indexes", "navigation.instant", "navigation.path", "navigation.prune", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "search.highlight", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
     
     
   
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   

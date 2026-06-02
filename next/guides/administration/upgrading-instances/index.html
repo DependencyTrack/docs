@@ -2421,7 +2421,7 @@ downtime. For breaking changes between specific releases, always consult the
 to replace one API server instance at a time as long as:</p>
 <ul>
 <li>The release notes describe no breaking schema changes that require all instances to stop.</li>
-<li>The destination version's Liquibase migrations are additive against the running schema.</li>
+<li>The destination version's Flyway migrations are additive against the running schema.</li>
 <li>More than one instance is running. A single-instance deployment cannot upgrade without downtime.</li>
 </ul>
 <p>If any of these conditions fail, plan a full-stop upgrade window instead.</p>
@@ -2432,7 +2432,7 @@ to replace one API server instance at a time as long as:</p>
   full-stop upgrade if any release calls for one.</li>
 <li>If you run schema migrations in a dedicated container (recommended for large deployments and
   PgBouncer in transaction mode), plan to run it before any new-version API server starts. See
-  <a href="../configuring-database/#schema-migration-credentials">Schema migration credentials</a>.</li>
+  <a href="../../../reference/configuration/init-tasks/#init-only-containers">init-only containers</a>.</li>
 </ul>
 <h2 id="rolling-upgrade">Rolling upgrade<a class="headerlink" href="#rolling-upgrade" title="Permanent link">¶</a></h2>
 <ol>
@@ -2446,8 +2446,6 @@ to replace one API server instance at a time as long as:</p>
 condition listed earlier is what makes that safe: the old version must keep working against the
 migrated schema for the duration of the roll-out. Cap the roll-out to a single deploy window. Do
 not leave the cluster running mixed versions indefinitely.</p>
-<p>If a migration fails partway and leaves the Liquibase change-log lock held, clear the lock in
-PostgreSQL before retrying the upgrade.</p>
 <h2 id="webworker-split">Web/worker split<a class="headerlink" href="#webworker-split" title="Permanent link">¶</a></h2>
 <p>When the cluster <a href="../scaling/#separate-api-traffic-from-background-work">splits API and worker traffic</a>,
 upgrade both groups using the same one-at-a-time pattern. Upgrade workers first so the API tier

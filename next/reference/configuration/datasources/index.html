@@ -966,6 +966,8 @@
       
         
       
+        
+      
     
     
     
@@ -1150,6 +1152,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#privileges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Privileges
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#connection-pool-properties" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1240,6 +1253,34 @@
     
   
     File storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../init-tasks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Init tasks
   
 
     
@@ -2484,6 +2525,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#privileges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Privileges
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#connection-pool-properties" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2641,6 +2693,23 @@ via <a href="../properties/#dtsecret-managementdatabasedatasourcename"><code>dt.
 data sources as you like, but unless they're being used by a feature,
 they will not be created.</p>
 </div>
+<h2 id="privileges">Privileges<a class="headerlink" href="#privileges" title="Permanent link">¶</a></h2>
+<p>The user configured for the <code>default</code> data source must hold privileges to perform
+DDL against the Dependency-Track schema. The API server issues DDL during normal
+operation:</p>
+<ul>
+<li>On startup, by running <a href="../init-tasks/">init tasks</a> when configured to use the <code>default</code>
+  data source (schema migrations, extension creation, partition setup, seeding).</li>
+<li>At runtime, by creating and dropping <a href="https://www.postgresql.org/docs/current/ddl-partitioning.html">table partitions</a> to manage
+  <a href="../../../concepts/time-series-metrics/#daily-partitions-and-bounded-retention">time series metrics retention</a>.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Configuring an unprivileged user for the <code>default</code> data source is not supported.
+A user restricted to <code>SELECT</code>, <code>INSERT</code>, <code>UPDATE</code>, and <code>DELETE</code> will cause runtime
+failures even after a successful startup.</p>
+</div>
+<p>Grant the user ownership of the database, or of the Dependency-Track schema within it.</p>
 <h2 id="connection-pool-properties">Connection Pool Properties<a class="headerlink" href="#connection-pool-properties" title="Permanent link">¶</a></h2>
 <p>The following properties control local connection pooling per data source:</p>
 <ul>

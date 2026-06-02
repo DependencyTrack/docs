@@ -1322,17 +1322,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#schema-migration-credentials" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Schema migration credentials
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2582,17 +2571,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#schema-migration-credentials" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Schema migration credentials
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2700,7 +2678,7 @@ you will have to choose between a managed or self-hosted solution.</p>
 or extensions of it (for example <a href="https://neon.tech/">Neon</a> or <a href="https://www.timescale.com/">Timescale</a>), will most definitely work with Dependency-Track.</p>
 <p>The same is not necessarily true for platforms based on heavily modified PostgreSQL, or even entire re-implementations
 such as <a href="https://www.cockroachlabs.com/">CockroachDB</a> or <a href="https://www.yugabyte.com/">YugabyteDB</a>. Such solutions make certain trade-offs to achieve higher levels of scalability,
-which might impact functionality that Dependency-Track relies on. If you'd like to see support for those, please <a href="https://github.com/DependencyTrack/hyades/issues/new?assignees=&amp;labels=enhancement&amp;projects=&amp;template=enhancement-request.yml">let us know</a>.</p>
+which might impact functionality that Dependency-Track relies on.</p>
 <h3 id="self-hosting">Self-hosting<a class="headerlink" href="#self-hosting" title="Permanent link">¶</a></h3>
 <h4 id="bare-metal-docker">Bare Metal / Docker<a class="headerlink" href="#bare-metal-docker" title="Permanent link">¶</a></h4>
 <p>For Docker deployments, use the official <a href="https://hub.docker.com/_/postgres"><code>postgres</code></a> image.</p>
@@ -2808,14 +2786,12 @@ for all data sources, using <a href="../../../reference/configuration/properties
 <p>Before proceeding, take note of the following constraints:</p>
 <ul>
 <li>Only <code>session</code> and <code>transaction</code> pooling modes are supported. <code>transaction</code> is recommended.</li>
-<li>Initialisation tasks, which include database migrations, <strong>must</strong> connect to the
-  database directly, bypassing the connection pooler, when using pooling mode <code>transaction</code>.<ul>
-<li>To prevent concurrent initialisation, session-level PostgreSQL advisory locks are used,
-  which are not supported with the <code>transaction</code> pooling mode.</li>
-<li>To facilitate this, initialisation tasks can be executed in dedicated containers,
-  and / or using separate data sources.</li>
-</ul>
-</li>
+<li><a href="../../../reference/configuration/init-tasks/">Init tasks</a> <strong>must</strong> connect to the
+  database directly, bypassing the connection pooler, when using pooling mode <code>transaction</code>.
+  Init tasks coordinate across instances using session-level PostgreSQL advisory locks,
+  which are not supported with the <code>transaction</code> pooling mode. Route them through a
+  separate data source that connects to PostgreSQL directly, run them in a
+  dedicated container, or configure both.</li>
 </ul>
 <h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">¶</a></h3>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -2897,31 +2873,6 @@ for all data sources, using <a href="../../../reference/configuration/properties
 <span class="w">      </span><span class="nt">DT_DATASOURCE_INIT_POOL_ENABLED</span><span class="p">:</span><span class="w"> </span><span class="s">"false"</span>
 <span class="w">      </span><span class="c1"># Configure initialisation tasks to use the above data source.</span>
 <span class="w">      </span><span class="nt">DT_INIT_TASKS_DATASOURCE_NAME</span><span class="p">:</span><span class="w"> </span><span class="s">"init"</span>
-</code></pre></div></td></tr></tbody></table></div>
-<h2 id="schema-migration-credentials">Schema migration credentials<a class="headerlink" href="#schema-migration-credentials" title="Permanent link">¶</a></h2>
-<p>It is possible to use different credentials for migrations than for the application itself.
-This can be achieved by configuring a separate data source, and instructing the init tasks to use it:</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Configure a data source named "init-tasks".</span>
-<span class="na">dt.datasource.init-tasks.url</span><span class="o">=</span><span class="s">jdbc:postgresql://localhost:5432/dtrack</span>
-<span class="na">dt.datasource.init-tasks.username</span><span class="o">=</span><span class="s">my-init-task-user</span>
-<span class="na">dt.datasource.init-tasks.password</span><span class="o">=</span><span class="s">my-init-task-pass</span>
-
-<span class="c1"># Configure init tasks to use the data source.</span>
-<span class="na">init.tasks.datasource.name</span><span class="o">=</span><span class="s">init-tasks</span>
-
-<span class="c1"># If the data source is only meant for init tasks, there is no need to</span>
-<span class="c1"># keep it around after the tasks completed.</span>
-<span class="na">init.tasks.datasource.close-after-use</span><span class="o">=</span><span class="s">true</span>
 </code></pre></div></td></tr></tbody></table></div>
 
 

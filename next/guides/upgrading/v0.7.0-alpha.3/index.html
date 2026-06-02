@@ -2527,7 +2527,8 @@ Update your configurations at your earliest convenience.</p>
 </li>
 <li>
 <p><strong>Health and metrics endpoints have moved to a dedicated management server</strong> that listens
-  on a separate port (default <code>9000</code>). The management server starts before init tasks, making
+  on a separate port (default <code>9000</code>). The management server starts before
+  <a href="../../../reference/configuration/init-tasks/">init tasks</a>, making
   health probes available during the entire startup sequence.</p>
 <table>
 <thead>
@@ -2578,8 +2579,9 @@ Update your configurations at your earliest convenience.</p>
 <li><code>init.tasks.database.password</code></li>
 </ul>
 </li>
-<li>Refer to <a href="../../administration/configuring-database/#schema-migration-credentials">schema migration credentials</a>
-  for an example of how to run init tasks with separate database credentials.</li>
+<li>For current init task data source configuration details, see
+  <a href="../../../reference/configuration/init-tasks/#data-source">Init tasks</a>.
+  (This release uses <code>init.tasks.datasource.name</code>.)</li>
 </ul>
 
 

@@ -2424,7 +2424,10 @@ specification and map directly to Kubernetes <a href="https://kubernetes.io/docs
 <span class="w">      </span><span class="nt">failureThreshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span>
 <span class="w">      </span><span class="nt">periodSeconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
 </code></pre></div></td></tr></tbody></table></div>
-<p>The aggregate endpoint <code>/health</code> returns the combined status of all checks.</p>
+<p>The startup probe at <code>/health/started</code> reports per-task progress while
+<a href="../../../reference/configuration/init-tasks/">init tasks</a> run, then turns
+healthy once the main server is ready. The aggregate endpoint <code>/health</code>
+returns the combined status of all checks.</p>
 <h2 id="enabling-prometheus-metrics-scraping">Enabling Prometheus metrics scraping<a class="headerlink" href="#enabling-prometheus-metrics-scraping" title="Permanent link">¶</a></h2>
 <p>Metrics are disabled by default. Enable them via
 <a href="../../../reference/configuration/properties/#dtmetricsenabled"><code>dt.metrics.enabled</code></a>:</p>

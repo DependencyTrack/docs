@@ -966,6 +966,8 @@
       
         
       
+        
+      
     
     
     
@@ -1181,12 +1183,12 @@
   <a href="#tuning-parameters" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Tuning Parameters
+        Tuning parameters
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Tuning Parameters">
+    <nav class="md-nav" aria-label="Tuning parameters">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1231,7 +1233,7 @@
   <a href="#schema-migrations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Schema Migrations
+        Schema migrations
       
     </span>
   </a>
@@ -1290,6 +1292,34 @@
     
   
     File storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../init-tasks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Init tasks
   
 
     
@@ -2537,12 +2567,12 @@
   <a href="#tuning-parameters" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Tuning Parameters
+        Tuning parameters
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Tuning Parameters">
+    <nav class="md-nav" aria-label="Tuning parameters">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2587,7 +2617,7 @@
   <a href="#schema-migrations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Schema Migrations
+        Schema migrations
       
     </span>
   </a>
@@ -2682,29 +2712,29 @@
 
 <h1 id="database">Database<a class="headerlink" href="#database" title="Permanent link">¶</a></h1>
 <p>Dependency-Track requires a <a href="https://www.postgresql.org/">PostgreSQL</a>, or PostgreSQL-compatible database to operate.</p>
-<p>The lowest supported version is 14. You are encouraged to use the <a href="https://www.postgresql.org/support/versioning/">newest available version</a>.</p>
+<p>The lowest supported version is 14. Prefer the <a href="https://www.postgresql.org/support/versioning/">newest available version</a>.</p>
 <p>For guidance on choosing a hosting solution, deploying, and tuning PostgreSQL, see the
 <a href="../../../guides/administration/configuring-database/">database configuration guide</a>.</p>
 <h2 id="extensions">Extensions<a class="headerlink" href="#extensions" title="Permanent link">¶</a></h2>
-<p>The following PostgreSQL <a href="https://www.postgresql.org/docs/current/external-extensions.html">extensions</a>
-are <strong>required</strong> by Dependency-Track. When choosing a hosting solution, verify that the extensions listed
-here are supported.</p>
+<p>Dependency-Track <strong>requires</strong> the following PostgreSQL
+<a href="https://www.postgresql.org/docs/current/external-extensions.html">extensions</a>.
+When choosing a hosting solution, verify it supports them.</p>
 <ul>
 <li><a href="https://www.postgresql.org/docs/current/pgtrgm.html"><code>pg_trgm</code></a>: <em>Support for similarity of text using trigram matching</em></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Dependency-Track will execute the necessary <code>CREATE EXTENSION IF NOT EXISTS</code> statements
-during <a href="#schema-migrations">schema migration</a>. Enabling extensions manually is not necessary.</p>
+<p>Dependency-Track executes the necessary <code>CREATE EXTENSION IF NOT EXISTS</code> statements
+during <a href="#schema-migrations">schema migration</a>. You do not need to enable extensions manually.</p>
 </div>
-<p>Generally, usage of extensions is limited to those that:</p>
+<p>Dependency-Track limits extension usage to those that:</p>
 <ol>
 <li>Ship with PostgreSQL <a href="https://www.postgresql.org/docs/current/contrib.html">out-of-the-box</a></li>
 <li>Are <a href="https://www.postgresql.org/about/featurematrix/detail/347/">trusted</a> by default</li>
 </ol>
-<h2 id="tuning-parameters">Tuning Parameters<a class="headerlink" href="#tuning-parameters" title="Permanent link">¶</a></h2>
-<p>The following PostgreSQL parameters are recommended for Dependency-Track deployments.
-For context on when and why to apply these, see the
+<h2 id="tuning-parameters">Tuning parameters<a class="headerlink" href="#tuning-parameters" title="Permanent link">¶</a></h2>
+<p>Dependency-Track recommends the following PostgreSQL parameters for production
+deployments. For context on when and why to apply these, see the
 <a href="../../../guides/administration/configuring-database/#advanced-tuning">advanced tuning guide</a>.</p>
 <h3 id="autovacuum_vacuum_scale_factor"><code>autovacuum_vacuum_scale_factor</code><a class="headerlink" href="#autovacuum_vacuum_scale_factor" title="Permanent link">¶</a></h3>
 <table>
@@ -2780,14 +2810,11 @@ For context on when and why to apply these, see the
   </tbody>
 </table>
 
-<h2 id="schema-migrations">Schema Migrations<a class="headerlink" href="#schema-migrations" title="Permanent link">¶</a></h2>
-<p>Schema migrations are performed automatically by the API server upon startup using <a href="https://www.liquibase.com/">Liquibase</a>.
-Usually no manual action is required when upgrading from an older Dependency-Track version, unless explicitly
-stated otherwise in the release notes.</p>
-<p>This behaviour can be turned off by setting <a href="../properties/#dtinittasksenabled"><code>init.tasks.enabled</code></a>
-on the API server container to <code>false</code>.</p>
-<p>For configuring separate migration credentials, see the
-<a href="../../../guides/administration/configuring-database/#schema-migration-credentials">schema migration credentials guide</a>.</p>
+<h2 id="schema-migrations">Schema migrations<a class="headerlink" href="#schema-migrations" title="Permanent link">¶</a></h2>
+<p>By default, schema migrations run on startup as an <a href="../init-tasks/">init task</a>, using <a href="https://www.red-gate.com/products/flyway/">Flyway</a>.
+Upgrading from an older Dependency-Track version requires no manual action,
+unless the <a href="../../../guides/upgrading/">upgrade guides</a> explicitly state
+otherwise.</p>
 
 
 
