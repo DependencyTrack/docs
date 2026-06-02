@@ -61,8 +61,8 @@ Some reference pages are generated from upstream source repositories and should 
 
 ## See also
 
-* [dependency-track](https://github.com/DependencyTrack/dependency-track): Main repository
-* [frontend](https://github.com/DependencyTrack/frontend): Frontend repository
-* [helm-charts](https://github.com/DependencyTrack/helm-charts): [Helm](https://helm.sh/) charts
-* [community](https://github.com/DependencyTrack/community): Community resources
+- [dependency-track](https://github.com/DependencyTrack/dependency-track): Main repository
+- [frontend](https://github.com/DependencyTrack/frontend): Frontend repository
+- [helm-charts](https://github.com/DependencyTrack/helm-charts): [Helm](https://helm.sh/) charts
+- [community](https://github.com/DependencyTrack/community): Community resources
 
