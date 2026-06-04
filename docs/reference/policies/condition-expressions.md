@@ -226,7 +226,7 @@ or mis-pinned components.
 component.has_package_artifact_hash_mismatch()
 ```
 
-To focus on project tagged with `production`:
+To focus on [Project]s tagged as `production`:
 
 ```js linenums="1"
 "production" in project.tags
