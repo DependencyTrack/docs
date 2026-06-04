@@ -353,7 +353,7 @@ component.has_package_artifact_hash_mismatch()
 
 !!! note
     Dependency-Track resolves upstream hashes asynchronously. On the first policy evaluation after a BOM
-    upload they may not be available yet, and the function returns `false`. Later evaluations
+    upload, they may not be available yet and the function returns `false`. Later evaluations
     pick up the data once resolution completes.
 
 ### `is_dependency_of`
