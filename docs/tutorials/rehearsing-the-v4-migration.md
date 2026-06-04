@@ -163,11 +163,13 @@ v4-migrator verify \
 Expected output:
 
 ```text linenums="1"
+== v4-migrator verify ==
+
 [Schema]
-  OK    Schema version = 202605111028
+  OK    Flyway head = 202605111028
 
 [Row counts]
-  Table                       Source      Staging           v5
+  Table                       Source      Staging           v5    Note
   (no source configured)
   LICENSE                          -            0            0
   TEAM                             -            0            0
@@ -178,9 +180,11 @@ Expected output:
 
 [Constraints]
   13 CHECK constraint(s) hold across 55 loaded table(s)
+
+== verify complete ==
 ```
 
-If the schema version is anything else or any row count is non-zero, **except in the `PERMISSION` table**,
+If the Flyway head differs or any row count is non-zero, **except in the `PERMISSION` table**,
 the rest of the rehearsal will not work.
 
 ## Dry-running the migration
@@ -248,16 +252,18 @@ We drop `--dry-run` and run the real extract, transform, and load:
     ```
 
 Runtime depends on the size of our v4 dataset.
-The migrator prints per-table progress and a heartbeat every five seconds for long-running tables:
+The migrator prints per-table progress and a heartbeat every five seconds for long-running tables, each phase prints a completion line, and `run` ends with a `Migration completed` line that confirms success:
 
 ```text linenums="1"
 MetricsRetention - Metrics retention set to 30 days (cutoff = 2026-04-15T11:38:10.636499285Z)
 ExtractPhase - Extracting LICENSE
 ExtractPhase -   -> 811 rows in 395 ms
 ...
+ExtractPhase - Extract phase completed: 64 table(s), 5821044 row(s) in 184302 ms
 TransformPhase - Transforming LICENSE
 TransformPhase -   -> 811 rows in 60 ms
 ...
+TransformPhase - Transform phase completed: 64 table(s), 5820102 row(s) in 96118 ms
 LoadPhase - Pre-creating metrics partitions for 32 day(s) from 2026-04-15 to 2026-05-16
 LoadPhase - Loading LICENSE into v5
 LoadProgressReporter -   -> LICENSE: 811 rows in 56 ms (14482 rows/s)
@@ -267,6 +273,12 @@ LoadProgressReporter -   .. VULNERABLESOFTWARE_VULNERABILITIES: still loading af
 LoadProgressReporter -   .. VULNERABLESOFTWARE_VULNERABILITIES: still loading after 10s (expected 2740322 rows)
 LoadProgressReporter -   .. VULNERABLESOFTWARE_VULNERABILITIES: still loading after 15s (expected 2740322 rows)
 ...
+LoadPhase - Finalizing load: re-enabling triggers and resetting identity sequences
+LoadPhase - Analyzing 64 loaded table(s)
+LoadPhase - Refreshing PORTFOLIOMETRICS_GLOBAL materialized view
+LoadPhase - Applying v5.7.0 cleanup deletes
+LoadPhase - Load phase completed: 64 table(s), 5820097 row(s) in 211740 ms
+RunCommand - Migration completed: extract + transform + load finished. Run 'verify' to review row counts and probes.
 ```
 
 ## Verifying the result
@@ -290,10 +302,12 @@ Expected output:
   OK    Flyway head = 202605111028
 
 [Row counts]
-  Table                          Source      Staging           v5
+  Table                          Source      Staging           v5    Note
   LICENSE                           811          811          811
   LICENSEGROUP                        4            4            4
   LICENSEGROUP_LICENSE              131          131          131
+  TEAM                               47           42           42    expected: dedup by NAME (-5)
+  PROJECTS_TAGS                   12480        12462        12462    reduction (-18), see migration guide
 ...
 
 [Probes]
@@ -301,13 +315,15 @@ Expected output:
 
 [Constraints]
   13 CHECK constraint(s) hold across 55 loaded table(s)
+
+== verify complete ==
 ```
 
-We expect mismatches between source and v5 row counts wherever the migrator
-deduplicates, drops, or rewrites rows.
+Source and v5 row counts differ wherever the migrator deduplicates, drops, or rewrites rows.
+The migrator makes these reductions intentionally. The `Note` column explains each one inline, pointing to the
+relevant transform or to the `[Probes]` section, so we can confirm what accounts for every drop.
 The migration guide's [lossy and non-obvious changes](../guides/administration/migrating-from-v4.md#lossy-and-non-obvious-changes)
-section catalogs every case.
-We read it now and confirm that the mismatches we see match the cases the guide describes.
+section catalogs every case, and we confirm that the reductions we see match the cases it describes.
 
 ## Dropping the staging schema
 
