@@ -51,10 +51,10 @@ sibling project with the same name and a version you choose.
 5. Save.
 
 !!! tip
-    Some data depends on each other. For example, you cannot include findings without
+    Some options depend on each other. For example, you cannot include findings without
     also including components. The form auto-toggles options based on these dependencies.
 
-If you skip *Include Components*, the clone starts empty and the next BOM upload populates
+If you skip *Components*, the clone starts empty and the next BOM upload populates
 it. Use this approach when the new version's BOM arrives from CI shortly after.
 
 Cloning copies row-by-row, so cloning a project with components plus audit history scales
