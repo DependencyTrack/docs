@@ -11513,6 +11513,8 @@ components:
       properties:
         active:
           type: boolean
+        isLatest:
+          type: boolean
         uuid:
           type: string
           format: uuid

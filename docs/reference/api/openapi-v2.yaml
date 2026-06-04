@@ -660,7 +660,7 @@ paths:
       tags:
       - Projects
       summary: Clones a given project.
-      description: Requires permission `PORTFOLIO_MANAGEMENT`
+      description: Requires permission `PORTFOLIO_MANAGEMENT` or `PORTFOLIO_MANAGEMENT_CREATE`
       operationId: cloneProject
       parameters:
       - name: uuid
