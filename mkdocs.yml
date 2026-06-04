@@ -61,6 +61,9 @@ extra:
     provider: mike
     default: latest
   social:
+  - icon: fontawesome/solid/calendar-days
+    link: https://github.com/DependencyTrack/community#community-meetings
+    name: Monthly community meeting
   - icon: fontawesome/brands/slack
     link: https://dependencytrack.org/slack
   - icon: fontawesome/brands/github

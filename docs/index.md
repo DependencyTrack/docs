@@ -24,3 +24,9 @@ Explore the documentation using the navigation tabs:
 
 See [About changes in v5](concepts/changes-in-v5.md) for what changed and why,
 and [Migrating from v4 to v5](guides/administration/migrating-from-v4.md) for the one-shot data migration procedure.
+
+## Community
+
+Dependency-Track is an open source project maintained by a community of contributors.
+Join the [monthly community meeting](https://github.com/DependencyTrack/community#community-meetings)
+to hear project updates, ask questions, and meet other users and maintainers.
