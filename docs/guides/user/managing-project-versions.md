@@ -31,24 +31,30 @@ The fastest way to start a new version is to clone an existing one. Cloning prod
 sibling project with the same name and a version you choose.
 
 1. Open the source project.
-2. Open the *Add Version* modal in one of two ways:
-    - Select *View Details*, then *Add Version* at the bottom of the *Project Details* modal.
-    - In the project header, open the version dropdown and pick *Add Version*.
+2. Open the version creation modal by selecting the project's version next to the project name
+   and choosing the *Add Version* option.
 3. Enter the new *Version* string.
 4. Choose what to carry over:
     - *Tags*: keep the project's tags on the clone.
     - *Properties*: copy custom key-value properties.
-    - *Components*: copy the component list. Required if you want to copy services or
-      audit history.
+    - *Components*: copy the component list.
     - *Services*: copy the services declared in the source.
-    - *Audit history*: carry over analysis decisions (analysis state, justifications,
-      comments, suppressions).
+    - *Findings*: copy vulnerability findings.
+    - *Findings audit history*: carry over analysis decisions (analysis state, justifications,
+      comments, suppressions) of findings.
+    - *Policy violations*: copy policy violations.
+    - *Policy violation audit history*: carry over analysis decisions (state, comments, suppressions)
+      of policy violations.
     - *Access control list*: carry over the source project's access list.
     - *Is latest version*: mark the new version as latest and clear the flag on the
       previous latest.
 5. Save.
 
-If you skip *Include Components*, the clone starts empty and the next BOM upload populates
+!!! tip
+    Some options depend on each other. For example, you cannot include findings without
+    also including components. The form auto-toggles options based on these dependencies.
+
+If you skip *Components*, the clone starts empty and the next BOM upload populates
 it. Use this approach when the new version's BOM arrives from CI shortly after.
 
 Cloning copies row-by-row, so cloning a project with components plus audit history scales
@@ -69,9 +75,10 @@ At most one version per project name carries the flag. Marking a new version as 
 clears the flag on the previous one.
 
 The flag drives the latest-version collection mode (see
-[Organizing projects into hierarchies](organizing-projects.md#choose-a-collection-logic)),
-the badge URLs that resolve a project by name without a version, and the
-*LATEST VERSION* badge in the project header.
+[Organizing projects into hierarchies](organizing-projects.md#choose-a-collection-logic))
+and the badge URLs that resolve a project by name without a version.
+
+A :star: icon designates a project version as being *latest*.
 
 ![Version dropdown](../../assets/images/guides/user/managing-project-versions/version-dropdown.png)
 
