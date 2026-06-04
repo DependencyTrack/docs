@@ -161,9 +161,12 @@ v4-migrator verify \
 
 `verify` reads but never writes. On a freshly bootstrapped target with no staging present, expect:
 
-- Schema version `202605111028` reported `OK`.
+- Flyway head `202605111028` reported `OK`.
 - All row count columns **except for the v5 `PERMISSION` table** zero.
 - No probe entries.
+- The terminator line `== verify complete ==`.
+
+At this stage the migration has not moved any data, so `verify` shows the seeded baseline with nothing to flag.
 
 ### 3. Dry run
 
@@ -239,23 +242,44 @@ It now reports source / staging / v5 row counts per table and surfaces every pro
 
 ```text
 [Schema]
-  OK    Schema version = 202605111028
+  OK    Flyway head = 202605111028
 
 [Row counts]
-  Table                       Source      Staging           v5
+  Table                       Source      Staging           v5    Note
   LICENSE                       5234         5234         5234
-  TEAM                            47           42           42
+  TEAM                            47           42           42    expected: dedup by NAME (-5)
+  COMPONENT                  4823714      4823711      4823711    see [Probes] (-3)
+  PROJECTS_TAGS                12480        12462        12462    reduction (-18), see migration guide
   ...
 
 [Probes]
-  LICENSE                  3 malformed UUID(s) dropped
+  COMPONENT                3 malformed UUID(s) dropped
 
 [Constraints]
   18 CHECK constraint(s) hold across 6 loaded table(s)
+
+== verify complete ==
 ```
 
-Investigate any mismatch where you do not expect dedup or skipping.
-The lossy changes section below lists the expected sources of mismatch.
+The `Note` column annotates tables whose row count drops from source to v5.
+Row counts often decrease during migration because of deduplication, filtering, and retention.
+The migrator makes these reductions intentionally. The `Note` (and the `[Probes]` section) tells you which
+reason applies, so you can confirm what accounts for each drop rather than leaving it unexplained.
+Each note is one of three states:
+
+- `expected: <reason> (-N)`. A known, intentional reduction. The reason maps to a transform in the
+  [Lossy and non-obvious changes](#lossy-and-non-obvious-changes) section.
+- `see [Probes] (-N)`. The `[Probes]` section itemizes the drop (invalid UUIDs, skipped users, case collisions).
+- `reduction (-N), see migration guide`. An intentional reduction without a dedicated note.
+  Consult the [Lossy and non-obvious changes](#lossy-and-non-obvious-changes) section to understand it.
+
+!!! warning "Permission join tables are not a data-loss signal"
+
+    `TEAMS_PERMISSIONS` and `USERS_PERMISSIONS` both lose and gain rows as part of the v4-to-v5 permission remap
+    (see [Portfolio access control bypass](#portfolio-access-control-bypass)), so their row-count delta carries no meaning.
+    Disregard any `Note` on these two tables.
+
+The final `== verify complete ==` line marks a clean exit. Its absence means `verify` stopped before finishing.
 
 ### 7. Drop staging
 
@@ -451,7 +475,7 @@ INFO    -> LICENSE: 5231 rows in 27 ms (193740 rows/s)
 ```
 
 The load phase additionally emits a heartbeat every 5 seconds while a single table is still running,
-so large tables stay visible even when the underlying `INSERT … SELECT` has not yet committed:
+so large tables stay visible:
 
 ```text
 INFO  Loading COMPONENT into v5
@@ -460,10 +484,39 @@ INFO    .. COMPONENT: still loading after 30s (expected 4823714 rows)
 INFO    -> COMPONENT: 4823714 rows in 32104 ms (150253 rows/s)
 ```
 
-The expected count comes from the staging `tgt_*` row count and is an upper bound
-(deduped, malformed-UUID-dropped rows may reduce the final number).
+The expected count is an upper bound. The final count can be lower because of deduplication and dropped rows.
 
 A 100 GB v4 dataset should complete in a few hours on a workstation-class disk, less on dedicated server hardware.
+
+### Phase completion lines
+
+Each phase prints an explicit completion line on success, after its per-table lines:
+
+```text
+INFO  Extract phase completed: 64 table(s), 5821044 row(s) in 184302 ms
+INFO  Transform phase completed: 64 table(s), 5820102 row(s) in 96118 ms
+INFO  Load phase completed: 64 table(s), 5820097 row(s) in 211740 ms
+```
+
+The `run` command, which chains extract, transform, and load, prints one final line:
+
+```text
+INFO  Migration completed: extract + transform + load finished. Run 'verify' to review row counts and probes.
+```
+
+A completed phase prints its completion line. For `run`, the `Migration completed` line confirms success.
+**Absence of that line after the per-table output means the phase did not finish.** Check the exit code and the preceding log lines.
+
+After the last table loads, the migrator emits progress lines while it finalizes:
+
+```text
+INFO  Finalizing load: re-enabling triggers and resetting identity sequences
+INFO  Analyzing 64 loaded table(s)
+INFO  Refreshing PORTFOLIOMETRICS_GLOBAL materialized view
+INFO  Applying v5.7.0 cleanup deletes
+```
+
+The `Load phase completed` line follows once finalization finishes.
 
 ## Resumability
 
