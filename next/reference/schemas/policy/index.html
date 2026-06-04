@@ -2978,12 +2978,37 @@
 <tr>
 <td style="text-align: left;"><code>published_at</code></td>
 <td style="text-align: left;"><code>google.protobuf.Timestamp</code></td>
-<td style="text-align: left;">When the component current version last modified.</td>
+<td style="text-align: left;">When the current version was published. NOTE: The platform resolves this information asynchronously, so it is not guaranteed to be available immediately. Policies should explicitly check presence using the has() macro.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>latest_version</code></td>
 <td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">Latest available version. NOTE: The platform resolves this information asynchronously, so it is not guaranteed to be available immediately. Policies should explicitly check presence using the has() macro.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>package_artifact_md5</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;">MD5 hash of the corresponding package artifact as reported by its upstream repository. NOTE: The platform resolves this information asynchronously, so it is not guaranteed to be available immediately. Policies should explicitly check presence using the has() macro.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>package_artifact_sha1</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;">SHA-1 hash of the corresponding package artifact as reported by its upstream repository. NOTE: The platform resolves this information asynchronously, so it is not guaranteed to be available immediately. Policies should explicitly check presence using the has() macro.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>package_artifact_sha256</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;">SHA-256 hash of the corresponding package artifact as reported by its upstream repository. NOTE: The platform resolves this information asynchronously, so it is not guaranteed to be available immediately. Policies should explicitly check presence using the has() macro.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>package_artifact_sha512</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;">SHA-512 hash of the corresponding package artifact as reported by its upstream repository. NOTE: The platform resolves this information asynchronously, so it is not guaranteed to be available immediately. Policies should explicitly check presence using the has() macro.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>latest_version_published_at</code></td>
+<td style="text-align: left;"><code>google.protobuf.Timestamp</code></td>
+<td style="text-align: left;">When the latest version was published. NOTE: The platform resolves this information asynchronously, so it is not guaranteed to be available immediately. Policies should explicitly check presence using the has() macro.</td>
 </tr>
 </tbody>
 </table>
