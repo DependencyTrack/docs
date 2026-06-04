@@ -216,6 +216,26 @@ vuln.id == "CVE-2022-41852"
      })
 ```
 
+### Hash mismatch with the upstream repository
+
+The following expression matches [Component]s whose declared hashes disagree with the hashes
+the upstream package repository reports for the same artifact. Useful for spotting tampered
+or mis-pinned components.
+
+```js linenums="1"
+component.has_package_artifact_hash_mismatch()
+```
+
+To focus on project tagged with `production`:
+
+```js linenums="1"
+"production" in project.tags
+  && component.has_package_artifact_hash_mismatch()
+```
+
+See [`has_package_artifact_hash_mismatch`](#has_package_artifact_hash_mismatch) for the matching
+table and a note on what a `false` result does and does not mean.
+
 ### Version distance
 
 The [`version_distance`](#version_distance) function allows matching based on how far behind a component's version
@@ -295,6 +315,46 @@ graph TD
 
 !!! tip
     `project` matches because `baz` exists in its dependency graph.
+
+### `has_package_artifact_hash_mismatch`
+
+Checks whether a [Component]'s declared hashes disagree with the hashes the upstream
+package repository reports for the same artifact.
+
+The function compares MD5, SHA-1, SHA-256, and SHA-512 (the algorithms package
+repositories typically report). All comparisons are case-insensitive.
+
+| Name       | Type        | Description            |
+|:-----------|:------------|:-----------------------|
+| *receiver* | [Component] | The component to check |
+
+**Returns:** `true` if at least one shared algorithm has non-empty values on both sides that
+differ. Returns `false` in all other cases, including when no upstream metadata is available
+and when there is no shared algorithm to compare.
+
+```js linenums="1"
+component.has_package_artifact_hash_mismatch()
+```
+
+| Component hashes               | Upstream hashes                     | Result  |
+|:-------------------------------|:------------------------------------|:--------|
+| `sha256: aaa…`                 | `sha256: aaa…`                      | `false` |
+| `sha256: aaa…` (lowercase)     | `sha256: AAA…` (uppercase)          | `false` |
+| `sha256: aaa…`                 | `sha256: bbb…`                      | `true`  |
+| `sha256: aaa…`, `sha1: 012…`   | `sha256: aaa…`, `sha1: ff…`         | `true`  |
+| `sha256: aaa…`                 | `sha1: 012…` only                   | `false` |
+| `sha256: aaa…`                 | none reported                       | `false` |
+| `sha3_512: ccc…` only          | `sha256: aaa…`                      | `false` |
+
+!!! tip
+    A `false` result does **not** confirm that hashes match. It only means there is no
+    positive evidence of a mismatch. Components without upstream hash data, or with
+    no shared algorithm to compare, also return `false`.
+
+!!! note
+    Dependency-Track resolves upstream hashes asynchronously. On the first policy evaluation after a BOM
+    upload they may not be available yet, and the function returns `false`. Later evaluations
+    pick up the data once resolution completes.
 
 ### `is_dependency_of`
 
