@@ -2438,20 +2438,20 @@ require portfolio management permissions. See the
 sibling project with the same name and a version you choose.</p>
 <ol>
 <li>Open the source project.</li>
-<li>Open the <em>Add Version</em> modal in one of two ways:<ul>
-<li>Select <em>View Details</em>, then <em>Add Version</em> at the bottom of the <em>Project Details</em> modal.</li>
-<li>In the project header, open the version dropdown and pick <em>Add Version</em>.</li>
-</ul>
-</li>
+<li>Open the version creation modal by selecting the project's version next to the project name
+   and choosing the <em>Add Version</em> option.</li>
 <li>Enter the new <em>Version</em> string.</li>
 <li>Choose what to carry over:<ul>
 <li><em>Tags</em>: keep the project's tags on the clone.</li>
 <li><em>Properties</em>: copy custom key-value properties.</li>
-<li><em>Components</em>: copy the component list. Required if you want to copy services or
-  audit history.</li>
+<li><em>Components</em>: copy the component list.</li>
 <li><em>Services</em>: copy the services declared in the source.</li>
-<li><em>Audit history</em>: carry over analysis decisions (analysis state, justifications,
-  comments, suppressions).</li>
+<li><em>Findings</em>: copy vulnerability findings.</li>
+<li><em>Findings audit history</em>: carry over analysis decisions (analysis state, justifications,
+  comments, suppressions) of findings.</li>
+<li><em>Policy violations</em>: copy policy violations.</li>
+<li><em>Policy violation audit history</em>: carry over analysis decisions (state, comments, suppressions)
+  of policy violations.</li>
 <li><em>Access control list</em>: carry over the source project's access list.</li>
 <li><em>Is latest version</em>: mark the new version as latest and clear the flag on the
   previous latest.</li>
@@ -2459,7 +2459,12 @@ sibling project with the same name and a version you choose.</p>
 </li>
 <li>Save.</li>
 </ol>
-<p>If you skip <em>Include Components</em>, the clone starts empty and the next <abbr title="Bill of Materials">BOM</abbr> upload populates
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Some options depend on each other. For example, you cannot include findings without
+also including components. The form auto-toggles options based on these dependencies.</p>
+</div>
+<p>If you skip <em>Components</em>, the clone starts empty and the next <abbr title="Bill of Materials">BOM</abbr> upload populates
 it. Use this approach when the new version's <abbr title="Bill of Materials">BOM</abbr> arrives from CI shortly after.</p>
 <p>Cloning copies row-by-row, so cloning a project with components plus audit history scales
 with project size. On large projects expect the operation to take noticeable time. Prefer
@@ -2475,9 +2480,9 @@ strings. Set it in either of two places:</p>
 <p>At most one version per project name carries the flag. Marking a new version as latest
 clears the flag on the previous one.</p>
 <p>The flag drives the latest-version collection mode (see
-<a href="../organizing-projects/#choose-a-collection-logic">Organizing projects into hierarchies</a>),
-the badge URLs that resolve a project by name without a version, and the
-<em>LATEST VERSION</em> badge in the project header.</p>
+<a href="../organizing-projects/#choose-a-collection-logic">Organizing projects into hierarchies</a>)
+and the badge URLs that resolve a project by name without a version.</p>
+<p>A <img alt="⭐" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/2b50.svg" title=":star:"> icon designates a project version as being <em>latest</em>.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guides/user/managing-project-versions/version-dropdown.png" data-desc-position="bottom"><img alt="Version dropdown" src="../../../assets/images/guides/user/managing-project-versions/version-dropdown.png"></a></p>
 <h2 id="retire-an-old-version">Retire an old version<a class="headerlink" href="#retire-an-old-version" title="Permanent link">¶</a></h2>
 <p>When a release is no longer in production, mark its project inactive. To do so, open
