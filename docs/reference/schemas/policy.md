@@ -37,8 +37,13 @@
 | `license_name` | `string` |  | - |
 | `license_expression` | `string` |  | - |
 | `resolved_license` | [`License`](#org-dependencytrack-policy-v1-License) |  | - |
-| `published_at` | `google.protobuf.Timestamp` | When the component current version last modified. | - |
-| `latest_version` | `string` |  | - |
+| `published_at` | `google.protobuf.Timestamp` | When the current version was published. NOTE: The platform resolves this information asynchronously, so it is not guaranteed to be available immediately. Policies should explicitly check presence using the has() macro. | - |
+| `latest_version` | `string` | Latest available version. NOTE: The platform resolves this information asynchronously, so it is not guaranteed to be available immediately. Policies should explicitly check presence using the has() macro. | - |
+| `package_artifact_md5` | `string` | MD5 hash of the corresponding package artifact as reported by its upstream repository. NOTE: The platform resolves this information asynchronously, so it is not guaranteed to be available immediately. Policies should explicitly check presence using the has() macro. | - |
+| `package_artifact_sha1` | `string` | SHA-1 hash of the corresponding package artifact as reported by its upstream repository. NOTE: The platform resolves this information asynchronously, so it is not guaranteed to be available immediately. Policies should explicitly check presence using the has() macro. | - |
+| `package_artifact_sha256` | `string` | SHA-256 hash of the corresponding package artifact as reported by its upstream repository. NOTE: The platform resolves this information asynchronously, so it is not guaranteed to be available immediately. Policies should explicitly check presence using the has() macro. | - |
+| `package_artifact_sha512` | `string` | SHA-512 hash of the corresponding package artifact as reported by its upstream repository. NOTE: The platform resolves this information asynchronously, so it is not guaranteed to be available immediately. Policies should explicitly check presence using the has() macro. | - |
+| `latest_version_published_at` | `google.protobuf.Timestamp` | When the latest version was published. NOTE: The platform resolves this information asynchronously, so it is not guaranteed to be available immediately. Policies should explicitly check presence using the has() macro. | - |
 
 
 
