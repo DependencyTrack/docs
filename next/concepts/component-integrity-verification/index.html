@@ -5,34 +5,34 @@
       
       
       
-        <link rel="canonical" href="https://dependencytrack.github.io/docs/next/guides/upgrading/v0.7.0-alpha.5/">
+        <link rel="canonical" href="https://dependencytrack.github.io/docs/next/concepts/component-integrity-verification/">
       
       
-        <link rel="prev" href="../v0.7.0-alpha.6/">
+        <link rel="prev" href="../component-policies/">
       
       
-        <link rel="next" href="../v0.7.0-alpha.4/">
+        <link rel="next" href="../vulnerability-policies/">
       
       
         
       
       
-        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../../feed_rss_created.xml">
-        <link rel="alternate" type="application/rss+xml" title="RSS feed of updated content" href="../../../feed_rss_updated.xml">
+        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../feed_rss_created.xml">
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of updated content" href="../../feed_rss_updated.xml">
       
-      <link rel="icon" href="../../../assets/images/logo.svg">
+      <link rel="icon" href="../../assets/images/logo.svg">
       <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.6">
     
     
       
-        <title>Upgrading to v0.7.0-alpha.5 - Dependency-Track</title>
+        <title>About component integrity verification - Dependency-Track</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,9 +51,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -61,16 +61,16 @@
     
   
 <meta property="og:type" content="website">
-<meta property="og:title" content="Upgrading to v0.7.0-alpha.5 - Dependency-Track">
-<meta property="og:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/guides/upgrading/v0.7.0-alpha.5.png">
+<meta property="og:title" content="About component integrity verification - Dependency-Track">
+<meta property="og:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/concepts/component-integrity-verification.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:url" content="https://dependencytrack.github.io/docs/next/guides/upgrading/v0.7.0-alpha.5/">
+<meta property="og:url" content="https://dependencytrack.github.io/docs/next/concepts/component-integrity-verification/">
 <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:title" content="Upgrading to v0.7.0-alpha.5 - Dependency-Track">
-<meta property="twitter:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/guides/upgrading/v0.7.0-alpha.5.png">
-<link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+<meta property="twitter:title" content="About component integrity verification - Dependency-Track">
+<meta property="twitter:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/concepts/component-integrity-verification.png">
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -99,7 +99,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#upgrading-to-v070-alpha5" class="md-skip">
+        <a href="#about-component-integrity-verification" class="md-skip">
           Skip to content
         </a>
       
@@ -119,9 +119,9 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="Dependency-Track" class="md-header__button md-logo" aria-label="Dependency-Track" data-md-component="logo">
+    <a href="../.." title="Dependency-Track" class="md-header__button md-logo" aria-label="Dependency-Track" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../assets/images/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -138,7 +138,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Upgrading to v0.7.0-alpha.5
+              About component integrity verification
             
           </span>
         </div>
@@ -243,7 +243,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../.." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -264,7 +264,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../tutorials/" class="md-tabs__link">
+        <a href="../../tutorials/" class="md-tabs__link">
           
   
   
@@ -282,13 +282,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../guides/" class="md-tabs__link">
           
   
   
@@ -306,11 +304,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../../concepts/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -332,7 +332,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../reference/" class="md-tabs__link">
+        <a href="../../reference/" class="md-tabs__link">
           
   
   
@@ -354,7 +354,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../blog/" class="md-tabs__link">
+        <a href="../../blog/" class="md-tabs__link">
           
   
   
@@ -396,9 +396,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Dependency-Track" class="md-nav__button md-logo" aria-label="Dependency-Track" data-md-component="logo">
+    <a href="../.." title="Dependency-Track" class="md-nav__button md-logo" aria-label="Dependency-Track" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../assets/images/logo.svg" alt="logo">
 
     </a>
     Dependency-Track
@@ -425,7 +425,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -486,7 +486,7 @@
   
   
   
-    <a href="../../../tutorials/" class="md-nav__link">
+    <a href="../../tutorials/" class="md-nav__link">
       
   
   
@@ -516,6 +516,71 @@
       
   
   
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../guides/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guides
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -525,6 +590,22 @@
       
         
           
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
         
       
         
@@ -551,1041 +632,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
-        
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
-              
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Guides
-  
-
-    
-  </span>
-  
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Guides
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2">
-        
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../user/" class="md-nav__link ">
-              
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    User guides
-  
-
-    
-  </span>
-  
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_2">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    User guides
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../user/organizing-projects/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Organizing projects into hierarchies
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../user/managing-project-versions/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Managing project versions
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../user/managing-component-policies/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Managing component policies
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../user/triaging-policy-violations/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Triaging policy violations
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../user/managing-vulnerability-policies/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Managing vulnerability policies
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../user/managing-private-vulnerabilities/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Managing private vulnerabilities
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../user/configuring-notifications/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuring notification alerts
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../user/managing-secrets/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Managing secrets
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3">
-        
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../administration/" class="md-nav__link ">
-              
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Administration guides
-  
-
-    
-  </span>
-  
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_3">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Administration guides
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../administration/deploying-to-production/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Deploying to production
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../administration/scaling/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Scaling
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../administration/configuring-database/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuring the database
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../administration/configuring-secret-management/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuring secret management
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../administration/configuring-internal-ca/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuring internal CA trust
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../administration/configuring-http-proxy/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuring an HTTP proxy
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../administration/configuring-vulnerability-sources/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuring vulnerability sources
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../administration/running-air-gapped/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Running air-gapped
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../administration/configuring-observability/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuring observability
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../administration/configuring-ldap/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuring LDAP
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../administration/configuring-oidc/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuring OpenID Connect
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../administration/managing-notification-templates/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Managing notification templates
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../administration/debugging-notifications/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Debugging missing notifications
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../administration/configuring-project-retention/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuring project retention
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../administration/backing-up/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Backing up and restoring
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../administration/upgrading-instances/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Upgrading running instances
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../administration/migrating-from-v4/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Migrating from v4 to v5
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../administration/running-v4-and-v5-in-parallel/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Running v4 and v5 in parallel
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-      
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <div class="md-nav__link md-nav__container">
@@ -1596,7 +643,7 @@
   <span class="md-ellipsis">
     
   
-    Upgrade guides
+    Concepts
   
 
     
@@ -1607,18 +654,18 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3_4" id="__nav_3_4_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_4">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Upgrade guides
+    Concepts
   
 
           </label>
@@ -1633,14 +680,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../v5.0.0-rc.2/" class="md-nav__link">
+      <a href="../projects/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Upgrading to v5.0.0-rc.2
+    About projects
   
 
     
@@ -1661,14 +708,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../v5.0.0-rc.1/" class="md-nav__link">
+      <a href="../tags/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Upgrading to v5.0.0-rc.1
+    About tags
   
 
     
@@ -1689,14 +736,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../v0.7.0-alpha.9/" class="md-nav__link">
+      <a href="../access-control/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Upgrading to v0.7.0-alpha.9
+    About access control
   
 
     
@@ -1717,14 +764,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../v0.7.0-alpha.8/" class="md-nav__link">
+      <a href="../about-vulnerability-data-sources/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Upgrading to v0.7.0-alpha.8
+    About vulnerability data sources
   
 
     
@@ -1745,14 +792,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../v0.7.0-alpha.7/" class="md-nav__link">
+      <a href="../notifications/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Upgrading to v0.7.0-alpha.7
+    About notifications
   
 
     
@@ -1773,14 +820,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../v0.7.0-alpha.6/" class="md-nav__link">
+      <a href="../time-series-metrics/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Upgrading to v0.7.0-alpha.6
+    About time series metrics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../component-policies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About component policies
   
 
     
@@ -1810,6 +885,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About component integrity verification
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1817,7 +910,7 @@
   <span class="md-ellipsis">
     
   
-    Upgrading to v0.7.0-alpha.5
+    About component integrity verification
   
 
     
@@ -1826,6 +919,91 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-verification-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How verification works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supported-ecosystems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supported ecosystems
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asynchronous-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Asynchronous resolution
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-verification-surfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where verification surfaces
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-verification-in-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using verification in policies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-not-yet-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is not yet covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1839,14 +1017,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../v0.7.0-alpha.4/" class="md-nav__link">
+      <a href="../vulnerability-policies/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Upgrading to v0.7.0-alpha.4
+    About vulnerability policies
   
 
     
@@ -1867,14 +1045,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../v0.7.0-alpha.3/" class="md-nav__link">
+      <a href="../changes-in-v5/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Upgrading to v0.7.0-alpha.3
+    About changes in v5
   
 
     
@@ -1890,49 +1068,6 @@
             
               
                 
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../v0.6.0/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Upgrading to v0.6.0
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
   
   
   
@@ -1948,13 +1083,101 @@
       
         
       
-        
+    
+    
+    
+      
       
         
-      
+          
+          
         
       
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_12">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../architecture/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_12" id="__nav_4_12_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment topology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
       
         
       
@@ -1986,14 +1209,14 @@
   
   
   
-    <a href="../../../concepts/" class="md-nav__link">
+    <a href="../architecture/design/durable-execution/" class="md-nav__link">
       
   
   
   <span class="md-ellipsis">
     
   
-    Concepts
+    Design
   
 
     
@@ -2011,6 +1234,22 @@
     </li>
   
 
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
     
       
       
@@ -2067,7 +1306,7 @@
   
   
   
-    <a href="../../../reference/" class="md-nav__link">
+    <a href="../../reference/" class="md-nav__link">
       
   
   
@@ -2128,7 +1367,7 @@
   
   
   
-    <a href="../../../blog/" class="md-nav__link">
+    <a href="../../blog/" class="md-nav__link">
       
   
   
@@ -2174,6 +1413,80 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-verification-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How verification works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supported-ecosystems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supported ecosystems
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asynchronous-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Asynchronous resolution
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-verification-surfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where verification surfaces
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-verification-in-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using verification in policies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-not-yet-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is not yet covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2197,7 +1510,7 @@
   
   
     <li class="md-path__item">
-      <a href="../../.." class="md-path__link">
+      <a href="../.." class="md-path__link">
         
   <span class="md-ellipsis">
     Home
@@ -2215,28 +1528,10 @@
     
     
       <li class="md-path__item">
-        <a href="../../" class="md-path__link">
-          
-  <span class="md-ellipsis">
-    Guides
-  </span>
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-    
-    
-      <li class="md-path__item">
         <a href="../" class="md-path__link">
           
   <span class="md-ellipsis">
-    Upgrade guides
+    Concepts
   </span>
 
         </a>
@@ -2258,17 +1553,139 @@
   
 
 
-<h1 id="upgrading-to-v070-alpha5">Upgrading to v0.7.0-alpha.5<a class="headerlink" href="#upgrading-to-v070-alpha5" title="Permanent link">¶</a></h1>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Please make sure you successfully upgraded to <a href="../v0.7.0-alpha.4/">v0.7.0-alpha.4</a>
-before upgrading to v0.7.0-alpha.5. This is <strong>extremely important</strong>, as otherwise
-some database migrations will not be applied.</p>
-</div>
+<h1 id="about-component-integrity-verification">About component integrity verification<a class="headerlink" href="#about-component-integrity-verification" title="Permanent link">¶</a></h1>
+<p>Dependency-Track compares the hashes a <abbr title="Bill of Materials">BOM</abbr> declares for each component against the hashes the component's upstream
+package repository publishes. A divergence is a signal that the artifact in your build is not the artifact the registry
+serves, which catches typosquatting, registry-side tampering, and accidental substitution of look-alike packages.</p>
+<h2 id="how-verification-works">How verification works<a class="headerlink" href="#how-verification-works" title="Permanent link">¶</a></h2>
+<p>Upstream hashes are not part of the <abbr title="Bill of Materials">BOM</abbr>. The
+<a href="../architecture/design/package-metadata-resolution/">package metadata resolution</a> system fetches them from package
+repositories on a scheduled background workflow, and persists the results alongside the resolved artifact.</p>
+<p>When Dependency-Track has both sides for a component, it compares them per algorithm. The comparison is
+case-insensitive. A match on any shared algorithm marks the component as verified. A difference on any shared algorithm
+marks it as failed.</p>
+<p>Verification covers four hash algorithms: <code>MD5</code>, <code>SHA-1</code>, <code>SHA-256</code>, and <code>SHA-512</code>. BOMs can carry hashes in other
+algorithms such as SHA-384, SHA3, BLAKE2b, and BLAKE3. Dependency-Track keeps those values on the component and exposes
+them through the API, but they do not factor into verification, because the supported package repositories do not
+publish counterparts.</p>
+<h2 id="supported-ecosystems">Supported ecosystems<a class="headerlink" href="#supported-ecosystems" title="Permanent link">¶</a></h2>
+<p>Verification runs only for components whose upstream repository publishes hashes and whose ecosystem has a resolver
+that reads them.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Ecosystem</th>
+<th style="text-align: left;">Hashes available from upstream</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Maven</td>
+<td style="text-align: left;">SHA-1</td>
+</tr>
+<tr>
+<td style="text-align: left;">npm</td>
+<td style="text-align: left;">SHA-1, SHA-512</td>
+</tr>
+<tr>
+<td style="text-align: left;">PyPI</td>
+<td style="text-align: left;">MD5, SHA-256</td>
+</tr>
+</tbody>
+</table>
+<p>For PyPI components, the <abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr> must carry a <code>file_name</code> qualifier so the resolver can pick the correct file from the
+release. PyPI publishes one source distribution and a fan of wheels per release, each with its own hash, and the
+qualifier tells Dependency-Track which one to compare against. PyPI components without the <code>file_name</code> qualifier
+appear as having no repository hash.</p>
+<p>Other ecosystems that Dependency-Track resolves package metadata for, including Cargo, Go modules, Composer, Hex, CPAN,
+and Nixpkgs, do not currently return artifact hashes. Components from those ecosystems are never flagged as mismatched.
+They appear in the UI as having no repository hash.</p>
+<p>Verification also depends on each repository being reachable from Dependency-Track and not rate-limited at the time the
+resolver runs. A repository that is unreachable, or that returns HTTP 429, contributes no hashes for the affected
+components until the next successful resolution.</p>
+<h2 id="asynchronous-resolution">Asynchronous resolution<a class="headerlink" href="#asynchronous-resolution" title="Permanent link">¶</a></h2>
+<p>Dependency-Track resolves upstream hashes asynchronously. A <abbr title="Bill of Materials">BOM</abbr> upload schedules resolution, but the workflow processes
+components in controlled batches to stay within public registry rate limits. The
+<a href="../architecture/design/package-metadata-resolution/">package metadata resolution</a> page describes the mechanism in detail.</p>
+<p>Two consequences follow:</p>
 <ul>
-<li><strong>Database migrations have been switched from Liquibase to Flyway</strong>. No action is
-  required, <em>except ensuring that the <a href="../v0.7.0-alpha.4/">v0.7.0-alpha.4</a> upgrade
-  was executed</em>.</li>
+<li>A freshly imported component shows no repository hash until the resolver catches up. The wait can be minutes on small
+  portfolios and longer on large ones.</li>
+<li>While an upstream repository is unreachable or rate-limiting Dependency-Track, components sourced from it show no
+  integrity status. A mismatch that would normally show as Failed stays invisible until the next successful refresh.</li>
+</ul>
+<p>Verification status reflects the most recent successful resolution, not the state of the <abbr title="Bill of Materials">BOM</abbr> at upload time.</p>
+<h2 id="where-verification-surfaces">Where verification surfaces<a class="headerlink" href="#where-verification-surfaces" title="Permanent link">¶</a></h2>
+<p>The integrity status appears as a column called <strong>Integrity</strong> in two places:</p>
+<ul>
+<li>The <strong>Components</strong> tab in a project.</li>
+<li>The <strong>Component Search</strong> view.</li>
+</ul>
+<p>Both views hide the column by default. Enable it from the column visibility toggle of the table.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/images/concepts/component-integrity-verification/component-search.png" data-desc-position="bottom"><img alt="Integrity column in component search view" src="../../assets/images/concepts/component-integrity-verification/component-search.png"></a></p>
+<p>Each row shows one of five states:</p>
+<!-- vale Google.Units = NO -->
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">State</th>
+<th style="text-align: left;">Icon</th>
+<th style="text-align: left;">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Passed</td>
+<td style="text-align: left;"><span class="twemoji" style="color: #4dbd74"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M256 512a256 256 0 1 1 0-512 256 256 0 1 1 0 512m118-366.3c-10.7-7.8-25.7-5.4-33.5 5.3L221.1 315.2 169 263.1c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l72 72c5 5 11.8 7.5 18.8 7s13.4-4.1 17.5-9.8l135.9-187c7.8-10.7 5.4-25.7-5.3-33.5"></path></svg></span></td>
+<td style="text-align: left;">At least one shared algorithm matches and none differ.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Failed</td>
+<td style="text-align: left;"><span class="twemoji" style="color: #f86c6b"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512m-89-345c9.4-9.4 24.6-9.4 33.9 0l55 55 55-55c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-55 55 55 55c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-55-55-55 55c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l55-55-55-55c-9.4-9.4-9.4-24.6 0-33.9"></path></svg></span></td>
+<td style="text-align: left;">At least one shared algorithm differs.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: left;"><span class="twemoji" style="color: #ffc107"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512m0-336c-17.7 0-32 14.3-32 32 0 13.3-10.7 24-24 24s-24-10.7-24-24c0-44.2 35.8-80 80-80s80 35.8 80 80c0 47.2-36 67.2-56 74.5v3.8c0 13.3-10.7 24-24 24s-24-10.7-24-24v-8.1c0-20.5 14.8-35.2 30.1-40.2 6.4-2.1 13.2-5.5 18.2-10.3 4.3-4.2 7.7-10 7.7-19.6 0-17.7-14.3-32-32-32zm-32 192a32 32 0 1 1 64 0 32 32 0 1 1-64 0"></path></svg></span></td>
+<td style="text-align: left;">Both sides declare hashes, but none of the algorithms overlap.</td>
+</tr>
+<tr>
+<td style="text-align: left;">No component hash</td>
+<td style="text-align: left;"><span class="twemoji" style="color: #9e9e9e"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512m-88-280h176c13.3 0 24 10.7 24 24s-10.7 24-24 24H168c-13.3 0-24-10.7-24-24s10.7-24 24-24"></path></svg></span></td>
+<td style="text-align: left;">The <abbr title="Bill of Materials">BOM</abbr> did not declare any hashes for this component.</td>
+</tr>
+<tr>
+<td style="text-align: left;">No repository hash</td>
+<td style="text-align: left;"><span class="twemoji" style="color: #9e9e9e"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M464 256a208 208 0 1 0-416 0 208 208 0 1 0 416 0M0 256a256 256 0 1 1 512 0 256 256 0 1 1-512 0m256-80c-17.7 0-32 14.3-32 32 0 13.3-10.7 24-24 24s-24-10.7-24-24c0-44.2 35.8-80 80-80s80 35.8 80 80c0 47.2-36 67.2-56 74.5v3.8c0 13.3-10.7 24-24 24s-24-10.7-24-24v-8.1c0-20.5 14.8-35.2 30.1-40.2 6.4-2.1 13.2-5.5 18.2-10.3 4.3-4.2 7.7-10 7.7-19.6 0-17.7-14.3-32-32-32zm-32 192a32 32 0 1 1 64 0 32 32 0 1 1-64 0"></path></svg></span></td>
+<td style="text-align: left;">No upstream hashes are available yet, or the ecosystem is not supported.</td>
+</tr>
+</tbody>
+</table>
+<!-- vale Google.Units = YES -->
+
+<p>The icons in this table approximate what the UI renders. Refer to the screenshots for the exact appearance.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/images/concepts/component-integrity-verification/project-components.png" data-desc-position="bottom"><img alt="Integrity column in project components view" src="../../assets/images/concepts/component-integrity-verification/project-components.png"></a></p>
+<p>The Passed and Failed icons are clickable. Selecting one opens a modal that lists each algorithm side by side, with the
+component-declared value next to the repository value, and indicates which algorithms matched. The modal also names
+the repository that supplied the upstream hashes.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/images/concepts/component-integrity-verification/failed-hash-verification.png" data-desc-position="bottom"><img alt="Failed hash verification modal" src="../../assets/images/concepts/component-integrity-verification/failed-hash-verification.png"></a></p>
+<h2 id="using-verification-in-policies">Using verification in policies<a class="headerlink" href="#using-verification-in-policies" title="Permanent link">¶</a></h2>
+<p>A component policy can flag mismatched components with the <code>component.has_package_artifact_hash_mismatch()</code> condition
+expression. The function matches the Failed state from the UI table. See
+<a href="../../reference/policies/condition-expressions/#has_package_artifact_hash_mismatch">Condition expressions</a> for its
+semantics and a worked policy example.</p>
+<p>Failed is only one of the states the integrity check can produce. The function fires on confirmed mismatches alone,
+so a policy built on it does not flag components that have no repository hash yet, or whose hash algorithms do not
+overlap with the upstream repository. Combine it with other conditions if a policy needs to react to those cases
+as well.</p>
+<h2 id="what-is-not-yet-covered">What is not yet covered<a class="headerlink" href="#what-is-not-yet-covered" title="Permanent link">¶</a></h2>
+<p>Integrity verification has the following limits:</p>
+<ul>
+<li>The status is not exported via <a href="../time-series-metrics/">time series metrics</a>.</li>
+<li>The <strong>Project Components</strong> and <strong>Component Search</strong> views do not expose integrity as a sort or filter parameter.</li>
+<li>Verification depends on resolver coverage and on upstream repositories being reachable, so a component with no
+  repository hash is not necessarily a verified one.</li>
 </ul>
 
 
@@ -2307,7 +1724,7 @@ some database migrations will not be applied.</p>
       <nav class="md-footer__inner md-grid" aria-label="Footer">
         
           
-          <a href="../v0.7.0-alpha.6/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Upgrading to v0.7.0-alpha.6">
+          <a href="../component-policies/" class="md-footer__link md-footer__link--prev" aria-label="Previous: About component policies">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
@@ -2317,20 +1734,20 @@ some database migrations will not be applied.</p>
                 Previous
               </span>
               <div class="md-ellipsis">
-                Upgrading to v0.7.0-alpha.6
+                About component policies
               </div>
             </div>
           </a>
         
         
           
-          <a href="../v0.7.0-alpha.4/" class="md-footer__link md-footer__link--next" aria-label="Next: Upgrading to v0.7.0-alpha.4">
+          <a href="../vulnerability-policies/" class="md-footer__link md-footer__link--next" aria-label="Next: About vulnerability policies">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Upgrading to v0.7.0-alpha.4
+                About vulnerability policies
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -2452,11 +1869,11 @@ some database migrations will not be applied.</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.copy", "content.tabs.link", "navigation.footer", "navigation.indexes", "navigation.instant", "navigation.path", "navigation.prune", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "search.highlight", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.tabs.link", "navigation.footer", "navigation.indexes", "navigation.instant", "navigation.path", "navigation.prune", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "search.highlight", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
     
     
   
-      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   
