@@ -1561,10 +1561,10 @@ they communicate, and what happens when individual instances fail. It complement
 <a href="../../../guides/administration/deploying-to-production/">Deploying to production</a>, which covers the
 operational steps.</p>
 <h2 id="components">Components<a class="headerlink" href="#components" title="Permanent link">¶</a></h2>
-<p>A production deployment has three required components plus a frontend, typically served by the same
-ingress:</p>
+<p>A production deployment has four components, typically fronted by the same ingress:</p>
 <pre class="mermaid"><code>flowchart LR
-    LB[Load balancer / ingress] --&gt; A[API server instance 1]
+    LB[Load balancer / ingress] --&gt; FE[Frontend instance]
+    LB --&gt; A[API server instance 1]
     LB --&gt; B[API server instance 2]
     LB --&gt; N[API server instance N]
 
@@ -1574,24 +1574,22 @@ ingress:</p>
 
     A --&gt; F[(File storage)]
     B --&gt; F
-    N --&gt; F
-
-    FE[Frontend] -.served by.-&gt; LB</code></pre>
+    N --&gt; F</code></pre>
 <ul>
-<li><strong>API server.</strong> Java service exposing the <abbr title="Representational State Transfer">REST</abbr> API and running background workers. Stateless
-  beyond what it commits to PostgreSQL and file storage. One or more instances run side by side
-  (see <a href="#coordination">Coordination</a>).</li>
+<li><strong>API server.</strong> Java service exposing the <abbr title="Representational State Transfer">REST</abbr> API on port <code>8080</code> and running background workers.
+  Stateless beyond what it commits to PostgreSQL and file storage. One or more instances run side
+  by side (see <a href="#coordination">Coordination</a>). Each instance also exposes a separate management
+  server on port <code>9000</code> for health checks and metrics.</li>
 <li><strong>PostgreSQL.</strong> Single source of truth for product data, the durable execution engine's workflow
   records, and node coordination.</li>
 <li><strong>File storage.</strong> Shared store for short-lived intermediate files (uploaded BOMs, analysis
   artifacts). Either a shared persistent volume (<code>local</code> provider) or an S3-compatible bucket
   (<code>s3</code> provider). See <a href="../../../reference/configuration/file-storage/">File storage</a>.</li>
-<li><strong>Frontend.</strong> Static Vue.js single-page app, typically served by the same load balancer or a CDN.
-  Stateless.</li>
+<li><strong>Frontend.</strong> Vue.js single-page app distributed as a container image that serves the static
+  assets through Nginx. Stateless. One or more instances run behind the ingress alongside the API
+  server. The browser then calls the API server's <abbr title="Representational State Transfer">REST</abbr> API directly, so the frontend container
+  does not proxy or aggregate API traffic.</li>
 </ul>
-<p>Each instance exposes a separate management server for health and metrics that starts before
-<a href="../../../reference/configuration/init-tasks/">init tasks</a> such as schema migration, so probes
-stay reachable while the main server initializes.</p>
 <h2 id="coordination">Coordination<a class="headerlink" href="#coordination" title="Permanent link">¶</a></h2>
 <p>API server instances coordinate only through PostgreSQL. Instances do not need network connectivity
 to each other, only to PostgreSQL and to file storage. The cluster runs no peer-to-peer protocol,
