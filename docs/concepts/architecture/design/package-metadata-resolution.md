@@ -7,7 +7,7 @@ repositories. This includes latest available versions, artifact hashes, and publ
 Dependency-Track uses this data for latest version checks, component age policies, and integrity verification.
 
 A singleton [durable workflow](durable-execution.md) orchestrates resolution and
-processes packages in controlled batches. ADR-015 documents the data model.
+processes packages in controlled batches. [ADR-015] documents the data model.
 
 ## Responsible consumption of public infrastructure
 
@@ -51,7 +51,7 @@ This separates package-level information (latest version) from artifact-level in
 without corresponding package metadata, and the orchestration logic respects the resulting
 write-order dependency.
 
-Refer to ADR-015 for the full rationale.
+Refer to [ADR-015] for the full rationale.
 
 ### Persistence
 
@@ -59,6 +59,52 @@ Both tables use `COALESCE`-based upserts that preserve existing non-null values.
 A temporal guard (`WHERE "RESOLVED_AT" < EXCLUDED."RESOLVED_AT"`) prevents older results
 from overwriting newer ones. Writes use PostgreSQL `UNNEST` to batch many rows
 per statement, reducing round trips.
+
+## PURL normalization
+
+A raw component PURL is rarely the right key for fetching upstream metadata. PURLs carry
+information that does not affect identity (such as repository URLs, checksums, or BOM-specific
+qualifiers), and they often omit information that the ecosystem needs to fetch a specific
+artifact. Each resolver factory implements `normalize` to map a PURL to the shape it
+expects, returning `null` if the resolver does not support the type.
+
+PURL normalization serves two purposes:
+
+1. It selects which resolver handles a given PURL. The first factory whose `normalize`
+   returns a non-null result wins.
+2. It shapes the PURL into the exact key that gets persisted in `PACKAGE_ARTIFACT_METADATA`.
+
+Artifact granularity is thus not controlled by the input PURL, but by the resolver.
+
+### Maven
+
+A Maven coordinate is not fully identified by group, artifact, and version. The same
+GAV can produce more than one artifact, distinguished by the [`type` and `classifier`
+qualifiers][purl-maven-qualifiers]: `type` selects the packaging (`jar`, `war`, `pom`, `aar`),
+and `classifier` selects a variant (`sources`, `javadoc`, `linux-x86_64`). Each has its own file on disk and its
+own hash. The Maven resolver normalizes by keeping `type` (defaulting to `jar`, matching the
+Maven convention) and `classifier` if present, and dropping everything else. The result is
+that `pkg:maven/com.acme/acme-lib@1.2.3` and `pkg:maven/com.acme/acme-lib@1.2.3?classifier=sources`
+resolve to distinct `PACKAGE_ARTIFACT_METADATA` rows with distinct hashes.
+
+### PyPI
+
+A PyPI release is not a single file. A version typically ships one source distribution
+(`.tar.gz`) plus a fan of built wheels, one per supported Python version, ABI, and platform
+(`cp311-cp311-manylinux_2_17_x86_64.whl`, `cp312-cp312-macosx_11_0_arm64.whl`, and so on).
+Each file has its own hash, and the PyPI JSON API returns hashes per file rather than per
+release. Without a way to pick one, the resolver cannot define which hash to record.
+
+To handle this, the PyPI resolver requires a [`file_name` qualifier][purl-pypi-qualifiers] on
+the input PURL and preserves it during normalization. SBOM tooling that emits PyPI components
+needs to include `file_name` to let the resolver record hashes. PURLs without it are not
+rejected outright, but the resolver cannot disambiguate which file applies.
+
+### Other ecosystems
+
+Most other ecosystems publish one artifact per version (npm tarballs, RubyGems gems,
+crates), so their resolvers drop all qualifiers during normalization and key on
+`type/namespace/name@version` alone.
 
 ## Workflow
 
@@ -142,14 +188,17 @@ empty results for these so they don't re-appear as candidates in later batches.
 One activity per resolver processes its assigned PURLs sequentially. Different resolver
 activities run concurrently.
 
+Before processing, the activity loads existing `PACKAGE_ARTIFACT_METADATA` rows for the batch and
+passes each PURL's prior result to the resolver as a hint. Resolvers that can short-circuit on it
+(for example, Maven for stable versions) skip the corresponding upstream fetch.
+
 For each PURL, the activity:
 
-1. Checks if the resolver already produced a result within the last 5 minutes (idempotency guard for retries).
-2. Normalizes the PURL via the resolver factory.
-3. Looks up configured repositories for the PURL type, ordered by resolution priority.
-4. Iterates repositories, respecting internal/external classification, invoking the resolver
+1. Normalizes the PURL via the resolver factory.
+2. Looks up configured repositories for the PURL type, ordered by resolution priority.
+3. Iterates repositories, respecting internal/external classification, invoking the resolver
    until one succeeds or none remain.
-5. Buffers results and flushes to the database in batches of 25.
+4. Buffers results and flushes to the database in batches of 25.
 
 If a resolver signals a retryable error (for example, HTTP 429), the activity flushes any buffered
 results and propagates the error. The durable execution engine then retries the activity with backoff.
@@ -196,7 +245,7 @@ concurrency interact.
 
 ## Resolver extension point
 
-Resolvers are pluggable via the plugin system. The API surface consists of two interfaces:
+Resolvers are pluggable via the [extensibility](extensibility.md) system. The API surface consists of two interfaces:
 
 * **`PackageMetadataResolverFactory`**: Creates resolver instances. Declares whether the resolver
   needs a repository, normalizes PURLs (returning `null` to signal non-support), and exposes the
@@ -235,15 +284,18 @@ The [durable execution](durable-execution.md) engine handles crash recovery and 
 transparently:
 
 * If a node crashes mid-resolution, the workflow resumes from the last completed step on restart.
-  Results already flushed to the database are not re-processed, because the 5-minute idempotency
-  window in the activity causes the activity to skip recently resolved PURLs.
+  PURLs the prior run flushed before the crash no longer match the candidate query, because
+  their `RESOLVED_AT` timestamps fall within the 24-hour freshness window.
 * When resolution fails for a specific resolver even after exhausting retries, the workflow
   catches the `ActivityFailureException`, logs the failure, and continues. The workflow persists
   results from other resolvers normally.
 * On graceful shutdown, the activity checks for thread interruption before each PURL,
   flushes buffered results, and propagates the interruption.
 
+[ADR-015]: https://github.com/DependencyTrack/dependency-track/blob/main/docs/adr/015-package-metadata.md
 [maven-overconsumption]: https://www.sonatype.com/blog/beyond-ips-addressing-organizational-overconsumption-in-maven-central
 [maven-tragedy]: https://www.sonatype.com/blog/maven-central-and-the-tragedy-of-the-commons
 [open-not-costless]: https://www.sonatype.com/blog/open-is-not-costless-reclaiming-sustainable-infrastructure
+[purl-maven-qualifiers]: https://github.com/package-url/purl-spec/blob/main/types-doc/maven-definition.md#qualifiers-definition
+[purl-pypi-qualifiers]: https://github.com/package-url/purl-spec/blob/main/types-doc/pypi-definition.md#qualifiers-definition
 [rfc-conditional]: https://www.rfc-editor.org/rfc/rfc7232
