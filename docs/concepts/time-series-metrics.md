@@ -10,7 +10,7 @@ drift across days, weeks, and quarters.
 ## Snapshots, not deltas
 
 A metrics record is a *snapshot*: a complete count of vulnerabilities,
-findings, suppressions, audit progress, and policy violations at a single
+[findings](vulnerability-findings.md), suppressions, audit progress, and policy violations at a single
 moment, scoped to one component, project, or the portfolio. Reconstructing
 trends from deltas is fragile (a missed event corrupts the rest of the
 series), so Dependency-Track stores the absolute numbers and lets readers
