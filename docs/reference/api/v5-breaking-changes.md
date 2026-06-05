@@ -228,6 +228,11 @@ v5 removes the `POST` and `DELETE` variants of `/v1/policy/{policyUuid}/tag/{tag
 - **Enum values removed**: `Project.classifier.NONE`, `Project.collectionLogic.NONE`. `null` or an absent field means
   what `NONE` meant in v4.
 
+**`GET /v1/project`**
+
+- **Removed response field**: `Project.children` inline array. Fetch project children via
+  `GET /v1/project/{uuid}/children` instead.
+
 **`POST /v1/project/batchDelete`**
 
 - **Removed response**: v4 documented a `400` with `ProjectOperationProblemDetails`. v5 documents only `204` and `401`.
