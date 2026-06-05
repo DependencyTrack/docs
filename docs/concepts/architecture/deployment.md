@@ -7,12 +7,12 @@ operational steps.
 
 ## Components
 
-A production deployment has three required components plus a frontend, typically served by the same
-ingress:
+A production deployment has four components, typically fronted by the same ingress:
 
 ```mermaid
 flowchart LR
-    LB[Load balancer / ingress] --> A[API server instance 1]
+    LB[Load balancer / ingress] --> FE[Frontend instance]
+    LB --> A[API server instance 1]
     LB --> B[API server instance 2]
     LB --> N[API server instance N]
 
@@ -23,24 +23,21 @@ flowchart LR
     A --> F[(File storage)]
     B --> F
     N --> F
-
-    FE[Frontend] -.served by.-> LB
 ```
 
-- **API server.** Java service exposing the REST API and running background workers. Stateless
-  beyond what it commits to PostgreSQL and file storage. One or more instances run side by side
-  (see [Coordination](#coordination)).
+- **API server.** Java service exposing the REST API on port `8080` and running background workers.
+  Stateless beyond what it commits to PostgreSQL and file storage. One or more instances run side
+  by side (see [Coordination](#coordination)). Each instance also exposes a separate management
+  server on port `9000` for health checks and metrics.
 - **PostgreSQL.** Single source of truth for product data, the durable execution engine's workflow
   records, and node coordination.
 - **File storage.** Shared store for short-lived intermediate files (uploaded BOMs, analysis
   artifacts). Either a shared persistent volume (`local` provider) or an S3-compatible bucket
   (`s3` provider). See [File storage](../../reference/configuration/file-storage.md).
-- **Frontend.** Static Vue.js single-page app, typically served by the same load balancer or a CDN.
-  Stateless.
-
-Each instance exposes a separate management server for health and metrics that starts before
-[init tasks](../../reference/configuration/init-tasks.md) such as schema migration, so probes
-stay reachable while the main server initializes.
+- **Frontend.** Vue.js single-page app distributed as a container image that serves the static
+  assets through Nginx. Stateless. One or more instances run behind the ingress alongside the API
+  server. The browser then calls the API server's REST API directly, so the frontend container
+  does not proxy or aggregate API traffic.
 
 ## Coordination
 
