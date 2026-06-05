@@ -241,7 +241,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Project"
+                  $ref: "#/components/schemas/ListProjectsResponseItem"
           description: Projects assigned to the specified team
           headers:
             X-Total-Count:
@@ -4707,7 +4707,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Project"
+                  $ref: "#/components/schemas/ListProjectsResponseItem"
           description: A list of all projects
           headers:
             X-Total-Count:
@@ -4886,6 +4886,20 @@ paths:
         required: true
         schema:
           type: string
+          enum:
+          - APPLICATION
+          - FRAMEWORK
+          - LIBRARY
+          - CONTAINER
+          - OPERATING_SYSTEM
+          - DEVICE
+          - FIRMWARE
+          - FILE
+          - PLATFORM
+          - DEVICE_DRIVER
+          - MACHINE_LEARNING_MODEL
+          - DATA
+          - CRYPTOGRAPHIC_ASSET
       - description: Optionally excludes inactive projects from being returned
         in: query
         name: excludeInactive
@@ -4903,7 +4917,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Project"
+                  $ref: "#/components/schemas/ListProjectsResponseItem"
           description: A list of all projects by classifier
           headers:
             X-Total-Count:
@@ -5306,7 +5320,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Project"
+                  $ref: "#/components/schemas/ListProjectsResponseItem"
           description: A list of all projects by tag
           headers:
             X-Total-Count:
@@ -5388,7 +5402,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Project"
+                  $ref: "#/components/schemas/ListProjectsResponseItem"
           description: A list of all projects without the descendants of the selected
             project
           headers:
@@ -5592,7 +5606,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Project"
+                  $ref: "#/components/schemas/ListProjectsResponseItem"
           description: A list of all children for a project
           headers:
             X-Total-Count:
@@ -5664,6 +5678,20 @@ paths:
         required: true
         schema:
           type: string
+          enum:
+          - APPLICATION
+          - FRAMEWORK
+          - LIBRARY
+          - CONTAINER
+          - OPERATING_SYSTEM
+          - DEVICE
+          - FIRMWARE
+          - FILE
+          - PLATFORM
+          - DEVICE_DRIVER
+          - MACHINE_LEARNING_MODEL
+          - DATA
+          - CRYPTOGRAPHIC_ASSET
       - description: The UUID of the project to get the children from
         in: path
         name: uuid
@@ -5683,7 +5711,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Project"
+                  $ref: "#/components/schemas/ListProjectsResponseItem"
           description: A list of all children for a project by classifier
           headers:
             X-Total-Count:
@@ -5774,7 +5802,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Project"
+                  $ref: "#/components/schemas/ListProjectsResponseItem"
           description: A list of all children for a project by tag
           headers:
             X-Total-Count:
@@ -10616,6 +10644,106 @@ components:
       required:
       - name
       - uuid
+    ListProjectsResponseItem:
+      type: object
+      properties:
+        active:
+          type: boolean
+        authors:
+          type: array
+          items:
+            $ref: "#/components/schemas/OrganizationalContact"
+        classifier:
+          type: string
+          enum:
+          - APPLICATION
+          - FRAMEWORK
+          - LIBRARY
+          - CONTAINER
+          - OPERATING_SYSTEM
+          - DEVICE
+          - FIRMWARE
+          - FILE
+          - PLATFORM
+          - DEVICE_DRIVER
+          - MACHINE_LEARNING_MODEL
+          - DATA
+          - CRYPTOGRAPHIC_ASSET
+        collectionLogic:
+          type: string
+          enum:
+          - AGGREGATE_DIRECT_CHILDREN
+          - AGGREGATE_DIRECT_CHILDREN_WITH_TAG
+          - AGGREGATE_LATEST_VERSION_CHILDREN
+        collectionTag:
+          $ref: "#/components/schemas/Tag"
+        cpe:
+          type: string
+        description:
+          type: string
+        directDependencies:
+          type: string
+        externalReferences:
+          type: array
+          items:
+            $ref: "#/components/schemas/ExternalReference"
+        group:
+          type: string
+        hasChildren:
+          type: boolean
+          description: Whether the project has child projects
+        inactiveSince:
+          type: integer
+          format: int64
+          description: UNIX epoch timestamp in milliseconds
+          readOnly: true
+        isLatest:
+          type: boolean
+        lastBomImport:
+          type: integer
+          format: int64
+          description: UNIX epoch timestamp in milliseconds
+        lastBomImportFormat:
+          type: string
+        lastInheritedRiskScore:
+          type: number
+          format: double
+        lastVulnerabilityAnalysis:
+          type: integer
+          format: int64
+          description: UNIX epoch timestamp in milliseconds
+        manufacturer:
+          $ref: "#/components/schemas/OrganizationalEntity"
+        metadata:
+          $ref: "#/components/schemas/ProjectMetadata"
+        metrics:
+          $ref: "#/components/schemas/ProjectMetrics"
+        name:
+          type: string
+        parent:
+          $ref: "#/components/schemas/Parent"
+        publisher:
+          type: string
+        purl:
+          type: string
+        supplier:
+          $ref: "#/components/schemas/OrganizationalEntity"
+        swidTagId:
+          type: string
+        tags:
+          type: array
+          items:
+            $ref: "#/components/schemas/Tag"
+        uuid:
+          type: string
+          format: uuid
+        version:
+          type: string
+      required:
+      - hasChildren
+      - lastBomImport
+      - name
+      - uuid
     ManagedUser:
       type: object
       properties:
@@ -10907,6 +11035,19 @@ components:
           type: array
           items:
             type: string
+    Parent:
+      type: object
+      properties:
+        name:
+          type: string
+        uuid:
+          type: string
+          format: uuid
+        version:
+          type: string
+      required:
+      - name
+      - uuid
     Permission:
       type: object
       properties:
