@@ -1326,6 +1326,56 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#purl-normalization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PURL normalization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PURL normalization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#maven" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Maven
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pypi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PyPI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-ecosystems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other ecosystems
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#workflow" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1720,6 +1770,56 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#purl-normalization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PURL normalization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PURL normalization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#maven" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Maven
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pypi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PyPI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-ecosystems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other ecosystems
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#workflow" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1973,7 +2073,7 @@
 repositories. This includes latest available versions, artifact hashes, and publish timestamps.
 Dependency-Track uses this data for latest version checks, component age policies, and integrity verification.</p>
 <p>A singleton <a href="../durable-execution/">durable workflow</a> orchestrates resolution and
-processes packages in controlled batches. ADR-015 documents the data model.</p>
+processes packages in controlled batches. <a href="https://github.com/DependencyTrack/dependency-track/blob/main/docs/adr/015-package-metadata.md">ADR-015</a> documents the data model.</p>
 <h2 id="responsible-consumption-of-public-infrastructure">Responsible consumption of public infrastructure<a class="headerlink" href="#responsible-consumption-of-public-infrastructure" title="Permanent link">¶</a></h2>
 <p>Public registries like Maven Central, npm, and PyPI share a finite pool of bandwidth across all consumers.
 Sonatype has documented that <a href="https://www.sonatype.com/blog/beyond-ips-addressing-organizational-overconsumption-in-maven-central">1% of IP addresses account for 83% of Maven Central's total bandwidth</a>,
@@ -2009,12 +2109,48 @@ it also conserves quota. Sonatype's
 (hashes, publish timestamp). The FK constraint enforces that artifact metadata cannot exist
 without corresponding package metadata, and the orchestration logic respects the resulting
 write-order dependency.</p>
-<p>Refer to ADR-015 for the full rationale.</p>
+<p>Refer to <a href="https://github.com/DependencyTrack/dependency-track/blob/main/docs/adr/015-package-metadata.md">ADR-015</a> for the full rationale.</p>
 <h3 id="persistence">Persistence<a class="headerlink" href="#persistence" title="Permanent link">¶</a></h3>
 <p>Both tables use <code>COALESCE</code>-based upserts that preserve existing non-null values.
 A temporal guard (<code>WHERE "RESOLVED_AT" &lt; EXCLUDED."RESOLVED_AT"</code>) prevents older results
 from overwriting newer ones. Writes use PostgreSQL <code>UNNEST</code> to batch many rows
 per statement, reducing round trips.</p>
+<h2 id="purl-normalization"><abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr> normalization<a class="headerlink" href="#purl-normalization" title="Permanent link">¶</a></h2>
+<p>A raw component <abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr> is rarely the right key for fetching upstream metadata. PURLs carry
+information that does not affect identity (such as repository URLs, checksums, or <abbr title="Bill of Materials">BOM</abbr>-specific
+qualifiers), and they often omit information that the ecosystem needs to fetch a specific
+artifact. Each resolver factory implements <code>normalize</code> to map a <abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr> to the shape it
+expects, returning <code>null</code> if the resolver does not support the type.</p>
+<p><abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr> normalization serves two purposes:</p>
+<ol>
+<li>It selects which resolver handles a given <abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr>. The first factory whose <code>normalize</code>
+   returns a non-null result wins.</li>
+<li>It shapes the <abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr> into the exact key that gets persisted in <code>PACKAGE_ARTIFACT_METADATA</code>.</li>
+</ol>
+<p>Artifact granularity is thus not controlled by the input <abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr>, but by the resolver.</p>
+<h3 id="maven">Maven<a class="headerlink" href="#maven" title="Permanent link">¶</a></h3>
+<p>A Maven coordinate is not fully identified by group, artifact, and version. The same
+GAV can produce more than one artifact, distinguished by the <a href="https://github.com/package-url/purl-spec/blob/main/types-doc/maven-definition.md#qualifiers-definition"><code>type</code> and <code>classifier</code>
+qualifiers</a>: <code>type</code> selects the packaging (<code>jar</code>, <code>war</code>, <code>pom</code>, <code>aar</code>),
+and <code>classifier</code> selects a variant (<code>sources</code>, <code>javadoc</code>, <code>linux-x86_64</code>). Each has its own file on disk and its
+own hash. The Maven resolver normalizes by keeping <code>type</code> (defaulting to <code>jar</code>, matching the
+Maven convention) and <code>classifier</code> if present, and dropping everything else. The result is
+that <code>pkg:maven/com.acme/acme-lib@1.2.3</code> and <code>pkg:maven/com.acme/acme-lib@1.2.3?classifier=sources</code>
+resolve to distinct <code>PACKAGE_ARTIFACT_METADATA</code> rows with distinct hashes.</p>
+<h3 id="pypi">PyPI<a class="headerlink" href="#pypi" title="Permanent link">¶</a></h3>
+<p>A PyPI release is not a single file. A version typically ships one source distribution
+(<code>.tar.gz</code>) plus a fan of built wheels, one per supported Python version, ABI, and platform
+(<code>cp311-cp311-manylinux_2_17_x86_64.whl</code>, <code>cp312-cp312-macosx_11_0_arm64.whl</code>, and so on).
+Each file has its own hash, and the PyPI JSON API returns hashes per file rather than per
+release. Without a way to pick one, the resolver cannot define which hash to record.</p>
+<p>To handle this, the PyPI resolver requires a <a href="https://github.com/package-url/purl-spec/blob/main/types-doc/pypi-definition.md#qualifiers-definition"><code>file_name</code> qualifier</a> on
+the input <abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr> and preserves it during normalization. <abbr title="Software Bill of Materials">SBOM</abbr> tooling that emits PyPI components
+needs to include <code>file_name</code> to let the resolver record hashes. PURLs without it are not
+rejected outright, but the resolver cannot disambiguate which file applies.</p>
+<h3 id="other-ecosystems">Other ecosystems<a class="headerlink" href="#other-ecosystems" title="Permanent link">¶</a></h3>
+<p>Most other ecosystems publish one artifact per version (npm tarballs, RubyGems gems,
+crates), so their resolvers drop all qualifiers during normalization and key on
+<code>type/namespace/name@version</code> alone.</p>
 <h2 id="workflow">Workflow<a class="headerlink" href="#workflow" title="Permanent link">¶</a></h2>
 <p>Package metadata resolution is a singleton <a href="../durable-execution/">durable workflow</a>.</p>
 <h3 id="singleton-constraint">Singleton constraint<a class="headerlink" href="#singleton-constraint" title="Permanent link">¶</a></h3>
@@ -2117,9 +2253,11 @@ empty results for these so they don't re-appear as candidates in later batches.<
 </table>
 <p>One activity per resolver processes its assigned PURLs sequentially. Different resolver
 activities run concurrently.</p>
+<p>Before processing, the activity loads existing <code>PACKAGE_ARTIFACT_METADATA</code> rows for the batch and
+passes each <abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr>'s prior result to the resolver as a hint. Resolvers that can short-circuit on it
+(for example, Maven for stable versions) skip the corresponding upstream fetch.</p>
 <p>For each <abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr>, the activity:</p>
 <ol>
-<li>Checks if the resolver already produced a result within the last 5 minutes (idempotency guard for retries).</li>
 <li>Normalizes the <abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr> via the resolver factory.</li>
 <li>Looks up configured repositories for the <abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr> type, ordered by resolution priority.</li>
 <li>Iterates repositories, respecting internal/external classification, invoking the resolver
@@ -2207,7 +2345,7 @@ completes normally.</p>
 <p>Refer to <a href="../durable-execution/">durable execution</a> for how queue capacity and worker
 concurrency interact.</p>
 <h2 id="resolver-extension-point">Resolver extension point<a class="headerlink" href="#resolver-extension-point" title="Permanent link">¶</a></h2>
-<p>Resolvers are pluggable via the plugin system. The API surface consists of two interfaces:</p>
+<p>Resolvers are pluggable via the <a href="../extensibility/">extensibility</a> system. The API surface consists of two interfaces:</p>
 <ul>
 <li><strong><code>PackageMetadataResolverFactory</code></strong>: Creates resolver instances. Declares whether the resolver
   needs a repository, normalizes PURLs (returning <code>null</code> to signal non-support), and exposes the
@@ -2240,8 +2378,8 @@ Distributed locking ensures only one node executes cleanup at a time.</p>
 transparently:</p>
 <ul>
 <li>If a node crashes mid-resolution, the workflow resumes from the last completed step on restart.
-  Results already flushed to the database are not re-processed, because the 5-minute idempotency
-  window in the activity causes the activity to skip recently resolved PURLs.</li>
+  PURLs the prior run flushed before the crash no longer match the candidate query, because
+  their <code>RESOLVED_AT</code> timestamps fall within the 24-hour freshness window.</li>
 <li>When resolution fails for a specific resolver even after exhausting retries, the workflow
   catches the <code>ActivityFailureException</code>, logs the failure, and continues. The workflow persists
   results from other resolvers normally.</li>
