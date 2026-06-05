@@ -3369,6 +3369,11 @@ See the <a href="#removed-endpoints">removed-endpoints table</a>.</p>
 <li><strong>Enum values removed</strong>: <code>Project.classifier.NONE</code>, <code>Project.collectionLogic.NONE</code>. <code>null</code> or an absent field means
   what <code>NONE</code> meant in v4.</li>
 </ul>
+<p><strong><code>GET /v1/project</code></strong></p>
+<ul>
+<li><strong>Removed response field</strong>: <code>Project.children</code> inline array. Fetch project children via
+  <code>GET /v1/project/{uuid}/children</code> instead.</li>
+</ul>
 <p><strong><code>POST /v1/project/batchDelete</code></strong></p>
 <ul>
 <li><strong>Removed response</strong>: v4 documented a <code>400</code> with <code>ProjectOperationProblemDetails</code>. v5 documents only <code>204</code> and <code>401</code>.</li>
