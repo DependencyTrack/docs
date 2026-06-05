@@ -138,13 +138,6 @@ Fires when an analysis or suppression state changes on a project finding.
 
 Fires on creation of a new project.
 
-### `PROJECT_VULN_ANALYSIS_COMPLETE`
-
-- **Trigger:** Event
-- **Level:** Informational
-
-Fires when vulnerability analysis for a project completes.
-
 ### `VEX_CONSUMED`
 
 - **Trigger:** Event
@@ -195,7 +188,6 @@ each subject schema.
 | `NEW_VULNERABLE_DEPENDENCY`                             | [NewVulnerableDependencySubject](../schemas/notification.md#newvulnerabledependencysubject)                                                             |
 | `POLICY_VIOLATION`                                      | [PolicyViolationSubject](../schemas/notification.md#policyviolationsubject)                                                                             |
 | `PROJECT_AUDIT_CHANGE`                                  | [VulnerabilityAnalysisDecisionChangeSubject](../schemas/notification.md#vulnerabilityanalysisdecisionchangesubject) or [PolicyViolationAnalysisDecisionChangeSubject](../schemas/notification.md#policyviolationanalysisdecisionchangesubject) |
-| `PROJECT_VULN_ANALYSIS_COMPLETE`                        | [ProjectVulnAnalysisCompleteSubject](../schemas/notification.md#projectvulnanalysiscompletesubject)                                                     |
 | `VEX_CONSUMED`, `VEX_PROCESSED`                         | [VexConsumedOrProcessedSubject](../schemas/notification.md#vexconsumedorprocessedsubject)                                                               |
 | `USER_CREATED`, `USER_DELETED`                          | [UserSubject](../schemas/notification.md#usersubject)                                                                                                   |
 | `NEW_VULNERABILITIES_SUMMARY`                           | [NewVulnerabilitiesSummarySubject](../schemas/notification.md#newvulnerabilitiessummarysubject)                                                         |
