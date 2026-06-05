@@ -102,7 +102,8 @@ or exceeding a given severity.
 Dependency-Track flags components whose hashes diverge from what the
 upstream package repository publishes. The check catches typosquatting and
 registry-side tampering, classes of supply chain attack that v4 left to
-scanners further down the chain.
+scanners further down the chain. See [About component integrity verification](component-integrity-verification.md)
+for the supported ecosystems and how the status surfaces in the UI and in policies.
 
 ### Portfolio access control out of beta
 
