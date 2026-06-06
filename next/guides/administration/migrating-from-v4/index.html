@@ -1698,10 +1698,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#portfolio-access-control-bypass" class="md-nav__link">
+  <a href="#v5-only-permissions-granted-from-v4-counterparts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Portfolio access control bypass
+        V5-only permissions granted from v4 counterparts
       
     </span>
   </a>
@@ -2823,10 +2823,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#portfolio-access-control-bypass" class="md-nav__link">
+  <a href="#v5-only-permissions-granted-from-v4-counterparts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Portfolio access control bypass
+        V5-only permissions granted from v4 counterparts
       
     </span>
   </a>
@@ -3341,7 +3341,7 @@ v5 apiserver connects as (see the <strong>Database user</strong> note in the pre
 <span class="w">  </span>--target-pass
 </code></pre></div>
 <p>After this, the target has the v5 schema and a seeded <code>PERMISSION</code> catalog (the well-known set of v5 permissions).
-No other rows are written by bootstrap; the migrator's later phases populate <code>LICENSE</code>, <code>TEAM</code>, <code>USER</code>, and the rest from your v4 source.</p>
+Bootstrap writes no other rows. The migrator's later phases populate <code>LICENSE</code>, <code>TEAM</code>, <code>USER</code>, and the rest from your v4 source.</p>
 <h3 id="2-verify-the-target">2. Verify the target<a class="headerlink" href="#2-verify-the-target" title="Permanent link">¶</a></h3>
 <p>Run preflight to catch problems before you commit time to extraction:</p>
 <div class="highlight"><pre><span></span><code>v4-migrator<span class="w"> </span>verify<span class="w"> </span><span class="se">\</span>
@@ -3437,8 +3437,8 @@ Each note is one of three states:</p>
 <div class="admonition warning">
 <p class="admonition-title">Permission join tables are not a data-loss signal</p>
 <p><code>TEAMS_PERMISSIONS</code> and <code>USERS_PERMISSIONS</code> both lose and gain rows as part of the v4-to-v5 permission remap
-(see <a href="#portfolio-access-control-bypass">Portfolio access control bypass</a>), so their row-count delta carries no meaning.
-Disregard any <code>Note</code> on these two tables.</p>
+(see <a href="#v5-only-permissions-granted-from-v4-equivalents">v5-only permissions granted from v4 equivalents</a>),
+so their row-count delta carries no meaning. Disregard any <code>Note</code> on these two tables.</p>
 </div>
 <p>The final <code>== verify complete ==</code> line marks a clean exit. Its absence means <code>verify</code> stopped before finishing.</p>
 <h3 id="7-drop-staging">7. Drop staging<a class="headerlink" href="#7-drop-staging" title="Permanent link">¶</a></h3>
@@ -3469,13 +3469,22 @@ or a legitimate external identity that needs the original username back
 <p>v4 allowed managed and <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> user rows with <code>USERNAME IS NULL</code>. v5 requires a non-null username.
 The migrator silently skips these rows.
 They were unusable in v4 (no login surface), so dropping them is safe.</p>
-<h3 id="portfolio-access-control-bypass">Portfolio access control bypass<a class="headerlink" href="#portfolio-access-control-bypass" title="Permanent link">¶</a></h3>
-<p>v4's <code>ACCESS_MANAGEMENT</code> permission implicitly granted the ability to bypass portfolio access control.
-v5 splits that into a dedicated <code>PORTFOLIO_ACCESS_CONTROL_BYPASS</code> permission.
-To preserve v4 behavior, the migrator additionally grants <code>PORTFOLIO_ACCESS_CONTROL_BYPASS</code>
-to every v4 user and team that holds <code>ACCESS_MANAGEMENT</code>.
-If you want the v5 split semantics instead, revoke <code>PORTFOLIO_ACCESS_CONTROL_BYPASS</code> from the affected
-principals after the migration.</p>
+<h3 id="v5-only-permissions-granted-from-v4-counterparts">V5-only permissions granted from v4 counterparts<a class="headerlink" href="#v5-only-permissions-granted-from-v4-counterparts" title="Permanent link">¶</a></h3>
+<p>v5 splits two abilities that v4 carried implicitly into dedicated permissions.
+For each one, the migrator grants the new v5 permission to every v4 user and team that held the
+v4-era counterpart, so that pre-migration authorizations continue to work as before.
+If you want the v5 split semantics instead, revoke the new permission from the affected principals
+after the migration.</p>
+<ul>
+<li><strong><code>PORTFOLIO_ACCESS_CONTROL_BYPASS</code>.</strong> v4's <code>ACCESS_MANAGEMENT</code> permission implicitly granted the
+  ability to bypass portfolio access control. The migrator grants <code>PORTFOLIO_ACCESS_CONTROL_BYPASS</code>
+  to every v4 user and team that holds <code>ACCESS_MANAGEMENT</code>.</li>
+<li><strong><code>SECRET_MANAGEMENT</code>.</strong> v4 had no dedicated secret-management permission. Repository basic-auth
+  passwords and analyzer / vulnerability-source API credentials were configurable by anyone with
+  <code>SYSTEM_CONFIGURATION</code>. v5 manages these through a dedicated secret manager gated by
+  <code>SECRET_MANAGEMENT</code>. The migrator grants <code>SECRET_MANAGEMENT</code> to every v4 user and team that holds
+  <code>SYSTEM_CONFIGURATION</code>.</li>
+</ul>
 <p>v4 permission names that v5 has retired (for example <code>VIEW_BADGES</code>) drop out during migration.
 Any user or team assignment referencing one of those names is silently removed.</p>
 <h3 id="dedup-of-teams-oidc-groups-and-tags">Dedup of teams, <abbr title="OpenID Connect">OIDC</abbr> groups, and tags<a class="headerlink" href="#dedup-of-teams-oidc-groups-and-tags" title="Permanent link">¶</a></h3>
@@ -3666,7 +3675,9 @@ The staging schema is not portable across clusters and is not needed by v5 at ru
   and turn the affected repositories back on.
   See <a href="../../user/managing-secrets/">Managing secrets</a> and
   <a href="../configuring-secret-management/">Configuring secret management</a>.
-  A new <a href="../../../reference/permissions/#secret-management"><code>SECRET_MANAGEMENT</code></a> permission is required to manage secrets.</li>
+  Managing secrets requires the new <a href="../../../reference/permissions/#secret-management"><code>SECRET_MANAGEMENT</code></a> permission
+  (granted automatically during migration to principals that held <code>SYSTEM_CONFIGURATION</code> in v4;
+  see <a href="#v5-only-permissions-granted-from-v4-counterparts">v5-only permissions granted from v4 equivalents</a>).</li>
 <li>Reconcile every user whose username got a <code>-CONFLICT-LDAP</code> or <code>-CONFLICT-OIDC</code> suffix
   (delete genuine duplicates, rename legitimate external identities back to their original username).</li>
 <li>Wait a few hours, then verify that v5 has populated the <code>EPSS</code> table from the upstream feed.</li>

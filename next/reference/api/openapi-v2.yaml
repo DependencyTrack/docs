@@ -360,7 +360,7 @@ paths:
             application/problem+json:
               schema:
                 anyOf:
-                - $ref: "#/components/schemas/json-schema-validation-problem-details"
+                - $ref: "#/components/schemas/invalid-sort-field-problem-details"
                 - $ref: "#/components/schemas/problem-details"
         "401":
           $ref: "#/components/responses/generic-unauthorized-error"
@@ -797,6 +797,14 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/list-project-components-response"
+        "400":
+          description: Bad Request
+          content:
+            application/problem+json:
+              schema:
+                anyOf:
+                - $ref: "#/components/schemas/invalid-sort-field-problem-details"
+                - $ref: "#/components/schemas/problem-details"
         "401":
           $ref: "#/components/responses/generic-unauthorized-error"
         "403":
@@ -1698,7 +1706,14 @@ paths:
               schema:
                 $ref: "#/components/schemas/list-workflow-runs-response"
         "400":
-          $ref: "#/components/responses/invalid-request-error"
+          description: Bad Request
+          content:
+            application/problem+json:
+              schema:
+                anyOf:
+                - $ref: "#/components/schemas/invalid-request-problem-details"
+                - $ref: "#/components/schemas/invalid-sort-field-problem-details"
+                - $ref: "#/components/schemas/problem-details"
         "401":
           $ref: "#/components/responses/generic-unauthorized-error"
         "403":
@@ -1829,22 +1844,30 @@ components:
             $ref: "#/components/schemas/list-components-response-item"
       allOf:
       - $ref: "#/components/schemas/paginated-response"
-    json-schema-validation-problem-details:
+    invalid-sort-field-problem-details:
       required:
-      - errors
+      - invalid_field
       type: object
       properties:
-        errors:
+        invalid_field:
+          type: string
+          description: Name of the field for which sorting is not supported.
+        supported_fields:
           type: array
-          description: List of JSON Schema validation errors
+          description: |-
+            Names of fields for which sorting is supported.
+            When empty, sorting is explicitly *not* supported.
+            When absent, sorting may be supported, but no definitive guarantees exist.
+            Consult the operation's description.
           items:
-            $ref: "#/components/schemas/json-schema-validation-error"
+            type: string
       allOf:
       - $ref: "#/components/schemas/problem-details"
     problem-details:
       required:
       - detail
       - title
+      - type
       type: object
       properties:
         type:
@@ -1993,6 +2016,18 @@ components:
         config:
           type: object
           additionalProperties: true
+    json-schema-validation-problem-details:
+      required:
+      - errors
+      type: object
+      properties:
+        errors:
+          type: array
+          description: List of JSON Schema validation errors
+          items:
+            $ref: "#/components/schemas/json-schema-validation-error"
+      allOf:
+      - $ref: "#/components/schemas/problem-details"
     extension-config-schema:
       required:
       - $schema
@@ -2522,35 +2557,6 @@ components:
           $ref: "#/components/schemas/package-metadata"
         package_artifact_metadata:
           $ref: "#/components/schemas/package-artifact-metadata"
-    json-schema-validation-error:
-      required:
-      - instance_location
-      - message
-      type: object
-      properties:
-        instance_location:
-          type: string
-          description: JSON Pointer to the location in the instance that failed validation
-          example: /config/port
-        evaluation_path:
-          type: string
-          description: JSON Pointer to the location in the schema during evaluation
-          example: /properties/config/properties/port
-        schema_location:
-          type: string
-          description: Schema location that generated the error
-          example: https://example.com/schemas/config#/properties/config/properties/port
-        keyword:
-          type: string
-          description: The validation keyword that failed
-          example: type
-        message:
-          type: string
-          description: Human-readable error message
-          example: Value must be a number
-      description: |-
-        A JSON Schema validation error as per
-        <https://json-schema.org/draft/2020-12/json-schema-core.html#name-output-structure>.
     classifier:
       type: string
       enum:
@@ -2673,6 +2679,35 @@ components:
         testable:
           type: boolean
           description: Whether the extension can be tested.
+    json-schema-validation-error:
+      required:
+      - instance_location
+      - message
+      type: object
+      properties:
+        instance_location:
+          type: string
+          description: JSON Pointer to the location in the instance that failed validation
+          example: /config/port
+        evaluation_path:
+          type: string
+          description: JSON Pointer to the location in the schema during evaluation
+          example: /properties/config/properties/port
+        schema_location:
+          type: string
+          description: Schema location that generated the error
+          example: https://example.com/schemas/config#/properties/config/properties/port
+        keyword:
+          type: string
+          description: The validation keyword that failed
+          example: type
+        message:
+          type: string
+          description: Human-readable error message
+          example: Value must be a number
+      description: |-
+        A JSON Schema validation error as per
+        <https://json-schema.org/draft/2020-12/json-schema-core.html#name-output-structure>.
     extension-test-check:
       required:
       - name
