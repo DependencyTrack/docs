@@ -3665,7 +3665,8 @@ The staging schema is not portable across clusters and is not needed by v5 at ru
 <li>Re-enter repository, analyzer, and vulnerability-source credentials through the v5 secret manager,
   and turn the affected repositories back on.
   See <a href="../../user/managing-secrets/">Managing secrets</a> and
-  <a href="../configuring-secret-management/">Configuring secret management</a>.</li>
+  <a href="../configuring-secret-management/">Configuring secret management</a>.
+  A new <a href="../../../reference/permissions/#secret-management"><code>SECRET_MANAGEMENT</code></a> permission is required to manage secrets.</li>
 <li>Reconcile every user whose username got a <code>-CONFLICT-LDAP</code> or <code>-CONFLICT-OIDC</code> suffix
   (delete genuine duplicates, rename legitimate external identities back to their original username).</li>
 <li>Wait a few hours, then verify that v5 has populated the <code>EPSS</code> table from the upstream feed.</li>
