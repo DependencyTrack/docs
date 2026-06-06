@@ -146,7 +146,7 @@ v4-migrator bootstrap \
 ```
 
 After this, the target has the v5 schema and a seeded `PERMISSION` catalog (the well-known set of v5 permissions).
-No other rows are written by bootstrap; the migrator's later phases populate `LICENSE`, `TEAM`, `USER`, and the rest from your v4 source.
+Bootstrap writes no other rows. The migrator's later phases populate `LICENSE`, `TEAM`, `USER`, and the rest from your v4 source.
 
 ### 2. Verify the target
 
@@ -276,8 +276,8 @@ Each note is one of three states:
 !!! warning "Permission join tables are not a data-loss signal"
 
     `TEAMS_PERMISSIONS` and `USERS_PERMISSIONS` both lose and gain rows as part of the v4-to-v5 permission remap
-    (see [Portfolio access control bypass](#portfolio-access-control-bypass)), so their row-count delta carries no meaning.
-    Disregard any `Note` on these two tables.
+    (see [v5-only permissions granted from v4 equivalents](#v5-only-permissions-granted-from-v4-equivalents)),
+    so their row-count delta carries no meaning. Disregard any `Note` on these two tables.
 
 The final `== verify complete ==` line marks a clean exit. Its absence means `verify` stopped before finishing.
 
@@ -322,14 +322,22 @@ v4 allowed managed and LDAP user rows with `USERNAME IS NULL`. v5 requires a non
 The migrator silently skips these rows.
 They were unusable in v4 (no login surface), so dropping them is safe.
 
-### Portfolio access control bypass
+### V5-only permissions granted from v4 counterparts
 
-v4's `ACCESS_MANAGEMENT` permission implicitly granted the ability to bypass portfolio access control.
-v5 splits that into a dedicated `PORTFOLIO_ACCESS_CONTROL_BYPASS` permission.
-To preserve v4 behavior, the migrator additionally grants `PORTFOLIO_ACCESS_CONTROL_BYPASS`
-to every v4 user and team that holds `ACCESS_MANAGEMENT`.
-If you want the v5 split semantics instead, revoke `PORTFOLIO_ACCESS_CONTROL_BYPASS` from the affected
-principals after the migration.
+v5 splits two abilities that v4 carried implicitly into dedicated permissions.
+For each one, the migrator grants the new v5 permission to every v4 user and team that held the
+v4-era counterpart, so that pre-migration authorizations continue to work as before.
+If you want the v5 split semantics instead, revoke the new permission from the affected principals
+after the migration.
+
+- **`PORTFOLIO_ACCESS_CONTROL_BYPASS`.** v4's `ACCESS_MANAGEMENT` permission implicitly granted the
+  ability to bypass portfolio access control. The migrator grants `PORTFOLIO_ACCESS_CONTROL_BYPASS`
+  to every v4 user and team that holds `ACCESS_MANAGEMENT`.
+- **`SECRET_MANAGEMENT`.** v4 had no dedicated secret-management permission. Repository basic-auth
+  passwords and analyzer / vulnerability-source API credentials were configurable by anyone with
+  `SYSTEM_CONFIGURATION`. v5 manages these through a dedicated secret manager gated by
+  `SECRET_MANAGEMENT`. The migrator grants `SECRET_MANAGEMENT` to every v4 user and team that holds
+  `SYSTEM_CONFIGURATION`.
 
 v4 permission names that v5 has retired (for example `VIEW_BADGES`) drop out during migration.
 Any user or team assignment referencing one of those names is silently removed.
@@ -597,7 +605,9 @@ The staging schema is not portable across clusters and is not needed by v5 at ru
   and turn the affected repositories back on.
   See [Managing secrets](../user/managing-secrets.md) and
   [Configuring secret management](configuring-secret-management.md).
-  A new [`SECRET_MANAGEMENT`](../../reference/permissions.md#secret-management) permission is required to manage secrets.
+  Managing secrets requires the new [`SECRET_MANAGEMENT`](../../reference/permissions.md#secret-management) permission
+  (granted automatically during migration to principals that held `SYSTEM_CONFIGURATION` in v4;
+  see [v5-only permissions granted from v4 equivalents](#v5-only-permissions-granted-from-v4-counterparts)).
 - Reconcile every user whose username got a `-CONFLICT-LDAP` or `-CONFLICT-OIDC` suffix
   (delete genuine duplicates, rename legitimate external identities back to their original username).
 - Wait a few hours, then verify that v5 has populated the `EPSS` table from the upstream feed.
