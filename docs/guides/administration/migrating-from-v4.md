@@ -597,6 +597,7 @@ The staging schema is not portable across clusters and is not needed by v5 at ru
   and turn the affected repositories back on.
   See [Managing secrets](../user/managing-secrets.md) and
   [Configuring secret management](configuring-secret-management.md).
+  A new [`SECRET_MANAGEMENT`](../../reference/permissions.md#secret-management) permission is required to manage secrets.
 - Reconcile every user whose username got a `-CONFLICT-LDAP` or `-CONFLICT-OIDC` suffix
   (delete genuine duplicates, rename legitimate external identities back to their original username).
 - Wait a few hours, then verify that v5 has populated the `EPSS` table from the upstream feed.
