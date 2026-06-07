@@ -364,7 +364,7 @@ v4 inactive projects become `INACTIVE_SINCE = '1970-01-01 00:00:00+00'` (Unix ep
 
 v4 stored EPSS score and percentile directly on each vulnerability row.
 v5 stores EPSS in a dedicated table populated from the upstream feed.
-The migrator does not copy v4 EPSS values. v5 re-populates them at runtime within hours of first launch.
+The migrator does not copy v4 EPSS values. v5 re-populates them at runtime within minutes of first launch.
 
 ### Metrics retention
 
