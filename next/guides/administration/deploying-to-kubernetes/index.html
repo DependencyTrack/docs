@@ -5,13 +5,13 @@
       
       
       
-        <link rel="canonical" href="https://dependencytrack.github.io/docs/next/guides/upgrading/v5.0.0-rc.2/">
+        <link rel="canonical" href="https://dependencytrack.github.io/docs/next/guides/administration/deploying-to-kubernetes/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../deploying-to-production/">
       
       
-        <link rel="next" href="../v5.0.0-rc.1/">
+        <link rel="next" href="../scaling/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Upgrading to v5.0.0-rc.2 - Dependency-Track</title>
+        <title>Deploying to Kubernetes - Dependency-Track</title>
       
     
     
@@ -61,15 +61,15 @@
     
   
 <meta property="og:type" content="website">
-<meta property="og:title" content="Upgrading to v5.0.0-rc.2 - Dependency-Track">
-<meta property="og:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/guides/upgrading/v5.0.0-rc.2.png">
+<meta property="og:title" content="Deploying to Kubernetes - Dependency-Track">
+<meta property="og:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/guides/administration/deploying-to-kubernetes.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:url" content="https://dependencytrack.github.io/docs/next/guides/upgrading/v5.0.0-rc.2/">
+<meta property="og:url" content="https://dependencytrack.github.io/docs/next/guides/administration/deploying-to-kubernetes/">
 <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:title" content="Upgrading to v5.0.0-rc.2 - Dependency-Track">
-<meta property="twitter:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/guides/upgrading/v5.0.0-rc.2.png">
+<meta property="twitter:title" content="Deploying to Kubernetes - Dependency-Track">
+<meta property="twitter:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/guides/administration/deploying-to-kubernetes.png">
 <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
@@ -99,7 +99,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#upgrading-to-v500-rc2" class="md-skip">
+        <a href="#deploying-to-kubernetes" class="md-skip">
           Skip to content
         </a>
       
@@ -138,7 +138,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Upgrading to v5.0.0-rc.2
+              Deploying to Kubernetes
             
           </span>
         </div>
@@ -916,656 +916,6 @@
                 
   
   
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3">
-        
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../administration/" class="md-nav__link ">
-              
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Administration guides
-  
-
-    
-  </span>
-  
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_3">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Administration guides
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../administration/deploying-to-production/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Deploying to production
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../administration/deploying-to-kubernetes/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Deploying to Kubernetes
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../administration/scaling/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Scaling
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../administration/configuring-database/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuring the database
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../administration/configuring-secret-management/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuring secret management
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../administration/configuring-internal-ca/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuring internal CA trust
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../administration/configuring-http-proxy/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuring an HTTP proxy
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../administration/configuring-vulnerability-sources/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuring vulnerability sources
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../administration/running-air-gapped/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Running air-gapped
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../administration/configuring-observability/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuring observability
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../administration/configuring-ldap/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuring LDAP
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../administration/configuring-oidc/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuring OpenID Connect
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../administration/managing-notification-templates/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Managing notification templates
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../administration/debugging-notifications/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Debugging missing notifications
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../administration/configuring-project-retention/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuring project retention
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../administration/backing-up/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Backing up and restoring
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../administration/upgrading-instances/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Upgrading running instances
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../administration/migrating-from-v4/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Migrating from v4 to v5
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../administration/running-v4-and-v5-in-parallel/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Running v4 and v5 in parallel
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -1575,6 +925,24 @@
       
         
           
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
         
       
         
@@ -1615,7 +983,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
         
           
           <div class="md-nav__link md-nav__container">
@@ -1626,7 +994,7 @@
   <span class="md-ellipsis">
     
   
-    Upgrade guides
+    Administration guides
   
 
     
@@ -1637,23 +1005,51 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3_4" id="__nav_3_4_label" tabindex="">
+              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_4">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_3">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Upgrade guides
+    Administration guides
   
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deploying-to-production/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deploying to production
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -1679,7 +1075,7 @@
   <span class="md-ellipsis">
     
   
-    Upgrading to v5.0.0-rc.2
+    Deploying to Kubernetes
   
 
     
@@ -1701,7 +1097,611 @@
   
   
     <li class="md-nav__item">
-      <a href="../v5.0.0-rc.1/" class="md-nav__link">
+      <a href="../scaling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scaling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuring-database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuring the database
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuring-secret-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuring secret management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuring-internal-ca/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuring internal CA trust
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuring-http-proxy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuring an HTTP proxy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuring-vulnerability-sources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuring vulnerability sources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../running-air-gapped/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running air-gapped
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuring-observability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuring observability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuring-ldap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuring LDAP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuring-oidc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuring OpenID Connect
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../managing-notification-templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Managing notification templates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../debugging-notifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Debugging missing notifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuring-project-retention/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuring project retention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backing-up/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backing up and restoring
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../upgrading-instances/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Upgrading running instances
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../migrating-from-v4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Migrating from v4 to v5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../running-v4-and-v5-in-parallel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running v4 and v5 in parallel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../upgrading/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Upgrade guides
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_4" id="__nav_3_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Upgrade guides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../upgrading/v5.0.0-rc.2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Upgrading to v5.0.0-rc.2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../upgrading/v5.0.0-rc.1/" class="md-nav__link">
         
   
   
@@ -1729,7 +1729,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../v0.7.0-alpha.9/" class="md-nav__link">
+      <a href="../../upgrading/v0.7.0-alpha.9/" class="md-nav__link">
         
   
   
@@ -1757,7 +1757,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../v0.7.0-alpha.8/" class="md-nav__link">
+      <a href="../../upgrading/v0.7.0-alpha.8/" class="md-nav__link">
         
   
   
@@ -1785,7 +1785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../v0.7.0-alpha.7/" class="md-nav__link">
+      <a href="../../upgrading/v0.7.0-alpha.7/" class="md-nav__link">
         
   
   
@@ -1813,7 +1813,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../v0.7.0-alpha.6/" class="md-nav__link">
+      <a href="../../upgrading/v0.7.0-alpha.6/" class="md-nav__link">
         
   
   
@@ -1841,7 +1841,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../v0.7.0-alpha.5/" class="md-nav__link">
+      <a href="../../upgrading/v0.7.0-alpha.5/" class="md-nav__link">
         
   
   
@@ -1869,7 +1869,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../v0.7.0-alpha.4/" class="md-nav__link">
+      <a href="../../upgrading/v0.7.0-alpha.4/" class="md-nav__link">
         
   
   
@@ -1897,7 +1897,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../v0.7.0-alpha.3/" class="md-nav__link">
+      <a href="../../upgrading/v0.7.0-alpha.3/" class="md-nav__link">
         
   
   
@@ -1925,7 +1925,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../v0.6.0/" class="md-nav__link">
+      <a href="../../upgrading/v0.6.0/" class="md-nav__link">
         
   
   
@@ -2268,7 +2268,7 @@
         <a href="../" class="md-path__link">
           
   <span class="md-ellipsis">
-    Upgrade guides
+    Administration guides
   </span>
 
         </a>
@@ -2290,432 +2290,25 @@
   
 
 
-<h1 id="upgrading-to-v500-rc2">Upgrading to v5.0.0-rc.2<a class="headerlink" href="#upgrading-to-v500-rc2" title="Permanent link">¶</a></h1>
-<div class="admonition danger">
-<p class="admonition-title">Legacy <code>alpine.*</code> and unprefixed property names no longer accepted</p>
-<p>This release drops the compatibility shim that translated v4-era
-<code>alpine.*</code> and unprefixed property names (for example
-<code>alpine.ldap.enabled</code>, <code>database.url</code>, <code>bcrypt.rounds</code>) into their
-<code>dt.*</code> equivalents. Migrate any configuration still using those names
-to the current <code>dt.*</code> properties. <strong>The API server refuses to start when
-it encounters a legacy key</strong> to prevent silent misconfiguration.</p>
-<p>The original <code>alpine.*</code> to <code>dt.*</code> migration is documented in the
-<a href="../v0.7.0-alpha.3/">v0.7.0-alpha.3 upgrade notes</a>. See
-<a href="../../../reference/configuration/properties/">Configuration Properties</a>
-for the authoritative list of supported properties and their corresponding
-environment variable spellings.</p>
-<p>Apologies for introducing breaking changes in an RC build.</p>
+<h1 id="deploying-to-kubernetes">Deploying to Kubernetes<a class="headerlink" href="#deploying-to-kubernetes" title="Permanent link">¶</a></h1>
+<p>The community maintains Helm charts for running Dependency-Track on Kubernetes at the
+<a href="https://github.com/DependencyTrack/helm-charts">helm-charts repository</a>. The sizing, database, and
+operational guidance in <a href="../deploying-to-production/">Deploying to production</a> applies regardless of
+platform, and you should read it alongside the chart documentation.</p>
+<div class="admonition warning">
+<p class="admonition-title">v5 Helm chart not yet available</p>
+<p>The <code>dependency-track</code> chart is not yet compatible with v5. As a safety mechanism against silent
+misconfiguration, the chart fails during rendering when it detects a v5 image tag. A v5-compatible
+release is in progress and ships soon. Until then, you can either wait for the chart, or roll your
+own manifests based on the v5 container images.</p>
 </div>
 <div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This release renames roughly 100 configuration properties for naming
-consistency ahead of the GA release. No aliases or backward-compatibility
-shims exist. Update affected configuration before upgrading.</p>
+<p class="admonition-title">The <code>hyades</code> chart goes away soon</p>
+<p>A separate <code>hyades</code> chart exists from the period when the project developed v5 under the Hyades
+name. The maintainers archive it once the v5-compatible <code>dependency-track</code> chart ships. New users
+should not adopt it. If you already run the <code>hyades</code> chart, plan to migrate to the
+<code>dependency-track</code> chart once it becomes available.</p>
 </div>
-<ul>
-<li>
-<p><strong>Configuration properties renamed</strong>. The renames consistently use kebab-case
-  segments and align related properties under shared namespaces. The full list of
-  old-to-new names follows, grouped by section.</p>
-<p><strong>CORS</strong></p>
-<table>
-<thead>
-<tr>
-<th>Old</th>
-<th>New</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>dt.cors.allow.credentials</code></td>
-<td><code>dt.cors.allow-credentials</code></td>
-</tr>
-<tr>
-<td><code>dt.cors.allow.headers</code></td>
-<td><code>dt.cors.allowed-headers</code></td>
-</tr>
-<tr>
-<td><code>dt.cors.allow.methods</code></td>
-<td><code>dt.cors.allowed-methods</code></td>
-</tr>
-<tr>
-<td><code>dt.cors.allow.origin</code></td>
-<td><code>dt.cors.allowed-origins</code></td>
-</tr>
-<tr>
-<td><code>dt.cors.expose.headers</code></td>
-<td><code>dt.cors.exposed-headers</code></td>
-</tr>
-<tr>
-<td><code>dt.cors.max.age</code></td>
-<td><code>dt.cors.max-age</code></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Durable execution engine</strong></p>
-<p>The run retention unit changed from an ISO-8601 duration to milliseconds.</p>
-<table>
-<thead>
-<tr>
-<th>Old</th>
-<th>New</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>dt.dex-engine.maintenance.run-retention-duration=P1D</code></td>
-<td><code>dt.dex-engine.maintenance.run-retention-ms=86400000</code></td>
-</tr>
-<tr>
-<td><code>dt.dex-engine.maintenance.worker.initial-delay-ms</code></td>
-<td><code>dt.dex-engine.maintenance.worker-initial-delay-ms</code></td>
-</tr>
-<tr>
-<td><code>dt.dex-engine.maintenance.worker.interval-ms</code></td>
-<td><code>dt.dex-engine.maintenance.worker-interval-ms</code></td>
-</tr>
-<tr>
-<td><code>dt.dex-engine.metrics.collector.*</code></td>
-<td><code>dt.dex-engine.metrics-collector.*</code></td>
-</tr>
-</tbody>
-</table>
-<p><strong>File storage</strong></p>
-<table>
-<thead>
-<tr>
-<th>Old</th>
-<th>New</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>dt.file-storage.local.compression.level</code></td>
-<td><code>dt.file-storage.local.compression-level</code></td>
-</tr>
-<tr>
-<td><code>dt.file-storage.s3.access.key</code></td>
-<td><code>dt.file-storage.s3.access-key</code></td>
-</tr>
-<tr>
-<td><code>dt.file-storage.s3.compression.level</code></td>
-<td><code>dt.file-storage.s3.compression-level</code></td>
-</tr>
-<tr>
-<td><code>dt.file-storage.s3.secret.key</code></td>
-<td><code>dt.file-storage.s3.secret-key</code></td>
-</tr>
-</tbody>
-</table>
-<p><strong>General</strong></p>
-<table>
-<thead>
-<tr>
-<th>Old</th>
-<th>New</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>dt.config.log.values</code></td>
-<td><code>dt.config.log-values</code></td>
-</tr>
-<tr>
-<td><code>dt.data.directory</code></td>
-<td><code>dt.data-directory</code></td>
-</tr>
-<tr>
-<td><code>dt.telemetry.submission.enabled.default</code></td>
-<td><code>dt.telemetry.submission.default-enabled</code></td>
-</tr>
-<tr>
-<td><code>dt.tmp.delay.bom.processed.notification</code></td>
-<td><code>dt.tmp.delay-bom-processed-notification</code></td>
-</tr>
-</tbody>
-</table>
-<p><strong>HTTP</strong></p>
-<p>The HTTP connect timeout unit changed from seconds to milliseconds.
-Note that the standard <code>HTTP_PROXY</code>, <code>HTTPS_PROXY</code>, and <code>NO_PROXY</code> environment variables are still supported.</p>
-<table>
-<thead>
-<tr>
-<th>Old</th>
-<th>New</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>dt.http.proxy.address</code></td>
-<td><code>dt.http.proxy.host</code></td>
-</tr>
-<tr>
-<td><code>dt.http.proxy.password</code></td>
-<td><code>dt.http.proxy.auth.password</code></td>
-</tr>
-<tr>
-<td><code>dt.http.proxy.username</code></td>
-<td><code>dt.http.proxy.auth.username</code></td>
-</tr>
-<tr>
-<td><code>dt.http.timeout.connection</code> (seconds)</td>
-<td><code>dt.http.connect-timeout-ms</code> (milliseconds, default <code>30000</code>)</td>
-</tr>
-<tr>
-<td><code>dt.no.proxy</code></td>
-<td><code>dt.http.proxy.exclusions</code></td>
-</tr>
-</tbody>
-</table>
-<p><strong><a href="../../../reference/configuration/init-tasks/">Init tasks</a></strong></p>
-<table>
-<thead>
-<tr>
-<th>Old</th>
-<th>New</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>dt.init.and.exit</code></td>
-<td><code>dt.init-tasks.exit-after-completion</code></td>
-</tr>
-<tr>
-<td><code>dt.init.task.database.migration.enabled</code></td>
-<td><code>dt.init-task.database-migration.enabled</code></td>
-</tr>
-<tr>
-<td><code>dt.init.task.database.partition.maintenance.enabled</code></td>
-<td><code>dt.init-task.database-partition-maintenance.enabled</code></td>
-</tr>
-<tr>
-<td><code>dt.init.task.database.seeding.enabled</code></td>
-<td><code>dt.init-task.database-seeding.enabled</code></td>
-</tr>
-<tr>
-<td><code>dt.init.task.dex.engine.database.migration.enabled</code></td>
-<td><code>dt.init-task.dex-engine-database-migration.enabled</code></td>
-</tr>
-<tr>
-<td><code>dt.init.tasks.datasource.close-after-use</code></td>
-<td><code>dt.init-tasks.datasource.close-after-completion</code></td>
-</tr>
-<tr>
-<td><code>dt.init.tasks.datasource.name</code></td>
-<td><code>dt.init-tasks.datasource.name</code></td>
-</tr>
-<tr>
-<td><code>dt.init.tasks.enabled</code></td>
-<td><code>dt.init-tasks.enabled</code></td>
-</tr>
-</tbody>
-</table>
-<p><strong><abbr title="Lightweight Directory Access Protocol">LDAP</abbr></strong></p>
-<table>
-<thead>
-<tr>
-<th>Old</th>
-<th>New</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>dt.ldap.attribute.mail</code></td>
-<td><code>dt.ldap.mail-attribute</code></td>
-</tr>
-<tr>
-<td><code>dt.ldap.attribute.name</code></td>
-<td><code>dt.ldap.name-attribute</code></td>
-</tr>
-<tr>
-<td><code>dt.ldap.auth.username.format</code></td>
-<td><code>dt.ldap.username-format</code></td>
-</tr>
-<tr>
-<td><code>dt.ldap.basedn</code></td>
-<td><code>dt.ldap.base-dn</code></td>
-</tr>
-<tr>
-<td><code>dt.ldap.bind.password</code></td>
-<td><code>dt.ldap.bind-password</code></td>
-</tr>
-<tr>
-<td><code>dt.ldap.bind.username</code></td>
-<td><code>dt.ldap.bind-username</code></td>
-</tr>
-<tr>
-<td><code>dt.ldap.groups.filter</code></td>
-<td><code>dt.ldap.group-filter</code></td>
-</tr>
-<tr>
-<td><code>dt.ldap.groups.search.filter</code></td>
-<td><code>dt.ldap.group-search-filter</code></td>
-</tr>
-<tr>
-<td><code>dt.ldap.security.auth</code></td>
-<td><code>dt.ldap.security-auth</code></td>
-</tr>
-<tr>
-<td><code>dt.ldap.server.url</code></td>
-<td><code>dt.ldap.server-url</code></td>
-</tr>
-<tr>
-<td><code>dt.ldap.team.synchronization</code></td>
-<td><code>dt.ldap.team-synchronization</code></td>
-</tr>
-<tr>
-<td><code>dt.ldap.user.groups.filter</code></td>
-<td><code>dt.ldap.user-groups-filter</code></td>
-</tr>
-<tr>
-<td><code>dt.ldap.user.provisioning</code></td>
-<td><code>dt.ldap.user-provisioning</code></td>
-</tr>
-<tr>
-<td><code>dt.ldap.users.search.filter</code></td>
-<td><code>dt.ldap.user-search-filter</code></td>
-</tr>
-</tbody>
-</table>
-<p><strong><abbr title="OpenID Connect">OIDC</abbr></strong></p>
-<table>
-<thead>
-<tr>
-<th>Old</th>
-<th>New</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>dt.oidc.auth.customizer</code></td>
-<td><code>dt.oidc.auth-customizer</code></td>
-</tr>
-<tr>
-<td><code>dt.oidc.client.id</code></td>
-<td><code>dt.oidc.client-id</code></td>
-</tr>
-<tr>
-<td><code>dt.oidc.team.synchronization</code></td>
-<td><code>dt.oidc.team-synchronization</code></td>
-</tr>
-<tr>
-<td><code>dt.oidc.teams.claim</code></td>
-<td><code>dt.oidc.teams-claim</code></td>
-</tr>
-<tr>
-<td><code>dt.oidc.teams.default</code></td>
-<td><code>dt.oidc.default-teams</code></td>
-</tr>
-<tr>
-<td><code>dt.oidc.user.provisioning</code></td>
-<td><code>dt.oidc.user-provisioning</code></td>
-</tr>
-<tr>
-<td><code>dt.oidc.username.claim</code></td>
-<td><code>dt.oidc.username-claim</code></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Task Scheduling</strong></p>
-<table>
-<thead>
-<tr>
-<th>Old</th>
-<th>New</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>dt.task.defect.dojo.upload.cron</code></td>
-<td><code>dt.task.defect-dojo-upload.cron</code></td>
-</tr>
-<tr>
-<td><code>dt.task.epss.mirror.cron</code></td>
-<td><code>dt.task.epss-mirror.cron</code></td>
-</tr>
-<tr>
-<td><code>dt.task.fortify.ssc.upload.cron</code></td>
-<td><code>dt.task.fortify-ssc-upload.cron</code></td>
-</tr>
-<tr>
-<td><code>dt.task.git.hub.advisory.mirror.cron</code></td>
-<td><code>dt.task.github-advisory-vuln-data-source-mirror.cron</code></td>
-</tr>
-<tr>
-<td><code>dt.task.kenna.security.upload.cron</code></td>
-<td><code>dt.task.kenna-security-upload.cron</code></td>
-</tr>
-<tr>
-<td><code>dt.task.metrics.maintenance.cron</code></td>
-<td><code>dt.task.metrics-maintenance.cron</code></td>
-</tr>
-<tr>
-<td><code>dt.task.nist.mirror.cron</code></td>
-<td><code>dt.task.nvd-vuln-data-source-mirror.cron</code></td>
-</tr>
-<tr>
-<td><code>dt.task.osv.mirror.cron</code></td>
-<td><code>dt.task.osv-vuln-data-source-mirror.cron</code></td>
-</tr>
-<tr>
-<td><code>dt.task.package.metadata.maintenance.cron</code></td>
-<td><code>dt.task.package-metadata-maintenance.cron</code></td>
-</tr>
-<tr>
-<td><code>dt.task.project.maintenance.cron</code></td>
-<td><code>dt.task.project-maintenance.cron</code></td>
-</tr>
-<tr>
-<td><code>dt.task.tag.maintenance.cron</code></td>
-<td><code>dt.task.tag-maintenance.cron</code></td>
-</tr>
-<tr>
-<td><code>dt.task.vulnerability-policy-bundle-sync.cron</code></td>
-<td><code>dt.task.vuln-policy-bundle-sync.cron</code></td>
-</tr>
-<tr>
-<td><code>dt.task.vulnerability.analysis.cron</code></td>
-<td><code>dt.task.portfolio-analysis.cron</code></td>
-</tr>
-<tr>
-<td><code>dt.task.vulnerability.database.maintenance.cron</code></td>
-<td><code>dt.task.vuln-database-maintenance.cron</code></td>
-</tr>
-<tr>
-<td><code>dt.task.vulnerability.metrics.update.cron</code></td>
-<td><code>dt.task.vuln-metrics-update.cron</code></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Vulnerability policy bundle</strong></p>
-<table>
-<thead>
-<tr>
-<th>Old</th>
-<th>New</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>dt.vulnerability.policy.bundle.auth.bearer.token</code></td>
-<td><code>dt.vuln-policy-bundle.auth.bearer-token</code></td>
-</tr>
-<tr>
-<td><code>dt.vulnerability.policy.bundle.auth.password</code></td>
-<td><code>dt.vuln-policy-bundle.auth.password</code></td>
-</tr>
-<tr>
-<td><code>dt.vulnerability.policy.bundle.auth.username</code></td>
-<td><code>dt.vuln-policy-bundle.auth.username</code></td>
-</tr>
-<tr>
-<td><code>dt.vulnerability.policy.bundle.url</code></td>
-<td><code>dt.vuln-policy-bundle.url</code></td>
-</tr>
-</tbody>
-</table>
-</li>
-</ul>
 
 
 
@@ -2753,7 +2346,7 @@ Note that the standard <code>HTTP_PROXY</code>, <code>HTTPS_PROXY</code>, and <c
       <nav class="md-footer__inner md-grid" aria-label="Footer">
         
           
-          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Upgrade guides">
+          <a href="../deploying-to-production/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Deploying to production">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
@@ -2763,20 +2356,20 @@ Note that the standard <code>HTTP_PROXY</code>, <code>HTTPS_PROXY</code>, and <c
                 Previous
               </span>
               <div class="md-ellipsis">
-                Upgrade guides
+                Deploying to production
               </div>
             </div>
           </a>
         
         
           
-          <a href="../v5.0.0-rc.1/" class="md-footer__link md-footer__link--next" aria-label="Next: Upgrading to v5.0.0-rc.1">
+          <a href="../scaling/" class="md-footer__link md-footer__link--next" aria-label="Next: Scaling">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Upgrading to v5.0.0-rc.1
+                Scaling
               </div>
             </div>
             <div class="md-footer__button md-icon">
