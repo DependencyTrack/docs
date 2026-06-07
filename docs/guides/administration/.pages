@@ -2,6 +2,7 @@ title: Administration guides
 nav:
   - index.md
   - deploying-to-production.md
+  - deploying-to-kubernetes.md
   - scaling.md
   - configuring-database.md
   - configuring-secret-management.md
