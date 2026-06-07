@@ -3,7 +3,8 @@
 This guide covers the baseline posture for running Dependency-Track against real workloads. For an overview
 of how the components fit together, see
 [Deployment topology](../../concepts/architecture/deployment.md). For tuning a deployment under load, see
-[Scaling](scaling.md).
+[Scaling](scaling.md). For Kubernetes-specific guidance, see
+[Deploying to Kubernetes](deploying-to-kubernetes.md).
 
 ## Provision compute and database
 
