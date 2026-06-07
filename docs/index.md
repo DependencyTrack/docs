@@ -9,6 +9,15 @@ hide:
 Dependency-Track is an intelligent component analysis platform
 that allows organizations to identify and reduce risk in the software supply chain.
 
+Built around the Bill of Materials (BOM) concept,
+it tracks component usage across every version of every project in your portfolio
+and surfaces known vulnerabilities, policy violations, and licensing risk as they emerge.
+An API-first design makes it a natural fit for CI/CD pipelines.
+
+!!! info "Documentation version"
+    This documentation covers Dependency-Track v5.
+    For v4, see the [v4 documentation](../4.x/).
+
 ## Getting started
 
 Get Dependency-Track running locally in minutes with the [quick start tutorial](tutorials/quickstart.md).
@@ -19,6 +28,13 @@ Explore the documentation using the navigation tabs:
 - [Guides](guides/index.md): task-oriented procedures for specific goals.
 - [Concepts](concepts/index.md): background material on how Dependency-Track works.
 - [Reference](reference/index.md): technical descriptions of APIs, configuration, and internals.
+
+## Key concepts
+
+- [Projects](concepts/projects.md): how Dependency-Track models the software you track.
+- [Vulnerability findings](concepts/vulnerability-findings.md): how known vulnerabilities are surfaced and triaged.
+- [Component policies](concepts/component-policies.md): codify what's acceptable in your portfolio.
+- [Access control](concepts/access-control.md): teams, permissions, and project hierarchy.
 
 ## Coming from v4?
 
