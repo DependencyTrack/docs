@@ -3532,7 +3532,7 @@ v4 inactive projects become <code>INACTIVE_SINCE = '1970-01-01 00:00:00+00'</cod
 <h3 id="vulnerability-epss-values">Vulnerability <abbr title="Exploit Prediction Scoring System">EPSS</abbr> values<a class="headerlink" href="#vulnerability-epss-values" title="Permanent link">¶</a></h3>
 <p>v4 stored <abbr title="Exploit Prediction Scoring System">EPSS</abbr> score and percentile directly on each vulnerability row.
 v5 stores <abbr title="Exploit Prediction Scoring System">EPSS</abbr> in a dedicated table populated from the upstream feed.
-The migrator does not copy v4 <abbr title="Exploit Prediction Scoring System">EPSS</abbr> values. v5 re-populates them at runtime within hours of first launch.</p>
+The migrator does not copy v4 <abbr title="Exploit Prediction Scoring System">EPSS</abbr> values. v5 re-populates them at runtime within minutes of first launch.</p>
 <h3 id="metrics-retention">Metrics retention<a class="headerlink" href="#metrics-retention" title="Permanent link">¶</a></h3>
 <p>v5 keeps daily metrics within a retention window.
 v4 had no matching setting, so the migrator requires the <code>--metrics-retention-days</code> flag on <code>extract</code> and <code>run</code>.
