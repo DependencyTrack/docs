@@ -105,7 +105,15 @@ markdown_extensions:
 
 plugins:
 - search
-- social
+- social:
+    cards_layout_options:
+      background_color: "#100a2c"
+      color: "#f3f0ff"
+      font_family: Plus Jakarta Sans
+      # NB: The site's logo renders cut-off in the card.
+      # Omitting the logo entirely with a no-op SVG is easier
+      # than trying to make it fit right.
+      logo: docs/assets/images/social-card-logo.svg
 - awesome-pages
 - glightbox
 - blog:
