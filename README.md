@@ -30,7 +30,6 @@ docs/
   guides/      # Task-oriented procedures
   concepts/    # Understanding-oriented background
   reference/   # Information-oriented technical descriptions
-  blog/        # Release notes, changelog, engineering posts
 ```
 
 Navigation is managed via `.pages` files in each section directory.

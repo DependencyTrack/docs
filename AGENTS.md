@@ -22,7 +22,6 @@ docs/
     upgrading/    # Version-specific upgrade procedures
   concepts/       # Understanding-oriented background
   reference/      # Information-oriented technical descriptions
-  blog/           # Release notes, changelog, engineering posts (non-Diataxis)
 ```
 
 Navigation order is defined in `docs/.pages` and section-level `.pages` files. Update these when adding new pages. Navigation titles in `.pages` files must use sentence-style capitalization (capitalize only the first word, proper nouns, and acronyms).
