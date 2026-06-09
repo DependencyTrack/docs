@@ -2558,6 +2558,8 @@
       
         
       
+        
+      
     
     
     
@@ -3342,7 +3344,8 @@ so a non-UTC apiserver computes partition bounds offset from the migrator's,
 causing <code>ATTACH PARTITION</code> to fail on overlap.</p>
 </div>
 <h2 id="run-the-migration">Run the migration<a class="headerlink" href="#run-the-migration" title="Permanent link">¶</a></h2>
-<p>The migrator ships as a container image published at <code>ghcr.io/dependencytrack/v4-migrator:&lt;version&gt;</code>.</p>
+<p>The migrator ships as a container image published at <code>ghcr.io/dependencytrack/v4-migrator:&lt;version&gt;</code>.
+See <a href="../../../reference/container-images/">Container images</a> for registries and tag conventions.</p>
 <p>The examples below use the following shell alias for brevity:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span>v4-migrator<span class="o">=</span><span class="s1">'docker run --rm -it --network=host ghcr.io/dependencytrack/v4-migrator:&lt;version&gt;'</span>
 </code></pre></div>

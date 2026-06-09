@@ -1091,6 +1091,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#pin-container-image-versions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pin container image versions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#provision-compute-and-database" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2232,6 +2243,8 @@
       
         
       
+        
+      
     
     
     
@@ -2364,6 +2377,17 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pin-container-image-versions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pin container image versions
+      
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#provision-compute-and-database" class="md-nav__link">
@@ -2573,6 +2597,11 @@ of how the components fit together, see
 <a href="../../../concepts/architecture/deployment/">Deployment topology</a>. For tuning a deployment under load, see
 <a href="../scaling/">Scaling</a>. For Kubernetes-specific guidance, see
 <a href="../deploying-to-kubernetes/">Deploying to Kubernetes</a>.</p>
+<h2 id="pin-container-image-versions">Pin container image versions<a class="headerlink" href="#pin-container-image-versions" title="Permanent link">¶</a></h2>
+<p>Pin every Dependency-Track container to a full <code>X.Y.Z</code> release tag (or an image
+digest). Do not deploy snapshot tags or the <code>latest</code> tag to production. See
+<a href="../../../reference/container-images/">Container images</a> for the available
+registries, image coordinates, and tag conventions.</p>
 <h2 id="provision-compute-and-database">Provision compute and database<a class="headerlink" href="#provision-compute-and-database" title="Permanent link">¶</a></h2>
 <h3 id="api-server-instances">API server instances<a class="headerlink" href="#api-server-instances" title="Permanent link">¶</a></h3>
 <p>A reasonable starting point per instance is <strong>2 GB of memory and 4 CPU cores</strong>. From there, scale up based

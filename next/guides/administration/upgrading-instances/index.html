@@ -2171,6 +2171,8 @@
       
         
       
+        
+      
     
     
     
@@ -2464,6 +2466,8 @@ to replace one API server instance at a time as long as:</p>
 <li>Back up the database and verify the backup. See <a href="../backing-up/">Backing up</a>.</li>
 <li>Read the release notes for every version between the running and target version. Stop and plan a
   full-stop upgrade if any release calls for one.</li>
+<li>Pick the new image tag. Pin a full <code>X.Y.Z</code> release tag rather than a snapshot or <code>latest</code>. See
+  <a href="../../../reference/container-images/">Container images</a>.</li>
 <li>If you run schema migrations in a dedicated container (recommended for large deployments and
   PgBouncer in transaction mode), plan to run it before any new-version API server starts. See
   <a href="../../../reference/configuration/init-tasks/#init-only-containers">init-only containers</a>.</li>
