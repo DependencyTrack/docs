@@ -1365,6 +1365,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#visualizing-metrics-with-grafana" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visualizing metrics with Grafana
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#adjusting-log-levels" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2307,6 +2318,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#visualizing-metrics-with-grafana" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visualizing metrics with Grafana
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#adjusting-log-levels" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2495,6 +2517,17 @@ returns the combined status of all checks.</p>
 <span class="w">    </span><span class="c1">#   username: "metrics"</span>
 <span class="w">    </span><span class="c1">#   password: "changeme"</span>
 </code></pre></div></td></tr></tbody></table></div>
+<h2 id="visualizing-metrics-with-grafana">Visualizing metrics with Grafana<a class="headerlink" href="#visualizing-metrics-with-grafana" title="Permanent link">¶</a></h2>
+<p>The project does not publish Grafana dashboards as supported artifacts. The dashboards
+the maintainers use for their own purposes live in the <a href="https://github.com/DependencyTrack/dependency-track/tree/main/dev/monitoring/grafana/dashboards">API server repository</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>These dashboards are not supported and not guaranteed to be up-to-date with the
+metrics exposed by the current release. Panels may reference metrics that were
+renamed or removed.</p>
+</div>
+<p>Use them as a starting point. Build your own dashboards tailored to the metrics and
+alerting needs of your deployment.</p>
 <h2 id="adjusting-log-levels">Adjusting log levels<a class="headerlink" href="#adjusting-log-levels" title="Permanent link">¶</a></h2>
 <p>By default, Dependency-Track logs at <code>INFO</code> level for application loggers and <code>WARN</code> for all others.
 To troubleshoot a specific area, raise the log level for the relevant logger:</p>
