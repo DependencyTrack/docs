@@ -27,6 +27,7 @@ Fedora 389 Directory Server
 Flashpoint
 GUIDs
 GitLab
+Grafana
 HDDs
 Hackage
 IdP

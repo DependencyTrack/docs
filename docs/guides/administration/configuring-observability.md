@@ -77,6 +77,19 @@ scrape_configs:
     #   password: "changeme"
 ```
 
+## Visualizing metrics with Grafana
+
+The project does not publish Grafana dashboards as supported artifacts. The dashboards
+the maintainers use for their own purposes live in the [API server repository][dashboards].
+
+!!! warning
+    These dashboards are not supported and not guaranteed to be up-to-date with the
+    metrics exposed by the current release. Panels may reference metrics that were
+    renamed or removed.
+
+Use them as a starting point. Build your own dashboards tailored to the metrics and
+alerting needs of your deployment.
+
 ## Adjusting log levels
 
 By default, Dependency-Track logs at `INFO` level for application loggers and `WARN` for all others.
@@ -98,3 +111,4 @@ for how to express these properties as environment variables.
 [MicroProfile Health]: https://download.eclipse.org/microprofile/microprofile-health-4.0.1/microprofile-health-spec-4.0.1.html
 [probe types]: https://kubernetes.io/docs/concepts/configuration/liveness-readiness-startup-probes/
 [Prometheus text exposition format]: https://prometheus.io/docs/instrumenting/exposition_formats/#text-based-format
+[dashboards]: https://github.com/DependencyTrack/dependency-track/tree/main/dev/monitoring/grafana/dashboards
