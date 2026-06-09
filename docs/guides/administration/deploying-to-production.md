@@ -6,6 +6,13 @@ of how the components fit together, see
 [Scaling](scaling.md). For Kubernetes-specific guidance, see
 [Deploying to Kubernetes](deploying-to-kubernetes.md).
 
+## Pin container image versions
+
+Pin every Dependency-Track container to a full `X.Y.Z` release tag (or an image
+digest). Do not deploy snapshot tags or the `latest` tag to production. See
+[Container images](../../reference/container-images.md) for the available
+registries, image coordinates, and tag conventions.
+
 ## Provision compute and database
 
 ### API server instances

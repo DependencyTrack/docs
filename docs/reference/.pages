@@ -4,6 +4,7 @@ nav:
   - Projects: projects.md
   - API: api
   - Configuration: configuration
+  - Container images: container-images.md
   - Datasources: datasources
   - Notifications: notifications
   - Vulnerability analysis:
