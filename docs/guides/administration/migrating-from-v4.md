@@ -110,6 +110,7 @@ Configure them on the target before running, and revert afterward if you like.
 ## Run the migration
 
 The migrator ships as a container image published at `ghcr.io/dependencytrack/v4-migrator:<version>`.
+See [Container images](../../reference/container-images.md) for registries and tag conventions.
 
 The examples below use the following shell alias for brevity:
 

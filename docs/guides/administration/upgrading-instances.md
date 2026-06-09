@@ -21,6 +21,8 @@ If any of these conditions fail, plan a full-stop upgrade window instead.
 - Back up the database and verify the backup. See [Backing up](backing-up.md).
 - Read the release notes for every version between the running and target version. Stop and plan a
   full-stop upgrade if any release calls for one.
+- Pick the new image tag. Pin a full `X.Y.Z` release tag rather than a snapshot or `latest`. See
+  [Container images](../../reference/container-images.md).
 - If you run schema migrations in a dedicated container (recommended for large deployments and
   PgBouncer in transaction mode), plan to run it before any new-version API server starts. See
   [init-only containers](../../reference/configuration/init-tasks.md#init-only-containers).
