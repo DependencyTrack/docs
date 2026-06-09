@@ -119,18 +119,6 @@ plugins:
       logo: docs/assets/images/social-card-logo.svg
 - awesome-pages
 - glightbox
-- blog:
-    categories_allowed:
-    - Release
-    - Engineering
-    - Community
-- rss:
-    match_path: blog/posts/.*
-    date_from_meta:
-      as_creation: date
-    categories:
-    - categories
-    - tags
 - swagger-ui-tag:
     filter: true
     supportedSubmitMethods: []
