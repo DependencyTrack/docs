@@ -2976,7 +2976,7 @@ paths:
   /v1/metrics/component/{uuid}/since/{date}:
     get:
       description: |-
-        <p>Date format must be <code>YYYYMMDD</code></p>
+        <p>Date format must be <code>YYYYMMDD</code>. The date is interpreted as UTC midnight.</p>
         <p>Requires permission <strong>VIEW_PORTFOLIO</strong></p>
       operationId: getComponentMetricsSince
       parameters:
@@ -2987,7 +2987,7 @@ paths:
         schema:
           type: string
           format: uuid
-      - description: The start date to retrieve metrics for
+      - description: The start date (UTC) to retrieve metrics for
         in: path
         name: date
         required: true
@@ -3058,7 +3058,8 @@ paths:
   /v1/metrics/portfolio/since/{date}:
     get:
       description: |-
-        <p>Date format must be <code>YYYYMMDD</code></p>
+        <p>Date format must be <code>YYYYMMDD</code>. The number of days returned is computed against the current UTC date.
+        </p>
         <p>Requires permission <strong>VIEW_PORTFOLIO</strong></p>
       operationId: getPortfolioMetricsSince
       parameters:
@@ -3232,7 +3233,7 @@ paths:
   /v1/metrics/project/{uuid}/since/{date}:
     get:
       description: |-
-        <p>Date format must be <code>YYYYMMDD</code></p>
+        <p>Date format must be <code>YYYYMMDD</code>. The date is interpreted as UTC midnight.</p>
         <p>Requires permission <strong>VIEW_PORTFOLIO</strong></p>
       operationId: getProjectMetricsSince
       parameters:
@@ -3243,7 +3244,7 @@ paths:
         schema:
           type: string
           format: uuid
-      - description: The start date to retrieve metrics for
+      - description: The start date (UTC) to retrieve metrics for
         in: path
         name: date
         required: true
