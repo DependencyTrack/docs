@@ -1505,8 +1505,6 @@
       
         
       
-        
-      
     
     
     
@@ -1862,7 +1860,7 @@ triggering the notification, thus avoiding the <a href="https://www.confluent.io
     }</code></pre>
 <p>The <code>ID</code> column uses <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_7_(timestamp_and_random)">UUIDv7</a>, which combines global uniqueness with sortability.
 The <code>PAYLOAD</code> column contains the serialized notification in <a href="https://protobuf.dev/">Protobuf</a> format.
-The <a href="../../../../reference/schemas/notification/">notification schema reference</a> describes the schema.</p>
+The <a href="../../../../reference/notifications/schema/">notification schema reference</a> describes the schema.</p>
 <h3 id="preliminary-filtering">Preliminary filtering<a class="headerlink" href="#preliminary-filtering" title="Permanent link">¶</a></h3>
 <p>To reduce load on the outbox table, the system only inserts a notification if <em>at least one</em>
 enabled alert could <em>potentially</em> match it. The <code>INSERT</code> operation runs this check

@@ -11,7 +11,7 @@
         <link rel="prev" href="../vulnerability-policies/">
       
       
-        <link rel="next" href="../../cel-expressions/">
+        <link rel="next" href="../schema/">
       
       
         
@@ -648,8 +648,6 @@
       
         
           
-        
-      
         
       
         
@@ -1500,6 +1498,8 @@
       
         
       
+        
+      
     
     
     
@@ -1662,6 +1662,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notifications/schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proto schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1780,6 +1808,8 @@
       
         
           
+        
+      
         
       
         
@@ -2321,6 +2351,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proto schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2590,133 +2648,6 @@
     
   
     Community integrations
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_13">
-        
-          
-          <label class="md-nav__link" for="__nav_5_13" id="__nav_5_13_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Schemas
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_13_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_13">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Schemas
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../schemas/notification/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Notification schema
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../schemas/policy/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Policy schema
   
 
     
@@ -3219,17 +3150,17 @@ for every component in a project.</p>
 <tbody>
 <tr>
 <td style="text-align: left;"><code>component</code></td>
-<td style="text-align: left;"><a href="../../schemas/policy/#component">Component</a></td>
+<td style="text-align: left;"><a href="../schema/#component">Component</a></td>
 <td style="text-align: left;">The component under evaluation</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>project</code></td>
-<td style="text-align: left;"><a href="../../schemas/policy/#project">Project</a></td>
+<td style="text-align: left;"><a href="../schema/#project">Project</a></td>
 <td style="text-align: left;">The project the component is part of</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>vulns</code></td>
-<td style="text-align: left;">list(<a href="../../schemas/policy/#vulnerability">Vulnerability</a>)</td>
+<td style="text-align: left;">list(<a href="../schema/#vulnerability">Vulnerability</a>)</td>
 <td style="text-align: left;">Vulnerabilities affecting the component</td>
 </tr>
 <tr>
@@ -3253,17 +3184,17 @@ Each condition runs for every vulnerability finding in a project.</p>
 <tbody>
 <tr>
 <td style="text-align: left;"><code>component</code></td>
-<td style="text-align: left;"><a href="../../schemas/policy/#component">Component</a></td>
+<td style="text-align: left;"><a href="../schema/#component">Component</a></td>
 <td style="text-align: left;">The component the vulnerability applies to</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>project</code></td>
-<td style="text-align: left;"><a href="../../schemas/policy/#project">Project</a></td>
+<td style="text-align: left;"><a href="../schema/#project">Project</a></td>
 <td style="text-align: left;">The project the component belongs to</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>vuln</code></td>
-<td style="text-align: left;"><a href="../../schemas/policy/#vulnerability">Vulnerability</a></td>
+<td style="text-align: left;"><a href="../schema/#vulnerability">Vulnerability</a></td>
 <td style="text-align: left;">The vulnerability under evaluation</td>
 </tr>
 <tr>
@@ -3278,7 +3209,7 @@ iterate over <code>vulns</code> (a list); vulnerability policies receive a singl
 custom functions documented below are available to both contexts.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Many fields on <a href="../../schemas/policy/#component">Component</a>, <a href="../../schemas/policy/#project">Project</a>, and <a href="../../schemas/policy/#vulnerability">Vulnerability</a> are optional.
+<p>Many fields on <a href="../schema/#component">Component</a>, <a href="../schema/#project">Project</a>, and <a href="../schema/#vulnerability">Vulnerability</a> are optional.
 Use the <code>has()</code> macro to <a href="../../cel-expressions/#optional-field-checking">check for presence of optional fields</a>
 before accessing them.</p>
 </div>
@@ -3286,15 +3217,15 @@ before accessing them.</p>
 <h3 id="component-age">Component age<a class="headerlink" href="#component-age" title="Permanent link">¶</a></h3>
 <p>Besides out-of-date versions, component age is another indicator of potential risk. Components may be on the latest
 available version, but still be 20 years old.</p>
-<p>The following expression matches <a href="../../schemas/policy/#component">Component</a>s that are two years old, or even older, using the <code>now</code>
+<p>The following expression matches <a href="../schema/#component">Component</a>s that are two years old, or even older, using the <code>now</code>
 variable and timestamp arithmetic:</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">has</span><span class="p">(</span><span class="nx">component</span><span class="p">.</span><span class="nx">published_at</span><span class="p">)</span>
 <span class="w">  </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">component</span><span class="p">.</span><span class="nx">published_at</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">now</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">duration</span><span class="p">(</span><span class="s2">"17520h"</span><span class="p">)</span><span class="w"> </span><span class="c1">// ~2 years</span>
 </code></pre></div></td></tr></tbody></table></div>
 <h3 id="component-blacklist">Component blacklist<a class="headerlink" href="#component-blacklist" title="Permanent link">¶</a></h3>
-<p>The following expression matches on the <a href="../../schemas/policy/#component">Component</a>'s <a href="https://github.com/package-url/purl-spec/blob/master/PURL-SPECIFICATION.rst">Package URL</a>, using a regular expression in <a href="https://github.com/google/re2/wiki/Syntax">RE2</a> syntax.
-It also checks whether the <a href="../../schemas/policy/#component">Component</a>'s version falls into a given <a href="https://github.com/package-url/vers-spec">vers</a> range using
+<p>The following expression matches on the <a href="../schema/#component">Component</a>'s <a href="https://github.com/package-url/purl-spec/blob/master/PURL-SPECIFICATION.rst">Package URL</a>, using a regular expression in <a href="https://github.com/google/re2/wiki/Syntax">RE2</a> syntax.
+It also checks whether the <a href="../schema/#component">Component</a>'s version falls into a given <a href="https://github.com/package-url/vers-spec">vers</a> range using
 <a href="#matches_range"><code>matches_range</code></a>.</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">component</span><span class="p">.</span><span class="nx">purl</span><span class="p">.</span><span class="nx">matches</span><span class="p">(</span><span class="s2">"^pkg:maven/com.acme/acme-lib\\b.*"</span><span class="p">)</span>
@@ -3311,8 +3242,8 @@ It also checks whether the <a href="../../schemas/policy/#component">Component</
 <li><code>pkg:maven/com.acme/acme-lib@0.2.4</code></li>
 </ul>
 <h3 id="dependency-graph-traversal">Dependency graph traversal<a class="headerlink" href="#dependency-graph-traversal" title="Permanent link">¶</a></h3>
-<p>The following expression matches <a href="../../schemas/policy/#component">Component</a>s that are a (possibly transitive) dependency of a <a href="../../schemas/policy/#component">Component</a>
-with name <code>foo</code>, <em>but only if</em> a <a href="../../schemas/policy/#component">Component</a> with name <code>bar</code> is also present in the <a href="../../schemas/policy/#project">Project</a>.</p>
+<p>The following expression matches <a href="../schema/#component">Component</a>s that are a (possibly transitive) dependency of a <a href="../schema/#component">Component</a>
+with name <code>foo</code>, <em>but only if</em> a <a href="../schema/#component">Component</a> with name <code>bar</code> is also present in the <a href="../schema/#project">Project</a>.</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">component</span><span class="p">.</span><span class="nx">is_dependency_of</span><span class="p">(</span><span class="nx">v1</span><span class="p">.</span><span class="nx">Component</span><span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">"foo"</span><span class="p">})</span>
 <span class="w">  </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">project</span><span class="p">.</span><span class="nx">depends_on</span><span class="p">(</span><span class="nx">v1</span><span class="p">.</span><span class="nx">Component</span><span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">"bar"</span><span class="p">})</span>
@@ -3324,7 +3255,7 @@ with name <code>foo</code>, <em>but only if</em> a <a href="../../schemas/policy
 (that is, no other path in the dependency graph leads to it):</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">component</span><span class="p">.</span><span class="nx">is_exclusive_dependency_of</span><span class="p">(</span><span class="nx">v1</span><span class="p">.</span><span class="nx">Component</span><span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">"foo"</span><span class="p">})</span>
 </code></pre></div></td></tr></tbody></table></div>
-<p>Dependency graph functions support the following <a href="../../schemas/policy/#component">Component</a> fields for matching:</p>
+<p>Dependency graph functions support the following <a href="../schema/#component">Component</a> fields for matching:</p>
 <table>
 <thead>
 <tr>
@@ -3395,11 +3326,11 @@ with name <code>foo</code>, <em>but only if</em> a <a href="../../schemas/policy
 </code></pre></div></td></tr></tbody></table></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>When constructing objects like <a href="../../schemas/policy/#component">Component</a> on-the-fly, use their version namespace,
+<p>When constructing objects like <a href="../schema/#component">Component</a> on-the-fly, use their version namespace,
 that is, <code>v1</code>. This enables type checking and ensures backward compatibility.</p>
 </div>
 <h3 id="license-expression-allowlist">License expression allowlist<a class="headerlink" href="#license-expression-allowlist" title="Permanent link">¶</a></h3>
-<p>The following expression matches non-internal <a href="../../schemas/policy/#component">Component</a>s whose <a href="https://spdx.github.io/spdx-spec/v2.3/SPDX-license-expressions/">SPDX license expression</a>
+<p>The following expression matches non-internal <a href="../schema/#component">Component</a>s whose <a href="https://spdx.github.io/spdx-spec/v2.3/SPDX-license-expressions/">SPDX license expression</a>
 requires a license outside the approved set.
 License-with-exception combinations appear as a single compound entry.</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -3425,11 +3356,11 @@ A single license ID is a valid SPDX expression, so it gets the same version-awar
 <span class="p">)</span>
 </code></pre></div></td></tr></tbody></table></div>
 <h3 id="license-blacklist">License blacklist<a class="headerlink" href="#license-blacklist" title="Permanent link">¶</a></h3>
-<p>The following expression matches <a href="../../schemas/policy/#component">Component</a>s that are <strong>not</strong> internal to the organization,
+<p>The following expression matches <a href="../schema/#component">Component</a>s that are <strong>not</strong> internal to the organization,
 and have either:</p>
 <ul>
-<li>No resolved <a href="../../schemas/policy/#license">License</a> at all</li>
-<li>A resolved <a href="../../schemas/policy/#license">License</a> that is not part of the <code>Permissive</code> license group</li>
+<li>No resolved <a href="../schema/#license">License</a> at all</li>
+<li>A resolved <a href="../schema/#license">License</a> that is not part of the <code>Permissive</code> license group</li>
 </ul>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -3442,7 +3373,7 @@ and have either:</p>
 <span class="p">)</span>
 </code></pre></div></td></tr></tbody></table></div>
 <h3 id="vulnerability-blacklist">Vulnerability blacklist<a class="headerlink" href="#vulnerability-blacklist" title="Permanent link">¶</a></h3>
-<p>The following expression matches <a href="../../schemas/policy/#component">Component</a>s in <a href="../../schemas/policy/#project">Project</a>s tagged as <code>3rd-party</code>, with at least one <a href="../../schemas/policy/#vulnerability">Vulnerability</a>
+<p>The following expression matches <a href="../schema/#component">Component</a>s in <a href="../schema/#project">Project</a>s tagged as <code>3rd-party</code>, with at least one <a href="../schema/#vulnerability">Vulnerability</a>
 being any of the given blacklisted IDs.</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -3457,9 +3388,9 @@ being any of the given blacklisted IDs.</p>
 <span class="w">     </span><span class="p">])</span>
 </code></pre></div></td></tr></tbody></table></div>
 <h3 id="vulnerabilities-with-high-severity-in-public-facing-projects">Vulnerabilities with high severity in public facing projects<a class="headerlink" href="#vulnerabilities-with-high-severity-in-public-facing-projects" title="Permanent link">¶</a></h3>
-<p>The following expression matches <a href="../../schemas/policy/#component">Component</a>s in <a href="../../schemas/policy/#project">Project</a>s tagged as <code>public-facing</code>, with at least one <code>HIGH</code>
+<p>The following expression matches <a href="../schema/#component">Component</a>s in <a href="../schema/#project">Project</a>s tagged as <code>public-facing</code>, with at least one <code>HIGH</code>
 or <code>CRITICAL</code>
-<a href="../../schemas/policy/#vulnerability">Vulnerability</a>, where the <a href="https://www.first.org/cvss/v3.0/specification-document">CVSSv3</a> attack vector is <code>Network</code>.</p>
+<a href="../schema/#vulnerability">Vulnerability</a>, where the <a href="https://www.first.org/cvss/v3.0/specification-document">CVSSv3</a> attack vector is <code>Network</code>.</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -3487,12 +3418,12 @@ patterns:</p>
 <span class="w">     </span><span class="p">})</span>
 </code></pre></div></td></tr></tbody></table></div>
 <h3 id="hash-mismatch-with-the-upstream-repository">Hash mismatch with the upstream repository<a class="headerlink" href="#hash-mismatch-with-the-upstream-repository" title="Permanent link">¶</a></h3>
-<p>The following expression matches <a href="../../schemas/policy/#component">Component</a>s whose declared hashes disagree with the hashes
+<p>The following expression matches <a href="../schema/#component">Component</a>s whose declared hashes disagree with the hashes
 the upstream package repository reports for the same artifact. Useful for spotting tampered
 or mis-pinned components.</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">component</span><span class="p">.</span><span class="nx">has_package_artifact_hash_mismatch</span><span class="p">()</span>
 </code></pre></div></td></tr></tbody></table></div>
-<p>To focus on <a href="../../schemas/policy/#project">Project</a>s tagged as <code>production</code>:</p>
+<p>To focus on <a href="../schema/#project">Project</a>s tagged as <code>production</code>:</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="s2">"production"</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">project</span><span class="p">.</span><span class="nx">tags</span>
 <span class="w">  </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">component</span><span class="p">.</span><span class="nx">has_package_artifact_hash_mismatch</span><span class="p">()</span>
@@ -3501,7 +3432,7 @@ or mis-pinned components.</p>
 table and a note on what a <code>false</code> result does and does not mean.</p>
 <h3 id="version-distance">Version distance<a class="headerlink" href="#version-distance" title="Permanent link">¶</a></h3>
 <p>The <a href="#version_distance"><code>version_distance</code></a> function allows matching based on how far behind a component's version
-is from the latest known version. Specify the distance using a <a href="../../schemas/policy/#versiondistance">VersionDistance</a> object with <code>epoch</code>, <code>major</code>,
+is from the latest known version. Specify the distance using a <a href="../schema/#versiondistance">VersionDistance</a> object with <code>epoch</code>, <code>major</code>,
 <code>minor</code>, and <code>patch</code> fields.</p>
 <p>The following expression matches components that are more than one major version behind:</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">component</span><span class="p">.</span><span class="nx">version_distance</span><span class="p">(</span><span class="s2">"&gt;="</span><span class="p">,</span><span class="w"> </span><span class="nx">v1</span><span class="p">.</span><span class="nx">VersionDistance</span><span class="p">{</span><span class="nx">major</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">})</span>
@@ -3527,11 +3458,11 @@ compound (for example, <code>"GPL-2.0-only WITH Classpath-exception-2.0"</code>)
 allow-lists, not as separate license and exception IDs. The license part uses version-aware matching
 (for example, <code>GPL-2.0 WITH ...</code> matches <code>GPL-2.0-only WITH ...</code>), while the exception part requires an exact match.</p>
 <h2 id="function-reference">Function reference<a class="headerlink" href="#function-reference" title="Permanent link">¶</a></h2>
-<p>For type definitions, refer to the <a href="../../schemas/policy/">schema reference</a>.</p>
+<p>For type definitions, refer to the <a href="../schema/">schema reference</a>.</p>
 <p>Beyond the <a href="../../cel-expressions/#standard-library">standard <abbr title="Common Expression Language">CEL</abbr> library</a>, policy
 conditions have access to the following custom functions registered by Dependency-Track.</p>
 <h3 id="depends_on"><code>depends_on</code><a class="headerlink" href="#depends_on" title="Permanent link">¶</a></h3>
-<p>Checks whether a <a href="../../schemas/policy/#project">Project</a> contains a <a href="../../schemas/policy/#component">Component</a> matching the given criteria.
+<p>Checks whether a <a href="../schema/#project">Project</a> contains a <a href="../schema/#component">Component</a> matching the given criteria.
 Useful for enforcing policies only when specific components are present in a project.</p>
 <table>
 <thead>
@@ -3544,12 +3475,12 @@ Useful for enforcing policies only when specific components are present in a pro
 <tbody>
 <tr>
 <td style="text-align: left;"><em>receiver</em></td>
-<td style="text-align: left;"><a href="../../schemas/policy/#project">Project</a></td>
+<td style="text-align: left;"><a href="../schema/#project">Project</a></td>
 <td style="text-align: left;">The project to check</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>component</code></td>
-<td style="text-align: left;"><a href="../../schemas/policy/#component">Component</a></td>
+<td style="text-align: left;"><a href="../schema/#component">Component</a></td>
 <td style="text-align: left;">Criteria to match against. Supports <code>re:</code> and <code>vers:</code> prefixes.</td>
 </tr>
 </tbody>
@@ -3570,7 +3501,7 @@ Useful for enforcing policies only when specific components are present in a pro
 <p><code>project</code> matches because <code>baz</code> exists in its dependency graph.</p>
 </div>
 <h3 id="has_package_artifact_hash_mismatch"><code>has_package_artifact_hash_mismatch</code><a class="headerlink" href="#has_package_artifact_hash_mismatch" title="Permanent link">¶</a></h3>
-<p>Checks whether a <a href="../../schemas/policy/#component">Component</a>'s declared hashes disagree with the hashes the upstream
+<p>Checks whether a <a href="../schema/#component">Component</a>'s declared hashes disagree with the hashes the upstream
 package repository reports for the same artifact.</p>
 <p>The function compares MD5, SHA-1, SHA-256, and SHA-512 (the algorithms package
 repositories typically report). All comparisons are case-insensitive.</p>
@@ -3585,7 +3516,7 @@ repositories typically report). All comparisons are case-insensitive.</p>
 <tbody>
 <tr>
 <td style="text-align: left;"><em>receiver</em></td>
-<td style="text-align: left;"><a href="../../schemas/policy/#component">Component</a></td>
+<td style="text-align: left;"><a href="../schema/#component">Component</a></td>
 <td style="text-align: left;">The component to check</td>
 </tr>
 </tbody>
@@ -3654,7 +3585,7 @@ upload, they may not be available yet and the function returns <code>false</code
 pick up the data once resolution completes.</p>
 </div>
 <h3 id="is_dependency_of"><code>is_dependency_of</code><a class="headerlink" href="#is_dependency_of" title="Permanent link">¶</a></h3>
-<p>Checks whether a <a href="../../schemas/policy/#component">Component</a> is a (possibly transitive) dependency of another <a href="../../schemas/policy/#component">Component</a>.</p>
+<p>Checks whether a <a href="../schema/#component">Component</a> is a (possibly transitive) dependency of another <a href="../schema/#component">Component</a>.</p>
 <table>
 <thead>
 <tr>
@@ -3666,12 +3597,12 @@ pick up the data once resolution completes.</p>
 <tbody>
 <tr>
 <td style="text-align: left;"><em>receiver</em></td>
-<td style="text-align: left;"><a href="../../schemas/policy/#component">Component</a></td>
+<td style="text-align: left;"><a href="../schema/#component">Component</a></td>
 <td style="text-align: left;">The component under evaluation</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>component</code></td>
-<td style="text-align: left;"><a href="../../schemas/policy/#component">Component</a></td>
+<td style="text-align: left;"><a href="../schema/#component">Component</a></td>
 <td style="text-align: left;">Criteria to match the parent against. Supports <code>re:</code> and <code>vers:</code> prefixes.</td>
 </tr>
 </tbody>
@@ -3693,7 +3624,7 @@ pick up the data once resolution completes.</p>
 <code>qux</code> matches even though it's also reachable through <code>bar</code>.</p>
 </div>
 <h3 id="is_direct_dependency_of"><code>is_direct_dependency_of</code><a class="headerlink" href="#is_direct_dependency_of" title="Permanent link">¶</a></h3>
-<p>Checks whether a <a href="../../schemas/policy/#component">Component</a> is a <em>direct</em> (non-transitive) dependency of another <a href="../../schemas/policy/#component">Component</a>.</p>
+<p>Checks whether a <a href="../schema/#component">Component</a> is a <em>direct</em> (non-transitive) dependency of another <a href="../schema/#component">Component</a>.</p>
 <table>
 <thead>
 <tr>
@@ -3705,12 +3636,12 @@ pick up the data once resolution completes.</p>
 <tbody>
 <tr>
 <td style="text-align: left;"><em>receiver</em></td>
-<td style="text-align: left;"><a href="../../schemas/policy/#component">Component</a></td>
+<td style="text-align: left;"><a href="../schema/#component">Component</a></td>
 <td style="text-align: left;">The component under evaluation</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>component</code></td>
-<td style="text-align: left;"><a href="../../schemas/policy/#component">Component</a></td>
+<td style="text-align: left;"><a href="../schema/#component">Component</a></td>
 <td style="text-align: left;">Criteria to match the parent against. Supports <code>re:</code> and <code>vers:</code> prefixes.</td>
 </tr>
 </tbody>
@@ -3743,7 +3674,7 @@ pick up the data once resolution completes.</p>
 <code>deep</code> does <strong>not</strong> match, as it's a transitive dependency.</p>
 </div>
 <h3 id="is_exclusive_dependency_of"><code>is_exclusive_dependency_of</code><a class="headerlink" href="#is_exclusive_dependency_of" title="Permanent link">¶</a></h3>
-<p>Checks whether a <a href="../../schemas/policy/#component">Component</a> is <em>only</em> introduced through another <a href="../../schemas/policy/#component">Component</a>.
+<p>Checks whether a <a href="../schema/#component">Component</a> is <em>only</em> introduced through another <a href="../schema/#component">Component</a>.
 Returns <code>true</code> only if every path from the project root to the receiver passes through a matching component.</p>
 <table>
 <thead>
@@ -3756,12 +3687,12 @@ Returns <code>true</code> only if every path from the project root to the receiv
 <tbody>
 <tr>
 <td style="text-align: left;"><em>receiver</em></td>
-<td style="text-align: left;"><a href="../../schemas/policy/#component">Component</a></td>
+<td style="text-align: left;"><a href="../schema/#component">Component</a></td>
 <td style="text-align: left;">The component under evaluation</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>component</code></td>
-<td style="text-align: left;"><a href="../../schemas/policy/#component">Component</a></td>
+<td style="text-align: left;"><a href="../schema/#component">Component</a></td>
 <td style="text-align: left;">Criteria to match the parent against. Supports <code>re:</code> and <code>vers:</code> prefixes.</td>
 </tr>
 </tbody>
@@ -3784,7 +3715,7 @@ Returns <code>true</code> only if every path from the project root to the receiv
 <code>qux</code> does <strong>not</strong> match, as it's also reachable through <code>bar</code>.</p>
 </div>
 <h3 id="matches_range"><code>matches_range</code><a class="headerlink" href="#matches_range" title="Permanent link">¶</a></h3>
-<p>Checks whether a <a href="../../schemas/policy/#component">Component</a>'s or <a href="../../schemas/policy/#project">Project</a>'s version falls within a <a href="https://github.com/package-url/vers-spec">vers</a> range.</p>
+<p>Checks whether a <a href="../schema/#component">Component</a>'s or <a href="../schema/#project">Project</a>'s version falls within a <a href="https://github.com/package-url/vers-spec">vers</a> range.</p>
 <table>
 <thead>
 <tr>
@@ -3796,7 +3727,7 @@ Returns <code>true</code> only if every path from the project root to the receiv
 <tbody>
 <tr>
 <td style="text-align: left;"><em>receiver</em></td>
-<td style="text-align: left;"><a href="../../schemas/policy/#component">Component</a> or <a href="../../schemas/policy/#project">Project</a></td>
+<td style="text-align: left;"><a href="../schema/#component">Component</a> or <a href="../schema/#project">Project</a></td>
 <td style="text-align: left;">The component or project to check</td>
 </tr>
 <tr>
@@ -3955,8 +3886,8 @@ appear in at least one child.</p>
 <span class="c1">// "GPL-2.0-only OR MIT"          =&gt; false (MIT branch requires neither)</span>
 </code></pre></div></td></tr></tbody></table></div>
 <h3 id="version_distance"><code>version_distance</code><a class="headerlink" href="#version_distance" title="Permanent link">¶</a></h3>
-<p>Checks whether the distance between a <a href="../../schemas/policy/#component">Component</a>'s current version and its latest known version
-matches a given <a href="../../schemas/policy/#versiondistance">VersionDistance</a>.</p>
+<p>Checks whether the distance between a <a href="../schema/#component">Component</a>'s current version and its latest known version
+matches a given <a href="../schema/#versiondistance">VersionDistance</a>.</p>
 <table>
 <thead>
 <tr>
@@ -3968,7 +3899,7 @@ matches a given <a href="../../schemas/policy/#versiondistance">VersionDistance<
 <tbody>
 <tr>
 <td style="text-align: left;"><em>receiver</em></td>
-<td style="text-align: left;"><a href="../../schemas/policy/#component">Component</a></td>
+<td style="text-align: left;"><a href="../schema/#component">Component</a></td>
 <td style="text-align: left;">The component to check</td>
 </tr>
 <tr>
@@ -3978,7 +3909,7 @@ matches a given <a href="../../schemas/policy/#versiondistance">VersionDistance<
 </tr>
 <tr>
 <td style="text-align: left;"><code>distance</code></td>
-<td style="text-align: left;"><a href="../../schemas/policy/#versiondistance">VersionDistance</a></td>
+<td style="text-align: left;"><a href="../schema/#versiondistance">VersionDistance</a></td>
 <td style="text-align: left;">The version distance to compare against</td>
 </tr>
 </tbody>
@@ -4040,13 +3971,13 @@ matches a given <a href="../../schemas/policy/#versiondistance">VersionDistance<
         
         
           
-          <a href="../../cel-expressions/" class="md-footer__link md-footer__link--next" aria-label="Next: CEL expressions">
+          <a href="../schema/" class="md-footer__link md-footer__link--next" aria-label="Next: Proto schema">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                CEL expressions
+                Proto schema
               </div>
             </div>
             <div class="md-footer__button md-icon">

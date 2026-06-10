@@ -672,8 +672,6 @@
       
         
       
-        
-      
     
     
     
@@ -1502,6 +1500,8 @@
       
         
       
+        
+      
     
     
     
@@ -1998,6 +1998,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proto schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2114,6 +2142,8 @@
       
         
           
+        
+      
         
       
         
@@ -2252,6 +2282,34 @@
     
   
     Condition expressions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../policies/schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proto schema
   
 
     
@@ -2534,133 +2592,6 @@
     
   
     Community integrations
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_13">
-        
-          
-          <label class="md-nav__link" for="__nav_5_13" id="__nav_5_13_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Schemas
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_13_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_13">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Schemas
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../schemas/notification/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Notification schema
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../schemas/policy/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Policy schema
   
 
     
@@ -3095,7 +3026,7 @@ belongs to one of two scopes: <code>SYSTEM</code> (platform-level events) or <co
 trigger type: <code>Event</code> for ad-hoc notifications that the system emits in response
 to a system event, or <code>Schedule</code> for notifications that fire periodically on a
 cron schedule.</p>
-<p>The <a href="../../schemas/notification/">notification schema reference</a> describes the
+<p>The <a href="../schema/">notification schema reference</a> describes the
 subject schema for each group.</p>
 <h2 id="system-scope">System scope<a class="headerlink" href="#system-scope" title="Permanent link">¶</a></h2>
 <h3 id="analyzer"><code>ANALYZER</code><a class="headerlink" href="#analyzer" title="Permanent link">¶</a></h3>
@@ -3238,7 +3169,7 @@ processes a supported <abbr title="Bill of Materials">BOM</abbr>.</p>
 <p>Summarizes new policy violations found in a set of projects.</p>
 <h2 id="subjects">Subjects<a class="headerlink" href="#subjects" title="Permanent link">¶</a></h2>
 <p>The typed subject of a notification depends on its group. The
-<a href="../../schemas/notification/">notification schema reference</a> describes
+<a href="../schema/">notification schema reference</a> describes
 each subject schema.</p>
 <table>
 <thead>
@@ -3250,47 +3181,47 @@ each subject schema.</p>
 <tbody>
 <tr>
 <td style="text-align: left;"><code>BOM_CONSUMED</code>, <code>BOM_PROCESSED</code></td>
-<td style="text-align: left;"><a href="../../schemas/notification/#bomconsumedorprocessedsubject">BomConsumedOrProcessedSubject</a></td>
+<td style="text-align: left;"><a href="../schema/#bomconsumedorprocessedsubject">BomConsumedOrProcessedSubject</a></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>BOM_PROCESSING_FAILED</code></td>
-<td style="text-align: left;"><a href="../../schemas/notification/#bomprocessingfailedsubject">BomProcessingFailedSubject</a></td>
+<td style="text-align: left;"><a href="../schema/#bomprocessingfailedsubject">BomProcessingFailedSubject</a></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>BOM_VALIDATION_FAILED</code></td>
-<td style="text-align: left;"><a href="../../schemas/notification/#bomvalidationfailedsubject">BomValidationFailedSubject</a></td>
+<td style="text-align: left;"><a href="../schema/#bomvalidationfailedsubject">BomValidationFailedSubject</a></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>NEW_VULNERABILITY</code></td>
-<td style="text-align: left;"><a href="../../schemas/notification/#newvulnerabilitysubject">NewVulnerabilitySubject</a></td>
+<td style="text-align: left;"><a href="../schema/#newvulnerabilitysubject">NewVulnerabilitySubject</a></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>NEW_VULNERABLE_DEPENDENCY</code></td>
-<td style="text-align: left;"><a href="../../schemas/notification/#newvulnerabledependencysubject">NewVulnerableDependencySubject</a></td>
+<td style="text-align: left;"><a href="../schema/#newvulnerabledependencysubject">NewVulnerableDependencySubject</a></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>POLICY_VIOLATION</code></td>
-<td style="text-align: left;"><a href="../../schemas/notification/#policyviolationsubject">PolicyViolationSubject</a></td>
+<td style="text-align: left;"><a href="../schema/#policyviolationsubject">PolicyViolationSubject</a></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>PROJECT_AUDIT_CHANGE</code></td>
-<td style="text-align: left;"><a href="../../schemas/notification/#vulnerabilityanalysisdecisionchangesubject">VulnerabilityAnalysisDecisionChangeSubject</a> or <a href="../../schemas/notification/#policyviolationanalysisdecisionchangesubject">PolicyViolationAnalysisDecisionChangeSubject</a></td>
+<td style="text-align: left;"><a href="../schema/#vulnerabilityanalysisdecisionchangesubject">VulnerabilityAnalysisDecisionChangeSubject</a> or <a href="../schema/#policyviolationanalysisdecisionchangesubject">PolicyViolationAnalysisDecisionChangeSubject</a></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>VEX_CONSUMED</code>, <code>VEX_PROCESSED</code></td>
-<td style="text-align: left;"><a href="../../schemas/notification/#vexconsumedorprocessedsubject">VexConsumedOrProcessedSubject</a></td>
+<td style="text-align: left;"><a href="../schema/#vexconsumedorprocessedsubject">VexConsumedOrProcessedSubject</a></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>USER_CREATED</code>, <code>USER_DELETED</code></td>
-<td style="text-align: left;"><a href="../../schemas/notification/#usersubject">UserSubject</a></td>
+<td style="text-align: left;"><a href="../schema/#usersubject">UserSubject</a></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>NEW_VULNERABILITIES_SUMMARY</code></td>
-<td style="text-align: left;"><a href="../../schemas/notification/#newvulnerabilitiessummarysubject">NewVulnerabilitiesSummarySubject</a></td>
+<td style="text-align: left;"><a href="../schema/#newvulnerabilitiessummarysubject">NewVulnerabilitiesSummarySubject</a></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>NEW_POLICY_VIOLATIONS_SUMMARY</code></td>
-<td style="text-align: left;"><a href="../../schemas/notification/#newpolicyviolationssummarysubject">NewPolicyViolationsSummarySubject</a></td>
+<td style="text-align: left;"><a href="../schema/#newpolicyviolationssummarysubject">NewPolicyViolationsSummarySubject</a></td>
 </tr>
 </tbody>
 </table>

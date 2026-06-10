@@ -11,7 +11,7 @@
         <link rel="prev" href="../templating/">
       
       
-        <link rel="next" href="../../analyzers/">
+        <link rel="next" href="../schema/">
       
       
         
@@ -648,8 +648,6 @@
       
         
           
-        
-      
         
       
         
@@ -1502,6 +1500,8 @@
       
         
       
+        
+      
     
     
     
@@ -1888,6 +1888,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proto schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2004,6 +2032,8 @@
       
         
           
+        
+      
         
       
         
@@ -2142,6 +2172,34 @@
     
   
     Condition expressions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../policies/schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proto schema
   
 
     
@@ -2424,133 +2482,6 @@
     
   
     Community integrations
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_13">
-        
-          
-          <label class="md-nav__link" for="__nav_5_13" id="__nav_5_13_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Schemas
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_13_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_13">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Schemas
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../schemas/notification/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Notification schema
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../schemas/policy/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Policy schema
   
 
     
@@ -2898,17 +2829,17 @@ for this with <a href="https://github.com/google/cel-spec/blob/v0.13.0/doc/langd
 <tbody>
 <tr>
 <td style="text-align: left;"><code>level</code></td>
-<td style="text-align: left;"><a href="../../schemas/notification/#level"><code>Level</code></a></td>
+<td style="text-align: left;"><a href="../schema/#level"><code>Level</code></a></td>
 <td style="text-align: left;">The notification level, as an integer enum value. Use named constants (see below).</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>scope</code></td>
-<td style="text-align: left;"><a href="../../schemas/notification/#scope"><code>Scope</code></a></td>
+<td style="text-align: left;"><a href="../schema/#scope"><code>Scope</code></a></td>
 <td style="text-align: left;">The notification scope, as an integer enum value. Use named constants (see below).</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>group</code></td>
-<td style="text-align: left;"><a href="../../schemas/notification/#group"><code>Group</code></a></td>
+<td style="text-align: left;"><a href="../schema/#group"><code>Group</code></a></td>
 <td style="text-align: left;">The notification group, as an integer enum value. Use named constants (see below).</td>
 </tr>
 <tr>
@@ -2935,7 +2866,7 @@ for this with <a href="https://github.com/google/cel-spec/blob/v0.13.0/doc/langd
 </table>
 <h3 id="enum-constants">Enum constants<a class="headerlink" href="#enum-constants" title="Permanent link">¶</a></h3>
 <p>The <code>level</code>, <code>scope</code>, and <code>group</code> variables hold integer values. To compare them in a readable way,
-use the named constants from the <a href="../../schemas/notification/#enums">notification schema</a>:</p>
+use the named constants from the <a href="../schema/#enums">notification schema</a>:</p>
 <div class="highlight"><pre><span></span><code><span class="nx">level</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">Level</span><span class="p">.</span><span class="nx">LEVEL_INFORMATIONAL</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="nx">group</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">Group</span><span class="p">.</span><span class="nx">GROUP_NEW_VULNERABILITY</span>
@@ -2945,7 +2876,7 @@ use the named constants from the <a href="../../schemas/notification/#enums">not
 <h3 id="subject-types">Subject types<a class="headerlink" href="#subject-types" title="Permanent link">¶</a></h3>
 <p>The <code>subject</code> variable holds the notification's subject. Its type depends on the notification
 group; see <a href="../groups/#subjects">Subjects</a> in the notification groups reference for the
-group-to-subject mapping, and the <a href="../../schemas/notification/">notification schema reference</a>
+group-to-subject mapping, and the <a href="../schema/">notification schema reference</a>
 for each subject's fields.</p>
 <h3 id="available-functions">Available functions<a class="headerlink" href="#available-functions" title="Permanent link">¶</a></h3>
 <p>Notification filters have access to the variables in the preceding table and the
@@ -3057,13 +2988,13 @@ for the rationale.</p>
         
         
           
-          <a href="../../analyzers/" class="md-footer__link md-footer__link--next" aria-label="Next: Vulnerability analyzers">
+          <a href="../schema/" class="md-footer__link md-footer__link--next" aria-label="Next: Proto schema">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Vulnerability analyzers
+                Proto schema
               </div>
             </div>
             <div class="md-footer__button md-icon">
