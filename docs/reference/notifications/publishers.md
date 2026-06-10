@@ -108,6 +108,7 @@ The alert config defines the destination and format of Kafka records emitted by 
     Publish notifications in Protobuf format whenever possible.
     Dependency-Track keeps changes to the Protobuf schema backward-compatible,
     which matters when a durable log like Kafka retains the notifications.
+    See the [Notification schema](schema.md) reference to download the `.proto` file and generate client code.
 
 !!! warning "Templating"
     The Kafka publisher ships without a default template, since it targets Protobuf.

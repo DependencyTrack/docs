@@ -7,7 +7,7 @@ trigger type: `Event` for ad-hoc notifications that the system emits in response
 to a system event, or `Schedule` for notifications that fire periodically on a
 cron schedule.
 
-The [notification schema reference](../schemas/notification.md) describes the
+The [notification schema reference](schema.md) describes the
 subject schema for each group.
 
 ## System scope
@@ -176,19 +176,19 @@ Summarizes new policy violations found in a set of projects.
 ## Subjects
 
 The typed subject of a notification depends on its group. The
-[notification schema reference](../schemas/notification.md) describes
+[notification schema reference](schema.md) describes
 each subject schema.
 
 | Group                                                   | Subject type                                                                                                                                            |
 |:--------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `BOM_CONSUMED`, `BOM_PROCESSED`                         | [BomConsumedOrProcessedSubject](../schemas/notification.md#bomconsumedorprocessedsubject)                                                               |
-| `BOM_PROCESSING_FAILED`                                 | [BomProcessingFailedSubject](../schemas/notification.md#bomprocessingfailedsubject)                                                                     |
-| `BOM_VALIDATION_FAILED`                                 | [BomValidationFailedSubject](../schemas/notification.md#bomvalidationfailedsubject)                                                                     |
-| `NEW_VULNERABILITY`                                     | [NewVulnerabilitySubject](../schemas/notification.md#newvulnerabilitysubject)                                                                           |
-| `NEW_VULNERABLE_DEPENDENCY`                             | [NewVulnerableDependencySubject](../schemas/notification.md#newvulnerabledependencysubject)                                                             |
-| `POLICY_VIOLATION`                                      | [PolicyViolationSubject](../schemas/notification.md#policyviolationsubject)                                                                             |
-| `PROJECT_AUDIT_CHANGE`                                  | [VulnerabilityAnalysisDecisionChangeSubject](../schemas/notification.md#vulnerabilityanalysisdecisionchangesubject) or [PolicyViolationAnalysisDecisionChangeSubject](../schemas/notification.md#policyviolationanalysisdecisionchangesubject) |
-| `VEX_CONSUMED`, `VEX_PROCESSED`                         | [VexConsumedOrProcessedSubject](../schemas/notification.md#vexconsumedorprocessedsubject)                                                               |
-| `USER_CREATED`, `USER_DELETED`                          | [UserSubject](../schemas/notification.md#usersubject)                                                                                                   |
-| `NEW_VULNERABILITIES_SUMMARY`                           | [NewVulnerabilitiesSummarySubject](../schemas/notification.md#newvulnerabilitiessummarysubject)                                                         |
-| `NEW_POLICY_VIOLATIONS_SUMMARY`                         | [NewPolicyViolationsSummarySubject](../schemas/notification.md#newpolicyviolationssummarysubject)                                                       |
+| `BOM_CONSUMED`, `BOM_PROCESSED`                         | [BomConsumedOrProcessedSubject](schema.md#bomconsumedorprocessedsubject)                                                               |
+| `BOM_PROCESSING_FAILED`                                 | [BomProcessingFailedSubject](schema.md#bomprocessingfailedsubject)                                                                     |
+| `BOM_VALIDATION_FAILED`                                 | [BomValidationFailedSubject](schema.md#bomvalidationfailedsubject)                                                                     |
+| `NEW_VULNERABILITY`                                     | [NewVulnerabilitySubject](schema.md#newvulnerabilitysubject)                                                                           |
+| `NEW_VULNERABLE_DEPENDENCY`                             | [NewVulnerableDependencySubject](schema.md#newvulnerabledependencysubject)                                                             |
+| `POLICY_VIOLATION`                                      | [PolicyViolationSubject](schema.md#policyviolationsubject)                                                                             |
+| `PROJECT_AUDIT_CHANGE`                                  | [VulnerabilityAnalysisDecisionChangeSubject](schema.md#vulnerabilityanalysisdecisionchangesubject) or [PolicyViolationAnalysisDecisionChangeSubject](schema.md#policyviolationanalysisdecisionchangesubject) |
+| `VEX_CONSUMED`, `VEX_PROCESSED`                         | [VexConsumedOrProcessedSubject](schema.md#vexconsumedorprocessedsubject)                                                               |
+| `USER_CREATED`, `USER_DELETED`                          | [UserSubject](schema.md#usersubject)                                                                                                   |
+| `NEW_VULNERABILITIES_SUMMARY`                           | [NewVulnerabilitiesSummarySubject](schema.md#newvulnerabilitiessummarysubject)                                                         |
+| `NEW_POLICY_VIOLATIONS_SUMMARY`                         | [NewPolicyViolationsSummarySubject](schema.md#newpolicyviolationssummarysubject)                                                       |

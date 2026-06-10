@@ -139,7 +139,7 @@ Matched against the severity of the component's vulnerabilities.
 
 - **Violation type:** Operational
 - **Operators:** `NUMERIC_*`
-- **Value:** JSON [`VersionDistance`](../schemas/policy.md#versiondistance):
+- **Value:** JSON [`VersionDistance`](schema.md#versiondistance):
   `{ "epoch": n, "major": n, "minor": n, "patch": n }`.
 
 ### `VULNERABILITY_ID`

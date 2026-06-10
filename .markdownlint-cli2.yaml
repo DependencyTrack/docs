@@ -34,7 +34,10 @@ globs:
 ignores:
 - "docs/includes/**"
 - "docs/reference/configuration/properties.md"
-- "docs/reference/schemas/**"
+- "docs/reference/notifications/schema.md"
+- "docs/reference/notifications/schema.md.tmpl"
+- "docs/reference/policies/schema.md"
+- "docs/reference/policies/schema.md.tmpl"
 - "existing-docs/**"
 - "site/**"
 - "node_modules/**"

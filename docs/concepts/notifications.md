@@ -26,7 +26,7 @@ email to Webhook. Refer to [Publishers](../reference/notifications/publishers.md
 ## Templates
 
 Templates define how the platform's internal representation of notifications
-(see [Notification schema](../reference/schemas/notification.md)) maps
+(see [Notification schema](../reference/notifications/schema.md)) maps
 to the format that notification recipients expect.
 
 Each [publisher](#publishers) ships with a default template, and administrators
