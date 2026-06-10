@@ -14,12 +14,12 @@ The following variables are available in every template.
 | `baseUrl`               | string                                                                                                       | Base URL of the Dependency-Track frontend, as configured by the operator. Empty string when unset.                                         |
 | `timestampEpochSeconds` | long                                                                                                         | Notification timestamp expressed as seconds since the Unix epoch.                                                                          |
 | `timestamp`             | string                                                                                                       | Notification timestamp formatted as an [ISO 8601] local date-time (`uuuu-MM-dd'T'HH:mm:ss.SSSSSSSSS`).                                     |
-| `notification`          | [`Notification`](../schemas/notification.md#notification) message                                            | The full notification, with fields `level`, `scope`, `group`, `title`, `content`, `timestamp`, and `subject`.                              |
+| `notification`          | [`Notification`](schema.md#notification) message                                            | The full notification, with fields `level`, `scope`, `group`, `title`, `content`, `timestamp`, and `subject`.                              |
 | `subject`               | message                                                                                                      | Typed subject of the notification, present only for groups that emit one. The concrete message type depends on the notification's `group`. |
 | `subjectJson`           | string                                                                                                       | JSON representation of `subject`, present only when the notification has a `subject`.                                                      |
 
 The shape of `subject` varies by notification group. Refer to the
-[notification schema reference](../schemas/notification.md) for the
+[notification schema reference](schema.md) for the
 message type emitted for each group.
 
 !!! note

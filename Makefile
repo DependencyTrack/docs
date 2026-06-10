@@ -97,15 +97,17 @@ generate-config-docs:
 
 generate-proto-docs:
 	@docker run -i --rm -u "$$(id -u):$$(id -g)" \
-	  -v "$$(pwd)/docs/reference/schemas:/out" \
+	  -v "$$(pwd)/docs/reference/notifications:/out" \
 	  -v "$$(pwd)/$(APISERVER_DIR)/notification/api/src/main/proto/org/dependencytrack/notification/v1:/protos" \
 	  "$(PROTOC_GEN_DOC_IMAGE)" \
-	  --doc_opt=/out/notification.md.tmpl,notification.md
+	  --doc_opt=/out/schema.md.tmpl,schema.md
+	@cp "$(APISERVER_DIR)/notification/api/src/main/proto/org/dependencytrack/notification/v1/notification.proto" \
+	  docs/reference/notifications/notification.proto
 	@docker run -i --rm -u "$$(id -u):$$(id -g)" \
-	  -v "$$(pwd)/docs/reference/schemas:/out" \
+	  -v "$$(pwd)/docs/reference/policies:/out" \
 	  -v "$$(pwd)/$(APISERVER_DIR)/proto/src/main/proto/org/dependencytrack/policy/v1:/protos" \
 	  "$(PROTOC_GEN_DOC_IMAGE)" \
-	  --doc_opt=/out/policy.md.tmpl,policy.md
+	  --doc_opt=/out/schema.md.tmpl,schema.md
 .PHONY: generate-proto-docs
 
 serve:

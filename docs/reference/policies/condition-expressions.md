@@ -281,7 +281,7 @@ allow-lists, not as separate license and exception IDs. The license part uses ve
 
 ## Function reference
 
-For type definitions, refer to the [schema reference](../schemas/policy.md).
+For type definitions, refer to the [schema reference](schema.md).
 
 Beyond the [standard CEL library](../cel-expressions.md#standard-library), policy
 conditions have access to the following custom functions registered by Dependency-Track.
@@ -579,13 +579,13 @@ component.version_distance(">=", v1.VersionDistance{major: 1})
 ```
 
 [CVSSv3]: https://www.first.org/cvss/v3.0/specification-document
-[Component]: ../schemas/policy.md#component
-[License]: ../schemas/policy.md#license
+[Component]: schema.md#component
+[License]: schema.md#license
 [Package URL]: https://github.com/package-url/purl-spec/blob/master/PURL-SPECIFICATION.rst
-[Project]: ../schemas/policy.md#project
+[Project]: schema.md#project
 [RE2]: https://github.com/google/re2/wiki/Syntax
 [SPDX license expressions]: https://spdx.github.io/spdx-spec/v2.3/SPDX-license-expressions/
-[VersionDistance]: ../schemas/policy.md#versiondistance
-[Vulnerability]: ../schemas/policy.md#vulnerability
+[VersionDistance]: schema.md#versiondistance
+[Vulnerability]: schema.md#vulnerability
 [protobuf-ts-docs]: https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp
 [vers]: https://github.com/package-url/vers-spec

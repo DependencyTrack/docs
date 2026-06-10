@@ -4,3 +4,4 @@ nav:
   - Component policies: component-policies.md
   - Vulnerability policies: vulnerability-policies.md
   - Condition expressions: condition-expressions.md
+  - Proto schema: schema.md

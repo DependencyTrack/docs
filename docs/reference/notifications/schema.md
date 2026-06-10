@@ -1,3 +1,7 @@
+Dependency-Track represents notifications internally as Protobuf messages. Some publishers, such as [Kafka](publishers.md#kafka), can emit them directly in this format. Download the schema file below to [generate client code](https://protobuf.dev/getting-started/) in your language of choice.
+
+[Download notification.proto](notification.proto){ .md-button .md-button--primary download="notification.proto" }
+
 
 
 

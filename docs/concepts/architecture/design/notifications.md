@@ -60,7 +60,7 @@ erDiagram
 
 The `ID` column uses [UUIDv7], which combines global uniqueness with sortability.
 The `PAYLOAD` column contains the serialized notification in [Protobuf] format.
-The [notification schema reference](../../../reference/schemas/notification.md) describes the schema.
+The [notification schema reference](../../../reference/notifications/schema.md) describes the schema.
 
 ### Preliminary filtering
 

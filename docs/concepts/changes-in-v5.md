@@ -150,7 +150,7 @@ remediation steps, lives in the
 [upgrade guides](../guides/upgrading/index.md). Headline items:
 
 * **Notification schema.** Subjects now use [Protobuf][Protobuf] (see the
-  [notification schema reference](../reference/schemas/notification.md)).
+  [notification schema reference](../reference/notifications/schema.md)).
   List fields gain a `List` suffix, enum-like values gain a type prefix
   (`INFORMATIONAL` → `LEVEL_INFORMATIONAL`, `SYSTEM` → `SCOPE_SYSTEM`,
   `NEW_VULNERABILITY` → `GROUP_NEW_VULNERABILITY`), and timestamps

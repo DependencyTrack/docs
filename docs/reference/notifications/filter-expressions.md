@@ -30,9 +30,9 @@ The expression evaluation context contains the following variables:
 
 | Variable    | Type                                                         | Description                                                                            |
 |:------------|:-------------------------------------------------------------|:---------------------------------------------------------------------------------------|
-| `level`     | [`Level`](../../reference/schemas/notification.md#level)     | The notification level, as an integer enum value. Use named constants (see below).      |
-| `scope`     | [`Scope`](../../reference/schemas/notification.md#scope)     | The notification scope, as an integer enum value. Use named constants (see below).      |
-| `group`     | [`Group`](../../reference/schemas/notification.md#group)     | The notification group, as an integer enum value. Use named constants (see below).      |
+| `level`     | [`Level`](schema.md#level)     | The notification level, as an integer enum value. Use named constants (see below).      |
+| `scope`     | [`Scope`](schema.md#scope)     | The notification scope, as an integer enum value. Use named constants (see below).      |
+| `group`     | [`Group`](schema.md#group)     | The notification group, as an integer enum value. Use named constants (see below).      |
 | `title`     | `string`                                                     | The notification title.                                                                |
 | `content`   | `string`                                                     | The notification content.                                                              |
 | `timestamp` | [`google.protobuf.Timestamp`][protobuf-ts-docs]              | The notification creation time.                                                        |
@@ -41,7 +41,7 @@ The expression evaluation context contains the following variables:
 ### Enum constants
 
 The `level`, `scope`, and `group` variables hold integer values. To compare them in a readable way,
-use the named constants from the [notification schema](../../reference/schemas/notification.md#enums):
+use the named constants from the [notification schema](schema.md#enums):
 
 ```js
 level == Level.LEVEL_INFORMATIONAL
@@ -59,7 +59,7 @@ scope == Scope.SCOPE_PORTFOLIO
 
 The `subject` variable holds the notification's subject. Its type depends on the notification
 group; see [Subjects](groups.md#subjects) in the notification groups reference for the
-group-to-subject mapping, and the [notification schema reference](../../reference/schemas/notification.md)
+group-to-subject mapping, and the [notification schema reference](schema.md)
 for each subject's fields.
 
 ### Available functions

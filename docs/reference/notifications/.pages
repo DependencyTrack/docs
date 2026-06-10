@@ -3,3 +3,4 @@ nav:
   - Publishers: publishers.md
   - Templating: templating.md
   - Filter expressions: filter-expressions.md
+  - Proto schema: schema.md
