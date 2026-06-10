@@ -8,6 +8,7 @@ nav:
   - configuring-secret-management.md
   - configuring-internal-ca.md
   - configuring-http-proxy.md
+  - configuring-timezone.md
   - configuring-vulnerability-sources.md
   - running-air-gapped.md
   - configuring-observability.md
