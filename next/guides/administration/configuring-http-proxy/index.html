@@ -1291,6 +1291,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#ntlm-and-kerberos-proxies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NTLM and Kerberos proxies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#trusting-an-intercepting-proxys-certificate" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2315,6 +2326,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#ntlm-and-kerberos-proxies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NTLM and Kerberos proxies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#trusting-an-intercepting-proxys-certificate" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2417,10 +2439,10 @@
 <abbr title="OpenID Connect">OIDC</abbr> discovery, deliver webhooks, and reach other integrations. In environments where outbound traffic must traverse a
 corporate proxy, configure the API server to route those calls through it.</p>
 <p>Proxy configuration applies to the API server only. The frontend is a static single-page app served to the
-user's browser; any requests it appears to make actually originate from the browser itself.</p>
+user's browser. Any requests it appears to make actually originate from the browser itself.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The API server supports only plain HTTP proxies, with optional Basic or NTLM authentication.
+<p>The API server supports only plain HTTP proxies, with optional <code>Basic</code> authentication.
 HTTPS-fronted proxies and SOCKS proxies do not work.</p>
 </div>
 <h2 id="configuration-sources">Configuration sources<a class="headerlink" href="#configuration-sources" title="Permanent link">¶</a></h2>
@@ -2472,7 +2494,7 @@ schemes are not supported.</p>
 <li>An entry matches the request host exactly, or any subdomain of it. For example, <code>example.com</code> matches both
   <code>example.com</code> and <code>api.example.com</code>.</li>
 <li>If an entry includes a port (<code>host:port</code>), the host must match (exact or subdomain) and the port must match exactly.</li>
-<li>Only <code>http</code> and <code>https</code> URIs go through the proxy; other schemes always bypass it.</li>
+<li>Only <code>http</code> and <code>https</code> URIs go through the proxy. Other schemes always bypass it.</li>
 </ul>
 <p>For example, given <code>dt.http.proxy.exclusions=example.com,localhost:5432</code>:</p>
 <ul>
@@ -2481,13 +2503,14 @@ schemes are not supported.</p>
 <li><code>https://localhost:5433/</code> goes through the proxy (port mismatch).</li>
 </ul>
 <h2 id="authenticated-proxies">Authenticated proxies<a class="headerlink" href="#authenticated-proxies" title="Permanent link">¶</a></h2>
-<p>For Basic-authenticated proxies, set <code>dt.http.proxy.auth.username</code> and <code>dt.http.proxy.auth.password</code>. Avoid placing the password
-in plain text; see <a href="../../../reference/configuration/application/#loading-values-from-files">Loading values from files</a>.</p>
-<p>For NTLM-authenticated proxies, supply the username in <code>domain\username</code> form. The API server splits on the first
-backslash into separate domain and username fields. When using the URL form (<code>HTTPS_PROXY</code>), percent-encode the
-backslash as <code>%5C</code>:</p>
-<div class="highlight"><pre><span></span><code>HTTPS_PROXY=http://CORP%5Cdt-service:s3cret@proxy.example.com:8080
-</code></pre></div>
+<p>Set <code>dt.http.proxy.auth.username</code> and <code>dt.http.proxy.auth.password</code>. Keep the password out of plain text via
+<a href="../../../reference/configuration/application/#loading-values-from-files">Loading values from files</a>.</p>
+<p>Some legacy Microsoft proxies accept domain-qualified <code>Basic</code> credentials. Supply the username as
+<code>domain\username</code> (in <code>HTTPS_PROXY</code> percent-encode the backslash as <code>%5C</code>).
+This is still <code>Basic</code> on the wire, <em>not</em> NTLM.</p>
+<h2 id="ntlm-and-kerberos-proxies">NTLM and Kerberos proxies<a class="headerlink" href="#ntlm-and-kerberos-proxies" title="Permanent link">¶</a></h2>
+<p>Not supported. Run a local bridge such as <a href="https://cntlm.sourceforge.net/">cntlm</a> or <a href="https://github.com/genotrance/px">px</a> that authenticates upstream and exposes a <code>Basic</code>
+(or unauthenticated) listener, then point Dependency-Track at the bridge.</p>
 <h2 id="trusting-an-intercepting-proxys-certificate">Trusting an intercepting proxy's certificate<a class="headerlink" href="#trusting-an-intercepting-proxys-certificate" title="Permanent link">¶</a></h2>
 <p>If the proxy terminates and re-issues TLS connections, the API server must trust the proxy's certificate authority.
 See <a href="../configuring-internal-ca/">Configuring internal <abbr title="Certificate Authority">CA</abbr> trust</a>.</p>
