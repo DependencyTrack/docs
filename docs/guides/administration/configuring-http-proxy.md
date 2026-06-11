@@ -6,10 +6,10 @@ OIDC discovery, deliver webhooks, and reach other integrations. In environments 
 corporate proxy, configure the API server to route those calls through it.
 
 Proxy configuration applies to the API server only. The frontend is a static single-page app served to the
-user's browser; any requests it appears to make actually originate from the browser itself.
+user's browser. Any requests it appears to make actually originate from the browser itself.
 
 !!! note
-    The API server supports only plain HTTP proxies, with optional Basic or NTLM authentication.
+    The API server supports only plain HTTP proxies, with optional `Basic` authentication.
     HTTPS-fronted proxies and SOCKS proxies do not work.
 
 ## Configuration sources
@@ -73,7 +73,7 @@ The matching rules are:
 - An entry matches the request host exactly, or any subdomain of it. For example, `example.com` matches both
   `example.com` and `api.example.com`.
 - If an entry includes a port (`host:port`), the host must match (exact or subdomain) and the port must match exactly.
-- Only `http` and `https` URIs go through the proxy; other schemes always bypass it.
+- Only `http` and `https` URIs go through the proxy. Other schemes always bypass it.
 
 For example, given `dt.http.proxy.exclusions=example.com,localhost:5432`:
 
@@ -83,18 +83,22 @@ For example, given `dt.http.proxy.exclusions=example.com,localhost:5432`:
 
 ## Authenticated proxies
 
-For Basic-authenticated proxies, set `dt.http.proxy.auth.username` and `dt.http.proxy.auth.password`. Avoid placing the password
-in plain text; see [Loading values from files](../../reference/configuration/application.md#loading-values-from-files).
+Set `dt.http.proxy.auth.username` and `dt.http.proxy.auth.password`. Keep the password out of plain text via
+[Loading values from files](../../reference/configuration/application.md#loading-values-from-files).
 
-For NTLM-authenticated proxies, supply the username in `domain\username` form. The API server splits on the first
-backslash into separate domain and username fields. When using the URL form (`HTTPS_PROXY`), percent-encode the
-backslash as `%5C`:
+Some legacy Microsoft proxies accept domain-qualified `Basic` credentials. Supply the username as
+`domain\username` (in `HTTPS_PROXY` percent-encode the backslash as `%5C`).
+This is still `Basic` on the wire, *not* NTLM.
 
-```text
-HTTPS_PROXY=http://CORP%5Cdt-service:s3cret@proxy.example.com:8080
-```
+## NTLM and Kerberos proxies
+
+Not supported. Run a local bridge such as [cntlm] or [px] that authenticates upstream and exposes a `Basic`
+(or unauthenticated) listener, then point Dependency-Track at the bridge.
 
 ## Trusting an intercepting proxy's certificate
 
 If the proxy terminates and re-issues TLS connections, the API server must trust the proxy's certificate authority.
 See [Configuring internal CA trust](configuring-internal-ca.md).
+
+[cntlm]: https://cntlm.sourceforge.net/
+[px]: https://github.com/genotrance/px

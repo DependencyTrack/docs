@@ -38,6 +38,7 @@ JFrog
 JWTs
 Jira
 KEKs
+Kerberos
 Keycloak
 LDAP
 LDAPS
@@ -130,6 +131,7 @@ Webex
 [Nn]amespaces
 [Nn]amespacing
 [Oo]utbox
+[Cc]leartext
 [Pp]laintext
 [Pp]luggable
 [Pp]oolers?
@@ -163,11 +165,13 @@ Webex
 apiserver
 autovacuum
 crypto
+cntlm
 cutover
 eDirectory
 keysets?
 keytool
 npm
+px
 sAMAccountName
 timestamptz
 truststore
