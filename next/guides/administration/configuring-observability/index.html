@@ -1391,6 +1391,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#changing-the-logging-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changing the logging configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2281,6 +2292,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#changing-the-logging-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changing the logging configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2480,6 +2502,20 @@ To troubleshoot a specific area, raise the log level for the relevant logger:</p
 </code></pre></div>
 <p>Refer to the <a href="../../../reference/configuration/application/#environment-variable-mapping">environment variable mapping</a> documentation
 for how to express these properties as environment variables.</p>
+<h2 id="changing-the-logging-configuration">Changing the logging configuration<a class="headerlink" href="#changing-the-logging-configuration" title="Permanent link">¶</a></h2>
+<p>Dependency-Track uses <a href="https://logback.qos.ch/manual/configuration.html">Logback</a> for logging. The default configuration writes logs to stdout in a
+human-readable text format.</p>
+<p>The container images also ship a JSON-formatted configuration at <code>logback-json.xml</code>, located in the
+app's working directory. JSON output is typically the better choice when shipping logs to a
+centralized log management system such as Splunk, Elasticsearch, or Loki. Activate it by pointing
+Logback at that file:</p>
+<div class="highlight"><pre><span></span><code><span class="na">EXTRA_JAVA_OPTIONS</span><span class="o">=</span><span class="s">"-Dlogback.configurationFile=logback-json.xml"</span>
+</code></pre></div>
+<p>Set the flag via <code>EXTRA_JAVA_OPTIONS</code> so the container appends it to the <abbr title="Java Virtual Machine">JVM</abbr> command line. See the
+<a href="../../../reference/configuration/application/#jvm-options"><abbr title="Java Virtual Machine">JVM</abbr> options reference</a> for details.</p>
+<p>To use a fully custom configuration, mount your own file into the container and reference it the same
+way, with either a relative path (resolved against the working directory) or an absolute path. The
+<a href="https://logback.qos.ch/manual/configuration.html">Logback configuration manual</a> describes the file format.</p>
 
 
 
