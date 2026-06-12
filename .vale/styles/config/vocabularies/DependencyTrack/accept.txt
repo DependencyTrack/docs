@@ -43,6 +43,7 @@ Keycloak
 LDAP
 LDAPS
 Liquibase
+Logback
 Lucene
 MSSQL
 Mattermost
@@ -73,6 +74,7 @@ SSDs
 Sigstore
 Snyk
 Sonatype
+Splunk
 TTLs
 Timescale
 Tink
@@ -173,6 +175,7 @@ keytool
 npm
 px
 sAMAccountName
+stdout
 timestamptz
 truststore
 userinfo

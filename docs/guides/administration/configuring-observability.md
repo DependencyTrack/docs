@@ -108,7 +108,29 @@ dt.logging.level."ROOT"=ERROR
 Refer to the [environment variable mapping](../../reference/configuration/application.md#environment-variable-mapping) documentation
 for how to express these properties as environment variables.
 
+## Changing the logging configuration
+
+Dependency-Track uses [Logback] for logging. The default configuration writes logs to stdout in a
+human-readable text format.
+
+The container images also ship a JSON-formatted configuration at `logback-json.xml`, located in the
+app's working directory. JSON output is typically the better choice when shipping logs to a
+centralized log management system such as Splunk, Elasticsearch, or Loki. Activate it by pointing
+Logback at that file:
+
+```ini
+EXTRA_JAVA_OPTIONS="-Dlogback.configurationFile=logback-json.xml"
+```
+
+Set the flag via `EXTRA_JAVA_OPTIONS` so the container appends it to the JVM command line. See the
+[JVM options reference](../../reference/configuration/application.md#jvm-options) for details.
+
+To use a fully custom configuration, mount your own file into the container and reference it the same
+way, with either a relative path (resolved against the working directory) or an absolute path. The
+[Logback configuration manual][Logback] describes the file format.
+
+[Logback]: https://logback.qos.ch/manual/configuration.html
 [MicroProfile Health]: https://download.eclipse.org/microprofile/microprofile-health-4.0.1/microprofile-health-spec-4.0.1.html
-[probe types]: https://kubernetes.io/docs/concepts/configuration/liveness-readiness-startup-probes/
 [Prometheus text exposition format]: https://prometheus.io/docs/instrumenting/exposition_formats/#text-based-format
 [dashboards]: https://github.com/DependencyTrack/dependency-track/tree/main/dev/monitoring/grafana/dashboards
+[probe types]: https://kubernetes.io/docs/concepts/configuration/liveness-readiness-startup-probes/
