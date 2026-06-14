@@ -6069,7 +6069,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Repository"
+                  $ref: "#/components/schemas/RepositoryResponse"
           description: A list of all repositories
           headers:
             X-Total-Count:
@@ -6093,13 +6093,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Repository"
+              $ref: "#/components/schemas/UpdateRepositoryRequest"
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Repository"
+                $ref: "#/components/schemas/RepositoryResponse"
           description: The updated repository
         "401":
           description: Unauthorized
@@ -6119,13 +6119,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Repository"
+              $ref: "#/components/schemas/CreateRepositoryRequest"
       responses:
         "201":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Repository"
+                $ref: "#/components/schemas/RepositoryResponse"
           description: The created repository
         "401":
           description: Unauthorized
@@ -6244,7 +6244,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Repository"
+                  $ref: "#/components/schemas/RepositoryResponse"
           description: A list of repositories that support the provided type
           headers:
             X-Total-Count:
@@ -10458,6 +10458,56 @@ components:
       - groupName
       - propertyName
       - propertyType
+    CreateRepositoryRequest:
+      type: object
+      properties:
+        authenticationRequired:
+          type: boolean
+          description: Whether the repository requires authentication
+        enabled:
+          type: boolean
+          description: Whether the repository is enabled
+        identifier:
+          type: string
+          description: Unique identifier of the repository within its type
+          minLength: 1
+        internal:
+          type: boolean
+          description: Whether the repository is internal to the organization
+        password:
+          type: string
+          description: Name of the secret holding the password or token
+        type:
+          type: string
+          description: Type of the repository
+          enum:
+          - MAVEN
+          - NPM
+          - GEM
+          - PYPI
+          - NUGET
+          - HEX
+          - COMPOSER
+          - CARGO
+          - GO_MODULES
+          - CPAN
+          - GITHUB
+          - HACKAGE
+          - NIXPKGS
+          - UNSUPPORTED
+        url:
+          type: string
+          description: URL of the repository
+          minLength: 1
+        username:
+          type: string
+          description: Username to authenticate with
+      required:
+      - authenticationRequired
+      - enabled
+      - identifier
+      - type
+      - url
     CreateScheduledNotificationRuleRequest:
       type: object
       properties:
@@ -12012,57 +12062,6 @@ components:
           format: uuid
       required:
       - uuid
-    Repository:
-      type: object
-      properties:
-        authenticationRequired:
-          type: boolean
-        enabled:
-          type: boolean
-        identifier:
-          type: string
-          minLength: 1
-        internal:
-          type: boolean
-        password:
-          type: string
-        resolutionOrder:
-          type: integer
-          format: int32
-        type:
-          type: string
-          enum:
-          - MAVEN
-          - NPM
-          - GEM
-          - PYPI
-          - NUGET
-          - HEX
-          - COMPOSER
-          - CARGO
-          - GO_MODULES
-          - CPAN
-          - GITHUB
-          - HACKAGE
-          - NIXPKGS
-          - UNSUPPORTED
-        url:
-          type: string
-          minLength: 1
-        username:
-          type: string
-        uuid:
-          type: string
-          format: uuid
-      required:
-      - authenticationRequired
-      - enabled
-      - identifier
-      - internal
-      - resolutionOrder
-      - type
-      - url
-      - uuid
     RepositoryMetaComponent:
       type: object
       properties:
@@ -12097,6 +12096,64 @@ components:
           - HACKAGE
           - NIXPKGS
           - UNSUPPORTED
+    RepositoryResponse:
+      type: object
+      properties:
+        authenticationRequired:
+          type: boolean
+          description: Whether the repository requires authentication
+        enabled:
+          type: boolean
+          description: Whether the repository is enabled
+        identifier:
+          type: string
+          description: Unique identifier of the repository within its type
+        internal:
+          type: boolean
+          description: Whether the repository is internal to the organization
+        password:
+          type: string
+          description: Name of the secret holding the password or token
+        resolutionOrder:
+          type: integer
+          format: int32
+          description: Order in which the repository is queried during version resolution
+        type:
+          type: string
+          description: Type of the repository
+          enum:
+          - MAVEN
+          - NPM
+          - GEM
+          - PYPI
+          - NUGET
+          - HEX
+          - COMPOSER
+          - CARGO
+          - GO_MODULES
+          - CPAN
+          - GITHUB
+          - HACKAGE
+          - NIXPKGS
+          - UNSUPPORTED
+        url:
+          type: string
+          description: URL of the repository
+        username:
+          type: string
+          description: Username to authenticate with
+        uuid:
+          type: string
+          format: uuid
+          description: UUID of the repository
+      required:
+      - authenticationRequired
+      - enabled
+      - identifier
+      - resolutionOrder
+      - type
+      - url
+      - uuid
     Score:
       type: object
       properties:
@@ -12690,6 +12747,37 @@ components:
       required:
       - groupName
       - propertyName
+    UpdateRepositoryRequest:
+      type: object
+      properties:
+        authenticationRequired:
+          type: boolean
+          description: Whether the repository requires authentication
+        enabled:
+          type: boolean
+          description: Whether the repository is enabled
+        internal:
+          type: boolean
+          description: Whether the repository is internal to the organization
+        password:
+          type: string
+          description: Name of the secret holding the password or token
+        url:
+          type: string
+          description: URL of the repository
+          minLength: 1
+        username:
+          type: string
+          description: Username to authenticate with
+        uuid:
+          type: string
+          format: uuid
+          description: UUID of the repository to update
+      required:
+      - authenticationRequired
+      - enabled
+      - url
+      - uuid
     User:
       type: object
       properties:
