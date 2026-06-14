@@ -1386,7 +1386,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/ComponentProperty"
+                  $ref: "#/components/schemas/ComponentPropertyResponse"
           description: A list of all properties for the specified component
         "401":
           description: Unauthorized
@@ -1420,13 +1420,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/ComponentProperty"
+              $ref: "#/components/schemas/CreateComponentPropertyRequest"
       responses:
         "201":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ComponentProperty"
+                $ref: "#/components/schemas/ComponentPropertyResponse"
           description: The created component
         "401":
           description: Unauthorized
@@ -5879,7 +5879,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/ProjectProperty"
+              $ref: "#/components/schemas/DeleteProjectPropertyRequest"
       responses:
         "204":
           description: Project property removed successfully
@@ -5918,7 +5918,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/ProjectProperty"
+                  $ref: "#/components/schemas/ProjectPropertyResponse"
           description: A list of all ProjectProperties for the specified project
         "401":
           description: Unauthorized
@@ -5952,13 +5952,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/ProjectProperty"
+              $ref: "#/components/schemas/UpdateProjectPropertyRequest"
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ProjectProperty"
+                $ref: "#/components/schemas/ProjectPropertyResponse"
           description: The updated project property
         "401":
           description: Unauthorized
@@ -5992,13 +5992,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/ProjectProperty"
+              $ref: "#/components/schemas/CreateProjectPropertyRequest"
       responses:
         "201":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ProjectProperty"
+                $ref: "#/components/schemas/ProjectPropertyResponse"
           description: The created project property
         "401":
           description: Unauthorized
@@ -10040,6 +10040,40 @@ components:
       - propertyName
       - propertyType
       - uuid
+    ComponentPropertyResponse:
+      type: object
+      properties:
+        description:
+          type: string
+          description: Description of the property
+        groupName:
+          type: string
+          description: Group the property belongs to
+        propertyName:
+          type: string
+          description: Name of the property
+        propertyType:
+          type: string
+          description: Type of the property
+          enum:
+          - BOOLEAN
+          - INTEGER
+          - NUMBER
+          - STRING
+          - TIMESTAMP
+          - URL
+          - UUID
+        propertyValue:
+          type: string
+          description: Value of the property
+        uuid:
+          type: string
+          format: uuid
+          description: UUID of the property
+      required:
+      - propertyName
+      - propertyType
+      - uuid
     ConciseProject:
       type: object
       description: A concise representation of a project
@@ -10233,6 +10267,47 @@ components:
       - groupName
       - propertyName
       - propertyType
+    CreateComponentPropertyRequest:
+      type: object
+      properties:
+        description:
+          type: string
+          description: Description of the property
+          maxLength: 255
+          minLength: 0
+          pattern: "\\P{Cc}+"
+        groupName:
+          type: string
+          description: Group the property belongs to
+          maxLength: 255
+          minLength: 1
+          pattern: "\\P{Cc}+"
+        propertyName:
+          type: string
+          description: Name of the property
+          maxLength: 255
+          minLength: 1
+          pattern: "\\P{Cc}+"
+        propertyType:
+          type: string
+          description: Type of the property
+          enum:
+          - BOOLEAN
+          - INTEGER
+          - NUMBER
+          - STRING
+          - TIMESTAMP
+          - URL
+          - UUID
+        propertyValue:
+          type: string
+          description: Value of the property
+          maxLength: 1024
+          minLength: 0
+          pattern: "\\P{Cc}+"
+      required:
+      - propertyName
+      - propertyType
     CreateNotificationPublisherRequest:
       type: object
       properties:
@@ -10330,6 +10405,48 @@ components:
       - operator
       - subject
       - value
+    CreateProjectPropertyRequest:
+      type: object
+      properties:
+        description:
+          type: string
+          description: Description of the property
+          maxLength: 255
+          minLength: 0
+          pattern: "\\P{Cc}+"
+        groupName:
+          type: string
+          description: Group the property belongs to
+          maxLength: 255
+          minLength: 1
+          pattern: "\\P{Cc}+"
+        propertyName:
+          type: string
+          description: Name of the property
+          maxLength: 255
+          minLength: 1
+          pattern: "\\P{Cc}+"
+        propertyType:
+          type: string
+          description: Type of the property
+          enum:
+          - BOOLEAN
+          - INTEGER
+          - NUMBER
+          - STRING
+          - TIMESTAMP
+          - URL
+          - UUID
+        propertyValue:
+          type: string
+          description: Value of the property
+          maxLength: 1024
+          minLength: 0
+          pattern: "\\P{Cc}+"
+      required:
+      - groupName
+      - propertyName
+      - propertyType
     CreateScheduledNotificationRuleRequest:
       type: object
       properties:
@@ -10398,6 +10515,24 @@ components:
           - UNKNOWN
         name:
           type: string
+    DeleteProjectPropertyRequest:
+      type: object
+      properties:
+        groupName:
+          type: string
+          description: Group the property belongs to
+          maxLength: 255
+          minLength: 1
+          pattern: "\\P{Cc}+"
+        propertyName:
+          type: string
+          description: Name of the property
+          maxLength: 255
+          minLength: 1
+          pattern: "\\P{Cc}+"
+      required:
+      - groupName
+      - propertyName
     DependencyGraphResponse:
       type: object
       properties:
@@ -11761,26 +11896,21 @@ components:
       required:
       - firstOccurrence
       - lastOccurrence
-    ProjectProperty:
+    ProjectPropertyResponse:
       type: object
       properties:
         description:
           type: string
-          maxLength: 255
-          minLength: 0
-          pattern: "[\\P{Cc}]+"
+          description: Description of the property
         groupName:
           type: string
-          maxLength: 255
-          minLength: 1
-          pattern: "[\\P{Cc}]+"
+          description: Group the property belongs to
         propertyName:
           type: string
-          maxLength: 255
-          minLength: 1
-          pattern: "[\\P{Cc}]+"
+          description: Name of the property
         propertyType:
           type: string
+          description: Type of the property
           enum:
           - BOOLEAN
           - INTEGER
@@ -11791,9 +11921,7 @@ components:
           - UUID
         propertyValue:
           type: string
-          maxLength: 1024
-          minLength: 0
-          pattern: "[\\P{Cc}]+"
+          description: Value of the property
       required:
       - groupName
       - propertyName
@@ -12456,6 +12584,30 @@ components:
       - subject
       - uuid
       - value
+    UpdateProjectPropertyRequest:
+      type: object
+      properties:
+        groupName:
+          type: string
+          description: Group the property belongs to
+          maxLength: 255
+          minLength: 1
+          pattern: "\\P{Cc}+"
+        propertyName:
+          type: string
+          description: Name of the property
+          maxLength: 255
+          minLength: 1
+          pattern: "\\P{Cc}+"
+        propertyValue:
+          type: string
+          description: Value of the property
+          maxLength: 1024
+          minLength: 0
+          pattern: "\\P{Cc}+"
+      required:
+      - groupName
+      - propertyName
     User:
       type: object
       properties:
