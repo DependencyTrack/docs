@@ -1498,7 +1498,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/ConfigProperty"
+                  $ref: "#/components/schemas/ConfigPropertyResponse"
           description: A list of all ConfigProperties for the specified groupName
         "401":
           description: Unauthorized
@@ -1511,18 +1511,18 @@ paths:
     post:
       description: <p>Requires permission <strong>SYSTEM_CONFIGURATION</strong> or
         <strong>SYSTEM_CONFIGURATION_UPDATE</strong></p>
-      operationId: updateConfigProperty
+      operationId: updateConfigProperty_1
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/ConfigProperty"
+              $ref: "#/components/schemas/UpdateConfigPropertyRequest"
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ConfigProperty"
+                $ref: "#/components/schemas/ConfigPropertyResponse"
           description: The updated config property
         "401":
           description: Unauthorized
@@ -1538,14 +1538,14 @@ paths:
     post:
       description: <p>Requires permission <strong>SYSTEM_CONFIGURATION</strong> or
         <strong>SYSTEM_CONFIGURATION_UPDATE</strong></p>
-      operationId: updateConfigProperty_1
+      operationId: updateConfigProperty
       requestBody:
         content:
           application/json:
             schema:
               type: array
               items:
-                $ref: "#/components/schemas/ConfigProperty"
+                $ref: "#/components/schemas/UpdateConfigPropertyRequest"
       responses:
         "200":
           content:
@@ -1553,12 +1553,16 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/ConfigProperty"
-          description: The updated config properties
+                  type: string
+                  anyOf:
+                  - $ref: "#/components/schemas/ConfigPropertyResponse"
+                  - type: string
+          description: "The updated config properties. Each array element is either\
+            \ a successfully updated `ConfigPropertyResponse`, or an error message\
+            \ string if the entry's property could not be found, is read-only, or\
+            \ its requested value is invalid."
         "401":
           description: Unauthorized
-        "404":
-          description: One or more config properties could not be found
       security:
       - ApiKeyAuth: []
       - BearerAuth: []
@@ -1587,10 +1591,12 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ConfigProperty"
+                $ref: "#/components/schemas/ConfigPropertyResponse"
           description: Public ConfigProperty returned
         "403":
           description: This is not a public visible ConfigProperty
+        "404":
+          description: The config property could not be found
       security:
       - ApiKeyAuth: []
       - BearerAuth: []
@@ -10265,26 +10271,21 @@ components:
       - policyViolationsWarn
       - unassigned
       - vulnerabilities
-    ConfigProperty:
+    ConfigPropertyResponse:
       type: object
       properties:
         description:
           type: string
-          maxLength: 255
-          minLength: 0
-          pattern: "[\\P{Cc}]+"
+          description: Description of the property
         groupName:
           type: string
-          maxLength: 255
-          minLength: 1
-          pattern: "[\\P{Cc}]+"
+          description: Group the property belongs to
         propertyName:
           type: string
-          maxLength: 255
-          minLength: 1
-          pattern: "[\\P{Cc}]+"
+          description: Name of the property
         propertyType:
           type: string
+          description: Type of the property
           enum:
           - BOOLEAN
           - INTEGER
@@ -10295,7 +10296,7 @@ components:
           - UUID
         propertyValue:
           type: string
-          pattern: "[\\P{Cc}]+"
+          description: Value of the property
       required:
       - groupName
       - propertyName
@@ -12688,6 +12689,28 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/ServiceComponent"
+    UpdateConfigPropertyRequest:
+      type: object
+      properties:
+        groupName:
+          type: string
+          description: Group the property belongs to
+          maxLength: 255
+          minLength: 1
+          pattern: "\\P{Cc}+"
+        propertyName:
+          type: string
+          description: Name of the property
+          maxLength: 255
+          minLength: 1
+          pattern: "\\P{Cc}+"
+        propertyValue:
+          type: string
+          description: Value of the property
+          pattern: "\\P{Cc}+"
+      required:
+      - groupName
+      - propertyName
     UpdateLicenseGroupRequest:
       type: object
       properties:
