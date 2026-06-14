@@ -2668,7 +2668,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/LicenseGroup"
+                  $ref: "#/components/schemas/LicenseGroupResponse"
           description: A list of all license groups
           headers:
             X-Total-Count:
@@ -2691,13 +2691,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/LicenseGroup"
+              $ref: "#/components/schemas/UpdateLicenseGroupRequest"
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/LicenseGroup"
+                $ref: "#/components/schemas/LicenseGroupResponse"
           description: The updated license group
         "401":
           description: Unauthorized
@@ -2716,13 +2716,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/LicenseGroup"
+              $ref: "#/components/schemas/CreateLicenseGroupRequest"
       responses:
         "201":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/LicenseGroup"
+                $ref: "#/components/schemas/LicenseGroupResponse"
           description: The created license group
         "401":
           description: Unauthorized
@@ -2775,7 +2775,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/LicenseGroup"
+                $ref: "#/components/schemas/LicenseGroupResponse"
           description: A specific license group
         "401":
           description: Unauthorized
@@ -2811,7 +2811,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/LicenseGroup"
+                $ref: "#/components/schemas/LicenseGroupResponse"
           description: The updated license group
         "304":
           description: The license is not a member with the license group
@@ -2848,7 +2848,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/LicenseGroup"
+                $ref: "#/components/schemas/LicenseGroupResponse"
           description: The updated license group
         "304":
           description: The license group already has the specified license assigned
@@ -3310,7 +3310,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/NotificationPublisher"
+                  $ref: "#/components/schemas/NotificationPublisherResponse"
           description: A list of all notification publishers
         "401":
           description: Unauthorized
@@ -3334,7 +3334,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NotificationPublisher"
+                $ref: "#/components/schemas/NotificationPublisherResponse"
           description: The updated notification publisher
         "400":
           description: Invalid notification class or trying to modify a default publisher
@@ -3364,7 +3364,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NotificationPublisher"
+                $ref: "#/components/schemas/NotificationPublisherResponse"
           description: The created notification publisher
         "400":
           description: Invalid notification class or trying to modify a default publisher
@@ -10308,6 +10308,17 @@ components:
       required:
       - propertyName
       - propertyType
+    CreateLicenseGroupRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the license group
+          maxLength: 255
+          minLength: 1
+          pattern: "^[\\p{IsWhite_Space}\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]*$"
+      required:
+      - name
     CreateNotificationPublisherRequest:
       type: object
       properties:
@@ -10870,6 +10881,30 @@ components:
       required:
       - name
       - uuid
+    LicenseGroupResponse:
+      type: object
+      properties:
+        licenses:
+          type: array
+          description: Licenses belonging to the license group
+          items:
+            $ref: "#/components/schemas/License"
+        name:
+          type: string
+          description: Name of the license group
+        riskWeight:
+          type: integer
+          format: int32
+          description: Risk weight assigned to violations of this group
+        uuid:
+          type: string
+          format: uuid
+          description: UUID of the license group
+      required:
+      - licenses
+      - name
+      - riskWeight
+      - uuid
     ListProjectsResponseItem:
       type: object
       properties:
@@ -11088,6 +11123,37 @@ components:
           type: string
           format: uuid
       required:
+      - extensionName
+      - name
+      - templateMimeType
+      - uuid
+    NotificationPublisherResponse:
+      type: object
+      properties:
+        defaultPublisher:
+          type: boolean
+          description: Whether the publisher is one of the built-in defaults
+        description:
+          type: string
+          description: Description of the notification publisher
+        extensionName:
+          type: string
+          description: Name of the publisher extension that handles delivery
+        name:
+          type: string
+          description: Name of the notification publisher
+        template:
+          type: string
+          description: Template used to render the notification payload
+        templateMimeType:
+          type: string
+          description: MIME type of the rendered template
+        uuid:
+          type: string
+          format: uuid
+          description: UUID of the notification publisher
+      required:
+      - defaultPublisher
       - extensionName
       - name
       - templateMimeType
@@ -12428,6 +12494,22 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/ServiceComponent"
+    UpdateLicenseGroupRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          description: New name of the license group
+          maxLength: 255
+          minLength: 1
+          pattern: "^[\\p{IsWhite_Space}\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]*$"
+        uuid:
+          type: string
+          format: uuid
+          description: UUID of the license group to update
+      required:
+      - name
+      - uuid
     UpdateNotificationPublisherRequest:
       type: object
       properties:
