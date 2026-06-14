@@ -2,7 +2,7 @@ name: Dependency-Track
 
 services:
   apiserver:
-    image: ghcr.io/dependencytrack/apiserver:5.0.0
+    image: ghcr.io/dependencytrack/apiserver:5.0.1
     depends_on:
       postgres:
         condition: service_healthy
@@ -21,7 +21,7 @@ services:
     restart: unless-stopped
 
   frontend:
-    image: ghcr.io/dependencytrack/frontend:5.0.0
+    image: ghcr.io/dependencytrack/frontend:5.0.1
     environment:
       API_BASE_URL: "http://localhost:8080"
     ports:
