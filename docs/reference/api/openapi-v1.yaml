@@ -4417,19 +4417,23 @@ paths:
       - policy
   /v1/policy/condition:
     post:
-      description: <p>Requires permission <strong>POLICY_MANAGEMENT</strong> or <strong>POLICY_MANAGEMENT_UPDATE</strong></p>
+      description: |
+        <p>
+          Requires permission <strong>POLICY_MANAGEMENT</strong>
+          or <strong>POLICY_MANAGEMENT_UPDATE</strong>
+        </p>
       operationId: updatePolicyCondition
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/PolicyCondition"
+              $ref: "#/components/schemas/UpdatePolicyConditionRequest"
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/PolicyCondition"
+                $ref: "#/components/schemas/PolicyConditionResponse"
           description: The updated policy condition
         "401":
           description: Unauthorized
@@ -4443,7 +4447,11 @@ paths:
       - policyCondition
   /v1/policy/condition/{uuid}:
     delete:
-      description: <p>Requires permission <strong>POLICY_MANAGEMENT</strong> or <strong>POLICY_MANAGEMENT_UPDATE</strong></p>
+      description: |
+        <p>
+          Requires permission <strong>POLICY_MANAGEMENT</strong>
+          or <strong>POLICY_MANAGEMENT_UPDATE</strong>
+        </p>
       operationId: deletePolicyCondition
       parameters:
       - description: The UUID of the policy condition to delete
@@ -4608,7 +4616,11 @@ paths:
       - policy
   /v1/policy/{uuid}/condition:
     put:
-      description: <p>Requires permission <strong>POLICY_MANAGEMENT</strong> or <strong>POLICY_MANAGEMENT_UPDATE</strong></p>
+      description: |
+        <p>
+          Requires permission <strong>POLICY_MANAGEMENT</strong>
+          or <strong>POLICY_MANAGEMENT_UPDATE</strong>
+        </p>
       operationId: createPolicyCondition
       parameters:
       - description: The UUID of the policy
@@ -4622,13 +4634,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/PolicyCondition"
+              $ref: "#/components/schemas/CreatePolicyConditionRequest"
       responses:
         "201":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/PolicyCondition"
+                $ref: "#/components/schemas/PolicyConditionResponse"
           description: The created policy condition
         "401":
           description: Unauthorized
@@ -10263,6 +10275,61 @@ components:
       - name
       - publisher
       - scope
+    CreatePolicyConditionRequest:
+      type: object
+      properties:
+        operator:
+          type: string
+          description: Operator used to compare the subject to the value
+          enum:
+          - IS
+          - IS_NOT
+          - MATCHES
+          - NO_MATCH
+          - NUMERIC_GREATER_THAN
+          - NUMERIC_LESS_THAN
+          - NUMERIC_EQUAL
+          - NUMERIC_NOT_EQUAL
+          - NUMERIC_GREATER_THAN_OR_EQUAL
+          - NUMERIC_LESSER_THAN_OR_EQUAL
+          - CONTAINS_ALL
+          - CONTAINS_ANY
+        subject:
+          type: string
+          description: Subject the condition evaluates
+          enum:
+          - AGE
+          - COORDINATES
+          - CPE
+          - EXPRESSION
+          - LICENSE
+          - LICENSE_GROUP
+          - PACKAGE_URL
+          - SEVERITY
+          - SWID_TAGID
+          - VERSION
+          - COMPONENT_HASH
+          - IS_INTERNAL
+          - CWE
+          - VULNERABILITY_ID
+          - VERSION_DISTANCE
+          - EPSS
+        value:
+          type: string
+          description: Value the subject is compared to
+          minLength: 1
+        violationType:
+          type: string
+          description: Violation type produced when the condition matches. Required
+            for `EXPRESSION` subjects
+          enum:
+          - LICENSE
+          - SECURITY
+          - OPERATIONAL
+      required:
+      - operator
+      - subject
+      - value
     CreateScheduledNotificationRuleRequest:
       type: object
       properties:
@@ -11210,6 +11277,64 @@ components:
           maxLength: 255
           minLength: 1
           pattern: "^[\\p{IsWhite_Space}\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]*$"
+      required:
+      - operator
+      - subject
+      - uuid
+      - value
+    PolicyConditionResponse:
+      type: object
+      properties:
+        operator:
+          type: string
+          description: Operator used to compare the subject to the value
+          enum:
+          - IS
+          - IS_NOT
+          - MATCHES
+          - NO_MATCH
+          - NUMERIC_GREATER_THAN
+          - NUMERIC_LESS_THAN
+          - NUMERIC_EQUAL
+          - NUMERIC_NOT_EQUAL
+          - NUMERIC_GREATER_THAN_OR_EQUAL
+          - NUMERIC_LESSER_THAN_OR_EQUAL
+          - CONTAINS_ALL
+          - CONTAINS_ANY
+        subject:
+          type: string
+          description: Subject the condition evaluates
+          enum:
+          - AGE
+          - COORDINATES
+          - CPE
+          - EXPRESSION
+          - LICENSE
+          - LICENSE_GROUP
+          - PACKAGE_URL
+          - SEVERITY
+          - SWID_TAGID
+          - VERSION
+          - COMPONENT_HASH
+          - IS_INTERNAL
+          - CWE
+          - VULNERABILITY_ID
+          - VERSION_DISTANCE
+          - EPSS
+        uuid:
+          type: string
+          format: uuid
+          description: UUID of the policy condition
+        value:
+          type: string
+          description: Value the subject is compared to
+        violationType:
+          type: string
+          description: Violation type produced when the condition matches
+          enum:
+          - LICENSE
+          - SECURITY
+          - OPERATIONAL
       required:
       - operator
       - subject
@@ -12271,6 +12396,66 @@ components:
       - name
       - scope
       - uuid
+    UpdatePolicyConditionRequest:
+      type: object
+      properties:
+        operator:
+          type: string
+          description: Operator used to compare the subject to the value
+          enum:
+          - IS
+          - IS_NOT
+          - MATCHES
+          - NO_MATCH
+          - NUMERIC_GREATER_THAN
+          - NUMERIC_LESS_THAN
+          - NUMERIC_EQUAL
+          - NUMERIC_NOT_EQUAL
+          - NUMERIC_GREATER_THAN_OR_EQUAL
+          - NUMERIC_LESSER_THAN_OR_EQUAL
+          - CONTAINS_ALL
+          - CONTAINS_ANY
+        subject:
+          type: string
+          description: Subject the condition evaluates
+          enum:
+          - AGE
+          - COORDINATES
+          - CPE
+          - EXPRESSION
+          - LICENSE
+          - LICENSE_GROUP
+          - PACKAGE_URL
+          - SEVERITY
+          - SWID_TAGID
+          - VERSION
+          - COMPONENT_HASH
+          - IS_INTERNAL
+          - CWE
+          - VULNERABILITY_ID
+          - VERSION_DISTANCE
+          - EPSS
+        uuid:
+          type: string
+          format: uuid
+          description: UUID of the policy condition to update
+        value:
+          type: string
+          description: Value the subject is compared to
+          minLength: 1
+        violationType:
+          type: string
+          description: Violation type produced when the condition matches. Required
+            for `EXPRESSION` subjects
+          enum:
+          - LICENSE
+          - SECURITY
+          - OPERATIONAL
+      required:
+      - operator
+      - subject
+      - uuid
+      - value
     User:
       type: object
       properties:
