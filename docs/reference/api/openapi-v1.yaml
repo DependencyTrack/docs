@@ -2498,7 +2498,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/License"
+                  $ref: "#/components/schemas/LicenseResponse"
           description: A list of all licenses with complete metadata for each license
           headers:
             X-Total-Count:
@@ -2522,13 +2522,13 @@ paths:
         content:
           '*/*':
             schema:
-              $ref: "#/components/schemas/License"
+              $ref: "#/components/schemas/CreateLicenseRequest"
       responses:
         "201":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/License"
+                $ref: "#/components/schemas/LicenseResponse"
           description: The created license
         "401":
           description: Unauthorized
@@ -2550,7 +2550,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/License"
+                  $ref: "#/components/schemas/ConciseLicenseResponse"
           description: A concise listing of all licenses
           headers:
             X-Total-Count:
@@ -2607,7 +2607,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/License"
+                $ref: "#/components/schemas/LicenseResponse"
           description: A specific license
         "401":
           description: Unauthorized
@@ -10074,6 +10074,39 @@ components:
       - propertyName
       - propertyType
       - uuid
+    ConciseLicenseResponse:
+      type: object
+      properties:
+        isCustomLicense:
+          type: boolean
+          description: Whether the license is a custom license created by a user
+        isDeprecatedLicenseId:
+          type: boolean
+          description: Whether the licenseId has been deprecated by SPDX
+        isFsfLibre:
+          type: boolean
+          description: Whether the license is FSF libre
+        isOsiApproved:
+          type: boolean
+          description: Whether the license is approved by the OSI
+        licenseId:
+          type: string
+          description: Identifier of the license
+        name:
+          type: string
+          description: Display name of the license
+        uuid:
+          type: string
+          format: uuid
+          description: UUID of the license
+      required:
+      - isCustomLicense
+      - isDeprecatedLicenseId
+      - isFsfLibre
+      - isOsiApproved
+      - licenseId
+      - name
+      - uuid
     ConciseProject:
       type: object
       description: A concise representation of a project
@@ -10318,6 +10351,52 @@ components:
           minLength: 1
           pattern: "^[\\p{IsWhite_Space}\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]*$"
       required:
+      - name
+    CreateLicenseRequest:
+      type: object
+      properties:
+        isDeprecatedLicenseId:
+          type: boolean
+          description: Whether the licenseId has been deprecated by SPDX
+        isFsfLibre:
+          type: boolean
+          description: Whether the license is FSF libre
+        isOsiApproved:
+          type: boolean
+          description: Whether the license is approved by the OSI
+        licenseComments:
+          type: string
+          description: Comments about the license
+        licenseId:
+          type: string
+          description: Identifier of the license
+          maxLength: 255
+          minLength: 1
+          pattern: "^[a-zA-Z0-9_.\\-+]*$"
+        licenseText:
+          type: string
+          description: Full license text
+        name:
+          type: string
+          description: Display name of the license
+          maxLength: 255
+          minLength: 1
+          pattern: "^[\\p{IsWhite_Space}\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]*$"
+        seeAlso:
+          type: array
+          description: Additional URLs with information about the license
+          items:
+            type: string
+            description: Additional URLs with information about the license
+        standardLicenseHeader:
+          type: string
+          description: Standard license header typically added to the top of source
+            code
+        standardLicenseTemplate:
+          type: string
+          description: Standard license template used to derive the license text
+      required:
+      - licenseId
       - name
     CreateNotificationPublisherRequest:
       type: object
@@ -10954,6 +11033,64 @@ components:
       - licenses
       - name
       - riskWeight
+      - uuid
+    LicenseResponse:
+      type: object
+      properties:
+        isCustomLicense:
+          type: boolean
+          description: Whether the license is a custom license created by a user
+        isDeprecatedLicenseId:
+          type: boolean
+          description: Whether the licenseId has been deprecated by SPDX
+        isFsfLibre:
+          type: boolean
+          description: Whether the license is FSF libre
+        isOsiApproved:
+          type: boolean
+          description: Whether the license is approved by the OSI
+        licenseComments:
+          type: string
+          description: Comments about the license
+        licenseGroups:
+          type: array
+          description: License groups the license belongs to
+          items:
+            $ref: "#/components/schemas/LicenseGroup"
+        licenseId:
+          type: string
+          description: Identifier of the license
+        licenseText:
+          type: string
+          description: Full license text
+        name:
+          type: string
+          description: Display name of the license
+        seeAlso:
+          type: array
+          description: Additional URLs with information about the license
+          items:
+            type: string
+            description: Additional URLs with information about the license
+        standardLicenseHeader:
+          type: string
+          description: Standard license header typically added to the top of source
+            code
+        standardLicenseTemplate:
+          type: string
+          description: Standard license template used to derive the license text
+        uuid:
+          type: string
+          format: uuid
+          description: UUID of the license
+      required:
+      - isCustomLicense
+      - isDeprecatedLicenseId
+      - isFsfLibre
+      - isOsiApproved
+      - licenseGroups
+      - licenseId
+      - name
       - uuid
     ListProjectsResponseItem:
       type: object
