@@ -8477,7 +8477,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ViolationAnalysis"
+                $ref: "#/components/schemas/ViolationAnalysisResponse"
           description: A violation analysis trail
         "401":
           description: Unauthorized
@@ -8508,7 +8508,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ViolationAnalysis"
+                $ref: "#/components/schemas/ViolationAnalysisResponse"
           description: The created violation analysis
         "401":
           description: Unauthorized
@@ -9785,6 +9785,23 @@ components:
       required:
       - project
       - version
+    Comment:
+      type: object
+      description: Audit trail of analysis comments
+      properties:
+        comment:
+          type: string
+          description: The comment text
+        commenter:
+          type: string
+          description: Identifier of the user who wrote the comment
+        timestamp:
+          type: integer
+          format: int64
+          description: Timestamp the comment was recorded at
+      required:
+      - comment
+      - timestamp
     Component:
       type: object
       properties:
@@ -10935,10 +10952,6 @@ components:
           maxLength: 255
           minLength: 0
           pattern: "[\\P{Cc}]+"
-        permissions:
-          type: array
-          items:
-            $ref: "#/components/schemas/Permission"
         username:
           type: string
           maxLength: 255
@@ -11224,10 +11237,6 @@ components:
             $ref: "#/components/schemas/Permission"
         suspended:
           type: boolean
-        teams:
-          type: array
-          items:
-            $ref: "#/components/schemas/Team"
         username:
           type: string
           maxLength: 255
@@ -11481,11 +11490,19 @@ components:
           maxLength: 255
           minLength: 0
           pattern: "[\\P{Cc}]+"
+        permissions:
+          type: array
+          items:
+            $ref: "#/components/schemas/Permission"
         subjectIdentifier:
           type: string
           maxLength: 255
           minLength: 1
           pattern: "[\\P{Cc}]+"
+        teams:
+          type: array
+          items:
+            $ref: "#/components/schemas/Team"
         username:
           type: string
           maxLength: 255
@@ -13105,6 +13122,28 @@ components:
       required:
       - component
       - policyViolation
+    ViolationAnalysisResponse:
+      type: object
+      properties:
+        analysisComments:
+          type: array
+          description: Audit trail of analysis comments
+          items:
+            $ref: "#/components/schemas/Comment"
+        analysisState:
+          type: string
+          description: The state of the analysis decision
+          enum:
+          - APPROVED
+          - REJECTED
+          - NOT_SET
+        isSuppressed:
+          type: boolean
+          description: Whether the policy violation is suppressed
+      required:
+      - analysisComments
+      - analysisState
+      - isSuppressed
     VisibleTeams:
       type: object
       properties:
