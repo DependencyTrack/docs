@@ -3176,6 +3176,14 @@ See the <a href="../../upgrading/">per-release upgrade pages</a> instead.</p>
 <a href="../running-v4-and-v5-in-parallel/">Running v4 and v5 in parallel</a>.</p>
 <p>To walk this migration end to end against a sandbox v5 stack before the production cutover, see
 <a href="../../../tutorials/rehearsing-the-v4-migration/">Rehearsing the v4 to v5 migration</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Configuration property and environment variable names changed in v5</p>
+<p>v5 renames many configuration properties and their environment variables, and no
+longer accepts the v4 names. The migrator moves your data, not your deployment
+configuration, so you must rebuild the v5 API server's configuration with the new
+names. See the <a href="../../../reference/configuration/properties/">configuration reference</a>
+for the current property and environment variable names.</p>
+</div>
 <h2 id="how-the-migration-works">How the migration works<a class="headerlink" href="#how-the-migration-works" title="Permanent link">¶</a></h2>
 <p>The <code>v4-migrator</code> command-line tool runs three offline phases (<strong>extract</strong>, <strong>transform</strong>, <strong>load</strong>)
 against the v5 deployment's Postgres target. Rows from the v4 source land first in a dedicated
