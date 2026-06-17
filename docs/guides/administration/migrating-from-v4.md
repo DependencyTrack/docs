@@ -17,6 +17,13 @@ To try v5 against your real workload before committing to the migration, see
 To walk this migration end to end against a sandbox v5 stack before the production cutover, see
 [Rehearsing the v4 to v5 migration](../../tutorials/rehearsing-the-v4-migration.md).
 
+!!! warning "Configuration property and environment variable names changed in v5"
+    v5 renames many configuration properties and their environment variables, and no
+    longer accepts the v4 names. The migrator moves your data, not your deployment
+    configuration, so you must rebuild the v5 API server's configuration with the new
+    names. See the [configuration reference](../../reference/configuration/properties.md)
+    for the current property and environment variable names.
+
 ## How the migration works
 
 The `v4-migrator` command-line tool runs three offline phases (**extract**, **transform**, **load**)
