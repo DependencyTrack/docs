@@ -1285,6 +1285,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#jit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        jit
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2505,6 +2516,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#jit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        jit
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2750,6 +2772,17 @@ The cost of slightly increased CPU utilisation is more than worth it.</p>
 the WAL will fill up fast, and you'll find yourself limited by I/O.
 This is particularly true when using HDDs instead of SSDs or NVME storage.</p>
 <div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">SYSTEM</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="p">(</span><span class="n">WAL_COMPRESSION</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'zstd'</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="jit"><code>jit</code><a class="headerlink" href="#jit" title="Permanent link">¶</a></h3>
+<p>PostgreSQL's just-in-time (JIT) compilation can accelerate long-running, CPU-bound
+analytical queries. It tends to hurt the short, latency-sensitive queries that
+dominate Dependency-Track's workload. When the planner overestimates a query's cost,
+it compiles machine code whose overhead can exceed the time it saves by orders of
+magnitude.</p>
+<p>Dependency-Track already disables JIT for individual queries where it was found to be
+actively harmful. Disabling it globally usually yields more consistent performance.
+This optimization is common enough that PostgreSQL 19 changes the default to <code>off</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">SYSTEM</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">jit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">off</span><span class="p">;</span>
 </code></pre></div>
 <h2 id="centralised-connection-pooling">Centralised connection pooling<a class="headerlink" href="#centralised-connection-pooling" title="Permanent link">¶</a></h2>
 <p>For large deployments (that is, upwards of 5 instances), it can become undesirable for
