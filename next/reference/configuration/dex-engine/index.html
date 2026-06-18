@@ -2490,8 +2490,8 @@
 
 
 <h1 id="durable-execution-engine">Durable Execution Engine<a class="headerlink" href="#durable-execution-engine" title="Permanent link">¶</a></h1>
-<p>The durable execution engine (dex) handles background task scheduling and execution.
-This page documents its worker types, task queues, and default configuration.</p>
+<p>The <a href="../../../concepts/architecture/design/durable-execution/">durable execution engine</a> (dex) handles background task
+scheduling and execution. This page documents its worker types, task queues, and default configuration.</p>
 <p>For tuning guidance, see <a href="../../../guides/administration/scaling/#increase-background-throughput">Scaling</a>.</p>
 <h2 id="workers">Workers<a class="headerlink" href="#workers" title="Permanent link">¶</a></h2>
 <p>Workers poll task queues and execute tasks. Each worker has a configurable
@@ -2533,13 +2533,13 @@ per instance.</p>
 <td><code>activity-worker</code></td>
 <td><code>artifact-import</code></td>
 <td><code>artifact-imports</code></td>
-<td style="text-align: right;">10</td>
+<td style="text-align: right;">5</td>
 </tr>
 <tr>
 <td><code>activity-worker</code></td>
 <td><code>package-metadata-resolution</code></td>
 <td><code>package-metadata-resolutions</code></td>
-<td style="text-align: right;">10</td>
+<td style="text-align: right;">3</td>
 </tr>
 <tr>
 <td><code>activity-worker</code></td>
@@ -2571,8 +2571,22 @@ per instance.</p>
 <p>Task queue capacity limits how many tasks can be pending across the entire cluster.
 When a queue reaches capacity, the scheduler stops creating new tasks for that queue,
 providing backpressure.</p>
+<p>Three related terms describe a queue's load:</p>
+<ul>
+<li><strong>Capacity</strong> is the upper limit on pending tasks for a queue, enforced across the cluster.</li>
+<li><strong>Depth</strong> is the number of tasks currently pending in the queue, from zero to capacity. Each
+  cycle, the scheduler creates up to <code>capacity - depth</code> new tasks, so depth never exceeds capacity.</li>
+<li><strong>Backlog</strong> applies to activity queues only. Workflow execution creates activity tasks directly,
+  independently of the scheduler, so tasks can pile up in the <code>CREATED</code> state faster than the
+  <a href="../../../concepts/architecture/design/durable-execution/#activity-task-scheduler">activity task scheduler</a>
+  moves them into the queue. The backlog is this set of ready-to-schedule tasks that the queue's
+  capacity has not yet admitted. Workflow queues have no backlog, because the scheduler creates
+  their tasks itself and never exceeds capacity.</li>
+</ul>
+<p>The <code>dt_dex_engine_activity_task_queue_backlog</code> metric reports the backlog for scaling decisions. See
+<a href="../../../guides/administration/scaling/#scale-workers-horizontally">Scale workers horizontally</a>.</p>
 <p>Queue capacity is modifiable at runtime in the administrator panel under
-<em>Workflows</em> -&gt; <em>Task Queues</em>, or via <abbr title="Representational State Transfer">REST</abbr> API.</p>
+<em>Workflows</em> &gt; <em>Task Queues</em>, or via <abbr title="Representational State Transfer">REST</abbr> API.</p>
 <table>
 <thead>
 <tr>
