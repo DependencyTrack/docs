@@ -107,6 +107,31 @@ deployments. For context on when and why to apply these, see the
   </tbody>
 </table>
 
+### `jit`
+
+<table>
+  <tbody style="border: 0">
+    <tr>
+      <th style="text-align: right">Default</th>
+      <td style="border-width: 0"><code>on</code></td>
+    </tr>
+    <tr>
+      <th style="text-align: right">Recommendation</th>
+      <td style="border-width: 0"><code>off</code></td>
+    </tr>
+    <tr>
+      <th style="text-align: right">References</th>
+      <td style="border-width: 0">
+        <ul>
+          <li><a href="https://postgresqlco.nf/doc/en/param/jit/">Documentation</a></li>
+          <li><a href="https://www.postgresql.org/docs/current/jit-decision.html">When to JIT? by PostgreSQL</a></li>
+          <li><a href="https://www.postgresql.org/message-id/E1w8GWU-002bSL-31@gemulon.postgresql.org">Default change in PostgreSQL 19</a></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 ## Schema migrations
 
 By default, schema migrations run on startup as an [init task](init-tasks.md), using [Flyway].

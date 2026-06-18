@@ -157,6 +157,22 @@ This is particularly true when using HDDs instead of SSDs or NVME storage.
 ALTER SYSTEM SET (WAL_COMPRESSION = 'zstd');
 ```
 
+### `jit`
+
+PostgreSQL's just-in-time (JIT) compilation can accelerate long-running, CPU-bound
+analytical queries. It tends to hurt the short, latency-sensitive queries that
+dominate Dependency-Track's workload. When the planner overestimates a query's cost,
+it compiles machine code whose overhead can exceed the time it saves by orders of
+magnitude.
+
+Dependency-Track already disables JIT for individual queries where it was found to be
+actively harmful. Disabling it globally usually yields more consistent performance.
+This optimization is common enough that PostgreSQL 19 changes the default to `off`.
+
+```sql
+ALTER SYSTEM SET jit = off;
+```
+
 ## Centralised connection pooling
 
 For large deployments (that is, upwards of 5 instances), it can become undesirable for
