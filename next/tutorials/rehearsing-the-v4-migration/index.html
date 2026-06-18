@@ -1391,7 +1391,7 @@ The migrator runs inside a container and cannot reach the host's <code>localhost
 
 <span class="nt">services</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">apiserver</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/dependencytrack/apiserver:5.0.1</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/dependencytrack/apiserver:5.0.2</span>
 <span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">postgres</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">service_healthy</span>
@@ -1410,7 +1410,7 @@ The migrator runs inside a container and cannot reach the host's <code>localhost
 <span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
 
 <span class="w">  </span><span class="nt">frontend</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/dependencytrack/frontend:5.0.1</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/dependencytrack/frontend:5.0.2</span>
 <span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">API_BASE_URL</span><span class="p">:</span><span class="w"> </span><span class="s">"http://localhost:8080"</span>
 <span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
