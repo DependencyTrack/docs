@@ -423,9 +423,19 @@ Defines the name of the data source to be used by init tasks.
 
 ## Development
 
+<span id="dtdev-servicescontainer-reuseenabled">**`dt.dev-services.container-reuse.enabled`** [¶](#dtdev-servicescontainer-reuseenabled){ .headerlink }</span>
+
+Whether dev services containers shall be reused across restarts.  <br/><br/>  When enabled, containers are kept running when Dependency-Track stops, and  re-attached to on the next start. This preserves PostgreSQL state (schema and data)  across restarts and avoids the cost of re-provisioning on every run.  <br/><br/>  This additionally requires Testcontainers reuse to be opted into on the  developer's machine, either via testcontainers.reuse.enable=true in the  `~/.testcontainers.properties` file, or the `TESTCONTAINERS_REUSE_ENABLE=true`  environment variable. Without it, this option has no effect and containers  are disposed on shutdown as usual.  See <https://java.testcontainers.org/features/reuse/#how-to-use-it>.  
+
+<table>
+<tr><th>Type</th><td style="border-width: 0"><code>boolean</code></td></tr>
+<tr><th>Default</th><td><code>true</code></td></tr>
+<tr><th>ENV</th><td><code>DT_DEV_SERVICES_CONTAINER_REUSE_ENABLED</code></td></tr>
+</table>
+
 <span id="dtdev-servicesenabled">**`dt.dev-services.enabled`** [¶](#dtdev-servicesenabled){ .headerlink }</span>
 
-Whether dev services shall be enabled.  <br/><br/>  When enabled, Dependency-Track will automatically launch containers for:  <ul>  <li>Frontend</li>  <li>PostgreSQL</li>  </ul>  at startup, and configures itself to use them. They are disposed when  Dependency-Track stops. The containers are exposed on randomized ports,  which will be logged during startup.  <br/><br/>  Trying to enable dev services in a production build will prevent  the application from starting.  <br/><br/>  Note that the containers launched by the API server can not currently  be discovered and re-used by other Hyades services. This is a future  enhancement tracked in <https://github.com/DependencyTrack/hyades/issues/1188>.  
+Whether dev services shall be enabled.  <br/><br/>  When enabled, Dependency-Track will automatically launch containers for:  <ul>  <li>Frontend</li>  <li>PostgreSQL</li>  </ul>  at startup, and configures itself to use them. They are disposed when  Dependency-Track stops.  <br/><br/>  The port on which the frontend will be exposed is configurable via  [`dt.dev-services.frontend-port`](#dtdev-servicesfrontend-port). The port of the postgres container  is automatically inferred from dt.datasource.default.url.  <br/><br/>  Trying to enable dev services in a production build will prevent  the application from starting.  
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>boolean</code></td></tr>
