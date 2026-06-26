@@ -5,13 +5,13 @@
       
       
       
-        <link rel="canonical" href="https://dependencytrack.github.io/docs/next/guides/administration/backing-up/">
+        <link rel="canonical" href="https://dependencytrack.github.io/docs/next/guides/administration/configuring-banner/">
       
       
-        <link rel="prev" href="../configuring-project-retention/">
+        <link rel="prev" href="../configuring-timezone/">
       
       
-        <link rel="next" href="../upgrading-instances/">
+        <link rel="next" href="../configuring-vulnerability-sources/">
       
       
         
@@ -22,7 +22,7 @@
     
     
       
-        <title>Backing up and restoring - Dependency-Track</title>
+        <title>Configuring the banner - Dependency-Track</title>
       
     
     
@@ -58,15 +58,15 @@
     
   
 <meta property="og:type" content="website">
-<meta property="og:title" content="Backing up and restoring - Dependency-Track">
-<meta property="og:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/guides/administration/backing-up.png">
+<meta property="og:title" content="Configuring the banner - Dependency-Track">
+<meta property="og:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/guides/administration/configuring-banner.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:url" content="https://dependencytrack.github.io/docs/next/guides/administration/backing-up/">
+<meta property="og:url" content="https://dependencytrack.github.io/docs/next/guides/administration/configuring-banner/">
 <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:title" content="Backing up and restoring - Dependency-Track">
-<meta property="twitter:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/guides/administration/backing-up.png">
+<meta property="twitter:title" content="Configuring the banner - Dependency-Track">
+<meta property="twitter:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/guides/administration/configuring-banner.png">
 <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
@@ -96,7 +96,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#backing-up-and-restoring" class="md-skip">
+        <a href="#configuring-the-banner" class="md-skip">
           Skip to content
         </a>
       
@@ -135,7 +135,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Backing up and restoring
+              Configuring the banner
             
           </span>
         </div>
@@ -1231,10 +1231,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../configuring-banner/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuring the banner
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1250,6 +1277,98 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Settings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#default-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Default mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dismissing-the-banner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dismissing the banner
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1483,37 +1602,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Backing up and restoring
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../backing-up/" class="md-nav__link">
         
   
   
@@ -1529,70 +1621,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#what-to-back-up" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What to back up
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#back-up-the-database" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Back up the database
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-considerations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Version considerations
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#after-restoring" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        After restoring
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2268,10 +2296,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-to-back-up" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What to back up
+        Overview
       
     </span>
   </a>
@@ -2279,10 +2307,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#back-up-the-database" class="md-nav__link">
+  <a href="#settings" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Back up the database
+        Settings
       
     </span>
   </a>
@@ -2290,21 +2318,49 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#version-considerations" class="md-nav__link">
+  <a href="#modes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Version considerations
+        Modes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#default-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Default mode
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#after-restoring" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#custom-mode" class="md-nav__link">
     <span class="md-ellipsis">
       
-        After restoring
+        Custom mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dismissing-the-banner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dismissing the banner
       
     </span>
   </a>
@@ -2397,58 +2453,131 @@
   
 
 
-<h1 id="backing-up-and-restoring">Backing up and restoring<a class="headerlink" href="#backing-up-and-restoring" title="Permanent link">¶</a></h1>
-<h2 id="what-to-back-up">What to back up<a class="headerlink" href="#what-to-back-up" title="Permanent link">¶</a></h2>
+<h1 id="configuring-the-banner">Configuring the banner<a class="headerlink" href="#configuring-the-banner" title="Permanent link">¶</a></h1>
+<p>Dependency-Track supports a configurable, application-wide banner that is
+displayed at the top of the application for all authenticated users.
+This guide covers how administrators enable, style, and manage the banner.</p>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">¶</a></h2>
+<p>The banner is intended for short, system-wide announcements, for example
+planned maintenance windows or important notices. It is shown to authenticated
+users only and does not appear on the login or change-password pages.</p>
+<p>The banner is configured entirely from the administration UI under
+<strong>Administration → Configuration → Banner</strong> (route <code>/admin/configuration/banner</code>).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Access to the banner configuration requires the <code>SYSTEM_CONFIGURATION</code>
+permission.</p>
+</div>
+<h2 id="settings">Settings<a class="headerlink" href="#settings" title="Permanent link">¶</a></h2>
+<p>The configuration screen exposes the following controls:</p>
 <table>
 <thead>
 <tr>
-<th>Component</th>
-<th>What it holds</th>
-<th>Backup approach</th>
+<th>Setting</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>PostgreSQL</td>
-<td>All product data, durable execution engine state, audit history.</td>
-<td>Logical (<code>pg_dump</code>) or physical (PITR) backup.</td>
+<td><strong>Activate banner</strong></td>
+<td>Master on/off switch. When disabled, no banner is shown.</td>
 </tr>
 <tr>
-<td>File storage</td>
-<td>Short-lived intermediate files (uploaded BOMs, analysis artifacts).</td>
-<td>Optional. Loss means in-flight uploads must retry.</td>
+<td><strong>Allow users to dismiss banner</strong></td>
+<td>Adds a close (×) button so users can hide the banner. See <a href="#dismissing-the-banner">Dismissing the banner</a>.</td>
 </tr>
 <tr>
-<td>Configuration</td>
-<td>Environment variables, secret references.</td>
-<td>Source-controlled or rendered from templates; not a runtime backup.</td>
+<td><strong>Message</strong></td>
+<td>Plain-text content of the banner (<a href="#default-mode">default mode</a>).</td>
+</tr>
+<tr>
+<td><strong>Color scheme</strong></td>
+<td>Preset color of the banner (<a href="#default-mode">default mode</a>).</td>
+</tr>
+<tr>
+<td><strong>Custom mode</strong></td>
+<td>Switches to an HTML editor instead of message + color scheme.</td>
+</tr>
+<tr>
+<td><strong>HTML content</strong></td>
+<td>Raw HTML rendered as the banner (<a href="#custom-mode">custom mode</a>).</td>
 </tr>
 </tbody>
 </table>
-<p>The database is the only component whose loss is unrecoverable.</p>
-<h2 id="back-up-the-database">Back up the database<a class="headerlink" href="#back-up-the-database" title="Permanent link">¶</a></h2>
-<p>For managed PostgreSQL, enable automated backups and point-in-time recovery (PITR) through the provider.
-For self-hosted PostgreSQL, follow the standard
-<a href="https://www.postgresql.org/docs/current/backup.html">backup and restore</a> procedures.</p>
-<p>When <code>dt.dex-engine.datasource.name</code> points at a <a href="../scaling/#isolate-the-engine-database">separate database</a>,
-back up both. The two are independent: restoring only one leaves the engine inconsistent with product
-state. Use PITR to a common timestamp, or quiesce the API servers before taking coordinated logical
-dumps.</p>
-<h2 id="version-considerations">Version considerations<a class="headerlink" href="#version-considerations" title="Permanent link">¶</a></h2>
-<p>Restore into a Dependency-Track version equal to or newer than the one that produced the backup, and
-let schema migrations run on first start. Dependency-Track does not support downgrade restores.</p>
-<h2 id="after-restoring">After restoring<a class="headerlink" href="#after-restoring" title="Permanent link">¶</a></h2>
-<p>Once you have restored the database and stopped all API servers:</p>
+<p>The banner content can be defined in one of two modes: the <a href="#default-mode">default</a>
+text-and-color mode, or the <a href="#custom-mode">custom</a> HTML mode.</p>
+<h2 id="modes">Modes<a class="headerlink" href="#modes" title="Permanent link">¶</a></h2>
+<h3 id="default-mode">Default mode<a class="headerlink" href="#default-mode" title="Permanent link">¶</a></h3>
+<p>The default mode renders a plain-text <strong>Message</strong> using one of the preset
+<strong>Color schemes</strong>. This is the recommended option for most announcements.</p>
+<p>The following color schemes are available:</p>
+<ul>
+<li><code>red</code></li>
+<li><code>orange</code></li>
+<li><code>green</code></li>
+<li><code>blue</code></li>
+<li><code>lilac</code></li>
+</ul>
+<p>To configure a banner in default mode:</p>
 <ol>
-<li>Start one instance. Wait for <code>/health/ready</code> on port <code>9000</code> to return <code>UP</code> and confirm schema
-   migrations applied cleanly. Then start the rest.</li>
-<li>Restoring the database rewinds workflow state to the snapshot. The engine resumes in-progress
-   runs automatically; runs created after the snapshot no longer exist and clients must re-trigger
-   them. See <a href="../../../concepts/architecture/design/durable-execution/">Durable execution</a> for the
-   full model.</li>
+<li>Enable <strong>Activate banner</strong>.</li>
+<li>Enable <strong>Allow users to dismiss banner</strong> if users should be able to close it.</li>
+<li>Enter the banner text in the <strong>Message</strong> field.</li>
+<li>Select a <strong>Color scheme</strong>.</li>
+<li>Leave <strong>Custom mode</strong> disabled.</li>
+<li>Select <strong>Update</strong> to save.</li>
 </ol>
-<p>If you back up file storage independently, restore it to the same moment as the database. Otherwise,
-in-flight uploads at the snapshot fail and clients retry them.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <strong>Update</strong> button remains disabled while the banner is active and the
+<strong>Message</strong> field is empty.</p>
+</div>
+<p>The screenshot below shows a banner configured in <strong>default mode</strong> with
+<strong>Allow users to dismiss banner</strong> enabled:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guides/administration/configuring-banner/default_banner_example.png" data-desc-position="bottom"><img alt="Banner configured in default mode with dismiss enabled" src="../../../assets/images/guides/administration/configuring-banner/default_banner_example.png"></a></p>
+<h3 id="custom-mode">Custom mode<a class="headerlink" href="#custom-mode" title="Permanent link">¶</a></h3>
+<p>Custom mode replaces the message and color scheme with a full HTML editor,
+giving complete control over the banner's styling, layout, and links.
+Use this mode when the preset color schemes or plain text are not sufficient,
+for example to embed a link.</p>
+<p>To configure a banner in custom mode:</p>
+<ol>
+<li>Enable <strong>Activate banner</strong>.</li>
+<li>Enable <strong>Allow users to dismiss banner</strong> if users should be able to close it.</li>
+<li>Enable <strong>Custom mode</strong>. This clears the message and color settings and seeds
+   the editor with an example template.</li>
+<li>Edit the <strong>HTML content</strong> in the editor.</li>
+<li>Select <strong>Update</strong> to save.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When custom mode is enabled, the <strong>Message</strong> field and color swatches are
+disabled. The <strong>Update</strong> button remains disabled while the banner is active
+and the <strong>HTML content</strong> is empty.</p>
+</div>
+<details class="example">
+<summary>Example HTML content</summary>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">"background:#321FDB;color:#fff;padding:0.5rem 1rem;border-bottom:1px solid rgba(0,0,0,.2);font-size:1rem;line-height:1.5;text-align:center"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>Example:<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>Your HTML-Banner Text<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></tbody></table></div>
+</details>
+<p>The screenshot below shows a banner configured in <strong>custom mode</strong> with
+<strong>Allow users to dismiss banner</strong> enabled:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guides/administration/configuring-banner/custom_banner_example.png" data-desc-position="bottom"><img alt="Banner configured in custom mode with dismiss enabled" src="../../../assets/images/guides/administration/configuring-banner/custom_banner_example.png"></a></p>
+<h2 id="dismissing-the-banner">Dismissing the banner<a class="headerlink" href="#dismissing-the-banner" title="Permanent link">¶</a></h2>
+<p>The <strong>Allow users to dismiss banner</strong> option controls whether users can hide the
+banner themselves.</p>
+<p>When enabled:</p>
+<ul>
+<li>A close (×) button is shown in the top-right corner of the banner.</li>
+<li>When a user closes the banner, it stays hidden for the remainder of their
+  browser session.</li>
+<li>The banner reappears in a new login session.</li>
+</ul>
+<p>When disabled, no close button is shown and users cannot hide the banner.</p>
 
 
 
@@ -2486,7 +2615,7 @@ in-flight uploads at the snapshot fail and clients retry them.</p>
       <nav class="md-footer__inner md-grid" aria-label="Footer">
         
           
-          <a href="../configuring-project-retention/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Configuring project retention">
+          <a href="../configuring-timezone/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Configuring the time zone">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
@@ -2496,20 +2625,20 @@ in-flight uploads at the snapshot fail and clients retry them.</p>
                 Previous
               </span>
               <div class="md-ellipsis">
-                Configuring project retention
+                Configuring the time zone
               </div>
             </div>
           </a>
         
         
           
-          <a href="../upgrading-instances/" class="md-footer__link md-footer__link--next" aria-label="Next: Upgrading running instances">
+          <a href="../configuring-vulnerability-sources/" class="md-footer__link md-footer__link--next" aria-label="Next: Configuring vulnerability sources">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Upgrading running instances
+                Configuring vulnerability sources
               </div>
             </div>
             <div class="md-footer__button md-icon">
