@@ -2018,6 +2018,12 @@ paths:
         name: epssPercentileTo
         schema:
           type: string
+      - description: "Filter by known exploited vulnerability (KEV) status: omit for\
+          \ any, true for KEVs only, false to exclude KEVs"
+        in: query
+        name: isKev
+        schema:
+          type: boolean
       responses:
         "200":
           content:
@@ -2173,6 +2179,12 @@ paths:
         name: occurrencesTo
         schema:
           type: string
+      - description: "Filter by known exploited vulnerability (KEV) status: omit for\
+          \ any, true for KEVs only, false to exclude KEVs"
+        in: query
+        name: isKev
+        schema:
+          type: boolean
       responses:
         "200":
           content:
@@ -2292,6 +2304,12 @@ paths:
         name: epssTo
         schema:
           type: number
+      - description: "Filter by known exploited vulnerability (KEV) status: omit for\
+          \ any, true for KEVs only, false to exclude KEVs"
+        in: query
+        name: isKev
+        schema:
+          type: boolean
       responses:
         "200":
           content:
@@ -13286,6 +13304,8 @@ components:
           maxLength: 255
           minLength: 1
           pattern: "^[\\p{IsWhite_Space}\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]*$"
+        isKev:
+          type: boolean
         owaspRRBusinessImpactScore:
           type: number
         owaspRRLikelihoodScore:

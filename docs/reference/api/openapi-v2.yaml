@@ -183,6 +183,8 @@ tags:
   description: Endpoints related to vulnerability data sources
 - name: Vuln Policies
   description: Endpoints related to vulnerability policies
+- name: Vulns
+  description: Endpoints related to vulnerabilities
 - name: Workflows
   description: Endpoints related to workflows
 paths:
@@ -1452,6 +1454,45 @@ paths:
           $ref: "#/components/responses/generic-not-found-error"
         default:
           $ref: "#/components/responses/generic-error"
+  /vulns/{source}/{vuln_id}/kev-assertions:
+    get:
+      tags:
+      - Vulns
+      summary: Lists KEV assertions for a vulnerability
+      description: |-
+        Returns all Known Exploited Vulnerability (KEV) assertions for the given
+        vulnerability, including those asserted for any of its aliases.
+
+        Requires permission `VIEW_VULNERABILITY`.
+      operationId: listVulnKevAssertions
+      parameters:
+      - name: source
+        in: path
+        description: "Source of the vulnerability (e.g. `NVD`, `GITHUB`, `OSV`)."
+        required: true
+        schema:
+          type: string
+      - name: vuln_id
+        in: path
+        description: Identifier of the vulnerability (e.g. `CVE-2021-44228`).
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: A list of KEV assertions for the vulnerability
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/list-vuln-kev-assertions-response"
+        "401":
+          $ref: "#/components/responses/generic-unauthorized-error"
+        "403":
+          $ref: "#/components/responses/generic-forbidden-error"
+        "404":
+          $ref: "#/components/responses/generic-not-found-error"
+        default:
+          $ref: "#/components/responses/generic-error"
   /internal/system-capabilities:
     get:
       tags:
@@ -2364,6 +2405,17 @@ components:
         failure_reason:
           type: string
           description: Reason for why the mirror run failed.
+    list-vuln-kev-assertions-response:
+      required:
+      - items
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/kev-assertion"
+      allOf:
+      - $ref: "#/components/schemas/paginated-response"
     system-capabilities-response:
       required:
       - capabilities
@@ -2934,6 +2986,44 @@ components:
           $ref: "#/components/schemas/timestamp"
         updated:
           $ref: "#/components/schemas/timestamp"
+    kev-assertion:
+      required:
+      - asserter
+      - created_at
+      - updated_at
+      - vuln_id
+      - vuln_source
+      type: object
+      properties:
+        asserter:
+          type: string
+          description: "The entity that asserted the vulnerability is known to be\
+            \ exploited (e.g. `CISA`, `ENISA`)."
+        vuln_source:
+          type: string
+          description: Source of the asserted vulnerability identifier (e.g. `NVD`).
+        vuln_id:
+          type: string
+          description: The asserted vulnerability identifier (e.g. `CVE-2021-44228`).
+        published_at:
+          $ref: "#/components/schemas/timestamp"
+        required_action:
+          type: string
+          description: "Free-form remediation guidance provided by the source, if\
+            \ any."
+        known_ransomware:
+          type: boolean
+          description: "Whether the vulnerability is known to be used in ransomware\
+            \ campaigns. Absent when the source does not report this signal, which\
+            \ is distinct from an explicit `false`."
+        description:
+          type: string
+          description: "Short description provided by the source, if any."
+        created_at:
+          $ref: "#/components/schemas/timestamp"
+        updated_at:
+          $ref: "#/components/schemas/timestamp"
+      description: A single assertion that a vulnerability is known to be exploited.
     task-queue:
       required:
       - capacity
