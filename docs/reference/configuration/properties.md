@@ -1794,6 +1794,16 @@ Cron expression of the Kenna Security upload task.
 <tr><th>ENV</th><td><code>DT_TASK_KENNA_SECURITY_UPLOAD_CRON</code></td></tr>
 </table>
 
+<span id="dttaskkev-mirrorcron">**`dt.task.kev-mirror.cron`** <strong style="color: red">*</strong> [¶](#dttaskkev-mirrorcron){ .headerlink }</span>
+
+Cron expression of the KEV (Known Exploited Vulnerabilities) mirroring task.  Triggers mirroring of all enabled KEV data sources.  
+
+<table>
+<tr><th>Type</th><td style="border-width: 0"><code>cron</code></td></tr>
+<tr><th>Default</th><td><code>0 2 * * *</code></td></tr>
+<tr><th>ENV</th><td><code>DT_TASK_KEV_MIRROR_CRON</code></td></tr>
+</table>
+
 <span id="dttaskmetrics-maintenancecron">**`dt.task.metrics-maintenance.cron`** <strong style="color: red">*</strong> [¶](#dttaskmetrics-maintenancecron){ .headerlink }</span>
 
 Cron expression of the metrics maintenance task.  <br/><br/>  The task creates new partitions for the day for the following tables  And deletes records older than the configured metrics retention duration from the following tables:  <ul>  <li><code>DEPENDENCYMETRICS</code></li>  <li><code>PROJECTMETRICS</code></li>  </ul>  
