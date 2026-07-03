@@ -967,6 +967,7 @@ Subject for GROUP_NEW_VULNERABILITIES_SUMMARY notifications.
 | `owasp_rr_vector` | `string` |  | - |
 | `cvss_v4` | `double` |  | - |
 | `cvss_v4_vector` | `string` |  | - |
+| `is_kev` | `bool` | Whether the vulnerability is known to be exploited. | - |
 
 
 

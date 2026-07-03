@@ -233,6 +233,7 @@
 | `epss_percentile` | `double` |  | - |
 | `cvssv4_vector` | `string` |  | - |
 | `cvssv4_score` | `double` |  | - |
+| `is_kev` | `bool` | Whether the vulnerability is known to be exploited. | - |
 
 
 
