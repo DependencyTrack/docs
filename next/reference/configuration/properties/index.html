@@ -3137,6 +3137,22 @@
 <tr><th>ENV</th><td><code>DT_DATASOURCE_POOL_IDLE_TIMEOUT_MS</code></td></tr>
 </tbody></table>
 
+<p><span id="dtdatasourcepoolkeepalive-interval-ms"><strong><code>dt.datasource.pool.keepalive-interval-ms</code></strong> <a class="headerlink" href="#dtdatasourcepoolkeepalive-interval-ms">¶</a></span></p>
+<p>Defines the interval in milliseconds in which idle pooled connections are validated, and dead ones evicted.  <br><br>  Should be lower than <a href="#dtdatasourcepoolmax-lifetime-ms"><code>dt.datasource.pool.max-lifetime-ms</code></a> to take effect,  as otherwise connections will be evicted before keepalive can kick in.  </p>
+<table>
+<tbody><tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
+<tr><th>Default</th><td><code>60000</code></td></tr>
+<tr><th>ENV</th><td><code>DT_DATASOURCE_POOL_KEEPALIVE_INTERVAL_MS</code></td></tr>
+</tbody></table>
+
+<p><span id="dtdatasourcepoolleak-detection-threshold-ms"><strong><code>dt.datasource.pool.leak-detection-threshold-ms</code></strong> <a class="headerlink" href="#dtdatasourcepoolleak-detection-threshold-ms">¶</a></span></p>
+<p>Defines the duration in milliseconds after which a connection that was checked out from the pool  is considered leaked (i.e., not released properly). A detected leak will cause a warning to be logged.  </p>
+<table>
+<tbody><tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
+<tr><th>Default</th><td><code>null</code></td></tr>
+<tr><th>ENV</th><td><code>DT_DATASOURCE_POOL_LEAK_DETECTION_THRESHOLD_MS</code></td></tr>
+</tbody></table>
+
 <p><span id="dtdatasourcepoolmax-lifetime-ms"><strong><code>dt.datasource.pool.max-lifetime-ms</code></strong> <a class="headerlink" href="#dtdatasourcepoolmax-lifetime-ms">¶</a></span></p>
 <p>Defines the maximum time in milliseconds for which connections should be kept in the pool for the default data source.  Required when <a href="#dtdatasourcepoolenabled"><code>dt.datasource.pool.enabled</code></a> is <code>true</code>.  </p>
 <table>
@@ -3166,7 +3182,7 @@
 <table>
 <tbody><tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
 <tr><th>Default</th><td><code>null</code></td></tr>
-<tr><th>Example</th><td><code>jdbc:postgresql://localhost:5432/dtrack?reWriteBatchedInserts=true</code></td></tr>
+<tr><th>Example</th><td><code>jdbc:postgresql://localhost:5432/dtrack</code></td></tr>
 <tr><th>ENV</th><td><code>DT_DATASOURCE_URL</code></td></tr>
 </tbody></table>
 
