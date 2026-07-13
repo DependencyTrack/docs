@@ -328,6 +328,26 @@ Defines the maximum time in milliseconds that a connection is allowed to sit idl
 <tr><th>ENV</th><td><code>DT_DATASOURCE_POOL_IDLE_TIMEOUT_MS</code></td></tr>
 </table>
 
+<span id="dtdatasourcepoolkeepalive-interval-ms">**`dt.datasource.pool.keepalive-interval-ms`** [¶](#dtdatasourcepoolkeepalive-interval-ms){ .headerlink }</span>
+
+Defines the interval in milliseconds in which idle pooled connections are validated, and dead ones evicted.  <br/><br/>  Should be lower than [`dt.datasource.pool.max-lifetime-ms`](#dtdatasourcepoolmax-lifetime-ms) to take effect,  as otherwise connections will be evicted before keepalive can kick in.  
+
+<table>
+<tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
+<tr><th>Default</th><td><code>60000</code></td></tr>
+<tr><th>ENV</th><td><code>DT_DATASOURCE_POOL_KEEPALIVE_INTERVAL_MS</code></td></tr>
+</table>
+
+<span id="dtdatasourcepoolleak-detection-threshold-ms">**`dt.datasource.pool.leak-detection-threshold-ms`** [¶](#dtdatasourcepoolleak-detection-threshold-ms){ .headerlink }</span>
+
+Defines the duration in milliseconds after which a connection that was checked out from the pool  is considered leaked (i.e., not released properly). A detected leak will cause a warning to be logged.  
+
+<table>
+<tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
+<tr><th>Default</th><td><code>null</code></td></tr>
+<tr><th>ENV</th><td><code>DT_DATASOURCE_POOL_LEAK_DETECTION_THRESHOLD_MS</code></td></tr>
+</table>
+
 <span id="dtdatasourcepoolmax-lifetime-ms">**`dt.datasource.pool.max-lifetime-ms`** [¶](#dtdatasourcepoolmax-lifetime-ms){ .headerlink }</span>
 
 Defines the maximum time in milliseconds for which connections should be kept in the pool for the default data source.  Required when [`dt.datasource.pool.enabled`](#dtdatasourcepoolenabled) is `true`.  
@@ -365,7 +385,7 @@ Defines the JDBC URL to use for the default data source.
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
 <tr><th>Default</th><td><code>null</code></td></tr>
-<tr><th>Example</th><td><code>jdbc:postgresql://localhost:5432/dtrack?reWriteBatchedInserts=true</code></td></tr>
+<tr><th>Example</th><td><code>jdbc:postgresql://localhost:5432/dtrack</code></td></tr>
 <tr><th>ENV</th><td><code>DT_DATASOURCE_URL</code></td></tr>
 </table>
 
