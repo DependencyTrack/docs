@@ -470,14 +470,6 @@ paths:
           a response with problem details in RFC 9457 format will be returned. In this case,
           the response's content type will be <code>application/problem+json</code>.
         </p>
-        <p>
-          When creating projects, <code>parentUUID</code> or <code>parentName</code> and
-          <code>parentVersion</code> can place the new project under a parent,
-          <code>projectTags</code> can apply tags, and <code>isLatest</code> can mark it as
-          the latest version. The <code>isActive</code> parameter sets the project's active
-          state whenever it is provided, including when the target project already exists, so
-          clients should send it only when they intend to change that state.
-        </p>
         <p>Requires permission <strong>BOM_UPLOAD</strong></p>
       operationId: UploadBom
       requestBody:
@@ -491,8 +483,6 @@ paths:
                   default: false
                 bom:
                   type: string
-                isActive:
-                  type: boolean
                 isLatest:
                   type: boolean
                   default: false
@@ -549,14 +539,6 @@ paths:
           The BOM will be validated against the CycloneDX schema. If schema validation fails,
           a response with problem details in RFC 9457 format will be returned. In this case,
           the response's content type will be <code>application/problem+json</code>.
-        </p>
-        <p>
-          When creating projects, <code>parentUUID</code> or <code>parentName</code> and
-          <code>parentVersion</code> can place the new project under a parent,
-          <code>projectTags</code> can apply tags, and <code>isLatest</code> can mark it as
-          the latest version. The <code>isActive</code> parameter sets the project's active
-          state whenever it is provided, including when the target project already exists, so
-          clients should send it only when they intend to change that state.
         </p>
         <p>
           The maximum allowed length of the <code>bom</code> value is 20'000'000 characters.
@@ -1404,7 +1386,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/ComponentPropertyResponse"
+                  $ref: "#/components/schemas/ComponentProperty"
           description: A list of all properties for the specified component
         "401":
           description: Unauthorized
@@ -1438,13 +1420,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/CreateComponentPropertyRequest"
+              $ref: "#/components/schemas/ComponentProperty"
       responses:
         "201":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ComponentPropertyResponse"
+                $ref: "#/components/schemas/ComponentProperty"
           description: The created component
         "401":
           description: Unauthorized
@@ -1516,7 +1498,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/ConfigPropertyResponse"
+                  $ref: "#/components/schemas/ConfigProperty"
           description: A list of all ConfigProperties for the specified groupName
         "401":
           description: Unauthorized
@@ -1529,18 +1511,18 @@ paths:
     post:
       description: <p>Requires permission <strong>SYSTEM_CONFIGURATION</strong> or
         <strong>SYSTEM_CONFIGURATION_UPDATE</strong></p>
-      operationId: updateConfigProperty_1
+      operationId: updateConfigProperty
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/UpdateConfigPropertyRequest"
+              $ref: "#/components/schemas/ConfigProperty"
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ConfigPropertyResponse"
+                $ref: "#/components/schemas/ConfigProperty"
           description: The updated config property
         "401":
           description: Unauthorized
@@ -1556,14 +1538,14 @@ paths:
     post:
       description: <p>Requires permission <strong>SYSTEM_CONFIGURATION</strong> or
         <strong>SYSTEM_CONFIGURATION_UPDATE</strong></p>
-      operationId: updateConfigProperty
+      operationId: updateConfigProperty_1
       requestBody:
         content:
           application/json:
             schema:
               type: array
               items:
-                $ref: "#/components/schemas/UpdateConfigPropertyRequest"
+                $ref: "#/components/schemas/ConfigProperty"
       responses:
         "200":
           content:
@@ -1571,60 +1553,16 @@ paths:
               schema:
                 type: array
                 items:
-                  type: string
-                  anyOf:
-                  - $ref: "#/components/schemas/ConfigPropertyResponse"
-                  - type: string
-          description: "The updated config properties. Each array element is either\
-            \ a successfully updated `ConfigPropertyResponse`, or an error message\
-            \ string if the entry's property could not be found, is read-only, or\
-            \ its requested value is invalid."
+                  $ref: "#/components/schemas/ConfigProperty"
+          description: The updated config properties
         "401":
           description: Unauthorized
+        "404":
+          description: One or more config properties could not be found
       security:
       - ApiKeyAuth: []
       - BearerAuth: []
       summary: Updates an array of config properties
-      tags:
-      - configProperty
-  /v1/configProperty/internal/{groupName}/{propertyName}:
-    get:
-      description: |-
-        <p>
-          Requires authentication, but no permission.
-          Returns both internal and public properties
-        </p>
-      operationId: getInternalConfigProperty
-      parameters:
-      - description: The group name of the value to retrieve
-        in: path
-        name: groupName
-        required: true
-        schema:
-          type: string
-      - description: The property name of the value to retrieve
-        in: path
-        name: propertyName
-        required: true
-        schema:
-          type: string
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ConfigPropertyResponse"
-          description: The internal config property
-        "401":
-          description: Unauthorized
-        "403":
-          description: Not an internal- or public-readable config property
-        "404":
-          description: The config property could not be found
-      security:
-      - ApiKeyAuth: []
-      - BearerAuth: []
-      summary: Returns an internal ConfigProperty
       tags:
       - configProperty
   /v1/configProperty/public/{groupName}/{propertyName}:
@@ -1649,12 +1587,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ConfigPropertyResponse"
+                $ref: "#/components/schemas/ConfigProperty"
           description: Public ConfigProperty returned
         "403":
           description: This is not a public visible ConfigProperty
-        "404":
-          description: The config property could not be found
       security:
       - ApiKeyAuth: []
       - BearerAuth: []
@@ -2018,12 +1954,6 @@ paths:
         name: epssPercentileTo
         schema:
           type: string
-      - description: "Filter by known exploited vulnerability (KEV) status: omit for\
-          \ any, true for KEVs only, false to exclude KEVs"
-        in: query
-        name: isKev
-        schema:
-          type: boolean
       responses:
         "200":
           content:
@@ -2179,12 +2109,6 @@ paths:
         name: occurrencesTo
         schema:
           type: string
-      - description: "Filter by known exploited vulnerability (KEV) status: omit for\
-          \ any, true for KEVs only, false to exclude KEVs"
-        in: query
-        name: isKev
-        schema:
-          type: boolean
       responses:
         "200":
           content:
@@ -2304,12 +2228,6 @@ paths:
         name: epssTo
         schema:
           type: number
-      - description: "Filter by known exploited vulnerability (KEV) status: omit for\
-          \ any, true for KEVs only, false to exclude KEVs"
-        in: query
-        name: isKev
-        schema:
-          type: boolean
       responses:
         "200":
           content:
@@ -2580,7 +2498,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/LicenseResponse"
+                  $ref: "#/components/schemas/License"
           description: A list of all licenses with complete metadata for each license
           headers:
             X-Total-Count:
@@ -2604,13 +2522,13 @@ paths:
         content:
           '*/*':
             schema:
-              $ref: "#/components/schemas/CreateLicenseRequest"
+              $ref: "#/components/schemas/License"
       responses:
         "201":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/LicenseResponse"
+                $ref: "#/components/schemas/License"
           description: The created license
         "401":
           description: Unauthorized
@@ -2632,7 +2550,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/ConciseLicenseResponse"
+                  $ref: "#/components/schemas/License"
           description: A concise listing of all licenses
           headers:
             X-Total-Count:
@@ -2689,7 +2607,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/LicenseResponse"
+                $ref: "#/components/schemas/License"
           description: A specific license
         "401":
           description: Unauthorized
@@ -2750,7 +2668,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/LicenseGroupResponse"
+                  $ref: "#/components/schemas/LicenseGroup"
           description: A list of all license groups
           headers:
             X-Total-Count:
@@ -2773,13 +2691,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/UpdateLicenseGroupRequest"
+              $ref: "#/components/schemas/LicenseGroup"
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/LicenseGroupResponse"
+                $ref: "#/components/schemas/LicenseGroup"
           description: The updated license group
         "401":
           description: Unauthorized
@@ -2798,13 +2716,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/CreateLicenseGroupRequest"
+              $ref: "#/components/schemas/LicenseGroup"
       responses:
         "201":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/LicenseGroupResponse"
+                $ref: "#/components/schemas/LicenseGroup"
           description: The created license group
         "401":
           description: Unauthorized
@@ -2857,7 +2775,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/LicenseGroupResponse"
+                $ref: "#/components/schemas/LicenseGroup"
           description: A specific license group
         "401":
           description: Unauthorized
@@ -2893,7 +2811,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/LicenseGroupResponse"
+                $ref: "#/components/schemas/LicenseGroup"
           description: The updated license group
         "304":
           description: The license is not a member with the license group
@@ -2930,7 +2848,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/LicenseGroupResponse"
+                $ref: "#/components/schemas/LicenseGroup"
           description: The updated license group
         "304":
           description: The license group already has the specified license assigned
@@ -3392,7 +3310,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/NotificationPublisherResponse"
+                  $ref: "#/components/schemas/NotificationPublisher"
           description: A list of all notification publishers
         "401":
           description: Unauthorized
@@ -3416,7 +3334,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NotificationPublisherResponse"
+                $ref: "#/components/schemas/NotificationPublisher"
           description: The updated notification publisher
         "400":
           description: Invalid notification class or trying to modify a default publisher
@@ -3446,7 +3364,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NotificationPublisherResponse"
+                $ref: "#/components/schemas/NotificationPublisher"
           description: The created notification publisher
         "400":
           description: Invalid notification class or trying to modify a default publisher
@@ -4499,23 +4417,19 @@ paths:
       - policy
   /v1/policy/condition:
     post:
-      description: |
-        <p>
-          Requires permission <strong>POLICY_MANAGEMENT</strong>
-          or <strong>POLICY_MANAGEMENT_UPDATE</strong>
-        </p>
+      description: <p>Requires permission <strong>POLICY_MANAGEMENT</strong> or <strong>POLICY_MANAGEMENT_UPDATE</strong></p>
       operationId: updatePolicyCondition
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/UpdatePolicyConditionRequest"
+              $ref: "#/components/schemas/PolicyCondition"
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/PolicyConditionResponse"
+                $ref: "#/components/schemas/PolicyCondition"
           description: The updated policy condition
         "401":
           description: Unauthorized
@@ -4529,11 +4443,7 @@ paths:
       - policyCondition
   /v1/policy/condition/{uuid}:
     delete:
-      description: |
-        <p>
-          Requires permission <strong>POLICY_MANAGEMENT</strong>
-          or <strong>POLICY_MANAGEMENT_UPDATE</strong>
-        </p>
+      description: <p>Requires permission <strong>POLICY_MANAGEMENT</strong> or <strong>POLICY_MANAGEMENT_UPDATE</strong></p>
       operationId: deletePolicyCondition
       parameters:
       - description: The UUID of the policy condition to delete
@@ -4698,11 +4608,7 @@ paths:
       - policy
   /v1/policy/{uuid}/condition:
     put:
-      description: |
-        <p>
-          Requires permission <strong>POLICY_MANAGEMENT</strong>
-          or <strong>POLICY_MANAGEMENT_UPDATE</strong>
-        </p>
+      description: <p>Requires permission <strong>POLICY_MANAGEMENT</strong> or <strong>POLICY_MANAGEMENT_UPDATE</strong></p>
       operationId: createPolicyCondition
       parameters:
       - description: The UUID of the policy
@@ -4716,13 +4622,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/CreatePolicyConditionRequest"
+              $ref: "#/components/schemas/PolicyCondition"
       responses:
         "201":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/PolicyConditionResponse"
+                $ref: "#/components/schemas/PolicyCondition"
           description: The created policy condition
         "401":
           description: Unauthorized
@@ -5961,7 +5867,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/DeleteProjectPropertyRequest"
+              $ref: "#/components/schemas/ProjectProperty"
       responses:
         "204":
           description: Project property removed successfully
@@ -6000,7 +5906,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/ProjectPropertyResponse"
+                  $ref: "#/components/schemas/ProjectProperty"
           description: A list of all ProjectProperties for the specified project
         "401":
           description: Unauthorized
@@ -6034,13 +5940,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/UpdateProjectPropertyRequest"
+              $ref: "#/components/schemas/ProjectProperty"
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ProjectPropertyResponse"
+                $ref: "#/components/schemas/ProjectProperty"
           description: The updated project property
         "401":
           description: Unauthorized
@@ -6074,13 +5980,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/CreateProjectPropertyRequest"
+              $ref: "#/components/schemas/ProjectProperty"
       responses:
         "201":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ProjectPropertyResponse"
+                $ref: "#/components/schemas/ProjectProperty"
           description: The created project property
         "401":
           description: Unauthorized
@@ -6151,7 +6057,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/RepositoryResponse"
+                  $ref: "#/components/schemas/Repository"
           description: A list of all repositories
           headers:
             X-Total-Count:
@@ -6175,13 +6081,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/UpdateRepositoryRequest"
+              $ref: "#/components/schemas/Repository"
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/RepositoryResponse"
+                $ref: "#/components/schemas/Repository"
           description: The updated repository
         "401":
           description: Unauthorized
@@ -6201,13 +6107,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/CreateRepositoryRequest"
+              $ref: "#/components/schemas/Repository"
       responses:
         "201":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/RepositoryResponse"
+                $ref: "#/components/schemas/Repository"
           description: The created repository
         "401":
           description: Unauthorized
@@ -6326,7 +6232,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/RepositoryResponse"
+                  $ref: "#/components/schemas/Repository"
           description: A list of repositories that support the provided type
           headers:
             X-Total-Count:
@@ -8553,7 +8459,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ViolationAnalysisResponse"
+                $ref: "#/components/schemas/ViolationAnalysis"
           description: A violation analysis trail
         "401":
           description: Unauthorized
@@ -8584,7 +8490,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ViolationAnalysisResponse"
+                $ref: "#/components/schemas/ViolationAnalysis"
           description: The created violation analysis
         "401":
           description: Unauthorized
@@ -9757,8 +9663,6 @@ components:
           description: Base64 encoded BOM
           example: ewogICJib21Gb3JtYXQiOiAiQ3ljbG9uZURYIiwKICAic3BlY1ZlcnNpb24iOiAiMS40IiwKICAiY29tcG9uZW50cyI6IFsKICAgIHsKICAgICAgInR5cGUiOiAibGlicmFyeSIsCiAgICAgICJuYW1lIjogImFjbWUtbGliIiwKICAgICAgInZlcnNpb24iOiAiMS4wLjAiCiAgICB9CiAgXQp9
           pattern: "^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$"
-        isActive:
-          type: boolean
         isLatest:
           type: boolean
         parentName:
@@ -9863,23 +9767,6 @@ components:
       required:
       - project
       - version
-    Comment:
-      type: object
-      description: Audit trail of analysis comments
-      properties:
-        comment:
-          type: string
-          description: The comment text
-        commenter:
-          type: string
-          description: Identifier of the user who wrote the comment
-        timestamp:
-          type: integer
-          format: int64
-          description: Timestamp the comment was recorded at
-      required:
-      - comment
-      - timestamp
     Component:
       type: object
       properties:
@@ -10141,73 +10028,6 @@ components:
       - propertyName
       - propertyType
       - uuid
-    ComponentPropertyResponse:
-      type: object
-      properties:
-        description:
-          type: string
-          description: Description of the property
-        groupName:
-          type: string
-          description: Group the property belongs to
-        propertyName:
-          type: string
-          description: Name of the property
-        propertyType:
-          type: string
-          description: Type of the property
-          enum:
-          - BOOLEAN
-          - INTEGER
-          - NUMBER
-          - STRING
-          - TIMESTAMP
-          - URL
-          - UUID
-        propertyValue:
-          type: string
-          description: Value of the property
-        uuid:
-          type: string
-          format: uuid
-          description: UUID of the property
-      required:
-      - propertyName
-      - propertyType
-      - uuid
-    ConciseLicenseResponse:
-      type: object
-      properties:
-        isCustomLicense:
-          type: boolean
-          description: Whether the license is a custom license created by a user
-        isDeprecatedLicenseId:
-          type: boolean
-          description: Whether the licenseId has been deprecated by SPDX
-        isFsfLibre:
-          type: boolean
-          description: Whether the license is FSF libre
-        isOsiApproved:
-          type: boolean
-          description: Whether the license is approved by the OSI
-        licenseId:
-          type: string
-          description: Identifier of the license
-        name:
-          type: string
-          description: Display name of the license
-        uuid:
-          type: string
-          format: uuid
-          description: UUID of the license
-      required:
-      - isCustomLicense
-      - isDeprecatedLicenseId
-      - isFsfLibre
-      - isOsiApproved
-      - licenseId
-      - name
-      - uuid
     ConciseProject:
       type: object
       description: A concise representation of a project
@@ -10366,21 +10186,26 @@ components:
       - policyViolationsWarn
       - unassigned
       - vulnerabilities
-    ConfigPropertyResponse:
+    ConfigProperty:
       type: object
       properties:
         description:
           type: string
-          description: Description of the property
+          maxLength: 255
+          minLength: 0
+          pattern: "[\\P{Cc}]+"
         groupName:
           type: string
-          description: Group the property belongs to
+          maxLength: 255
+          minLength: 1
+          pattern: "[\\P{Cc}]+"
         propertyName:
           type: string
-          description: Name of the property
+          maxLength: 255
+          minLength: 1
+          pattern: "[\\P{Cc}]+"
         propertyType:
           type: string
-          description: Type of the property
           enum:
           - BOOLEAN
           - INTEGER
@@ -10391,109 +10216,11 @@ components:
           - UUID
         propertyValue:
           type: string
-          description: Value of the property
+          pattern: "[\\P{Cc}]+"
       required:
       - groupName
       - propertyName
       - propertyType
-    CreateComponentPropertyRequest:
-      type: object
-      properties:
-        description:
-          type: string
-          description: Description of the property
-          maxLength: 255
-          minLength: 0
-          pattern: "\\P{Cc}+"
-        groupName:
-          type: string
-          description: Group the property belongs to
-          maxLength: 255
-          minLength: 1
-          pattern: "\\P{Cc}+"
-        propertyName:
-          type: string
-          description: Name of the property
-          maxLength: 255
-          minLength: 1
-          pattern: "\\P{Cc}+"
-        propertyType:
-          type: string
-          description: Type of the property
-          enum:
-          - BOOLEAN
-          - INTEGER
-          - NUMBER
-          - STRING
-          - TIMESTAMP
-          - URL
-          - UUID
-        propertyValue:
-          type: string
-          description: Value of the property
-          maxLength: 1024
-          minLength: 0
-          pattern: "\\P{Cc}+"
-      required:
-      - propertyName
-      - propertyType
-    CreateLicenseGroupRequest:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Name of the license group
-          maxLength: 255
-          minLength: 1
-          pattern: "^[\\p{IsWhite_Space}\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]*$"
-      required:
-      - name
-    CreateLicenseRequest:
-      type: object
-      properties:
-        isDeprecatedLicenseId:
-          type: boolean
-          description: Whether the licenseId has been deprecated by SPDX
-        isFsfLibre:
-          type: boolean
-          description: Whether the license is FSF libre
-        isOsiApproved:
-          type: boolean
-          description: Whether the license is approved by the OSI
-        licenseComments:
-          type: string
-          description: Comments about the license
-        licenseId:
-          type: string
-          description: Identifier of the license
-          maxLength: 255
-          minLength: 1
-          pattern: "^[a-zA-Z0-9_.\\-+]*$"
-        licenseText:
-          type: string
-          description: Full license text
-        name:
-          type: string
-          description: Display name of the license
-          maxLength: 255
-          minLength: 1
-          pattern: "^[\\p{IsWhite_Space}\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]*$"
-        seeAlso:
-          type: array
-          description: Additional URLs with information about the license
-          items:
-            type: string
-            description: Additional URLs with information about the license
-        standardLicenseHeader:
-          type: string
-          description: Standard license header typically added to the top of source
-            code
-        standardLicenseTemplate:
-          type: string
-          description: Standard license template used to derive the license text
-      required:
-      - licenseId
-      - name
     CreateNotificationPublisherRequest:
       type: object
       properties:
@@ -10536,153 +10263,6 @@ components:
       - name
       - publisher
       - scope
-    CreatePolicyConditionRequest:
-      type: object
-      properties:
-        operator:
-          type: string
-          description: Operator used to compare the subject to the value
-          enum:
-          - IS
-          - IS_NOT
-          - MATCHES
-          - NO_MATCH
-          - NUMERIC_GREATER_THAN
-          - NUMERIC_LESS_THAN
-          - NUMERIC_EQUAL
-          - NUMERIC_NOT_EQUAL
-          - NUMERIC_GREATER_THAN_OR_EQUAL
-          - NUMERIC_LESSER_THAN_OR_EQUAL
-          - CONTAINS_ALL
-          - CONTAINS_ANY
-        subject:
-          type: string
-          description: Subject the condition evaluates
-          enum:
-          - AGE
-          - COORDINATES
-          - CPE
-          - EXPRESSION
-          - LICENSE
-          - LICENSE_GROUP
-          - PACKAGE_URL
-          - SEVERITY
-          - SWID_TAGID
-          - VERSION
-          - COMPONENT_HASH
-          - IS_INTERNAL
-          - CWE
-          - VULNERABILITY_ID
-          - VERSION_DISTANCE
-          - EPSS
-        value:
-          type: string
-          description: Value the subject is compared to
-          minLength: 1
-        violationType:
-          type: string
-          description: Violation type produced when the condition matches. Required
-            for `EXPRESSION` subjects
-          enum:
-          - LICENSE
-          - SECURITY
-          - OPERATIONAL
-      required:
-      - operator
-      - subject
-      - value
-    CreateProjectPropertyRequest:
-      type: object
-      properties:
-        description:
-          type: string
-          description: Description of the property
-          maxLength: 255
-          minLength: 0
-          pattern: "\\P{Cc}+"
-        groupName:
-          type: string
-          description: Group the property belongs to
-          maxLength: 255
-          minLength: 1
-          pattern: "\\P{Cc}+"
-        propertyName:
-          type: string
-          description: Name of the property
-          maxLength: 255
-          minLength: 1
-          pattern: "\\P{Cc}+"
-        propertyType:
-          type: string
-          description: Type of the property
-          enum:
-          - BOOLEAN
-          - INTEGER
-          - NUMBER
-          - STRING
-          - TIMESTAMP
-          - URL
-          - UUID
-        propertyValue:
-          type: string
-          description: Value of the property
-          maxLength: 1024
-          minLength: 0
-          pattern: "\\P{Cc}+"
-      required:
-      - groupName
-      - propertyName
-      - propertyType
-    CreateRepositoryRequest:
-      type: object
-      properties:
-        authenticationRequired:
-          type: boolean
-          description: Whether the repository requires authentication
-        enabled:
-          type: boolean
-          description: Whether the repository is enabled
-        identifier:
-          type: string
-          description: Unique identifier of the repository within its type
-          minLength: 1
-        internal:
-          type: boolean
-          description: Whether the repository is internal to the organization
-        password:
-          type: string
-          description: Name of the secret holding the password or token
-        type:
-          type: string
-          description: Type of the repository
-          enum:
-          - MAVEN
-          - NPM
-          - GEM
-          - PYPI
-          - NUGET
-          - HEX
-          - COMPOSER
-          - CARGO
-          - GO_MODULES
-          - CPAN
-          - GITHUB
-          - HACKAGE
-          - NIXPKGS
-          - UNSUPPORTED
-        url:
-          type: string
-          description: URL of the repository
-          minLength: 1
-        username:
-          type: string
-          description: Username to authenticate with
-      required:
-      - authenticationRequired
-      - enabled
-      - identifier
-      - type
-      - url
     CreateScheduledNotificationRuleRequest:
       type: object
       properties:
@@ -10751,24 +10331,6 @@ components:
           - UNKNOWN
         name:
           type: string
-    DeleteProjectPropertyRequest:
-      type: object
-      properties:
-        groupName:
-          type: string
-          description: Group the property belongs to
-          maxLength: 255
-          minLength: 1
-          pattern: "\\P{Cc}+"
-        propertyName:
-          type: string
-          description: Name of the property
-          maxLength: 255
-          minLength: 1
-          pattern: "\\P{Cc}+"
-      required:
-      - groupName
-      - propertyName
     DependencyGraphResponse:
       type: object
       properties:
@@ -11106,88 +10668,6 @@ components:
       required:
       - name
       - uuid
-    LicenseGroupResponse:
-      type: object
-      properties:
-        licenses:
-          type: array
-          description: Licenses belonging to the license group
-          items:
-            $ref: "#/components/schemas/License"
-        name:
-          type: string
-          description: Name of the license group
-        riskWeight:
-          type: integer
-          format: int32
-          description: Risk weight assigned to violations of this group
-        uuid:
-          type: string
-          format: uuid
-          description: UUID of the license group
-      required:
-      - licenses
-      - name
-      - riskWeight
-      - uuid
-    LicenseResponse:
-      type: object
-      properties:
-        isCustomLicense:
-          type: boolean
-          description: Whether the license is a custom license created by a user
-        isDeprecatedLicenseId:
-          type: boolean
-          description: Whether the licenseId has been deprecated by SPDX
-        isFsfLibre:
-          type: boolean
-          description: Whether the license is FSF libre
-        isOsiApproved:
-          type: boolean
-          description: Whether the license is approved by the OSI
-        licenseComments:
-          type: string
-          description: Comments about the license
-        licenseGroups:
-          type: array
-          description: License groups the license belongs to
-          items:
-            $ref: "#/components/schemas/LicenseGroup"
-        licenseId:
-          type: string
-          description: Identifier of the license
-        licenseText:
-          type: string
-          description: Full license text
-        name:
-          type: string
-          description: Display name of the license
-        seeAlso:
-          type: array
-          description: Additional URLs with information about the license
-          items:
-            type: string
-            description: Additional URLs with information about the license
-        standardLicenseHeader:
-          type: string
-          description: Standard license header typically added to the top of source
-            code
-        standardLicenseTemplate:
-          type: string
-          description: Standard license template used to derive the license text
-        uuid:
-          type: string
-          format: uuid
-          description: UUID of the license
-      required:
-      - isCustomLicense
-      - isDeprecatedLicenseId
-      - isFsfLibre
-      - isOsiApproved
-      - licenseGroups
-      - licenseId
-      - name
-      - uuid
     ListProjectsResponseItem:
       type: object
       properties:
@@ -11406,37 +10886,6 @@ components:
           type: string
           format: uuid
       required:
-      - extensionName
-      - name
-      - templateMimeType
-      - uuid
-    NotificationPublisherResponse:
-      type: object
-      properties:
-        defaultPublisher:
-          type: boolean
-          description: Whether the publisher is one of the built-in defaults
-        description:
-          type: string
-          description: Description of the notification publisher
-        extensionName:
-          type: string
-          description: Name of the publisher extension that handles delivery
-        name:
-          type: string
-          description: Name of the notification publisher
-        template:
-          type: string
-          description: Template used to render the notification payload
-        templateMimeType:
-          type: string
-          description: MIME type of the rendered template
-        uuid:
-          type: string
-          format: uuid
-          description: UUID of the notification publisher
-      required:
-      - defaultPublisher
       - extensionName
       - name
       - templateMimeType
@@ -11761,64 +11210,6 @@ components:
           maxLength: 255
           minLength: 1
           pattern: "^[\\p{IsWhite_Space}\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]*$"
-      required:
-      - operator
-      - subject
-      - uuid
-      - value
-    PolicyConditionResponse:
-      type: object
-      properties:
-        operator:
-          type: string
-          description: Operator used to compare the subject to the value
-          enum:
-          - IS
-          - IS_NOT
-          - MATCHES
-          - NO_MATCH
-          - NUMERIC_GREATER_THAN
-          - NUMERIC_LESS_THAN
-          - NUMERIC_EQUAL
-          - NUMERIC_NOT_EQUAL
-          - NUMERIC_GREATER_THAN_OR_EQUAL
-          - NUMERIC_LESSER_THAN_OR_EQUAL
-          - CONTAINS_ALL
-          - CONTAINS_ANY
-        subject:
-          type: string
-          description: Subject the condition evaluates
-          enum:
-          - AGE
-          - COORDINATES
-          - CPE
-          - EXPRESSION
-          - LICENSE
-          - LICENSE_GROUP
-          - PACKAGE_URL
-          - SEVERITY
-          - SWID_TAGID
-          - VERSION
-          - COMPONENT_HASH
-          - IS_INTERNAL
-          - CWE
-          - VULNERABILITY_ID
-          - VERSION_DISTANCE
-          - EPSS
-        uuid:
-          type: string
-          format: uuid
-          description: UUID of the policy condition
-        value:
-          type: string
-          description: Value the subject is compared to
-        violationType:
-          type: string
-          description: Violation type produced when the condition matches
-          enum:
-          - LICENSE
-          - SECURITY
-          - OPERATIONAL
       required:
       - operator
       - subject
@@ -12245,21 +11636,26 @@ components:
       required:
       - firstOccurrence
       - lastOccurrence
-    ProjectPropertyResponse:
+    ProjectProperty:
       type: object
       properties:
         description:
           type: string
-          description: Description of the property
+          maxLength: 255
+          minLength: 0
+          pattern: "[\\P{Cc}]+"
         groupName:
           type: string
-          description: Group the property belongs to
+          maxLength: 255
+          minLength: 1
+          pattern: "[\\P{Cc}]+"
         propertyName:
           type: string
-          description: Name of the property
+          maxLength: 255
+          minLength: 1
+          pattern: "[\\P{Cc}]+"
         propertyType:
           type: string
-          description: Type of the property
           enum:
           - BOOLEAN
           - INTEGER
@@ -12270,7 +11666,9 @@ components:
           - UUID
         propertyValue:
           type: string
-          description: Value of the property
+          maxLength: 1024
+          minLength: 0
+          pattern: "[\\P{Cc}]+"
       required:
       - groupName
       - propertyName
@@ -12294,6 +11692,57 @@ components:
           type: string
           format: uuid
       required:
+      - uuid
+    Repository:
+      type: object
+      properties:
+        authenticationRequired:
+          type: boolean
+        enabled:
+          type: boolean
+        identifier:
+          type: string
+          minLength: 1
+        internal:
+          type: boolean
+        password:
+          type: string
+        resolutionOrder:
+          type: integer
+          format: int32
+        type:
+          type: string
+          enum:
+          - MAVEN
+          - NPM
+          - GEM
+          - PYPI
+          - NUGET
+          - HEX
+          - COMPOSER
+          - CARGO
+          - GO_MODULES
+          - CPAN
+          - GITHUB
+          - HACKAGE
+          - NIXPKGS
+          - UNSUPPORTED
+        url:
+          type: string
+          minLength: 1
+        username:
+          type: string
+        uuid:
+          type: string
+          format: uuid
+      required:
+      - authenticationRequired
+      - enabled
+      - identifier
+      - internal
+      - resolutionOrder
+      - type
+      - url
       - uuid
     RepositoryMetaComponent:
       type: object
@@ -12329,64 +11778,6 @@ components:
           - HACKAGE
           - NIXPKGS
           - UNSUPPORTED
-    RepositoryResponse:
-      type: object
-      properties:
-        authenticationRequired:
-          type: boolean
-          description: Whether the repository requires authentication
-        enabled:
-          type: boolean
-          description: Whether the repository is enabled
-        identifier:
-          type: string
-          description: Unique identifier of the repository within its type
-        internal:
-          type: boolean
-          description: Whether the repository is internal to the organization
-        password:
-          type: string
-          description: Name of the secret holding the password or token
-        resolutionOrder:
-          type: integer
-          format: int32
-          description: Order in which the repository is queried during version resolution
-        type:
-          type: string
-          description: Type of the repository
-          enum:
-          - MAVEN
-          - NPM
-          - GEM
-          - PYPI
-          - NUGET
-          - HEX
-          - COMPOSER
-          - CARGO
-          - GO_MODULES
-          - CPAN
-          - GITHUB
-          - HACKAGE
-          - NIXPKGS
-          - UNSUPPORTED
-        url:
-          type: string
-          description: URL of the repository
-        username:
-          type: string
-          description: Username to authenticate with
-        uuid:
-          type: string
-          format: uuid
-          description: UUID of the repository
-      required:
-      - authenticationRequired
-      - enabled
-      - identifier
-      - resolutionOrder
-      - type
-      - url
-      - uuid
     Score:
       type: object
       properties:
@@ -12784,44 +12175,6 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/ServiceComponent"
-    UpdateConfigPropertyRequest:
-      type: object
-      properties:
-        groupName:
-          type: string
-          description: Group the property belongs to
-          maxLength: 255
-          minLength: 1
-          pattern: "\\P{Cc}+"
-        propertyName:
-          type: string
-          description: Name of the property
-          maxLength: 255
-          minLength: 1
-          pattern: "\\P{Cc}+"
-        propertyValue:
-          type: string
-          description: Value of the property
-          pattern: "\\P{Cc}+"
-      required:
-      - groupName
-      - propertyName
-    UpdateLicenseGroupRequest:
-      type: object
-      properties:
-        name:
-          type: string
-          description: New name of the license group
-          maxLength: 255
-          minLength: 1
-          pattern: "^[\\p{IsWhite_Space}\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]*$"
-        uuid:
-          type: string
-          format: uuid
-          description: UUID of the license group to update
-      required:
-      - name
-      - uuid
     UpdateNotificationPublisherRequest:
       type: object
       properties:
@@ -12917,121 +12270,6 @@ components:
       - level
       - name
       - scope
-      - uuid
-    UpdatePolicyConditionRequest:
-      type: object
-      properties:
-        operator:
-          type: string
-          description: Operator used to compare the subject to the value
-          enum:
-          - IS
-          - IS_NOT
-          - MATCHES
-          - NO_MATCH
-          - NUMERIC_GREATER_THAN
-          - NUMERIC_LESS_THAN
-          - NUMERIC_EQUAL
-          - NUMERIC_NOT_EQUAL
-          - NUMERIC_GREATER_THAN_OR_EQUAL
-          - NUMERIC_LESSER_THAN_OR_EQUAL
-          - CONTAINS_ALL
-          - CONTAINS_ANY
-        subject:
-          type: string
-          description: Subject the condition evaluates
-          enum:
-          - AGE
-          - COORDINATES
-          - CPE
-          - EXPRESSION
-          - LICENSE
-          - LICENSE_GROUP
-          - PACKAGE_URL
-          - SEVERITY
-          - SWID_TAGID
-          - VERSION
-          - COMPONENT_HASH
-          - IS_INTERNAL
-          - CWE
-          - VULNERABILITY_ID
-          - VERSION_DISTANCE
-          - EPSS
-        uuid:
-          type: string
-          format: uuid
-          description: UUID of the policy condition to update
-        value:
-          type: string
-          description: Value the subject is compared to
-          minLength: 1
-        violationType:
-          type: string
-          description: Violation type produced when the condition matches. Required
-            for `EXPRESSION` subjects
-          enum:
-          - LICENSE
-          - SECURITY
-          - OPERATIONAL
-      required:
-      - operator
-      - subject
-      - uuid
-      - value
-    UpdateProjectPropertyRequest:
-      type: object
-      properties:
-        groupName:
-          type: string
-          description: Group the property belongs to
-          maxLength: 255
-          minLength: 1
-          pattern: "\\P{Cc}+"
-        propertyName:
-          type: string
-          description: Name of the property
-          maxLength: 255
-          minLength: 1
-          pattern: "\\P{Cc}+"
-        propertyValue:
-          type: string
-          description: Value of the property
-          maxLength: 1024
-          minLength: 0
-          pattern: "\\P{Cc}+"
-      required:
-      - groupName
-      - propertyName
-    UpdateRepositoryRequest:
-      type: object
-      properties:
-        authenticationRequired:
-          type: boolean
-          description: Whether the repository requires authentication
-        enabled:
-          type: boolean
-          description: Whether the repository is enabled
-        internal:
-          type: boolean
-          description: Whether the repository is internal to the organization
-        password:
-          type: string
-          description: Name of the secret holding the password or token
-        url:
-          type: string
-          description: URL of the repository
-          minLength: 1
-        username:
-          type: string
-          description: Username to authenticate with
-        uuid:
-          type: string
-          format: uuid
-          description: UUID of the repository to update
-      required:
-      - authenticationRequired
-      - enabled
-      - url
       - uuid
     User:
       type: object
@@ -13200,28 +12438,6 @@ components:
       required:
       - component
       - policyViolation
-    ViolationAnalysisResponse:
-      type: object
-      properties:
-        analysisComments:
-          type: array
-          description: Audit trail of analysis comments
-          items:
-            $ref: "#/components/schemas/Comment"
-        analysisState:
-          type: string
-          description: The state of the analysis decision
-          enum:
-          - APPROVED
-          - REJECTED
-          - NOT_SET
-        isSuppressed:
-          type: boolean
-          description: Whether the policy violation is suppressed
-      required:
-      - analysisComments
-      - analysisState
-      - isSuppressed
     VisibleTeams:
       type: object
       properties:
@@ -13304,8 +12520,6 @@ components:
           maxLength: 255
           minLength: 1
           pattern: "^[\\p{IsWhite_Space}\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]*$"
-        isKev:
-          type: boolean
         owaspRRBusinessImpactScore:
           type: number
         owaspRRLikelihoodScore:
