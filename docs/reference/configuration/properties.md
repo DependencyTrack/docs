@@ -1266,12 +1266,12 @@ Specifies the Attribute that identifies a users ID.  <br/><br/>  Example (Micros
 
 <span id="dtldapsecurity-auth">**`dt.ldap.security-auth`** [¶](#dtldapsecurity-auth){ .headerlink }</span>
 
-Specifies the LDAP security authentication level to use. Its value is one of  the following strings: "none", "simple", "strong". If this property is empty  or unspecified, the behaviour is determined by the service provider.  
+Specifies the LDAP security authentication level to use.  <br/><br/>  If this property is empty or unspecified, the behaviour is determined by the service provider.  
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>enum</code></td></tr>
 <tr><th>Default</th><td><code>simple</code></td></tr>
-<tr><th>Valid Values</th><td><code>[none, simple, strong]</code></td></tr>
+<tr><th>Valid Values</th><td><code>[none, simple]</code></td></tr>
 <tr><th>ENV</th><td><code>DT_LDAP_SECURITY_AUTH</code></td></tr>
 </table>
 
