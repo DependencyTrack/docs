@@ -50,6 +50,10 @@ Run the database on a dedicated host. Co-locating PostgreSQL with API server ins
 compete for the same CPU, memory, and I/O, and that contention surfaces as unpredictable latency under
 load.
 
+Use fast disks, ideally NVME but at least SSDs. Once the working set outgrows memory,
+PostgreSQL falls back to random disk access, which HDDs handle poorly.
+See [Configuring the database](configuring-database.md) for storage guidance.
+
 When sizing the database host, account for the per-instance connection pool. PostgreSQL's `max_connections`
 must cover the sum of all pools across the cluster, plus headroom for migrations, backups, and
 administrator sessions:
