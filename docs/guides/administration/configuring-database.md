@@ -52,6 +52,11 @@ without being impacted by other applications.
 
 For smaller and non-critical deployments, it is totally fine to run everything on a single machine.
 
+**You should use fast disks for storage**, ideally NVME, but at the very least SSDs. Unless your entire working
+set fits into memory, PostgreSQL needs to perform random disk access, which is slow on HDDs due to seek latency.
+Local disks give you the most predictable performance. Network-attached storage also works well, provided you
+provision guaranteed IOPS and avoid tiers that throttle throughput under sustained load.
+
 #### Upgrades
 
 Follow the [official upgrading guide]. Be sure to select the version of the documentation that corresponds to the
