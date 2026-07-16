@@ -2729,6 +2729,10 @@ See for example:</p>
 than the application containers. You want PostgreSQL to be able to use the entire machine's resources,
 without being impacted by other applications.</p>
 <p>For smaller and non-critical deployments, it is totally fine to run everything on a single machine.</p>
+<p><strong>You should use fast disks for storage</strong>, ideally NVME, but at the very least SSDs. Unless your entire working
+set fits into memory, PostgreSQL needs to perform random disk access, which is slow on HDDs due to seek latency.
+Local disks give you the most predictable performance. Network-attached storage also works well, provided you
+provision guaranteed IOPS and avoid tiers that throttle throughput under sustained load.</p>
 <h4 id="upgrades">Upgrades<a class="headerlink" href="#upgrades" title="Permanent link">¶</a></h4>
 <p>Follow the <a href="https://www.postgresql.org/docs/current/upgrading.html">official upgrading guide</a>. Be sure to select the version of the documentation that corresponds to the
 PostgreSQL version you are running.</p>
