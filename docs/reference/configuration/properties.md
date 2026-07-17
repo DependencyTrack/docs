@@ -779,12 +779,22 @@ Defines the duration in milliseconds for which leadership leases are acquired.
 
 <span id="dtdex-enginemaintenancerun-deletion-batch-size">**`dt.dex-engine.maintenance.run-deletion-batch-size`** [¶](#dtdex-enginemaintenancerun-deletion-batch-size){ .headerlink }</span>
 
-Defines the maximum number of completed workflow runs to delete during a single execution  of the maintenance worker. Deletion of large volumes of runs in one pass can lead to I/O  spikes and increased table bloat.  <br/><br/>  If retention is not able to keep up with the volumes of  runs, consider increasing the interval of the maintenance worker first.  
+Defines the maximum number of completed workflow runs to delete in a single batch.  Deletion of large volumes of runs in one pass can lead to I/O spikes and increased table bloat.  <br/><br/>  Each maintenance cycle executes up to [`dt.dex-engine.maintenance.run-deletion-max-batches-per-cycle`](#dtdex-enginemaintenancerun-deletion-max-batches-per-cycle) batches.  <br/><br/>  If retention is not able to keep up with the volumes of runs,  consider increasing the interval of the maintenance worker,  or the number of batches per cycle first.  
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
 <tr><th>Default</th><td><code>1000</code></td></tr>
 <tr><th>ENV</th><td><code>DT_DEX_ENGINE_MAINTENANCE_RUN_DELETION_BATCH_SIZE</code></td></tr>
+</table>
+
+<span id="dtdex-enginemaintenancerun-deletion-max-batches-per-cycle">**`dt.dex-engine.maintenance.run-deletion-max-batches-per-cycle`** [¶](#dtdex-enginemaintenancerun-deletion-max-batches-per-cycle){ .headerlink }</span>
+
+Defines the maximum number of deletion batches the maintenance worker executes per cycle.  <br/><br/>  Bounds the WAL burst when draining a large backlog. A backlog exceeding  [`dt.dex-engine.maintenance.run-deletion-batch-size`](#dtdex-enginemaintenancerun-deletion-batch-size) * [`dt.dex-engine.maintenance.run-deletion-max-batches-per-cycle`](#dtdex-enginemaintenancerun-deletion-max-batches-per-cycle)  is drained across multiple cycles.  
+
+<table>
+<tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
+<tr><th>Default</th><td><code>100</code></td></tr>
+<tr><th>ENV</th><td><code>DT_DEX_ENGINE_MAINTENANCE_RUN_DELETION_MAX_BATCHES_PER_CYCLE</code></td></tr>
 </table>
 
 <span id="dtdex-enginemaintenancerun-retention-ms">**`dt.dex-engine.maintenance.run-retention-ms`** [¶](#dtdex-enginemaintenancerun-retention-ms){ .headerlink }</span>
