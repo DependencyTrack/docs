@@ -15,7 +15,7 @@
   <script>
     window.onload = function () {
       
-        var url = "../openapi-v1.yaml";
+        var url = "../openapi-v2.yaml";
         
       
       window.ui = SwaggerUIBundle({
@@ -41,7 +41,9 @@
     "extra_css": [],
     "dark_scheme_name": "slate",
     "filter_files": [],
-    "syntaxHighlight.theme": "agate"
+    "syntaxHighlight": {
+        "theme": "agate"
+    }
 
       })
 
@@ -61,7 +63,7 @@
     }
 
     const resize_ob = new ResizeObserver(function(entries) {
-      parent.update_swagger_ui_iframe_height("2f317f98");
+      parent.update_swagger_ui_iframe_height("d9e7ac8e");
     });
 
     // start observing for resizing
