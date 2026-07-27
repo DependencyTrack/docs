@@ -857,6 +857,16 @@ Defines the interval in milliseconds in which the metrics collector runs.
 <tr><th>ENV</th><td><code>DT_DEX_ENGINE_METRICS_COLLECTOR_INTERVAL_MS</code></td></tr>
 </table>
 
+<span id="dtdex-enginequery-timeout-ms">**`dt.dex-engine.query-timeout-ms`** [¶](#dtdex-enginequery-timeout-ms){ .headerlink }</span>
+
+Defines the timeout in milliseconds enforced for all database queries made by the durable execution engine.  <br/><br/>  Should not be modified unless repeated timeouts are experienced. The default timeout is generous for the  engine's workload. Query timeouts being exceeded usually points at deeper issues, such as slow I/O,  lagging autovacuum, the planner choosing suboptimal query plans, or queries themselves being inefficient.  If you find yourself having to increase this, report an issue about performance degradation so the underlying  issue can be resolved.  
+
+<table>
+<tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
+<tr><th>Default</th><td><code>10000</code></td></tr>
+<tr><th>ENV</th><td><code>DT_DEX_ENGINE_QUERY_TIMEOUT_MS</code></td></tr>
+</table>
+
 <span id="dtdex-enginerun-history-cacheevict-after-access-ms">**`dt.dex-engine.run-history-cache.evict-after-access-ms`** [¶](#dtdex-enginerun-history-cacheevict-after-access-ms){ .headerlink }</span>
 
 Defines the time in milliseconds for which workflow run event histories are cached.  <br/><br/>  Histories are only cached for non-terminal runs, to improve performance of replay.  Cached histories are automatically evicted when the corresponding run terminates.  
@@ -905,6 +915,16 @@ Whether all durable execution task workers should be enabled.  <br/><br/>  Acts 
 <tr><th>Type</th><td style="border-width: 0"><code>boolean</code></td></tr>
 <tr><th>Default</th><td><code>true</code></td></tr>
 <tr><th>ENV</th><td><code>DT_DEX_ENGINE_WORKERS_ENABLED</code></td></tr>
+</table>
+
+<span id="dtdex-engineworkflow-task-schedulerconcurrency-key-wakeup-repair-interval-ms">**`dt.dex-engine.workflow-task-scheduler.concurrency-key-wakeup-repair-interval-ms`** [¶](#dtdex-engineworkflow-task-schedulerconcurrency-key-wakeup-repair-interval-ms){ .headerlink }</span>
+
+Defines the interval in milliseconds in which the workflow task scheduler  repairs its scheduling bookkeeping from the authoritative workflow state.  The interval bounds how long a workflow run can be delayed if the  bookkeeping is lost, e.g. due to a database crash. Lower values tighten  that bound at the cost of more frequent background work.  
+
+<table>
+<tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
+<tr><th>Default</th><td><code>60000</code></td></tr>
+<tr><th>ENV</th><td><code>DT_DEX_ENGINE_WORKFLOW_TASK_SCHEDULER_CONCURRENCY_KEY_WAKEUP_REPAIR_INTERVAL_MS</code></td></tr>
 </table>
 
 <span id="dtdex-engineworkflow-task-schedulerpoll-interval-ms">**`dt.dex-engine.workflow-task-scheduler.poll-interval-ms`** [¶](#dtdex-engineworkflow-task-schedulerpoll-interval-ms){ .headerlink }</span>
