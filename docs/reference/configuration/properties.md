@@ -727,6 +727,36 @@ Defines the maximum concurrency of the notification activity worker.
 <tr><th>ENV</th><td><code>DT_DEX_ENGINE_ACTIVITY_WORKER_VULN_ANALYSIS_MAX_CONCURRENCY</code></td></tr>
 </table>
 
+<span id="dtdex-engineactivityeval-project-policiesexecution-timeout-ms">**`dt.dex-engine.activity.eval-project-policies.execution-timeout-ms`** [¶](#dtdex-engineactivityeval-project-policiesexecution-timeout-ms){ .headerlink }</span>
+
+Defines the maximum duration in milliseconds a single project policies evaluation may take.  
+
+<table>
+<tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
+<tr><th>Default</th><td><code>600000</code></td></tr>
+<tr><th>ENV</th><td><code>DT_DEX_ENGINE_ACTIVITY_EVAL_PROJECT_POLICIES_EXECUTION_TIMEOUT_MS</code></td></tr>
+</table>
+
+<span id="dtdex-engineactivityexecution-timeout-ms">**`dt.dex-engine.activity.execution-timeout-ms`** [¶](#dtdex-engineactivityexecution-timeout-ms){ .headerlink }</span>
+
+Defines the maximum duration in milliseconds a single activity execution attempt may take.  <br/><br/>  Applies to all activities that do not define their own `dt.dex-engine.activity.<name>.execution-timeout-ms`.  
+
+<table>
+<tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
+<tr><th>Default</th><td><code>3600000</code></td></tr>
+<tr><th>ENV</th><td><code>DT_DEX_ENGINE_ACTIVITY_EXECUTION_TIMEOUT_MS</code></td></tr>
+</table>
+
+<span id="dtdex-engineactivitylock-timeout-ms">**`dt.dex-engine.activity.lock-timeout-ms`** [¶](#dtdex-engineactivitylock-timeout-ms){ .headerlink }</span>
+
+Defines the duration in milliseconds for which activity tasks are locked while executing.  <br/><br/>  Locks are renewed for as long as an activity executes, so this does not limit how long an  activity may run. It primarily determines how quickly the tasks of a dead node are picked up  by another one. Lowering it speeds up failover, at the risk of tasks being taken over  while their original node is merely slow to renew.  <br/><br/>  Values too short for the engine to renew a lock before it expires are rejected on startup.  
+
+<table>
+<tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
+<tr><th>Default</th><td><code>300000</code></td></tr>
+<tr><th>ENV</th><td><code>DT_DEX_ENGINE_ACTIVITY_LOCK_TIMEOUT_MS</code></td></tr>
+</table>
+
 <span id="dtdex-engineexternal-event-bufferflush-interval-ms">**`dt.dex-engine.external-event-buffer.flush-interval-ms`** [¶](#dtdex-engineexternal-event-bufferflush-interval-ms){ .headerlink }</span>
 
 Defines the time in milliseconds between flushes of the external event buffer.  
