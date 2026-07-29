@@ -10,40 +10,41 @@
 
 
 
-| Field | Type | Description |
-| :---- | :--- | :---------- |
-| `uuid` | `string` | UUID of the component. | - |
-| `group` | `string` | Group / namespace of the component. | - |
-| `name` | `string` | Name of the component. | - |
-| `version` | `string` | Version of the component. | - |
-| `classifier` | `string` | Classifier / type of the component. May be any of: - APPLICATION - CONTAINER - DEVICE - FILE - FIRMWARE - FRAMEWORK - LIBRARY - OPERATING_SYSTEM | - |
-| `cpe` | `string` | CPE of the component. https://csrc.nist.gov/projects/security-content-automation-protocol/specifications/cpe | - |
-| `purl` | `string` | Package URL of the component. https://github.com/package-url/purl-spec | - |
-| `swid_tag_id` | `string` | SWID tag ID of the component. https://csrc.nist.gov/projects/Software-Identification-SWID | - |
-| `is_internal` | `bool` | Whether the component is internal to the organization. | - |
-| `properties` | [`Component.Property[]`](#org-dependencytrack-policy-v1-Component-Property) | Properties of the component. | - |
-| `md5` | `string` |  | - |
-| `sha1` | `string` |  | - |
-| `sha256` | `string` |  | - |
-| `sha384` | `string` |  | - |
-| `sha512` | `string` |  | - |
-| `sha3_256` | `string` |  | - |
-| `sha3_384` | `string` |  | - |
-| `sha3_512` | `string` |  | - |
-| `blake2b_256` | `string` |  | - |
-| `blake2b_384` | `string` |  | - |
-| `blake2b_512` | `string` |  | - |
-| `blake3` | `string` |  | - |
-| `license_name` | `string` |  | - |
-| `license_expression` | `string` |  | - |
-| `resolved_license` | [`License`](#org-dependencytrack-policy-v1-License) |  | - |
-| `published_at` | `google.protobuf.Timestamp` | When the current version was published. NOTE: The platform resolves this information asynchronously, so it is not guaranteed to be available immediately. Policies should explicitly check presence using the has() macro. | - |
-| `latest_version` | `string` | Latest available version. NOTE: The platform resolves this information asynchronously, so it is not guaranteed to be available immediately. Policies should explicitly check presence using the has() macro. | - |
-| `package_artifact_md5` | `string` | MD5 hash of the corresponding package artifact as reported by its upstream repository. NOTE: The platform resolves this information asynchronously, so it is not guaranteed to be available immediately. Policies should explicitly check presence using the has() macro. | - |
-| `package_artifact_sha1` | `string` | SHA-1 hash of the corresponding package artifact as reported by its upstream repository. NOTE: The platform resolves this information asynchronously, so it is not guaranteed to be available immediately. Policies should explicitly check presence using the has() macro. | - |
-| `package_artifact_sha256` | `string` | SHA-256 hash of the corresponding package artifact as reported by its upstream repository. NOTE: The platform resolves this information asynchronously, so it is not guaranteed to be available immediately. Policies should explicitly check presence using the has() macro. | - |
-| `package_artifact_sha512` | `string` | SHA-512 hash of the corresponding package artifact as reported by its upstream repository. NOTE: The platform resolves this information asynchronously, so it is not guaranteed to be available immediately. Policies should explicitly check presence using the has() macro. | - |
-| `latest_version_published_at` | `google.protobuf.Timestamp` | When the latest version was published. NOTE: The platform resolves this information asynchronously, so it is not guaranteed to be available immediately. Policies should explicitly check presence using the has() macro. | - |
+| Field                         | Type | Description                                                                                                                                                                                                                                                                   |
+|:------------------------------| :--- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `uuid`                        | `string` | UUID of the component.                                                                                                                                                                                                                                                        | - |
+| `group`                       | `string` | Group / namespace of the component.                                                                                                                                                                                                                                           | - |
+| `name`                        | `string` | Name of the component.                                                                                                                                                                                                                                                        | - |
+| `version`                     | `string` | Version of the component.                                                                                                                                                                                                                                                     | - |
+| `scope`                       | `string` | Scope of the component.                                                                                                                                                                                                                                                       | - |
+| `classifier`                  | `string` | Classifier / type of the component. May be any of: - APPLICATION - CONTAINER - DEVICE - FILE - FIRMWARE - FRAMEWORK - LIBRARY - OPERATING_SYSTEM                                                                                                                              | - |
+| `cpe`                         | `string` | CPE of the component. https://csrc.nist.gov/projects/security-content-automation-protocol/specifications/cpe                                                                                                                                                                  | - |
+| `purl`                        | `string` | Package URL of the component. https://github.com/package-url/purl-spec                                                                                                                                                                                                        | - |
+| `swid_tag_id`                 | `string` | SWID tag ID of the component. https://csrc.nist.gov/projects/Software-Identification-SWID                                                                                                                                                                                     | - |
+| `is_internal`                 | `bool` | Whether the component is internal to the organization.                                                                                                                                                                                                                        | - |
+| `properties`                  | [`Component.Property[]`](#org-dependencytrack-policy-v1-Component-Property) | Properties of the component.                                                                                                                                                                                                                                                  | - |
+| `md5`                         | `string` |                                                                                                                                                                                                                                                                               | - |
+| `sha1`                        | `string` |                                                                                                                                                                                                                                                                               | - |
+| `sha256`                      | `string` |                                                                                                                                                                                                                                                                               | - |
+| `sha384`                      | `string` |                                                                                                                                                                                                                                                                               | - |
+| `sha512`                      | `string` |                                                                                                                                                                                                                                                                               | - |
+| `sha3_256`                    | `string` |                                                                                                                                                                                                                                                                               | - |
+| `sha3_384`                    | `string` |                                                                                                                                                                                                                                                                               | - |
+| `sha3_512`                    | `string` |                                                                                                                                                                                                                                                                               | - |
+| `blake2b_256`                 | `string` |                                                                                                                                                                                                                                                                               | - |
+| `blake2b_384`                 | `string` |                                                                                                                                                                                                                                                                               | - |
+| `blake2b_512`                 | `string` |                                                                                                                                                                                                                                                                               | - |
+| `blake3`                      | `string` |                                                                                                                                                                                                                                                                               | - |
+| `license_name`                | `string` |                                                                                                                                                                                                                                                                               | - |
+| `license_expression`          | `string` |                                                                                                                                                                                                                                                                               | - |
+| `resolved_license`            | [`License`](#org-dependencytrack-policy-v1-License) |                                                                                                                                                                                                                                                                               | - |
+| `published_at`                | `google.protobuf.Timestamp` | When the current version was published. NOTE: The platform resolves this information asynchronously, so it is not guaranteed to be available immediately. Policies should explicitly check presence using the has() macro.                                                    | - |
+| `latest_version`              | `string` | Latest available version. NOTE: The platform resolves this information asynchronously, so it is not guaranteed to be available immediately. Policies should explicitly check presence using the has() macro.                                                                  | - |
+| `package_artifact_md5`        | `string` | MD5 hash of the corresponding package artifact as reported by its upstream repository. NOTE: The platform resolves this information asynchronously, so it is not guaranteed to be available immediately. Policies should explicitly check presence using the has() macro.     | - |
+| `package_artifact_sha1`       | `string` | SHA-1 hash of the corresponding package artifact as reported by its upstream repository. NOTE: The platform resolves this information asynchronously, so it is not guaranteed to be available immediately. Policies should explicitly check presence using the has() macro.   | - |
+| `package_artifact_sha256`     | `string` | SHA-256 hash of the corresponding package artifact as reported by its upstream repository. NOTE: The platform resolves this information asynchronously, so it is not guaranteed to be available immediately. Policies should explicitly check presence using the has() macro. | - |
+| `package_artifact_sha512`     | `string` | SHA-512 hash of the corresponding package artifact as reported by its upstream repository. NOTE: The platform resolves this information asynchronously, so it is not guaranteed to be available immediately. Policies should explicitly check presence using the has() macro. | - |
+| `latest_version_published_at` | `google.protobuf.Timestamp` | When the latest version was published. NOTE: The platform resolves this information asynchronously, so it is not guaranteed to be available immediately. Policies should explicitly check presence using the has() macro.                                                     | - |
 
 
 
