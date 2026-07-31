@@ -46,6 +46,38 @@ dt.file-storage.s3.secret-key=<secret-key>
 dt.file-storage.s3.region=us-east-1
 ```
 
+#### Authentication
+
+The `s3` provider supports two credential modes.
+
+**Static credentials.** Configure `dt.file-storage.s3.access-key` and `dt.file-storage.s3.secret-key`.
+Both properties require each other. If you configure only one of them, Dependency-Track fails to start.
+This mode works with any S3-compatible object store.
+
+**Environment credentials.** Omit both properties. Dependency-Track resolves credentials from its
+environment instead, using the first of these sources that provides them:
+
+1. The `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables
+2. The shared AWS configuration file, `~/.aws/credentials` by default
+3. IAM Roles for Service Accounts (IRSA) on Amazon EKS
+4. Task roles on Amazon ECS
+5. Instance profiles on Amazon EC2
+
+```ini
+dt.file-storage.provider=s3
+dt.file-storage.s3.endpoint=https://s3.us-east-1.amazonaws.com
+dt.file-storage.s3.bucket=dtrack-files
+dt.file-storage.s3.region=us-east-1
+```
+
+Dependency-Track resolves credentials when it verifies the bucket during startup.
+If no source provides credentials, startup fails.
+
+!!! note
+    Amazon EKS Pod Identity is not supported. The S3 client does not read the token file that the
+    Pod Identity Agent provides, and it rejects the agent's endpoint because that address is not a
+    loopback address. Use IRSA on Amazon EKS.
+
 Configuration:
 
 - [`dt.file-storage.s3.endpoint`](properties.md#dtfile-storages3endpoint)
