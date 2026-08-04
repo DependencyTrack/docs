@@ -10309,6 +10309,10 @@ components:
           type: number
           format: double
           description: The inherited risk score
+        kev:
+          type: integer
+          format: int32
+          description: Number of vulnerabilities known to be exploited
         low:
           type: integer
           format: int32
@@ -10358,6 +10362,7 @@ components:
       - critical
       - high
       - inheritedRiskScore
+      - kev
       - low
       - medium
       - policyViolationsFail
@@ -10813,6 +10818,9 @@ components:
         inheritedRiskScore:
           type: number
           format: double
+        kev:
+          type: integer
+          format: int32
         lastOccurrence:
           type: integer
           format: int64
@@ -11887,6 +11895,9 @@ components:
         inheritedRiskScore:
           type: number
           format: double
+        kev:
+          type: integer
+          format: int32
         lastOccurrence:
           type: integer
           format: int64
@@ -12178,6 +12189,9 @@ components:
         inheritedRiskScore:
           type: number
           format: double
+        kev:
+          type: integer
+          format: int32
         lastOccurrence:
           type: integer
           format: int64
