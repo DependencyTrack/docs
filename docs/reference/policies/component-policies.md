@@ -53,12 +53,6 @@ Compares against the component's publication date.
 Supported algorithms: `MD5`, `SHA-1`, `SHA-256`/`384`/`512`, `SHA3-256`/`384`/`512`,
 `BLAKE2b-256`/`384`/`512`, `BLAKE3`.
 
-### `COMPONENT_SCOPE`
-
-- **Violation type:** Operational
-- **Operators:** `IS`, `IS_NOT`
-- **Value:** One of `REQUIRED`, `OPTIONAL`, `EXCLUDED`, `UNASSIGNED`.
-
 ### `COORDINATES`
 
 - **Violation type:** Operational
