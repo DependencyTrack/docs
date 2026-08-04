@@ -44,6 +44,7 @@
 | `package_artifact_sha256` | `string` | SHA-256 hash of the corresponding package artifact as reported by its upstream repository. NOTE: The platform resolves this information asynchronously, so it is not guaranteed to be available immediately. Policies should explicitly check presence using the has() macro. | - |
 | `package_artifact_sha512` | `string` | SHA-512 hash of the corresponding package artifact as reported by its upstream repository. NOTE: The platform resolves this information asynchronously, so it is not guaranteed to be available immediately. Policies should explicitly check presence using the has() macro. | - |
 | `latest_version_published_at` | `google.protobuf.Timestamp` | When the latest version was published. NOTE: The platform resolves this information asynchronously, so it is not guaranteed to be available immediately. Policies should explicitly check presence using the has() macro. | - |
+| `scope` | `string` |  | - |
 
 
 
