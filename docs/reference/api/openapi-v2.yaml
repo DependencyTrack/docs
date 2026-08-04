@@ -3135,6 +3135,9 @@ components:
         unassigned:
           type: integer
           format: int32
+        kev:
+          type: integer
+          format: int32
         vulnerabilities:
           type: integer
           format: int32
