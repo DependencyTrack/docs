@@ -45,6 +45,8 @@ own tools and automation scripts.
 | SecObserve | Dependency-Track integration | [GitHub](https://github.com/MaibornWolff/SecObserve) |
 | Mixeway Hub | Risk aggregation platform | [mixeway.pl](https://mixeway.pl) |
 | SD Elements (Security Compass) | Dependency-Track integration | [securitycompass.com](https://securitycompass.com) |
+| KernelScan Analyzer Plugin | Config-aware Linux-kernel CVE analyzer (v5 vuln-analyzer plugin); reports only the CVEs reachable in a kernel's running .config | [GitHub](https://github.com/kernelscan/kernelscan-dt-plugin) |
+| KernelScan VEX Sync | Companion connector that applies KernelScan's config-aware not_affected / exploitable verdicts to matching projects via VEX | [GitHub](https://github.com/kernelscan/kernelscan-dt-vex-sync) |
 
 ## Reporting and Auditing
 
