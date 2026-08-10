@@ -34,6 +34,8 @@
 | `blake2b_384` | `string` |  | - |
 | `blake2b_512` | `string` |  | - |
 | `blake3` | `string` |  | - |
+| `streebog_256` | `string` |  | - |
+| `streebog_512` | `string` |  | - |
 | `license_name` | `string` |  | - |
 | `license_expression` | `string` |  | - |
 | `resolved_license` | [`License`](#org-dependencytrack-policy-v1-License) |  | - |
