@@ -23,6 +23,29 @@ Dependency-Track also **generates** CycloneDX documents in several forms:
 | VEX | A Vulnerability Exploitability Exchange document containing analysis decisions (states, justifications) for a project's findings. |
 | VDR | A Vulnerability Disclosure Report containing full vulnerability data for a project's components. |
 
+### Output version
+
+Generated documents use CycloneDX 1.5 by default. The `version` query parameter of the
+export endpoints selects a different version of the specification.
+
+### BOM manufacturer
+
+Generated documents can carry a `metadata.manufacturer` entry identifying the organization
+that produced the BOM. Dependency-Track takes the first value available from:
+
+1. The manufacturer recorded in the project's most recently imported BOM.
+2. The instance-wide manufacturer under **Administration → Configuration → General**,
+   described in
+   [Configuring the BOM manufacturer](../guides/administration/configuring-bom-manufacturer.md).
+
+Documents omit the entry when neither holds a value.
+
+CycloneDX added `metadata.manufacturer` in version 1.6. Documents generated in earlier
+versions of the specification omit the entry, including the 1.5 default.
+
+The BOM manufacturer is distinct from the manufacturer of the project itself, which
+describes the subject of the BOM rather than its producer.
+
 ## Finding Packaging Format (FPF)
 
 The Finding Packaging Format (FPF) is a Dependency-Track-native JSON format for
