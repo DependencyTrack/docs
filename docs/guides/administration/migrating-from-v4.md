@@ -24,7 +24,7 @@ To walk this migration end to end against a sandbox v5 stack before the producti
     names. See the [configuration reference](../../reference/configuration/properties.md)
     for the current property and environment variable names.
 
-If you are running OWASP Dependency Track in a Kubernetes environment, please see the *MIGRATION.md* within the [Helm chart](https://github.com/DependencyTrack/helm-charts).
+If you are running Dependency-Track in a Kubernetes environment, please see the `UPGRADING.md` guide within the [Helm chart](https://github.com/DependencyTrack/helm-charts/blob/main/charts/dependency-track/UPGRADING.md).
 
 ## How the migration works
 
