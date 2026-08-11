@@ -175,9 +175,8 @@ def _validate_default(prop):
             float(default)
         elif prop_type == "integer":
             int(default)
-        elif prop_type == "duration":
-            if not re.match(r"^P", default, re.IGNORECASE):
-                raise ValueError(f"{default} is not a valid ISO 8601 duration")
+        elif prop_type == "duration" and not re.match(r"^P", default, re.IGNORECASE):
+            raise ValueError(f"{default} is not a valid ISO 8601 duration")
     except (ValueError, TypeError) as e:
         print(
             f"\033[33m[!] Definition of property {prop['name']} appears to be"
