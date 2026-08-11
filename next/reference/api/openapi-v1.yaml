@@ -465,7 +465,10 @@ paths:
           or <strong>PROJECT_CREATION_UPLOAD</strong> permission.
         </p>
         <p>
-          MediaType supported for BOM artifact is 'application/xml' or 'application/json'.
+          The BOM artifact may be supplied uncompressed or compressed. If the BOM is uncompressed,
+          the supported MediaType is 'application/xml' or 'application/json'. If the BOM is compressed,
+          the supported MediaType is 'application/gzip' or 'application/zstd' and must match the actual
+          compression of the data.
           The BOM will be validated against the CycloneDX schema. If schema validation fails,
           a response with problem details in RFC 9457 format will be returned. In this case,
           the response's content type will be <code>application/problem+json</code>.
@@ -891,8 +894,8 @@ paths:
           enum:
           - "asc, desc"
       - description: "The MD5, SHA-1, SHA-256, SHA-384, SHA-512, SHA3-256, SHA3-384,\
-          \ SHA3-512, BLAKE2b-256, BLAKE2b-384, BLAKE2b-512, or BLAKE3 hash of the\
-          \ component to retrieve"
+          \ SHA3-512, BLAKE2b-256, BLAKE2b-384, BLAKE2b-512, BLAKE3, Streebog-256,\
+          \ or Streebog-512 hash of the component to retrieve"
         in: path
         name: hash
         required: true
@@ -2284,6 +2287,7 @@ paths:
           - INTERNAL
           - OSV
           - SNYK
+          - CX
           - UNKNOWN
       - in: header
         name: accept
@@ -9575,6 +9579,7 @@ components:
           - INTERNAL
           - OSV
           - SNYK
+          - CX
           - UNKNOWN
       required:
       - firstSeen
@@ -10057,6 +10062,12 @@ components:
         sha512:
           type: string
           pattern: "^[0-9a-fA-F]{128}$"
+        streebog_256:
+          type: string
+          pattern: "^[0-9a-fA-F]{64}$"
+        streebog_512:
+          type: string
+          pattern: "^[0-9a-fA-F]{128}$"
         supplier:
           $ref: "#/components/schemas/OrganizationalEntity"
         swidTagId:
@@ -10306,6 +10317,10 @@ components:
           type: number
           format: double
           description: The inherited risk score
+        kev:
+          type: integer
+          format: int32
+          description: Number of vulnerabilities known to be exploited
         low:
           type: integer
           format: int32
@@ -10355,6 +10370,7 @@ components:
       - critical
       - high
       - inheritedRiskScore
+      - kev
       - low
       - medium
       - policyViolationsFail
@@ -10810,6 +10826,9 @@ components:
         inheritedRiskScore:
           type: number
           format: double
+        kev:
+          type: integer
+          format: int32
         lastOccurrence:
           type: integer
           format: int64
@@ -10913,7 +10932,7 @@ components:
           - build-system
           - release-notes
           - security-contact
-          - model_card
+          - model-card
           - attestation
           - threat-model
           - adversary-model
@@ -10936,6 +10955,11 @@ components:
           - rfc-9116
           - electronic-signature
           - digital-signature
+          - patent
+          - patent-family
+          - patent-assertion
+          - citation
+          - poam
           - other
         url:
           type: string
@@ -11884,6 +11908,9 @@ components:
         inheritedRiskScore:
           type: number
           format: double
+        kev:
+          type: integer
+          format: int32
         lastOccurrence:
           type: integer
           format: int64
@@ -12175,6 +12202,9 @@ components:
         inheritedRiskScore:
           type: number
           format: double
+        kev:
+          type: integer
+          format: int32
         lastOccurrence:
           type: integer
           format: int64
@@ -13383,6 +13413,9 @@ components:
       type: object
       properties:
         cveId:
+          type: string
+          pattern: "^[\\p{IsWhite_Space}\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\n\\r\\t]*$"
+        cxId:
           type: string
           pattern: "^[\\p{IsWhite_Space}\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\n\\r\\t]*$"
         ghsaId:

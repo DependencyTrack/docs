@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../assets/images/logo.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -26,7 +26,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -3452,6 +3452,30 @@
 <tr><th>ENV</th><td><code>DT_DEX_ENGINE_ACTIVITY_WORKER_VULN_ANALYSIS_MAX_CONCURRENCY</code></td></tr>
 </tbody></table>
 
+<p><span id="dtdex-engineactivityeval-project-policiesexecution-timeout-ms"><strong><code>dt.dex-engine.activity.eval-project-policies.execution-timeout-ms</code></strong> <a class="headerlink" href="#dtdex-engineactivityeval-project-policiesexecution-timeout-ms">¶</a></span></p>
+<p>Defines the maximum duration in milliseconds a single project policies evaluation may take.  </p>
+<table>
+<tbody><tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
+<tr><th>Default</th><td><code>600000</code></td></tr>
+<tr><th>ENV</th><td><code>DT_DEX_ENGINE_ACTIVITY_EVAL_PROJECT_POLICIES_EXECUTION_TIMEOUT_MS</code></td></tr>
+</tbody></table>
+
+<p><span id="dtdex-engineactivityexecution-timeout-ms"><strong><code>dt.dex-engine.activity.execution-timeout-ms</code></strong> <a class="headerlink" href="#dtdex-engineactivityexecution-timeout-ms">¶</a></span></p>
+<p>Defines the maximum duration in milliseconds a single activity execution attempt may take.  <br><br>  Applies to all activities that do not define their own <code>dt.dex-engine.activity.&lt;name&gt;.execution-timeout-ms</code>.  </p>
+<table>
+<tbody><tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
+<tr><th>Default</th><td><code>3600000</code></td></tr>
+<tr><th>ENV</th><td><code>DT_DEX_ENGINE_ACTIVITY_EXECUTION_TIMEOUT_MS</code></td></tr>
+</tbody></table>
+
+<p><span id="dtdex-engineactivitylock-timeout-ms"><strong><code>dt.dex-engine.activity.lock-timeout-ms</code></strong> <a class="headerlink" href="#dtdex-engineactivitylock-timeout-ms">¶</a></span></p>
+<p>Defines the duration in milliseconds for which activity tasks are locked while executing.  <br><br>  Locks are renewed for as long as an activity executes, so this does not limit how long an  activity may run. It primarily determines how quickly the tasks of a dead node are picked up  by another one. Lowering it speeds up failover, at the risk of tasks being taken over  while their original node is merely slow to renew.  <br><br>  Values too short for the engine to renew a lock before it expires are rejected on startup.  </p>
+<table>
+<tbody><tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
+<tr><th>Default</th><td><code>300000</code></td></tr>
+<tr><th>ENV</th><td><code>DT_DEX_ENGINE_ACTIVITY_LOCK_TIMEOUT_MS</code></td></tr>
+</tbody></table>
+
 <p><span id="dtdex-engineexternal-event-bufferflush-interval-ms"><strong><code>dt.dex-engine.external-event-buffer.flush-interval-ms</code></strong> <a class="headerlink" href="#dtdex-engineexternal-event-bufferflush-interval-ms">¶</a></span></p>
 <p>Defines the time in milliseconds between flushes of the external event buffer.  </p>
 <table>
@@ -3556,6 +3580,14 @@
 <tr><th>ENV</th><td><code>DT_DEX_ENGINE_METRICS_COLLECTOR_INTERVAL_MS</code></td></tr>
 </tbody></table>
 
+<p><span id="dtdex-enginequery-timeout-ms"><strong><code>dt.dex-engine.query-timeout-ms</code></strong> <a class="headerlink" href="#dtdex-enginequery-timeout-ms">¶</a></span></p>
+<p>Defines the timeout in milliseconds enforced for all database queries made by the durable execution engine.  <br><br>  Should not be modified unless repeated timeouts are experienced. The default timeout is generous for the  engine's workload. Query timeouts being exceeded usually points at deeper issues, such as slow I/O,  lagging autovacuum, the planner choosing suboptimal query plans, or queries themselves being inefficient.  If you find yourself having to increase this, report an issue about performance degradation so the underlying  issue can be resolved.  </p>
+<table>
+<tbody><tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
+<tr><th>Default</th><td><code>10000</code></td></tr>
+<tr><th>ENV</th><td><code>DT_DEX_ENGINE_QUERY_TIMEOUT_MS</code></td></tr>
+</tbody></table>
+
 <p><span id="dtdex-enginerun-history-cacheevict-after-access-ms"><strong><code>dt.dex-engine.run-history-cache.evict-after-access-ms</code></strong> <a class="headerlink" href="#dtdex-enginerun-history-cacheevict-after-access-ms">¶</a></span></p>
 <p>Defines the time in milliseconds for which workflow run event histories are cached.  <br><br>  Histories are only cached for non-terminal runs, to improve performance of replay.  Cached histories are automatically evicted when the corresponding run terminates.  </p>
 <table>
@@ -3594,6 +3626,14 @@
 <tbody><tr><th>Type</th><td style="border-width: 0"><code>boolean</code></td></tr>
 <tr><th>Default</th><td><code>true</code></td></tr>
 <tr><th>ENV</th><td><code>DT_DEX_ENGINE_WORKERS_ENABLED</code></td></tr>
+</tbody></table>
+
+<p><span id="dtdex-engineworkflow-task-schedulerconcurrency-key-wakeup-repair-interval-ms"><strong><code>dt.dex-engine.workflow-task-scheduler.concurrency-key-wakeup-repair-interval-ms</code></strong> <a class="headerlink" href="#dtdex-engineworkflow-task-schedulerconcurrency-key-wakeup-repair-interval-ms">¶</a></span></p>
+<p>Defines the interval in milliseconds in which the workflow task scheduler  repairs its scheduling bookkeeping from the authoritative workflow state.  The interval bounds how long a workflow run can be delayed if the  bookkeeping is lost, e.g. due to a database crash. Lower values tighten  that bound at the cost of more frequent background work.  </p>
+<table>
+<tbody><tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
+<tr><th>Default</th><td><code>60000</code></td></tr>
+<tr><th>ENV</th><td><code>DT_DEX_ENGINE_WORKFLOW_TASK_SCHEDULER_CONCURRENCY_KEY_WAKEUP_REPAIR_INTERVAL_MS</code></td></tr>
 </tbody></table>
 
 <p><span id="dtdex-engineworkflow-task-schedulerpoll-interval-ms"><strong><code>dt.dex-engine.workflow-task-scheduler.poll-interval-ms</code></strong> <a class="headerlink" href="#dtdex-engineworkflow-task-schedulerpoll-interval-ms">¶</a></span></p>
@@ -4646,7 +4686,7 @@
     
     
   
-      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   
