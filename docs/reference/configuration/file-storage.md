@@ -56,9 +56,8 @@ which defaults to `static`.
 each other. If you configure only one of them, Dependency-Track fails to start.
 This mode works with any S3-compatible object store.
 
-**Anonymous access.** With the `static` source, omitting both properties sends unsigned requests.
-This is intended for S3-compatible object stores that allow anonymous access. Anonymous uploads
-are limited to 5GiB per file.
+Omitting both properties sends unsigned requests. Anonymous access is not supported:
+file uploads fail without credentials, so configure one of the two modes.
 
 **AWS environment credentials** (`credentials-source=aws`). Dependency-Track resolves credentials
 from its environment, using the first of these sources that provides them:
