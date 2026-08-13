@@ -1047,6 +1047,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deploying to Kubernetes
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1063,6 +1081,36 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#upgrading-an-existing-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Upgrading an existing release
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2180,6 +2228,25 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#upgrading-an-existing-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Upgrading an existing release
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2265,24 +2332,20 @@
 
 
 <h1 id="deploying-to-kubernetes">Deploying to Kubernetes<a class="headerlink" href="#deploying-to-kubernetes" title="Permanent link">¶</a></h1>
-<p>The community maintains Helm charts for running Dependency-Track on Kubernetes at the
-<a href="https://github.com/DependencyTrack/helm-charts">helm-charts repository</a>. The sizing, database, and
-operational guidance in <a href="../deploying-to-production/">Deploying to production</a> applies regardless of
-platform, and you should read it alongside the chart documentation.</p>
+<p>The community maintains the <code>dependency-track</code> Helm chart for running Dependency-Track on Kubernetes.
+The <a href="https://github.com/DependencyTrack/helm-charts/tree/main/charts/dependency-track">helm-charts repository</a> documents installation, the values reference, and OpenShift compatibility.</p>
+<p>Chart 2.x targets Dependency-Track 5.0.0 and later. Chart 1.x targets Dependency-Track 4.x.</p>
+<p>The sizing, database, and operational guidance in <a href="../deploying-to-production/">Deploying to production</a> applies regardless of platform.</p>
+<h2 id="upgrading-an-existing-release">Upgrading an existing release<a class="headerlink" href="#upgrading-an-existing-release" title="Permanent link">¶</a></h2>
+<p>Chart 2.x is not a drop-in upgrade from chart 1.x or from the <code>hyades</code> chart. Both paths require a
+reinstall. The chart's <a href="https://github.com/DependencyTrack/helm-charts/blob/main/charts/dependency-track/UPGRADING.md">upgrade guide</a> describes the full procedure, including database backup,
+the Secrets that chart 2.x expects, file storage, values translation, and cutover.</p>
 <div class="admonition warning">
-<p class="admonition-title">v5 Helm chart not yet available</p>
-<p>The <code>dependency-track</code> chart is not yet compatible with v5. As a safety mechanism against silent
-misconfiguration, the chart fails during rendering when it detects a v5 image tag. A v5-compatible
-release is in progress and ships soon. Until then, you can either wait for the chart, or roll your
-own manifests based on the v5 container images. See
-<a href="../../../reference/container-images/">Container images</a> for image coordinates and tag conventions.</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">The <code>hyades</code> chart goes away soon</p>
-<p>A separate <code>hyades</code> chart exists from the period when the project developed v5 under the Hyades
-name. The maintainers archive it once the v5-compatible <code>dependency-track</code> chart ships. New users
-should not adopt it. If you already run the <code>hyades</code> chart, plan to migrate to the
-<code>dependency-track</code> chart once it becomes available.</p>
+<p class="admonition-title">Do not use the <code>hyades</code> chart</p>
+<p>The separate <code>hyades</code> chart served as the preview chart for Dependency-Track v5. The maintainers
+deprecated it in favor of the <code>dependency-track</code> chart, and it receives no further updates. Do not
+use it for new deployments. If you already run it, follow the chart's <a href="https://github.com/DependencyTrack/helm-charts/blob/main/charts/dependency-track/UPGRADING.md">upgrade guide</a> to move to the
+<code>dependency-track</code> chart.</p>
 </div>
 
 
