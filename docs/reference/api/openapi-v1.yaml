@@ -109,7 +109,7 @@ paths:
       operationId: addMapping
       requestBody:
         content:
-          '*/*':
+          application/json:
             schema:
               $ref: "#/components/schemas/AclMappingRequest"
       responses:
@@ -2459,7 +2459,7 @@ paths:
       operationId: addMapping_1
       requestBody:
         content:
-          '*/*':
+          application/json:
             schema:
               $ref: "#/components/schemas/MappedLdapGroupRequest"
       responses:
@@ -2607,7 +2607,7 @@ paths:
       operationId: createLicense
       requestBody:
         content:
-          '*/*':
+          application/json:
             schema:
               $ref: "#/components/schemas/CreateLicenseRequest"
       responses:
@@ -4074,7 +4074,7 @@ paths:
       operationId: addMapping_2
       requestBody:
         content:
-          '*/*':
+          application/json:
             schema:
               $ref: "#/components/schemas/MappedOidcGroupRequest"
       responses:
@@ -5344,7 +5344,6 @@ paths:
       - description: The version of the project to query on
         in: query
         name: version
-        required: true
         schema:
           type: string
       responses:
@@ -8144,7 +8143,7 @@ paths:
       operationId: updateSelf
       requestBody:
         content:
-          '*/*':
+          application/json:
             schema:
               $ref: "#/components/schemas/ManagedUser"
       responses:
@@ -9569,7 +9568,8 @@ components:
         lastSeen:
           type: integer
           format: int64
-          description: UNIX epoch timestamp in milliseconds
+          deprecated: true
+          description: Deprecated; always equal to firstSeen
         source:
           type: string
           enum:
