@@ -1,19 +1,24 @@
 # Deploying to Kubernetes
 
-The community maintains Helm charts for running Dependency-Track on Kubernetes at the
-[helm-charts repository](https://github.com/DependencyTrack/helm-charts). The sizing, database, and
-operational guidance in [Deploying to production](deploying-to-production.md) applies regardless of
-platform, and you should read it alongside the chart documentation.
+The community maintains the `dependency-track` Helm chart for running Dependency-Track on Kubernetes.
+The [helm-charts repository] documents installation, the values reference, and OpenShift compatibility.
 
-!!! warning "v5 Helm chart not yet available"
-    The `dependency-track` chart is not yet compatible with v5. As a safety mechanism against silent
-    misconfiguration, the chart fails during rendering when it detects a v5 image tag. A v5-compatible
-    release is in progress and ships soon. Until then, you can either wait for the chart, or roll your
-    own manifests based on the v5 container images. See
-    [Container images](../../reference/container-images.md) for image coordinates and tag conventions.
+Chart 2.x targets Dependency-Track 5.0.0 and later. Chart 1.x targets Dependency-Track 4.x.
 
-!!! warning "The `hyades` chart goes away soon"
-    A separate `hyades` chart exists from the period when the project developed v5 under the Hyades
-    name. The maintainers archive it once the v5-compatible `dependency-track` chart ships. New users
-    should not adopt it. If you already run the `hyades` chart, plan to migrate to the
-    `dependency-track` chart once it becomes available.
+The sizing, database, and operational guidance in [Deploying to production] applies regardless of platform.
+
+## Upgrading an existing release
+
+Chart 2.x is not a drop-in upgrade from chart 1.x or from the `hyades` chart. Both paths require a
+reinstall. The chart's [upgrade guide] describes the full procedure, including database backup,
+the Secrets that chart 2.x expects, file storage, values translation, and cutover.
+
+!!! warning "Do not use the `hyades` chart"
+    The separate `hyades` chart served as the preview chart for Dependency-Track v5. The maintainers
+    deprecated it in favor of the `dependency-track` chart, and it receives no further updates. Do not
+    use it for new deployments. If you already run it, follow the chart's [upgrade guide] to move to the
+    `dependency-track` chart.
+
+[Deploying to production]: deploying-to-production.md
+[helm-charts repository]: https://github.com/DependencyTrack/helm-charts/tree/main/charts/dependency-track
+[upgrade guide]: https://github.com/DependencyTrack/helm-charts/blob/main/charts/dependency-track/UPGRADING.md
