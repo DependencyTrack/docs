@@ -5567,6 +5567,10 @@ paths:
                 $ref: "#/components/schemas/ProblemDetails"
           description: Access to the requested project is forbidden
         "404":
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
           description: The UUID of the project could not be found
         "500":
           description: Unable to delete components of the project
