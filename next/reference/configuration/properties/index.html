@@ -4195,7 +4195,7 @@
 </tbody></table>
 
 <p><span id="dtfile-storages3access-key"><strong><code>dt.file-storage.s3.access-key</code></strong> <a class="headerlink" href="#dtfile-storages3access-key">¶</a></span></p>
-<p>Defines the S3 access key / username.  </p>
+<p>Defines the S3 access key / username.  Must not be set when <a href="#dtfile-storages3credentials-source"><code>dt.file-storage.s3.credentials-source</code></a> is <code>aws</code>.  </p>
 <table>
 <tbody><tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
 <tr><th>Default</th><td><code>null</code></td></tr>
@@ -4227,6 +4227,15 @@
 <tr><th>ENV</th><td><code>DT_FILE_STORAGE_S3_CONNECT_TIMEOUT_MS</code></td></tr>
 </tbody></table>
 
+<p><span id="dtfile-storages3credentials-source"><strong><code>dt.file-storage.s3.credentials-source</code></strong> <a class="headerlink" href="#dtfile-storages3credentials-source">¶</a></span></p>
+<p>Defines the source of the credentials used to authenticate against the S3 endpoint.  <br><br>  When set to <code>static</code>, the statically configured <a href="#dtfile-storages3access-key"><code>dt.file-storage.s3.access-key</code></a> and  <a href="#dtfile-storages3secret-key"><code>dt.file-storage.s3.secret-key</code></a> are used. When both are missing, requests are performed  anonymously. When only one of the two is set, startup fails.  <br><br>  When set to <code>aws</code>, credentials are resolved from the environment, in this order:  <br>  1. <code>AWS_ACCESS_KEY_ID</code> / <code>AWS_SECRET_ACCESS_KEY</code> environment variables  <br>  2. The shared AWS credentials file (<code>AWS_SHARED_CREDENTIALS_FILE</code>, or <code>~/.aws/credentials</code>)  <br>  3. EKS IRSA / web identity tokens (<code>AWS_WEB_IDENTITY_TOKEN_FILE</code>)  <br>  4. ECS task roles (<code>AWS_CONTAINER_CREDENTIALS_RELATIVE_URI</code> or <code>AWS_CONTAINER_CREDENTIALS_FULL_URI</code>)  <br>  5. The EC2 instance metadata service  <br><br>  Startup fails if no credentials can be resolved. <a href="#dtfile-storages3access-key"><code>dt.file-storage.s3.access-key</code></a> and  <a href="#dtfile-storages3secret-key"><code>dt.file-storage.s3.secret-key</code></a> must not be set in this mode.  <br>  EKS Pod Identity is not supported: the S3 client does not read  <code>AWS_CONTAINER_AUTHORIZATION_TOKEN_FILE</code> and rejects the non-loopback Pod Identity Agent  endpoint. Use IRSA instead.  </p>
+<table>
+<tbody><tr><th>Type</th><td style="border-width: 0"><code>enum</code></td></tr>
+<tr><th>Default</th><td><code>static</code></td></tr>
+<tr><th>Valid Values</th><td><code>[static, aws]</code></td></tr>
+<tr><th>ENV</th><td><code>DT_FILE_STORAGE_S3_CREDENTIALS_SOURCE</code></td></tr>
+</tbody></table>
+
 <p><span id="dtfile-storages3endpoint"><strong><code>dt.file-storage.s3.endpoint</code></strong> <a class="headerlink" href="#dtfile-storages3endpoint">¶</a></span></p>
 <p>Defines the S3 endpoint URL.  </p>
 <table>
@@ -4252,7 +4261,7 @@
 </tbody></table>
 
 <p><span id="dtfile-storages3secret-key"><strong><code>dt.file-storage.s3.secret-key</code></strong> <a class="headerlink" href="#dtfile-storages3secret-key">¶</a></span></p>
-<p>Defines the S3 secret key / password.  </p>
+<p>Defines the S3 secret key / password.  Must not be set when <a href="#dtfile-storages3credentials-source"><code>dt.file-storage.s3.credentials-source</code></a> is <code>aws</code>.  </p>
 <table>
 <tbody><tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
 <tr><th>Default</th><td><code>null</code></td></tr>
