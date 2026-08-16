@@ -46,10 +46,47 @@ dt.file-storage.s3.secret-key=<secret-key>
 dt.file-storage.s3.region=us-east-1
 ```
 
+#### Authentication
+
+How the `s3` provider authenticates is controlled by `dt.file-storage.s3.credentials-source`,
+which defaults to `static`.
+
+**Static credentials** (`credentials-source=static`, the default). Configure
+both `dt.file-storage.s3.access-key` and `dt.file-storage.s3.secret-key`. If either of them
+is missing, Dependency-Track fails to start.
+This mode works with any S3-compatible object store.
+
+**AWS environment credentials** (`credentials-source=aws`). Dependency-Track resolves credentials
+from its environment, using the first of these sources that provides them:
+
+1. The `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables
+2. The shared AWS configuration file, `~/.aws/credentials` by default
+3. IAM Roles for Service Accounts (IRSA) on Amazon EKS
+4. Task roles on Amazon ECS
+5. Instance profiles on Amazon EC2
+
+```ini
+dt.file-storage.provider=s3
+dt.file-storage.s3.endpoint=https://s3.us-east-1.amazonaws.com
+dt.file-storage.s3.bucket=dtrack-files
+dt.file-storage.s3.region=us-east-1
+dt.file-storage.s3.credentials-source=aws
+```
+
+Dependency-Track resolves credentials when it verifies the bucket during startup.
+If no source provides credentials, or if static credentials are configured alongside
+`credentials-source=aws`, startup fails.
+
+!!! note
+    Amazon EKS Pod Identity is not supported. The S3 client does not read the token file that the
+    Pod Identity Agent provides, and it rejects the agent's endpoint because that address is not a
+    loopback address. Use IRSA on Amazon EKS.
+
 Configuration:
 
 - [`dt.file-storage.s3.endpoint`](properties.md#dtfile-storages3endpoint)
 - [`dt.file-storage.s3.bucket`](properties.md#dtfile-storages3bucket)
+- [`dt.file-storage.s3.credentials-source`](properties.md#dtfile-storages3credentials-source)
 - [`dt.file-storage.s3.access-key`](properties.md#dtfile-storages3access-key)
 - [`dt.file-storage.s3.secret-key`](properties.md#dtfile-storages3secret-key)
 - [`dt.file-storage.s3.region`](properties.md#dtfile-storages3region)
