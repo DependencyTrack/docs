@@ -52,12 +52,9 @@ How the `s3` provider authenticates is controlled by `dt.file-storage.s3.credent
 which defaults to `static`.
 
 **Static credentials** (`credentials-source=static`, the default). Configure
-`dt.file-storage.s3.access-key` and `dt.file-storage.s3.secret-key`. Both properties require
-each other. If you configure only one of them, Dependency-Track fails to start.
+both `dt.file-storage.s3.access-key` and `dt.file-storage.s3.secret-key`. If either of them
+is missing, Dependency-Track fails to start.
 This mode works with any S3-compatible object store.
-
-Omitting both properties sends unsigned requests. Anonymous access is not supported:
-file uploads fail without credentials, so configure one of the two modes.
 
 **AWS environment credentials** (`credentials-source=aws`). Dependency-Track resolves credentials
 from its environment, using the first of these sources that provides them:
