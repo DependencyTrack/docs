@@ -1235,6 +1235,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="S3">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authentication
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -2430,6 +2447,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="S3">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authentication
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -2556,10 +2590,42 @@ and fail to start if it's not found.</p>
 <span class="na">dt.file-storage.s3.secret-key</span><span class="o">=</span><span class="s">&lt;secret-key&gt;</span>
 <span class="na">dt.file-storage.s3.region</span><span class="o">=</span><span class="s">us-east-1</span>
 </code></pre></div>
+<h4 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">¶</a></h4>
+<p>How the <code>s3</code> provider authenticates is controlled by <code>dt.file-storage.s3.credentials-source</code>,
+which defaults to <code>static</code>.</p>
+<p><strong>Static credentials</strong> (<code>credentials-source=static</code>, the default). Configure
+both <code>dt.file-storage.s3.access-key</code> and <code>dt.file-storage.s3.secret-key</code>. If either of them
+is missing, Dependency-Track fails to start.
+This mode works with any S3-compatible object store.</p>
+<p><strong>AWS environment credentials</strong> (<code>credentials-source=aws</code>). Dependency-Track resolves credentials
+from its environment, using the first of these sources that provides them:</p>
+<ol>
+<li>The <code>AWS_ACCESS_KEY_ID</code> and <code>AWS_SECRET_ACCESS_KEY</code> environment variables</li>
+<li>The shared AWS configuration file, <code>~/.aws/credentials</code> by default</li>
+<li>IAM Roles for Service Accounts (IRSA) on Amazon EKS</li>
+<li>Task roles on Amazon ECS</li>
+<li>Instance profiles on Amazon EC2</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="na">dt.file-storage.provider</span><span class="o">=</span><span class="s">s3</span>
+<span class="na">dt.file-storage.s3.endpoint</span><span class="o">=</span><span class="s">https://s3.us-east-1.amazonaws.com</span>
+<span class="na">dt.file-storage.s3.bucket</span><span class="o">=</span><span class="s">dtrack-files</span>
+<span class="na">dt.file-storage.s3.region</span><span class="o">=</span><span class="s">us-east-1</span>
+<span class="na">dt.file-storage.s3.credentials-source</span><span class="o">=</span><span class="s">aws</span>
+</code></pre></div>
+<p>Dependency-Track resolves credentials when it verifies the bucket during startup.
+If no source provides credentials, or if static credentials are configured alongside
+<code>credentials-source=aws</code>, startup fails.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Amazon EKS Pod Identity is not supported. The S3 client does not read the token file that the
+Pod Identity Agent provides, and it rejects the agent's endpoint because that address is not a
+loopback address. Use IRSA on Amazon EKS.</p>
+</div>
 <p>Configuration:</p>
 <ul>
 <li><a href="../properties/#dtfile-storages3endpoint"><code>dt.file-storage.s3.endpoint</code></a></li>
 <li><a href="../properties/#dtfile-storages3bucket"><code>dt.file-storage.s3.bucket</code></a></li>
+<li><a href="../properties/#dtfile-storages3credentials-source"><code>dt.file-storage.s3.credentials-source</code></a></li>
 <li><a href="../properties/#dtfile-storages3access-key"><code>dt.file-storage.s3.access-key</code></a></li>
 <li><a href="../properties/#dtfile-storages3secret-key"><code>dt.file-storage.s3.secret-key</code></a></li>
 <li><a href="../properties/#dtfile-storages3region"><code>dt.file-storage.s3.region</code></a></li>
