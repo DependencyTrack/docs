@@ -9,6 +9,7 @@
 *[IdP]: Identity Provider
 *[JVM]: Java Virtual Machine
 *[KEK]: Key Encryption Key
+*[KEV]: Known Exploited Vulnerabilities
 *[LDAP]: Lightweight Directory Access Protocol
 *[NIST]: National Institute of Standards and Technology
 *[NVD]: National Vulnerability Database
