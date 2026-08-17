@@ -5,13 +5,13 @@
       
       
       
-        <link rel="canonical" href="https://dependencytrack.github.io/docs/next/guides/administration/configuring-internal-ca/">
+        <link rel="canonical" href="https://dependencytrack.github.io/docs/next/guides/upgrading/v5.1.0/">
       
       
-        <link rel="prev" href="../configuring-secret-management/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../configuring-http-proxy/">
+        <link rel="next" href="../v5.0.0-rc.2/">
       
       
         
@@ -22,7 +22,7 @@
     
     
       
-        <title>Configuring internal CA trust - Dependency-Track</title>
+        <title>Upgrading to v5.1.0 - Dependency-Track</title>
       
     
     
@@ -58,15 +58,15 @@
     
   
 <meta property="og:type" content="website">
-<meta property="og:title" content="Configuring internal CA trust - Dependency-Track">
-<meta property="og:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/guides/administration/configuring-internal-ca.png">
+<meta property="og:title" content="Upgrading to v5.1.0 - Dependency-Track">
+<meta property="og:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/guides/upgrading/v5.1.0.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:url" content="https://dependencytrack.github.io/docs/next/guides/administration/configuring-internal-ca/">
+<meta property="og:url" content="https://dependencytrack.github.io/docs/next/guides/upgrading/v5.1.0/">
 <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:title" content="Configuring internal CA trust - Dependency-Track">
-<meta property="twitter:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/guides/administration/configuring-internal-ca.png">
+<meta property="twitter:title" content="Upgrading to v5.1.0 - Dependency-Track">
+<meta property="twitter:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/guides/upgrading/v5.1.0.png">
 <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
@@ -96,7 +96,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#configuring-internal-ca-trust" class="md-skip">
+        <a href="#upgrading-to-v510" class="md-skip">
           Skip to content
         </a>
       
@@ -135,7 +135,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Configuring internal CA trust
+              Upgrading to v5.1.0
             
           </span>
         </div>
@@ -891,8 +891,6 @@
                 
   
   
-    
-  
   
   
     
@@ -920,798 +918,6 @@
       
         
       
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-      
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
-        
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
-              
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Administration guides
-  
-
-    
-  </span>
-  
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_3">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Administration guides
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../deploying-to-production/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Deploying to production
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../deploying-to-kubernetes/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Deploying to Kubernetes
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../scaling/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Scaling
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../configuring-database/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuring the database
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../configuring-secret-management/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuring secret management
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuring internal CA trust
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuring internal CA trust
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#step-1-export-the-default-truststore" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 1: Export the default truststore
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-2-import-your-internal-ca-certificate" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 2: Import your internal CA certificate
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-3-mount-the-truststore-into-the-container" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 3: Mount the truststore into the container
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-4-restart-the-container" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 4: Restart the container
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Troubleshooting
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../configuring-http-proxy/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuring an HTTP proxy
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../configuring-timezone/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuring the time zone
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../configuring-banner/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuring the banner
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../configuring-vulnerability-sources/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuring vulnerability sources
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../running-air-gapped/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Running air-gapped
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../configuring-observability/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuring observability
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../configuring-ldap/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuring LDAP
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../configuring-oidc/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuring OpenID Connect
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../managing-notification-templates/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Managing notification templates
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../debugging-notifications/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Debugging missing notifications
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../configuring-project-retention/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuring project retention
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../backing-up/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Backing up and restoring
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../upgrading-instances/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Upgrading running instances
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../migrating-from-v4/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Migrating from v4 to v5
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../running-v4-and-v5-in-parallel/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Running v4 and v5 in parallel
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-          
         
       
         
@@ -1754,11 +960,703 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3">
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../upgrading/" class="md-nav__link ">
+            <a href="../../administration/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administration guides
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Administration guides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/deploying-to-production/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deploying to production
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/deploying-to-kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deploying to Kubernetes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/scaling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scaling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/configuring-database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuring the database
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/configuring-secret-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuring secret management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/configuring-internal-ca/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuring internal CA trust
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/configuring-http-proxy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuring an HTTP proxy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/configuring-timezone/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuring the time zone
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/configuring-banner/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuring the banner
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/configuring-vulnerability-sources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuring vulnerability sources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/running-air-gapped/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running air-gapped
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/configuring-observability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuring observability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/configuring-ldap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuring LDAP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/configuring-oidc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuring OpenID Connect
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/managing-notification-templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Managing notification templates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/debugging-notifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Debugging missing notifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/configuring-project-retention/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuring project retention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/backing-up/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backing up and restoring
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/upgrading-instances/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Upgrading running instances
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/migrating-from-v4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Migrating from v4 to v5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/running-v4-and-v5-in-parallel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running v4 and v5 in parallel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -1782,7 +1680,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1799,10 +1697,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../upgrading/v5.1.0/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1818,6 +1725,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -1830,7 +1738,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../upgrading/v5.0.0-rc.2/" class="md-nav__link">
+      <a href="../v5.0.0-rc.2/" class="md-nav__link">
         
   
   
@@ -1858,7 +1766,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../upgrading/v5.0.0-rc.1/" class="md-nav__link">
+      <a href="../v5.0.0-rc.1/" class="md-nav__link">
         
   
   
@@ -1886,7 +1794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../upgrading/v0.7.0-alpha.9/" class="md-nav__link">
+      <a href="../v0.7.0-alpha.9/" class="md-nav__link">
         
   
   
@@ -1914,7 +1822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../upgrading/v0.7.0-alpha.8/" class="md-nav__link">
+      <a href="../v0.7.0-alpha.8/" class="md-nav__link">
         
   
   
@@ -1942,7 +1850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../upgrading/v0.7.0-alpha.7/" class="md-nav__link">
+      <a href="../v0.7.0-alpha.7/" class="md-nav__link">
         
   
   
@@ -1970,7 +1878,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../upgrading/v0.7.0-alpha.6/" class="md-nav__link">
+      <a href="../v0.7.0-alpha.6/" class="md-nav__link">
         
   
   
@@ -1998,7 +1906,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../upgrading/v0.7.0-alpha.5/" class="md-nav__link">
+      <a href="../v0.7.0-alpha.5/" class="md-nav__link">
         
   
   
@@ -2026,7 +1934,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../upgrading/v0.7.0-alpha.4/" class="md-nav__link">
+      <a href="../v0.7.0-alpha.4/" class="md-nav__link">
         
   
   
@@ -2054,7 +1962,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../upgrading/v0.7.0-alpha.3/" class="md-nav__link">
+      <a href="../v0.7.0-alpha.3/" class="md-nav__link">
         
   
   
@@ -2082,7 +1990,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../upgrading/v0.6.0/" class="md-nav__link">
+      <a href="../v0.6.0/" class="md-nav__link">
         
   
   
@@ -2302,69 +2210,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#step-1-export-the-default-truststore" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 1: Export the default truststore
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-2-import-your-internal-ca-certificate" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 2: Import your internal CA certificate
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-3-mount-the-truststore-into-the-container" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 3: Mount the truststore into the container
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-4-restart-the-container" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 4: Restart the container
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Troubleshooting
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -2427,7 +2272,7 @@
         <a href="../" class="md-path__link">
           
   <span class="md-ellipsis">
-    Administration guides
+    Upgrade guides
   </span>
 
         </a>
@@ -2449,151 +2294,59 @@
   
 
 
-<h1 id="configuring-internal-ca-trust">Configuring internal <abbr title="Certificate Authority">CA</abbr> trust<a class="headerlink" href="#configuring-internal-ca-trust" title="Permanent link">¶</a></h1>
-<p>By default, the Java runtime bundled in the Dependency-Track container image trusts
-only well-known public certificate authorities. If your environment uses TLS
-certificates signed by an internal or private <abbr title="Certificate Authority">CA</abbr>, connections to those endpoints
-fail with a certificate validation error:</p>
-<div class="highlight"><pre><span></span><code>PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException:
-unable to find valid certification path to requested object
-</code></pre></div>
-<p>Common scenarios where this occurs:</p>
+<h1 id="upgrading-to-v510">Upgrading to v5.1.0<a class="headerlink" href="#upgrading-to-v510" title="Permanent link">¶</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">The database migration runs longer than usual</p>
+<p>This release rebuilds the global portfolio metrics view and populates a new table tracking package
+metadata resolution state. Both scale with portfolio size. Plan for extra startup time, and do not
+interrupt the API server while the migration runs.</p>
+</div>
 <ul>
-<li><strong>LDAPS</strong>: connecting to an <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> server using TLS (<a href="../configuring-ldap/">Configuring <abbr title="Lightweight Directory Access Protocol">LDAP</abbr></a>)</li>
-<li><strong><abbr title="OpenID Connect">OIDC</abbr></strong>: the identity provider uses a privately signed certificate (<a href="../configuring-oidc/">Configuring <abbr title="OpenID Connect">OIDC</abbr></a>)</li>
-<li><strong>HTTP proxy</strong>: an intercepting TLS proxy sits between Dependency-Track and external services</li>
-<li><strong>Internal vulnerability sources</strong>: an internal mirror of <abbr title="National Vulnerability Database">NVD</abbr> or <abbr title="Open Source Vulnerabilities">OSV</abbr> behind a privately signed certificate (see
-  <a href="../configuring-vulnerability-sources/">Configuring vulnerability sources</a> and <a href="../running-air-gapped/">Running air-gapped</a>)</li>
-</ul>
-<p>The solution is to import your internal <abbr title="Certificate Authority">CA</abbr> certificate into the <abbr title="Java Virtual Machine">JVM</abbr> truststore and
-mount the modified truststore into the container.</p>
-<h2 id="step-1-export-the-default-truststore">Step 1: Export the default truststore<a class="headerlink" href="#step-1-export-the-default-truststore" title="Permanent link">¶</a></h2>
-<p>Run a temporary container from the API server image and copy out the default truststore:</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--entrypoint<span class="w"> </span>cp<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>ghcr.io/dependencytrack/hyades-apiserver:latest<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>/opt/java/openjdk/lib/security/cacerts<span class="w"> </span>/tmp/cacerts-modified
-
-docker<span class="w"> </span>cp<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span><span class="k">$(</span>docker<span class="w"> </span>ps<span class="w"> </span>-lq<span class="k">)</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>/tmp/cacerts-modified<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>./cacerts-modified
-</code></pre></div></td></tr></tbody></table></div>
-<p>Or use a single command with <code>docker create</code>:</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">container_id</span><span class="o">=</span><span class="k">$(</span>docker<span class="w"> </span>create<span class="w"> </span>ghcr.io/dependencytrack/hyades-apiserver:latest<span class="k">)</span>
-docker<span class="w"> </span>cp<span class="w"> </span><span class="s2">"</span><span class="nv">$container_id</span><span class="s2">:/opt/java/openjdk/lib/security/cacerts"</span><span class="w"> </span>./cacerts-modified
-docker<span class="w"> </span>rm<span class="w"> </span><span class="s2">"</span><span class="nv">$container_id</span><span class="s2">"</span>
-</code></pre></div></td></tr></tbody></table></div>
-<h2 id="step-2-import-your-internal-ca-certificate">Step 2: Import your internal <abbr title="Certificate Authority">CA</abbr> certificate<a class="headerlink" href="#step-2-import-your-internal-ca-certificate" title="Permanent link">¶</a></h2>
-<p>Use the <code>keytool</code> utility (included in any JDK) to import your <abbr title="Certificate Authority">CA</abbr> certificate.
-The default truststore password is <code>changeit</code>.</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>keytool<span class="w"> </span>-import<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-trustcacerts<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-keystore<span class="w"> </span>./cacerts-modified<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-storepass<span class="w"> </span>changeit<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-noprompt<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-alias<span class="w"> </span>internal-ca<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-file<span class="w"> </span>/path/to/your/internal-ca.crt
-</code></pre></div></td></tr></tbody></table></div>
-<p>Verify the import succeeded:</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>keytool<span class="w"> </span>-list<span class="w"> </span>-keystore<span class="w"> </span>./cacerts-modified<span class="w"> </span>-storepass<span class="w"> </span>changeit<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>internal-ca
-</code></pre></div></td></tr></tbody></table></div>
-<h2 id="step-3-mount-the-truststore-into-the-container">Step 3: Mount the truststore into the container<a class="headerlink" href="#step-3-mount-the-truststore-into-the-container" title="Permanent link">¶</a></h2>
-<p>Add a volume mount to your Compose file or Kubernetes manifest that replaces the
-default truststore with the modified one.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Docker Compose</label><label for="__tabbed_1_2">Kubernetes</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">apiserver</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/dependencytrack/hyades-apiserver:latest</span>
-<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"./cacerts-modified:/opt/java/openjdk/lib/security/cacerts:ro"</span>
-</code></pre></div></td></tr></tbody></table></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
-<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConfigMap</span>
-<span class="nt">metadata</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dt-truststore</span>
-<span class="nt">binaryData</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">cacerts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;base64-encoded contents of cacerts-modified&gt;</span>
-<span class="nn">---</span>
-<span class="c1"># In the Deployment spec:</span>
-<span class="nt">volumes</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">truststore</span>
-<span class="w">    </span><span class="nt">configMap</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dt-truststore</span>
-<span class="nt">containers</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apiserver</span>
-<span class="w">    </span><span class="nt">volumeMounts</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">truststore</span>
-<span class="w">        </span><span class="nt">mountPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/opt/java/openjdk/lib/security/cacerts</span>
-<span class="w">        </span><span class="nt">subPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cacerts</span>
-<span class="w">        </span><span class="nt">readOnly</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-</code></pre></div></td></tr></tbody></table></div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>For large or frequently rotated certificates, consider using a Secret or
-an init container to write the truststore rather than embedding it in a ConfigMap.</p>
-</div>
-</div>
-</div>
-</div>
-<h2 id="step-4-restart-the-container">Step 4: Restart the container<a class="headerlink" href="#step-4-restart-the-container" title="Permanent link">¶</a></h2>
-<p>Recreate the container to pick up the new volume mount:</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>--force-recreate<span class="w"> </span>apiserver
-</code></pre></div>
-<p>On the next startup, Dependency-Track uses the modified truststore and successfully
-establishes TLS connections to endpoints signed by your internal <abbr title="Certificate Authority">CA</abbr>.</p>
-<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">¶</a></h2>
-<p>If connections still fail after mounting the truststore, verify that:</p>
-<ul>
-<li>The correct <abbr title="Certificate Authority">CA</abbr> certificate was imported (not the server certificate itself).</li>
-<li>The <code>cacerts-modified</code> file is the one that was exported from the <em>current</em>
-  version of the container image. After upgrading, re-export and re-import, since
-  the base image's default truststore may change between releases.</li>
-<li>The volume mount path matches the Java home inside the container. To confirm,
-  run <code>docker exec &lt;container&gt; readlink -f $(which java)</code> and trace up to the
-  <code>lib/security/cacerts</code> path.</li>
+<li>
+<p><strong>Database queries now time out</strong>. The API server aborts any single database query that runs longer than 60 seconds.
+  In earlier versions, queries ran unbounded, so a stuck or runaway query could occupy a connection indefinitely and
+  exhaust the connection pool. API requests that hit the timeout fail with HTTP status <code>504</code>.</p>
+<p>Work that may legitimately exceed the timeout is exempt, notably database migrations and portfolio-wide metrics refreshes.</p>
+<p>Raise the limit with <a href="../../../reference/configuration/properties/#dtdatasourcequery-timeout-ms"><code>dt.datasource.query-timeout-ms</code></a>
+if your deployment reports timeouts for operations that used to succeed. Setting it to <code>0</code> disables query timeouts entirely.
+Repeated timeouts point at a deeper problem, such as slow I/O, lagging autovacuum, or inefficient query plans.
+Report an issue if you have to increase the value permanently.
+* <strong>Dependency-Track mirrors <abbr title="Known Exploited Vulnerabilities">KEV</abbr> catalogs by default</strong>. A new task downloads the CISA and ENISA Known Exploited
+  Vulnerabilities catalogs daily at 02:00. Dependency-Track turns on both data sources out of the box. Deployments
+  with restricted egress must allow the feed hosts, or turn off the data sources they cannot reach. Change the
+  schedule with <a href="../../../reference/configuration/properties/#dttaskkev-mirrorcron"><code>dt.task.kev-mirror.cron</code></a>.</p>
+</li>
+<li>
+<p><strong>Custom notification templates need updating</strong>. The default templates of the email, Mattermost, Microsoft Teams,
+  and Slack publishers referenced variables that do not exist in the v5 notification model, so <code>POLICY_VIOLATION</code> and
+  <code>PROJECT_AUDIT_CHANGE</code> notifications rendered empty values or failed to publish. Dependency-Track replaces its own
+  default templates on startup, but templates you cloned or customized keep the broken references. Apply these renames
+  to affected templates:</p>
+<table>
+<thead>
+<tr>
+<th>Old</th>
+<th>New</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>subject.policyViolation.policyCondition</code></td>
+<td><code>subject.policyViolation.condition</code></td>
+</tr>
+<tr>
+<td><code>subject.violationAnalysis</code></td>
+<td><code>subject.analysis</code></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong><code>lastSeen</code> of affected version attributions now mirrors <code>firstSeen</code></strong>. <abbr title="Representational State Transfer">REST</abbr> API v1 vulnerability responses expose the
+  field as <code>affectedComponents[].affectedVersionAttributions[].lastSeen</code>. The API server no longer updates it, because
+  doing so caused large volumes of <code>UPDATE</code> queries during mirroring. Treat the field as deprecated. Version 5.2 removes
+  it, along with its database column.</p>
+</li>
 </ul>
 
 
@@ -2632,7 +2385,7 @@ establishes TLS connections to endpoints signed by your internal <abbr title="Ce
       <nav class="md-footer__inner md-grid" aria-label="Footer">
         
           
-          <a href="../configuring-secret-management/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Configuring secret management">
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Upgrade guides">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
@@ -2642,20 +2395,20 @@ establishes TLS connections to endpoints signed by your internal <abbr title="Ce
                 Previous
               </span>
               <div class="md-ellipsis">
-                Configuring secret management
+                Upgrade guides
               </div>
             </div>
           </a>
         
         
           
-          <a href="../configuring-http-proxy/" class="md-footer__link md-footer__link--next" aria-label="Next: Configuring an HTTP proxy">
+          <a href="../v5.0.0-rc.2/" class="md-footer__link md-footer__link--next" aria-label="Next: Upgrading to v5.0.0-rc.2">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Configuring an HTTP proxy
+                Upgrading to v5.0.0-rc.2
               </div>
             </div>
             <div class="md-footer__button md-icon">
