@@ -378,6 +378,16 @@ Defines the minimum number of idle connections in the pool for the default data 
 <tr><th>ENV</th><td><code>DT_DATASOURCE_POOL_MIN_IDLE</code></td></tr>
 </table>
 
+<span id="dtdatasourcequery-timeout-ms">**`dt.datasource.query-timeout-ms`** [¶](#dtdatasourcequery-timeout-ms){ .headerlink }</span>
+
+Defines the maximum time in milliseconds any single database query may run before it is aborted.  <br/><br/>  Acts as a guardrail against runaway queries occupying a connection indefinitely,  which can otherwise exhaust the connection pool.  <br/><br/>  Note that the timeout is not enforced for work that may legitimately exceed query timeouts,  such as database migrations and portfolio-wide metrics refreshes.  <br/><br/>  Set to `0` to disable query timeouts entirely.  
+
+<table>
+<tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
+<tr><th>Default</th><td><code>60000</code></td></tr>
+<tr><th>ENV</th><td><code>DT_DATASOURCE_QUERY_TIMEOUT_MS</code></td></tr>
+</table>
+
 <span id="dtdatasourceurl">**`dt.datasource.url`** <strong style="color: red">*</strong> [¶](#dtdatasourceurl){ .headerlink }</span>
 
 Defines the JDBC URL to use for the default data source.  
