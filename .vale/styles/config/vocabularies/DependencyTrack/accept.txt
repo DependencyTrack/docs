@@ -11,17 +11,21 @@ Artifactory
 Atlassian
 BOMs?
 Bento
+CISA
 CPEs
 CSAF
 CWEs
 Cognito
+Cybersecurity
 CycloneDX
 DEKs
 DNs
 Dependency-Track
 Diataxis
+ENISA
 EPSS
 ETags?
+EU
 Entra
 Exploitability
 Fedora 389 Directory Server
@@ -31,6 +35,7 @@ GitLab
 Grafana
 HDDs
 Hackage
+Hetzner
 IdP
 IdP's
 IdPs
@@ -39,6 +44,7 @@ JFrog
 JWTs
 Jira
 KEKs
+KEV
 Kerberos
 Keycloak
 LDAP
@@ -86,6 +92,7 @@ UUIDs?
 VDRs?
 VEX
 Vanlightly's?
+VulnCheck
 VulnDB
 Webex
 [Aa]ccessors?

@@ -11,6 +11,7 @@ nav:
   - configuring-timezone.md
   - configuring-banner.md
   - configuring-vulnerability-sources.md
+  - configuring-kev-sources.md
   - running-air-gapped.md
   - configuring-observability.md
   - configuring-ldap.md

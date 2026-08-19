@@ -118,6 +118,15 @@ has CWE-79 (Cross-site Scripting) among its CWEs:
 subject.vulnerability.cwes.exists(cwe, cwe.cwe_id == 79)
 ```
 
+### Known exploited vulnerabilities
+
+The following expression matches `NEW_VULNERABILITY` notifications for vulnerabilities that an enabled
+[KEV data source](../../concepts/about-kev-data-sources.md) reports as known exploited:
+
+```js linenums="1"
+subject.vulnerability.is_kev
+```
+
 ### Violations of a specific policy
 
 `POLICY_VIOLATION` notifications fire for every [component policy](../policies/component-policies.md)

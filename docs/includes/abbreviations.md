@@ -1,9 +1,11 @@
 *[BOM]: Bill of Materials
 *[CA]: Certificate Authority
 *[CEL]: Common Expression Language
+*[CISA]: Cybersecurity and Infrastructure Security Agency
 *[CPE]: Common Platform Enumeration, a structured naming scheme for software products
 *[CVSS]: Common Vulnerability Scoring System
 *[DEK]: Data Encryption Key
+*[ENISA]: European Union Agency for Cybersecurity
 *[EPSS]: Exploit Prediction Scoring System
 *[GHSA]: GitHub Security Advisory
 *[IdP]: Identity Provider
