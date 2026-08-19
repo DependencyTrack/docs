@@ -2310,8 +2310,18 @@ interrupt the API server while the migration runs.</p>
 <p>Raise the limit with <a href="../../../reference/configuration/properties/#dtdatasourcequery-timeout-ms"><code>dt.datasource.query-timeout-ms</code></a>
 if your deployment reports timeouts for operations that used to succeed. Setting it to <code>0</code> disables query timeouts entirely.
 Repeated timeouts point at a deeper problem, such as slow I/O, lagging autovacuum, or inefficient query plans.
-Report an issue if you have to increase the value permanently.
-* <strong>Dependency-Track mirrors <abbr title="Known Exploited Vulnerabilities">KEV</abbr> catalogs by default</strong>. A new task downloads the CISA and ENISA Known Exploited
+Report an issue if you have to increase the value permanently.</p>
+</li>
+<li>
+<p><strong>New <code>X-Total-Count-Type</code> response header</strong>. <abbr title="Representational State Transfer">REST</abbr> API v1 gains support for communicating bounded total counts
+  via the new <code>X-Total-Count-Type</code> response header. It must be accessible by the frontend, so users who overwrite
+  the default <a href="../../../reference/configuration/properties/#dtcorsallowed-headers"><code>dt.cors.allowed-headers</code></a>
+  property must add the header there manually. Bounded total counts are a performance optimization technique
+  for operating on large datasets. In this version, only the <code>/api/v1/finding</code>, <code>/api/v1/finding/grouped</code>,
+  and <code>/api/v1/finding/project/{uuid}</code> endpoints support it.</p>
+</li>
+<li>
+<p><strong>Dependency-Track mirrors <abbr title="Known Exploited Vulnerabilities">KEV</abbr> catalogs by default</strong>. A new task downloads the CISA and ENISA Known Exploited
   Vulnerabilities catalogs daily at 02:00. Dependency-Track turns on both data sources out of the box. Deployments
   with restricted egress must allow the feed hosts, or turn off the data sources they cannot reach. Change the
   schedule with <a href="../../../reference/configuration/properties/#dttaskkev-mirrorcron"><code>dt.task.kev-mirror.cron</code></a>.</p>
