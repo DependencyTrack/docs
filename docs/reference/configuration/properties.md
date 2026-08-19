@@ -85,7 +85,7 @@ Controls the content of the `Access-Control-Expose-Headers` response header.  <b
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
-<tr><th>Default</th><td><code>Origin,Content-Type,Authorization,X-Requested-With,Content-Length,Accept,Origin,X-Api-Key,X-Total-Count</code></td></tr>
+<tr><th>Default</th><td><code>Origin,Content-Type,Authorization,X-Requested-With,Content-Length,Accept,Origin,X-Api-Key,X-Total-Count,X-Total-Count-Type</code></td></tr>
 <tr><th>ENV</th><td><code>DT_CORS_EXPOSED_HEADERS</code></td></tr>
 </table>
 
