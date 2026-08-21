@@ -1955,14 +1955,24 @@ Cron expression of the package metadata resolution task.  <br/><br/>  Note that 
 <tr><th>ENV</th><td><code>DT_TASK_PACKAGE_METADATA_RESOLUTION_CRON</code></td></tr>
 </table>
 
-<span id="dttaskportfolio-analysiscron">**`dt.task.portfolio-analysis.cron`** <strong style="color: red">*</strong> [¶](#dttaskportfolio-analysiscron){ .headerlink }</span>
+<span id="dttaskportfolio-analysismax-analysis-age-ms">**`dt.task.portfolio-analysis.max-analysis-age-ms`** <strong style="color: red">*</strong> [¶](#dttaskportfolio-analysismax-analysis-age-ms){ .headerlink }</span>
 
-Cron expression of the portfolio vulnerability analysis task.  
+Defines how old a project's analysis may be, in milliseconds, before it is analyzed again.  <br/><br/>  Note that analyses triggered by BOM upload or manually via API also cause a project's  last analysis age to be reset. Projects that are analyzed frequently are thus rarely  or never analyzed on schedule. This avoids redundant work.  
 
 <table>
-<tr><th>Type</th><td style="border-width: 0"><code>cron</code></td></tr>
-<tr><th>Default</th><td><code>0 6 * * *</code></td></tr>
-<tr><th>ENV</th><td><code>DT_TASK_PORTFOLIO_ANALYSIS_CRON</code></td></tr>
+<tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
+<tr><th>Default</th><td><code>86400000</code></td></tr>
+<tr><th>ENV</th><td><code>DT_TASK_PORTFOLIO_ANALYSIS_MAX_ANALYSIS_AGE_MS</code></td></tr>
+</table>
+
+<span id="dttaskportfolio-analysismax-in-flight-analyses">**`dt.task.portfolio-analysis.max-in-flight-analyses`** <strong style="color: red">*</strong> [¶](#dttaskportfolio-analysismax-in-flight-analyses){ .headerlink }</span>
+
+Defines the maximum number of project analyses the portfolio analysis task keeps in flight at a time.  <br/><br/>  Only analyses the task itself started count towards this limit.  Analyses started via BOM upload or manually via API are not included.  
+
+<table>
+<tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
+<tr><th>Default</th><td><code>50</code></td></tr>
+<tr><th>ENV</th><td><code>DT_TASK_PORTFOLIO_ANALYSIS_MAX_IN_FLIGHT_ANALYSES</code></td></tr>
 </table>
 
 <span id="dttaskportfolio-metrics-updatecron">**`dt.task.portfolio-metrics-update.cron`** <strong style="color: red">*</strong> [¶](#dttaskportfolio-metrics-updatecron){ .headerlink }</span>
