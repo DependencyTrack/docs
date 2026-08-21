@@ -2297,11 +2297,27 @@
 <h1 id="upgrading-to-v510">Upgrading to v5.1.0<a class="headerlink" href="#upgrading-to-v510" title="Permanent link">¶</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">The database migration runs longer than usual</p>
-<p>This release rebuilds the global portfolio metrics view and populates a new table tracking package
-metadata resolution state. Both scale with portfolio size. Plan for extra startup time, and do not
-interrupt the API server while the migration runs.</p>
+<p>This release rebuilds the global portfolio metrics view and populates new tables tracking package
+metadata resolution state and per-project analysis timestamps. Each scales with portfolio size.
+Plan for extra startup time, and do not interrupt the API server while the migration runs.</p>
 </div>
 <ul>
+<li>
+<p><strong>The portfolio analysis no longer runs at a fixed time</strong>. Earlier versions started the analysis of the entire
+  portfolio once a day, which created an analysis run for every project within minutes, and delayed analyses that
+  <abbr title="Bill of Materials">BOM</abbr> uploads triggered in the meantime. Each project now carries the time of its last analysis attempt.
+  The task runs continuously and picks up projects whose last analysis attempt is longer ago than
+  <a href="../../../reference/configuration/properties/#dttaskportfolio-analysismax-analysis-age-ms"><code>dt.task.portfolio-analysis.max-analysis-age-ms</code></a>,
+  24 hours by default. It keeps at most <a href="../../../reference/configuration/properties/#dttaskportfolio-analysismax-in-flight-analyses"><code>dt.task.portfolio-analysis.max-in-flight-analyses</code></a>
+  of its own analyses running at a time, 50 by default. The limit applies to the task alone. <abbr title="Bill of Materials">BOM</abbr> uploads and API
+  calls start analyses regardless of it, and every analysis updates that timestamp no matter what started it.
+  A project that gets analysed often never becomes due for scheduled analysis.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The API server refuses to start when your configuration still contains <code>dt.task.portfolio-analysis.cron</code>.
+Remove the property, and set the two replacements to match the throughput your deployment can sustain.</p>
+</div>
+</li>
 <li>
 <p><strong>Database queries now time out</strong>. The API server aborts any single database query that runs longer than 60 seconds.
   In earlier versions, queries ran unbounded, so a stuck or runaway query could occupy a connection indefinitely and
