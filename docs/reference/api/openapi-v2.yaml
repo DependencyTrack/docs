@@ -76,6 +76,10 @@ info:
     }
     ```
 
+    A request that takes too long to complete is aborted and rejected
+    with `504 Gateway Timeout`. Any operation can time out, so operations
+    do not document it individually.
+
     ## Authentication
 
     Two credential types are accepted:
@@ -2832,12 +2836,16 @@ components:
     list-extensions-response-item:
       required:
       - configurable
+      - display_name
       - name
       - testable
       type: object
       properties:
         name:
           type: string
+        display_name:
+          type: string
+          description: Human-readable name of the extension.
         configurable:
           type: boolean
           description: Whether the extension supports runtime configuration.
@@ -3102,6 +3110,7 @@ components:
     kev-assertion:
       required:
       - asserter
+      - asserter_display_name
       - created_at
       - updated_at
       - vuln_id
@@ -3111,7 +3120,10 @@ components:
         asserter:
           type: string
           description: "The entity that asserted the vulnerability is known to be\
-            \ exploited (e.g. `CISA`, `ENISA`)."
+            \ exploited (e.g. `cisa`, `enisa`)."
+        asserter_display_name:
+          type: string
+          description: Human-readable name of the asserting entity (e.g. `CISA KEV`).
         vuln_source:
           type: string
           description: Source of the asserted vulnerability identifier (e.g. `NVD`).
