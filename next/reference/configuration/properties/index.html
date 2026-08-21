@@ -4413,12 +4413,20 @@
 <tr><th>ENV</th><td><code>DT_TASK_PACKAGE_METADATA_RESOLUTION_CRON</code></td></tr>
 </tbody></table>
 
-<p><span id="dttaskportfolio-analysiscron"><strong><code>dt.task.portfolio-analysis.cron</code></strong> <strong style="color: red">*</strong> <a class="headerlink" href="#dttaskportfolio-analysiscron">¶</a></span></p>
-<p>Cron expression of the portfolio vulnerability analysis task.  </p>
+<p><span id="dttaskportfolio-analysismax-analysis-age-ms"><strong><code>dt.task.portfolio-analysis.max-analysis-age-ms</code></strong> <strong style="color: red">*</strong> <a class="headerlink" href="#dttaskportfolio-analysismax-analysis-age-ms">¶</a></span></p>
+<p>Defines how old a project's analysis may be, in milliseconds, before it is analyzed again.  <br><br>  Note that analyses triggered by <abbr title="Bill of Materials">BOM</abbr> upload or manually via API also cause a project's  last analysis age to be reset. Projects that are analyzed frequently are thus rarely  or never analyzed on schedule. This avoids redundant work.  </p>
 <table>
-<tbody><tr><th>Type</th><td style="border-width: 0"><code>cron</code></td></tr>
-<tr><th>Default</th><td><code>0 6 * * *</code></td></tr>
-<tr><th>ENV</th><td><code>DT_TASK_PORTFOLIO_ANALYSIS_CRON</code></td></tr>
+<tbody><tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
+<tr><th>Default</th><td><code>86400000</code></td></tr>
+<tr><th>ENV</th><td><code>DT_TASK_PORTFOLIO_ANALYSIS_MAX_ANALYSIS_AGE_MS</code></td></tr>
+</tbody></table>
+
+<p><span id="dttaskportfolio-analysismax-in-flight-analyses"><strong><code>dt.task.portfolio-analysis.max-in-flight-analyses</code></strong> <strong style="color: red">*</strong> <a class="headerlink" href="#dttaskportfolio-analysismax-in-flight-analyses">¶</a></span></p>
+<p>Defines the maximum number of project analyses the portfolio analysis task keeps in flight at a time.  <br><br>  Only analyses the task itself started count towards this limit.  Analyses started via <abbr title="Bill of Materials">BOM</abbr> upload or manually via API are not included.  </p>
+<table>
+<tbody><tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
+<tr><th>Default</th><td><code>50</code></td></tr>
+<tr><th>ENV</th><td><code>DT_TASK_PORTFOLIO_ANALYSIS_MAX_IN_FLIGHT_ANALYSES</code></td></tr>
 </tbody></table>
 
 <p><span id="dttaskportfolio-metrics-updatecron"><strong><code>dt.task.portfolio-metrics-update.cron</code></strong> <strong style="color: red">*</strong> <a class="headerlink" href="#dttaskportfolio-metrics-updatecron">¶</a></span></p>
