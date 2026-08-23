@@ -9,6 +9,7 @@ nav:
   - Notifications: notifications
   - Vulnerability analysis:
     - Vulnerability analyzers: analyzers.md
+    - VEX and VDR documents: vex-and-vdr.md
   - Policies: policies
   - CEL expressions: cel-expressions.md
   - Access control:
