@@ -148,6 +148,7 @@ Webex
 [Ss]bomify
 [Ss]cheduler's
 [Ss]ortability
+[Ss]ubcomponents?
 [Ss]ubdomain
 [Ss]ubquery
 [Ss]uppressions
@@ -176,6 +177,7 @@ npm
 px
 sAMAccountName
 stdout
+subpath
 timestamptz
 truststore
 userinfo
