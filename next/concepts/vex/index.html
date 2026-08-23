@@ -5,31 +5,31 @@
       
       
       
-        <link rel="canonical" href="https://dependencytrack.github.io/docs/next/reference/configuration/database/">
+        <link rel="canonical" href="https://dependencytrack.github.io/docs/next/concepts/vex/">
       
       
-        <link rel="prev" href="../datasources/">
+        <link rel="prev" href="../vulnerability-findings/">
       
       
-        <link rel="next" href="../dex-engine/">
+        <link rel="next" href="../notifications/">
       
       
         
       
       
-      <link rel="icon" href="../../../assets/images/logo.svg">
+      <link rel="icon" href="../../assets/images/logo.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>Database - Dependency-Track</title>
+        <title>About VEX - Dependency-Track</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -48,9 +48,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -58,16 +58,16 @@
     
   
 <meta property="og:type" content="website">
-<meta property="og:title" content="Database - Dependency-Track">
-<meta property="og:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/reference/configuration/database.png">
+<meta property="og:title" content="About VEX - Dependency-Track">
+<meta property="og:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/concepts/vex.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:url" content="https://dependencytrack.github.io/docs/next/reference/configuration/database/">
+<meta property="og:url" content="https://dependencytrack.github.io/docs/next/concepts/vex/">
 <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:title" content="Database - Dependency-Track">
-<meta property="twitter:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/reference/configuration/database.png">
-<link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+<meta property="twitter:title" content="About VEX - Dependency-Track">
+<meta property="twitter:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/concepts/vex.png">
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -96,7 +96,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#database" class="md-skip">
+        <a href="#about-vex" class="md-skip">
           Skip to content
         </a>
       
@@ -116,9 +116,9 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="Dependency-Track" class="md-header__button md-logo" aria-label="Dependency-Track" data-md-component="logo">
+    <a href="../.." title="Dependency-Track" class="md-header__button md-logo" aria-label="Dependency-Track" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../assets/images/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -135,7 +135,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Database
+              About VEX
             
           </span>
         </div>
@@ -240,7 +240,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../.." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -261,7 +261,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../tutorials/" class="md-tabs__link">
+        <a href="../../tutorials/" class="md-tabs__link">
           
   
   
@@ -283,7 +283,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../guides/" class="md-tabs__link">
+        <a href="../../guides/" class="md-tabs__link">
           
   
   
@@ -301,11 +301,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../../concepts/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -323,13 +325,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../reference/" class="md-tabs__link">
           
   
   
@@ -371,9 +371,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Dependency-Track" class="md-nav__button md-logo" aria-label="Dependency-Track" data-md-component="logo">
+    <a href="../.." title="Dependency-Track" class="md-nav__button md-logo" aria-label="Dependency-Track" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../assets/images/logo.svg" alt="logo">
 
     </a>
     Dependency-Track
@@ -400,7 +400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -461,7 +461,7 @@
   
   
   
-    <a href="../../../tutorials/" class="md-nav__link">
+    <a href="../../tutorials/" class="md-nav__link">
       
   
   
@@ -526,7 +526,7 @@
   
   
   
-    <a href="../../../guides/" class="md-nav__link">
+    <a href="../../guides/" class="md-nav__link">
       
   
   
@@ -556,6 +556,8 @@
       
   
   
+    
+  
   
   
     
@@ -567,6 +569,734 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concepts
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Concepts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About tags
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../access-control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About access control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about-vulnerability-data-sources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About vulnerability data sources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vulnerability-findings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About vulnerability findings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About VEX
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About VEX
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-product-and-the-component" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The product and the component
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vex-and-vdr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VEX and VDR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#one-statement-per-decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        One statement per decision
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identifiers-travel-with-the-document" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identifiers travel with the document
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-an-import-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What an import changes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further reading
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About notifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time-series-metrics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About time series metrics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../component-policies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About component policies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../component-integrity-verification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About component integrity verification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vulnerability-policies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About vulnerability policies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../changes-in-v5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About changes in v5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_14">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../architecture/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_14" id="__nav_4_14_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment topology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../architecture/design/durable-execution/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
         
       
         
@@ -611,14 +1341,14 @@
   
   
   
-    <a href="../../../concepts/" class="md-nav__link">
+    <a href="../../reference/" class="md-nav__link">
       
   
   
   <span class="md-ellipsis">
     
   
-    Concepts
+    Reference
   
 
     
@@ -632,1817 +1362,6 @@
     </a>
   
 
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-    
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-        
-        
-      
-      
-        
-      
-    
-    
-      
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
-        
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
-              
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Reference
-  
-
-    
-  </span>
-  
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_5">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Reference
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../projects/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Projects
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3">
-        
-          
-          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    API
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_3">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    API
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../api/v1/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    REST API v1
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../api/v2/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    REST API v2
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../api/v5-breaking-changes/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Breaking changes in v5
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-      
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuration
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_5_4">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Configuration
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../application/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Application
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../cache/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Cache
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../datasources/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Data sources
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Database
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Database
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#extensions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Extensions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tuning-parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tuning parameters
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Tuning parameters">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#autovacuum_vacuum_scale_factor" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        autovacuum_vacuum_scale_factor
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#default_toast_compression" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        default_toast_compression
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#wal_compression" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        wal_compression
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#jit" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        jit
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#schema-migrations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Schema migrations
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../dex-engine/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Durable execution engine
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../file-storage/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    File storage
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../init-tasks/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Init tasks
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../task-scheduler/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Task scheduler
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../telemetry/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Telemetry
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../properties/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    All properties
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../container-images/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Container images
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6">
-        
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../datasources/" class="md-nav__link ">
-              
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Datasources
-  
-
-    
-  </span>
-  
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_5_6" id="__nav_5_6_label" tabindex="">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_6">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Datasources
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../datasources/private-vulnerability-repository/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Private vulnerability repository
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../datasources/repositories/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Repositories
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../datasources/internal-components/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Internal components
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_7">
-        
-          
-          <label class="md-nav__link" for="__nav_5_7" id="__nav_5_7_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Notifications
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_7">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Notifications
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../notifications/groups/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Groups
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../notifications/publishers/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Publishers
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../notifications/templating/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Templating
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../notifications/filter-expressions/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Filter expressions
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../notifications/schema/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Proto schema
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_8">
-        
-          
-          <label class="md-nav__link" for="__nav_5_8" id="__nav_5_8_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Vulnerability analysis
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_8">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Vulnerability analysis
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../analyzers/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Vulnerability analyzers
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../vex-and-vdr/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    VEX and VDR documents
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_9">
-        
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../policies/" class="md-nav__link ">
-              
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Policies
-  
-
-    
-  </span>
-  
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_5_9" id="__nav_5_9_label" tabindex="">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_9">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Policies
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../policies/component-policies/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Component policies
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../policies/vulnerability-policies/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Vulnerability policies
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../policies/condition-expressions/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Condition expressions
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../policies/schema/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Proto schema
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../cel-expressions/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    CEL expressions
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-      
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_11">
-        
-          
-          <label class="md-nav__link" for="__nav_5_11" id="__nav_5_11_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Access control
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_11_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_11">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Access control
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../permissions/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Permissions
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_12">
-        
-          
-          <label class="md-nav__link" for="__nav_5_12" id="__nav_5_12_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Integrations
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_12_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_12">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Integrations
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../badges/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Badges
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../file-formats/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    File formats
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../community-integrations/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Community integrations
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
       
     </li>
   
@@ -2475,10 +1394,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#extensions" class="md-nav__link">
+  <a href="#the-product-and-the-component" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Extensions
+        The product and the component
       
     </span>
   </a>
@@ -2486,71 +1405,54 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tuning-parameters" class="md-nav__link">
+  <a href="#vex-and-vdr" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Tuning parameters
+        VEX and VDR
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Tuning parameters">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#autovacuum_vacuum_scale_factor" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        autovacuum_vacuum_scale_factor
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#default_toast_compression" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        default_toast_compression
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#wal_compression" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        wal_compression
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#jit" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        jit
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#schema-migrations" class="md-nav__link">
+  <a href="#one-statement-per-decision" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Schema migrations
+        One statement per decision
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identifiers-travel-with-the-document" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identifiers travel with the document
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-an-import-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What an import changes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further reading
       
     </span>
   </a>
@@ -2582,7 +1484,7 @@
   
   
     <li class="md-path__item">
-      <a href="../../.." class="md-path__link">
+      <a href="../.." class="md-path__link">
         
   <span class="md-ellipsis">
     Home
@@ -2600,28 +1502,10 @@
     
     
       <li class="md-path__item">
-        <a href="../../" class="md-path__link">
+        <a href="../" class="md-path__link">
           
   <span class="md-ellipsis">
-    Reference
-  </span>
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-    
-    
-      <li class="md-path__item">
-        <a href="../application/" class="md-path__link">
-          
-  <span class="md-ellipsis">
-    Configuration
+    Concepts
   </span>
 
         </a>
@@ -2643,135 +1527,140 @@
   
 
 
-<h1 id="database">Database<a class="headerlink" href="#database" title="Permanent link">¶</a></h1>
-<p>Dependency-Track requires a <a href="https://www.postgresql.org/">PostgreSQL</a>, or PostgreSQL-compatible database to operate.</p>
-<p>The lowest supported version is 14. Prefer the <a href="https://www.postgresql.org/support/versioning/">newest available version</a>.</p>
-<p>For guidance on choosing a hosting solution, deploying, and tuning PostgreSQL, see the
-<a href="../../../guides/administration/configuring-database/">database configuration guide</a>.</p>
-<h2 id="extensions">Extensions<a class="headerlink" href="#extensions" title="Permanent link">¶</a></h2>
-<p>Dependency-Track <strong>requires</strong> the following PostgreSQL
-<a href="https://www.postgresql.org/docs/current/external-extensions.html">extensions</a>.
-When choosing a hosting solution, verify it supports them.</p>
-<ul>
-<li><a href="https://www.postgresql.org/docs/current/pgtrgm.html"><code>pg_trgm</code></a>: <em>Support for similarity of text using trigram matching</em></li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Dependency-Track executes the necessary <code>CREATE EXTENSION IF NOT EXISTS</code> statements
-during <a href="#schema-migrations">schema migration</a>. You do not need to enable extensions manually.</p>
+<h1 id="about-vex">About <abbr title="Vulnerability Exploitability eXchange">VEX</abbr><a class="headerlink" href="#about-vex" title="Permanent link">¶</a></h1>
+<p>A <abbr title="Vulnerability Exploitability eXchange">VEX</abbr> document states whether a vulnerability that exists in a product is exploitable in that
+product. Dependency-Track both produces and consumes <abbr title="Vulnerability Exploitability eXchange">VEX</abbr> documents in
+<a href="https://cyclonedx.org/capabilities/vex/">CycloneDX</a> format. Exporting one turns the analyses on a
+project's <a href="../vulnerability-findings/">findings</a> into a document you can hand to a third party, such
+as a consumer of your software, an auditor, or another team, without giving them access to your
+instance. Importing one applies analysis decisions to your own findings in bulk.</p>
+<h2 id="the-product-and-the-component">The product and the component<a class="headerlink" href="#the-product-and-the-component" title="Permanent link">¶</a></h2>
+<p><abbr title="Vulnerability Exploitability eXchange">VEX</abbr> has two levels. The <a href="https://www.cisa.gov/sites/default/files/2023-04/minimum-requirements-for-vex-508c.pdf">CISA requirements for <abbr title="Vulnerability Exploitability eXchange">VEX</abbr></a>
+call them the <em>product</em>, which the status is about, and the <em>subcomponent</em>, the thing inside the
+product where the vulnerability originates.</p>
+<!-- vale off -->
+<div class="admonition quote">
+<p class="admonition-title">CISA Minimum Requirements for <abbr title="Vulnerability Exploitability eXchange">VEX</abbr>, §2.5.2</p>
+<p>A <abbr title="Vulnerability Exploitability eXchange">VEX</abbr> statement asserts the [status] of [product_id] with respect to [vul_id]. A <abbr title="Vulnerability Exploitability eXchange">VEX</abbr> statement MAY
+also convey that [subcomponent_id] is included in [product_id]. A common <abbr title="Vulnerability Exploitability eXchange">VEX</abbr> use case is to convey
+that [subcomponent_id] is "affected" by [vul_id] while [product_id] is "not_affected" by [vul_id].</p>
 </div>
-<p>Dependency-Track limits extension usage to those that:</p>
-<ol>
-<li>Ship with PostgreSQL <a href="https://www.postgresql.org/docs/current/contrib.html">out-of-the-box</a></li>
-<li>Are <a href="https://www.postgresql.org/about/featurematrix/detail/347/">trusted</a> by default</li>
-</ol>
-<h2 id="tuning-parameters">Tuning parameters<a class="headerlink" href="#tuning-parameters" title="Permanent link">¶</a></h2>
-<p>Dependency-Track recommends the following PostgreSQL parameters for production
-deployments. For context on when and why to apply these, see the
-<a href="../../../guides/administration/configuring-database/#advanced-tuning">advanced tuning guide</a>.</p>
-<h3 id="autovacuum_vacuum_scale_factor"><code>autovacuum_vacuum_scale_factor</code><a class="headerlink" href="#autovacuum_vacuum_scale_factor" title="Permanent link">¶</a></h3>
-<table>
-  <tbody style="border: 0">
-    <tr>
-      <th style="text-align: right">Default</th>
-      <td style="border-width: 0"><code>0.2</code></td>
-    </tr>
-    <tr>
-      <th style="text-align: right">Recommendation</th>
-      <td style="border-width: 0"><code>0.02</code></td>
-    </tr>
-    <tr>
-      <th style="text-align: right">Tables</th>
-      <td style="border-width: 0">
-        <ul>
-          <li><code>COMPONENT</code></li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <th style="text-align: right">References</th>
-      <td style="border-width: 0"><a href="https://postgresqlco.nf/doc/en/param/autovacuum_vacuum_scale_factor/">Documentation</a></td>
-    </tr>
-  </tbody>
-</table>
+<!-- vale on -->
 
-<h3 id="default_toast_compression"><code>default_toast_compression</code><a class="headerlink" href="#default_toast_compression" title="Permanent link">¶</a></h3>
+<p>Dependency-Track records both levels already. An analysis belongs to exactly one project, one
+component, and one vulnerability. A finding with the analysis state <em>Not Affected</em> says that the
+project is not affected by the vulnerability, and that the vulnerability originates in the component
+the finding names.</p>
+<p>CycloneDX expresses the two levels through the structure of the document rather than through named
+fields:</p>
 <table>
-  <tbody style="border: 0">
-    <tr>
-      <th style="text-align: right">Default</th>
-      <td style="border-width: 0"><code>pglz</code></td>
-    </tr>
-    <tr>
-      <th style="text-align: right">Recommendation</th>
-      <td style="border-width: 0"><code>lz4</code></td>
-    </tr>
-    <tr>
-      <th style="text-align: right">References</th>
-      <td style="border-width: 0">
-        <ul>
-          <li><a href="https://postgresqlco.nf/doc/en/param/default_toast_compression/">Documentation</a></li>
-          <li><a href="https://www.postgresql.fastware.com/blog/what-is-the-new-lz4-toast-compression-in-postgresql-14">Comparison by Fujitsu</a></li>
-          <li><a href="https://www.tigerdata.com/blog/optimizing-postgresql-performance-compression-pglz-vs-lz4">Comparison by Tiger Data</a></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
+<thead>
+<tr>
+<th style="text-align: left;"><abbr title="Vulnerability Exploitability eXchange">VEX</abbr> element</th>
+<th style="text-align: left;">CycloneDX</th>
+<th style="text-align: left;">Dependency-Track</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Product</td>
+<td style="text-align: left;">The component described in the document metadata</td>
+<td style="text-align: left;">The project</td>
+</tr>
+<tr>
+<td style="text-align: left;">Subcomponent</td>
+<td style="text-align: left;">A component entry that a vulnerability's <code>affects</code> node points at</td>
+<td style="text-align: left;">The component</td>
+</tr>
+<tr>
+<td style="text-align: left;">Status</td>
+<td style="text-align: left;">The <code>analysis</code> node of a vulnerability entry</td>
+<td style="text-align: left;">The analysis state</td>
+</tr>
+</tbody>
 </table>
+<p><em>Subcomponent</em> is a specification term. Dependency-Track calls it a component, and so does the rest
+of this page.</p>
+<h2 id="vex-and-vdr"><abbr title="Vulnerability Exploitability eXchange">VEX</abbr> and <abbr title="Vulnerability Disclosure Report">VDR</abbr><a class="headerlink" href="#vex-and-vdr" title="Permanent link">¶</a></h2>
+<p>Dependency-Track builds both document types from the same findings, and they answer different
+questions.</p>
+<p>A <strong><abbr title="Vulnerability Exploitability eXchange">VEX</abbr></strong> reports what your team concluded about a set of vulnerabilities. It contains the
+components that have findings, the vulnerabilities affecting them, and the analysis recorded for
+each. It leaves out services and the dependency graph, because a reader of a <abbr title="Vulnerability Exploitability eXchange">VEX</abbr> cares about the
+decisions rather than about the composition of the product.</p>
+<p>A <abbr title="Vulnerability Exploitability eXchange">VEX</abbr> also describes each component more sparsely than the other exports do. It carries the fields
+that identify a component, such as the name, version, <abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr>, <abbr title="Common Platform Enumeration, a structured naming scheme for software products">CPE</abbr>, and hashes, and leaves out the
+fields that only describe it, such as licenses, supplier, and evidence. A <abbr title="Vulnerability Exploitability eXchange">VEX</abbr> travels
+further than the <abbr title="Software Bill of Materials">SBOM</abbr> it came from, and its recipient needs enough to match each component rather
+than a full account of it.</p>
+<p>A <strong><abbr title="Vulnerability Disclosure Report">VDR</abbr></strong> reports everything you know about a product's vulnerabilities. It contains the same
+findings and analyses, plus the services and the dependency graph, so the reader can see where an
+affected component sits in the product. The document follows the vulnerability disclosure report
+defined in <abbr title="National Institute of Standards and Technology">NIST</abbr> SP 800-161.</p>
+<p>An inventory export that carries vulnerabilities is neither of the two. It lists every component and
+the vulnerabilities affecting it, without any analysis, reporting what the analyzers found rather
+than what your team concluded. The
+<a href="../../reference/vex-and-vdr/#export"><abbr title="Vulnerability Exploitability eXchange">VEX</abbr> and <abbr title="Vulnerability Disclosure Report">VDR</abbr> documents reference</a> records exactly what a <abbr title="Vulnerability Exploitability eXchange">VEX</abbr> and
+a <abbr title="Vulnerability Disclosure Report">VDR</abbr> contain.</p>
+<p>Both formats capture a decision as it stood on the day of the export.
+<a href="../vulnerability-policies/">Vulnerability policies</a> solve the adjacent problem of applying a
+decision continuously as the portfolio changes.</p>
+<h2 id="one-statement-per-decision">One statement per decision<a class="headerlink" href="#one-statement-per-decision" title="Permanent link">¶</a></h2>
+<p>An exported document does not emit one entry per finding. Findings that share a vulnerability and
+carry the same analysis collapse into a single entry whose <code>affects</code> node lists every component
+concerned. The specifications require this shape:</p>
+<!-- vale off -->
+<div class="admonition quote">
+<p class="admonition-title">CISA Minimum Requirements for <abbr title="Vulnerability Exploitability eXchange">VEX</abbr>, §3.1.2</p>
+<p>A <abbr title="Vulnerability Exploitability eXchange">VEX</abbr> statement MAY reference more than one product as long as [status], [vul_id], and other <abbr title="Vulnerability Exploitability eXchange">VEX</abbr>
+information are correct for the complete set of products. If status or other <abbr title="Vulnerability Exploitability eXchange">VEX</abbr> information
+changes for a subset of products, additional <abbr title="Vulnerability Exploitability eXchange">VEX</abbr> statements MUST be created for the respective
+subset.</p>
+</div>
+<!-- vale on -->
 
-<h3 id="wal_compression"><code>wal_compression</code><a class="headerlink" href="#wal_compression" title="Permanent link">¶</a></h3>
-<table>
-  <tbody style="border: 0">
-    <tr>
-      <th style="text-align: right">Default</th>
-      <td style="border-width: 0"><code>off</code></td>
-    </tr>
-    <tr>
-      <th style="text-align: right">Recommendation</th>
-      <td style="border-width: 0"><code>lz4</code> or <code>zstd</code></td>
-    </tr>
-    <tr>
-      <th style="text-align: right">References</th>
-      <td style="border-width: 0">
-        <ul>
-          <li><a href="https://postgresqlco.nf/doc/en/param/wal_compression/">Documentation</a></li>
-          <li><a href="https://www.enterprisedb.com/blog/you-can-now-pick-your-favorite-compression-algorithm-your-wals">Comparison by EnterpriseDB</a></li>
-          <li><a href="https://www.percona.com/blog/wal-compression-in-postgresql-and-recent-improvements-in-version-15/">Explanation by Percona</a></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="jit"><code>jit</code><a class="headerlink" href="#jit" title="Permanent link">¶</a></h3>
-<table>
-  <tbody style="border: 0">
-    <tr>
-      <th style="text-align: right">Default</th>
-      <td style="border-width: 0"><code>on</code></td>
-    </tr>
-    <tr>
-      <th style="text-align: right">Recommendation</th>
-      <td style="border-width: 0"><code>off</code></td>
-    </tr>
-    <tr>
-      <th style="text-align: right">References</th>
-      <td style="border-width: 0">
-        <ul>
-          <li><a href="https://postgresqlco.nf/doc/en/param/jit/">Documentation</a></li>
-          <li><a href="https://www.postgresql.org/docs/current/jit-decision.html">When to JIT? by PostgreSQL</a></li>
-          <li><a href="https://www.postgresql.org/message-id/E1w8GWU-002bSL-31@gemulon.postgresql.org">Default change in PostgreSQL 19</a></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="schema-migrations">Schema migrations<a class="headerlink" href="#schema-migrations" title="Permanent link">¶</a></h2>
-<p>By default, schema migrations run on startup as an <a href="../init-tasks/">init task</a>, using <a href="https://www.red-gate.com/products/flyway/">Flyway</a>.
-Upgrading from an older Dependency-Track version requires no manual action,
-unless the <a href="../../../guides/upgrading/">upgrade guides</a> explicitly state
-otherwise.</p>
+<p>One vulnerability affecting five components that share an analysis produces one entry with five
+references. If two of those components carry a different analysis, the export produces two entries,
+one for each decision.</p>
+<h2 id="identifiers-travel-with-the-document">Identifiers travel with the document<a class="headerlink" href="#identifiers-travel-with-the-document" title="Permanent link">¶</a></h2>
+<p>The references inside an exported document are Dependency-Track's own component identifiers. They
+resolve to component entries in the same document, and they stay the same across exports of the
+same project.</p>
+<p>They are not the identifiers from any <abbr title="Bill of Materials">BOM</abbr> you uploaded. Dependency-Track keeps no record of the
+references a <abbr title="Bill of Materials">BOM</abbr> used, so a consumer cannot correlate an exported <abbr title="Vulnerability Exploitability eXchange">VEX</abbr> with the <abbr title="Bill of Materials">BOM</abbr> that created the
+project by identifier alone.</p>
+<p>Nor does an export use <a href="https://cyclonedx.org/capabilities/bomlink/"><abbr title="Bill of Materials">BOM</abbr>-Link</a>, the CycloneDX
+mechanism for pointing at a component in a separate document. A Dependency-Track <abbr title="Vulnerability Exploitability eXchange">VEX</abbr> is
+self-contained: every reference it makes resolves inside itself. Consumers that expect a <abbr title="Vulnerability Exploitability eXchange">VEX</abbr> to
+link to an <abbr title="Software Bill of Materials">SBOM</abbr> they already hold, which is how some third-party scanners match the two documents,
+cannot resolve it that way.</p>
+<h2 id="what-an-import-changes">What an import changes<a class="headerlink" href="#what-an-import-changes" title="Permanent link">¶</a></h2>
+<p>An imported <abbr title="Vulnerability Exploitability eXchange">VEX</abbr> applies analysis decisions to findings that already exist. It never creates
+components, vulnerabilities, or findings. A statement about a vulnerability the project is not
+affected by has nothing to apply to, and Dependency-Track skips it.</p>
+<p>A statement reaches a finding on the strength of the vulnerability ID. The source a statement names
+narrows the search when Dependency-Track recognizes it, and otherwise steps aside, because the same
+vulnerability reaches different organizations through different sources. An assessment written
+against one source applies to your record of the same vulnerability from another.</p>
+<p>The source earns its keep when the same ID arrives from more than one source, which leaves the
+component with one finding per source. A statement that names a source lands on that source's
+finding and leaves its sibling untouched, and a statement that names none lands nowhere, because
+Dependency-Track does not choose between them on your behalf.</p>
+<p>Components resolve by identity rather than by identifier. A <abbr title="Vulnerability Exploitability eXchange">VEX</abbr> exported from one project applies to
+another project that ships the same components, and a document authored by a supplier applies to
+your project without either side agreeing on identifiers first.</p>
+<p>A statement that targets the product rather than an individual component is a bulk operation. It
+carries one decision to every component in the project affected by that vulnerability.</p>
+<p>Three analysis states carry a side effect. Importing <em>False Positive</em>, <em>Not Affected</em>, or
+<em>Resolved</em> also <a href="../vulnerability-findings/#suppression">suppresses</a> the finding, which removes it
+from the project's metrics until someone clears the suppression.</p>
+<h2 id="further-reading">Further reading<a class="headerlink" href="#further-reading" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="../../guides/user/exchanging-vex-documents/">Exchanging <abbr title="Vulnerability Exploitability eXchange">VEX</abbr> documents</a>: how to export a document
+  and how to apply one.</li>
+<li><a href="../../reference/vex-and-vdr/"><abbr title="Vulnerability Exploitability eXchange">VEX</abbr> and <abbr title="Vulnerability Disclosure Report">VDR</abbr> documents</a>: the exact contents of each document and
+  the rules an import follows.</li>
+</ul>
 
 
 
@@ -2809,7 +1698,7 @@ otherwise.</p>
       <nav class="md-footer__inner md-grid" aria-label="Footer">
         
           
-          <a href="../datasources/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Data sources">
+          <a href="../vulnerability-findings/" class="md-footer__link md-footer__link--prev" aria-label="Previous: About vulnerability findings">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
@@ -2819,20 +1708,20 @@ otherwise.</p>
                 Previous
               </span>
               <div class="md-ellipsis">
-                Data sources
+                About vulnerability findings
               </div>
             </div>
           </a>
         
         
           
-          <a href="../dex-engine/" class="md-footer__link md-footer__link--next" aria-label="Next: Durable execution engine">
+          <a href="../notifications/" class="md-footer__link md-footer__link--next" aria-label="Next: About notifications">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Durable execution engine
+                About notifications
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -2962,11 +1851,11 @@ otherwise.</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.copy", "content.tabs.link", "navigation.footer", "navigation.indexes", "navigation.instant", "navigation.path", "navigation.prune", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "search.highlight", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.tabs.link", "navigation.footer", "navigation.indexes", "navigation.instant", "navigation.path", "navigation.prune", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "search.highlight", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
     
     
   
-      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   

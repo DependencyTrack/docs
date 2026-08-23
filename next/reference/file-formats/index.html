@@ -589,6 +589,8 @@
       
         
       
+        
+      
     
     
     
@@ -1709,6 +1711,8 @@
       
         
       
+        
+      
     
     
     
@@ -1774,6 +1778,34 @@
     
   
     Vulnerability analyzers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vex-and-vdr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VEX and VDR documents
   
 
     
@@ -2597,24 +2629,38 @@ format supported for <strong>uploading</strong> SBOMs to Dependency-Track.</p>
 <thead>
 <tr>
 <th style="text-align: left;">Document type</th>
+<th style="text-align: left;">Requested with</th>
 <th style="text-align: left;">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align: left;"><abbr title="Bill of Materials">BOM</abbr></td>
-<td style="text-align: left;">A full software bill of materials reflecting the current component inventory of a project.</td>
+<td style="text-align: left;"><code>GET /api/v1/bom/cyclonedx/project/{uuid}</code>, the default variant</td>
+<td style="text-align: left;">A full software bill of materials reflecting the current component inventory of a project, with its services and dependency graph.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><abbr title="Vulnerability Exploitability eXchange">VEX</abbr></td>
-<td style="text-align: left;">A Vulnerability Exploitability Exchange document containing analysis decisions (states, justifications) for a project's findings.</td>
+<td style="text-align: left;"><abbr title="Bill of Materials">BOM</abbr> with vulnerabilities</td>
+<td style="text-align: left;">The same endpoint with <code>variant=withVulnerabilities</code></td>
+<td style="text-align: left;">The inventory, plus the vulnerabilities affecting its components. One entry per vulnerability, listing every affected component. Carries no analysis decisions.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><abbr title="Vulnerability Disclosure Report">VDR</abbr></td>
-<td style="text-align: left;">A Vulnerability Disclosure Report containing full vulnerability data for a project's components.</td>
+<td style="text-align: left;">The same endpoint with <code>variant=vdr</code></td>
+<td style="text-align: left;">A Vulnerability Disclosure Report containing full vulnerability data for a project's components, and the analysis decisions recorded for them.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><abbr title="Vulnerability Exploitability eXchange">VEX</abbr></td>
+<td style="text-align: left;"><code>GET /api/v1/vex/cyclonedx/project/{uuid}</code></td>
+<td style="text-align: left;">A Vulnerability Exploitability Exchange document containing analysis decisions (states, justifications) for a project's findings.</td>
 </tr>
 </tbody>
 </table>
+<p>The <abbr title="Bill of Materials">BOM</abbr> endpoint requires the <code>VIEW_PORTFOLIO</code> <a href="../permissions/">permission</a>, and its
+<code>withVulnerabilities</code> and <code>vdr</code> variants require one of <code>VIEW_VULNERABILITY</code>,
+<code>VULNERABILITY_ANALYSIS</code>, or <code>VULNERABILITY_ANALYSIS_READ</code> as well. For the contents of a <abbr title="Vulnerability Exploitability eXchange">VEX</abbr> or a
+<abbr title="Vulnerability Disclosure Report">VDR</abbr>, and for the rules a <abbr title="Vulnerability Exploitability eXchange">VEX</abbr> upload follows, see
+<a href="../vex-and-vdr/"><abbr title="Vulnerability Exploitability eXchange">VEX</abbr> and <abbr title="Vulnerability Disclosure Report">VDR</abbr> documents</a>.</p>
 <h2 id="finding-packaging-format-fpf">Finding Packaging Format (FPF)<a class="headerlink" href="#finding-packaging-format-fpf" title="Permanent link">¶</a></h2>
 <p>The Finding Packaging Format (FPF) is a Dependency-Track-native JSON format for
 exporting findings. It is used primarily to integrate with platforms that cannot

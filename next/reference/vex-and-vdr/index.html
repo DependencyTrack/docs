@@ -5,31 +5,31 @@
       
       
       
-        <link rel="canonical" href="https://dependencytrack.github.io/docs/next/reference/configuration/database/">
+        <link rel="canonical" href="https://dependencytrack.github.io/docs/next/reference/vex-and-vdr/">
       
       
-        <link rel="prev" href="../datasources/">
+        <link rel="prev" href="../analyzers/">
       
       
-        <link rel="next" href="../dex-engine/">
+        <link rel="next" href="../policies/">
       
       
         
       
       
-      <link rel="icon" href="../../../assets/images/logo.svg">
+      <link rel="icon" href="../../assets/images/logo.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>Database - Dependency-Track</title>
+        <title>VEX and VDR documents - Dependency-Track</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -48,9 +48,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -58,16 +58,16 @@
     
   
 <meta property="og:type" content="website">
-<meta property="og:title" content="Database - Dependency-Track">
-<meta property="og:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/reference/configuration/database.png">
+<meta property="og:title" content="VEX and VDR documents - Dependency-Track">
+<meta property="og:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/reference/vex-and-vdr.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:url" content="https://dependencytrack.github.io/docs/next/reference/configuration/database/">
+<meta property="og:url" content="https://dependencytrack.github.io/docs/next/reference/vex-and-vdr/">
 <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:title" content="Database - Dependency-Track">
-<meta property="twitter:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/reference/configuration/database.png">
-<link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+<meta property="twitter:title" content="VEX and VDR documents - Dependency-Track">
+<meta property="twitter:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/reference/vex-and-vdr.png">
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -96,7 +96,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#database" class="md-skip">
+        <a href="#vex-and-vdr-documents" class="md-skip">
           Skip to content
         </a>
       
@@ -116,9 +116,9 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="Dependency-Track" class="md-header__button md-logo" aria-label="Dependency-Track" data-md-component="logo">
+    <a href="../.." title="Dependency-Track" class="md-header__button md-logo" aria-label="Dependency-Track" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../assets/images/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -135,7 +135,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Database
+              VEX and VDR documents
             
           </span>
         </div>
@@ -240,7 +240,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../.." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -261,7 +261,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../tutorials/" class="md-tabs__link">
+        <a href="../../tutorials/" class="md-tabs__link">
           
   
   
@@ -283,7 +283,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../guides/" class="md-tabs__link">
+        <a href="../../guides/" class="md-tabs__link">
           
   
   
@@ -305,7 +305,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../concepts/" class="md-tabs__link">
+        <a href="../../concepts/" class="md-tabs__link">
           
   
   
@@ -329,7 +329,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../" class="md-tabs__link">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -371,9 +371,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Dependency-Track" class="md-nav__button md-logo" aria-label="Dependency-Track" data-md-component="logo">
+    <a href="../.." title="Dependency-Track" class="md-nav__button md-logo" aria-label="Dependency-Track" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../assets/images/logo.svg" alt="logo">
 
     </a>
     Dependency-Track
@@ -400,7 +400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -461,7 +461,7 @@
   
   
   
-    <a href="../../../tutorials/" class="md-nav__link">
+    <a href="../../tutorials/" class="md-nav__link">
       
   
   
@@ -526,7 +526,7 @@
   
   
   
-    <a href="../../../guides/" class="md-nav__link">
+    <a href="../../guides/" class="md-nav__link">
       
   
   
@@ -611,7 +611,7 @@
   
   
   
-    <a href="../../../concepts/" class="md-nav__link">
+    <a href="../../concepts/" class="md-nav__link">
       
   
   
@@ -696,7 +696,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -740,7 +740,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../projects/" class="md-nav__link">
+      <a href="../projects/" class="md-nav__link">
         
   
   
@@ -833,7 +833,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/v1/" class="md-nav__link">
+      <a href="../api/v1/" class="md-nav__link">
         
   
   
@@ -861,7 +861,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/v2/" class="md-nav__link">
+      <a href="../api/v2/" class="md-nav__link">
         
   
   
@@ -889,7 +889,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/v5-breaking-changes/" class="md-nav__link">
+      <a href="../api/v5-breaking-changes/" class="md-nav__link">
         
   
   
@@ -922,8 +922,6 @@
                 
   
   
-    
-  
   
   
     
@@ -963,11 +961,11 @@
     
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4">
         
           
           <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="">
@@ -988,7 +986,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1006,7 +1004,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../application/" class="md-nav__link">
+      <a href="../configuration/application/" class="md-nav__link">
         
   
   
@@ -1034,7 +1032,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cache/" class="md-nav__link">
+      <a href="../configuration/cache/" class="md-nav__link">
         
   
   
@@ -1062,7 +1060,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../datasources/" class="md-nav__link">
+      <a href="../configuration/datasources/" class="md-nav__link">
         
   
   
@@ -1087,37 +1085,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Database
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../configuration/database/" class="md-nav__link">
         
   
   
@@ -1133,109 +1104,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#extensions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Extensions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tuning-parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tuning parameters
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Tuning parameters">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#autovacuum_vacuum_scale_factor" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        autovacuum_vacuum_scale_factor
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#default_toast_compression" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        default_toast_compression
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#wal_compression" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        wal_compression
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#jit" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        jit
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#schema-migrations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Schema migrations
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1248,7 +1116,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dex-engine/" class="md-nav__link">
+      <a href="../configuration/dex-engine/" class="md-nav__link">
         
   
   
@@ -1276,7 +1144,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../file-storage/" class="md-nav__link">
+      <a href="../configuration/file-storage/" class="md-nav__link">
         
   
   
@@ -1304,7 +1172,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../init-tasks/" class="md-nav__link">
+      <a href="../configuration/init-tasks/" class="md-nav__link">
         
   
   
@@ -1332,7 +1200,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../task-scheduler/" class="md-nav__link">
+      <a href="../configuration/task-scheduler/" class="md-nav__link">
         
   
   
@@ -1360,7 +1228,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../telemetry/" class="md-nav__link">
+      <a href="../configuration/telemetry/" class="md-nav__link">
         
   
   
@@ -1388,7 +1256,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../properties/" class="md-nav__link">
+      <a href="../configuration/properties/" class="md-nav__link">
         
   
   
@@ -1424,7 +1292,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../container-images/" class="md-nav__link">
+      <a href="../container-images/" class="md-nav__link">
         
   
   
@@ -1486,7 +1354,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../datasources/" class="md-nav__link ">
+            <a href="../datasources/" class="md-nav__link ">
               
   
   
@@ -1530,7 +1398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../datasources/private-vulnerability-repository/" class="md-nav__link">
+      <a href="../datasources/private-vulnerability-repository/" class="md-nav__link">
         
   
   
@@ -1558,7 +1426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../datasources/repositories/" class="md-nav__link">
+      <a href="../datasources/repositories/" class="md-nav__link">
         
   
   
@@ -1586,7 +1454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../datasources/internal-components/" class="md-nav__link">
+      <a href="../datasources/internal-components/" class="md-nav__link">
         
   
   
@@ -1691,7 +1559,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../notifications/groups/" class="md-nav__link">
+      <a href="../notifications/groups/" class="md-nav__link">
         
   
   
@@ -1719,7 +1587,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../notifications/publishers/" class="md-nav__link">
+      <a href="../notifications/publishers/" class="md-nav__link">
         
   
   
@@ -1747,7 +1615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../notifications/templating/" class="md-nav__link">
+      <a href="../notifications/templating/" class="md-nav__link">
         
   
   
@@ -1775,7 +1643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../notifications/filter-expressions/" class="md-nav__link">
+      <a href="../notifications/filter-expressions/" class="md-nav__link">
         
   
   
@@ -1803,7 +1671,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../notifications/schema/" class="md-nav__link">
+      <a href="../notifications/schema/" class="md-nav__link">
         
   
   
@@ -1836,6 +1704,8 @@
                 
   
   
+    
+  
   
   
     
@@ -1859,11 +1729,11 @@
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_8">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_8" checked>
         
           
           <label class="md-nav__link" for="__nav_5_8" id="__nav_5_8_label" tabindex="">
@@ -1884,7 +1754,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_8_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_8_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_8">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1902,7 +1772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../analyzers/" class="md-nav__link">
+      <a href="../analyzers/" class="md-nav__link">
         
   
   
@@ -1927,10 +1797,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../vex-and-vdr/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VEX and VDR documents
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1946,6 +1843,181 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#export" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Export
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#export-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Export contents
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Export contents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#findings-included" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Findings included
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#component-entries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Component entries
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vulnerability-entries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vulnerability entries
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#identifiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identifiers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analysis-mapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analysis mapping
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Import
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Import">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#skip-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skip conditions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vulnerability-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vulnerability resolution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reference-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reference resolution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#component-identity-matching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Component identity matching
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applied-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Applied fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2002,7 +2074,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../policies/" class="md-nav__link ">
+            <a href="../policies/" class="md-nav__link ">
               
   
   
@@ -2046,7 +2118,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../policies/component-policies/" class="md-nav__link">
+      <a href="../policies/component-policies/" class="md-nav__link">
         
   
   
@@ -2074,7 +2146,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../policies/vulnerability-policies/" class="md-nav__link">
+      <a href="../policies/vulnerability-policies/" class="md-nav__link">
         
   
   
@@ -2102,7 +2174,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../policies/condition-expressions/" class="md-nav__link">
+      <a href="../policies/condition-expressions/" class="md-nav__link">
         
   
   
@@ -2130,7 +2202,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../policies/schema/" class="md-nav__link">
+      <a href="../policies/schema/" class="md-nav__link">
         
   
   
@@ -2166,7 +2238,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cel-expressions/" class="md-nav__link">
+      <a href="../cel-expressions/" class="md-nav__link">
         
   
   
@@ -2255,7 +2327,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../permissions/" class="md-nav__link">
+      <a href="../permissions/" class="md-nav__link">
         
   
   
@@ -2356,7 +2428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../badges/" class="md-nav__link">
+      <a href="../badges/" class="md-nav__link">
         
   
   
@@ -2384,7 +2456,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../file-formats/" class="md-nav__link">
+      <a href="../file-formats/" class="md-nav__link">
         
   
   
@@ -2412,7 +2484,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../community-integrations/" class="md-nav__link">
+      <a href="../community-integrations/" class="md-nav__link">
         
   
   
@@ -2475,10 +2547,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#extensions" class="md-nav__link">
+  <a href="#export" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Extensions
+        Export
       
     </span>
   </a>
@@ -2486,22 +2558,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tuning-parameters" class="md-nav__link">
+  <a href="#export-contents" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Tuning parameters
+        Export contents
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Tuning parameters">
+    <nav class="md-nav" aria-label="Export contents">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#autovacuum_vacuum_scale_factor" class="md-nav__link">
+  <a href="#findings-included" class="md-nav__link">
     <span class="md-ellipsis">
       
-        autovacuum_vacuum_scale_factor
+        Findings included
       
     </span>
   </a>
@@ -2509,10 +2581,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#default_toast_compression" class="md-nav__link">
+  <a href="#component-entries" class="md-nav__link">
     <span class="md-ellipsis">
       
-        default_toast_compression
+        Component entries
       
     </span>
   </a>
@@ -2520,10 +2592,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#wal_compression" class="md-nav__link">
+  <a href="#vulnerability-entries" class="md-nav__link">
     <span class="md-ellipsis">
       
-        wal_compression
+        Vulnerability entries
       
     </span>
   </a>
@@ -2531,10 +2603,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#jit" class="md-nav__link">
+  <a href="#identifiers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        jit
+        Identifiers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analysis-mapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analysis mapping
       
     </span>
   </a>
@@ -2547,13 +2630,74 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#schema-migrations" class="md-nav__link">
+  <a href="#import" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Schema migrations
+        Import
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Import">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#skip-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skip conditions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vulnerability-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vulnerability resolution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reference-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reference resolution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#component-identity-matching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Component identity matching
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applied-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Applied fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2582,7 +2726,7 @@
   
   
     <li class="md-path__item">
-      <a href="../../.." class="md-path__link">
+      <a href="../.." class="md-path__link">
         
   <span class="md-ellipsis">
     Home
@@ -2600,7 +2744,7 @@
     
     
       <li class="md-path__item">
-        <a href="../../" class="md-path__link">
+        <a href="../" class="md-path__link">
           
   <span class="md-ellipsis">
     Reference
@@ -2618,10 +2762,10 @@
     
     
       <li class="md-path__item">
-        <a href="../application/" class="md-path__link">
+        <a href="../analyzers/" class="md-path__link">
           
   <span class="md-ellipsis">
-    Configuration
+    Vulnerability analysis
   </span>
 
         </a>
@@ -2643,135 +2787,287 @@
   
 
 
-<h1 id="database">Database<a class="headerlink" href="#database" title="Permanent link">¶</a></h1>
-<p>Dependency-Track requires a <a href="https://www.postgresql.org/">PostgreSQL</a>, or PostgreSQL-compatible database to operate.</p>
-<p>The lowest supported version is 14. Prefer the <a href="https://www.postgresql.org/support/versioning/">newest available version</a>.</p>
-<p>For guidance on choosing a hosting solution, deploying, and tuning PostgreSQL, see the
-<a href="../../../guides/administration/configuring-database/">database configuration guide</a>.</p>
-<h2 id="extensions">Extensions<a class="headerlink" href="#extensions" title="Permanent link">¶</a></h2>
-<p>Dependency-Track <strong>requires</strong> the following PostgreSQL
-<a href="https://www.postgresql.org/docs/current/external-extensions.html">extensions</a>.
-When choosing a hosting solution, verify it supports them.</p>
-<ul>
-<li><a href="https://www.postgresql.org/docs/current/pgtrgm.html"><code>pg_trgm</code></a>: <em>Support for similarity of text using trigram matching</em></li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Dependency-Track executes the necessary <code>CREATE EXTENSION IF NOT EXISTS</code> statements
-during <a href="#schema-migrations">schema migration</a>. You do not need to enable extensions manually.</p>
-</div>
-<p>Dependency-Track limits extension usage to those that:</p>
+<h1 id="vex-and-vdr-documents"><abbr title="Vulnerability Exploitability eXchange">VEX</abbr> and <abbr title="Vulnerability Disclosure Report">VDR</abbr> documents<a class="headerlink" href="#vex-and-vdr-documents" title="Permanent link">¶</a></h1>
+<p>Dependency-Track exports a project's findings as a CycloneDX <abbr title="Vulnerability Exploitability eXchange">VEX</abbr> or <abbr title="Vulnerability Disclosure Report">VDR</abbr>, and imports CycloneDX <abbr title="Vulnerability Exploitability eXchange">VEX</abbr>
+documents to apply analysis decisions to existing findings. For the model behind these documents,
+see <a href="../../concepts/vex/">About <abbr title="Vulnerability Exploitability eXchange">VEX</abbr></a>. For the CycloneDX documents Dependency-Track produces that
+carry no analysis, see <a href="../file-formats/#cyclonedx">File formats</a>.</p>
+<h2 id="export">Export<a class="headerlink" href="#export" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"><abbr title="Vulnerability Exploitability eXchange">VEX</abbr></th>
+<th style="text-align: left;"><abbr title="Vulnerability Disclosure Report">VDR</abbr></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Endpoint</td>
+<td style="text-align: left;"><code>GET /api/v1/vex/cyclonedx/project/{uuid}</code></td>
+<td style="text-align: left;"><code>GET /api/v1/bom/cyclonedx/project/{uuid}?variant=vdr</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>components</code></td>
+<td style="text-align: left;">Only those with findings</td>
+<td style="text-align: left;">Only those with findings</td>
+</tr>
+<tr>
+<td style="text-align: left;">Component detail</td>
+<td style="text-align: left;">Identifying fields only</td>
+<td style="text-align: left;">Full</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>services</code></td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>dependencies</code></td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>vulnerabilities</code></td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>analysis</code></td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">Serializations</td>
+<td style="text-align: left;">JSON</td>
+<td style="text-align: left;">JSON, or XML with <code>format=XML</code></td>
+</tr>
+</tbody>
+</table>
+<p>Both endpoints accept a <code>version</code> query parameter that selects the CycloneDX specification version
+of the output, and a <code>download</code> query parameter that returns the document as a file attachment.</p>
+<p>The <abbr title="Vulnerability Exploitability eXchange">VEX</abbr> endpoint requires one of the <code>VIEW_VULNERABILITY</code>, <code>VULNERABILITY_ANALYSIS</code>, or
+<code>VULNERABILITY_ANALYSIS_READ</code> <a href="../permissions/">permissions</a>. The <abbr title="Vulnerability Disclosure Report">VDR</abbr> variant requires one of those
+three and <code>VIEW_PORTFOLIO</code>.</p>
+<h2 id="export-contents">Export contents<a class="headerlink" href="#export-contents" title="Permanent link">¶</a></h2>
+<h3 id="findings-included">Findings included<a class="headerlink" href="#findings-included" title="Permanent link">¶</a></h3>
+<p>Both exports include suppressed findings. They exclude inactive findings, which no analyzer
+reports anymore.</p>
+<h3 id="component-entries">Component entries<a class="headerlink" href="#component-entries" title="Permanent link">¶</a></h3>
+<p>A <abbr title="Vulnerability Exploitability eXchange">VEX</abbr> describes each component only well enough to identify it. Its entries in <code>components</code> carry
+<code>type</code>, <code>group</code>, <code>name</code>, <code>version</code>, <code>purl</code>, <code>cpe</code>, <code>swid</code>, and <code>hashes</code>, and no other fields. The
+<abbr title="Vulnerability Exploitability eXchange">VEX</abbr> specifications count each of these as an identification method, hashes included.</p>
+<p>A <abbr title="Vulnerability Exploitability eXchange">VEX</abbr> omits the fields that describe rather than identify a component: <code>description</code>, <code>copyright</code>,
+<code>scope</code>, <code>author</code>, <code>supplier</code>, <code>properties</code>, <code>licenses</code>, <code>externalReferences</code>, and <code>evidence</code>. A <abbr title="Vulnerability Disclosure Report">VDR</abbr>
+carries them.</p>
+<h3 id="vulnerability-entries">Vulnerability entries<a class="headerlink" href="#vulnerability-entries" title="Permanent link">¶</a></h3>
+<p>Dependency-Track produces the entries in <code>vulnerabilities</code> as follows:</p>
 <ol>
-<li>Ship with PostgreSQL <a href="https://www.postgresql.org/docs/current/contrib.html">out-of-the-box</a></li>
-<li>Are <a href="https://www.postgresql.org/about/featurematrix/detail/347/">trusted</a> by default</li>
+<li>Group the findings by vulnerability and analysis, comparing the analysis on state,
+   justification, response, and details.</li>
+<li>Emit one entry in <code>vulnerabilities</code> per group.</li>
+<li>Set the entry's <code>affects</code> node to the sorted, deduplicated references of the components in the
+   group.</li>
+<li>Add an <code>analysis</code> node to the entry.</li>
 </ol>
-<h2 id="tuning-parameters">Tuning parameters<a class="headerlink" href="#tuning-parameters" title="Permanent link">¶</a></h2>
-<p>Dependency-Track recommends the following PostgreSQL parameters for production
-deployments. For context on when and why to apply these, see the
-<a href="../../../guides/administration/configuring-database/#advanced-tuning">advanced tuning guide</a>.</p>
-<h3 id="autovacuum_vacuum_scale_factor"><code>autovacuum_vacuum_scale_factor</code><a class="headerlink" href="#autovacuum_vacuum_scale_factor" title="Permanent link">¶</a></h3>
+<h3 id="identifiers">Identifiers<a class="headerlink" href="#identifiers" title="Permanent link">¶</a></h3>
 <table>
-  <tbody style="border: 0">
-    <tr>
-      <th style="text-align: right">Default</th>
-      <td style="border-width: 0"><code>0.2</code></td>
-    </tr>
-    <tr>
-      <th style="text-align: right">Recommendation</th>
-      <td style="border-width: 0"><code>0.02</code></td>
-    </tr>
-    <tr>
-      <th style="text-align: right">Tables</th>
-      <td style="border-width: 0">
-        <ul>
-          <li><code>COMPONENT</code></li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <th style="text-align: right">References</th>
-      <td style="border-width: 0"><a href="https://postgresqlco.nf/doc/en/param/autovacuum_vacuum_scale_factor/">Documentation</a></td>
-    </tr>
-  </tbody>
+<thead>
+<tr>
+<th style="text-align: left;">Element</th>
+<th style="text-align: left;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>metadata.component.bom-ref</code></td>
+<td style="text-align: left;">The project UUID</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>components[].bom-ref</code></td>
+<td style="text-align: left;">The component UUID</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>vulnerabilities[].affects[].ref</code></td>
+<td style="text-align: left;">A component UUID, resolvable within the same document</td>
+</tr>
+</tbody>
 </table>
-
-<h3 id="default_toast_compression"><code>default_toast_compression</code><a class="headerlink" href="#default_toast_compression" title="Permanent link">¶</a></h3>
+<p>Entries in <code>vulnerabilities</code> carry no <code>bom-ref</code>, and exports do not use
+<a href="https://cyclonedx.org/capabilities/bomlink/"><abbr title="Bill of Materials">BOM</abbr>-Link</a>.</p>
+<p>The UUIDs are Dependency-Track identifiers. They are stable across exports of the same project, and
+they do not correspond to the <code>bom-ref</code> values of any <abbr title="Bill of Materials">BOM</abbr> uploaded to the project.</p>
+<h3 id="analysis-mapping">Analysis mapping<a class="headerlink" href="#analysis-mapping" title="Permanent link">¶</a></h3>
 <table>
-  <tbody style="border: 0">
-    <tr>
-      <th style="text-align: right">Default</th>
-      <td style="border-width: 0"><code>pglz</code></td>
-    </tr>
-    <tr>
-      <th style="text-align: right">Recommendation</th>
-      <td style="border-width: 0"><code>lz4</code></td>
-    </tr>
-    <tr>
-      <th style="text-align: right">References</th>
-      <td style="border-width: 0">
-        <ul>
-          <li><a href="https://postgresqlco.nf/doc/en/param/default_toast_compression/">Documentation</a></li>
-          <li><a href="https://www.postgresql.fastware.com/blog/what-is-the-new-lz4-toast-compression-in-postgresql-14">Comparison by Fujitsu</a></li>
-          <li><a href="https://www.tigerdata.com/blog/optimizing-postgresql-performance-compression-pglz-vs-lz4">Comparison by Tiger Data</a></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
+<thead>
+<tr>
+<th style="text-align: left;">Dependency-Track</th>
+<th style="text-align: left;">CycloneDX</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Analysis state</td>
+<td style="text-align: left;"><code>analysis.state</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">Justification</td>
+<td style="text-align: left;"><code>analysis.justification</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">Vendor response</td>
+<td style="text-align: left;"><code>analysis.responses</code>, as a single-element array</td>
+</tr>
+<tr>
+<td style="text-align: left;">Details</td>
+<td style="text-align: left;"><code>analysis.detail</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">Suppression</td>
+<td style="text-align: left;">Not emitted</td>
+</tr>
+</tbody>
 </table>
-
-<h3 id="wal_compression"><code>wal_compression</code><a class="headerlink" href="#wal_compression" title="Permanent link">¶</a></h3>
+<h2 id="import">Import<a class="headerlink" href="#import" title="Permanent link">¶</a></h2>
+<p>Two endpoints accept <abbr title="Vulnerability Exploitability eXchange">VEX</abbr> uploads. <code>POST /api/v1/vex</code> takes a multipart form.
+<code>PUT /api/v1/vex</code> takes a JSON body with the document Base64-encoded in a <code>vex</code> field, limited to
+20,000,000 characters. Both identify the target project by UUID, or by name and version, and both
+require the <code>VULNERABILITY_ANALYSIS</code> or <code>VULNERABILITY_ANALYSIS_UPDATE</code>
+<a href="../permissions/">permission</a>.</p>
+<p>Dependency-Track validates the document against the CycloneDX schema. Schema violations produce a
+<code>400</code> response with problem details in RFC 9457 format.</p>
+<p>An import applies analysis decisions to existing findings. It creates no components,
+vulnerabilities, or findings.</p>
+<h3 id="skip-conditions">Skip conditions<a class="headerlink" href="#skip-conditions" title="Permanent link">¶</a></h3>
+<p>Dependency-Track skips the entire upload when the document contains no <code>vulnerabilities</code>, or when
+the target project has no vulnerabilities.</p>
+<p>Dependency-Track skips an individual entry in <code>vulnerabilities</code> when any of the following applies:</p>
 <table>
-  <tbody style="border: 0">
-    <tr>
-      <th style="text-align: right">Default</th>
-      <td style="border-width: 0"><code>off</code></td>
-    </tr>
-    <tr>
-      <th style="text-align: right">Recommendation</th>
-      <td style="border-width: 0"><code>lz4</code> or <code>zstd</code></td>
-    </tr>
-    <tr>
-      <th style="text-align: right">References</th>
-      <td style="border-width: 0">
-        <ul>
-          <li><a href="https://postgresqlco.nf/doc/en/param/wal_compression/">Documentation</a></li>
-          <li><a href="https://www.enterprisedb.com/blog/you-can-now-pick-your-favorite-compression-algorithm-your-wals">Comparison by EnterpriseDB</a></li>
-          <li><a href="https://www.percona.com/blog/wal-compression-in-postgresql-and-recent-improvements-in-version-15/">Explanation by Percona</a></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
+<thead>
+<tr>
+<th style="text-align: left;">Condition</th>
+<th style="text-align: left;">Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>id</code> is blank</td>
+<td style="text-align: left;">Entry skipped, warning logged</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>affects</code> is absent or empty</td>
+<td style="text-align: left;">Entry skipped</td>
+</tr>
+<tr>
+<td style="text-align: left;">The entry has neither an <code>analysis</code> node nor a rating with <code>method: OWASP</code></td>
+<td style="text-align: left;">Entry skipped</td>
+</tr>
+<tr>
+<td style="text-align: left;">The entry's vulnerability does not resolve</td>
+<td style="text-align: left;">Entry skipped, warning logged</td>
+</tr>
+</tbody>
 </table>
-
-<h3 id="jit"><code>jit</code><a class="headerlink" href="#jit" title="Permanent link">¶</a></h3>
+<h3 id="vulnerability-resolution">Vulnerability resolution<a class="headerlink" href="#vulnerability-resolution" title="Permanent link">¶</a></h3>
+<p>The source of an entry acts as a hint rather than as a filter:</p>
+<ol>
+<li>When <code>source.name</code> names a vulnerability source Dependency-Track knows, it looks for a
+   vulnerability with that source and <code>id</code>. A match ends the resolution.</li>
+<li>Otherwise, or when the first step finds nothing, <code>id</code> alone has to identify the vulnerability.
+   Exactly one match resolves. More than one match means the ID does not identify a vulnerability
+   on its own, and Dependency-Track skips the entry with a warning naming the competing sources.
+   No match means the project is not affected, and Dependency-Track skips the entry with a warning.</li>
+</ol>
+<p>The known vulnerability sources are <code>NVD</code>, <code>GITHUB</code>, <code>OSSINDEX</code>, <code>VULNDB</code>, <code>INTERNAL</code>, <code>OSV</code>,
+<code>SNYK</code>, <code>CX</code>, and <code>JVN</code>.</p>
+<p>The source decides only between vulnerabilities that share an ID. Dependency-Track can hold
+<code>CVE-2020-1234</code> from both the <abbr title="National Vulnerability Database">NVD</abbr> and <abbr title="Open Source Vulnerabilities">OSV</abbr>, which produces one finding per source on an affected
+component. An entry naming one of those sources resolves to that vulnerability alone, and the
+finding belonging to the other source keeps the analysis it had. An entry naming neither resolves to
+nothing.</p>
+<h3 id="reference-resolution">Reference resolution<a class="headerlink" href="#reference-resolution" title="Permanent link">¶</a></h3>
+<p>The importer indexes the metadata component and every entry in <code>components</code>, including nested
+components, by <code>bom-ref</code>. Each value in <code>affects[].ref</code> resolves as follows:</p>
 <table>
-  <tbody style="border: 0">
-    <tr>
-      <th style="text-align: right">Default</th>
-      <td style="border-width: 0"><code>on</code></td>
-    </tr>
-    <tr>
-      <th style="text-align: right">Recommendation</th>
-      <td style="border-width: 0"><code>off</code></td>
-    </tr>
-    <tr>
-      <th style="text-align: right">References</th>
-      <td style="border-width: 0">
-        <ul>
-          <li><a href="https://postgresqlco.nf/doc/en/param/jit/">Documentation</a></li>
-          <li><a href="https://www.postgresql.org/docs/current/jit-decision.html">When to JIT? by PostgreSQL</a></li>
-          <li><a href="https://www.postgresql.org/message-id/E1w8GWU-002bSL-31@gemulon.postgresql.org">Default change in PostgreSQL 19</a></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
+<thead>
+<tr>
+<th style="text-align: left;">The reference resolves to</th>
+<th style="text-align: left;">Scope</th>
+<th style="text-align: left;">Applied to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">An entry in <code>components</code></td>
+<td style="text-align: left;">Component-scoped</td>
+<td style="text-align: left;">Every component in the project matching that entry's identity</td>
+</tr>
+<tr>
+<td style="text-align: left;">The metadata component</td>
+<td style="text-align: left;">Project-scoped</td>
+<td style="text-align: left;">Every component in the project affected by the vulnerability</td>
+</tr>
+<tr>
+<td style="text-align: left;">Nothing, and the reference is a <abbr title="Bill of Materials">BOM</abbr>-Link</td>
+<td style="text-align: left;">Project-scoped</td>
+<td style="text-align: left;">Every component in the project affected by the vulnerability</td>
+</tr>
+<tr>
+<td style="text-align: left;">Nothing else</td>
+<td style="text-align: left;">Unresolvable</td>
+<td style="text-align: left;">Nothing. Dependency-Track logs a warning naming the reference</td>
+</tr>
+</tbody>
 </table>
-
-<h2 id="schema-migrations">Schema migrations<a class="headerlink" href="#schema-migrations" title="Permanent link">¶</a></h2>
-<p>By default, schema migrations run on startup as an <a href="../init-tasks/">init task</a>, using <a href="https://www.red-gate.com/products/flyway/">Flyway</a>.
-Upgrading from an older Dependency-Track version requires no manual action,
-unless the <a href="../../../guides/upgrading/">upgrade guides</a> explicitly state
-otherwise.</p>
+<h3 id="component-identity-matching">Component identity matching<a class="headerlink" href="#component-identity-matching" title="Permanent link">¶</a></h3>
+<p>A component entry resolved from <code>affects[].ref</code> matches a component in the target project when any
+of the following holds:</p>
+<ul>
+<li>The <abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr> matches in canonical form.</li>
+<li>The <abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr> coordinates match, meaning the <abbr title="Package URL, a standardized format for identifying software packages">PURL</abbr> compared without qualifiers and subpath.</li>
+<li>The <abbr title="Common Platform Enumeration, a structured naming scheme for software products">CPE</abbr> matches.</li>
+<li>The SWID tag ID matches.</li>
+<li>Group, name, and version all match.</li>
+</ul>
+<p>Matching covers the target project only, and can return more than one component. Every match
+receives the analysis.</p>
+<h3 id="applied-fields">Applied fields<a class="headerlink" href="#applied-fields" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Source in the document</th>
+<th style="text-align: left;">Applied to the finding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>analysis.state</code></td>
+<td style="text-align: left;">Analysis state</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>analysis.justification</code></td>
+<td style="text-align: left;">Justification</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>analysis.responses</code></td>
+<td style="text-align: left;">Vendor response. The last entry wins</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>analysis.detail</code></td>
+<td style="text-align: left;">Analysis details</td>
+</tr>
+<tr>
+<td style="text-align: left;">Rating with <code>method: OWASP</code></td>
+<td style="text-align: left;">OWASP risk rating vector and score</td>
+</tr>
+</tbody>
+</table>
+<p>CycloneDX states that Dependency-Track does not model, such as <code>resolved_with_pedigree</code>, arrive as
+the analysis state <em>Not Set</em>.</p>
+<p>Importing the analysis states <em>False Positive</em>, <em>Not Affected</em>, or <em>Resolved</em> also suppresses the
+finding. No other state changes suppression.</p>
+<p>Each applied decision appends an entry to the finding's audit history with the commenter
+<code>CycloneDX VEX</code>.</p>
 
 
 
@@ -2809,7 +3105,7 @@ otherwise.</p>
       <nav class="md-footer__inner md-grid" aria-label="Footer">
         
           
-          <a href="../datasources/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Data sources">
+          <a href="../analyzers/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Vulnerability analyzers">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
@@ -2819,20 +3115,20 @@ otherwise.</p>
                 Previous
               </span>
               <div class="md-ellipsis">
-                Data sources
+                Vulnerability analyzers
               </div>
             </div>
           </a>
         
         
           
-          <a href="../dex-engine/" class="md-footer__link md-footer__link--next" aria-label="Next: Durable execution engine">
+          <a href="../policies/" class="md-footer__link md-footer__link--next" aria-label="Next: Policies">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Durable execution engine
+                Policies
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -2962,11 +3258,11 @@ otherwise.</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.copy", "content.tabs.link", "navigation.footer", "navigation.indexes", "navigation.instant", "navigation.path", "navigation.prune", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "search.highlight", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.tabs.link", "navigation.footer", "navigation.indexes", "navigation.instant", "navigation.path", "navigation.prune", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "search.highlight", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
     
     
   
-      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   
