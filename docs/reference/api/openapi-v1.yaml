@@ -2369,6 +2369,7 @@ paths:
           - OSV
           - SNYK
           - CX
+          - JVN
           - UNKNOWN
       - in: header
         name: accept
@@ -9748,6 +9749,7 @@ components:
           - OSV
           - SNYK
           - CX
+          - JVN
           - UNKNOWN
       required:
       - firstSeen
