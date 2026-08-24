@@ -11,7 +11,8 @@ sources](../../concepts/about-vulnerability-data-sources.md). For the procedure 
 ## Mirrored sources
 
 Dependency-Track can mirror three public sources into its local database. Mirroring runs on a configurable schedule
-(daily by default) and on instance startup. Progress and errors are written to the API server logs.
+(daily by default), and once shortly after Dependency-Track schedules the task for the first time. Progress and errors
+are written to the API server logs.
 
 | Source | Identifier prefix | Matches on |
 |:-------|:------------------|:-----------|

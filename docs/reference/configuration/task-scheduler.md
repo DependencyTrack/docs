@@ -44,8 +44,8 @@ dt.task.nvd-vuln-data-source-mirror.cron=30 3 * * *
 ## Scheduled tasks
 
 The scheduler ships with the following recurring tasks. Tasks marked with
-[^1] also run once shortly after startup, with a random delay of up to one
-minute.
+[^1] also run once shortly after the scheduler registers them for the first
+time, with a random delay of up to one minute.
 
 | Task                              | Property                                                                                                                | Default cron     | Purpose                                                                                       |
 |-----------------------------------|-------------------------------------------------------------------------------------------------------------------------|------------------|-----------------------------------------------------------------------------------------------|
@@ -69,4 +69,4 @@ minute.
 | Scheduled notification dispatch   | [`dt.task.scheduled-notification-dispatch.cron`](properties.md#dttaskscheduled-notification-dispatchcron)               | `* * * * *`      | Polls for due scheduled notification rules and dispatches them.                               |
 | Telemetry submission[^1]          | [`dt.task.telemetry-submission.cron`](properties.md#dttasktelemetry-submissioncron)                                     | `0 */1 * * *`    | Submits anonymous usage data. See [Telemetry](telemetry.md).                                  |
 
-[^1]: Triggered once on startup with a random delay of up to one minute, then on the configured schedule.
+[^1]: Triggered once when the scheduler first registers the task, with a random delay of up to one minute, then on the configured schedule. Registration happens on a new deployment, or when an upgrade introduces the task. Later restarts do not trigger another run.
