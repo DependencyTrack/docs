@@ -2575,8 +2575,8 @@ which holds a five-field UNIX cron expression:</p>
 </code></pre></div>
 <h2 id="scheduled-tasks">Scheduled tasks<a class="headerlink" href="#scheduled-tasks" title="Permanent link">¶</a></h2>
 <p>The scheduler ships with the following recurring tasks. Tasks marked with
-<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> also run once shortly after startup, with a random delay of up to one
-minute.</p>
+<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> also run once shortly after the scheduler registers them for the first
+time, with a random delay of up to one minute.</p>
 <table>
 <thead>
 <tr>
@@ -2707,7 +2707,7 @@ minute.</p>
 <hr>
 <ol>
 <li id="fn:1">
-<p>Triggered once on startup with a random delay of up to one minute, then on the configured schedule.&nbsp;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref3:1" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref4:1" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref5:1" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref6:1" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref7:1" title="Jump back to footnote 1 in the text">↩</a></p>
+<p>Triggered once when the scheduler first registers the task, with a random delay of up to one minute, then on the configured schedule. Registration happens on a new deployment, or when an upgrade introduces the task. Later restarts do not trigger another run.&nbsp;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref3:1" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref4:1" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref5:1" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref6:1" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref7:1" title="Jump back to footnote 1 in the text">↩</a></p>
 </li>
 </ol>
 </div>

@@ -2383,6 +2383,16 @@
 </tbody>
 </table>
 </li>
+<li>
+<p><strong>The upgrade forces a full <abbr title="Open Source Vulnerabilities">OSV</abbr> mirror</strong>. Dependency-Track converted some <abbr title="Open Source Vulnerabilities">OSV</abbr> version ranges incorrectly,
+  which matched components against vulnerabilities that do not affect them. The upgrade purges the watermarks
+  that the <abbr title="Open Source Vulnerabilities">OSV</abbr> vulnerability data source uses to track incremental progress. Existing <abbr title="Open Source Vulnerabilities">OSV</abbr> data stays in place,
+  but the next mirror run processes the full <abbr title="Open Source Vulnerabilities">OSV</abbr> data set instead of only recent changes,
+  and overwrites the affected records. Expect that run to take longer than usual.</p>
+<p>Corrected data is not available until the <abbr title="Open Source Vulnerabilities">OSV</abbr> mirror runs, which happens daily at 03:00 UTC by default.
+To get the corrected data sooner, use <strong>Mirror now</strong> as described in
+<a href="../../administration/configuring-vulnerability-sources/#triggering-an-initial-mirror">Triggering an initial mirror</a>.</p>
+</li>
 </ul>
 
 
