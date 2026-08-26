@@ -148,9 +148,14 @@ certainty** — a firm platform to stand on while working. Reference is
 ## Upgrading guides
 
 Upgrading guides are a subset of Guides that live in `guides/upgrading/`. They
-follow all Guide principles but are scoped to version-specific upgrade
-procedures. Each document covers one release (or range) and is titled by the
-target version (e.g., "Upgrading to v5.0").
+follow all Guide principles but are scoped to the breaking or otherwise notable
+changes a single release introduces, and the manual steps those changes require.
+Each document covers one release (or range) and is titled by the target version
+(e.g., "Upgrading to v5.0"). Only releases with breaking or otherwise notable
+changes get a page. A release that needs nothing from the reader gets none, and
+a page whose content becomes empty is deleted rather than kept as a placeholder.
+Procedural upgrade content that is not version-specific, such as rolling
+upgrades, belongs in `guides/administration/`.
 
 Do not create a separate top-level `migration/` section. Upgrading content
 belongs under Guides.

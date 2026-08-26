@@ -4,4 +4,4 @@ Task-oriented procedures organized by audience.
 
 - [User guides](user/index.md): day-to-day use of the app.
 - [Administration guides](administration/index.md): deployment, scaling, authentication, and infrastructure configuration.
-- [Upgrade guides](upgrading/index.md): per-release procedures for versions with breaking changes.
+- [Upgrade guides](upgrading/index.md): breaking and otherwise notable changes for each release, with any manual steps they require.
