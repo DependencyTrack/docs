@@ -1648,6 +1648,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#rolling-back" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rolling back
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#when-to-fall-back-to-a-full-stop-upgrade" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1742,8 +1753,6 @@
       
         
           
-        
-      
         
       
         
@@ -1982,34 +1991,6 @@
     
   
     Upgrading to v0.7.0-alpha.8
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../upgrading/v0.7.0-alpha.7/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Upgrading to v0.7.0-alpha.7
   
 
     
@@ -2415,6 +2396,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#rolling-back" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rolling back
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#when-to-fall-back-to-a-full-stop-upgrade" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2520,8 +2512,8 @@ downtime. For breaking changes between specific releases, always consult the
 <a href="../../../concepts/architecture/deployment/#task-distribution">lock-free task claiming</a> make it safe
 to replace one API server instance at a time as long as:</p>
 <ul>
-<li>The release notes describe no breaking schema changes that require all instances to stop.</li>
-<li>The destination version's Flyway migrations are additive against the running schema.</li>
+<li>The upgrade guide for every intervening version describes no breaking schema changes and calls
+  for no full-stop window.</li>
 <li>More than one instance is running. A single-instance deployment cannot upgrade without downtime.</li>
 </ul>
 <p>If any of these conditions fail, plan a full-stop upgrade window instead.</p>
@@ -2532,31 +2524,59 @@ to replace one API server instance at a time as long as:</p>
   full-stop upgrade if any release calls for one.</li>
 <li>Pick the new image tag. Pin a full <code>X.Y.Z</code> release tag rather than a snapshot or <code>latest</code>. See
   <a href="../../../reference/container-images/">Container images</a>.</li>
-<li>If you run schema migrations in a dedicated container (recommended for large deployments and
-  PgBouncer in transaction mode), plan to run it before any new-version API server starts. See
-  <a href="../../../reference/configuration/init-tasks/#init-only-containers">init-only containers</a>.</li>
+<li>If you run schema migrations in a dedicated container, plan to run it before any new-version API
+  server starts. See <a href="../../../reference/configuration/init-tasks/#init-only-containers">init-only containers</a>.</li>
+<li>If you pool connections through PgBouncer in transaction mode, migrations need a direct
+  PostgreSQL connection. See <a href="../../../reference/configuration/init-tasks/#data-source">init task data source</a>.</li>
 </ul>
 <h2 id="rolling-upgrade">Rolling upgrade<a class="headerlink" href="#rolling-upgrade" title="Permanent link">¶</a></h2>
 <ol>
-<li>Run schema migrations, either via the dedicated container or by letting the first new-version
-   instance run them on startup.</li>
-<li>Replace API server instances one at a time using your platform's rolling-update primitive.
-   Background tasks claimed by an instance that stops mid-flight return to the queue when the
-   database transaction ends; another instance picks them up on its next poll.</li>
+<li>
+<p>Run schema migrations, either via the dedicated container or by letting the first new-version
+   instance run them on startup.</p>
+<div class="admonition warning">
+<p class="admonition-title">Raise the startup probe budget first</p>
+<p>Migrations block startup. If they run longer than the
+<a href="../configuring-observability/#configuring-kubernetes-health-probes">startup probe</a> allows
+(<code>failureThreshold</code> multiplied by <code>periodSeconds</code>), the orchestrator restarts the instance
+mid-migration. Instances that start at the same time
+<a href="../../../reference/configuration/init-tasks/#lifecycle">wait for the init lock</a>, and that
+wait counts against the same budget. Check the per-release upgrade guide for migration
+duration warnings, then raise the budget to cover both. Running migrations in an
+<a href="../../../reference/configuration/init-tasks/#init-only-containers">init-only container</a>
+avoids the problem, because the long-lived containers then start against an
+already-migrated schema.</p>
+</div>
+</li>
+<li>
+<p>Replace API server instances one at a time using your platform's rolling-update primitive.</p>
+<p>Allow enough time for each instance to shut down gracefully. An instance that stops gracefully
+hands its in-flight background tasks back to the queue, and another instance claims them within
+seconds. An instance killed outright leaves those tasks locked until their lock expires, which
+delays them for the duration of the task's lock timeout. See
+<a href="../../../concepts/architecture/design/durable-execution/#task-processing">task processing</a>.</p>
+</li>
 </ol>
-<p>Old and new instances run side by side until the roll-out completes. The "additive migrations"
-condition listed earlier is what makes that safe: the old version must keep working against the
-migrated schema for the duration of the roll-out. Cap the roll-out to a single deploy window. Do
-not leave the cluster running mixed versions indefinitely.</p>
+<p>Old and new instances run side by side against the migrated schema until the roll-out completes.
+Cap the roll-out to a single deploy window. Do not leave the cluster running mixed versions
+indefinitely.</p>
 <h2 id="webworker-split">Web/worker split<a class="headerlink" href="#webworker-split" title="Permanent link">¶</a></h2>
 <p>When the cluster <a href="../scaling/#separate-api-traffic-from-background-work">splits API and worker traffic</a>,
-upgrade both groups using the same one-at-a-time pattern. Upgrade workers first so the API tier
-always talks to a database whose schema the workers already understand.</p>
+upgrade both groups using the same one-at-a-time pattern. Upgrade workers first. Workers poll only
+for the task types they register, so tasks that a new-version API tier enqueues stay in the queue
+until a worker that can run them exists.</p>
+<h2 id="rolling-back">Rolling back<a class="headerlink" href="#rolling-back" title="Permanent link">¶</a></h2>
+<p>Dependency-Track does not reverse schema migrations. Once migrations run, returning to the previous
+version means restoring the database backup you took before starting, and starting the previous
+version against it. Plan the upgrade window with that in mind. See
+<a href="../backing-up/#version-considerations">Backing up</a>.</p>
 <h2 id="when-to-fall-back-to-a-full-stop-upgrade">When to fall back to a full-stop upgrade<a class="headerlink" href="#when-to-fall-back-to-a-full-stop-upgrade" title="Permanent link">¶</a></h2>
 <p>Plan a full-stop maintenance window when:</p>
 <ul>
 <li>The release notes call for one explicitly.</li>
-<li>The migration involves long-running data back-fills or partition rewrites.</li>
+<li>The migration rewrites or locks tables the running version reads or writes. Long-running work
+  against new tables only, such as a back-fill, extends startup but does not require stopping the
+  cluster.</li>
 <li>You cannot guarantee at least one instance remains running throughout.</li>
 </ul>
 

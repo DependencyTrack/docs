@@ -1664,8 +1664,6 @@
       
         
       
-        
-      
     
     
     
@@ -1890,34 +1888,6 @@
     
   
     Upgrading to v0.7.0-alpha.8
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../v0.7.0-alpha.7/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Upgrading to v0.7.0-alpha.7
   
 
     
@@ -2359,9 +2329,15 @@
 <h1 id="upgrading-to-v510">Upgrading to v5.1.0<a class="headerlink" href="#upgrading-to-v510" title="Permanent link">¶</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">The database migration runs longer than usual</p>
-<p>This release rebuilds the global portfolio metrics view and populates new tables tracking package
-metadata resolution state and per-project analysis timestamps. Each scales with portfolio size.
-Plan for extra startup time, and do not interrupt the API server while the migration runs.</p>
+<p>This release rebuilds the global portfolio metrics view and back-fills two new tables, one for
+package metadata resolution state, one for per-project analysis timestamps. The view rebuild
+takes an exclusive lock, so portfolio metrics queries block until it completes. Its duration
+scales with the number of daily project metrics snapshots inside the
+<a href="../../../concepts/time-series-metrics/#daily-partitions-and-bounded-retention">retention window</a>;
+the back-fills scale with the number of distinct PURLs and active projects.</p>
+<p>The back-fills write only to the new tables, so no full-stop window is needed. Raise the
+<a href="../../administration/upgrading-instances/#rolling-upgrade">startup probe budget</a> before you
+start, and do not interrupt the API server while the migration runs.</p>
 </div>
 <ul>
 <li>

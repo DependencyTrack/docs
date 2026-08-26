@@ -1664,8 +1664,6 @@
       
         
       
-        
-      
     
     
     
@@ -1880,34 +1878,6 @@
     
   
     Upgrading to v0.7.0-alpha.8
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="v0.7.0-alpha.7/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Upgrading to v0.7.0-alpha.7
   
 
     
@@ -2262,6 +2232,58 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#related-guides" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related guides
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#release-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-5-releases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version 5 releases
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-0x-releases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version 0.x releases
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2347,9 +2369,43 @@
 
 
 <h1 id="upgrade-guides">Upgrade guides<a class="headerlink" href="#upgrade-guides" title="Permanent link">¶</a></h1>
-<p>Per-release upgrade procedures for v5 versions with breaking changes (listed in the side navigation).</p>
-<p>For the one-shot data migration from v4 (Postgres or Microsoft SQL Server) into v5 (Postgres only),
-see <a href="../administration/migrating-from-v4/">Migrating from v4 to v5</a>.</p>
+<p>Breaking and otherwise notable changes for each release, with any manual steps they require.</p>
+<div class="admonition warning">
+<p class="admonition-title">Upgrade minor versions one at a time</p>
+<p>Work through the guide for every minor version between the one you run and the one you
+upgrade to, in release order, for example <code>5.0.x</code> to <code>5.1.x</code> to <code>5.2.x</code>. Skipping patch releases within
+a minor version is fine. For example, to get from <code>5.0.1</code> to <code>5.0.5</code>, read every intervening patch
+release guide, but upgrade in a single step.</p>
+</div>
+<h2 id="related-guides">Related guides<a class="headerlink" href="#related-guides" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="../administration/upgrading-instances/">Upgrading running instances</a>: rolling upgrade of a running cluster without planned downtime.</li>
+<li><a href="../administration/migrating-from-v4/">Migrating from v4 to v5</a>: one-shot data migration from v4 (PostgreSQL or Microsoft SQL Server) into v5 (PostgreSQL only).</li>
+</ul>
+<h2 id="release-notes">Release notes<a class="headerlink" href="#release-notes" title="Permanent link">¶</a></h2>
+<p>These pages cover only what an upgrade demands your attention for. For the complete list of changes
+in a release, including features and bug fixes, see the release notes on GitHub:</p>
+<ul>
+<li><a href="https://github.com/DependencyTrack/dependency-track/releases">API server release notes</a></li>
+<li><a href="https://github.com/DependencyTrack/frontend/releases">Frontend release notes</a></li>
+</ul>
+<h2 id="version-5-releases">Version 5 releases<a class="headerlink" href="#version-5-releases" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="v5.1.0/">Upgrading to v5.1.0</a></li>
+<li><a href="v5.0.5/">Upgrading to v5.0.5</a></li>
+<li><a href="v5.0.0-rc.2/">Upgrading to v5.0.0-rc.2</a></li>
+<li><a href="v5.0.0-rc.1/">Upgrading to v5.0.0-rc.1</a></li>
+</ul>
+<h2 id="version-0x-releases">Version 0.x releases<a class="headerlink" href="#version-0x-releases" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="v0.7.0-alpha.9/">Upgrading to v0.7.0-alpha.9</a></li>
+<li><a href="v0.7.0-alpha.8/">Upgrading to v0.7.0-alpha.8</a></li>
+<li><a href="v0.7.0-alpha.6/">Upgrading to v0.7.0-alpha.6</a></li>
+<li><a href="v0.7.0-alpha.5/">Upgrading to v0.7.0-alpha.5</a></li>
+<li><a href="v0.7.0-alpha.4/">Upgrading to v0.7.0-alpha.4</a></li>
+<li><a href="v0.7.0-alpha.3/">Upgrading to v0.7.0-alpha.3</a></li>
+<li><a href="v0.6.0/">Upgrading to v0.6.0</a></li>
+</ul>
 
 
 
