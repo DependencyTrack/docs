@@ -1,3 +1,4 @@
+(?i)enqueues?
 (?i)superset
 (?i)triag(e|ing)
 ACLs
@@ -98,6 +99,7 @@ Webex
 [Cc]amelCase
 [Cc]lassloaders?
 [Cc]lasspath
+[Cc]leartext
 [Cc]onfigs?
 [Cc]ron
 [Cc]rontab
@@ -133,7 +135,6 @@ Webex
 [Nn]amespaces
 [Nn]amespacing
 [Oo]utbox
-[Cc]leartext
 [Pp]laintext
 [Pp]luggable
 [Pp]oolers?
@@ -167,8 +168,8 @@ Webex
 [Vv]ulns
 apiserver
 autovacuum
-crypto
 cntlm
+crypto
 cutover
 eDirectory
 keysets?
