@@ -11210,6 +11210,16 @@ components:
       properties:
         processing:
           type: boolean
+        status:
+          type: string
+          description: The processing status associated with the token. Null when
+            no processing is associated with the token.
+          enum:
+          - PENDING
+          - RUNNING
+          - COMPLETED
+          - FAILED
+          nullable: true
       required:
       - processing
     LdapUser:
@@ -11229,6 +11239,10 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/Permission"
+        teams:
+          type: array
+          items:
+            $ref: "#/components/schemas/Team"
         username:
           type: string
           maxLength: 255
@@ -11771,11 +11785,19 @@ components:
           maxLength: 255
           minLength: 0
           pattern: "[\\P{Cc}]+"
+        permissions:
+          type: array
+          items:
+            $ref: "#/components/schemas/Permission"
         subjectIdentifier:
           type: string
           maxLength: 255
           minLength: 1
           pattern: "[\\P{Cc}]+"
+        teams:
+          type: array
+          items:
+            $ref: "#/components/schemas/Team"
         username:
           type: string
           maxLength: 255
