@@ -2160,6 +2160,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#known-exploited-vulnerabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Known exploited vulnerabilities
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#suppressing-a-specific-cve-in-a-vulnerability-policy" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2863,6 +2874,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#known-exploited-vulnerabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Known exploited vulnerabilities
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#suppressing-a-specific-cve-in-a-vulnerability-policy" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3432,6 +3454,15 @@ or <code>CRITICAL</code>
 <span class="w">    </span><span class="nx">vuln</span><span class="p">.</span><span class="nx">severity</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="p">[</span><span class="s2">"HIGH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"CRITICAL"</span><span class="p">]</span>
 <span class="w">      </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">vuln</span><span class="p">.</span><span class="nx">cvssv3_vector</span><span class="p">.</span><span class="nx">matches</span><span class="p">(</span><span class="s2">".*/AV:N/.*"</span><span class="p">)</span>
 <span class="w">  </span><span class="p">)</span>
+</code></pre></div></td></tr></tbody></table></div>
+<h3 id="known-exploited-vulnerabilities">Known exploited vulnerabilities<a class="headerlink" href="#known-exploited-vulnerabilities" title="Permanent link">¶</a></h3>
+<p>The following expression matches <a href="../schema/#component">Component</a>s with at least one <a href="../schema/#vulnerability">Vulnerability</a> that appears
+in a known exploited vulnerabilities catalog, such as <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog">CISA <abbr title="Known Exploited Vulnerabilities">KEV</abbr></a>:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">vulns</span><span class="p">.</span><span class="nx">exists</span><span class="p">(</span><span class="nx">vuln</span><span class="p">,</span><span class="w"> </span><span class="nx">vuln</span><span class="p">.</span><span class="nx">is_kev</span><span class="p">)</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>To also cover vulnerabilities that are not in a catalog yet, but that <a href="https://www.first.org/epss/"><abbr title="Exploit Prediction Scoring System">EPSS</abbr></a> gives more than a
+50% chance of exploitation within the next 30 days:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">vulns</span><span class="p">.</span><span class="nx">exists</span><span class="p">(</span><span class="nx">vuln</span><span class="p">,</span><span class="w"> </span><span class="nx">vuln</span><span class="p">.</span><span class="nx">is_kev</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">vuln</span><span class="p">.</span><span class="nx">epss_score</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0.5</span><span class="p">)</span>
 </code></pre></div></td></tr></tbody></table></div>
 <h3 id="suppressing-a-specific-cve-in-a-vulnerability-policy">Suppressing a specific CVE in a vulnerability policy<a class="headerlink" href="#suppressing-a-specific-cve-in-a-vulnerability-policy" title="Permanent link">¶</a></h3>
 <p>In a <a href="../vulnerability-policies/">vulnerability policy</a>, the subject is a single
