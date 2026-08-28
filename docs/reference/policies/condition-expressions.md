@@ -201,6 +201,22 @@ or `CRITICAL`
   )
 ```
 
+### Known exploited vulnerabilities
+
+The following expression matches [Component]s with at least one [Vulnerability] that appears
+in a known exploited vulnerabilities catalog, such as [CISA KEV][cisa-kev]:
+
+```js linenums="1"
+vulns.exists(vuln, vuln.is_kev)
+```
+
+To also cover vulnerabilities that are not in a catalog yet, but that [EPSS] gives more than a
+50% chance of exploitation within the next 30 days:
+
+```js linenums="1"
+vulns.exists(vuln, vuln.is_kev || vuln.epss_score > 0.5)
+```
+
 ### Suppressing a specific CVE in a vulnerability policy
 
 In a [vulnerability policy](vulnerability-policies.md), the subject is a single
@@ -580,6 +596,7 @@ component.version_distance(">=", v1.VersionDistance{major: 1})
 
 [CVSSv3]: https://www.first.org/cvss/v3.0/specification-document
 [Component]: schema.md#component
+[EPSS]: https://www.first.org/epss/
 [License]: schema.md#license
 [Package URL]: https://github.com/package-url/purl-spec/blob/master/PURL-SPECIFICATION.rst
 [Project]: schema.md#project
@@ -587,5 +604,6 @@ component.version_distance(">=", v1.VersionDistance{major: 1})
 [SPDX license expressions]: https://spdx.github.io/spdx-spec/v2.3/SPDX-license-expressions/
 [VersionDistance]: schema.md#versiondistance
 [Vulnerability]: schema.md#vulnerability
+[cisa-kev]: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 [protobuf-ts-docs]: https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp
 [vers]: https://github.com/package-url/vers-spec
