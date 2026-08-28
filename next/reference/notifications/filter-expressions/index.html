@@ -1844,6 +1844,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#violations-of-a-specific-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Violations of a specific policy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#combining-conditions" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2708,6 +2719,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#violations-of-a-specific-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Violations of a specific policy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#combining-conditions" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2944,6 +2966,11 @@ that project or tag restrictions cannot capture alone.</p>
 <p>The following expression matches <code>NEW_VULNERABILITY</code> notifications where the vulnerability
 has CWE-79 (Cross-site Scripting) among its CWEs:</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">subject</span><span class="p">.</span><span class="nx">vulnerability</span><span class="p">.</span><span class="nx">cwes</span><span class="p">.</span><span class="nx">exists</span><span class="p">(</span><span class="nx">cwe</span><span class="p">,</span><span class="w"> </span><span class="nx">cwe</span><span class="p">.</span><span class="nx">cwe_id</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">79</span><span class="p">)</span>
+</code></pre></div></td></tr></tbody></table></div>
+<h3 id="violations-of-a-specific-policy">Violations of a specific policy<a class="headerlink" href="#violations-of-a-specific-policy" title="Permanent link">¶</a></h3>
+<p><code>POLICY_VIOLATION</code> notifications fire for every <a href="../../policies/component-policies/">component policy</a>
+in the portfolio. The following expression narrows an alert to violations of one policy by name:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">subject</span><span class="p">.</span><span class="nx">policy_violation</span><span class="p">.</span><span class="nx">condition</span><span class="p">.</span><span class="nx">policy</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"Known exploited vulnerabilities"</span>
 </code></pre></div></td></tr></tbody></table></div>
 <h3 id="combining-conditions">Combining conditions<a class="headerlink" href="#combining-conditions" title="Permanent link">¶</a></h3>
 <p>The following expression matches <code>NEW_VULNERABILITY</code> notifications for <code>CRITICAL</code> vulnerabilities
