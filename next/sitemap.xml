@@ -9,6 +9,10 @@
          <lastmod>2026-08-28</lastmod>
     </url>
     <url>
+         <loc>https://dependencytrack.github.io/docs/next/concepts/about-kev-data-sources/</loc>
+         <lastmod>2026-08-28</lastmod>
+    </url>
+    <url>
          <loc>https://dependencytrack.github.io/docs/next/concepts/about-vulnerability-data-sources/</loc>
          <lastmod>2026-08-28</lastmod>
     </url>
@@ -110,6 +114,10 @@
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/guides/administration/configuring-internal-ca/</loc>
+         <lastmod>2026-08-28</lastmod>
+    </url>
+    <url>
+         <loc>https://dependencytrack.github.io/docs/next/guides/administration/configuring-kev-sources/</loc>
          <lastmod>2026-08-28</lastmod>
     </url>
     <url>

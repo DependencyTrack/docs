@@ -972,6 +972,8 @@
       
         
       
+        
+      
     
     
     
@@ -1298,6 +1300,34 @@
     
   
     Configuring vulnerability sources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/configuring-kev-sources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuring KEV sources
   
 
     
@@ -2095,6 +2125,8 @@
       
         
       
+        
+      
     
     
     
@@ -2375,8 +2407,8 @@ Report an issue if you have to increase the value permanently.</p>
   and <code>/api/v1/finding/project/{uuid}</code> endpoints support it.</p>
 </li>
 <li>
-<p><strong>Dependency-Track mirrors <abbr title="Known Exploited Vulnerabilities">KEV</abbr> catalogs by default</strong>. A new task downloads the CISA and ENISA Known Exploited
-  Vulnerabilities catalogs daily at 02:00. Dependency-Track turns on both data sources out of the box. Deployments
+<p><strong>Dependency-Track mirrors <abbr title="Known Exploited Vulnerabilities">KEV</abbr> catalogs by default</strong>. A new task downloads the <abbr title="Cybersecurity and Infrastructure Security Agency">CISA</abbr> and <abbr title="European Union Agency for Cybersecurity">ENISA</abbr> Known Exploited
+  Vulnerabilities catalogs daily at 02:00 UTC. Dependency-Track turns on both data sources out of the box. Deployments
   with restricted egress must allow the feed hosts, or turn off the data sources they cannot reach. Change the
   schedule with <a href="../../../reference/configuration/properties/#dttaskkev-mirrorcron"><code>dt.task.kev-mirror.cron</code></a>.</p>
 </li>

@@ -591,6 +591,8 @@
       
         
       
+        
+      
     
     
     
@@ -1844,6 +1846,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#known-exploited-vulnerabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Known exploited vulnerabilities
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#violations-of-a-specific-policy" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2719,6 +2732,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#known-exploited-vulnerabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Known exploited vulnerabilities
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#violations-of-a-specific-policy" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2966,6 +2990,11 @@ that project or tag restrictions cannot capture alone.</p>
 <p>The following expression matches <code>NEW_VULNERABILITY</code> notifications where the vulnerability
 has CWE-79 (Cross-site Scripting) among its CWEs:</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">subject</span><span class="p">.</span><span class="nx">vulnerability</span><span class="p">.</span><span class="nx">cwes</span><span class="p">.</span><span class="nx">exists</span><span class="p">(</span><span class="nx">cwe</span><span class="p">,</span><span class="w"> </span><span class="nx">cwe</span><span class="p">.</span><span class="nx">cwe_id</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">79</span><span class="p">)</span>
+</code></pre></div></td></tr></tbody></table></div>
+<h3 id="known-exploited-vulnerabilities">Known exploited vulnerabilities<a class="headerlink" href="#known-exploited-vulnerabilities" title="Permanent link">¶</a></h3>
+<p>The following expression matches <code>NEW_VULNERABILITY</code> notifications for vulnerabilities that an enabled
+<a href="../../../concepts/about-kev-data-sources/"><abbr title="Known Exploited Vulnerabilities">KEV</abbr> data source</a> reports as known exploited:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">subject</span><span class="p">.</span><span class="nx">vulnerability</span><span class="p">.</span><span class="nx">is_kev</span>
 </code></pre></div></td></tr></tbody></table></div>
 <h3 id="violations-of-a-specific-policy">Violations of a specific policy<a class="headerlink" href="#violations-of-a-specific-policy" title="Permanent link">¶</a></h3>
 <p><code>POLICY_VIOLATION</code> notifications fire for every <a href="../../policies/component-policies/">component policy</a>
