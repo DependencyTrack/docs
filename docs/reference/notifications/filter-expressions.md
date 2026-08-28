@@ -118,6 +118,15 @@ has CWE-79 (Cross-site Scripting) among its CWEs:
 subject.vulnerability.cwes.exists(cwe, cwe.cwe_id == 79)
 ```
 
+### Violations of a specific policy
+
+`POLICY_VIOLATION` notifications fire for every [component policy](../policies/component-policies.md)
+in the portfolio. The following expression narrows an alert to violations of one policy by name:
+
+```js linenums="1"
+subject.policy_violation.condition.policy.name == "Known exploited vulnerabilities"
+```
+
 ### Combining conditions
 
 The following expression matches `NEW_VULNERABILITY` notifications for `CRITICAL` vulnerabilities
