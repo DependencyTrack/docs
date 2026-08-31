@@ -74,7 +74,12 @@ services:
       OIDC_ISSUER: "https://idp.example.com"
       OIDC_CLIENT_ID: "dependency-track"
       OIDC_SCOPE: "openid profile email"
+      OIDC_LOGIN_BUTTON_TEXT: "Sign in with SSO"
 ```
+
+`OIDC_LOGIN_BUTTON_TEXT` is optional. When set, the frontend uses that
+string as the OpenID Connect login button label. When it is empty, the
+button shows the default OpenID logo.
 
 The frontend defaults to the `code` flow ([authorization code](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth)
 with [PKCE](https://datatracker.ietf.org/doc/html/rfc7636)), which works with
