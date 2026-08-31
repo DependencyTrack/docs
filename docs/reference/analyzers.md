@@ -122,7 +122,7 @@ Uses PURL matching.
 |----------------|-----------------------|------------------------------------------------------------------------|
 | Enabled        | -                     | Whether the analyzer is active                                         |
 | API URL        | Yes                   | URL of the Trivy server                                                |
-| API token      | Yes                   | Authentication token for the Trivy server. Must be a [managed secret]. |
+| API token      | -                     | Authentication token for the Trivy server. Only required when the Trivy server runs with `--token`. Must be a [managed secret]. |
 | Ignore unfixed | -                     | Whether to exclude vulnerabilities without a known fix                 |
 | Scan library   | -                     | Scan language/library packages (enabled by default)                    |
 | Scan OS        | -                     | Scan OS-level packages (disabled by default)                           |
