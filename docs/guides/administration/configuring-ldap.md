@@ -41,13 +41,13 @@ dt.ldap.base-dn=dc=example,dc=com
 dt.ldap.security-auth=simple
 dt.ldap.bind-username=cn=dt-service,dc=example,dc=com
 dt.ldap.bind-password=changeme
-dt.ldap.username-format=uid={0},ou=users,dc=example,dc=com
+dt.ldap.username-format=uid=%s,ou=users,dc=example,dc=com
 dt.ldap.name-attribute=cn
 dt.ldap.mail-attribute=mail
 ```
 
 !!! tip
-    Dependency-Track substitutes the `{0}` placeholder in `dt.ldap.username-format`
+    Dependency-Track substitutes the `%s` placeholder in `dt.ldap.username-format`
     with the username entered at login.
 
 ### User provisioning
@@ -67,10 +67,8 @@ Map teams to LDAP groups under **Administration > Access Management > Teams**.
 
 ```properties
 dt.ldap.team-synchronization=true
-dt.ldap.group-filter=(&(objectClass=groupOfUniqueNames))
 dt.ldap.user-groups-filter=(&(objectClass=groupOfUniqueNames)(uniqueMember={USER_DN}))
 dt.ldap.group-search-filter=(&(objectClass=groupOfUniqueNames)(cn=*{SEARCH_TERM}*))
-dt.ldap.user-search-filter=(&(objectClass=inetOrgPerson)(cn=*{SEARCH_TERM}*))
 ```
 
 !!! tip
@@ -96,13 +94,11 @@ dt.ldap.base-dn=dc=example,dc=com
 dt.ldap.security-auth=simple
 dt.ldap.bind-username=CN=DT Service Account,DC=example,DC=com
 dt.ldap.bind-password=changeme
-dt.ldap.username-format={0}@example.com
+dt.ldap.username-format=%s@example.com
 dt.ldap.name-attribute=userPrincipalName
 dt.ldap.mail-attribute=mail
-dt.ldap.group-filter=(&(objectClass=group)(objectCategory=Group))
 dt.ldap.user-groups-filter=(&(objectClass=group)(objectCategory=Group)(member:1.2.840.113556.1.4.1941:={USER_DN}))
 dt.ldap.group-search-filter=(&(objectClass=group)(objectCategory=Group)(cn=*{SEARCH_TERM}*))
-dt.ldap.user-search-filter=(&(objectClass=user)(objectCategory=Person)(cn=*{SEARCH_TERM}*))
 ```
 
 !!! tip
@@ -125,13 +121,11 @@ dt.ldap.base-dn=dc=example,dc=com
 dt.ldap.security-auth=simple
 dt.ldap.bind-username=uid=admin,ou=system
 dt.ldap.bind-password=changeme
-dt.ldap.username-format=uid={0},ou=users,dc=example,dc=com
+dt.ldap.username-format=uid=%s,ou=users,dc=example,dc=com
 dt.ldap.name-attribute=cn
 dt.ldap.mail-attribute=mail
-dt.ldap.group-filter=(&(objectClass=groupOfUniqueNames))
 dt.ldap.user-groups-filter=(&(objectClass=groupOfUniqueNames)(uniqueMember={USER_DN}))
 dt.ldap.group-search-filter=(&(objectClass=groupOfUniqueNames)(cn=*{SEARCH_TERM}*))
-dt.ldap.user-search-filter=(&(objectClass=inetOrgPerson)(cn=*{SEARCH_TERM}*))
 ```
 
 ### Fedora 389 Directory Server
@@ -143,13 +137,11 @@ dt.ldap.base-dn=dc=example,dc=com
 dt.ldap.security-auth=simple
 dt.ldap.bind-username=cn=Directory Manager
 dt.ldap.bind-password=changeme
-dt.ldap.username-format=uid={0},ou=people,dc=example,dc=com
+dt.ldap.username-format=uid=%s,ou=people,dc=example,dc=com
 dt.ldap.name-attribute=uid
 dt.ldap.mail-attribute=mail
-dt.ldap.group-filter=(&(objectClass=groupOfUniqueNames))
 dt.ldap.user-groups-filter=(&(objectClass=groupOfUniqueNames)(uniqueMember={USER_DN}))
 dt.ldap.group-search-filter=(&(objectClass=groupOfUniqueNames)(cn=*{SEARCH_TERM}*))
-dt.ldap.user-search-filter=(&(objectClass=inetOrgPerson)(uid=*{SEARCH_TERM}*))
 ```
 
 ### NetIQ / Novell eDirectory
@@ -163,13 +155,11 @@ dt.ldap.base-dn=o=example
 dt.ldap.security-auth=simple
 dt.ldap.bind-username=cn=admin,o=example
 dt.ldap.bind-password=changeme
-dt.ldap.username-format=uid={0},ou=users,o=example
+dt.ldap.username-format=uid=%s,ou=users,o=example
 dt.ldap.name-attribute=uid
 dt.ldap.mail-attribute=mail
-dt.ldap.group-filter=(&(objectClass=groupOfUniqueNames))
 dt.ldap.user-groups-filter=(&(objectClass=groupOfUniqueNames)(uniqueMember={USER_DN}))
 dt.ldap.group-search-filter=(&(objectClass=groupOfUniqueNames)(cn=*{SEARCH_TERM}*))
-dt.ldap.user-search-filter=(&(objectClass=inetOrgPerson)(uid=*{SEARCH_TERM}*))
 ```
 
 ---
