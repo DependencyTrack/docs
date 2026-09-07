@@ -11947,6 +11947,8 @@ components:
           type: boolean
         includeChildren:
           type: boolean
+        invertTagMatch:
+          type: boolean
         name:
           type: string
           maxLength: 255
