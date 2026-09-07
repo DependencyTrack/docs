@@ -3930,14 +3930,6 @@
 <tr><th>ENV</th><td><code>DT_LDAP_ENABLED</code></td></tr>
 </tbody></table>
 
-<p><span id="dtldapgroup-filter"><strong><code>dt.ldap.group-filter</code></strong> <a class="headerlink" href="#dtldapgroup-filter">¶</a></span></p>
-<p>Specifies the <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> search filter used to retrieve all groups from the directory.  <br><br>  Example (Microsoft Active Directory):  </p><ul><li><code>(&amp;(objectClass=group)(objectCategory=Group))</code></li></ul>  Example (ApacheDS, Fedora 389 Directory, NetIQ/Novell eDirectory, etc):  <ul><li><code>(&amp;(objectClass=groupOfUniqueNames))</code></li></ul>  <p></p>
-<table>
-<tbody><tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
-<tr><th>Default</th><td><code>(&amp;(objectClass=group)(objectCategory=Group))</code></td></tr>
-<tr><th>ENV</th><td><code>DT_LDAP_GROUP_FILTER</code></td></tr>
-</tbody></table>
-
 <p><span id="dtldapgroup-search-filter"><strong><code>dt.ldap.group-search-filter</code></strong> <a class="headerlink" href="#dtldapgroup-search-filter">¶</a></span></p>
 <p>Specifies the <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> search filter used to search for groups by their name.  The <code>{SEARCH_TERM}</code> variable will be substituted at runtime.  <br><br>  Example (Microsoft Active Directory):  </p><ul><li><code>(&amp;(objectClass=group)(objectCategory=Group)(cn=<em>{SEARCH_TERM}</em>))</code></li></ul>  Example (ApacheDS, Fedora 389 Directory, NetIQ/Novell eDirectory, etc):  <ul><li><code>(&amp;(objectClass=groupOfUniqueNames)(cn=<em>{SEARCH_TERM}</em>))</code></li></ul>  <p></p>
 <table>
@@ -4003,16 +3995,8 @@
 <tr><th>ENV</th><td><code>DT_LDAP_USER_PROVISIONING</code></td></tr>
 </tbody></table>
 
-<p><span id="dtldapuser-search-filter"><strong><code>dt.ldap.user-search-filter</code></strong> <a class="headerlink" href="#dtldapuser-search-filter">¶</a></span></p>
-<p>Specifies the <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> search filter used to search for users by their name.  The <code>{SEARCH_TERM}</code> variable will be substituted at runtime.  <br><br>  Example (Microsoft Active Directory):  </p><ul><li><code>(&amp;(objectClass=group)(objectCategory=Group)(cn=<em>{SEARCH_TERM}</em>))</code></li></ul>  Example (ApacheDS, Fedora 389 Directory, NetIQ/Novell eDirectory, etc):  <ul><li><code>(&amp;(objectClass=inetOrgPerson)(cn=<em>{SEARCH_TERM}</em>))</code></li></ul>  <p></p>
-<table>
-<tbody><tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
-<tr><th>Default</th><td><code>(&amp;(objectClass=user)(objectCategory=Person)(cn=*{SEARCH_TERM}*))</code></td></tr>
-<tr><th>ENV</th><td><code>DT_LDAP_USER_SEARCH_FILTER</code></td></tr>
-</tbody></table>
-
 <p><span id="dtldapusername-format"><strong><code>dt.ldap.username-format</code></strong> <a class="headerlink" href="#dtldapusername-format">¶</a></span></p>
-<p>Specifies if the username entered during login needs to be formatted prior  to asserting credentials against the directory. For Active Directory, the  userPrincipal attribute typically ends with the domain, whereas the  samAccountName attribute and other directory server implementations do not.  The %s variable will be substituted with the username asserted during login.  <br><br>  Example (Microsoft Active Directory):  </p><ul><li><code>%s@example.com</code></li></ul>  Example (ApacheDS, Fedora 389 Directory, NetIQ/Novell eDirectory, etc):  <ul><li><code>%s</code></li></ul>  <p></p>
+<p>Specifies if the username entered during login needs to be formatted prior  to asserting credentials against the directory. For Active Directory, the  userPrincipal attribute typically ends with the domain, whereas the  samAccountName attribute and other directory server implementations do not.  The <code>%s</code> variable will be substituted with the username asserted during login.  <br><br>  Example (Microsoft Active Directory):  </p><ul><li><code>%s@example.com</code></li></ul>  Example (ApacheDS, Fedora 389 Directory, NetIQ/Novell eDirectory, etc):  <ul><li><code>%s</code></li></ul>  <p></p>
 <table>
 <tbody><tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
 <tr><th>Default</th><td><code>null</code></td></tr>
