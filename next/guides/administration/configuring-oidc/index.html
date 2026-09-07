@@ -2839,7 +2839,8 @@ environment variables to the frontend container:</p>
 <span class="normal">5</span>
 <span class="normal">6</span>
 <span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">frontend</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/dependencytrack/hyades-frontend:latest</span>
 <span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
@@ -2847,7 +2848,11 @@ environment variables to the frontend container:</p>
 <span class="w">      </span><span class="nt">OIDC_ISSUER</span><span class="p">:</span><span class="w"> </span><span class="s">"https://idp.example.com"</span>
 <span class="w">      </span><span class="nt">OIDC_CLIENT_ID</span><span class="p">:</span><span class="w"> </span><span class="s">"dependency-track"</span>
 <span class="w">      </span><span class="nt">OIDC_SCOPE</span><span class="p">:</span><span class="w"> </span><span class="s">"openid</span><span class="nv"> </span><span class="s">profile</span><span class="nv"> </span><span class="s">email"</span>
+<span class="w">      </span><span class="nt">OIDC_LOGIN_BUTTON_TEXT</span><span class="p">:</span><span class="w"> </span><span class="s">"Sign</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">SSO"</span>
 </code></pre></div></td></tr></tbody></table></div>
+<p><code>OIDC_LOGIN_BUTTON_TEXT</code> is optional. When set, the frontend uses that
+string as the OpenID Connect login button label. When it is empty, the
+button shows the default OpenID logo.</p>
 <p>The frontend defaults to the <code>code</code> flow (<a href="https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth">authorization code</a>
 with <a href="https://datatracker.ietf.org/doc/html/rfc7636">PKCE</a>), which works with
 all modern IdPs and is the recommended setting. The <a href="https://openid.net/specs/openid-connect-core-1_0.html#ImplicitFlowAuth">implicit flow</a>
