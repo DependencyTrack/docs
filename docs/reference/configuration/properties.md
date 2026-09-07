@@ -1294,16 +1294,6 @@ Defines if LDAP will be used for user authentication. If enabled,  `dt.ldap.*` p
 <tr><th>ENV</th><td><code>DT_LDAP_ENABLED</code></td></tr>
 </table>
 
-<span id="dtldapgroup-filter">**`dt.ldap.group-filter`** [¶](#dtldapgroup-filter){ .headerlink }</span>
-
-Specifies the LDAP search filter used to retrieve all groups from the directory.  <br/><br/>  Example (Microsoft Active Directory):  <ul><li><code>(&(objectClass=group)(objectCategory=Group))</code></li></ul>  Example (ApacheDS, Fedora 389 Directory, NetIQ/Novell eDirectory, etc):  <ul><li><code>(&(objectClass=groupOfUniqueNames))</code></li></ul>  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
-<tr><th>Default</th><td><code>(&(objectClass=group)(objectCategory=Group))</code></td></tr>
-<tr><th>ENV</th><td><code>DT_LDAP_GROUP_FILTER</code></td></tr>
-</table>
-
 <span id="dtldapgroup-search-filter">**`dt.ldap.group-search-filter`** [¶](#dtldapgroup-search-filter){ .headerlink }</span>
 
 Specifies the LDAP search filter used to search for groups by their name.  The `{SEARCH_TERM}` variable will be substituted at runtime.  <br/><br/>  Example (Microsoft Active Directory):  <ul><li><code>(&(objectClass=group)(objectCategory=Group)(cn=*{SEARCH_TERM}*))</code></li></ul>  Example (ApacheDS, Fedora 389 Directory, NetIQ/Novell eDirectory, etc):  <ul><li><code>(&(objectClass=groupOfUniqueNames)(cn=*{SEARCH_TERM}*))</code></li></ul>  
@@ -1385,19 +1375,9 @@ Specifies if mapped LDAP accounts are automatically created upon successful  aut
 <tr><th>ENV</th><td><code>DT_LDAP_USER_PROVISIONING</code></td></tr>
 </table>
 
-<span id="dtldapuser-search-filter">**`dt.ldap.user-search-filter`** [¶](#dtldapuser-search-filter){ .headerlink }</span>
-
-Specifies the LDAP search filter used to search for users by their name.  The <code>{SEARCH_TERM}</code> variable will be substituted at runtime.  <br/><br/>  Example (Microsoft Active Directory):  <ul><li><code>(&(objectClass=group)(objectCategory=Group)(cn=*{SEARCH_TERM}*))</code></li></ul>  Example (ApacheDS, Fedora 389 Directory, NetIQ/Novell eDirectory, etc):  <ul><li><code>(&(objectClass=inetOrgPerson)(cn=*{SEARCH_TERM}*))</code></li></ul>  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
-<tr><th>Default</th><td><code>(&(objectClass=user)(objectCategory=Person)(cn=*{SEARCH_TERM}*))</code></td></tr>
-<tr><th>ENV</th><td><code>DT_LDAP_USER_SEARCH_FILTER</code></td></tr>
-</table>
-
 <span id="dtldapusername-format">**`dt.ldap.username-format`** [¶](#dtldapusername-format){ .headerlink }</span>
 
-Specifies if the username entered during login needs to be formatted prior  to asserting credentials against the directory. For Active Directory, the  userPrincipal attribute typically ends with the domain, whereas the  samAccountName attribute and other directory server implementations do not.  The %s variable will be substituted with the username asserted during login.  <br/><br/>  Example (Microsoft Active Directory):  <ul><li><code>%s@example.com</code></li></ul>  Example (ApacheDS, Fedora 389 Directory, NetIQ/Novell eDirectory, etc):  <ul><li><code>%s</code></li></ul>  
+Specifies if the username entered during login needs to be formatted prior  to asserting credentials against the directory. For Active Directory, the  userPrincipal attribute typically ends with the domain, whereas the  samAccountName attribute and other directory server implementations do not.  The `%s` variable will be substituted with the username asserted during login.  <br/><br/>  Example (Microsoft Active Directory):  <ul><li><code>%s@example.com</code></li></ul>  Example (ApacheDS, Fedora 389 Directory, NetIQ/Novell eDirectory, etc):  <ul><li><code>%s</code></li></ul>  
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
