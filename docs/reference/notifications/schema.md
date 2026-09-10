@@ -968,6 +968,7 @@ Subject for GROUP_NEW_VULNERABILITIES_SUMMARY notifications.
 | `cvss_v4` | `double` |  | - |
 | `cvss_v4_vector` | `string` |  | - |
 | `is_kev` | `bool` | Whether the vulnerability is known to be exploited. | - |
+| `analyzer_identity` | `string` | Name of the analyzer that identified the vulnerability first. | - |
 
 
 
