@@ -25,34 +25,28 @@ build pipeline.
 
 | Tool | Integration | Link |
 |:-----|:------------|:-----|
-| Backstage | Dependency-Track Backstage Plugin (TRIMM) | [GitHub](https://github.com/TRIMM/plugin-dependency-track) |
+| Backstage | Dependency-Track Backstage Plugin (TRIMM) | [GitHub](https://github.com/TRIMM/plugin-dependencytrack) |
 
 ## Client Libraries
 
-These libraries provide programmatic access to the Dependency-Track API from your
+This library provides programmatic access to the Dependency-Track API from your
 own tools and automation scripts.
 
 | Language | Library | Link |
 |:---------|:--------|:-----|
-| Go | Dependency-Track Client | [GitHub](https://github.com/nscuro/dtrack-client-go) |
-| Python | Dependency-Track Client | [GitHub](https://github.com/nscuro/dtrack-client-py) |
-| Ruby | Dependency-Track Client | [GitHub](https://github.com/nscuro/dtrack-client-rb) |
+| Go | Dependency-Track Client | [GitHub](https://github.com/DependencyTrack/client-go) |
 
 ## Security and Vulnerability Management
 
 | Tool | Integration | Link |
 |:-----|:------------|:-----|
 | SecObserve | Dependency-Track integration | [GitHub](https://github.com/MaibornWolff/SecObserve) |
-| Mixeway Hub | Risk aggregation platform | [mixeway.pl](https://mixeway.pl) |
 | SD Elements (Security Compass) | Dependency-Track integration | [securitycompass.com](https://securitycompass.com) |
 
 ## Reporting and Auditing
 
 | Tool | Description | Link |
 |:-----|:------------|:-----|
-| Dependency-Track Reporting Tool | Generates reports from Dependency-Track data (Modus Operandi) | [GitHub](https://github.com/ModusCreateOrg/dependency-track-report-tool) |
-| dtrack-audit | CLI tool for auditing findings (OZON.ru) | [GitHub](https://github.com/ozonru/dtrack-audit) |
-| dtrack-auditor | Policy-driven finding auditor | [GitHub](https://github.com/jetstack/dtrack-auditor) |
 | `dependency-track-exporter` | Prometheus metrics exporter (Jetstack) | [GitHub](https://github.com/jetstack/dependency-track-exporter) |
 
 ## Other Utilities
@@ -65,4 +59,4 @@ own tools and automation scripts.
 ---
 
 *Know of an integration that should be listed here? Open a pull request on the
-[documentation repository](https://github.com/DependencyTrack/hyades).*
+[documentation repository](https://github.com/DependencyTrack/docs).*
