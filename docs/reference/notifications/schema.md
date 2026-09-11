@@ -270,6 +270,7 @@ Subject for GROUP_NEW_VULNERABILITIES_SUMMARY notifications.
 | `vulnerability_analysis_level` | `string` |  | - |
 | `affected_projects` | [`Project[]`](#org-dependencytrack-notification-v1-Project) | List of projects affected by the vulnerability. DEPRECATED: This list only holds one item, and it is identical to the one in the project field. The field is kept for backward compatibility of JSON notifications, but consumers should not expect multiple projects here. Transmitting all affected projects in one notification is not feasible for large portfolios, see https://github.com/DependencyTrack/hyades/issues/467 for details. | - |
 | `analysis_trigger` | [`AnalysisTrigger`](#org-dependencytrack-notification-v1-AnalysisTrigger) | The trigger of the analysis that identified the vulnerability. | - |
+| `analyzer_identity` | `string` | Name of the analyzer that identified the vulnerability first. | - |
 
 
 
@@ -968,7 +969,6 @@ Subject for GROUP_NEW_VULNERABILITIES_SUMMARY notifications.
 | `cvss_v4` | `double` |  | - |
 | `cvss_v4_vector` | `string` |  | - |
 | `is_kev` | `bool` | Whether the vulnerability is known to be exploited. | - |
-| `analyzer_identity` | `string` | Name of the analyzer that identified the vulnerability first. | - |
 
 
 
