@@ -785,6 +785,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Users">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#service-accounts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Service accounts
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1471,6 +1488,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Users">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#service-accounts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Service accounts
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1645,7 +1679,7 @@ and the permissions of every team they belong to. Permissions are never
 intersected or downgraded by team membership.</p>
 </div>
 <h2 id="users">Users<a class="headerlink" href="#users" title="Permanent link">¶</a></h2>
-<p>Three types of users exist:</p>
+<p>Four types of users exist:</p>
 <table>
 <thead>
 <tr>
@@ -1666,10 +1700,36 @@ intersected or downgraded by team membership.</p>
 <td style="text-align: left;"><abbr title="OpenID Connect">OIDC</abbr> User</td>
 <td style="text-align: left;">Authenticated via an OpenID Connect identity provider. See <a href="../../guides/administration/configuring-oidc/">Configuring <abbr title="OpenID Connect">OIDC</abbr></a>.</td>
 </tr>
+<tr>
+<td style="text-align: left;">Service Account</td>
+<td style="text-align: left;">A non-human account for automation. Authenticates with its own API keys. Available in 5.2.0 and later. See <a href="#service-accounts">Service accounts</a>.</td>
+</tr>
 </tbody>
 </table>
 <p>All user types share the same permission model. The authentication mechanism determines
 how the system verifies a user's identity, not what they can access.</p>
+<h3 id="service-accounts">Service accounts<a class="headerlink" href="#service-accounts" title="Permanent link">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Available in 5.2.0 and later</p>
+<p>Earlier versions support only team API keys for automation.</p>
+</div>
+<p>A service account is the identity of a CI pipeline, scanner, script, or other
+automated tool. Like any other user, it holds permissions directly or through
+team membership, and appears in team member lists.</p>
+<p>A service account can't log in. It authenticates with API keys that it owns.
+Each request made with such a key acts as the service account, so audit records
+show its username. Suspending a service account stops all its API keys from working
+until you lift the suspension. Deleting it also deletes its API keys.</p>
+<p>Service account usernames always start with <code>svc:</code>, for example <code>svc:ci-pipeline</code>.
+No other user can have a username with that prefix. This prevents a service account
+from taking a username that an <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> or <abbr title="OpenID Connect">OIDC</abbr> user would receive on first login.</p>
+<p>Managing service accounts requires the <code>ACCESS_MANAGEMENT</code> permission.</p>
+<p>Compared to team API keys, service accounts:</p>
+<ul>
+<li>Give each automated tool a distinct identity, even when tools share a team.</li>
+<li>Take permissions directly, so narrowing one tool's permissions doesn't need a dedicated team.</li>
+<li>Support suspension, which blocks access without deleting API keys.</li>
+</ul>
 <h2 id="teams">Teams<a class="headerlink" href="#teams" title="Permanent link">¶</a></h2>
 <p>A team is a named collection of users and API keys. Teams hold permissions, which makes
 it straightforward to manage access for groups of people (for example, <em>Security Engineers</em>,
@@ -1679,12 +1739,13 @@ every team they are a member of. Permissions can also be assigned directly to a 
 Those permissions add to whatever the user inherits from their teams.</p>
 <p>Prefer team-based assignment as the default. Use direct user permissions sparingly, for
 exceptions that don't justify a dedicated team.</p>
-<p>API keys belong to a team and carry the same permissions as that team. They authenticate
+<p>Team API keys belong to a team and carry the same permissions as that team. They authenticate
 automated access (CI/CD pipelines, integrations) without associating requests with a
-specific human user.</p>
+specific identity. In 5.2.0 and later, <a href="#service-accounts">service accounts</a> offer an
+alternative with their own identity and permissions.</p>
 <p>Deleting a team also deletes its API keys and any project access assignments
-made through it. Projects and user accounts are unaffected, but users lose the
-permissions they had inherited from the deleted team.</p>
+made through it. It keeps projects, user accounts, and API keys owned by service
+accounts, but users lose the permissions they had inherited from the deleted team.</p>
 <h2 id="portfolio-access-control">Portfolio access control<a class="headerlink" href="#portfolio-access-control" title="Permanent link">¶</a></h2>
 <p>By default, every principal with <code>VIEW_PORTFOLIO</code> can see every project.
 Portfolio Access Control (<abbr title="Portfolio Access Control">PAC</abbr>) restricts that visibility so a team can only act
@@ -1804,9 +1865,10 @@ entirely: they see every project as if <abbr title="Portfolio Access Control">PA
 administrators and trusted automation that legitimately needs to operate across
 the full portfolio.</p>
 <h3 id="project-creation-under-pac">Project creation under <abbr title="Portfolio Access Control">PAC</abbr><a class="headerlink" href="#project-creation-under-pac" title="Permanent link">¶</a></h3>
-<p>When an API key creates a project (for example, via <abbr title="Bill of Materials">BOM</abbr> upload with
-<code>PROJECT_CREATION_UPLOAD</code>), the API key's team is added to the new project's
-ACL automatically.</p>
+<p>When a team API key or a service account creates a project (for example, via
+<abbr title="Bill of Materials">BOM</abbr> upload with <code>PROJECT_CREATION_UPLOAD</code>), Dependency-Track adds its first team
+in alphabetical order to the new project's ACL. A service account that belongs
+to no team adds no team to the ACL.</p>
 <p>When a user creates a project, they must designate an owning team from those
 they belong to. The chosen team is added to the new project's ACL. A project
 created with no team assignment is invisible to everyone except administrators

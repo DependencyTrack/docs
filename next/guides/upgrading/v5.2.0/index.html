@@ -2391,6 +2391,19 @@
 <h1 id="upgrading-to-v520">Upgrading to v5.2.0<a class="headerlink" href="#upgrading-to-v520" title="Permanent link">¶</a></h1>
 <ul>
 <li>
+<p><strong>Service accounts reserve the <code>svc:</code> username prefix</strong>. This release adds <a href="../../../concepts/access-control/#service-accounts">service accounts</a>,
+  a user type for CI pipelines, scripts, and other automation. Their usernames start with <code>svc:</code>,
+  and no other user can have a username with that prefix, in any letter case.</p>
+<p>If such a user exists, the database migration fails and its error message lists the affected users.
+To find them before you upgrade, run this query against the database:</p>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="ss">"USERNAME"</span><span class="p">,</span><span class="w"> </span><span class="ss">"TYPE"</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="ss">"USER"</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="ss">"USERNAME"</span><span class="w"> </span><span class="k">ILIKE</span><span class="w"> </span><span class="s1">'svc:%'</span><span class="p">;</span>
+</code></pre></div>
+<p>Rename or delete affected managed users. Rename affected <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> and <abbr title="OpenID Connect">OIDC</abbr> users in your identity provider,
+then delete them from Dependency-Track. After the upgrade, <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> and <abbr title="OpenID Connect">OIDC</abbr> logins with a <code>svc:</code> username fail,
+and the <abbr title="Representational State Transfer">REST</abbr> API rejects new users with that prefix.</p>
+<p>Team API keys keep working without changes.</p>
+</li>
+<li>
 <p><strong>Cargo package metadata comes from the sparse index</strong>. Earlier versions queried the crates.io API,
   which enforces rate limits. The Cargo resolver now reads the <a href="https://doc.rust-lang.org/cargo/reference/registry-index.html#sparse-protocol">sparse registry index</a> instead,
   which a CDN serves without rate limits. A database migration changes the URL of the default <code>crates.io</code>
