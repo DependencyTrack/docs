@@ -23,6 +23,7 @@ in a release, including features and bug fixes, see the release notes on GitHub:
 
 ## Version 5 releases
 
+- [Upgrading to v5.2.0](v5.2.0.md)
 - [Upgrading to v5.1.0](v5.1.0.md)
 - [Upgrading to v5.0.5](v5.0.5.md)
 - [Upgrading to v5.0.0-rc.2](v5.0.0-rc.2.md)
