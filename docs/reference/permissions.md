@@ -62,13 +62,13 @@ and [Managing project versions](../guides/user/managing-project-versions.md).
 
 ### Access management
 
-| Permission                    | Description                                       |
-|:------------------------------|:--------------------------------------------------|
-| `ACCESS_MANAGEMENT`           | Manage users, teams, permissions, and API keys.   |
-| `ACCESS_MANAGEMENT_CREATE`    | Create users, teams, and API keys.                |
-| `ACCESS_MANAGEMENT_READ`      | Read users, teams, and API keys.                  |
-| `ACCESS_MANAGEMENT_UPDATE`    | Update users, teams, and API keys.                |
-| `ACCESS_MANAGEMENT_DELETE`    | Delete users, teams, and API keys.                |
+| Permission                    | Description                                                         |
+|:------------------------------|:--------------------------------------------------------------------|
+| `ACCESS_MANAGEMENT`           | Manage users, service accounts, teams, permissions, and API keys.   |
+| `ACCESS_MANAGEMENT_CREATE`    | Create users, service accounts, teams, and API keys.                |
+| `ACCESS_MANAGEMENT_READ`      | Read users, service accounts, teams, and API keys.                  |
+| `ACCESS_MANAGEMENT_UPDATE`    | Update users, service accounts, teams, and API keys.                |
+| `ACCESS_MANAGEMENT_DELETE`    | Delete users, service accounts, teams, and API keys.                |
 
 ### System configuration
 

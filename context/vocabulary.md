@@ -71,11 +71,12 @@ Use these terms consistently. Avoid synonyms not listed here.
 
 ## Access control
 
-- **team** — A grouping of users and API keys that share permissions.
+- **team** — A grouping of users and team API keys that share permissions.
 - **permission** — A granular access control attribute (e.g., VIEW_PORTFOLIO, VULNERABILITY_ANALYSIS, POLICY_MANAGEMENT).
-- **API key** — A long-lived authentication token scoped to a team.
+- **API key** — A long-lived authentication token. Either a *team API key*, scoped to a team, or owned by a service account and acting as it.
 - **managed user** — A user account managed within Dependency-Track.
 - **LDAP/OIDC user** — A user account managed by an external identity provider.
+- **service account** — A non-human user for automation, authenticated only by its own API keys. Username starts with the reserved `svc:` prefix. Available in 5.2.0 and later.
 - **portfolio access control** — Restricts a team's visibility to a subset of projects.
 
 ## Architecture (v5)

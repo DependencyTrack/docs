@@ -11,16 +11,44 @@ Dependency-Track uses a role-based access control model built around **permissio
 
 ## Users
 
-Three types of users exist:
+Four types of users exist:
 
-| Type          | Description                                                                                       |
-|:--------------|:--------------------------------------------------------------------------------------------------|
-| Managed User  | A local account created and managed within Dependency-Track.                                      |
-| LDAP User     | Authenticated via an external LDAP directory. See [Configuring LDAP](../guides/administration/configuring-ldap.md). |
-| OIDC User     | Authenticated via an OpenID Connect identity provider. See [Configuring OIDC](../guides/administration/configuring-oidc.md). |
+| Type            | Description                                                                                       |
+|:----------------|:--------------------------------------------------------------------------------------------------|
+| Managed User    | A local account created and managed within Dependency-Track.                                      |
+| LDAP User       | Authenticated via an external LDAP directory. See [Configuring LDAP](../guides/administration/configuring-ldap.md). |
+| OIDC User       | Authenticated via an OpenID Connect identity provider. See [Configuring OIDC](../guides/administration/configuring-oidc.md). |
+| Service Account | A non-human account for automation. Authenticates with its own API keys. Available in 5.2.0 and later. See [Service accounts](#service-accounts). |
 
 All user types share the same permission model. The authentication mechanism determines
 how the system verifies a user's identity, not what they can access.
+
+### Service accounts
+
+!!! note "Available in 5.2.0 and later"
+
+    Earlier versions support only team API keys for automation.
+
+A service account is the identity of a CI pipeline, scanner, script, or other
+automated tool. Like any other user, it holds permissions directly or through
+team membership, and appears in team member lists.
+
+A service account can't log in. It authenticates with API keys that it owns.
+Each request made with such a key acts as the service account, so audit records
+show its username. Suspending a service account stops all its API keys from working
+until you lift the suspension. Deleting it also deletes its API keys.
+
+Service account usernames always start with `svc:`, for example `svc:ci-pipeline`.
+No other user can have a username with that prefix. This prevents a service account
+from taking a username that an LDAP or OIDC user would receive on first login.
+
+Managing service accounts requires the `ACCESS_MANAGEMENT` permission.
+
+Compared to team API keys, service accounts:
+
+* Give each automated tool a distinct identity, even when tools share a team.
+* Take permissions directly, so narrowing one tool's permissions doesn't need a dedicated team.
+* Support suspension, which blocks access without deleting API keys.
 
 ## Teams
 
@@ -35,13 +63,14 @@ Those permissions add to whatever the user inherits from their teams.
 Prefer team-based assignment as the default. Use direct user permissions sparingly, for
 exceptions that don't justify a dedicated team.
 
-API keys belong to a team and carry the same permissions as that team. They authenticate
+Team API keys belong to a team and carry the same permissions as that team. They authenticate
 automated access (CI/CD pipelines, integrations) without associating requests with a
-specific human user.
+specific identity. In 5.2.0 and later, [service accounts](#service-accounts) offer an
+alternative with their own identity and permissions.
 
 Deleting a team also deletes its API keys and any project access assignments
-made through it. Projects and user accounts are unaffected, but users lose the
-permissions they had inherited from the deleted team.
+made through it. It keeps projects, user accounts, and API keys owned by service
+accounts, but users lose the permissions they had inherited from the deleted team.
 
 ## Portfolio access control
 
@@ -162,9 +191,10 @@ the full portfolio.
 
 ### Project creation under PAC
 
-When an API key creates a project (for example, via BOM upload with
-`PROJECT_CREATION_UPLOAD`), the API key's team is added to the new project's
-ACL automatically.
+When a team API key or a service account creates a project (for example, via
+BOM upload with `PROJECT_CREATION_UPLOAD`), Dependency-Track adds its first team
+in alphabetical order to the new project's ACL. A service account that belongs
+to no team adds no team to the ACL.
 
 When a user creates a project, they must designate an owning team from those
 they belong to. The chosen team is added to the new project's ACL. A project
