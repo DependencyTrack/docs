@@ -1001,6 +1001,16 @@ Defines the maximum concurrency of the default workflow worker.  <br/><br/>  Not
 
 ## General
 
+<span id="dtapi-keymax-lifetime-days">**`dt.api-key.max-lifetime-days`** [¶](#dtapi-keymax-lifetime-days){ .headerlink }</span>
+
+Defines the maximum lifetime of new service account API keys, in days.  Values below 1 cause the creation of service account API keys to fail.  Their expiry defaults to 30 days, or to the maximum lifetime if that is shorter.  Team API keys do not expire. Changing this value does not affect existing API keys.  
+
+<table>
+<tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
+<tr><th>Default</th><td><code>366</code></td></tr>
+<tr><th>ENV</th><td><code>DT_API_KEY_MAX_LIFETIME_DAYS</code></td></tr>
+</table>
+
 <span id="dtapi-keyprefix">**`dt.api-key.prefix`** [¶](#dtapi-keyprefix){ .headerlink }</span>
 
 Defines the prefix to be used for API keys. A maximum prefix length of 251  characters is supported. The prefix may also be left empty.  
