@@ -181,6 +181,8 @@ tags:
   description: Endpoints related to projects
 - name: Secrets
   description: Endpoints related to secrets
+- name: Service Accounts
+  description: Endpoints related to service accounts
 - name: System Capabilities
   description: Endpoints exposing the capabilities of the running server
 - name: Task Queues
@@ -1101,6 +1103,330 @@ paths:
                 anyOf:
                 - $ref: "#/components/schemas/invalid-request-problem-details"
                 - $ref: "#/components/schemas/problem-details"
+        "401":
+          $ref: "#/components/responses/generic-unauthorized-error"
+        "403":
+          $ref: "#/components/responses/generic-forbidden-error"
+        "404":
+          $ref: "#/components/responses/generic-not-found-error"
+        default:
+          $ref: "#/components/responses/generic-error"
+  /service-accounts:
+    get:
+      tags:
+      - Service Accounts
+      summary: List service accounts
+      description: |-
+        Returns a paginated list of service accounts, ordered by name.
+
+        Requires the `ACCESS_MANAGEMENT` or `ACCESS_MANAGEMENT_READ` permission.
+      operationId: listServiceAccounts
+      parameters:
+      - name: q
+        in: query
+        description: Optional search text to filter service accounts by. Filtering
+          uses case-insensitive "contains" semantics on the name.
+        schema:
+          maxLength: 59
+          type: string
+      - name: page_token
+        in: query
+        description: Opaque token pointing to a specific position in a collection
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: Maximum number of items to retrieve from the collection
+        schema:
+          maximum: 1000
+          minimum: 1
+          type: integer
+          format: int32
+          default: 100
+      responses:
+        "200":
+          description: Paginated list of service accounts
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/list-service-accounts-response"
+        "400":
+          $ref: "#/components/responses/invalid-request-error"
+        "401":
+          $ref: "#/components/responses/generic-unauthorized-error"
+        "403":
+          $ref: "#/components/responses/generic-forbidden-error"
+        default:
+          $ref: "#/components/responses/generic-error"
+    post:
+      tags:
+      - Service Accounts
+      summary: Create a service account
+      description: |-
+        Creates a new service account.
+
+        The account's username is the given name, prefixed with `svc:`.
+
+        A new service account has no permissions and no team memberships.
+        Grant those through the REST API v1 endpoints `POST /api/v1/{permission}/user/{username}`
+        and `PUT /api/v1/user/membership`.
+
+        Requires the `ACCESS_MANAGEMENT` or `ACCESS_MANAGEMENT_CREATE` permission.
+      operationId: createServiceAccount
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/create-service-account-request"
+        required: true
+      responses:
+        "201":
+          description: Service account created
+          headers:
+            Location:
+              description: URL of the created service account
+              schema:
+                type: string
+                format: uri
+        "400":
+          $ref: "#/components/responses/invalid-request-error"
+        "401":
+          $ref: "#/components/responses/generic-unauthorized-error"
+        "403":
+          $ref: "#/components/responses/generic-forbidden-error"
+        "409":
+          $ref: "#/components/responses/generic-conflict-error"
+        default:
+          $ref: "#/components/responses/generic-error"
+  /service-accounts/{name}:
+    get:
+      tags:
+      - Service Accounts
+      summary: Get a service account
+      description: |-
+        Returns details about a service account.
+
+        Requires the `ACCESS_MANAGEMENT` or `ACCESS_MANAGEMENT_READ` permission.
+      operationId: getServiceAccount
+      parameters:
+      - name: name
+        in: path
+        description: "The name of the service account, without the `svc:` prefix"
+        required: true
+        schema:
+          $ref: "#/components/schemas/service-account-name"
+      responses:
+        "200":
+          description: The service account
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/get-service-account-response"
+        "401":
+          $ref: "#/components/responses/generic-unauthorized-error"
+        "403":
+          $ref: "#/components/responses/generic-forbidden-error"
+        "404":
+          $ref: "#/components/responses/generic-not-found-error"
+        default:
+          $ref: "#/components/responses/generic-error"
+    delete:
+      tags:
+      - Service Accounts
+      summary: Delete a service account
+      description: |-
+        Deletes a service account.
+
+        Requires the `ACCESS_MANAGEMENT` or `ACCESS_MANAGEMENT_DELETE` permission.
+      operationId: deleteServiceAccount
+      parameters:
+      - name: name
+        in: path
+        description: "The name of the service account, without the `svc:` prefix"
+        required: true
+        schema:
+          $ref: "#/components/schemas/service-account-name"
+      responses:
+        "204":
+          description: Service account deleted
+        "401":
+          $ref: "#/components/responses/generic-unauthorized-error"
+        "403":
+          $ref: "#/components/responses/generic-forbidden-error"
+        "404":
+          $ref: "#/components/responses/generic-not-found-error"
+        default:
+          $ref: "#/components/responses/generic-error"
+    patch:
+      tags:
+      - Service Accounts
+      summary: Update a service account
+      description: |-
+        Updates a service account.
+
+        Suspending an account stops its API keys from authenticating immediately.
+
+        Requires the `ACCESS_MANAGEMENT` or `ACCESS_MANAGEMENT_UPDATE` permission.
+      operationId: updateServiceAccount
+      parameters:
+      - name: name
+        in: path
+        description: "The name of the service account, without the `svc:` prefix"
+        required: true
+        schema:
+          $ref: "#/components/schemas/service-account-name"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/update-service-account-request"
+        required: true
+      responses:
+        "204":
+          description: Service account updated
+        "400":
+          $ref: "#/components/responses/invalid-request-error"
+        "401":
+          $ref: "#/components/responses/generic-unauthorized-error"
+        "403":
+          $ref: "#/components/responses/generic-forbidden-error"
+        "404":
+          $ref: "#/components/responses/generic-not-found-error"
+        default:
+          $ref: "#/components/responses/generic-error"
+  /service-accounts/{name}/api-keys:
+    get:
+      tags:
+      - Service Accounts
+      summary: List the API keys of a service account
+      description: |-
+        Returns a paginated list of the API keys a service account owns, newest first.
+
+        Requires the `ACCESS_MANAGEMENT` or `ACCESS_MANAGEMENT_READ` permission.
+      operationId: listServiceAccountApiKeys
+      parameters:
+      - name: name
+        in: path
+        description: "The name of the service account, without the `svc:` prefix"
+        required: true
+        schema:
+          $ref: "#/components/schemas/service-account-name"
+      - name: page_token
+        in: query
+        description: Opaque token pointing to a specific position in a collection
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: Maximum number of items to retrieve from the collection
+        schema:
+          maximum: 1000
+          minimum: 1
+          type: integer
+          format: int32
+          default: 100
+      responses:
+        "200":
+          description: Paginated list of API keys
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/list-service-account-api-keys-response"
+        "400":
+          $ref: "#/components/responses/invalid-request-error"
+        "401":
+          $ref: "#/components/responses/generic-unauthorized-error"
+        "403":
+          $ref: "#/components/responses/generic-forbidden-error"
+        "404":
+          $ref: "#/components/responses/generic-not-found-error"
+        default:
+          $ref: "#/components/responses/generic-error"
+    post:
+      tags:
+      - Service Accounts
+      summary: Create an API key for a service account
+      description: |-
+        Creates a new API key owned by the given service account.
+
+        The plain text key is returned exactly once, in the response body.
+        It cannot be retrieved afterwards, because only its hash is stored.
+
+        No API keys can be created for a suspended service account.
+
+        Requires the `ACCESS_MANAGEMENT` or `ACCESS_MANAGEMENT_CREATE` permission.
+      operationId: createServiceAccountApiKey
+      parameters:
+      - name: name
+        in: path
+        description: "The name of the service account, without the `svc:` prefix"
+        required: true
+        schema:
+          $ref: "#/components/schemas/service-account-name"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/create-service-account-api-key-request"
+        required: true
+      responses:
+        "201":
+          description: API key created
+          headers:
+            Location:
+              description: URL of the created API key
+              schema:
+                type: string
+                format: uri
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/create-service-account-api-key-response"
+        "400":
+          description: Bad Request
+          content:
+            application/problem+json:
+              schema:
+                anyOf:
+                - $ref: "#/components/schemas/invalid-request-problem-details"
+                - $ref: "#/components/schemas/problem-details"
+        "401":
+          $ref: "#/components/responses/generic-unauthorized-error"
+        "403":
+          $ref: "#/components/responses/generic-forbidden-error"
+        "404":
+          $ref: "#/components/responses/generic-not-found-error"
+        "409":
+          $ref: "#/components/responses/generic-conflict-error"
+        default:
+          $ref: "#/components/responses/generic-error"
+  /service-accounts/{name}/api-keys/{public_id}:
+    delete:
+      tags:
+      - Service Accounts
+      summary: Delete an API key of a service account
+      description: |-
+        Deletes a single API key owned by the given service account.
+
+        Requires the `ACCESS_MANAGEMENT` or `ACCESS_MANAGEMENT_DELETE` permission.
+      operationId: deleteServiceAccountApiKey
+      parameters:
+      - name: name
+        in: path
+        description: "The name of the service account, without the `svc:` prefix"
+        required: true
+        schema:
+          $ref: "#/components/schemas/service-account-name"
+      - name: public_id
+        in: path
+        description: The public ID of the API key
+        required: true
+        schema:
+          maxLength: 8
+          type: string
+      responses:
+        "204":
+          description: API key deleted
         "401":
           $ref: "#/components/responses/generic-unauthorized-error"
         "403":
@@ -2317,6 +2643,110 @@ components:
           minLength: 1
           type: string
           description: The new value. Omit this field to retain the current value.
+    list-service-accounts-response:
+      required:
+      - items
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/service-account"
+      allOf:
+      - $ref: "#/components/schemas/paginated-response"
+    create-service-account-request:
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          $ref: "#/components/schemas/service-account-name"
+        email:
+          maxLength: 255
+          type: string
+    service-account-name:
+      maxLength: 59
+      pattern: "^(?![sS][vV][cC]:)[a-zA-Z0-9][a-zA-Z0-9+=,.:@_-]*$"
+      type: string
+      description: "The name of the service account, without the reserved `svc:` prefix."
+      example: ci-pipeline
+    get-service-account-response:
+      required:
+      - permissions
+      - teams
+      type: object
+      properties:
+        teams:
+          type: array
+          description: "The teams the service account is a member of, ordered by name."
+          items:
+            $ref: "#/components/schemas/service-account-team"
+        permissions:
+          type: array
+          description: "The permissions granted to the service account directly, ordered\
+            \ by name. Permissions it inherits from its teams are not included."
+          items:
+            maxLength: 255
+            type: string
+      allOf:
+      - $ref: "#/components/schemas/service-account"
+    update-service-account-request:
+      type: object
+      properties:
+        email:
+          maxLength: 255
+          type: string
+          description: "The new email address. Omit this field to retain the current\
+            \ address, or set it to an empty string to remove the current address."
+        suspended:
+          type: boolean
+          description: Whether the service account is suspended. Omit this field to
+            retain the current state.
+    list-service-account-api-keys-response:
+      required:
+      - items
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/service-account-api-key"
+      allOf:
+      - $ref: "#/components/schemas/paginated-response"
+    create-service-account-api-key-request:
+      type: object
+      properties:
+        comment:
+          maxLength: 255
+          type: string
+        expires_in_days:
+          minimum: 1
+          type: integer
+          description: "Number of days from now after which the key expires. Must\
+            \ not exceed the maximum lifetime configured with `dt.api-key.max-lifetime-days`\
+            \ (366 days by default). Defaults to 30 days, or the maximum lifetime\
+            \ if that is shorter."
+          format: int32
+    create-service-account-api-key-response:
+      required:
+      - expires_at
+      - key
+      - public_id
+      type: object
+      properties:
+        public_id:
+          maxLength: 8
+          type: string
+          example: a1b2c3d4
+        key:
+          maxLength: 128
+          type: string
+          description: "The full, plain text key. It is returned exactly once, at\
+            \ creation time, and cannot be retrieved again."
+        expires_at:
+          description: When the key expires.
+          allOf:
+          - $ref: "#/components/schemas/timestamp"
     list-vuln-policies-response:
       required:
       - items
@@ -2970,6 +3400,60 @@ components:
           $ref: "#/components/schemas/package-metadata"
         package_artifact_metadata:
           $ref: "#/components/schemas/package-artifact-metadata"
+    service-account:
+      required:
+      - name
+      - suspended
+      - username
+      type: object
+      properties:
+        name:
+          $ref: "#/components/schemas/service-account-name"
+        username:
+          maxLength: 63
+          type: string
+          description: "The full username of the service account, i.e. the name with\
+            \ the reserved `svc:` prefix."
+          example: svc:ci-pipeline
+        email:
+          maxLength: 255
+          type: string
+        suspended:
+          type: boolean
+          description: Whether the service account is suspended.
+    service-account-team:
+      required:
+      - name
+      - uuid
+      type: object
+      properties:
+        uuid:
+          type: string
+          format: uuid
+        name:
+          maxLength: 255
+          type: string
+    service-account-api-key:
+      required:
+      - public_id
+      type: object
+      properties:
+        public_id:
+          maxLength: 8
+          type: string
+          description: "The public, non-secret portion of the key."
+          example: a1b2c3d4
+        comment:
+          maxLength: 255
+          type: string
+        created_at:
+          $ref: "#/components/schemas/timestamp"
+        last_used_at:
+          $ref: "#/components/schemas/timestamp"
+        expires_at:
+          description: When the key expires.
+          allOf:
+          - $ref: "#/components/schemas/timestamp"
     list-vuln-policies-response-item:
       required:
       - name

@@ -9912,6 +9912,10 @@ components:
           type: integer
           format: int64
           description: UNIX epoch timestamp in milliseconds
+        expiresAt:
+          type: integer
+          format: int64
+          description: UNIX epoch timestamp in milliseconds
         key:
           type: string
         lastUsed:
@@ -12723,6 +12727,31 @@ components:
         technicalImpactScore:
           type: number
           format: double
+    ServiceAccount:
+      type: object
+      properties:
+        email:
+          type: string
+          maxLength: 255
+          minLength: 0
+          pattern: "[\\P{Cc}]+"
+        permissions:
+          type: array
+          items:
+            $ref: "#/components/schemas/Permission"
+        suspended:
+          type: boolean
+        teams:
+          type: array
+          items:
+            $ref: "#/components/schemas/Team"
+        username:
+          type: string
+          maxLength: 255
+          minLength: 1
+          pattern: "[\\P{Cc}]+"
+      required:
+      - username
     ServiceComponent:
       type: object
       properties:
@@ -12957,6 +12986,10 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/Permission"
+        serviceAccounts:
+          type: array
+          items:
+            $ref: "#/components/schemas/ServiceAccount"
         uuid:
           type: string
           format: uuid
