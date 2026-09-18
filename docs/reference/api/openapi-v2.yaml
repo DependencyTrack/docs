@@ -76,10 +76,6 @@ info:
     }
     ```
 
-    A request that takes too long to complete is aborted and rejected
-    with `504 Gateway Timeout`. Any operation can time out, so operations
-    do not document it individually.
-
     ## Authentication
 
     Two credential types are accepted:
@@ -175,8 +171,6 @@ tags:
   description: Endpoints related to components
 - name: Extensions
   description: Endpoints related to extensions
-- name: Kev Data Sources
-  description: Endpoints related to KEV data sources
 - name: Projects
   description: Endpoints related to projects
 - name: Secrets
@@ -657,89 +651,6 @@ paths:
                 anyOf:
                 - $ref: "#/components/schemas/json-schema-validation-problem-details"
                 - $ref: "#/components/schemas/problem-details"
-        "401":
-          $ref: "#/components/responses/generic-unauthorized-error"
-        "403":
-          $ref: "#/components/responses/generic-forbidden-error"
-        "404":
-          $ref: "#/components/responses/generic-not-found-error"
-        default:
-          $ref: "#/components/responses/generic-error"
-  /kev-data-sources/{name}/mirror-runs:
-    post:
-      tags:
-      - Kev Data Sources
-      summary: Trigger a KEV data source mirror run
-      description: |-
-        Triggers a mirror run for the given KEV data source.
-
-        Requires permission `SYSTEM_CONFIGURATION` or `SYSTEM_CONFIGURATION_UPDATE`.
-      operationId: triggerKevDataSourceMirrorRun
-      parameters:
-      - name: name
-        in: path
-        description: "Name of the KEV data source (e.g. `cisa`, `enisa`)."
-        required: true
-        schema:
-          type: string
-      responses:
-        "202":
-          description: Mirror run triggered
-          headers:
-            Location:
-              description: URL of the latest mirror run resource.
-              schema:
-                type: string
-                format: uri
-        "400":
-          description: Mirror run cannot be started
-          content:
-            application/problem+json:
-              schema:
-                $ref: "#/components/schemas/problem-details"
-        "401":
-          $ref: "#/components/responses/generic-unauthorized-error"
-        "403":
-          $ref: "#/components/responses/generic-forbidden-error"
-        "404":
-          $ref: "#/components/responses/generic-not-found-error"
-        "409":
-          description: A mirror run is already in progress
-          content:
-            application/problem+json:
-              schema:
-                $ref: "#/components/schemas/problem-details"
-        default:
-          $ref: "#/components/responses/generic-error"
-  /kev-data-sources/{name}/mirror-runs/latest:
-    get:
-      tags:
-      - Kev Data Sources
-      summary: Get the latest KEV data source mirror run
-      description: |-
-        Returns the status of the most recent mirror run for a given
-        KEV data source.
-
-        Returns 404 if no mirror run is available
-        (e.g. none has been triggered yet, or the most recent run
-        is no longer retained), or if the data source is unknown.
-
-        Requires permission `SYSTEM_CONFIGURATION` or `SYSTEM_CONFIGURATION_READ`.
-      operationId: getLatestKevDataSourceMirrorRun
-      parameters:
-      - name: name
-        in: path
-        description: "Name of the KEV data source (e.g. `cisa`, `enisa`)."
-        required: true
-        schema:
-          type: string
-      responses:
-        "200":
-          description: Mirror run status
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/kev-data-source-mirror-status"
         "401":
           $ref: "#/components/responses/generic-unauthorized-error"
         "403":
@@ -2184,26 +2095,6 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/extension-test-check"
-    kev-data-source-mirror-status:
-      required:
-      - status
-      type: object
-      properties:
-        status:
-          type: string
-          description: Status of the mirror run.
-          enum:
-          - PENDING
-          - RUNNING
-          - COMPLETED
-          - FAILED
-        started_at:
-          $ref: "#/components/schemas/timestamp"
-        completed_at:
-          $ref: "#/components/schemas/timestamp"
-        failure_reason:
-          type: string
-          description: Reason for why the mirror run failed.
     clone-project-request:
       required:
       - version
@@ -2836,16 +2727,12 @@ components:
     list-extensions-response-item:
       required:
       - configurable
-      - display_name
       - name
       - testable
       type: object
       properties:
         name:
           type: string
-        display_name:
-          type: string
-          description: Human-readable name of the extension.
         configurable:
           type: boolean
           description: Whether the extension supports runtime configuration.
@@ -3110,7 +2997,6 @@ components:
     kev-assertion:
       required:
       - asserter
-      - asserter_display_name
       - created_at
       - updated_at
       - vuln_id
@@ -3120,10 +3006,7 @@ components:
         asserter:
           type: string
           description: "The entity that asserted the vulnerability is known to be\
-            \ exploited (e.g. `cisa`, `enisa`)."
-        asserter_display_name:
-          type: string
-          description: Human-readable name of the asserting entity (e.g. `CISA KEV`).
+            \ exploited (e.g. `CISA`, `ENISA`)."
         vuln_source:
           type: string
           description: Source of the asserted vulnerability identifier (e.g. `NVD`).
