@@ -593,6 +593,8 @@
       
         
       
+        
+      
     
     
     
@@ -2148,6 +2150,8 @@
       
         
       
+        
+      
     
     
     
@@ -2213,6 +2217,34 @@
     
   
     Permissions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workload-identity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workload identity
   
 
     
@@ -2526,7 +2558,7 @@
 
 
 <h1 id="cel-expressions"><abbr title="Common Expression Language">CEL</abbr> Expressions<a class="headerlink" href="#cel-expressions" title="Permanent link">¶</a></h1>
-<p>Dependency-Track uses the <a href="https://cel.dev/">Common Expression Language</a> (<abbr title="Common Expression Language">CEL</abbr>) in two places:</p>
+<p>Dependency-Track uses the <a href="https://cel.dev/">Common Expression Language</a> (<abbr title="Common Expression Language">CEL</abbr>) in three places:</p>
 <ul>
 <li><strong>Policy conditions</strong>, evaluated against components or vulnerabilities to drive
   policy violations and analyses. See
@@ -2534,12 +2566,16 @@
 <li><strong>Notification filters</strong>, evaluated against notification subjects to control
   which notifications are dispatched. See
   <a href="../notifications/filter-expressions/">Filter expressions</a>.</li>
+<li><strong>Workload identity binding conditions</strong>, evaluated against the claims of a
+  verified platform token to decide whether a workload may act as a service
+  account. Available in 5.2.0 and later. See
+  <a href="../workload-identity/#condition-environment">Workload identity</a>.</li>
 </ul>
-<p>The two contexts share the syntax described on this page, but expose <strong>different
+<p>The contexts share the syntax described on this page, but expose <strong>different
 variables, types, and custom functions</strong>. The custom functions documented for
 policies (for example <code>depends_on</code>, <code>spdx_expr_allows</code>) are not available to
-notification filters, and the variables differ entirely. Refer to the
-context-specific page for the available inputs and functions.</p>
+notification filters or binding conditions, and the variables differ entirely.
+Refer to the context-specific page for the available inputs and functions.</p>
 <h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link">¶</a></h2>
 <p>The <abbr title="Common Expression Language">CEL</abbr> syntax is similar to other <a href="https://en.wikipedia.org/wiki/List_of_C-family_programming_languages">C-style languages</a> like Java and JavaScript.
 However, <abbr title="Common Expression Language">CEL</abbr> is not <a href="https://en.wikipedia.org/wiki/Turing_completeness">Turing-complete</a>. As such, it does <em>not</em> support constructs like <code>if</code> statements or loops (that is, <code>for</code>, <code>while</code>).</p>
@@ -2552,7 +2588,8 @@ Refer to the <a href="https://github.com/google/cel-spec/blob/v0.13.0/doc/langde
 <code>replace</code>, <code>split</code>, <code>substring</code>, <code>trim</code>, and <code>upperAscii</code>.</p>
 <p>The policy context registers additional custom functions (<code>depends_on</code>, <code>spdx_expr_allows</code>,
 and so on); see <a href="../policies/condition-expressions/#function-reference">Condition expressions</a>.
-Notification filters do not register any custom functions.</p>
+Notification filters and workload identity binding conditions do not register any custom
+functions.</p>
 <h2 id="optional-field-checking">Optional field checking<a class="headerlink" href="#optional-field-checking" title="Permanent link">¶</a></h2>
 <p><abbr title="Common Expression Language">CEL</abbr> does not have a concept of <code>null</code>. Accessing a field that is not set
 returns its default value (for example, <code>""</code> for strings, <code>0</code> for numbers, <code>false</code> for booleans),
@@ -2560,8 +2597,8 @@ which can lead to misleading matches. Use the <code>has()</code> macro to check 
 before accessing it:</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">has</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">field</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">obj</span><span class="p">.</span><span class="nx">field</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"value"</span>
 </code></pre></div></td></tr></tbody></table></div>
-<p>The pattern applies in both contexts. The exact root variables (<code>component</code>, <code>subject</code>,
-and so on) are documented on the context-specific reference pages linked above.</p>
+<p>The <code>has()</code> macro works in all three contexts. The exact root variables (<code>component</code>,
+<code>subject</code>, <code>claims</code>, and so on) are documented on the context-specific reference pages.</p>
 
 
 

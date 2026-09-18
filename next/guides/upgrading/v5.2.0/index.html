@@ -974,6 +974,8 @@
       
         
       
+        
+      
     
     
     
@@ -1440,6 +1442,34 @@
     
   
     Configuring OpenID Connect
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/configuring-workload-identity-federation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuring workload identity federation
   
 
     
@@ -2157,6 +2187,8 @@
       
         
       
+        
+      
     
     
     
@@ -2391,9 +2423,9 @@
 <h1 id="upgrading-to-v520">Upgrading to v5.2.0<a class="headerlink" href="#upgrading-to-v520" title="Permanent link">¶</a></h1>
 <ul>
 <li>
-<p><strong>Service accounts reserve the <code>svc:</code> username prefix</strong>. This release adds <a href="../../../concepts/access-control/#service-accounts">service accounts</a>,
-  a user type for CI pipelines, scripts, and other automation. Their usernames start with <code>svc:</code>,
-  and no other user can have a username with that prefix, in any letter case.</p>
+<p><strong>Service accounts reserve the <code>svc:</code> username prefix</strong>. This release adds
+  <a href="../../../concepts/access-control/#service-accounts">service accounts</a>. Existing users whose username starts with <code>svc:</code>,
+  in any letter case, collide with that reservation.</p>
 <p>If such a user exists, the database migration fails and its error message lists the affected users.
 To find them before you upgrade, run this query against the database:</p>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="ss">"USERNAME"</span><span class="p">,</span><span class="w"> </span><span class="ss">"TYPE"</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="ss">"USER"</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="ss">"USERNAME"</span><span class="w"> </span><span class="k">ILIKE</span><span class="w"> </span><span class="s1">'svc:%'</span><span class="p">;</span>

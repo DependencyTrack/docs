@@ -61,6 +61,10 @@
          <lastmod>2026-09-18</lastmod>
     </url>
     <url>
+         <loc>https://dependencytrack.github.io/docs/next/concepts/workload-identity-federation/</loc>
+         <lastmod>2026-09-18</lastmod>
+    </url>
+    <url>
          <loc>https://dependencytrack.github.io/docs/next/concepts/architecture/</loc>
          <lastmod>2026-09-18</lastmod>
     </url>
@@ -146,6 +150,10 @@
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/guides/administration/configuring-vulnerability-sources/</loc>
+         <lastmod>2026-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://dependencytrack.github.io/docs/next/guides/administration/configuring-workload-identity-federation/</loc>
          <lastmod>2026-09-18</lastmod>
     </url>
     <url>
@@ -318,6 +326,10 @@
     </url>
     <url>
          <loc>https://dependencytrack.github.io/docs/next/reference/vex-and-vdr/</loc>
+         <lastmod>2026-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://dependencytrack.github.io/docs/next/reference/workload-identity/</loc>
          <lastmod>2026-09-18</lastmod>
     </url>
     <url>

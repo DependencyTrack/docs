@@ -11,7 +11,7 @@
         <link rel="prev" href="../tags/">
       
       
-        <link rel="next" href="../about-vulnerability-data-sources/">
+        <link rel="next" href="../workload-identity-federation/">
       
       
         
@@ -595,6 +595,8 @@
       
         
       
+        
+      
     
     
     
@@ -902,6 +904,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workload-identity-federation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About workload identity federation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1222,7 +1252,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_15">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_16">
         
           
           <div class="md-nav__link md-nav__container">
@@ -1244,14 +1274,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_15" id="__nav_4_15_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4_16" id="__nav_4_16_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_15_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_15">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_16">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1702,7 +1732,7 @@ intersected or downgraded by team membership.</p>
 </tr>
 <tr>
 <td style="text-align: left;">Service Account</td>
-<td style="text-align: left;">A non-human account for automation. Authenticates with its own API keys. Available in 5.2.0 and later. See <a href="#service-accounts">Service accounts</a>.</td>
+<td style="text-align: left;">A non-human account for automation. Authenticates with its own API keys, or through workload identity federation. Available in 5.2.0 and later. See <a href="#service-accounts">Service accounts</a>.</td>
 </tr>
 </tbody>
 </table>
@@ -1716,10 +1746,19 @@ how the system verifies a user's identity, not what they can access.</p>
 <p>A service account is the identity of a CI pipeline, scanner, script, or other
 automated tool. Like any other user, it holds permissions directly or through
 team membership, and appears in team member lists.</p>
-<p>A service account can't log in. It authenticates with API keys that it owns.
-Each request made with such a key acts as the service account, so audit records
-show its username. Suspending a service account stops all its API keys from working
-until you lift the suspension. Deleting it also deletes its API keys.</p>
+<p>A service account can't log in. It authenticates in one of two ways:</p>
+<ul>
+<li><strong>Workload identity federation.</strong> The workload exchanges a short-lived token
+  issued by its own platform, such as GitHub Actions, GitLab CI, Kubernetes, or
+  <abbr title="Secure Production Identity Framework for Everyone">SPIFFE</abbr>, for a session of the service account. See
+  <a href="../workload-identity-federation/">About workload identity federation</a>.</li>
+<li><strong>API keys</strong> that the service account owns. Each request made with such a key
+  acts as the service account.</li>
+</ul>
+<p>Either way, audit records show the service account's username. Suspending a service
+account stops all its API keys and blocks new token exchanges, until you lift the
+suspension. It also ends sessions created through federation at once. Deleting the
+account also deletes its API keys and its workload identity bindings.</p>
 <p>Service account usernames always start with <code>svc:</code>, for example <code>svc:ci-pipeline</code>.
 No other user can have a username with that prefix. This prevents a service account
 from taking a username that an <abbr title="Lightweight Directory Access Protocol">LDAP</abbr> or <abbr title="OpenID Connect">OIDC</abbr> user would receive on first login.</p>
@@ -1729,7 +1768,14 @@ from taking a username that an <abbr title="Lightweight Directory Access Protoco
 <li>Give each automated tool a distinct identity, even when tools share a team.</li>
 <li>Take permissions directly, so narrowing one tool's permissions doesn't need a dedicated team.</li>
 <li>Support suspension, which blocks access without deleting API keys.</li>
+<li>Can authenticate without any stored credential, through workload identity federation.</li>
 </ul>
+<div class="admonition tip">
+<p class="admonition-title">The intended path for automation</p>
+<p>Service accounts combined with <a href="../workload-identity-federation/">workload identity federation</a>
+are the strategic replacement for teams that exist only to hold a long-lived API key.
+Team API keys remain supported. Start new integrations on service accounts.</p>
+</div>
 <h2 id="teams">Teams<a class="headerlink" href="#teams" title="Permanent link">¶</a></h2>
 <p>A team is a named collection of users and API keys. Teams hold permissions, which makes
 it straightforward to manage access for groups of people (for example, <em>Security Engineers</em>,
@@ -1741,8 +1787,9 @@ Those permissions add to whatever the user inherits from their teams.</p>
 exceptions that don't justify a dedicated team.</p>
 <p>Team API keys belong to a team and carry the same permissions as that team. They authenticate
 automated access (CI/CD pipelines, integrations) without associating requests with a
-specific identity. In 5.2.0 and later, <a href="#service-accounts">service accounts</a> offer an
-alternative with their own identity and permissions.</p>
+specific identity. In 5.2.0 and later, <a href="#service-accounts">service accounts</a> supersede them:
+they carry their own identity and permissions, and can authenticate without a stored
+credential at all.</p>
 <p>Deleting a team also deletes its API keys and any project access assignments
 made through it. It keeps projects, user accounts, and API keys owned by service
 accounts, but users lose the permissions they had inherited from the deleted team.</p>
@@ -1877,6 +1924,8 @@ and holders of <code>PORTFOLIO_ACCESS_CONTROL_BYPASS</code> until one is assigne
 <ul>
 <li><a href="../../reference/permissions/">Permissions reference</a> for the full permissions table
   and default teams.</li>
+<li><a href="../workload-identity-federation/">About workload identity federation</a> for how
+  service accounts authenticate without stored credentials.</li>
 <li><a href="../projects/">About projects</a> for how Dependency-Track models
   projects, hierarchies, and collection projects.</li>
 </ul>
@@ -1934,13 +1983,13 @@ and holders of <code>PORTFOLIO_ACCESS_CONTROL_BYPASS</code> until one is assigne
         
         
           
-          <a href="../about-vulnerability-data-sources/" class="md-footer__link md-footer__link--next" aria-label="Next: About vulnerability data sources">
+          <a href="../workload-identity-federation/" class="md-footer__link md-footer__link--next" aria-label="Next: About workload identity federation">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                About vulnerability data sources
+                About workload identity federation
               </div>
             </div>
             <div class="md-footer__button md-icon">
