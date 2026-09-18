@@ -56,6 +56,16 @@ The global configuration defines how Dependency-Track connects to your Jira serv
 
 ![Jira publisher global config](../../assets/images/reference/notifications/publishers/jira-publisher-global-config.png)
 
+Dependency-Track sends a `POST` request to `{API URL}/rest/api/2/issue` when creating an issue.
+
+Depending on your Jira hosting model and authentication setup, configure the fields as follows:
+
+<!-- vale Google.WordList = NO -->
+* **Jira Data Center or Jira Server:** Set **API URL** to the base URL of your Jira instance (for example, `https://jira.example.com`). Specify **Username** and either a password or personal access token in **Password or Token**.
+* **Jira Cloud (basic authentication):** Set **API URL** to your site URL (for example, `https://example.atlassian.net`). Set **Username** to the account email address and **Password or Token** to an [Atlassian API token](https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/).
+* **Jira Cloud (scoped OAuth 2.0 or API gateway tokens):** Set **API URL** to `https://api.atlassian.com/ex/jira/{cloudId}` (without a trailing slash), where `{cloudId}` is your Atlassian Cloud site ID. Leave **Username** empty and enter the access token in **Password or Token**. When **Username** is empty, Dependency-Track sends a `Bearer` authorization token instead of basic authentication. Ensure the token grants the `write:jira-work` scope (or the granular `write:issue:jira` scope).
+<!-- vale Google.WordList = YES -->
+
 <!-- vale Vale.Terms = NO -->
 ### Alert Config {: #jira-alert-config }
 <!-- vale Vale.Terms = YES -->
