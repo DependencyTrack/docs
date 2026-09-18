@@ -3076,6 +3076,16 @@ emails to every member of those teams.</p>
 
 <p>The global configuration defines how Dependency-Track connects to your Jira server.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/reference/notifications/publishers/jira-publisher-global-config.png" data-desc-position="bottom"><img alt="Jira publisher global config" src="../../../assets/images/reference/notifications/publishers/jira-publisher-global-config.png"></a></p>
+<p>Dependency-Track sends a <code>POST</code> request to <code>{API URL}/rest/api/2/issue</code> when creating an issue.</p>
+<p>Depending on your Jira hosting model and authentication setup, configure the fields as follows:</p>
+<!-- vale Google.WordList = NO -->
+<ul>
+<li><strong>Jira Data Center or Jira Server:</strong> Set <strong>API URL</strong> to the base URL of your Jira instance (for example, <code>https://jira.example.com</code>). Specify <strong>Username</strong> and either a password or personal access token in <strong>Password or Token</strong>.</li>
+<li><strong>Jira Cloud (basic authentication):</strong> Set <strong>API URL</strong> to your site URL (for example, <code>https://example.atlassian.net</code>). Set <strong>Username</strong> to the account email address and <strong>Password or Token</strong> to an <a href="https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/">Atlassian API token</a>.</li>
+<li><strong>Jira Cloud (scoped OAuth 2.0 or API gateway tokens):</strong> Set <strong>API URL</strong> to <code>https://api.atlassian.com/ex/jira/{cloudId}</code> (without a trailing slash), where <code>{cloudId}</code> is your Atlassian Cloud site ID. Leave <strong>Username</strong> empty and enter the access token in <strong>Password or Token</strong>. When <strong>Username</strong> is empty, Dependency-Track sends a <code>Bearer</code> authorization token instead of basic authentication. Ensure the token grants the <code>write:jira-work</code> scope (or the granular <code>write:issue:jira</code> scope).</li>
+</ul>
+<!-- vale Google.WordList = YES -->
+
 <!-- vale Vale.Terms = NO -->
 <h3 id="jira-alert-config">Alert Config<a class="headerlink" href="#jira-alert-config" title="Permanent link">¶</a></h3>
 <!-- vale Vale.Terms = YES -->
