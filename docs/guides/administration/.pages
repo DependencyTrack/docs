@@ -16,6 +16,7 @@ nav:
   - configuring-observability.md
   - configuring-ldap.md
   - configuring-oidc.md
+  - configuring-workload-identity-federation.md
   - managing-notification-templates.md
   - debugging-notifications.md
   - configuring-project-retention.md

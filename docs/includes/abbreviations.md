@@ -10,6 +10,8 @@
 *[GHSA]: GitHub Security Advisory
 *[IdP]: Identity Provider
 *[JVM]: Java Virtual Machine
+*[JWKS]: JSON Web Key Set
+*[JWT]: JSON Web Token
 *[KEK]: Key Encryption Key
 *[KEV]: Known Exploited Vulnerabilities
 *[LDAP]: Lightweight Directory Access Protocol
@@ -23,5 +25,7 @@
 *[SARIF]: Static Analysis Results Interchange Format
 *[SBOM]: Software Bill of Materials
 *[SLO]: Service Level Objectives
+*[SPIFFE]: Secure Production Identity Framework for Everyone
+*[SVID]: SPIFFE Verifiable Identity Document
 *[VDR]: Vulnerability Disclosure Report
 *[VEX]: Vulnerability Exploitability eXchange

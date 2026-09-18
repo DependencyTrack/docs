@@ -1,6 +1,6 @@
 # CEL Expressions
 
-Dependency-Track uses the [Common Expression Language] (CEL) in two places:
+Dependency-Track uses the [Common Expression Language] (CEL) in three places:
 
 * **Policy conditions**, evaluated against components or vulnerabilities to drive
   policy violations and analyses. See
@@ -8,12 +8,16 @@ Dependency-Track uses the [Common Expression Language] (CEL) in two places:
 * **Notification filters**, evaluated against notification subjects to control
   which notifications are dispatched. See
   [Filter expressions](notifications/filter-expressions.md).
+* **Workload identity binding conditions**, evaluated against the claims of a
+  verified platform token to decide whether a workload may act as a service
+  account. Available in 5.2.0 and later. See
+  [Workload identity](workload-identity.md#condition-environment).
 
-The two contexts share the syntax described on this page, but expose **different
+The contexts share the syntax described on this page, but expose **different
 variables, types, and custom functions**. The custom functions documented for
 policies (for example `depends_on`, `spdx_expr_allows`) are not available to
-notification filters, and the variables differ entirely. Refer to the
-context-specific page for the available inputs and functions.
+notification filters or binding conditions, and the variables differ entirely.
+Refer to the context-specific page for the available inputs and functions.
 
 ## Syntax
 
@@ -33,7 +37,8 @@ Both contexts have access to the [standard definitions] of the CEL specification
 
 The policy context registers additional custom functions (`depends_on`, `spdx_expr_allows`,
 and so on); see [Condition expressions](policies/condition-expressions.md#function-reference).
-Notification filters do not register any custom functions.
+Notification filters and workload identity binding conditions do not register any custom
+functions.
 
 ## Optional field checking
 
@@ -46,8 +51,8 @@ before accessing it:
 has(obj.field) && obj.field == "value"
 ```
 
-The pattern applies in both contexts. The exact root variables (`component`, `subject`,
-and so on) are documented on the context-specific reference pages linked above.
+The `has()` macro works in all three contexts. The exact root variables (`component`,
+`subject`, `claims`, and so on) are documented on the context-specific reference pages.
 
 [C-style languages]: https://en.wikipedia.org/wiki/List_of_C-family_programming_languages
 [CEL strings extension]: https://github.com/google/cel-spec/blob/master/doc/extensions/strings.md
