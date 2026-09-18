@@ -64,11 +64,11 @@ and [Managing project versions](../guides/user/managing-project-versions.md).
 
 | Permission                    | Description                                                         |
 |:------------------------------|:--------------------------------------------------------------------|
-| `ACCESS_MANAGEMENT`           | Manage users, service accounts, teams, permissions, and API keys.   |
-| `ACCESS_MANAGEMENT_CREATE`    | Create users, service accounts, teams, and API keys.                |
-| `ACCESS_MANAGEMENT_READ`      | Read users, service accounts, teams, and API keys.                  |
-| `ACCESS_MANAGEMENT_UPDATE`    | Update users, service accounts, teams, and API keys.                |
-| `ACCESS_MANAGEMENT_DELETE`    | Delete users, service accounts, teams, and API keys.                |
+| `ACCESS_MANAGEMENT`           | Manage users, service accounts, teams, permissions, API keys, and workload identity. |
+| `ACCESS_MANAGEMENT_CREATE`    | Create users, service accounts, teams, API keys, workload identity providers, and bindings. |
+| `ACCESS_MANAGEMENT_READ`      | Read users, service accounts, teams, API keys, workload identity providers, and bindings. |
+| `ACCESS_MANAGEMENT_UPDATE`    | Update users, service accounts, teams, API keys, and workload identity providers. |
+| `ACCESS_MANAGEMENT_DELETE`    | Delete users, service accounts, teams, API keys, workload identity providers, and bindings. |
 
 ### System configuration
 

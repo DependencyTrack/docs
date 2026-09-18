@@ -14,6 +14,7 @@ nav:
   - CEL expressions: cel-expressions.md
   - Access control:
     - Permissions: permissions.md
+    - Workload identity: workload-identity.md
   - Integrations:
     - Badges: badges.md
     - File formats: file-formats.md

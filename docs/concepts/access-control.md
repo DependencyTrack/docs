@@ -18,7 +18,7 @@ Four types of users exist:
 | Managed User    | A local account created and managed within Dependency-Track.                                      |
 | LDAP User       | Authenticated via an external LDAP directory. See [Configuring LDAP](../guides/administration/configuring-ldap.md). |
 | OIDC User       | Authenticated via an OpenID Connect identity provider. See [Configuring OIDC](../guides/administration/configuring-oidc.md). |
-| Service Account | A non-human account for automation. Authenticates with its own API keys. Available in 5.2.0 and later. See [Service accounts](#service-accounts). |
+| Service Account | A non-human account for automation. Authenticates with its own API keys, or through workload identity federation. Available in 5.2.0 and later. See [Service accounts](#service-accounts). |
 
 All user types share the same permission model. The authentication mechanism determines
 how the system verifies a user's identity, not what they can access.
@@ -33,10 +33,19 @@ A service account is the identity of a CI pipeline, scanner, script, or other
 automated tool. Like any other user, it holds permissions directly or through
 team membership, and appears in team member lists.
 
-A service account can't log in. It authenticates with API keys that it owns.
-Each request made with such a key acts as the service account, so audit records
-show its username. Suspending a service account stops all its API keys from working
-until you lift the suspension. Deleting it also deletes its API keys.
+A service account can't log in. It authenticates in one of two ways:
+
+* **Workload identity federation.** The workload exchanges a short-lived token
+  issued by its own platform, such as GitHub Actions, GitLab CI, Kubernetes, or
+  SPIFFE, for a session of the service account. See
+  [About workload identity federation](workload-identity-federation.md).
+* **API keys** that the service account owns. Each request made with such a key
+  acts as the service account.
+
+Either way, audit records show the service account's username. Suspending a service
+account stops all its API keys and blocks new token exchanges, until you lift the
+suspension. It also ends sessions created through federation at once. Deleting the
+account also deletes its API keys and its workload identity bindings.
 
 Service account usernames always start with `svc:`, for example `svc:ci-pipeline`.
 No other user can have a username with that prefix. This prevents a service account
@@ -49,6 +58,13 @@ Compared to team API keys, service accounts:
 * Give each automated tool a distinct identity, even when tools share a team.
 * Take permissions directly, so narrowing one tool's permissions doesn't need a dedicated team.
 * Support suspension, which blocks access without deleting API keys.
+* Can authenticate without any stored credential, through workload identity federation.
+
+!!! tip "The intended path for automation"
+
+    Service accounts combined with [workload identity federation](workload-identity-federation.md)
+    are the strategic replacement for teams that exist only to hold a long-lived API key.
+    Team API keys remain supported. Start new integrations on service accounts.
 
 ## Teams
 
@@ -65,8 +81,9 @@ exceptions that don't justify a dedicated team.
 
 Team API keys belong to a team and carry the same permissions as that team. They authenticate
 automated access (CI/CD pipelines, integrations) without associating requests with a
-specific identity. In 5.2.0 and later, [service accounts](#service-accounts) offer an
-alternative with their own identity and permissions.
+specific identity. In 5.2.0 and later, [service accounts](#service-accounts) supersede them:
+they carry their own identity and permissions, and can authenticate without a stored
+credential at all.
 
 Deleting a team also deletes its API keys and any project access assignments
 made through it. It keeps projects, user accounts, and API keys owned by service
@@ -205,5 +222,7 @@ and holders of `PORTFOLIO_ACCESS_CONTROL_BYPASS` until one is assigned.
 
 * [Permissions reference](../reference/permissions.md) for the full permissions table
   and default teams.
+* [About workload identity federation](workload-identity-federation.md) for how
+  service accounts authenticate without stored credentials.
 * [About projects](projects.md) for how Dependency-Track models
   projects, hierarchies, and collection projects.

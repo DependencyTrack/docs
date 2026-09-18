@@ -138,6 +138,7 @@ Webex
 [Mm]isconfiguration
 [Mm]isconfigured
 [Mm]ixeway
+[Mm]ulticast
 [Nn]amespaced?
 [Nn]amespaces
 [Nn]amespacing
@@ -181,6 +182,8 @@ cutover
 eDirectory
 keysets?
 keytool
+kubeadm
+kubelet
 npm
 px
 sAMAccountName
