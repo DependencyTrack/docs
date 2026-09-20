@@ -5,13 +5,13 @@
       
       
       
-        <link rel="canonical" href="https://dependencytrack.github.io/docs/next/guides/upgrading/v0.7.0-alpha.6/">
+        <link rel="canonical" href="https://dependencytrack.github.io/docs/next/guides/upgrading/v5.1.1/">
       
       
-        <link rel="prev" href="../v0.7.0-alpha.8/">
+        <link rel="prev" href="../v5.2.0/">
       
       
-        <link rel="next" href="../v0.7.0-alpha.5/">
+        <link rel="next" href="../v5.1.0/">
       
       
         
@@ -22,7 +22,7 @@
     
     
       
-        <title>Upgrading to v0.7.0-alpha.6 - Dependency-Track</title>
+        <title>Upgrading to v5.1.1 - Dependency-Track</title>
       
     
     
@@ -58,15 +58,15 @@
     
   
 <meta property="og:type" content="website">
-<meta property="og:title" content="Upgrading to v0.7.0-alpha.6 - Dependency-Track">
-<meta property="og:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/guides/upgrading/v0.7.0-alpha.6.png">
+<meta property="og:title" content="Upgrading to v5.1.1 - Dependency-Track">
+<meta property="og:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/guides/upgrading/v5.1.1.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:url" content="https://dependencytrack.github.io/docs/next/guides/upgrading/v0.7.0-alpha.6/">
+<meta property="og:url" content="https://dependencytrack.github.io/docs/next/guides/upgrading/v5.1.1/">
 <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:title" content="Upgrading to v0.7.0-alpha.6 - Dependency-Track">
-<meta property="twitter:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/guides/upgrading/v0.7.0-alpha.6.png">
+<meta property="twitter:title" content="Upgrading to v5.1.1 - Dependency-Track">
+<meta property="twitter:image" content="https://dependencytrack.github.io/docs/next/assets/images/social/guides/upgrading/v5.1.1.png">
 <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
@@ -96,7 +96,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#upgrading-to-v070-alpha6" class="md-skip">
+        <a href="#upgrading-to-v511" class="md-skip">
           Skip to content
         </a>
       
@@ -135,7 +135,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Upgrading to v0.7.0-alpha.6
+              Upgrading to v5.1.1
             
           </span>
         </div>
@@ -1819,10 +1819,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../v5.1.1/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1838,6 +1847,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -2015,19 +2025,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../v0.7.0-alpha.6/" class="md-nav__link">
         
   
   
@@ -2043,7 +2044,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -2450,10 +2450,18 @@
   
 
 
-<h1 id="upgrading-to-v070-alpha6">Upgrading to v0.7.0-alpha.6<a class="headerlink" href="#upgrading-to-v070-alpha6" title="Permanent link">¶</a></h1>
+<h1 id="upgrading-to-v511">Upgrading to v5.1.1<a class="headerlink" href="#upgrading-to-v511" title="Permanent link">¶</a></h1>
 <ul>
-<li><strong>Deprecated <code>dt.database.*</code> properties are no longer recognized</strong>. Use <code>dt.datasource.*</code> equivalents instead.
-  Refer to the <a href="../../../reference/configuration/datasources/">data sources configuration reference</a> for details.</li>
+<li>
+<p><strong>The upgrade forces a full GitHub Advisories and <abbr title="Open Source Vulnerabilities">OSV</abbr> mirror</strong>. Dependency-Track derived CVSSv4 scores from the
+  base metrics alone, which reported a higher severity than the source did for advisories that also carry threat
+  metrics. The upgrade purges the watermarks that both data sources use to track incremental progress.
+  Existing data stays in place, but the next run of each source processes its full data set and overwrites the
+  affected records. Mirroring is much faster in this release, so a full run takes less time than it did in earlier versions.</p>
+<p>Corrected data is not available until the mirrors run, which happens daily at 02:00 UTC for GitHub Advisories
+and 03:00 UTC for <abbr title="Open Source Vulnerabilities">OSV</abbr> by default. To get the corrected data sooner, use <strong>Mirror now</strong> as described in
+<a href="../../administration/configuring-vulnerability-sources/#triggering-an-initial-mirror">Triggering an initial mirror</a>.</p>
+</li>
 </ul>
 
 
@@ -2492,7 +2500,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer">
         
           
-          <a href="../v0.7.0-alpha.8/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Upgrading to v0.7.0-alpha.8">
+          <a href="../v5.2.0/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Upgrading to v5.2.0">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
@@ -2502,20 +2510,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Upgrading to v0.7.0-alpha.8
+                Upgrading to v5.2.0
               </div>
             </div>
           </a>
         
         
           
-          <a href="../v0.7.0-alpha.5/" class="md-footer__link md-footer__link--next" aria-label="Next: Upgrading to v0.7.0-alpha.5">
+          <a href="../v5.1.0/" class="md-footer__link md-footer__link--next" aria-label="Next: Upgrading to v5.1.0">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Upgrading to v0.7.0-alpha.5
+                Upgrading to v5.1.0
               </div>
             </div>
             <div class="md-footer__button md-icon">
