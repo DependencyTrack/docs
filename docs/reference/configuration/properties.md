@@ -1398,27 +1398,22 @@ Specifies if the username entered during login needs to be formatted prior  to a
 
 
 
+## Networking
+
+<span id="dtoutboundallowed-destinations">**`dt.outbound.allowed-destinations`** [¶](#dtoutboundallowed-destinations){ .headerlink }</span>
+
+Defines which destinations outbound connections may reach.  <br/><br/>  Every address a host resolves to must be allowed.  Connections to the database, S3 file storage, LDAP,  and OIDC identity providers are always allowed.  <br/><br/>  Supported entries:  <ul>  <li><code>external</code>: publicly routable addresses</li>  <li><code>private</code>: <code>10.0.0.0/8</code>, <code>172.16.0.0/12</code>, <code>192.168.0.0/16</code>, <code>100.64.0.0/10</code>, <code>fc00::/7</code></li>  <li><code>loopback</code>: <code>127.0.0.0/8</code>, <code>::1</code></li>  <li>IP addresses and CIDR ranges, e.g. <code>10.1.0.0/16</code></li>  <li>hostnames, e.g. <code>internal.example.com</code></li>  <li><code>*</code>: all destinations; must be the only entry</li>  </ul>  Link-local, unspecified, and cloud metadata addresses (e.g. `169.254.169.254`) are always denied,  unless an IP address or CIDR range entry at least as specific allows them. Hostname entries never do.  <br/><br/>  Requests through the configured HTTP proxy are only checked when the destination is an IP address.  
+
+<table>
+<tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
+<tr><th>Default</th><td><code>external,private</code></td></tr>
+<tr><th>Example</th><td><code>external,private,10.1.0.0/16</code></td></tr>
+<tr><th>ENV</th><td><code>DT_OUTBOUND_ALLOWED_DESTINATIONS</code></td></tr>
+</table>
+
+
+
 ## Notification
-
-<span id="dtnotification-publisheremailallow-local-connections">**`dt.notification-publisher.email.allow-local-connections`** [¶](#dtnotification-publisheremailallow-local-connections){ .headerlink }</span>
-
-Defines whether the email notification publisher is allowed to connect to local hosts.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>boolean</code></td></tr>
-<tr><th>Default</th><td><code>false</code></td></tr>
-<tr><th>ENV</th><td><code>DT_NOTIFICATION_PUBLISHER_EMAIL_ALLOW_LOCAL_CONNECTIONS</code></td></tr>
-</table>
-
-<span id="dtnotification-publisherkafkaallow-local-connections">**`dt.notification-publisher.kafka.allow-local-connections`** [¶](#dtnotification-publisherkafkaallow-local-connections){ .headerlink }</span>
-
-Defines whether the Kafka notification publisher is allowed to connect to local hosts.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>boolean</code></td></tr>
-<tr><th>Default</th><td><code>false</code></td></tr>
-<tr><th>ENV</th><td><code>DT_NOTIFICATION_PUBLISHER_KAFKA_ALLOW_LOCAL_CONNECTIONS</code></td></tr>
-</table>
 
 <span id="dtnotificationoutbox-relaybatch-size">**`dt.notification.outbox-relay.batch-size`** <strong style="color: red">*</strong> [¶](#dtnotificationoutbox-relaybatch-size){ .headerlink }</span>
 
@@ -2057,16 +2052,6 @@ Defines the name of the data source to be used by the internal vulnerability ana
 <tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
 <tr><th>Default</th><td><code>default</code></td></tr>
 <tr><th>ENV</th><td><code>DT_VULN_ANALYZER_INTERNAL_DATASOURCE_NAME</code></td></tr>
-</table>
-
-<span id="dtvuln-analyzeross-indexallow-local-connections">**`dt.vuln-analyzer.oss-index.allow-local-connections`** [¶](#dtvuln-analyzeross-indexallow-local-connections){ .headerlink }</span>
-
-Defines whether the OSS Index vulnerability analyzer is allowed to connect to local hosts.  
-
-<table>
-<tr><th>Type</th><td style="border-width: 0"><code>boolean</code></td></tr>
-<tr><th>Default</th><td><code>false</code></td></tr>
-<tr><th>ENV</th><td><code>DT_VULN_ANALYZER_OSS_INDEX_ALLOW_LOCAL_CONNECTIONS</code></td></tr>
 </table>
 
 <span id="dtvuln-analyzersnykapi-version">**`dt.vuln-analyzer.snyk.api-version`** [¶](#dtvuln-analyzersnykapi-version){ .headerlink }</span>
