@@ -1,16 +1,18 @@
 # Publishers
 
-## Restricting local connections
+## Restricting destinations
 
-For destinations that accept arbitrary endpoints, Dependency-Track
-blocks connections to local and loopback addresses by default to prevent
-server-side request forgery. Operators can override this per publisher
-via
-[`dt.notification-publisher.email.allow-local-connections`](../configuration/properties.md#dtnotification-publisheremailallow-local-connections)
-and
-[`dt.notification-publisher.kafka.allow-local-connections`](../configuration/properties.md#dtnotification-publisherkafkaallow-local-connections).
-Leave both `false` outside of development and trusted single-host
-deployments.
+Dependency-Track only connects to publisher destinations that
+[`dt.outbound.allowed-destinations`](../configuration/properties.md#dtoutboundallowed-destinations) allows.
+
+!!! note "Changed in v5.2.0"
+    Before v5.2.0, the email and Kafka publishers used their own properties.
+    To allow local connections, set:
+
+    * `dt.notification-publisher.email.allow-local-connections=true`
+    * `dt.notification-publisher.kafka.allow-local-connections=true`
+
+    See [Upgrading to v5.2.0](../../guides/upgrading/v5.2.0.md).
 
 ## Console
 
