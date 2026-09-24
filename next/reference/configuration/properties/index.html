@@ -1451,6 +1451,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#networking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Networking
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#notification" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2759,6 +2770,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#networking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Networking
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#notification" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4046,23 +4068,17 @@
 <tr><th>ENV</th><td><code>DT_LDAP_USERNAME_FORMAT</code></td></tr>
 </tbody></table>
 
+<h2 id="networking">Networking<a class="headerlink" href="#networking" title="Permanent link">¶</a></h2>
+<p><span id="dtoutboundallowed-destinations"><strong><code>dt.outbound.allowed-destinations</code></strong> <a class="headerlink" href="#dtoutboundallowed-destinations">¶</a></span></p>
+<p>Defines which destinations outbound connections may reach.  <br><br>  Every address a host resolves to must be allowed.  Connections to the database, S3 file storage, <abbr title="Lightweight Directory Access Protocol">LDAP</abbr>,  and <abbr title="OpenID Connect">OIDC</abbr> identity providers are always allowed.  <br><br>  Supported entries:  </p><ul>  <li><code>external</code>: publicly routable addresses</li>  <li><code>private</code>: <code>10.0.0.0/8</code>, <code>172.16.0.0/12</code>, <code>192.168.0.0/16</code>, <code>100.64.0.0/10</code>, <code>fc00::/7</code></li>  <li><code>loopback</code>: <code>127.0.0.0/8</code>, <code>::1</code></li>  <li>IP addresses and CIDR ranges, e.g. <code>10.1.0.0/16</code></li>  <li>hostnames, e.g. <code>internal.example.com</code></li>  <li><code>*</code>: all destinations; must be the only entry</li>  </ul>  Link-local, unspecified, and cloud metadata addresses (e.g. <code>169.254.169.254</code>) are always denied,  unless an IP address or CIDR range entry at least as specific allows them. Hostname entries never do.  <br><br>  Requests through the configured HTTP proxy are only checked when the destination is an IP address.  <p></p>
+<table>
+<tbody><tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
+<tr><th>Default</th><td><code>external,private</code></td></tr>
+<tr><th>Example</th><td><code>external,private,10.1.0.0/16</code></td></tr>
+<tr><th>ENV</th><td><code>DT_OUTBOUND_ALLOWED_DESTINATIONS</code></td></tr>
+</tbody></table>
+
 <h2 id="notification">Notification<a class="headerlink" href="#notification" title="Permanent link">¶</a></h2>
-<p><span id="dtnotification-publisheremailallow-local-connections"><strong><code>dt.notification-publisher.email.allow-local-connections</code></strong> <a class="headerlink" href="#dtnotification-publisheremailallow-local-connections">¶</a></span></p>
-<p>Defines whether the email notification publisher is allowed to connect to local hosts.  </p>
-<table>
-<tbody><tr><th>Type</th><td style="border-width: 0"><code>boolean</code></td></tr>
-<tr><th>Default</th><td><code>false</code></td></tr>
-<tr><th>ENV</th><td><code>DT_NOTIFICATION_PUBLISHER_EMAIL_ALLOW_LOCAL_CONNECTIONS</code></td></tr>
-</tbody></table>
-
-<p><span id="dtnotification-publisherkafkaallow-local-connections"><strong><code>dt.notification-publisher.kafka.allow-local-connections</code></strong> <a class="headerlink" href="#dtnotification-publisherkafkaallow-local-connections">¶</a></span></p>
-<p>Defines whether the Kafka notification publisher is allowed to connect to local hosts.  </p>
-<table>
-<tbody><tr><th>Type</th><td style="border-width: 0"><code>boolean</code></td></tr>
-<tr><th>Default</th><td><code>false</code></td></tr>
-<tr><th>ENV</th><td><code>DT_NOTIFICATION_PUBLISHER_KAFKA_ALLOW_LOCAL_CONNECTIONS</code></td></tr>
-</tbody></table>
-
 <p><span id="dtnotificationoutbox-relaybatch-size"><strong><code>dt.notification.outbox-relay.batch-size</code></strong> <strong style="color: red">*</strong> <a class="headerlink" href="#dtnotificationoutbox-relaybatch-size">¶</a></span></p>
 <p>Defines the number of notifications that the outbox relay will process in a batch.  </p>
 <table>
@@ -4560,14 +4576,6 @@
 <tbody><tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
 <tr><th>Default</th><td><code>default</code></td></tr>
 <tr><th>ENV</th><td><code>DT_VULN_ANALYZER_INTERNAL_DATASOURCE_NAME</code></td></tr>
-</tbody></table>
-
-<p><span id="dtvuln-analyzeross-indexallow-local-connections"><strong><code>dt.vuln-analyzer.oss-index.allow-local-connections</code></strong> <a class="headerlink" href="#dtvuln-analyzeross-indexallow-local-connections">¶</a></span></p>
-<p>Defines whether the OSS Index vulnerability analyzer is allowed to connect to local hosts.  </p>
-<table>
-<tbody><tr><th>Type</th><td style="border-width: 0"><code>boolean</code></td></tr>
-<tr><th>Default</th><td><code>false</code></td></tr>
-<tr><th>ENV</th><td><code>DT_VULN_ANALYZER_OSS_INDEX_ALLOW_LOCAL_CONNECTIONS</code></td></tr>
 </tbody></table>
 
 <p><span id="dtvuln-analyzersnykapi-version"><strong><code>dt.vuln-analyzer.snyk.api-version</code></strong> <a class="headerlink" href="#dtvuln-analyzersnykapi-version">¶</a></span></p>
