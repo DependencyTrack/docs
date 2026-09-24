@@ -42,6 +42,7 @@ own tools and automation scripts.
 |:-----|:------------|:-----|
 | SecObserve | Dependency-Track integration | [GitHub](https://github.com/MaibornWolff/SecObserve) |
 | SD Elements (Security Compass) | Dependency-Track integration | [securitycompass.com](https://securitycompass.com) |
+| vens | Writes OWASP risk ratings into a VEX for import | [GitHub](https://github.com/venslabs/vens) |
 
 ## Reporting and Auditing
 
