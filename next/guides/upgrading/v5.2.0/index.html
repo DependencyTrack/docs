@@ -441,6 +441,8 @@
       
         
       
+        
+      
     
     
     
@@ -2481,6 +2483,17 @@ See Cargo's <a href="https://doc.rust-lang.org/cargo/reference/registries.html#u
 <p>The resolver now sends a Cargo repository token in the <code>Authorization</code> header as-is, like Cargo does.
 Earlier versions added a <code>Bearer</code> prefix. If your registry expects the prefix, add it to the token you configured.
 Repositories with a username still use basic authentication.</p>
+</li>
+<li>
+<p><strong>The API server restricts outbound connections</strong>. See <a href="../../../reference/configuration/properties/#dtoutboundallowed-destinations"><code>dt.outbound.allowed-destinations</code></a>.
+  If an integration connects to <code>localhost</code>, for example a Trivy sidecar, add <code>loopback</code>. The restrictions apply
+  to notifications, data sources, package repositories, vulnerability analyzers, and integrations like DefectDojo.</p>
+</li>
+<li>
+<p><strong>The <code>allow-local-connections</code> properties no longer exist</strong>. This affects the email and Kafka notification publishers,
+  the OSS Index vulnerability analyzer, and the <abbr title="National Vulnerability Database">NVD</abbr> and JVN vulnerability data sources.
+  The API server refuses to start if your configuration still sets any of them to prevent silent misconfiguration.
+  <a href="../../../reference/configuration/properties/#dtoutboundallowed-destinations"><code>dt.outbound.allowed-destinations</code></a> replaces them.</p>
 </li>
 </ul>
 

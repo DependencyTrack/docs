@@ -441,6 +441,8 @@
       
         
       
+        
+      
     
     
     
@@ -2619,9 +2621,10 @@ through how to narrow it down.</p>
   <a href="../../../reference/notifications/filter-expressions/">Filter expressions</a>.</li>
 <li><strong>Publisher destination is unreachable.</strong> Network outage, firewall,
   proxy misconfiguration, or expired webhook URL.</li>
-<li><strong>Local destination blocked.</strong> The destination resolves to a local or
-  loopback address and the corresponding <code>allow-local-connections</code> flag
-  is <code>false</code>.</li>
+<li><strong>Destination denied.</strong>
+  <a href="../../../reference/configuration/properties/#dtoutboundallowed-destinations"><code>dt.outbound.allowed-destinations</code></a>
+  does not allow the destination. Before v5.2.0, the email and Kafka publishers used their own
+  <code>allow-local-connections</code> properties instead.</li>
 <li><strong>Custom template fails to render.</strong> A syntax error or missing
   variable causes the publisher to stop before sending.</li>
 </ul>

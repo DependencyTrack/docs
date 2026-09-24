@@ -441,6 +441,8 @@
       
         
       
+        
+      
     
     
     
@@ -1653,10 +1655,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#restricting-local-connections" class="md-nav__link">
+  <a href="#restricting-destinations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Restricting local connections
+        Restricting destinations
       
     </span>
   </a>
@@ -2705,10 +2707,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#restricting-local-connections" class="md-nav__link">
+  <a href="#restricting-destinations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Restricting local connections
+        Restricting destinations
       
     </span>
   </a>
@@ -3070,16 +3072,19 @@
 
 
 <h1 id="publishers">Publishers<a class="headerlink" href="#publishers" title="Permanent link">¶</a></h1>
-<h2 id="restricting-local-connections">Restricting local connections<a class="headerlink" href="#restricting-local-connections" title="Permanent link">¶</a></h2>
-<p>For destinations that accept arbitrary endpoints, Dependency-Track
-blocks connections to local and loopback addresses by default to prevent
-server-side request forgery. Operators can override this per publisher
-via
-<a href="../../configuration/properties/#dtnotification-publisheremailallow-local-connections"><code>dt.notification-publisher.email.allow-local-connections</code></a>
-and
-<a href="../../configuration/properties/#dtnotification-publisherkafkaallow-local-connections"><code>dt.notification-publisher.kafka.allow-local-connections</code></a>.
-Leave both <code>false</code> outside of development and trusted single-host
-deployments.</p>
+<h2 id="restricting-destinations">Restricting destinations<a class="headerlink" href="#restricting-destinations" title="Permanent link">¶</a></h2>
+<p>Dependency-Track only connects to publisher destinations that
+<a href="../../configuration/properties/#dtoutboundallowed-destinations"><code>dt.outbound.allowed-destinations</code></a> allows.</p>
+<div class="admonition note">
+<p class="admonition-title">Changed in v5.2.0</p>
+<p>Before v5.2.0, the email and Kafka publishers used their own properties.
+To allow local connections, set:</p>
+<ul>
+<li><code>dt.notification-publisher.email.allow-local-connections=true</code></li>
+<li><code>dt.notification-publisher.kafka.allow-local-connections=true</code></li>
+</ul>
+<p>See <a href="../../../guides/upgrading/v5.2.0/">Upgrading to v5.2.0</a>.</p>
+</div>
 <h2 id="console">Console<a class="headerlink" href="#console" title="Permanent link">¶</a></h2>
 <p>Publishes notifications by writing them to standard output.</p>
 <p>This publisher targets testing scenarios. It exposes no configuration options.</p>
