@@ -14,9 +14,10 @@ through how to narrow it down.
   [Filter expressions](../../reference/notifications/filter-expressions.md).
 - **Publisher destination is unreachable.** Network outage, firewall,
   proxy misconfiguration, or expired webhook URL.
-- **Local destination blocked.** The destination resolves to a local or
-  loopback address and the corresponding `allow-local-connections` flag
-  is `false`.
+- **Destination denied.**
+  [`dt.outbound.allowed-destinations`](../../reference/configuration/properties.md#dtoutboundallowed-destinations)
+  does not allow the destination. Before v5.2.0, the email and Kafka publishers used their own
+  `allow-local-connections` properties instead.
 - **Custom template fails to render.** A syntax error or missing
   variable causes the publisher to stop before sending.
 
