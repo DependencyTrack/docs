@@ -225,7 +225,7 @@ services:
       PGBOUNCER_DEFAULT_POOL_SIZE: "30"
 
   apiserver:
-    image: ghcr.io/dependencytrack/hyades-apiserver
+    image: ghcr.io/dependencytrack/apiserver
     environment:
       # Configure the default data source:
       # - Points to PgBouncer, NOT Postgres directly.

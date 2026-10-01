@@ -28,7 +28,7 @@ Run a temporary container from the API server image and copy out the default tru
 ```shell linenums="1"
 docker run --rm \
   --entrypoint cp \
-  ghcr.io/dependencytrack/hyades-apiserver:latest \
+  ghcr.io/dependencytrack/apiserver:latest \
   /opt/java/openjdk/lib/security/cacerts /tmp/cacerts-modified
 
 docker cp \
@@ -40,7 +40,7 @@ docker cp \
 Or use a single command with `docker create`:
 
 ```shell linenums="1"
-container_id=$(docker create ghcr.io/dependencytrack/hyades-apiserver:latest)
+container_id=$(docker create ghcr.io/dependencytrack/apiserver:latest)
 docker cp "$container_id:/opt/java/openjdk/lib/security/cacerts" ./cacerts-modified
 docker rm "$container_id"
 ```
@@ -76,7 +76,7 @@ default truststore with the modified one.
     ```yaml linenums="1"
     services:
       apiserver:
-        image: ghcr.io/dependencytrack/hyades-apiserver:latest
+        image: ghcr.io/dependencytrack/apiserver:latest
         volumes:
           - "./cacerts-modified:/opt/java/openjdk/lib/security/cacerts:ro"
     ```

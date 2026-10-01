@@ -29,7 +29,7 @@ Instances without the profile keep their default behavior and run background wor
 ```yaml linenums="1"
 services:
   web:
-    image: ghcr.io/dependencytrack/hyades-apiserver
+    image: ghcr.io/dependencytrack/apiserver
     environment:
       DT_CONFIG_PROFILE: "web"
       DT_DATASOURCE_URL: "jdbc:postgresql://postgres:5432/dtrack"
@@ -37,7 +37,7 @@ services:
       DT_DATASOURCE_PASSWORD: "dtrack"
 
   worker:
-    image: ghcr.io/dependencytrack/hyades-apiserver
+    image: ghcr.io/dependencytrack/apiserver
     environment:
       DT_DATASOURCE_URL: "jdbc:postgresql://postgres:5432/dtrack"
       DT_DATASOURCE_USERNAME: "dtrack"
