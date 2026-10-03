@@ -3791,6 +3791,14 @@
 <tr><th>ENV</th><td><code>DT_BCRYPT_ROUNDS</code></td></tr>
 </tbody></table>
 
+<p><span id="dtbom-uploadmax-size-bytes"><strong><code>dt.bom-upload.max-size-bytes</code></strong> <a class="headerlink" href="#dtbom-uploadmax-size-bytes">¶</a></span></p>
+<p>Defines the maximum size in bytes of uploaded BOMs.  <br><br>  For compressed uploads, the limit applies to the decompressed size.  Uploads exceeding the limit are rejected with status 413.  <br><br>  Uploads are held in memory during validation and processing,  so the heap must be sized to accommodate concurrent uploads of this size.  </p>
+<table>
+<tbody><tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
+<tr><th>Default</th><td><code>104857600</code></td></tr>
+<tr><th>ENV</th><td><code>DT_BOM_UPLOAD_MAX_SIZE_BYTES</code></td></tr>
+</tbody></table>
+
 <p><span id="dtconfiglog-values"><strong><code>dt.config.log-values</code></strong> <a class="headerlink" href="#dtconfiglog-values">¶</a></span></p>
 <p>Defines whether config value lookups should be logged.  <br><br>  Logging happens at DEBUG level. To make the logs visible, you must configure  <code>dt.logging.level."io.smallrye.config"=DEBUG</code>.  <br><br>  Note that this will not mask or omit any secrets.  <strong>Do not use in production environments!</strong>  </p>
 <table>
@@ -3877,6 +3885,14 @@
 <tbody><tr><th>Type</th><td style="border-width: 0"><code>boolean</code></td></tr>
 <tr><th>Default</th><td><code>false</code></td></tr>
 <tr><th>ENV</th><td><code>DT_TMP_DELAY_BOM_PROCESSED_NOTIFICATION</code></td></tr>
+</tbody></table>
+
+<p><span id="dtvex-uploadmax-size-bytes"><strong><code>dt.vex-upload.max-size-bytes</code></strong> <a class="headerlink" href="#dtvex-uploadmax-size-bytes">¶</a></span></p>
+<p>Defines the maximum size in bytes of uploaded <abbr title="Vulnerability Exploitability eXchange">VEX</abbr> documents.  <br><br>  For compressed uploads, the limit applies to the decompressed size.  Uploads exceeding the limit are rejected with status 413.  <br><br>  Uploads are held in memory during validation and processing,  so the heap must be sized to accommodate concurrent uploads of this size.  </p>
+<table>
+<tbody><tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
+<tr><th>Default</th><td><code>104857600</code></td></tr>
+<tr><th>ENV</th><td><code>DT_VEX_UPLOAD_MAX_SIZE_BYTES</code></td></tr>
 </tbody></table>
 
 <p><span id="dtvuln-policy-bundleauthbearer-token"><strong><code>dt.vuln-policy-bundle.auth.bearer-token</code></strong> <a class="headerlink" href="#dtvuln-policy-bundleauthbearer-token">¶</a></span></p>
