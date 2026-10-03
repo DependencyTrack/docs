@@ -2495,6 +2495,11 @@ Repositories with a username still use basic authentication.</p>
   The API server refuses to start if your configuration still sets any of them to prevent silent misconfiguration.
   <a href="../../../reference/configuration/properties/#dtoutboundallowed-destinations"><code>dt.outbound.allowed-destinations</code></a> replaces them.</p>
 </li>
+<li>
+<p><strong>The API enforces a size limit for <abbr title="Bill of Materials">BOM</abbr> and <abbr title="Vulnerability Exploitability eXchange">VEX</abbr> uploads</strong>. See <a href="../../../reference/configuration/properties/#dtbom-uploadmax-size-bytes"><code>dt.bom-upload.max-size-bytes</code></a>
+  and <a href="../../../reference/configuration/properties/#dtvex-uploadmax-size-bytes"><code>dt.vex-upload.max-size-bytes</code></a>. Both properties default to 100 MiB. Increase them if
+  your instances process documents larger than that.</p>
+</li>
 </ul>
 
 
