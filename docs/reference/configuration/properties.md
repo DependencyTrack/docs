@@ -1555,7 +1555,7 @@ This option will ensure that team memberships for OpenID Connect users are dynam
 
 <span id="dtoidcteams-claim">**`dt.oidc.teams-claim`** [¶](#dtoidcteams-claim){ .headerlink }</span>
 
-Defines the name of the claim that contains group memberships or role assignments in the provider's userinfo endpoint.  The claim must be an array of strings, or a comma-delimited string. Most public identity providers do not support group or role management.  When using a customizable / on-demand hosted identity provider, name, content, and inclusion in the userinfo endpoint  will most likely need to be configured.  
+Defines the name of the claim that contains group memberships or role assignments in the provider's userinfo endpoint.  The claim must be an array of strings, or a comma-delimited string, optionally wrapped in square brackets.  Most public identity providers do not support group or role management.  When using a customizable / on-demand hosted identity provider, name, content, and inclusion in the userinfo endpoint  will most likely need to be configured.  
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
