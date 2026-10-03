@@ -1041,6 +1041,16 @@ Specifies the number of bcrypt rounds to use when hashing a user's password.  Th
 <tr><th>ENV</th><td><code>DT_BCRYPT_ROUNDS</code></td></tr>
 </table>
 
+<span id="dtbom-uploadmax-size-bytes">**`dt.bom-upload.max-size-bytes`** [¶](#dtbom-uploadmax-size-bytes){ .headerlink }</span>
+
+Defines the maximum size in bytes of uploaded BOMs.  <br/><br/>  For compressed uploads, the limit applies to the decompressed size.  Uploads exceeding the limit are rejected with status 413.  <br/><br/>  Uploads are held in memory during validation and processing,  so the heap must be sized to accommodate concurrent uploads of this size.  
+
+<table>
+<tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
+<tr><th>Default</th><td><code>104857600</code></td></tr>
+<tr><th>ENV</th><td><code>DT_BOM_UPLOAD_MAX_SIZE_BYTES</code></td></tr>
+</table>
+
 <span id="dtconfiglog-values">**`dt.config.log-values`** [¶](#dtconfiglog-values){ .headerlink }</span>
 
 Defines whether config value lookups should be logged.  <br/><br/>  Logging happens at DEBUG level. To make the logs visible, you must configure  `dt.logging.level."io.smallrye.config"=DEBUG`.  <br/><br/>  Note that this will not mask or omit any secrets.  **Do not use in production environments!**  
@@ -1149,6 +1159,16 @@ Delays the BOM_PROCESSED notification until the vulnerability analysis associate
 <tr><th>Type</th><td style="border-width: 0"><code>boolean</code></td></tr>
 <tr><th>Default</th><td><code>false</code></td></tr>
 <tr><th>ENV</th><td><code>DT_TMP_DELAY_BOM_PROCESSED_NOTIFICATION</code></td></tr>
+</table>
+
+<span id="dtvex-uploadmax-size-bytes">**`dt.vex-upload.max-size-bytes`** [¶](#dtvex-uploadmax-size-bytes){ .headerlink }</span>
+
+Defines the maximum size in bytes of uploaded VEX documents.  <br/><br/>  For compressed uploads, the limit applies to the decompressed size.  Uploads exceeding the limit are rejected with status 413.  <br/><br/>  Uploads are held in memory during validation and processing,  so the heap must be sized to accommodate concurrent uploads of this size.  
+
+<table>
+<tr><th>Type</th><td style="border-width: 0"><code>integer</code></td></tr>
+<tr><th>Default</th><td><code>104857600</code></td></tr>
+<tr><th>ENV</th><td><code>DT_VEX_UPLOAD_MAX_SIZE_BYTES</code></td></tr>
 </table>
 
 <span id="dtvuln-policy-bundleauthbearer-token">**`dt.vuln-policy-bundle.auth.bearer-token`** [¶](#dtvuln-policy-bundleauthbearer-token){ .headerlink }</span>
