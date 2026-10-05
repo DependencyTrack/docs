@@ -565,12 +565,6 @@ paths:
           description: Access to the requested project is forbidden
         "404":
           description: The project could not be found
-        "413":
-          content:
-            application/problem+json:
-              schema:
-                $ref: "#/components/schemas/ProblemDetails"
-          description: The uploaded document is too large
       security:
       - ApiKeyAuth: []
       - BearerAuth: []
@@ -1307,10 +1301,6 @@ paths:
                 $ref: "#/components/schemas/ProblemDetails"
           description: Access to the requested project is forbidden
         "404":
-          content:
-            application/problem+json:
-              schema:
-                $ref: "#/components/schemas/ProblemDetails"
           description: The UUID of the component could not be found
       security:
       - ApiKeyAuth: []
@@ -8483,12 +8473,6 @@ paths:
           description: Access to the requested project is forbidden
         "404":
           description: The project could not be found
-        "413":
-          content:
-            application/problem+json:
-              schema:
-                $ref: "#/components/schemas/ProblemDetails"
-          description: The uploaded document is too large
       security:
       - ApiKeyAuth: []
       - BearerAuth: []
