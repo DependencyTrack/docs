@@ -1210,6 +1210,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Managed solutions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#google-cloud-sql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google Cloud SQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -2621,6 +2638,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Managed solutions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#google-cloud-sql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google Cloud SQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -2897,6 +2931,28 @@ or extensions of it (for example <a href="https://neon.tech/">Neon</a> or <a hre
 <p>The same is not necessarily true for platforms based on heavily modified PostgreSQL, or even entire re-implementations
 such as <a href="https://www.cockroachlabs.com/">CockroachDB</a> or <a href="https://www.yugabyte.com/">YugabyteDB</a>. Such solutions make certain trade-offs to achieve higher levels of scalability,
 which might impact functionality that Dependency-Track relies on.</p>
+<h4 id="google-cloud-sql">Google Cloud SQL<a class="headerlink" href="#google-cloud-sql" title="Permanent link">¶</a></h4>
+<p>To connect through the <a href="https://github.com/GoogleCloudPlatform/cloud-sql-jdbc-socket-factory/blob/main/docs/jdbc.md">Cloud SQL socket factory</a>, for example to use IAM database authentication,
+add the socket factory to the API server. The container image doesn't include it.</p>
+<ol>
+<li><a href="https://github.com/GoogleCloudPlatform/cloud-sql-jdbc-socket-factory#building-the-drivers">Build the socket factory JAR with its dependencies</a>.</li>
+<li>Mount it into <code>/opt/owasp/dependency-track/lib-external/</code>. The API server loads every JAR in that directory.</li>
+<li>Set the data source URL to your instance:</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">docker-compose.yaml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">apiserver</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dependencytrack/apiserver</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">DT_DATASOURCE_URL</span><span class="p">:</span><span class="w"> </span><span class="s">"jdbc:postgresql:///dtrack?cloudSqlInstance=&lt;INSTANCE_CONNECTION_NAME&gt;&amp;socketFactory=com.google.cloud.sql.postgres.SocketFactory"</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"./postgres-socket-factory-jar-with-dependencies.jar:/opt/owasp/dependency-track/lib-external/postgres-socket-factory.jar:ro"</span>
+</code></pre></div></td></tr></tbody></table></div>
 <h3 id="self-hosting">Self-hosting<a class="headerlink" href="#self-hosting" title="Permanent link">¶</a></h3>
 <h4 id="bare-metal-docker">Bare Metal / Docker<a class="headerlink" href="#bare-metal-docker" title="Permanent link">¶</a></h4>
 <p>For Docker deployments, use the official <a href="https://hub.docker.com/_/postgres"><code>postgres</code></a> image.</p>

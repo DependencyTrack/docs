@@ -2500,6 +2500,18 @@ Repositories with a username still use basic authentication.</p>
   and <a href="../../../reference/configuration/properties/#dtvex-uploadmax-size-bytes"><code>dt.vex-upload.max-size-bytes</code></a>. Both properties default to 100 MiB. Increase them if
   your instances process documents larger than that.</p>
 </li>
+<li>
+<p><strong>The API server container image no longer includes <code>curl</code></strong>. The image's health check now uses <code>wget</code>.
+  If you override the health check or run <code>curl</code> in an <code>exec</code> probe, switch to <code>wget</code>:</p>
+<div class="highlight"><pre><span></span><code>wget<span class="w"> </span>-q<span class="w"> </span>-Y<span class="w"> </span>off<span class="w"> </span>-T<span class="w"> </span><span class="m">3</span><span class="w"> </span>-O<span class="w"> </span>/dev/null<span class="w"> </span>http://127.0.0.1:9000/health
+</code></pre></div>
+<p>In Kubernetes, an <code>httpGet</code> probe against port <code>9000</code> needs no tool in the image at all.</p>
+</li>
+<li>
+<p><strong>The API server container image no longer includes the Google Cloud SQL socket factory</strong>. If your database URL sets
+  <code>socketFactory=com.google.cloud.sql.postgres.SocketFactory</code>, the API server fails to connect after the upgrade.
+  Add the socket factory as described in <a href="../../administration/configuring-database/#google-cloud-sql">Google Cloud SQL</a>.</p>
+</li>
 </ul>
 
 
