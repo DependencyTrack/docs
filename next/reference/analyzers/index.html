@@ -3006,6 +3006,12 @@ bundle or manage the Trivy server process.</p>
 </tbody>
 </table>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/images/reference/analyzers/analyzer-config_trivy.png" data-desc-position="bottom"><img alt="Trivy analyzer configuration" src="../../assets/images/reference/analyzers/analyzer-config_trivy.png"></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a href="../configuration/properties/#dtoutboundallowed-destinations"><code>dt.outbound.allowed-destinations</code></a>
+must allow the Trivy server. Add the exact hostname from the API URL, for example <code>trivy</code>,
+or <code>localhost</code> for a sidecar. Prefer it over <code>loopback</code> or <code>private</code>, which allow every address in their range.</p>
+</div>
 <h2 id="vulndb">VulnDB<a class="headerlink" href="#vulndb" title="Permanent link">¶</a></h2>
 <p>Integrates with <a href="https://flashpoint.io/resources/datasheets/vulndb/">Flashpoint VulnDB</a>, a commercial vulnerability intelligence service.</p>
 <p>Uses <abbr title="Common Platform Enumeration, a structured naming scheme for software products">CPE</abbr> matching.</p>

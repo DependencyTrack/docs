@@ -2486,7 +2486,8 @@ Repositories with a username still use basic authentication.</p>
 </li>
 <li>
 <p><strong>The API server restricts outbound connections</strong>. See <a href="../../../reference/configuration/properties/#dtoutboundallowed-destinations"><code>dt.outbound.allowed-destinations</code></a>.
-  If an integration connects to <code>localhost</code>, for example a Trivy sidecar, add <code>loopback</code>. The restrictions apply
+  If an integration connects to <code>localhost</code>, for example a Trivy sidecar, add <code>localhost</code>.
+  Prefer exact hostnames over <code>loopback</code>, which allows every loopback address. The restrictions apply
   to notifications, data sources, package repositories, vulnerability analyzers, and integrations like DefectDojo.</p>
 </li>
 <li>

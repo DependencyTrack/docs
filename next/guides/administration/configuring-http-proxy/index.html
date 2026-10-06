@@ -1318,6 +1318,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#restricting-destinations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Restricting destinations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#authenticated-proxies" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2533,6 +2544,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#restricting-destinations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Restricting destinations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#authenticated-proxies" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2719,6 +2741,15 @@ schemes are not supported.</p>
 <li><code>https://api.example.com/</code> bypasses the proxy (subdomain match).</li>
 <li><code>https://localhost:5432/</code> bypasses the proxy (host and port match).</li>
 <li><code>https://localhost:5433/</code> goes through the proxy (port mismatch).</li>
+</ul>
+<h2 id="restricting-destinations">Restricting destinations<a class="headerlink" href="#restricting-destinations" title="Permanent link">¶</a></h2>
+<p>With a proxy, <a href="../../../reference/configuration/properties/#dtoutboundallowed-destinations"><code>dt.outbound.allowed-destinations</code></a>
+doesn't stop requests to hostnames. The proxy resolves them, not the API server, so the API server lets them all through.
+Configure the proxy to block destinations the API server must not reach.</p>
+<p>The property still applies to:</p>
+<ul>
+<li>URLs that use an IP address instead of a hostname.</li>
+<li>Hosts in the <a href="#bypass-list">bypass list</a>, which the API server connects to directly.</li>
 </ul>
 <h2 id="authenticated-proxies">Authenticated proxies<a class="headerlink" href="#authenticated-proxies" title="Permanent link">¶</a></h2>
 <p>Set <code>dt.http.proxy.auth.username</code> and <code>dt.http.proxy.auth.password</code>. Keep the password out of plain text via
