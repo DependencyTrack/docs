@@ -2568,7 +2568,7 @@ when they share a single zone.</p>
 <span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">TZ</span><span class="p">:</span><span class="w"> </span><span class="s">"Europe/Paris"</span>
 </code></pre></div></td></tr></tbody></table></div>
-<p>Use any <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">IANA time zone identifier</a>. The container image ships with <code>tzdata</code>, so all identifiers resolve.</p>
+<p>Use any <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">IANA time zone identifier</a>. An unknown identifier falls back to <code>GMT</code> without an error.</p>
 <h2 id="database-session-time-zone">Database session time zone<a class="headerlink" href="#database-session-time-zone" title="Permanent link">¶</a></h2>
 <p>The API server's PostgreSQL sessions inherit <code>TZ</code>. This does not affect stored data. Writes go in as absolute instants,
 and partition maintenance and materialised view refreshes pin the session to UTC for their transactions.</p>
