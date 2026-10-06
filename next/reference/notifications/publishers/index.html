@@ -1928,6 +1928,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#signature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Signature
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2980,6 +2991,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#signature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Signature
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3076,7 +3098,7 @@
 <p>Dependency-Track only connects to publisher destinations that
 <a href="../../configuration/properties/#dtoutboundallowed-destinations"><code>dt.outbound.allowed-destinations</code></a> allows.</p>
 <div class="admonition note">
-<p class="admonition-title">Changed in v5.2.0</p>
+<p class="admonition-title">Changed in 5.2.0</p>
 <p>Before v5.2.0, the email and Kafka publishers used their own properties.
 To allow local connections, set:</p>
 <ul>
@@ -3234,10 +3256,24 @@ If the notification's subject is <em>not</em> a project, the key is <code>null</
 <h2 id="webhook">Webhook<a class="headerlink" href="#webhook" title="Permanent link">¶</a></h2>
 <p>Publishes notifications as Webhooks.</p>
 <h3 id="webhook-alert-config">Alert Config<a class="headerlink" href="#webhook-alert-config" title="Permanent link">¶</a></h3>
+<p>The alert config defines the destination of webhook requests, and optionally how to authenticate and sign them.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/reference/notifications/publishers/webhook-publisher-alert-config.png" data-desc-position="bottom"><img alt="Webhook publisher alert config" src="../../../assets/images/reference/notifications/publishers/webhook-publisher-alert-config.png"></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Selecting teams as recipients has no effect for this publisher.</p>
 </div>
+<h3 id="signature">Signature<a class="headerlink" href="#signature" title="Permanent link">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Available in 5.2.0 and later</p>
+<p>Earlier versions send webhook requests unsigned.</p>
+</div>
+<p>When the alert config names a signing secret, each request carries an <code>X-Webhook-Signature</code> header.
+The signing secret <strong>must</strong> be a <a href="../../../guides/user/managing-secrets/">managed secret</a>.</p>
+<p>The header value is <code>sha256=</code> followed by the lowercase hex-encoded HMAC-SHA256 of the request body,
+keyed with the UTF-8 bytes of the secret. The publisher computes it over the exact bytes it sends,
+whether it renders a template or publishes Protobuf.</p>
+<p>To verify a request, compute the same HMAC over the raw request body, before parsing it,
+and compare it to the header value in constant time.</p>
 
 
 
