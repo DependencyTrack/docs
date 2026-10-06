@@ -81,6 +81,17 @@ For example, given `dt.http.proxy.exclusions=example.com,localhost:5432`:
 - `https://localhost:5432/` bypasses the proxy (host and port match).
 - `https://localhost:5433/` goes through the proxy (port mismatch).
 
+## Restricting destinations
+
+With a proxy, [`dt.outbound.allowed-destinations`](../../reference/configuration/properties.md#dtoutboundallowed-destinations)
+doesn't stop requests to hostnames. The proxy resolves them, not the API server, so the API server lets them all through.
+Configure the proxy to block destinations the API server must not reach.
+
+The property still applies to:
+
+- URLs that use an IP address instead of a hostname.
+- Hosts in the [bypass list](#bypass-list), which the API server connects to directly.
+
 ## Authenticated proxies
 
 Set `dt.http.proxy.auth.username` and `dt.http.proxy.auth.password`. Keep the password out of plain text via

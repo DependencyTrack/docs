@@ -16,7 +16,7 @@ through how to narrow it down.
   proxy misconfiguration, or expired webhook URL.
 - **Destination denied.**
   [`dt.outbound.allowed-destinations`](../../reference/configuration/properties.md#dtoutboundallowed-destinations)
-  does not allow the destination. Before v5.2.0, the email and Kafka publishers used their own
+  does not allow the destination. Before 5.2.0, the email and Kafka publishers used their own
   `allow-local-connections` properties instead.
 - **Custom template fails to render.** A syntax error or missing
   variable causes the publisher to stop before sending.

@@ -6,7 +6,7 @@ Dependency-Track only connects to publisher destinations that
 [`dt.outbound.allowed-destinations`](../configuration/properties.md#dtoutboundallowed-destinations) allows.
 
 !!! note "Changed in 5.2.0"
-    Before v5.2.0, the email and Kafka publishers used their own properties.
+    Before 5.2.0, the email and Kafka publishers used their own properties.
     To allow local connections, set:
 
     * `dt.notification-publisher.email.allow-local-connections=true`

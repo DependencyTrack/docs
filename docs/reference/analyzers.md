@@ -129,6 +129,11 @@ Uses PURL matching.
 
 ![Trivy analyzer configuration](../assets/images/reference/analyzers/analyzer-config_trivy.png)
 
+!!! note
+    [`dt.outbound.allowed-destinations`](configuration/properties.md#dtoutboundallowed-destinations)
+    must allow the Trivy server. Add the exact hostname from the API URL, for example `trivy`,
+    or `localhost` for a sidecar. Prefer it over `loopback` or `private`, which allow every address in their range.
+
 ## VulnDB
 
 Integrates with [Flashpoint VulnDB][vulndb], a commercial vulnerability intelligence service.
