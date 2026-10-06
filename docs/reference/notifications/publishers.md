@@ -5,7 +5,7 @@
 Dependency-Track only connects to publisher destinations that
 [`dt.outbound.allowed-destinations`](../configuration/properties.md#dtoutboundallowed-destinations) allows.
 
-!!! note "Changed in v5.2.0"
+!!! note "Changed in 5.2.0"
     Before v5.2.0, the email and Kafka publishers used their own properties.
     To allow local connections, set:
 
@@ -195,8 +195,28 @@ Publishes notifications as Webhooks.
 
 ### Alert Config {: #webhook-alert-config }
 
+The alert config defines the destination of webhook requests, and optionally how to authenticate and sign them.
+
+![Webhook publisher alert config](../../assets/images/reference/notifications/publishers/webhook-publisher-alert-config.png)
+
 !!! note
     Selecting teams as recipients has no effect for this publisher.
+
+### Signature
+
+!!! note "Available in 5.2.0 and later"
+
+    Earlier versions send webhook requests unsigned.
+
+When the alert config names a signing secret, each request carries an `X-Webhook-Signature` header.
+The signing secret **must** be a [managed secret](../../guides/user/managing-secrets.md).
+
+The header value is `sha256=` followed by the lowercase hex-encoded HMAC-SHA256 of the request body,
+keyed with the UTF-8 bytes of the secret. The publisher computes it over the exact bytes it sends,
+whether it renders a template or publishes Protobuf.
+
+To verify a request, compute the same HMAC over the raw request body, before parsing it,
+and compare it to the header value in constant time.
 
 [PEM]: https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail
 [SMTP]: https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol
