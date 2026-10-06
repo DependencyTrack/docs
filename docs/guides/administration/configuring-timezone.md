@@ -25,7 +25,7 @@ services:
       TZ: "Europe/Paris"
 ```
 
-Use any [IANA time zone identifier][iana-tz]. The container image ships with `tzdata`, so all identifiers resolve.
+Use any [IANA time zone identifier][iana-tz]. An unknown identifier falls back to `GMT` without an error.
 
 ## Database session time zone
 
