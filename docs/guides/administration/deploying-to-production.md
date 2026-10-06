@@ -107,6 +107,16 @@ Wire Dependency-Track to your identity provider. Local managed users are for eva
 - For OIDC providers (Keycloak, Entra ID, Google, and similar), see [Configuring OIDC](configuring-oidc.md).
 - For LDAP and Active Directory, see [Configuring LDAP](configuring-ldap.md).
 
+### Keep users signed in across tabs
+
+By default the frontend keeps the session token in the browser's `sessionStorage`, which belongs to a
+single tab: opening Dependency-Track in a new tab, or after restarting the browser, asks the user to
+sign in again. Set `AUTH_TOKEN_STORAGE: "local"` on the frontend container to keep the token in
+`localStorage` instead, so one sign-in covers every tab and survives a browser restart. The token still
+expires server-side after `dt.auth.session-timeout-ms`. Both storage types are readable by scripts
+running on the page, so the choice is about convenience, not about protection from cross-site
+scripting.
+
 ## Front the API server with TLS
 
 Handle TLS at a reverse proxy or ingress controller rather than in the API server itself. Forward
