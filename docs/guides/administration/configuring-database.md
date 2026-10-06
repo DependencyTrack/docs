@@ -28,6 +28,25 @@ The same is not necessarily true for platforms based on heavily modified Postgre
 such as [CockroachDB] or [YugabyteDB]. Such solutions make certain trade-offs to achieve higher levels of scalability,
 which might impact functionality that Dependency-Track relies on.
 
+#### Google Cloud SQL
+
+To connect through the [Cloud SQL socket factory][cloud-sql-jdbc], for example to use IAM database authentication,
+add the socket factory to the API server. The container image doesn't include it.
+
+1. [Build the socket factory JAR with its dependencies][cloud-sql-build].
+2. Mount it into `/opt/owasp/dependency-track/lib-external/`. The API server loads every JAR in that directory.
+3. Set the data source URL to your instance:
+
+```yaml linenums="1" title="docker-compose.yaml"
+services:
+  apiserver:
+    image: dependencytrack/apiserver
+    environment:
+      DT_DATASOURCE_URL: "jdbc:postgresql:///dtrack?cloudSqlInstance=<INSTANCE_CONNECTION_NAME>&socketFactory=com.google.cloud.sql.postgres.SocketFactory"
+    volumes:
+      - "./postgres-socket-factory-jar-with-dependencies.jar:/opt/owasp/dependency-track/lib-external/postgres-socket-factory.jar:ro"
+```
+
 ### Self-hosting
 
 #### Bare Metal / Docker
@@ -247,6 +266,8 @@ services:
 
 [Autovacuum]: https://www.postgresql.org/docs/current/routine-vacuuming.html
 [CockroachDB]: https://www.cockroachlabs.com/
+[cloud-sql-build]: https://github.com/GoogleCloudPlatform/cloud-sql-jdbc-socket-factory#building-the-drivers
+[cloud-sql-jdbc]: https://github.com/GoogleCloudPlatform/cloud-sql-jdbc-socket-factory/blob/main/docs/jdbc.md
 [Neon]: https://neon.tech/
 [PGTune]: https://pgtune.leopard.in.ua/
 [PgBouncer]: https://www.pgbouncer.org/
