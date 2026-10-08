@@ -1,16 +1,40 @@
+{{- $errors := list -}}
+{{- $warnings := list -}}
+{{- $suggestions := list -}}
 {{- range .Files -}}
 {{- $path := .Path -}}
-{{- if .Alerts }}
-{{ $path }}
-{{ range .Alerts -}}
-{{- if eq .Severity "error"      }}  error  {{ end -}}
-{{- if eq .Severity "warning"    }}  warn   {{ end -}}
-{{- if eq .Severity "suggestion" }}  sugg   {{ end -}}
-{{ printf "%s:%d:%d  [%s]  %s" $path .Line (index .Span 0) .Check .Message }}
-{{ end }}
+{{- range .Alerts -}}
+{{- $line := printf "  %s:%d:%d  [%s]  %s" $path .Line (index .Span 0) .Check .Message -}}
+{{- if eq .Severity "error" -}}{{- $errors = append $errors $line -}}
+{{- else if eq .Severity "warning" -}}{{- $warnings = append $warnings $line -}}
+{{- else -}}{{- $suggestions = append $suggestions $line -}}
 {{- end -}}
-{{- end }}
-{{ .LintedTotal }} file(s) linted.
+{{- end -}}
+{{- end -}}
 
-Suppress a rule inline:  <!-- vale RuleName = NO --> ... <!-- vale RuleName = YES -->
-Scope a rule by path:    edit .vale.ini (see the [docs/tutorials/*.md] block)
+{{- with $suggestions }}
+SUGGESTIONS ({{ len . }}). Optional.
+{{ join "\n" . }}
+{{ end -}}
+
+{{- with $warnings }}
+WARNINGS ({{ len . }}). Should fix: in new files, and in lines you added or changed.
+{{ join "\n" . }}
+{{ end -}}
+
+{{- with $errors }}
+ERRORS ({{ len . }}). Must fix: the lint fails until these are resolved.
+{{ join "\n" . }}
+{{ end }}
+{{- if or $errors $warnings }}
+Fix the text first. Suppress a rule only for a confirmed false positive:
+  inline:   <!-- vale RuleName = NO --> ... <!-- vale RuleName = YES -->
+  by path:  edit .vale.ini (see the [docs/tutorials/*.md] block)
+{{ end }}
+{{ if $errors -}}
+FAILED: {{ len $errors }} error(s) must be fixed, {{ len $warnings }} warning(s) should be fixed. {{ .LintedTotal }} file(s) linted.
+{{- else if $warnings -}}
+PASSED with {{ len $warnings }} warning(s) that should be fixed. {{ .LintedTotal }} file(s) linted.
+{{- else -}}
+PASSED: no errors or warnings. {{ .LintedTotal }} file(s) linted.
+{{- end }}
