@@ -184,6 +184,9 @@ jobs:
 
 `ACTIONS_ID_TOKEN_REQUEST_URL` already carries a query string, which is why the audience is preceded by `&`.
 
+To upload BOMs, the [`gh-upload-sbom`](https://github.com/DependencyTrack/gh-upload-sbom#workload-identity-federation)
+action requests and exchanges the token for you.
+
 ### GitLab CI
 
 GitLab CI issues ID tokens from the URL of the GitLab instance.
