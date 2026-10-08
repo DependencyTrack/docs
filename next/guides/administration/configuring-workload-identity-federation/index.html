@@ -3082,6 +3082,8 @@ and add a second binding if your organization has both formats in use.</p>
 <span class="w">        </span><span class="no"># Exchange PLATFORM_TOKEN as shown above.</span>
 </code></pre></div>
 <p><code>ACTIONS_ID_TOKEN_REQUEST_URL</code> already carries a query string, which is why the audience is preceded by <code>&amp;</code>.</p>
+<p>To upload BOMs, the <a href="https://github.com/DependencyTrack/gh-upload-sbom#workload-identity-federation"><code>gh-upload-sbom</code></a>
+action requests and exchanges the token for you.</p>
 <h3 id="gitlab-ci">GitLab CI<a class="headerlink" href="#gitlab-ci" title="Permanent link">¶</a></h3>
 <p>GitLab CI issues ID tokens from the URL of the GitLab instance.
 On GitLab.com every account shares that issuer, so the subject prefix has to carry your group.
