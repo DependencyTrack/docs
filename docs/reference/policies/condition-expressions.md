@@ -40,6 +40,22 @@ custom functions documented below are available to both contexts.
     Use the `has()` macro to [check for presence of optional fields](../cel-expressions.md#optional-field-checking)
     before accessing them.
 
+## Result
+
+A condition expression returns either a `bool` or a `string`.
+
+* `true` records a violation, `false` does not.
+* A non-blank string records a violation and uses the string as the violation message.
+  Dependency-Track trims the message and truncates it to 1024 characters. It appears in the
+  violation's `text` field in the REST API, and in `POLICY_VIOLATION` and
+  `NEW_POLICY_VIOLATIONS_SUMMARY` notifications.
+* A blank string does not record a violation.
+
+Dependency-Track rejects component policy conditions whose expression returns any other type.
+Returning a string lets a condition explain *what* matched, for example which vulnerability
+or which license, instead of only that something matched.
+See [Violation messages](#violation-messages) for an example.
+
 ## Examples
 
 ### Component age
@@ -216,6 +232,21 @@ To also cover vulnerabilities that are not in a catalog yet, but that [EPSS] giv
 ```js linenums="1"
 vulns.exists(vuln, vuln.is_kev || vuln.epss_score > 0.5)
 ```
+
+### Violation messages
+
+The following expression matches [Component]s with a known exploited [Vulnerability], and
+names the first one in the violation message. `cel.bind` assigns the matching vulnerabilities
+to a variable so the expression does not repeat the filter:
+
+```js linenums="1"
+cel.bind(kev, vulns.filter(vuln, vuln.is_kev),
+  kev.size() > 0
+    ? "Component is affected by known exploited vulnerability " + kev[0].id
+    : "")
+```
+
+Returning `""` when nothing matches records no violation.
 
 ### Suppressing a specific CVE in a vulnerability policy
 
