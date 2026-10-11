@@ -2077,6 +2077,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#result" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Result
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#examples" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2170,6 +2181,17 @@
     <span class="md-ellipsis">
       
         Known exploited vulnerabilities
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#violation-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Violation messages
       
     </span>
   </a>
@@ -2821,6 +2843,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#result" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Result
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#examples" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2914,6 +2947,17 @@
     <span class="md-ellipsis">
       
         Known exploited vulnerabilities
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#violation-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Violation messages
       
     </span>
   </a>
@@ -3303,6 +3347,24 @@ custom functions documented below are available to both contexts.</p>
 Use the <code>has()</code> macro to <a href="../../cel-expressions/#optional-field-checking">check for presence of optional fields</a>
 before accessing them.</p>
 </div>
+<h2 id="result">Result<a class="headerlink" href="#result" title="Permanent link">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Available in 5.3.0 and later</p>
+<p>Earlier versions require condition expressions to return <code>bool</code>.</p>
+</div>
+<p>A condition expression returns either a <code>bool</code> or a <code>string</code>.</p>
+<ul>
+<li><code>true</code> records a violation, <code>false</code> does not.</li>
+<li>A non-blank string records a violation and uses the string as the violation message.
+  Dependency-Track trims the message and truncates it to 1024 characters. It appears in the
+  violation's <code>text</code> field in the <abbr title="Representational State Transfer">REST</abbr> API, and in <code>POLICY_VIOLATION</code> and
+  <code>NEW_POLICY_VIOLATIONS_SUMMARY</code> notifications.</li>
+<li>A blank string does not record a violation.</li>
+</ul>
+<p>Dependency-Track rejects component policy conditions whose expression returns any other type.
+Returning a string lets a condition explain <em>what</em> matched, for example which vulnerability
+or which license, instead of only that something matched.
+See <a href="#violation-messages">Violation messages</a> for an example.</p>
 <h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">¶</a></h2>
 <h3 id="component-age">Component age<a class="headerlink" href="#component-age" title="Permanent link">¶</a></h3>
 <p>Besides out-of-date versions, component age is another indicator of potential risk. Components may be on the latest
@@ -3500,6 +3562,23 @@ in a known exploited vulnerabilities catalog, such as <a href="https://www.cisa.
 50% chance of exploitation within the next 30 days:</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">vulns</span><span class="p">.</span><span class="nx">exists</span><span class="p">(</span><span class="nx">vuln</span><span class="p">,</span><span class="w"> </span><span class="nx">vuln</span><span class="p">.</span><span class="nx">is_kev</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">vuln</span><span class="p">.</span><span class="nx">epss_score</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0.5</span><span class="p">)</span>
 </code></pre></div></td></tr></tbody></table></div>
+<h3 id="violation-messages">Violation messages<a class="headerlink" href="#violation-messages" title="Permanent link">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Available in 5.3.0 and later</p>
+<p>Earlier versions require condition expressions to return <code>bool</code>.</p>
+</div>
+<p>The following expression matches <a href="../schema/#component">Component</a>s with a known exploited <a href="../schema/#vulnerability">Vulnerability</a>, and
+names the first one in the violation message. <code>cel.bind</code> assigns the matching vulnerabilities
+to a variable so the expression does not repeat the filter:</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">cel</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">kev</span><span class="p">,</span><span class="w"> </span><span class="nx">vulns</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">vuln</span><span class="p">,</span><span class="w"> </span><span class="nx">vuln</span><span class="p">.</span><span class="nx">is_kev</span><span class="p">),</span>
+<span class="w">  </span><span class="nx">kev</span><span class="p">.</span><span class="nx">size</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span>
+<span class="w">    </span><span class="o">?</span><span class="w"> </span><span class="s2">"Component is affected by known exploited vulnerability "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">kev</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">id</span>
+<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="s2">""</span><span class="p">)</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>Returning <code>""</code> when nothing matches records no violation.</p>
 <h3 id="suppressing-a-specific-cve-in-a-vulnerability-policy">Suppressing a specific CVE in a vulnerability policy<a class="headerlink" href="#suppressing-a-specific-cve-in-a-vulnerability-policy" title="Permanent link">¶</a></h3>
 <p>In a <a href="../vulnerability-policies/">vulnerability policy</a>, the subject is a single
 vulnerability. Field accesses on <code>vuln</code> replace the earlier <code>vulns.exists(...)</code>

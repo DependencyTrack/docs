@@ -1636,7 +1636,9 @@ vulnerability policies, with the same custom functions
 <a href="../../reference/policies/condition-expressions/#matches_range"><code>matches_range</code></a>,
 <a href="../../reference/policies/condition-expressions/#version_distance"><code>version_distance</code></a>, and others).
 Expression conditions let an organization encode rules that combine component fields, traverse the
-dependency graph, or operate on SPDX license expressions directly.</p>
+dependency graph, or operate on SPDX license expressions directly.
+An expression can also return a message instead of <code>true</code>, so the resulting violation explains
+what matched. See <a href="../../reference/policies/condition-expressions/#result">Result</a>.</p>
 <h2 id="where-a-policy-applies">Where a policy applies<a class="headerlink" href="#where-a-policy-applies" title="Permanent link">¶</a></h2>
 <p>By default, a policy applies to every project in the portfolio. Narrow it to specific projects, to
 descendants of those projects, or to projects carrying specific
