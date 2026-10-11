@@ -657,6 +657,7 @@ Subject for GROUP_NEW_VULNERABILITIES_SUMMARY notifications.
 | `timestamp` | `google.protobuf.Timestamp` |  | - |
 | `analysis_state` | `string` |  | - |
 | `suppressed` | `bool` |  | - |
+| `message` | `string` | Message produced by the policy condition expression, if any. | - |
 
 
 
@@ -880,6 +881,7 @@ Subject for GROUP_NEW_VULNERABILITIES_SUMMARY notifications.
 | `type` | `string` |  | - |
 | `timestamp` | `google.protobuf.Timestamp` |  | - |
 | `condition` | [`PolicyCondition`](#org-dependencytrack-notification-v1-PolicyCondition) |  | - |
+| `message` | `string` | Message produced by the policy condition expression, if any. | - |
 
 
 

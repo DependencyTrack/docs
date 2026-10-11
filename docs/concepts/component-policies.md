@@ -55,6 +55,8 @@ vulnerability policies, with the same custom functions
 [`version_distance`](../reference/policies/condition-expressions.md#version_distance), and others).
 Expression conditions let an organization encode rules that combine component fields, traverse the
 dependency graph, or operate on SPDX license expressions directly.
+An expression can also return a message instead of `true`, so the resulting violation explains
+what matched. See [Result](../reference/policies/condition-expressions.md#result).
 
 ## Where a policy applies
 
