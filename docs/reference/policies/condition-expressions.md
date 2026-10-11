@@ -42,6 +42,10 @@ custom functions documented below are available to both contexts.
 
 ## Result
 
+!!! note "Available in 5.3.0 and later"
+
+    Earlier versions require condition expressions to return `bool`.
+
 A condition expression returns either a `bool` or a `string`.
 
 * `true` records a violation, `false` does not.
@@ -234,6 +238,10 @@ vulns.exists(vuln, vuln.is_kev || vuln.epss_score > 0.5)
 ```
 
 ### Violation messages
+
+!!! note "Available in 5.3.0 and later"
+
+    Earlier versions require condition expressions to return `bool`.
 
 The following expression matches [Component]s with a known exploited [Vulnerability], and
 names the first one in the violation message. `cel.bind` assigns the matching vulnerabilities
