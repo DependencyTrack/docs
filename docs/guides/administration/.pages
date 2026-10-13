@@ -8,6 +8,7 @@ nav:
   - configuring-secret-management.md
   - configuring-internal-ca.md
   - configuring-http-proxy.md
+  - allowing-outbound-traffic.md
   - configuring-timezone.md
   - configuring-banner.md
   - configuring-vulnerability-sources.md
