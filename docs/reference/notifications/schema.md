@@ -930,6 +930,7 @@ Subject for GROUP_NEW_VULNERABILITIES_SUMMARY notifications.
 | `purl` | `string` |  | - |
 | `tags` | `string[]` |  | - |
 | `is_active` | `bool` |  | - |
+| `is_latest` | `bool` |  | - |
 
 
 
