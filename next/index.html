@@ -460,6 +460,100 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Features
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#find-and-rank-vulnerabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Find and rank vulnerabilities
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#know-whats-in-your-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Know what's in your software
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enforce-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enforce policies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#triage-and-share-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Triage and share decisions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integrate-and-automate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integrate and automate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#control-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Control access
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deploy-and-operate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deploy and operate
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#getting-started" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -844,6 +938,100 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Features
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#find-and-rank-vulnerabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Find and rank vulnerabilities
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#know-whats-in-your-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Know what's in your software
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enforce-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enforce policies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#triage-and-share-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Triage and share decisions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integrate-and-automate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integrate and automate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#control-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Control access
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deploy-and-operate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deploy and operate
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#getting-started" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -931,6 +1119,93 @@ An API-first design makes it a natural fit for CI/CD pipelines.</p>
 <p>This documentation covers Dependency-Track v5.
 For v4, see the <a href="../4.x/">v4 documentation</a>.</p>
 </div>
+<h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">¶</a></h2>
+<h3 id="find-and-rank-vulnerabilities">Find and rank vulnerabilities<a class="headerlink" href="#find-and-rank-vulnerabilities" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong>Continuous monitoring</strong>: Dependency-Track re-analyzes your portfolio on a schedule,
+  so newly disclosed <a href="concepts/vulnerability-findings/">vulnerabilities</a> surface without a new upload.</li>
+<li><strong>Multiple data sources</strong>: combine <a href="concepts/about-vulnerability-data-sources/">mirrored data sources</a>
+  such as <abbr title="National Vulnerability Database">NVD</abbr>, GitHub Advisories, and <abbr title="Open Source Vulnerabilities">OSV</abbr>
+  with <a href="reference/analyzers/">analyzers</a> such as Sonatype OSS Index, Snyk, Trivy, and VulnDB.</li>
+<li><strong>Risk-based prioritization</strong>: rank findings by <abbr title="Common Vulnerability Scoring System">CVSS</abbr> severity, <abbr title="Exploit Prediction Scoring System">EPSS</abbr> exploit prediction,
+  and <a href="concepts/about-kev-data-sources/">known exploited vulnerability catalogs</a> from <abbr title="Cybersecurity and Infrastructure Security Agency">CISA</abbr>, <abbr title="European Union Agency for Cybersecurity">ENISA</abbr>, and VulnCheck.</li>
+<li><strong>Dashboards and trends</strong>: follow risk scores for the portfolio, each project, and each component
+  <a href="concepts/time-series-metrics/">over time</a>.</li>
+<li><strong>Private vulnerabilities</strong>: track
+  <a href="guides/user/managing-private-vulnerabilities/">issues your organization discovers</a>
+  alongside public ones.</li>
+</ul>
+<h3 id="know-whats-in-your-software">Know what's in your software<a class="headerlink" href="#know-whats-in-your-software" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong><abbr title="Bill of Materials">BOM</abbr> import</strong>: upload <a href="reference/file-formats/">CycloneDX</a> BOMs from any ecosystem or build tool,
+  including services and the dependency graph.</li>
+<li><strong>Portfolio inventory</strong>: <a href="guides/user/organizing-projects/">organize projects</a>
+  with versions, hierarchies, and tags.</li>
+<li><strong>Portfolio-wide search</strong>: find every project that uses a component, or that a vulnerability affects.</li>
+<li><strong>Outdated component detection</strong>: check <a href="reference/datasources/repositories/">package repositories</a>
+  such as Maven Central, npm, and PyPI for newer versions,
+  and <a href="concepts/component-integrity-verification/">verify component integrity</a>.</li>
+</ul>
+<h3 id="enforce-policies">Enforce policies<a class="headerlink" href="#enforce-policies" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong>License compliance</strong>: flag components with licenses your organization doesn't allow,
+  using <a href="concepts/component-policies/">component policies</a> and license groups.</li>
+<li><strong>Security and operational rules</strong>: catch high-severity vulnerabilities, outdated or old components,
+  and banned packages.</li>
+<li><strong>Custom conditions</strong>: write <a href="reference/policies/condition-expressions/">condition expressions</a> in <abbr title="Common Expression Language">CEL</abbr>
+  when the built-in conditions don't fit.</li>
+<li><strong>Violation review</strong>: <a href="guides/user/triaging-policy-violations/">triage policy violations</a>
+  and approve, reject, or suppress them with a recorded reason.</li>
+</ul>
+<h3 id="triage-and-share-decisions">Triage and share decisions<a class="headerlink" href="#triage-and-share-decisions" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong>Audit trail</strong>: record an analysis state, justification, and comments for each finding, and keep their history.</li>
+<li><strong>Automated triage</strong>: apply decisions across the portfolio
+  with <a href="concepts/vulnerability-policies/">vulnerability policies</a>,
+  optionally distributed from a central bundle.</li>
+<li><strong><abbr title="Vulnerability Exploitability eXchange">VEX</abbr> and <abbr title="Vulnerability Disclosure Report">VDR</abbr></strong>: <a href="guides/user/exchanging-vex-documents/">exchange <abbr title="Vulnerability Exploitability eXchange">VEX</abbr> documents</a> with customers and suppliers,
+  and export vulnerability disclosure reports.</li>
+</ul>
+<h3 id="integrate-and-automate">Integrate and automate<a class="headerlink" href="#integrate-and-automate" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong>API-first</strong>: automate every task available in the UI
+  through the <a href="reference/api/v1/">v1</a> and <a href="reference/api/v2/">v2</a> <abbr title="Representational State Transfer">REST</abbr> APIs.</li>
+<li><strong>CI/CD</strong>: <a href="guides/user/uploading-boms/">upload SBOMs</a> from any pipeline with a single API call,
+  and let Dependency-Track create the project and version on first upload.</li>
+<li><strong>Notifications</strong>: send real-time alerts or scheduled summaries
+  to <a href="reference/notifications/publishers/">Slack, Microsoft Teams, Mattermost, Webex, email, Jira, webhooks, and Kafka</a>.</li>
+<li><strong>Vulnerability management platforms</strong>: forward findings to DefectDojo, Fortify SSC, and Kenna Security.</li>
+<li><strong>Badges</strong>: embed <a href="reference/badges/">vulnerability and policy badges</a> in README files and internal pages,
+  once an administrator turns on badge access.</li>
+<li><strong>Community integrations</strong>: <a href="reference/community-integrations/">plugins and tools</a>
+  for Jenkins, GitHub Actions, Azure DevOps, Maven, Backstage, and more.</li>
+</ul>
+<h3 id="control-access">Control access<a class="headerlink" href="#control-access" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong>Identity providers</strong>: sign in through <a href="guides/administration/configuring-oidc/"><abbr title="OpenID Connect">OIDC</abbr></a>
+  or <a href="guides/administration/configuring-ldap/"><abbr title="Lightweight Directory Access Protocol">LDAP</abbr></a>, with optional team synchronization.</li>
+<li><strong>Teams and permissions</strong>: grant fine-grained permissions to teams,
+  and limit which projects each team can see with <a href="concepts/access-control/">portfolio access control</a>.</li>
+<li><strong>Machine identities</strong>: give pipelines, scanners, and scripts their own
+  <a href="concepts/access-control/#service-accounts">service accounts</a>, with permissions separate from any person's account.</li>
+<li><strong>Keyless authentication</strong>: let GitHub Actions, GitLab CI, Kubernetes, or <abbr title="Secure Production Identity Framework for Everyone">SPIFFE</abbr> workloads sign in
+  with their platform's short-lived tokens through <a href="concepts/workload-identity-federation/">workload identity federation</a>,
+  with no API keys to store or rotate.</li>
+<li><strong>Centralized secrets</strong>: store integration credentials encrypted in one place
+  with <a href="guides/user/managing-secrets/">managed secrets</a>.</li>
+</ul>
+<h3 id="deploy-and-operate">Deploy and operate<a class="headerlink" href="#deploy-and-operate" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong>Open source and self-hosted</strong>: free under the Apache 2.0 license, running on your own infrastructure.</li>
+<li><strong>Minimal infrastructure</strong>: run the <a href="reference/container-images/">container images</a>
+  with PostgreSQL as the only external service.</li>
+<li><strong>Horizontal scaling</strong>: <a href="guides/administration/scaling/">add instances</a> as your portfolio grows,
+  for example <a href="guides/administration/deploying-to-kubernetes/">on Kubernetes</a>,
+  with health checks and Prometheus metrics.</li>
+<li><strong>Restricted networks</strong>: run behind an <a href="guides/administration/configuring-http-proxy/">HTTP proxy</a>,
+  or with an <a href="guides/administration/configuring-internal-ca/">internal certificate authority</a>.</li>
+<li><strong>Localized interface</strong>: use the web interface in 15 languages.</li>
+</ul>
 <h2 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">¶</a></h2>
 <p>Get Dependency-Track running locally in minutes with the <a href="tutorials/quickstart/">quick start tutorial</a>.</p>
 <p>Explore the documentation using the navigation tabs:</p>
