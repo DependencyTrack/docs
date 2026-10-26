@@ -129,6 +129,7 @@ Webex
 [Ii]dempoten(t|cy)
 [Jj]etstack
 [Kk]enna
+[Kk]eyless
 [Ll]iveness
 [Ll]ookups
 [Ll]oopback

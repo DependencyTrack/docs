@@ -1,6 +1,7 @@
 title: User guides
 nav:
   - index.md
+  - uploading-boms.md
   - organizing-projects.md
   - managing-project-versions.md
   - managing-component-policies.md
