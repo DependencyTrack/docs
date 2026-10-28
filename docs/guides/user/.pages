@@ -11,3 +11,4 @@ nav:
   - managing-private-vulnerabilities.md
   - configuring-notifications.md
   - managing-secrets.md
+  - filtering-projects.md
