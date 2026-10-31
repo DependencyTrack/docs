@@ -71,10 +71,9 @@ portfolio. To restrict it, expand the *Limit To* section and add one or
 more projects.
 
 !!! note
-    Scheduled alerts *require* a non-empty project list: the summary groups
+    Scheduled alerts *require* at least one project or tag: the summary groups
     cannot run across the entire portfolio because the payload would be too
-    large for most receiving systems and too expensive to compute. You cannot
-    save the alert without at least one project.
+    large for most receiving systems and too expensive to compute.
 
 To also receive notifications for child projects of the selected projects,
 enable *Include active children of projects*. The platform only includes
@@ -88,9 +87,13 @@ tags. Add the tags to the *Limit To* section.
 When the list contains more than one tag, a project matches if it has *at
 least one* of them. Tags combine with **OR** semantics.
 
-With both *Limit to projects* and *Limit to tags* set, a
-project matches if it meets *either* condition. The two restrictions
-also combine with **OR** semantics.
+With both *Limit to projects* and *Limit to tags* set, tags take
+precedence. Dependency-Track matches projects on tags only and ignores the
+project list.
+
+Scheduled alerts include only active projects. *Include active children of
+projects* does not extend tag matches to child projects. A child project
+must carry one of the tags itself.
 
 ## Scheduling
 
