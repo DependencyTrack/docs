@@ -106,11 +106,13 @@ Enable PAC in **Administration > Access Management > Portfolio Access Control**.
 
 !!! warning "Enabling PAC affects existing projects"
 
-    Existing projects keep their data but start with no team assignments. Until
-    an administrator (or a principal with `PORTFOLIO_ACCESS_CONTROL_BYPASS`)
-    assigns at least one team to each project, those projects become invisible
-    to all non-administrator users. Plan the assignment rollout before enabling
-    PAC on a production instance.
+    Existing projects keep their data and any team assignments made while PAC
+    was off, including the teams added when a team API key or service account
+    [created the project](#project-creation-under-pac). Projects without a team
+    assignment become invisible to all non-administrator users until an
+    administrator (or a principal with `PORTFOLIO_ACCESS_CONTROL_BYPASS`) assigns
+    at least one team to them. Plan the assignment rollout before enabling PAC on
+    a production instance.
 
 PAC is most useful in multi-tenant scenarios where different teams should not see
 each other's projects. For single-team or open environments, PAC adds management
@@ -211,7 +213,9 @@ the full portfolio.
 When a team API key or a service account creates a project (for example, via
 BOM upload with `PROJECT_CREATION_UPLOAD`), Dependency-Track adds its first team
 in alphabetical order to the new project's ACL. A service account that belongs
-to no team adds no team to the ACL.
+to no team adds no team to the ACL. Dependency-Track adds this team even while
+PAC is off, so automation keeps access to the projects it created once you
+enable PAC.
 
 When a user creates a project, they must designate an owning team from those
 they belong to. The chosen team is added to the new project's ACL. A project
