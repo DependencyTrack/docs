@@ -248,7 +248,8 @@ paths:
         schema:
           type: string
           enum:
-          - "asc, desc"
+          - asc
+          - desc
       - description: The UUID of the team to retrieve mappings for
         in: path
         name: uuid
@@ -931,7 +932,8 @@ paths:
         schema:
           type: string
           enum:
-          - "asc, desc"
+          - asc
+          - desc
       - description: "The MD5, SHA-1, SHA-256, SHA-384, SHA-512, SHA3-256, SHA3-384,\
           \ SHA3-512, BLAKE2b-256, BLAKE2b-384, BLAKE2b-512, BLAKE3, Streebog-256,\
           \ or Streebog-512 hash of the component to retrieve"
@@ -1007,7 +1009,8 @@ paths:
         schema:
           type: string
           enum:
-          - "asc, desc"
+          - asc
+          - desc
       - description: The group of the component
         in: query
         name: group
@@ -1192,7 +1195,8 @@ paths:
         schema:
           type: string
           enum:
-          - "asc, desc"
+          - asc
+          - desc
       - description: The UUID of the project to retrieve components for
         in: path
         name: uuid
@@ -1399,7 +1403,8 @@ paths:
         schema:
           type: string
           enum:
-          - "asc, desc"
+          - asc
+          - desc
       - in: path
         name: uuid
         required: true
@@ -1465,7 +1470,11 @@ paths:
                 $ref: "#/components/schemas/ProblemDetails"
           description: Access to the requested project is forbidden
         "404":
-          description: The project could not be found
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+          description: The component could not be found
       security:
       - ApiKeyAuth: []
       - BearerAuth: []
@@ -1505,6 +1514,10 @@ paths:
                 $ref: "#/components/schemas/ProblemDetails"
           description: Access to the requested project is forbidden
         "404":
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
           description: The component could not be found
         "409":
           description: A property with the specified component/group/name combination
@@ -1547,6 +1560,10 @@ paths:
                 $ref: "#/components/schemas/ProblemDetails"
           description: Access to the requested project is forbidden
         "404":
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
           description: The component or component property could not be found
       security:
       - ApiKeyAuth: []
@@ -1758,7 +1775,8 @@ paths:
         schema:
           type: string
           enum:
-          - "asc, desc"
+          - asc
+          - desc
       responses:
         "200":
           content:
@@ -1962,7 +1980,8 @@ paths:
         schema:
           type: string
           enum:
-          - "asc, desc"
+          - asc
+          - desc
       - description: Show inactive projects
         in: query
         name: showInactive
@@ -2162,7 +2181,8 @@ paths:
         schema:
           type: string
           enum:
-          - "asc, desc"
+          - asc
+          - desc
       - description: Show inactive projects
         in: query
         name: showInactive
@@ -2355,7 +2375,8 @@ paths:
         schema:
           type: string
           enum:
-          - "asc, desc"
+          - asc
+          - desc
       - description: The UUID of the project
         in: path
         name: uuid
@@ -2696,7 +2717,8 @@ paths:
         schema:
           type: string
           enum:
-          - "asc, desc"
+          - asc
+          - desc
       responses:
         "200":
           content:
@@ -2866,7 +2888,8 @@ paths:
         schema:
           type: string
           enum:
-          - "asc, desc"
+          - asc
+          - desc
       responses:
         "200":
           content:
@@ -3733,7 +3756,8 @@ paths:
         schema:
           type: string
           enum:
-          - "asc, desc"
+          - asc
+          - desc
       - description: The notification trigger type to filter on
         in: query
         name: triggerType
@@ -3813,6 +3837,13 @@ paths:
               schema:
                 $ref: "#/components/schemas/NotificationRule"
           description: The created notification rule
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/InvalidNotificationFilterExpressionProblemDetails"
+          description: "Invalid filter expression, publisher configuration, or notification\
+            \ groups"
         "401":
           description: Unauthorized
         "404":
@@ -3840,6 +3871,13 @@ paths:
               schema:
                 $ref: "#/components/schemas/NotificationRule"
           description: The created scheduled notification rule
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/InvalidNotificationFilterExpressionProblemDetails"
+          description: "Invalid filter expression, publisher configuration, schedule,\
+            \ or notification groups"
         "401":
           description: Unauthorized
         "404":
@@ -4547,7 +4585,8 @@ paths:
         schema:
           type: string
           enum:
-          - "asc, desc"
+          - asc
+          - desc
       responses:
         "200":
           content:
@@ -4899,7 +4938,8 @@ paths:
         schema:
           type: string
           enum:
-          - "asc, desc"
+          - asc
+          - desc
       - description: The optional name of the project to query on
         in: query
         name: name
@@ -5113,7 +5153,8 @@ paths:
         schema:
           type: string
           enum:
-          - "asc, desc"
+          - asc
+          - desc
       - description: The classifier to query on
         in: path
         name: classifier
@@ -5244,7 +5285,8 @@ paths:
         schema:
           type: string
           enum:
-          - "asc, desc"
+          - asc
+          - desc
       - description: Name to filter on. Must be exact match.
         in: query
         name: name
@@ -5349,7 +5391,8 @@ paths:
         schema:
           type: string
           enum:
-          - "asc, desc"
+          - asc
+          - desc
       - description: UUID of the project
         in: path
         name: uuid
@@ -5529,7 +5572,8 @@ paths:
         schema:
           type: string
           enum:
-          - "asc, desc"
+          - asc
+          - desc
       - description: The tag to query on
         in: path
         name: tag
@@ -5610,7 +5654,8 @@ paths:
         schema:
           type: string
           enum:
-          - "asc, desc"
+          - asc
+          - desc
       - description: The UUID of the project which descendants will be excluded
         in: path
         name: uuid
@@ -5831,7 +5876,8 @@ paths:
         schema:
           type: string
           enum:
-          - "asc, desc"
+          - asc
+          - desc
       - description: The UUID of the project to get the children from
         in: path
         name: uuid
@@ -5916,7 +5962,8 @@ paths:
         schema:
           type: string
           enum:
-          - "asc, desc"
+          - asc
+          - desc
       - description: The classifier to query on
         in: path
         name: classifier
@@ -6021,7 +6068,8 @@ paths:
         schema:
           type: string
           enum:
-          - "asc, desc"
+          - asc
+          - desc
       - description: The tag to query on
         in: path
         name: tag
@@ -6101,6 +6149,10 @@ paths:
                 $ref: "#/components/schemas/ProblemDetails"
           description: Access to the requested project is forbidden
         "404":
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
           description: The project or project property could not be found
       security:
       - ApiKeyAuth: []
@@ -6138,6 +6190,10 @@ paths:
                 $ref: "#/components/schemas/ProblemDetails"
           description: Access to the requested project is forbidden
         "404":
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
           description: The project could not be found
       security:
       - ApiKeyAuth: []
@@ -6178,7 +6234,11 @@ paths:
                 $ref: "#/components/schemas/ProblemDetails"
           description: Access to the requested project is forbidden
         "404":
-          description: The project could not be found
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+          description: The project or project property could not be found
       security:
       - ApiKeyAuth: []
       - BearerAuth: []
@@ -6218,6 +6278,10 @@ paths:
                 $ref: "#/components/schemas/ProblemDetails"
           description: Access to the requested project is forbidden
         "404":
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
           description: The project could not be found
         "409":
           description: A property with the specified project/group/name combination
@@ -6270,7 +6334,8 @@ paths:
         schema:
           type: string
           enum:
-          - "asc, desc"
+          - asc
+          - desc
       responses:
         "200":
           content:
@@ -6424,7 +6489,8 @@ paths:
         schema:
           type: string
           enum:
-          - "asc, desc"
+          - asc
+          - desc
       - description: The type of repositories to retrieve
         in: path
         name: type
@@ -6569,7 +6635,8 @@ paths:
         schema:
           type: string
           enum:
-          - "asc, desc"
+          - asc
+          - desc
       - description: The UUID of the project
         in: path
         name: uuid
@@ -6795,7 +6862,8 @@ paths:
         schema:
           type: string
           enum:
-          - "asc, desc"
+          - asc
+          - desc
       responses:
         "200":
           content:
@@ -6917,7 +6985,8 @@ paths:
         schema:
           type: string
           enum:
-          - "asc, desc"
+          - asc
+          - desc
       - description: Name of the tag to get collection projects for
         in: path
         name: name
@@ -7029,7 +7098,8 @@ paths:
         schema:
           type: string
           enum:
-          - "asc, desc"
+          - asc
+          - desc
       - description: Name of the tag to get notification rules for
         in: path
         name: name
@@ -7177,7 +7247,8 @@ paths:
         schema:
           type: string
           enum:
-          - "asc, desc"
+          - asc
+          - desc
       - description: Name of the tag to get policies for.
         in: path
         name: name
@@ -7325,7 +7396,8 @@ paths:
         schema:
           type: string
           enum:
-          - "asc, desc"
+          - asc
+          - desc
       - description: Name of the tag to get projects for.
         in: path
         name: name
@@ -7475,7 +7547,8 @@ paths:
         schema:
           type: string
           enum:
-          - "asc, desc"
+          - asc
+          - desc
       - description: Name of the tag to get vulnerabilities for.
         in: path
         name: name
@@ -7565,7 +7638,8 @@ paths:
         schema:
           type: string
           enum:
-          - "asc, desc"
+          - asc
+          - desc
       responses:
         "200":
           content:
@@ -7802,7 +7876,8 @@ paths:
         schema:
           type: string
           enum:
-          - "asc, desc"
+          - asc
+          - desc
       responses:
         "200":
           content:
@@ -8638,7 +8713,8 @@ paths:
         schema:
           type: string
           enum:
-          - "asc, desc"
+          - asc
+          - desc
       - description: Optionally includes suppressed violations
         in: query
         name: suppressed
@@ -8826,7 +8902,8 @@ paths:
         schema:
           type: string
           enum:
-          - "asc, desc"
+          - asc
+          - desc
       - description: The UUID of the component
         in: path
         name: uuid
@@ -8911,7 +8988,8 @@ paths:
         schema:
           type: string
           enum:
-          - "asc, desc"
+          - asc
+          - desc
       - description: The UUID of the project
         in: path
         name: uuid
@@ -8996,7 +9074,8 @@ paths:
         schema:
           type: string
           enum:
-          - "asc, desc"
+          - asc
+          - desc
       responses:
         "200":
           content:
@@ -9114,7 +9193,8 @@ paths:
         schema:
           type: string
           enum:
-          - "asc, desc"
+          - asc
+          - desc
       - description: The UUID of the component to retrieve vulnerabilities for
         in: path
         name: uuid
@@ -9372,7 +9452,8 @@ paths:
         schema:
           type: string
           enum:
-          - "asc, desc"
+          - asc
+          - desc
       - description: Optional case-insensitive substring match on project name.
         in: query
         name: searchText
@@ -10727,22 +10808,67 @@ components:
     CreateNotificationRuleRequest:
       type: object
       properties:
+        enabled:
+          type: boolean
+        filterExpression:
+          type: string
+          maxLength: 2048
+          minLength: 0
         level:
           type: string
           enum:
           - INFORMATIONAL
           - WARNING
           - ERROR
+        logSuccessfulPublish:
+          type: boolean
         name:
           type: string
           minLength: 1
+        notifyChildren:
+          type: boolean
+        notifyOn:
+          type: array
+          items:
+            type: string
+            enum:
+            - CONFIGURATION
+            - DATASOURCE_MIRRORING
+            - REPOSITORY
+            - INTEGRATION
+            - FILE_SYSTEM
+            - ANALYZER
+            - NEW_VULNERABILITY
+            - NEW_VULNERABLE_DEPENDENCY
+            - VULNERABILITY_RETRACTED
+            - PROJECT_AUDIT_CHANGE
+            - BOM_CONSUMED
+            - BOM_PROCESSED
+            - BOM_PROCESSING_FAILED
+            - BOM_VALIDATION_FAILED
+            - VEX_CONSUMED
+            - VEX_PROCESSED
+            - POLICY_VIOLATION
+            - PROJECT_CREATED
+            - USER_CREATED
+            - USER_DELETED
+            - NEW_VULNERABILITIES_SUMMARY
+            - NEW_POLICY_VIOLATIONS_SUMMARY
+          uniqueItems: true
         publisher:
           $ref: "#/components/schemas/Publisher"
+        publisherConfig:
+          type: string
         scope:
           type: string
           enum:
           - SYSTEM
           - PORTFOLIO
+        tags:
+          type: array
+          items:
+            $ref: "#/components/schemas/Tag"
+          uniqueItems: true
       required:
       - level
       - name
@@ -10912,24 +11038,73 @@ components:
     CreateScheduledNotificationRuleRequest:
       type: object
       properties:
+        enabled:
+          type: boolean
+        filterExpression:
+          type: string
+          maxLength: 2048
+          minLength: 0
         level:
           type: string
           enum:
           - INFORMATIONAL
           - WARNING
           - ERROR
+        logSuccessfulPublish:
+          type: boolean
         name:
           type: string
           maxLength: 255
           minLength: 1
           pattern: "^[\\p{IsWhite_Space}\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]*$"
+        notifyChildren:
+          type: boolean
+        notifyOn:
+          type: array
+          items:
+            type: string
+            enum:
+            - CONFIGURATION
+            - DATASOURCE_MIRRORING
+            - REPOSITORY
+            - INTEGRATION
+            - FILE_SYSTEM
+            - ANALYZER
+            - NEW_VULNERABILITY
+            - NEW_VULNERABLE_DEPENDENCY
+            - VULNERABILITY_RETRACTED
+            - PROJECT_AUDIT_CHANGE
+            - BOM_CONSUMED
+            - BOM_PROCESSED
+            - BOM_PROCESSING_FAILED
+            - BOM_VALIDATION_FAILED
+            - VEX_CONSUMED
+            - VEX_PROCESSED
+            - POLICY_VIOLATION
+            - PROJECT_CREATED
+            - USER_CREATED
+            - USER_DELETED
+            - NEW_VULNERABILITIES_SUMMARY
+            - NEW_POLICY_VIOLATIONS_SUMMARY
+          uniqueItems: true
         publisher:
           $ref: "#/components/schemas/Publisher"
+        publisherConfig:
+          type: string
+        scheduleCron:
+          type: string
+        scheduleSkipUnchanged:
+          type: boolean
         scope:
           type: string
           enum:
           - SYSTEM
           - PORTFOLIO
+        tags:
+          type: array
+          items:
+            $ref: "#/components/schemas/Tag"
+          uniqueItems: true
       required:
       - level
       - name
