@@ -211,7 +211,9 @@ the full portfolio.
 When a team API key or a service account creates a project (for example, via
 BOM upload with `PROJECT_CREATION_UPLOAD`), Dependency-Track adds its first team
 in alphabetical order to the new project's ACL. A service account that belongs
-to no team adds no team to the ACL.
+to no team adds no team to the ACL. To grant access to other teams as well, list
+them in `accessTeams` when you create the project through the REST API or a
+[BOM upload](../guides/user/uploading-boms.md#upload-via-rest-api).
 
 When a user creates a project, they must designate an owning team from those
 they belong to. The chosen team is added to the new project's ACL. A project

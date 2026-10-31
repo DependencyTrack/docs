@@ -54,6 +54,9 @@ When it creates one, it also applies these optional fields:
 * `parentUUID`, or `parentName` and `parentVersion`, to place the project in a [hierarchy](organizing-projects.md).
 * `projectTags`, a comma-separated list of tags.
 * `isLatest=true`, to mark the version as the [latest](managing-project-versions.md#mark-a-version-as-latest).
+* `accessTeams`, a JSON array of teams to grant [access to the project](../../concepts/access-control.md#portfolio-access-control),
+  for example `[{"name": "Team A"}]`. Identify each team by `name` or `uuid`.
+  You can only assign teams you're a member of, unless you hold `ACCESS_MANAGEMENT`.
 
 Send `isActive` only when you intend to change the project's active state.
 It applies to existing projects too.
