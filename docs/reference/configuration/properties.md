@@ -1081,6 +1081,17 @@ Defines the path to the data directory. This directory will hold logs,  keys, an
 <tr><th>ENV</th><td><code>DT_DATA_DIRECTORY</code></td></tr>
 </table>
 
+<span id="dtfrontend-url">**`dt.frontend-url`** [¶](#dtfrontend-url){ .headerlink }</span>
+
+Defines the publicly reachable URL of the frontend.  Used where the API server redirects browsers to the frontend,  for example after a SAML login, where users are sent to the frontend's `/login/saml` route.  
+
+<table>
+<tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
+<tr><th>Default</th><td><code>null</code></td></tr>
+<tr><th>Example</th><td><code>https://dtrack.example.com</code></td></tr>
+<tr><th>ENV</th><td><code>DT_FRONTEND_URL</code></td></tr>
+</table>
+
 <span id="dtinit-taskdatabase-migrationenabled">**`dt.init-task.database-migration.enabled`** [¶](#dtinit-taskdatabase-migrationenabled){ .headerlink }</span>
 
 Whether to enable the database migration init task.  Has no effect unless [`dt.init-tasks.enabled`](#dtinit-tasksenabled) is `true`.  
@@ -1601,6 +1612,137 @@ Defines the name of the claim that contains the username in the provider's useri
 <tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
 <tr><th>Default</th><td><code>name</code></td></tr>
 <tr><th>ENV</th><td><code>DT_OIDC_USERNAME_CLAIM</code></td></tr>
+</table>
+
+
+
+## SAML
+
+<span id="dtsamldefault-teams">**`dt.saml.default-teams`** [¶](#dtsamldefault-teams){ .headerlink }</span>
+
+Defines one or more team names that newly provisioned SAML users are added to.  Has no effect when `[`dt.saml.user-provisioning`](#dtsamluser-provisioning)` is disabled, or `[`dt.saml.team-synchronization`](#dtsamlteam-synchronization)` is enabled.  
+
+<table>
+<tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
+<tr><th>Default</th><td><code>null</code></td></tr>
+<tr><th>Example</th><td><code>team1,team2</code></td></tr>
+<tr><th>ENV</th><td><code>DT_SAML_DEFAULT_TEAMS</code></td></tr>
+</table>
+
+<span id="dtsamlemail-attribute">**`dt.saml.email-attribute`** [¶](#dtsamlemail-attribute){ .headerlink }</span>
+
+Defines the name of the assertion attribute that contains the email address.  
+
+<table>
+<tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
+<tr><th>Default</th><td><code>null</code></td></tr>
+<tr><th>Example</th><td><code>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress</code></td></tr>
+<tr><th>ENV</th><td><code>DT_SAML_EMAIL_ATTRIBUTE</code></td></tr>
+</table>
+
+<span id="dtsamlenabled">**`dt.saml.enabled`** [¶](#dtsamlenabled){ .headerlink }</span>
+
+Defines if SAML 2.0 will be used for user authentication.  If enabled, `dt.saml.*` properties should be set accordingly.  The frontend must be configured with `SAML_ENABLED=true` to show the SAML login button.  
+
+<table>
+<tr><th>Type</th><td style="border-width: 0"><code>boolean</code></td></tr>
+<tr><th>Default</th><td><code>false</code></td></tr>
+<tr><th>ENV</th><td><code>DT_SAML_ENABLED</code></td></tr>
+</table>
+
+<span id="dtsamlgroup-provisioning">**`dt.saml.group-provisioning`** [¶](#dtsamlgroup-provisioning){ .headerlink }</span>
+
+Specifies if a SAML group is created for every group of a user that does not exist yet.  Group names are taken verbatim from the groups attribute. Teams are not created,  and groups still need to be mapped to teams by an administrator.  
+
+<table>
+<tr><th>Type</th><td style="border-width: 0"><code>boolean</code></td></tr>
+<tr><th>Default</th><td><code>false</code></td></tr>
+<tr><th>ENV</th><td><code>DT_SAML_GROUP_PROVISIONING</code></td></tr>
+</table>
+
+<span id="dtsamlgroups-attribute">**`dt.saml.groups-attribute`** [¶](#dtsamlgroups-attribute){ .headerlink }</span>
+
+Defines the name of the assertion attribute that contains group memberships.  Each attribute value is treated as one group name. Required for team synchronization  and group provisioning.  
+
+<table>
+<tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
+<tr><th>Default</th><td><code>null</code></td></tr>
+<tr><th>Example</th><td><code>http://schemas.microsoft.com/ws/2008/06/identity/claims/groups</code></td></tr>
+<tr><th>ENV</th><td><code>DT_SAML_GROUPS_ATTRIBUTE</code></td></tr>
+</table>
+
+<span id="dtsamlidpmetadata-file">**`dt.saml.idp.metadata-file`** [¶](#dtsamlidpmetadata-file){ .headerlink }</span>
+
+Defines the path of a file containing the SAML metadata of the identity provider.  Exactly one of `[`dt.saml.idp.metadata-url`](#dtsamlidpmetadata-url)` and `[`dt.saml.idp.metadata-file`](#dtsamlidpmetadata-file)` must be set.  
+
+<table>
+<tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
+<tr><th>Default</th><td><code>null</code></td></tr>
+<tr><th>ENV</th><td><code>DT_SAML_IDP_METADATA_FILE</code></td></tr>
+</table>
+
+<span id="dtsamlidpmetadata-url">**`dt.saml.idp.metadata-url`** [¶](#dtsamlidpmetadata-url){ .headerlink }</span>
+
+Defines the URL from which the SAML metadata of the identity provider is fetched.  The metadata is cached for one hour. Exactly one of `[`dt.saml.idp.metadata-url`](#dtsamlidpmetadata-url)`  and `[`dt.saml.idp.metadata-file`](#dtsamlidpmetadata-file)` must be set.  
+
+<table>
+<tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
+<tr><th>Default</th><td><code>null</code></td></tr>
+<tr><th>Example</th><td><code>https://login.microsoftonline.com/<tenant-id>/federationmetadata/2007-06/federationmetadata.xml?appid=<app-id></code></td></tr>
+<tr><th>ENV</th><td><code>DT_SAML_IDP_METADATA_URL</code></td></tr>
+</table>
+
+<span id="dtsamlspacs-url">**`dt.saml.sp.acs-url`** [¶](#dtsamlspacs-url){ .headerlink }</span>
+
+Defines the publicly reachable URL of the assertion consumer service (ACS).  This is the API server's `/api/v2/saml/acs` endpoint, as seen by users' browsers.  Must match the reply URL configured in the identity provider.  
+
+<table>
+<tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
+<tr><th>Default</th><td><code>null</code></td></tr>
+<tr><th>Example</th><td><code>https://dtrack-api.example.com/api/v2/saml/acs</code></td></tr>
+<tr><th>ENV</th><td><code>DT_SAML_SP_ACS_URL</code></td></tr>
+</table>
+
+<span id="dtsamlspentity-id">**`dt.saml.sp.entity-id`** [¶](#dtsamlspentity-id){ .headerlink }</span>
+
+Defines the entity ID of Dependency-Track as SAML service provider.  Must match the identifier configured for Dependency-Track in the identity provider.  
+
+<table>
+<tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
+<tr><th>Default</th><td><code>null</code></td></tr>
+<tr><th>Example</th><td><code>https://dtrack.example.com</code></td></tr>
+<tr><th>ENV</th><td><code>DT_SAML_SP_ENTITY_ID</code></td></tr>
+</table>
+
+<span id="dtsamlteam-synchronization">**`dt.saml.team-synchronization`** [¶](#dtsamlteam-synchronization){ .headerlink }</span>
+
+Specifies if team memberships of SAML users are synchronized with their groups on every login.  Users are added to all teams mapped to one of their groups, and removed from all other teams.  
+
+<table>
+<tr><th>Type</th><td style="border-width: 0"><code>boolean</code></td></tr>
+<tr><th>Default</th><td><code>false</code></td></tr>
+<tr><th>ENV</th><td><code>DT_SAML_TEAM_SYNCHRONIZATION</code></td></tr>
+</table>
+
+<span id="dtsamluser-provisioning">**`dt.saml.user-provisioning`** [¶](#dtsamluser-provisioning){ .headerlink }</span>
+
+Specifies if SAML users are automatically created upon their first successful login.  When disabled, users must be created by an administrator before they can log in.  
+
+<table>
+<tr><th>Type</th><td style="border-width: 0"><code>boolean</code></td></tr>
+<tr><th>Default</th><td><code>false</code></td></tr>
+<tr><th>ENV</th><td><code>DT_SAML_USER_PROVISIONING</code></td></tr>
+</table>
+
+<span id="dtsamlusername-attribute">**`dt.saml.username-attribute`** [¶](#dtsamlusername-attribute){ .headerlink }</span>
+
+Defines the name of the assertion attribute that contains the username.  When not set, the `NameID` of the assertion's subject is used.  
+
+<table>
+<tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
+<tr><th>Default</th><td><code>null</code></td></tr>
+<tr><th>Example</th><td><code>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name</code></td></tr>
+<tr><th>ENV</th><td><code>DT_SAML_USERNAME_ATTRIBUTE</code></td></tr>
 </table>
 
 

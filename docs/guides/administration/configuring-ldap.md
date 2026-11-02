@@ -174,4 +174,5 @@ environment variable equivalents, see the
 
 - [Permissions](../../reference/permissions.md): mapping LDAP groups to Dependency-Track teams
 - [Configuring OpenID Connect](configuring-oidc.md): alternative to LDAP using OpenID Connect
+- [Configuring SAML](configuring-saml.md): alternative to LDAP using SAML 2.0
 - [Configuring internal CA trust](configuring-internal-ca.md): trust internal TLS certificates for LDAPS
