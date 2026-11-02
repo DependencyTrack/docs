@@ -22,6 +22,7 @@
 *[PAC]: Portfolio Access Control
 *[PURL]: Package URL, a standardized format for identifying software packages
 *[REST]: Representational State Transfer
+*[SAML]: Security Assertion Markup Language
 *[SARIF]: Static Analysis Results Interchange Format
 *[SBOM]: Software Bill of Materials
 *[SLO]: Service Level Objectives

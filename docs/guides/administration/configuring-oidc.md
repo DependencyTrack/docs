@@ -223,4 +223,5 @@ For a full list of OIDC-related configuration properties, see the
 
 - [Permissions](../../reference/permissions.md): mapping IdP groups to Dependency-Track teams
 - [Configuring LDAP](configuring-ldap.md): alternative to OIDC using LDAP
+- [Configuring SAML](configuring-saml.md): alternative to OIDC using SAML 2.0
 - [Configuring Internal CA](configuring-internal-ca.md): trust internal TLS certificates for the IdP
