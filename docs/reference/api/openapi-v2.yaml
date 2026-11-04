@@ -41,6 +41,25 @@ info:
     instead of exact counts (type `EXACT`). Which type to expect is usually
     documented in the operation's description.
 
+    ## Filtering
+
+    Items in a collection can be filtered using query parameters.
+    When multiple filter parameters are given, an item must match all of them.
+
+    Filters that accept multiple values take them as repeated parameters,
+    e.g. `?<field>=a&<field>=b`. How the values are combined depends on the field:
+
+    - If the field holds a single value, an item matches when it has *any* of the given values.
+    - If the field holds multiple values, the parameter name states how they are combined:
+      `<field>_all` requires every given value, `<field>_any` at least one.
+
+    Time range filters are named `<field>_since` and `<field>_before`.
+    `_since` is inclusive and `_before` is exclusive, so adjacent ranges neither overlap nor leave gaps.
+
+    Text filters state how they match with a suffix: `<field>_contains` matches a substring,
+    `<field>_prefix` the start of the value. A filter without a suffix matches the exact value.
+    Which filter types are available depends on the operation.
+
     ## Sorting
 
     Items in a collection can be sorted using the `sort_by` and `sort_direction`
@@ -354,6 +373,7 @@ paths:
           type: string
       - name: sort_direction
         in: query
+        description: Direction to sort in.
         schema:
           $ref: "#/components/schemas/sort-direction"
       - name: sort_by
@@ -823,6 +843,219 @@ paths:
         default:
           $ref: "#/components/responses/generic-error"
       security: []
+  /projects:
+    get:
+      tags:
+      - Projects
+      summary: List all projects
+      description: |-
+        Retrieves a paginated list of projects matching the provided filter criteria.
+
+        Text filters are case-insensitive. When portfolio access control is enabled,
+        only projects accessible to the caller are returned.
+
+        Results are sorted by `name` ascending when `sort_by` is omitted.
+
+        Reports `EXACT` total counts for up to 500 items, and `AT_LEAST` past that.
+
+        ### Sortable fields
+
+        Sorting is supported for the following fields:
+
+        * `name`
+        * `group`
+        * `version`
+        * `classifier`
+        * `last_bom_import`
+        * `last_inherited_risk_score`
+
+        ### Expandable fields
+
+        The following fields can be included via `expand`:
+
+        * `metrics`
+        * `parent`
+        * `teams`
+
+        Requires permission `VIEW_PORTFOLIO`.
+      operationId: listProjects
+      parameters:
+      - name: name_contains
+        in: query
+        description: |-
+          Filter by name (substring match).
+
+          Leading and trailing whitespace is ignored. Values that are empty or
+          whitespace-only are treated as if the parameter was omitted.
+        schema:
+          type: string
+      - name: version_contains
+        in: query
+        description: |-
+          Filter by version (substring match).
+
+          Leading and trailing whitespace is ignored. Values that are empty or
+          whitespace-only are treated as if the parameter was omitted.
+        schema:
+          type: string
+      - name: tags_all
+        in: query
+        description: |-
+          Filter by tag names (exact match, case-insensitive).
+          When multiple values are provided, only projects matching **all** tags are returned.
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: teams_any
+        in: query
+        description: |-
+          Filter by team names (exact match, case-insensitive).
+          When multiple values are provided, projects matching **any** of the teams are returned.
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: parent_uuid
+        in: query
+        description: |-
+          Filter by parent project UUID.
+
+          Returns only direct children of the given parent (one hierarchy level).
+
+          When portfolio access control is enabled and the caller does not have
+          access to the parent project, an empty result set is returned.
+
+          For all descendants at any depth under a root or other ancestor,
+          use `ancestor_uuid` instead.
+        schema:
+          type: string
+          format: uuid
+      - name: ancestor_uuid
+        in: query
+        description: |-
+          Filter by ancestor project UUID.
+
+          Returns all descendants of the given project at any depth
+          (excluding the ancestor itself).
+
+          When portfolio access control is enabled and the caller does not have
+          access to the ancestor project, an empty result set is returned.
+          Individual descendants remain subject to the caller's project ACL.
+        schema:
+          type: string
+          format: uuid
+      - name: only_root
+        in: query
+        description: "When `true`, return only root projects (those without a parent)."
+        schema:
+          type: boolean
+      - name: state
+        in: query
+        description: |-
+          Filter by project active state.
+
+          Omit to include projects regardless of active state.
+        schema:
+          $ref: "#/components/schemas/project-state"
+      - name: is_latest
+        in: query
+        description: |-
+          When `true`, return only latest-version projects.
+          When `false`, return only non-latest projects.
+          Omit to include projects regardless of the flag.
+        schema:
+          type: boolean
+      - name: last_bom_import_since
+        in: query
+        description: |-
+          Filter by last BOM import time (inclusive lower bound).
+
+          Projects that have never imported a BOM are excluded whenever
+          `last_bom_import_since` or `last_bom_import_before` is set.
+        schema:
+          $ref: "#/components/schemas/timestamp"
+      - name: last_bom_import_before
+        in: query
+        description: Filter by last BOM import time (exclusive upper bound).
+        schema:
+          $ref: "#/components/schemas/timestamp"
+      - name: classifier
+        in: query
+        description: |-
+          Filter by project classifier (exact match).
+          When multiple values are provided, projects matching **any** of the classifiers are returned.
+
+          Values must match the shared classifier schema. Unknown values result in `400 Bad Request`.
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            $ref: "#/components/schemas/classifier"
+      - name: expand
+        in: query
+        description: Optional fields to include in each project response item. Unknown
+          values are silently ignored.
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: limit
+        in: query
+        description: Maximum number of items to retrieve from the collection
+        schema:
+          maximum: 1000
+          minimum: 1
+          type: integer
+          format: int32
+          default: 100
+      - name: page_token
+        in: query
+        description: Opaque token pointing to a specific position in a collection
+        schema:
+          type: string
+      - name: sort_direction
+        in: query
+        description: Direction to sort in.
+        schema:
+          $ref: "#/components/schemas/sort-direction"
+      - name: sort_by
+        in: query
+        description: Field to sort by. Refer to the operation description for information
+          about which fields are sortable.
+        schema:
+          maxLength: 255
+          minLength: 1
+          type: string
+      responses:
+        "200":
+          description: A list of projects matching the provided filters
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/list-projects-response"
+        "400":
+          description: Bad Request
+          content:
+            application/problem+json:
+              schema:
+                anyOf:
+                - $ref: "#/components/schemas/invalid-sort-field-problem-details"
+                - $ref: "#/components/schemas/invalid-request-problem-details"
+                - $ref: "#/components/schemas/problem-details"
+        "401":
+          $ref: "#/components/responses/generic-unauthorized-error"
+        "403":
+          $ref: "#/components/responses/generic-forbidden-error"
+        default:
+          $ref: "#/components/responses/generic-error"
   /projects/{uuid}/clone:
     post:
       tags:
@@ -948,6 +1181,7 @@ paths:
           type: string
       - name: sort_direction
         in: query
+        description: Direction to sort in.
         schema:
           $ref: "#/components/schemas/sort-direction"
       - name: sort_by
@@ -973,6 +1207,46 @@ paths:
                 anyOf:
                 - $ref: "#/components/schemas/invalid-sort-field-problem-details"
                 - $ref: "#/components/schemas/problem-details"
+        "401":
+          $ref: "#/components/responses/generic-unauthorized-error"
+        "403":
+          $ref: "#/components/responses/generic-forbidden-error"
+        "404":
+          $ref: "#/components/responses/generic-not-found-error"
+        default:
+          $ref: "#/components/responses/generic-error"
+  /projects/{uuid}/dependency-graph:
+    get:
+      tags:
+      - Projects
+      summary: Get project dependency graph
+      description: |-
+        Retrieves the entire dependency graph of a given project.
+
+        `nodes` contains the project itself, and all of its components and services,
+        including those that are not reachable from the project.
+
+        Exactly one node has the type `PROJECT`. Its UUID is the UUID of the requested project.
+        Every UUID in a `direct_dependencies` array refers to an item in `nodes`.
+        Note that the graph may contain cycles.
+
+        Requires permission `VIEW_PORTFOLIO`.
+      operationId: getProjectDependencyGraph
+      parameters:
+      - name: uuid
+        in: path
+        description: The UUID of the project to retrieve the dependency graph for
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        "200":
+          description: The dependency graph of the project
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/get-project-dependency-graph-response"
         "401":
           $ref: "#/components/responses/generic-unauthorized-error"
         "403":
@@ -2581,6 +2855,7 @@ paths:
           type: string
       - name: sort_direction
         in: query
+        description: Direction to sort in.
         schema:
           $ref: "#/components/schemas/sort-direction"
       - name: sort_by
@@ -2692,6 +2967,7 @@ paths:
           type: string
       - name: sort_direction
         in: query
+        description: Direction to sort in.
         schema:
           $ref: "#/components/schemas/sort-direction"
       responses:
@@ -3043,6 +3319,33 @@ components:
           maxLength: 256
           type: string
           description: "A short, generic description of the error."
+    classifier:
+      type: string
+      enum:
+      - APPLICATION
+      - FRAMEWORK
+      - LIBRARY
+      - CONTAINER
+      - OPERATING_SYSTEM
+      - DEVICE
+      - FIRMWARE
+      - FILE
+      - PLATFORM
+      - DEVICE_DRIVER
+      - MACHINE_LEARNING_MODEL
+      - DATA
+      - CRYPTOGRAPHIC_ASSET
+    list-projects-response:
+      required:
+      - items
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/list-projects-response-item"
+      allOf:
+      - $ref: "#/components/schemas/paginated-response"
     clone-project-request:
       required:
       - version
@@ -3100,6 +3403,15 @@ components:
             $ref: "#/components/schemas/list-project-components-response-item"
       allOf:
       - $ref: "#/components/schemas/paginated-response"
+    get-project-dependency-graph-response:
+      required:
+      - nodes
+      type: object
+      properties:
+        nodes:
+          type: array
+          items:
+            $ref: "#/components/schemas/get-project-dependency-graph-response-node"
     list-secrets-response:
       required:
       - items
@@ -3850,22 +4162,6 @@ components:
           $ref: "#/components/schemas/package-metadata"
         package_artifact_metadata:
           $ref: "#/components/schemas/package-artifact-metadata"
-    classifier:
-      type: string
-      enum:
-      - APPLICATION
-      - FRAMEWORK
-      - LIBRARY
-      - CONTAINER
-      - OPERATING_SYSTEM
-      - DEVICE
-      - FIRMWARE
-      - FILE
-      - PLATFORM
-      - DEVICE_DRIVER
-      - MACHINE_LEARNING_MODEL
-      - DATA
-      - CRYPTOGRAPHIC_ASSET
     hashes:
       type: object
       properties:
@@ -4025,6 +4321,69 @@ components:
         message:
           type: string
           example: Connection failed
+    list-projects-response-item:
+      required:
+      - has_children
+      - is_latest
+      - name
+      - uuid
+      type: object
+      properties:
+        uuid:
+          type: string
+          format: uuid
+        name:
+          maxLength: 255
+          type: string
+        version:
+          maxLength: 255
+          type: string
+        group:
+          maxLength: 255
+          type: string
+        classifier:
+          $ref: "#/components/schemas/classifier"
+        is_latest:
+          type: boolean
+        state:
+          $ref: "#/components/schemas/project-state"
+        last_bom_import:
+          $ref: "#/components/schemas/timestamp"
+        last_bom_import_format:
+          maxLength: 255
+          type: string
+        last_inherited_risk_score:
+          type: number
+          format: double
+        tags:
+          type: array
+          description: Tag names assigned to the project. Empty when no tags are assigned.
+          items:
+            type: string
+        collection_logic:
+          type: string
+          enum:
+          - AGGREGATE_DIRECT_CHILDREN
+          - AGGREGATE_DIRECT_CHILDREN_WITH_TAG
+          - AGGREGATE_LATEST_VERSION_CHILDREN
+        collection_tag:
+          type: string
+          description: "Tag name used by collection logic, when applicable."
+        teams:
+          type: array
+          description: Team names with access to the project. Only present when `expand=teams`
+            is requested. Empty array when expanded and no teams are assigned.
+          items:
+            type: string
+        parent:
+          $ref: "#/components/schemas/component-project"
+        has_children:
+          type: boolean
+          description: "Whether the project has at least one direct child. When portfolio\
+            \ access control is disabled, this reflects all direct children in the\
+            \ database."
+        metrics:
+          $ref: "#/components/schemas/project-metrics"
     clone-project-include:
       type: string
       enum:
@@ -4100,6 +4459,40 @@ components:
           $ref: "#/components/schemas/package-metadata"
         package_artifact_metadata:
           $ref: "#/components/schemas/package-artifact-metadata"
+    get-project-dependency-graph-response-node:
+      required:
+      - direct_dependencies
+      - name
+      - type
+      - uuid
+      type: object
+      properties:
+        uuid:
+          type: string
+          format: uuid
+        type:
+          type: string
+          enum:
+          - PROJECT
+          - COMPONENT
+          - SERVICE
+        group:
+          maxLength: 255
+          type: string
+        name:
+          maxLength: 255
+          type: string
+        version:
+          maxLength: 255
+          type: string
+        direct_dependencies:
+          type: array
+          description: "UUIDs of the nodes this node directly depends on. An empty\
+            \ array does not mean the node has no dependencies, only that none are\
+            \ known."
+          items:
+            type: string
+            format: uuid
     service-account:
       required:
       - name
@@ -4610,6 +5003,96 @@ components:
       - PASSED
       - FAILED
       - SKIPPED
+    project-metrics:
+      type: object
+      properties:
+        components:
+          type: integer
+          format: int32
+        vulnerable_components:
+          type: integer
+          format: int32
+        critical:
+          type: integer
+          format: int32
+        high:
+          type: integer
+          format: int32
+        medium:
+          type: integer
+          format: int32
+        low:
+          type: integer
+          format: int32
+        unassigned:
+          type: integer
+          format: int32
+        kev:
+          type: integer
+          format: int32
+        vulnerabilities:
+          type: integer
+          format: int32
+        suppressed:
+          type: integer
+          format: int32
+        inherited_risk_score:
+          type: number
+          format: double
+        findings_total:
+          type: integer
+          format: int32
+        findings_audited:
+          type: integer
+          format: int32
+        findings_unaudited:
+          type: integer
+          format: int32
+        policy_violations_fail:
+          type: integer
+          format: int32
+        policy_violations_warn:
+          type: integer
+          format: int32
+        policy_violations_info:
+          type: integer
+          format: int32
+        policy_violations_total:
+          type: integer
+          format: int32
+        policy_violations_audited:
+          type: integer
+          format: int32
+        policy_violations_unaudited:
+          type: integer
+          format: int32
+        policy_violations_security_total:
+          type: integer
+          format: int32
+        policy_violations_security_audited:
+          type: integer
+          format: int32
+        policy_violations_security_unaudited:
+          type: integer
+          format: int32
+        policy_violations_license_total:
+          type: integer
+          format: int32
+        policy_violations_license_audited:
+          type: integer
+          format: int32
+        policy_violations_license_unaudited:
+          type: integer
+          format: int32
+        policy_violations_operational_total:
+          type: integer
+          format: int32
+        policy_violations_operational_audited:
+          type: integer
+          format: int32
+        policy_violations_operational_unaudited:
+          type: integer
+          format: int32
     total-count-type:
       type: string
       enum:
@@ -4701,6 +5184,7 @@ components:
     sort-direction:
       name: sort_direction
       in: query
+      description: Direction to sort in.
       schema:
         $ref: "#/components/schemas/sort-direction"
     sort-by:
