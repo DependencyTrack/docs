@@ -27,6 +27,32 @@ message type emitted for each group.
     over from Dependency-Track v4 referenced `timestampEpochSecond`
     (singular) and require an update.
 
+## Policy violation updates
+
+The unreleased [policy update groups](groups.md#policy-violation-updates) use the same update subject.
+Default templates display previous and current messages, the change time, and reviewed-event context.
+Custom templates with a branch for `GROUP_POLICY_VIOLATION` do not match either update group.
+
+This Pebble excerpt shows an update branch with explicit optional-field checks:
+
+```pebble
+{% if notification.group == "GROUP_POLICY_VIOLATION_UPDATED" or notification.group == "GROUP_POLICY_VIOLATION_UPDATED_REVIEWED" %}
+Violation: {{ subject.policyViolation.uuid }}
+Previous message: {% if subject.hasPreviousMessage() %}{{ subject.previousMessage }}{% else %}not recorded{% endif %}
+Current message: {% if subject.hasCurrentMessage() %}{{ subject.currentMessage }}{% else %}not recorded{% endif %}
+Changed at: {{ subject.changedAt | formatTimestamp }}
+{% if notification.group == "GROUP_POLICY_VIOLATION_UPDATED_REVIEWED" %}
+Analysis state: {% if subject.hasAnalysisState() %}{{ subject.analysisState }}{% else %}not recorded{% endif %}
+Suppressed: {% if subject.hasSuppressed() %}{{ subject.suppressed }}{% else %}not recorded{% endif %}
+Review decision retained
+{% endif %}
+{% endif %}
+```
+
+The excerpt illustrates the available fields, rather than a complete publisher payload.
+The publisher's output format determines escaping and surrounding structure.
+The [`subjectJson` context variable](#template-context) contains the structured subject as JSON, including optional-field presence.
+
 ## Custom filters
 
 Beyond the [built-in Pebble filters], Dependency-Track registers
