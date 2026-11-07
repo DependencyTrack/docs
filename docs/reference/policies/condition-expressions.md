@@ -256,6 +256,16 @@ cel.bind(kev, vulns.filter(vuln, vuln.is_kev),
 
 Returning `""` when nothing matches records no violation.
 
+An expression that lists every matching identifier can expose changes to the matching set:
+
+```js linenums="1"
+vulns.filter(vuln, vuln.is_kev).map(vuln, vuln.id).join(",")
+```
+
+The input order is stable by database identity. Expressions that include the current time or other changing values can produce different messages for the same matches.
+The unreleased [policy update notification groups](../notifications/groups.md#policy-violation-updates) report changes to the stored message without changing the violation UUID.
+A Boolean condition, or a message that only names the first match, cannot expose every change to the matching set.
+
 ### Suppressing a specific CVE in a vulnerability policy
 
 In a [vulnerability policy](vulnerability-policies.md), the subject is a single
