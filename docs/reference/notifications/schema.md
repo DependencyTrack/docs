@@ -112,6 +112,8 @@ Dependency-Track represents notifications internally as Protobuf messages. Some 
 
 
 
+
+
 ## Subjects
 
 
@@ -339,6 +341,30 @@ Subject for GROUP_NEW_VULNERABILITIES_SUMMARY notifications.
 | `component` | [`Component`](#org-dependencytrack-notification-v1-Component) |  | - |
 | `project` | [`Project`](#org-dependencytrack-notification-v1-Project) |  | - |
 | `policy_violation` | [`PolicyViolation`](#org-dependencytrack-notification-v1-PolicyViolation) |  | - |
+
+
+
+
+
+
+
+<a name="org-dependencytrack-notification-v1-PolicyViolationUpdatedSubject"></a>
+
+### PolicyViolationUpdatedSubject
+
+Subject for ordinary and explicitly opted-in reviewed violation updates.
+
+
+| Field | Type | Description |
+| :---- | :--- | :---------- |
+| `component` | [`Component`](#org-dependencytrack-notification-v1-Component) |  | - |
+| `project` | [`Project`](#org-dependencytrack-notification-v1-Project) |  | - |
+| `policy_violation` | [`PolicyViolation`](#org-dependencytrack-notification-v1-PolicyViolation) |  | - |
+| `previous_message` | `string` | Absent means the previous message was null. | - |
+| `current_message` | `string` | Absent means the current message is null. | - |
+| `changed_at` | `google.protobuf.Timestamp` |  | - |
+| `analysis_state` | `string` | Review metadata observed in the subject assembly statement snapshot. Absent means no state or suppression value was recorded, not false. | - |
+| `suppressed` | `bool` |  | - |
 
 
 
@@ -914,6 +940,8 @@ Subject for GROUP_NEW_VULNERABILITIES_SUMMARY notifications.
 
 
 
+
+
 <a name="org-dependencytrack-notification-v1-Project"></a>
 
 ### Project
@@ -1093,6 +1121,9 @@ Subject for GROUP_NEW_VULNERABILITIES_SUMMARY notifications.
 e.g. due to upstream sources correcting their data. |
 | `GROUP_NEW_VULNERABILITIES_SUMMARY` | Scheduled summary of new vulnerabilities across projects. |
 | `GROUP_NEW_POLICY_VIOLATIONS_SUMMARY` | Scheduled summary of new policy violations across projects. |
+| `GROUP_POLICY_VIOLATION_UPDATED` | The message of an existing policy violation changed. |
+| `GROUP_POLICY_VIOLATION_UPDATED_REVIEWED` | The message of an approved or suppressed violation changed.
+Subscribing explicitly opts in to updates excluded from the ordinary group. |
 
 
 
