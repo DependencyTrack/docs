@@ -29,7 +29,7 @@ server, not the frontend, talks to the IdP:
 
 The one-time code expires after one minute and only works in the browser that
 started the login. For the design rationale and the full list of checks the API
-server applies to SAML responses, see [ADR 044](https://github.com/DependencyTrack/dependency-track/blob/main/docs/adr/044-saml-authentication.md).
+server applies to SAML responses, see [ADR 045](https://github.com/DependencyTrack/dependency-track/blob/main/docs/adr/045-saml-authentication.md).
 
 ## Prerequisites
 
