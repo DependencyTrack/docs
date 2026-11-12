@@ -1683,7 +1683,7 @@ Defines the path of a file containing the SAML metadata of the identity provider
 
 <span id="dtsamlidpmetadata-url">**`dt.saml.idp.metadata-url`** [¶](#dtsamlidpmetadata-url){ .headerlink }</span>
 
-Defines the URL from which the SAML metadata of the identity provider is fetched.  The metadata is cached for one hour. Exactly one of `[`dt.saml.idp.metadata-url`](#dtsamlidpmetadata-url)`  and `[`dt.saml.idp.metadata-file`](#dtsamlidpmetadata-file)` must be set.  
+Defines the HTTPS URL from which the SAML metadata of the identity provider is fetched.  The metadata is cached for one hour. Exactly one of `[`dt.saml.idp.metadata-url`](#dtsamlidpmetadata-url)`  and `[`dt.saml.idp.metadata-file`](#dtsamlidpmetadata-file)` must be set.  
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
@@ -1714,6 +1714,17 @@ Defines the entity ID of Dependency-Track as SAML service provider.  Must match 
 <tr><th>ENV</th><td><code>DT_SAML_SP_ENTITY_ID</code></td></tr>
 </table>
 
+<span id="dtsamlsubject-attribute">**`dt.saml.subject-attribute`** [¶](#dtsamlsubject-attribute){ .headerlink }</span>
+
+Defines the name of the assertion attribute that contains an immutable identifier of the user,  such as the object ID in Entra ID. Users are matched by this identifier, so a username that the  identity provider reassigns or renames never grants access to another person's account.  When not set, the `NameID` of the assertion's subject is used, which must then be persistent.  
+
+<table>
+<tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>
+<tr><th>Default</th><td><code>null</code></td></tr>
+<tr><th>Example</th><td><code>http://schemas.microsoft.com/identity/claims/objectidentifier</code></td></tr>
+<tr><th>ENV</th><td><code>DT_SAML_SUBJECT_ATTRIBUTE</code></td></tr>
+</table>
+
 <span id="dtsamlteam-synchronization">**`dt.saml.team-synchronization`** [¶](#dtsamlteam-synchronization){ .headerlink }</span>
 
 Specifies if team memberships of SAML users are synchronized with their groups on every login.  Users are added to all teams mapped to one of their groups, and removed from all other teams.  
@@ -1736,7 +1747,7 @@ Specifies if SAML users are automatically created upon their first successful lo
 
 <span id="dtsamlusername-attribute">**`dt.saml.username-attribute`** [¶](#dtsamlusername-attribute){ .headerlink }</span>
 
-Defines the name of the assertion attribute that contains the username.  When not set, the `NameID` of the assertion's subject is used.  
+Defines the name of the assertion attribute that contains the username.  The username is shown in Dependency-Track, and follows renames at the identity provider.  When not set, the `NameID` of the assertion's subject is used.  
 
 <table>
 <tr><th>Type</th><td style="border-width: 0"><code>string</code></td></tr>

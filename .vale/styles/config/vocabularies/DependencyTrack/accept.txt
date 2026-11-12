@@ -75,6 +75,7 @@ PgBouncer
 Podman
 Postgres
 Protobuf
+SAML
 SBOMs?
 SPIs?
 SSDs
@@ -104,6 +105,7 @@ Webex
 [Bb]locklists?
 [Bb]ooleans?
 [Cc]amelCase
+[Cc]anonicalization
 [Cc]lassloaders?
 [Cc]lasspath
 [Cc]leartext

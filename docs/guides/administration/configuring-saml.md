@@ -38,8 +38,8 @@ server applies to SAML responses, see [ADR 044](https://github.com/DependencyTra
 - The IdP must sign the response, the assertion, or both, with RSA-SHA256 or
   stronger and exclusive XML canonicalization. Dependency-Track rejects SHA-1
   signatures and encrypted assertions.
-- The IdP's SAML metadata, either as a URL that the API server can reach or as a
-  file that you mount into the API server container.
+- The IdP's SAML metadata, either as an HTTPS URL that the API server can reach or
+  as a file that you mount into the API server container.
 - The API server's `/api/v2/saml/acs` endpoint must be reachable from users' browsers.
 - The clocks of the API server and the IdP must be in sync. Dependency-Track
   tolerates a clock skew of up to 60 seconds.
@@ -47,8 +47,8 @@ server applies to SAML responses, see [ADR 044](https://github.com/DependencyTra
 ## API server configuration
 
 Configure all SAML settings via [app properties](../../reference/configuration/properties.md).
-The examples on this page use property names. See [Application configuration](../../reference/configuration/application.md#environment-variable-mapping)
-for how property names map to environment variables.
+The examples on this page use property names. To set them as environment variables, see
+[environment variable mapping](../../reference/configuration/application.md#environment-variable-mapping).
 
 ```properties linenums="1"
 dt.frontend-url=https://dtrack.example.com
@@ -63,9 +63,11 @@ dt.saml.idp.metadata-url=https://idp.example.com/saml/metadata
 | `dt.frontend-url`          | Public URL of the frontend. The API server redirects browsers to its `/login/saml` route after the login.   |
 | `dt.saml.sp.entity-id`     | Identifier of Dependency-Track at the IdP. Must match the entity ID that you register at the IdP.           |
 | `dt.saml.sp.acs-url`       | Public URL of the API server's `/api/v2/saml/acs` endpoint, as browsers see it. Must match the reply URL at the IdP. |
-| `dt.saml.idp.metadata-url` | URL of the IdP's SAML metadata. Use `dt.saml.idp.metadata-file` instead to read the metadata from a file.   |
+| `dt.saml.idp.metadata-url` | HTTPS URL of the IdP's SAML metadata. Use `dt.saml.idp.metadata-file` instead to read the metadata from a file. |
 
 Set exactly one of `dt.saml.idp.metadata-url` and `dt.saml.idp.metadata-file`.
+The metadata URL must use HTTPS, because Dependency-Track doesn't verify a
+signature on the metadata. TLS protects the signing certificates in it.
 The API server reads the IdP's entity ID, SSO URL, and signing certificates from
 the metadata and refreshes it every hour. If a refresh fails, the API server
 keeps using the last metadata it loaded.
@@ -92,19 +94,62 @@ If your IdP has no metadata import, enter the values by hand:
 | Signing                             | Sign the assertion, the response, or both           |
 | Encryption                          | Off                                                 |
 
-### Username and email
+### User identity
 
-By default, Dependency-Track uses the `NameID` of the assertion's subject as the
-username. To read the username from an attribute instead, set the attribute name:
+Dependency-Track reads two values about each user from the assertion:
+
+- The **subject identifier** decides which account a login belongs to. Pick a
+  value that never changes and that the IdP never gives to another person, such
+  as the object ID in Entra ID.
+- The **username** is the name that appears in Dependency-Track. It may change,
+  for example when a person changes their name.
+
+Keep the two apart if your IdP allows it. Values such as email addresses, user
+principal names, and account names can change, and the IdP can give them to a new
+employee after the previous owner left. If such a value were the subject identifier, the new employee would
+get the previous owner's account.
+
+By default, Dependency-Track uses the `NameID` of the assertion's subject for
+both. To read them from attributes instead, set the attribute names:
 
 ```properties
+dt.saml.subject-attribute=http://schemas.microsoft.com/identity/claims/objectidentifier
 dt.saml.username-attribute=http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name
 ```
 
-The attribute must have exactly one value. Dependency-Track refuses the login
-when a username starts with the `svc:` prefix that
-[service accounts](../../concepts/access-control.md#service-accounts) use, or when a
-managed, LDAP, or OIDC user already has the same username.
+Each attribute must have exactly one value. Without `dt.saml.subject-attribute`,
+the IdP must send a persistent `NameID`. Dependency-Track refuses a transient
+`NameID`, because it changes with every login.
+
+On every login, Dependency-Track matches the account as follows:
+
+1. If an account with the subject identifier exists, the user logs in to it.
+   If the username changed at the IdP, Dependency-Track renames the account.
+   Teams, permissions, and API keys stay with the account.
+2. If an administrator created an account with the username, and nobody has
+   logged in to it yet, Dependency-Track binds the account to the subject
+   identifier.
+3. Otherwise, Dependency-Track creates a new account if
+   [user provisioning](#user-provisioning) is on.
+
+Dependency-Track refuses the login in these cases:
+
+- The username belongs to an account that's bound to another subject identifier.
+  The IdP gave the name to another person.
+- A rename would take a username that another account already has.
+- The username starts with the `svc:` prefix that
+  [service accounts](../../concepts/access-control.md#service-accounts) use.
+- A managed, LDAP, or OIDC user already has the same username.
+
+!!! warning
+    An account that an administrator creates belongs to the first person who logs
+    in with its username. Create accounts only for usernames that the IdP has
+    assigned to the intended person.
+
+All subject identifiers belong to the configured IdP. If you switch to an IdP
+that assigns other identifiers, delete and re-create the SAML users.
+
+### User email address
 
 To store the user's email address, set the attribute that contains it.
 Dependency-Track updates the address on every login:
@@ -131,7 +176,7 @@ To add newly provisioned users to a fixed set of teams, list the team names:
 dt.saml.default-teams=Viewers,Auditors
 ```
 
-Default teams have no effect when team synchronization is enabled.
+Default teams have no effect when team synchronization is on.
 
 ### Team synchronization
 
@@ -217,17 +262,23 @@ dt.saml.groups-attribute=groups
 
 ### Microsoft Entra ID (Azure AD)
 
-1. In the Azure portal, create a new **Enterprise application** of type
-   **Non-gallery application**.
+1. In the Azure portal, go to **Enterprise applications** and create your own app, outside the gallery.
 2. Under **Single sign-on**, select **SAML**.
 3. In **Basic SAML Configuration**, set **Identifier (Entity ID)** to the value of
    `dt.saml.sp.entity-id` and **Reply URL** to the value of `dt.saml.sp.acs-url`.
    You can also upload the SP metadata file instead.
 4. In **Attributes & Claims**, add a **group claim** if you want team synchronization.
-5. Copy the **App Federation Metadata Url** from the **SAML Certificates** section.
+5. Copy the federation metadata URL from the **SAML Certificates** section.
+
+Entra ID sends the object ID of each user in the `objectidentifier` claim by
+default. Use it as the subject identifier, and the `name` claim, which holds the
+user principal name, as the username. The **Unique User Identifier (Name ID)**
+claim can keep its default.
 
 ```properties
 dt.saml.idp.metadata-url=https://login.microsoftonline.com/<tenant-id>/federationmetadata/2007-06/federationmetadata.xml?appid=<app-id>
+dt.saml.subject-attribute=http://schemas.microsoft.com/identity/claims/objectidentifier
+dt.saml.username-attribute=http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name
 dt.saml.email-attribute=http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress
 dt.saml.groups-attribute=http://schemas.microsoft.com/ws/2008/06/identity/claims/groups
 ```
@@ -253,6 +304,8 @@ The API server logs the reason as a security event, for example
 | Logins started from the IdP's app portal fail.            | Dependency-Track only accepts logins that it started. Point portal links to the Dependency-Track frontend.     |
 | The log reports a signature, audience, or time error.     | Check the IdP's signing algorithm, the entity ID on both sides, and the clock of both servers.                   |
 | A user lands in the wrong teams.                          | Check the group names that the IdP sends. Group names must match the SAML group names exactly.                   |
+| The log reports that another subject owns the username.   | The IdP gave the username to another person. Delete the old account if its owner left, then log in again.        |
+| The log reports that the `NameID` is transient.           | Configure the IdP to send a persistent `NameID`, or set `dt.saml.subject-attribute`.                             |
 
 ## Limitations
 
