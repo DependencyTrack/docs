@@ -11,13 +11,14 @@ Dependency-Track uses a role-based access control model built around **permissio
 
 ## Users
 
-Four types of users exist:
+Five types of users exist:
 
 | Type            | Description                                                                                       |
 |:----------------|:--------------------------------------------------------------------------------------------------|
 | Managed User    | A local account created and managed within Dependency-Track.                                      |
 | LDAP User       | Authenticated via an external LDAP directory. See [Configuring LDAP](../guides/administration/configuring-ldap.md). |
 | OIDC User       | Authenticated via an OpenID Connect identity provider. See [Configuring OIDC](../guides/administration/configuring-oidc.md). |
+| SAML User       | Authenticated via a SAML 2.0 identity provider. Available in 5.3.0 and later. See [Configuring SAML](../guides/administration/configuring-saml.md). |
 | Service Account | A non-human account for automation. Authenticates with its own API keys, or through workload identity federation. Available in 5.2.0 and later. See [Service accounts](#service-accounts). |
 
 All user types share the same permission model. The authentication mechanism determines
@@ -49,7 +50,7 @@ account also deletes its API keys and its workload identity bindings.
 
 Service account usernames always start with `svc:`, for example `svc:ci-pipeline`.
 No other user can have a username with that prefix. This prevents a service account
-from taking a username that an LDAP or OIDC user would receive on first login.
+from taking a username that an LDAP, OIDC, or SAML user would receive on first login.
 
 Managing service accounts requires the `ACCESS_MANAGEMENT` permission.
 

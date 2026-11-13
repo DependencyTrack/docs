@@ -82,7 +82,8 @@ An API-first design makes it a natural fit for CI/CD pipelines.
 
 ### Control access
 
-- **Identity providers**: sign in through [OIDC](guides/administration/configuring-oidc.md)
+- **Identity providers**: sign in through [OIDC](guides/administration/configuring-oidc.md),
+  [SAML](guides/administration/configuring-saml.md),
   or [LDAP](guides/administration/configuring-ldap.md), with optional team synchronization.
 - **Teams and permissions**: grant fine-grained permissions to teams,
   and limit which projects each team can see with [portfolio access control](concepts/access-control.md).
