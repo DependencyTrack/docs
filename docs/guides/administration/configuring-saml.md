@@ -298,7 +298,7 @@ The API server logs the reason as a security event, for example
 
 | Symptom                                                  | Cause and fix                                                                                                    |
 |:---------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------|
-| The login page shows no SAML button.                     | Set `SAML_ENABLED` on the frontend and `dt.saml.enabled` on the API server. `/api/v2/saml/availability` must report `enabled: true`. If it doesn't, check the API server log for configuration errors. |
+| The login page shows no SAML button.                     | Set `SAML_ENABLED` on the frontend and `dt.saml.enabled` on the API server. `/api/v2/internal/system-capabilities/public` must report `"saml": {"disabled": false}`. If it doesn't, check the API server log for configuration errors. |
 | The API server responds with `503` when the login starts. | The API server can't load the IdP metadata. Check the metadata URL and the network path, or use a metadata file. |
 | The frontend says the account isn't registered.           | User provisioning is off. Create the user under **SAML Users**, or enable `dt.saml.user-provisioning`.          |
 | Logins started from the IdP's app portal fail.            | Dependency-Track only accepts logins that it started. Point portal links to the Dependency-Track frontend.     |
