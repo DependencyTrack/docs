@@ -18,7 +18,10 @@ Each project has:
   [classifier list](../reference/projects.md#classifiers).
 - Optional ecosystem identifiers: a Package URL, a CPE, or a SWID tag.
 - Descriptive metadata such as a group, a description, authors, a supplier, a manufacturer,
-  and external references.
+  and external references. A project's manufacturer describes who makes the software the
+  project represents, which differs from the
+  [BOM manufacturer](../reference/file-formats.md#bom-manufacturer) that identifies who
+  produced the BOM document.
 - Tags (categorical labels) and project properties (typed key-value metadata).
 - An optional parent, forming a hierarchy.
 - An access list controlling which teams can see it.
