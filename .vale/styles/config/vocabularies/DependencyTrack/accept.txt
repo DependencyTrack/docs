@@ -5,6 +5,7 @@ ACLs
 APIs
 AWS
 Active Directory
+Adoptium
 Aiven
 ApacheDS
 Artifactory
@@ -83,6 +84,7 @@ Snyk
 Sonatype
 Splunk
 TTLs
+Temurin
 Timescale
 Tink
 Trino
