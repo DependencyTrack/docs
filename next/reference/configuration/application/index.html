@@ -2741,6 +2741,14 @@ environment variable:</p>
 <td><code>-XX:MaxRAMPercentage=80.0</code></td>
 <td>Caps the <abbr title="Java Virtual Machine">JVM</abbr> heap at 80% of the container's available memory.</td>
 </tr>
+<tr>
+<td><code>-XX:+ExitOnOutOfMemoryError</code></td>
+<td>Exits on <code>OutOfMemoryError</code> instead of running in a broken state.</td>
+</tr>
+<tr>
+<td><code>-XX:-UseBASE64Intrinsics</code></td>
+<td>Mitigates CVE-2026-114938 until a fixed Temurin build ships.</td>
+</tr>
 </tbody>
 </table>
 <p>The remaining 20% of container memory covers off-heap memory, thread stacks, and the OS.</p>
