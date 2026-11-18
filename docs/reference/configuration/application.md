@@ -86,6 +86,8 @@ environment variable:
 | `-XX:+UseCompactObjectHeaders`    | Reduces per-object memory overhead.                                 |
 | `-XX:MaxGCPauseMillis=250`        | G1GC target pause time, in milliseconds.                            |
 | `-XX:MaxRAMPercentage=80.0`       | Caps the JVM heap at 80% of the container's available memory.       |
+| `-XX:+ExitOnOutOfMemoryError`     | Exits on `OutOfMemoryError` instead of running in a broken state.   |
+| `-XX:-UseBASE64Intrinsics`        | Mitigates CVE-2026-114938 until a fixed Temurin build ships.        |
 
 The remaining 20% of container memory covers off-heap memory, thread stacks, and the OS.
 
