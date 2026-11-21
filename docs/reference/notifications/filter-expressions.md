@@ -136,6 +136,27 @@ in the portfolio. The following expression narrows an alert to violations of one
 subject.policy_violation.condition.policy.name == "Known exploited vulnerabilities"
 ```
 
+### Policy violation message changes
+
+The unreleased [policy update groups](groups.md#policy-violation-updates) expose optional previous and current messages.
+This expression matches update events whose current message contains a specific identifier:
+
+```js linenums="1"
+has(subject.current_message)
+  && subject.current_message.contains("CVE-2021-45046")
+```
+
+This expression matches reviewed updates with an approved analysis state:
+
+```js linenums="1"
+has(subject.analysis_state) && subject.analysis_state == "APPROVED"
+```
+
+An alert still needs an explicit subscription to `POLICY_VIOLATION_UPDATED_REVIEWED` to receive reviewed updates.
+A filter does not add subscriptions or classify whether a text change increased risk.
+Optional-field checks make the required captured values explicit.
+The existing [fail-open behavior](../../concepts/notifications.md#how-alert-filtering-works) still applies to invalid expressions.
+
 ### Combining conditions
 
 The following expression matches `NEW_VULNERABILITY` notifications for `CRITICAL` vulnerabilities

@@ -49,6 +49,9 @@ with the alert's scope and trigger type. Refer to
 [Notification groups](../../reference/notifications/groups.md) for the
 full list and what each group represents.
 
+To report changes to an existing component policy violation, see
+[Receive policy violation updates](receiving-policy-violation-updates.md).
+
 ## Setting the destination
 
 The destination format depends on the publisher. Common cases:
