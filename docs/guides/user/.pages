@@ -10,4 +10,5 @@ nav:
   - exchanging-vex-documents.md
   - managing-private-vulnerabilities.md
   - configuring-notifications.md
+  - receiving-policy-violation-updates.md
   - managing-secrets.md
