@@ -60,6 +60,7 @@ air-gapped environment, turn these analyzers off.
 
 ## See also
 
+- [Allowing outbound traffic](allowing-outbound-traffic.md)
 - [Configuring vulnerability sources](configuring-vulnerability-sources.md)
 - [Configuring an HTTP proxy](configuring-http-proxy.md)
 - [Configuring internal CA trust](configuring-internal-ca.md)
