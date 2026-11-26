@@ -8,6 +8,9 @@ Badge URLs reference a project by UUID, by `(name, version)`, or by name alone. 
 name-only form resolves to whichever version carries the latest-version flag. See
 [Managing project versions](../guides/user/managing-project-versions.md#mark-a-version-as-latest).
 
+If a project name contains `/`, URL-encode the project name when constructing the
+badge URL. For example, `it/iot/any-test` must be encoded as `it%2Fiot%2Fany-test`.
+
 ## Badge Types
 
 ### Vulnerable Components
