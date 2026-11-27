@@ -179,4 +179,7 @@ that uploaded the document:
 
 When an import changes a finding's analysis, it also appends an entry that identifies the document by
 its `serialNumber` and `version`, followed by the names and email addresses in `metadata.authors`.
-Dependency-Track does not verify the authors. An import that changes nothing appends no entries.
+The entry names at most three authors, starting with those the document lists most often, and counts
+the rest, for example `and 2 others`. It holds at most 255 characters, so it names fewer authors when
+their names are long. Dependency-Track does not verify the authors. An import that changes nothing
+appends no entries.
